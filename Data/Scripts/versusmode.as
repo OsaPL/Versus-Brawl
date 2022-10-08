@@ -550,7 +550,7 @@ void ChangeGameState(uint newState){
             if(max_players!=4 && failsafe){
                 array<int> movement_objects = GetObjectIDsType(_movement_object);
                 versus_gui.SetText("Warning! Only "+movement_objects.size()+" players detected!",
-                    "After adding more player controlled characters, please save and reload the map. Press numpad5 to play anyway.");
+                    "After adding more player controlled characters, please save and reload the map. Press @item@ to play anyway.");
 
                 return;
             }
