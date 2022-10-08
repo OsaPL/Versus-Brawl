@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<Mod>
+    <Id>fourp-versus</Id>
+    <Name>4 Player Versus Brawl</Name>
+
+    <Category>Versus</Category>
+
+    <Thumbnail>Data/Images/4p-versus/thumb.jpg</Thumbnail>
+    <PreviewImage>Data/Images/4p-versus/thumb.jpg</PreviewImage>
+
+    <Description>Why is a description needed?!</Description>
+    <Version>0.0.1</Version>
+    <Author>Osa__PL</Author>
+
+    <Tag>Versus</Tag>
+
+    <SupportedVersion>*</SupportedVersion>
+    <NeedsRestart>false</NeedsRestart>
+
+    <Campaign title="Versus Brawl" thumbnail="Images/4p-versus/campaign.jpg" menu_script="arena_campaign_menu.as" main_script="linear_campaign.as">
+        <Level title="Blocks" thumbnail="UI/mainmenu/images/grass_beach.png">4p-versus/blocks_map.xml</Level>
+		<Level title="Plank" thumbnail="UI/mainmenu/images/grass_beach.png">4p-versus/plank_map.xml</Level>
+    </Campaign>
+</Mod>
