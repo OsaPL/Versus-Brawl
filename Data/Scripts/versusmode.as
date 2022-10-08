@@ -617,7 +617,6 @@ void ClearVersusScores(){
     versus_gui.ClearScores();        
 }
 void RemovePlayers(){
-	PlaySoundGroup("Data/Sounds/versus/fight_win2.xml");
 	array<int> movement_objects = GetObjectIDsType(_movement_object);
 	for(uint i = max_players-1; i >= player_number; i--){
 		MovementObject@ char1 = ReadCharacter(i);
