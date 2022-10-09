@@ -19,7 +19,9 @@ bool failsafe;
 
 int playerIconSize = 100;
 
-// 0 rabbit, 1 cat
+//TODO! This (and probably game state) should just be enum
+array<string> races = {"Textures/ui/challenge_mode/quit_icon_c.tga", "Textures/ui/arena_mode/glyphs/skull.png", "Textures/ui/arena_mode/glyphs/slave_shackles.png", "Textures/ui/arena_mode/glyphs/contender_crown.png"};
+// 0 rabbit, 1 cat, 2 rat, 3 wolf
 array<uint> currentRace =  {0,0,0,0};
 
 void Init(string p_level_name) {
@@ -89,8 +91,8 @@ class VersusAHGUI : AHGUI::GUI {
     bool initUI = true;
 
  
-    array<string> currentIcon =  {"dim","dim","dim","dim"};
-    
+    array<string> currentIcon =  {"","","",""};
+    array<bool> currentGlow =  {false,false,false,false};
     
     void Render() {
         // Update the background
@@ -117,31 +119,29 @@ class VersusAHGUI : AHGUI::GUI {
         DisplayText(DDTop, header, 8, text, 90, vec4(1,1,1,1), extraText, 70);
     }
 
-    void ChangeIcon(int playerIdx, string iconName)
+    void ChangeIcon(int playerIdx, int iconNr, bool glow)
     {
-        if(currentIcon[playerIdx] == iconName){
-            return;
-        }
-        else{
-            currentIcon[playerIdx] = iconName;
+        AHGUI::Element@ headerElement = root.findElement("quitButton"+playerIdx);
+        AHGUI::Image@ quitButton = cast<AHGUI::Image>(headerElement);
+        if(currentIcon[playerIdx] != races[iconNr]){
+            currentIcon[playerIdx] = races[iconNr];
             Log(error, "quitButton"+playerIdx);
-            Log(error, "iconName "+iconName);
+            Log(error, "iconName "+races[iconNr]);
             Log(error, "currentIcon[playerIdx] "+currentIcon[playerIdx]);
             
-            AHGUI::Element@ headerElement = root.findElement("quitButton"+playerIdx);
-            AHGUI::Image@ quitButton = cast<AHGUI::Image>(headerElement);
-            if(iconName == "glow"){
-                Log(error, "Entered glow");
+            quitButton.setImageFile(races[iconNr]);
+            quitButton.scaleToSizeX(playerIconSize);
+        }
+        if(currentGlow[playerIdx] != glow){
+            Log(error, "glow"+glow);
+            currentGlow[playerIdx] = glow;
+            if(glow){
                 quitButton.setColor(vec4(1.0,0.0,0.0,1.0));
-                quitButton.setImageFile("Textures/ui/arena_mode/glyphs/contender_crown.png");
-                quitButton.scaleToSizeX(playerIconSize);
             }
-            else if(iconName == "dim"){
-                Log(error, "Entered dim");
+            else{
                 quitButton.setColor(vec4(1.0,1.0,1.0,1.0));
-                quitButton.setImageFile("Textures/ui/challenge_mode/quit_icon_c.tga");
-                quitButton.scaleToSizeX(playerIconSize);
             }
+            quitButton.scaleToSizeX(playerIconSize);
         }
     }
 
@@ -388,9 +388,9 @@ class VersusGUI  {
         versusAHGUI.extraText = InsertKeysToString(subtext);
         versusAHGUI.layoutChanged = true;
     }
-    
-    void ChangeIcon(int playerIdx, string iconName){
-        versusAHGUI.ChangeIcon(playerIdx, iconName);
+
+    void ChangeIcon(int playerIdx, int iconNr, bool glow){
+        versusAHGUI.ChangeIcon(playerIdx, iconNr, glow);
     }
 
     void DrawGUI(){
@@ -660,14 +660,14 @@ void CheckPlayersState(){
 
         for(int i=0; i<GetNumCharacters(); i++){
             if(GetInputDown(i,"item") && GetInputDown(i,"drop")) {
-                versus_gui.ChangeIcon(i, "glow");
-                if(GetInputDown(i,"attack")) {
+                if(GetInputPressed(i,"attack")) {
                     currentRace[i]= currentRace[i]+1;
-                    currentRace[i]= currentRace[i]%2;
+                    currentRace[i]= currentRace[i]%4;
                 }
+                versus_gui.ChangeIcon(i, currentRace[i], true);
             }
             else {
-                versus_gui.ChangeIcon(i, "dim");
+                versus_gui.ChangeIcon(i, currentRace[i], false);
             }
         }
 
