@@ -19,6 +19,9 @@ bool failsafe;
 
 int playerIconSize = 100;
 
+// All objects spawned by the script
+array<int> spawned_object_ids;
+
 //TODO! This (and probably game state) should just be enum
 array<string> races = {"Textures/ui/challenge_mode/quit_icon_c.tga", "Textures/ui/arena_mode/glyphs/skull.png", "Textures/ui/arena_mode/glyphs/slave_shackles.png", "Textures/ui/arena_mode/glyphs/contender_crown.png"};
 // 0 rabbit, 1 cat, 2 rat, 3 wolf
@@ -926,4 +929,62 @@ void VictoryCheckVersus() {
 		versus_gui.player_three_win_alpha = 0.0f;
         versus_gui.player_four_win_alpha = 0.0f;
     }
+}
+
+Object@ SpawnObjectAtSpawnPoint(Object@ spawn, string &in path){
+    int obj_id = CreateObject(path, true);
+    spawned_object_ids.push_back(obj_id);
+    Object @new_obj = ReadObjectFromID(obj_id);
+    new_obj.SetTranslation(spawn.GetTranslation());
+    vec4 rot_vec4 = spawn.GetRotationVec4();
+    quaternion q(rot_vec4.x, rot_vec4.y, rot_vec4.z, rot_vec4.a);
+    new_obj.SetRotation(q);
+    return new_obj;
+}
+
+// indexes 0-3 are for playerNr ones, 4 is for generic spawns
+array<array<int>> spawnPointIds={{},{},{},{},{}};
+
+void FindSpawnPoints(){
+    //TODO! Make spawnpoints supported in a better way, maybe also add clumping spawns together (useful for bigger maps)
+    // Remove all spawned objects
+    DeleteObjectsInList(spawned_object_ids);
+    spawned_object_ids.resize(0);
+
+    // Identify all the spawn points for the current game type
+    array<int> @object_ids = GetObjectIDs();
+    array<SpawnPoint> character_spawns;
+    int num_objects = object_ids.length();
+    for(int i=0; i<num_objects; ++i){
+        Object @obj = ReadObjectFromID(object_ids[i]);
+        ScriptParams@ params = obj.GetScriptParams();
+        if(params.HasParam("game_type")){
+            // Check whether this spawn is "versusBrawl" type
+            if(params.GetString("game_type")=="versusBrawl"){
+                // Check for PlayerNr
+                if(params.HasParam("PlayerNr")) {
+                    nr_str = params.GetString("PlayerNr");
+                    int playerNr= nr_str.parseInt();
+                    if(playerNr < -1 ||){
+                        DisplayError("FindSpawnPoints Error", "Spawn has PlayerNr less than -1 and greater than 3");
+                    }
+                    if(playerNr==-1){
+                        // If its -1, its a generic spawn point, add it to the 5th array (generic spawns)
+                        spawnPointIds[4].resize(spawnPointIds[4].size() + 1);
+                        spawnPointIds[4] = object_ids[i];
+                    }
+                    else{
+                        // If its 0 or greater, make sure it lands on the correct playerIndex array
+                        spawnPointIds[nr_str].resize(spawnPointIds[nr_str].size() + 1);
+                        spawnPointIds[nr_str] = object_ids[i];
+                    }
+                }
+            }
+        }
+    }
+}
+
+void SpawnPlayers(){
+    //TODO! only 
+    int random = rand()%2;
 }

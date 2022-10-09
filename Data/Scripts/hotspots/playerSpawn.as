@@ -3,5 +3,6 @@ void Init() {
 }
 
 void SetParameters() {
-    params.AddString("Player", "-1");
+    params.AddString("PlayerNr", "-69");
+    params.AddString("game_type", "versusBrawl");
 }
