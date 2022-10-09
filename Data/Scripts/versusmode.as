@@ -17,6 +17,11 @@ uint max_players;
 uint currentState=99;
 bool failsafe;
 
+int playerIconSize = 100;
+
+// 0 rabbit, 1 cat
+array<uint> currentRace =  {0,0,0,0};
+
 void Init(string p_level_name) {
     versus_gui.Init();
 }
@@ -81,6 +86,11 @@ class VersusAHGUI : AHGUI::GUI {
     int assignmentTextSize = 70;
     int footerTextSize = 50;
     bool showBorders = false;
+    bool initUI = true;
+
+ 
+    array<string> currentIcon =  {"dim","dim","dim","dim"};
+    
     
     void Render() {
         // Update the background
@@ -97,7 +107,7 @@ class VersusAHGUI : AHGUI::GUI {
     void UpdateText(){
         AHGUI::Element@ headerElement = root.findElement("header");
         if( headerElement is null  ) {
-            DisplayError("GUI Error", "Unable to find header");
+            //DisplayError("GUI Error", "Unable to find header");
         }
         AHGUI::Divider@ header = cast<AHGUI::Divider>(headerElement);
         // Get rid of the old contents
@@ -107,13 +117,132 @@ class VersusAHGUI : AHGUI::GUI {
         DisplayText(DDTop, header, 8, text, 90, vec4(1,1,1,1), extraText, 70);
     }
 
+    void ChangeIcon(int playerIdx, string iconName)
+    {
+        if(currentIcon[playerIdx] == iconName){
+            return;
+        }
+        else{
+            currentIcon[playerIdx] = iconName;
+            Log(error, "quitButton"+playerIdx);
+            Log(error, "iconName "+iconName);
+            Log(error, "currentIcon[playerIdx] "+currentIcon[playerIdx]);
+            
+            AHGUI::Element@ headerElement = root.findElement("quitButton"+playerIdx);
+            AHGUI::Image@ quitButton = cast<AHGUI::Image>(headerElement);
+            if(iconName == "glow"){
+                Log(error, "Entered glow");
+                quitButton.setColor(vec4(1.0,0.0,0.0,1.0));
+                quitButton.setImageFile("Textures/ui/arena_mode/glyphs/contender_crown.png");
+                quitButton.scaleToSizeX(playerIconSize);
+            }
+            else if(iconName == "dim"){
+                Log(error, "Entered dim");
+                quitButton.setColor(vec4(1.0,1.0,1.0,1.0));
+                quitButton.setImageFile("Textures/ui/challenge_mode/quit_icon_c.tga");
+                quitButton.scaleToSizeX(playerIconSize);
+            }
+        }
+    }
+
     void CheckForUIChange(){
-        if(layoutChanged){
-            AHGUI::Divider@ container = root.addDivider( DDTop,  DOVertical, ivec2( AH_UNDEFINEDSIZE, 400 ) );
+        if(initUI){
+            initUI = false;
+            //TODO: #1 this is a dumb fix for the whole UI being moved a little to right for some reason
+
+            //Violet 
+            AHGUI::Divider@ container = root.addDivider( DDCenter,  DOVertical, ivec2( AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE ) );
             container.setVeritcalAlignment(BACenter);
-            AHGUI::Divider@ header = container.addDivider( DDCenter,  DOVertical, ivec2( AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE ) );
+            if(showBorders){
+                container.setBorderSize(5);
+                container.setBorderColor(1.0, 0.0, 1.0, 1.0);
+                container.showBorder();
+            }
+
+            //Cyan For Text
+            AHGUI::Divider@ header = container.addDivider( DDTopLeft,  DOVertical, ivec2( AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE ) );
             header.setName("header");
-            header.setVeritcalAlignment(BACenter);
+            header.setVeritcalAlignment(BARight);
+            header.setHorizontalAlignment(BABottom);
+            if(showBorders){
+                header.setBorderSize(3);
+                header.setBorderColor(0.0, 1.0, 1.0, 1.0);
+                header.showBorder();
+            }
+            
+            AHGUI::Divider@ containerBottom = root.addDivider( DDTop,  DOHorizontal, ivec2( AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE ) );
+            AHGUI::Divider@ containerTop = root.addDivider( DDBottom,  DOHorizontal, ivec2( AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE ) );
+
+            //Yellow
+            AHGUI::Divider@ header3 = containerBottom.addDivider( DDLeft,  DOHorizontal, ivec2( AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE ) );
+            header3.setName("header3");
+            header3.setVeritcalAlignment(BALeft);
+            header3.setHorizontalAlignment(BABottom);
+            if(showBorders){
+                header3.setBorderSize(3);
+                header3.setBorderColor(1.0, 1.0, 0.0, 1.0);
+                header3.showBorder();
+            }
+
+            AHGUI::Image@ quitButton3 = AHGUI::Image("Textures/ui/challenge_mode/quit_icon_c.tga");
+            quitButton3.scaleToSizeX(playerIconSize);
+            quitButton3.setName("quitButton3");
+            header3.addElement(quitButton3,DDLeft);
+
+            //Blue
+            AHGUI::Divider@ header2 = containerBottom.addDivider( DDRight,  DOHorizontal, ivec2( AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE ) );
+            header2.setName("header2");
+            header2.setVeritcalAlignment(BALeft);
+            header2.setHorizontalAlignment(BABottom);
+            if(showBorders){
+                header2.setBorderSize(3);
+                header2.setBorderColor(0.0, 0.0, 1.0, 1.0);
+                header2.showBorder();
+            }
+
+            AHGUI::Image@ quitButton2 = AHGUI::Image("Textures/ui/challenge_mode/quit_icon_c.tga");
+            quitButton2.scaleToSizeX(playerIconSize);
+            //#1
+            quitButton2.setPadding(0,0,0,70);
+            quitButton2.setName("quitButton2");
+            header2.addElement(quitButton2,DDLeft);
+
+            //Red
+            AHGUI::Divider@ header1 = containerTop.addDivider( DDRight,  DOHorizontal, ivec2( AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE ) );
+            header1.setName("header1");
+            header1.setVeritcalAlignment(BALeft);
+            header1.setHorizontalAlignment(BABottom);
+            if(showBorders){
+                header1.setBorderSize(3);
+                header1.setBorderColor(1.0, 0.0, 0.0, 1.0);
+                header1.showBorder();
+            }
+
+            AHGUI::Image@ quitButton1 = AHGUI::Image("Textures/ui/challenge_mode/quit_icon_c.tga");
+            quitButton1.scaleToSizeX(playerIconSize);
+            //#1
+            quitButton1.setPadding(0,0,0,70);
+            quitButton1.setName("quitButton1");
+            header1.addElement(quitButton1,DDLeft);
+
+            //Green
+            AHGUI::Divider@ header0 = containerTop.addDivider( DDLeft,  DOHorizontal, ivec2( AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE ) );
+            header0.setName("header0");
+            header0.setVeritcalAlignment(BALeft);
+            header0.setHorizontalAlignment(BABottom);
+            if(showBorders){
+                header0.setBorderSize(3);
+                header0.setBorderColor(0.0, 1.0, 0.0, 1.0);
+                header0.showBorder();
+            }
+
+            AHGUI::Image@ quitButton0 = AHGUI::Image("Textures/ui/challenge_mode/quit_icon_c.tga");
+            quitButton0.scaleToSizeX(playerIconSize);
+            quitButton0.setName("quitButton0");
+            header0.addElement(quitButton0,DDLeft);
+        }
+        
+        if(layoutChanged){
             layoutChanged = false;
         }
         UpdateText();
@@ -258,6 +387,10 @@ class VersusGUI  {
         versusAHGUI.text = InsertKeysToString(maintext);
         versusAHGUI.extraText = InsertKeysToString(subtext);
         versusAHGUI.layoutChanged = true;
+    }
+    
+    void ChangeIcon(int playerIdx, string iconName){
+        versusAHGUI.ChangeIcon(playerIdx, iconName);
     }
 
     void DrawGUI(){
@@ -492,9 +625,12 @@ void Update() {
 void CheckPlayersState(){
     if(currentState==0){
         if(max_players==1 || (max_players!=4 && failsafe)) {
+            //Warn about the incorrect number of players
             ChangeGameState(1);
         }
 		array<int> movement_objects = GetObjectIDsType(_movement_object);
+        
+        //Select players number
 		if(GetInputDown(0,"item")){
 			if(GetInputDown(0,"crouch")){
 				player_number = 2;
@@ -515,18 +651,32 @@ void CheckPlayersState(){
 		}
     }
     else if(currentState==1) {
-        if (GetInputDown(0, "keypad5")) {
+        if (GetInputDown(0, "item")) {
             failsafe = false;
             ChangeGameState(0);
         }
     }
-	else{
-        // This will remove players when over max_players
-		for(uint i = max_players-1; i >= player_number; i--){
-			MovementObject@ char1 = ReadCharacter(i);
-			char1.Execute("TakeBloodDamage(1.0f);");
-		}
-	}
+    else if(currentState==2){
+
+        for(int i=0; i<GetNumCharacters(); i++){
+            if(GetInputDown(i,"item") && GetInputDown(i,"drop")) {
+                versus_gui.ChangeIcon(i, "glow");
+                if(GetInputDown(i,"attack")) {
+                    currentRace[i]= currentRace[i]+1;
+                    currentRace[i]= currentRace[i]%2;
+                }
+            }
+            else {
+                versus_gui.ChangeIcon(i, "dim");
+            }
+        }
+
+    }
+    // This will remove players when over max_players
+    for(uint i = max_players-1; i >= player_number; i--){
+        MovementObject@ char1 = ReadCharacter(i);
+        char1.Execute("TakeBloodDamage(1.0f);");
+    }
 }
 
 void ChangeGameState(uint newState){
