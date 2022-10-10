@@ -23,12 +23,13 @@ int playerIconSize = 100;
 array<int> spawned_object_ids;
 
 //TODO! This (and probably game state) should just be enum
-array<string> races = {"Textures/ui/challenge_mode/quit_icon_c.tga", "Textures/ui/arena_mode/glyphs/skull.png", "Textures/ui/arena_mode/glyphs/slave_shackles.png", "Textures/ui/arena_mode/glyphs/contender_crown.png"};
+array<string> races = {"Textures/ui/arena_mode/glyphs/rabbit_foot.png", "Textures/ui/arena_mode/glyphs/skull.png", "Textures/ui/arena_mode/glyphs/slave_shackles.png", "Textures/ui/arena_mode/glyphs/contender_crown.png", "Textures/ui/challenge_mode/quit_icon_c.tga"};
 // 0 rabbit, 1 cat, 2 rat, 3 wolf
 array<uint> currentRace =  {0,0,0,0};
 
 void Init(string p_level_name) {
     versus_gui.Init();
+    FindSpawnPoints();
 }
 
 bool HasFocus(){
@@ -139,7 +140,7 @@ class VersusAHGUI : AHGUI::GUI {
             Log(error, "glow"+glow);
             currentGlow[playerIdx] = glow;
             if(glow){
-                quitButton.setColor(vec4(1.0,0.0,0.0,1.0));
+                quitButton.setColor(vec4(0.7,0.7,0.7,0.8));
             }
             else{
                 quitButton.setColor(vec4(1.0,1.0,1.0,1.0));
@@ -612,7 +613,45 @@ class VersusGUI  {
 
 VersusGUI versus_gui;
 
+
 void Update() {
+    if(GetInputDown(0,"f8")){
+        LoadLevel(GetCurrLevelRelPath());
+    }
+
+    if(GetInputDown(0,"f9")){
+        Object@ obj = ReadObjectFromID(spawnPointIds[0][0]);
+        Object@ char_obj = SpawnObjectAtSpawnPoint(obj, "Data/Objects/characters/wolves/male_wolf_actor.xml");
+        char_obj.SetPlayer(true);
+        MovementObject@ mo = ReadCharacterID(char_obj.GetID());
+        character_getter.Load(mo.char_path);
+        ScriptParams@ params = char_obj.GetScriptParams();
+        // Scale, Muscle has to be 0-1 range
+        float scale = (90.0+(rand()%25))/100;
+        params.SetFloat("Character Scale", scale);
+        float muscles = (50.0+((rand()%15)))/100;
+        Log(error, ""+muscles);
+        params.SetFloat("Muscle", muscles);
+        
+        for(int i = 0; i < 4; ++i) {
+            const string channel = character_getter.GetChannel(i);
+            vec3 furColor = GetRandomFurColor();
+            //TODO: fill this up more
+            if(channel == "fur" || channel == "spots" || channel == "rope" || channel == "back" || channel == "legs"  ) {
+                // These will use fur generator color, mixed with another
+                char_obj.SetPaletteColor(i, mix(furColor, GetRandomFurColor(), 0.7));
+            } else if(channel == "cloth" || channel == "pants" ||channel == "neck") {
+                // These will use team color generator
+                vec3 clr = RandReasonableColor();
+                char_obj.SetPaletteColor(i, clr);
+            }
+        }
+        char_obj.UpdateScriptParams();
+    }
+    if(GetInputDown(0,"f10")) {
+    
+    }
+    
     CheckPlayersState();
     // On first update we switch to warmup state
     if(currentState==99){
@@ -670,16 +709,17 @@ void CheckPlayersState(){
                 versus_gui.ChangeIcon(i, currentRace[i], true);
             }
             else {
-                versus_gui.ChangeIcon(i, currentRace[i], false);
+                versus_gui.ChangeIcon(i, 4, false);
             }
         }
 
     }
     // This will remove players when over max_players
-    for(uint i = max_players-1; i >= player_number; i--){
-        MovementObject@ char1 = ReadCharacter(i);
-        char1.Execute("TakeBloodDamage(1.0f);");
-    }
+    //TODO! Fix this up later
+    // for(uint i = max_players-1; i >= player_number; i--){
+    //     MovementObject@ char1 = ReadCharacter(i);
+    //     char1.Execute("TakeBloodDamage(1.0f);");
+    // }
 }
 
 void ChangeGameState(uint newState){
@@ -931,6 +971,7 @@ void VictoryCheckVersus() {
     }
 }
 
+/// This code is just stolen from arena_level.as
 Object@ SpawnObjectAtSpawnPoint(Object@ spawn, string &in path){
     int obj_id = CreateObject(path, true);
     spawned_object_ids.push_back(obj_id);
@@ -941,10 +982,58 @@ Object@ SpawnObjectAtSpawnPoint(Object@ spawn, string &in path){
     new_obj.SetRotation(q);
     return new_obj;
 }
+void DeleteObjectsInList(array<int> &inout ids){
+    int num_ids = ids.length();
+    for(int i=0; i<num_ids; ++i){
+        Log(info, "Test");
+        DeleteObjectID(ids[i]);
+    }
+    ids.resize(0);
+}
+
+vec3 RandReasonableColor(){
+    vec3 color;
+    color.x = (rand()%255);
+    color.y = (rand()%255);
+    color.z = (rand()%255);
+    float avg = (color.x + color.y + color.z) / 3.0f;
+    color = mix(color, vec3(avg), 0.7f);
+    return FloatTintFromByte(color);
+}
+
+vec3 GetRandomFurColor() {
+    vec3 fur_color_byte;
+    int rnd = rand() % 7;
+
+    //TODO! Extend this
+    switch(rnd) {
+        case 0: fur_color_byte = vec3(255); break;
+        case 1: fur_color_byte = vec3(34); break;
+        case 2: fur_color_byte = vec3(137); break;
+        case 3: fur_color_byte = vec3(105, 73, 54); break;
+        case 4: fur_color_byte = vec3(53, 28, 10); break;
+        case 5: fur_color_byte = vec3(172, 124, 62); break;
+        case 6: fur_color_byte = vec3(74, 86, 89); break;
+    }
+
+    return FloatTintFromByte(fur_color_byte);
+}
+
+// Convert byte colors to float colors (255,0,0) to (1.0f,0.0f,0.0f)
+vec3 FloatTintFromByte(const vec3 &in tint){
+    vec3 float_tint;
+    float_tint.x = tint.x / 255.0f;
+    float_tint.y = tint.y / 255.0f;
+    float_tint.z = tint.z / 255.0f;
+    return float_tint;
+}
+///
 
 // indexes 0-3 are for playerNr ones, 4 is for generic spawns
-array<array<int>> spawnPointIds={{},{},{},{},{}};
+array<array<int>> spawnPointIds={{},{},{},{},{},{}};
 
+// Inspire, again, by how its done in arena_level.as 
+//TODO: maybe add compatibility with default arena maps, just by replacing script with this one?
 void FindSpawnPoints(){
     //TODO! Make spawnpoints supported in a better way, maybe also add clumping spawns together (useful for bigger maps)
     // Remove all spawned objects
@@ -953,30 +1042,30 @@ void FindSpawnPoints(){
 
     // Identify all the spawn points for the current game type
     array<int> @object_ids = GetObjectIDs();
-    array<SpawnPoint> character_spawns;
     int num_objects = object_ids.length();
     for(int i=0; i<num_objects; ++i){
+        
+        //SetSpawnPointPreview(obj,level.GetPath("spawn_preview"));
         Object @obj = ReadObjectFromID(object_ids[i]);
         ScriptParams@ params = obj.GetScriptParams();
         if(params.HasParam("game_type")){
             // Check whether this spawn is "versusBrawl" type
             if(params.GetString("game_type")=="versusBrawl"){
                 // Check for PlayerNr
-                if(params.HasParam("PlayerNr")) {
-                    nr_str = params.GetString("PlayerNr");
-                    int playerNr= nr_str.parseInt();
-                    if(playerNr < -1 ||){
+                if(params.HasParam("playerNr")) {
+                    int playerNr= params.GetInt("playerNr");
+                    if(playerNr < -1 || playerNr > 3){
                         DisplayError("FindSpawnPoints Error", "Spawn has PlayerNr less than -1 and greater than 3");
                     }
                     if(playerNr==-1){
                         // If its -1, its a generic spawn point, add it to the 5th array (generic spawns)
                         spawnPointIds[4].resize(spawnPointIds[4].size() + 1);
-                        spawnPointIds[4] = object_ids[i];
+                        spawnPointIds[4][spawnPointIds[4].size()] = object_ids[i];
                     }
                     else{
                         // If its 0 or greater, make sure it lands on the correct playerIndex array
-                        spawnPointIds[nr_str].resize(spawnPointIds[nr_str].size() + 1);
-                        spawnPointIds[nr_str] = object_ids[i];
+                        spawnPointIds[playerNr].resize(spawnPointIds[playerNr].size() + 1);
+                        spawnPointIds[playerNr][spawnPointIds[playerNr].size()-1] = object_ids[i];
                     }
                 }
             }
