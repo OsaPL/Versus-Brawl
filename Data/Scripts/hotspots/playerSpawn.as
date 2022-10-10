@@ -26,7 +26,9 @@ void Update(){
     obj.SetRotation(me.GetRotation());
 }
 
-void Delete(){
-    // Cleanup placeholder
-    DeleteObjectID(placeholderId);
+void Dispose(){
+    if(ObjectExists(placeholderId)) {
+        // Cleanup placeholder
+        DeleteObjectID(placeholderId);
+    }
 }
