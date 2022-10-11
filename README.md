@@ -14,6 +14,7 @@ Anything marked by 👻 is missing atm.
 - 2/3/4 player support, with UI help and gamepad support
 - Only a single level script and basic prefabs needed to create a map. You can have a map ready in matter of minutes.
 - Ability to change race on respawn
+- `F8` now does a hard-reload of the map (this saved me EONS of time)
 - 👻SuperEasy to extend with new races (mostly true, but there are still few hardcoded places)
 - 👻Warmup round for setup (ok this kinda works, but no respawning)
 - 👻Randomized character apperance (almost completely done, missing some variants)
@@ -97,5 +98,7 @@ Wolf:
 
 Special: Pounces on you - sharp claws, cant use weapons
 
-#Small bugs (dont report these, I know :) )
+# Small bugs (dont report these, I know :) )
 - player one can sometimes change species on selecting number of players
+- clothing colors may look wonky, low priority
+- changing anything in the script, causes ui to bug out (my fault, probably global script variables are being cleared)
