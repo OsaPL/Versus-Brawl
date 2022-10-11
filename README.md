@@ -1,21 +1,34 @@
 # Versus-Brawl
 ## THE Overgrowth Versus mode overhaul
+I had a dream mod I wanted to make 5 yrs ago, and I didnt really try to make it. I've done a basic 4 player mod, and called it a day.
+
+After dusting it off, and having a complete blast with my buddies, I decided now is the time.
+
+No more wonky scripts, no more boring maps, no more rabbits (<sub>okay few rabbits can stay</sub>), no more maps that are hard to create.
+
+I say, slash, bonk, impale and do whatever else you want to do with your friends (<sub>ew, not that, gross</sub>).
+
+*Pro tip: I really recommend using Steams Remote Play Together.*
 
 # Quick disclaimer:
 There are things missing atm:
-- No respawn handling
+- No timer based respawn handling
 - No ability to team up
 - No modifications to the default character scripts
+- No generic gamemode interface
+- No events/hotspots for new gamemodes implementation
 
 Some of the functionality will come eventually, once I have laid the foundation by developing these features.
 Anything marked by 👻 is missing atm.
 
 # Fixed/Reworked
 - 2/3/4 player support, with UI help and gamepad support
-- Only a single level script and basic prefabs needed to create a map. You can have a map ready in matter of minutes.
-- Ability to change race on respawn
+- Players should no longer get their Id swapped, resulting in gamepads being always correctly arranged
+- Two maps that arent just a gm_flatgrass (👻6 planned, atleast 1 per mode)
+- Only a single level script and few basic prefabs needed to create a map. You can have a map ready in matter of minutes.
+- Ability to change race on respawn, with each race having diffrent stats and a unique trait
 - `F8` now does a hard-reload of the map (this saved me EONS of time)
-- 👻SuperEasy to extend with new races (mostly true, but there are still few hardcoded places)
+- 👻SuperEasy<sup>TM</sup> to extend with new races (mostly true, but there are still few hardcoded places)
 - 👻Warmup round for setup (ok this kinda works, but no respawning)
 - 👻Randomized character apperance (almost completely done, missing some variants)
 - 👻Easy to extend with new gamemodes
@@ -30,7 +43,7 @@ Last bun standing gets the point
   
 *self explanatory*
 
-- 👻Abduction 
+- 👻Sacrifice 
   
 each body thrown to your abbys, gives a point
 
@@ -52,7 +65,7 @@ basically capture the flag
 - Jump height:10/10 (no change)
 - Size: 4/10 (5/10)
 
-Special: Rabbit binkies - Midair powerful attack
+Trait: Rabbit binkies - Midair powerful attack
 
 Dogs:
 - Att dmg:6/10 (5/10) 
@@ -63,7 +76,7 @@ Dogs:
 - Jump height:5/10 (no change)
 - Size: 6/10 (5/10)
 
-Special: Whos a good swordsman? - Cant be disarmed, 👻cant block with weapon
+Trait: Whos a good swordsman? - Cant be disarmed, 👻cant block with weapon
 
 Cats:
 - Att dmg:5/10 (no change)
@@ -74,7 +87,7 @@ Cats:
 - 👻Jump height:7/10 (5/10)
 - Size: 5/10 (no change)
 
-Special: Always lands on its feet- No dmg from falls
+Trait: Always lands on its feet- No dmg from falls
 
 Rats:
 - Att dmg:3.5/10 (5/10)
@@ -85,7 +98,7 @@ Rats:
 - 👻Jump height:6/10 (5/10)
 - Size: 3.5/10 (5.10)
 
-Special: Cant be stomped - knockout shield (set to 2)
+Trait: Cant be stomped - knockout shield (set to 2)
 
 Wolf:
 - Att dmg:7/10 (no change)
@@ -96,9 +109,19 @@ Wolf:
 - Jump height:5/10 (no change)
 - Size: 7/10 (5/10)
 
-Special: Pounces on you - sharp claws, cant use weapons
+Trait: Pounces on you - sharp claws, cant use weapons
 
 # Small bugs (dont report these, I know :) )
 - player one can sometimes change species on selecting number of players
 - clothing colors may look wonky, low priority
 - changing anything in the script, causes ui to bug out (my fault, probably global script variables are being cleared)
+
+# Download and instalation
+## WIP mod
+
+# Thanks to:
+[WolfireGames](https://github.com/WolfireGames) - for being awesome developers (source code helped me a lot)
+
+Jukucz, Naxer, Dante and Emperot - for playtesting this shit
+
+WhaleMan - Praise the WhaleMan
