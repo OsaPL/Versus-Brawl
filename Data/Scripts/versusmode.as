@@ -40,8 +40,10 @@ enum MessageParseType {
 }
 
 array<bool> respawnNeeded ={false,false,false,false};
-array<float> respawnQueue ={0.0,0.0,0.0,0.0};
-int respawnTime = 2;
+array<float> respawnQueue ={-100,-100,-100,-100};
+float respawnTime = 2;
+// This will block any stupid respawns calls from hotspots that kill on the way to spawn
+float respawnBlockTime = 0.5;
 
 void ReceiveMessage(string msg) {
     TokenIterator token_iter;
@@ -110,20 +112,16 @@ void ReceiveMessage(string msg) {
 
         if( token == "character_died" )
         {
+            
             // This should respawn on kill
             if(currentState==0){
                 for (uint i = 0; i < spawned_object_ids.size(); i++) {
                     if(spawned_object_ids[i] == char_a){
-                        Object@ char = ReadObjectFromID(char_a);
-                        MovementObject@ mo = ReadCharacterID(char_a);
-                        ScriptParams@ params = char.GetScriptParams();
-                        params.SetString("already_dead", "yes");
-                        char.UpdateScriptParams();
-                        respawnNeeded[0] = true;
-                        respawnQueue[0]= respawnTime;
+                        CallRespawn(i, char_a);
                     }
                 }
             }
+            
             // if(char_a != battle.playerObjectId ) TODO! What is this checking?
             // {
             //     Object@ player_obj = ReadObjectFromID(battle.playerObjectId);
@@ -148,6 +146,15 @@ void ReceiveMessage(string msg) {
         }
         else if( token == "character_knocked_out" )
         {
+            // This should respawn on kill
+            if(currentState==0){
+                for (uint i = 0; i < spawned_object_ids.size(); i++) {
+                    if(spawned_object_ids[i] == char_a){
+                        CallRespawn(i, char_a);
+                    }
+                }
+            }
+            
             // if( char_a != battle.playerObjectId )
             // {
             //     Object@ player_obj = ReadObjectFromID(battle.playerObjectId);
@@ -191,6 +198,16 @@ void ReceiveMessage(string msg) {
         } else if(token == "cut") {
             Log(info, "Player "+char_a+" was cut by "+char_b);
         }
+    }
+}
+
+void CallRespawn(int playerNr, int objId){
+    if(!respawnNeeded[playerNr] && respawnQueue[playerNr]<-respawnBlockTime){
+        respawnNeeded[playerNr] = true;
+        respawnQueue[playerNr]= respawnTime;
+        Object@ char = ReadObjectFromID(objId);
+        MovementObject@ mo = ReadCharacterID(objId);
+        Log(error, "Respawn requested objId:"+objId+" playerNr:"+playerNr);
     }
 }
 
@@ -326,7 +343,7 @@ class VersusAHGUI : AHGUI::GUI {
             AHGUI::Divider@ containerTop = root.addDivider( DDBottom,  DOHorizontal, ivec2( AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE ) );
 
             //Yellow
-            AHGUI::Divider@ header3 = containerBottom.addDivider( DDLeft,  DOHorizontal, ivec2( AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE ) );
+            AHGUI::Divider@ header3 = containerBottom.addDivider( DDRight,  DOHorizontal, ivec2( AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE ) );
             header3.setName("header3");
             header3.setVeritcalAlignment(BALeft);
             header3.setHorizontalAlignment(BABottom);
@@ -337,12 +354,15 @@ class VersusAHGUI : AHGUI::GUI {
             }
 
             AHGUI::Image@ quitButton3 = AHGUI::Image(placeholderRaceIconPath);
+            //#1
+            quitButton3.setPadding(0,0,0,70);
             quitButton3.scaleToSizeX(playerIconSize);
             quitButton3.setName("quitButton3");
             header3.addElement(quitButton3,DDLeft);
 
+            
             //Blue
-            AHGUI::Divider@ header2 = containerBottom.addDivider( DDRight,  DOHorizontal, ivec2( AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE ) );
+            AHGUI::Divider@ header2 = containerBottom.addDivider( DDLeft,  DOHorizontal, ivec2( AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE ) );
             header2.setName("header2");
             header2.setVeritcalAlignment(BALeft);
             header2.setHorizontalAlignment(BABottom);
@@ -354,8 +374,6 @@ class VersusAHGUI : AHGUI::GUI {
 
             AHGUI::Image@ quitButton2 = AHGUI::Image(placeholderRaceIconPath);
             quitButton2.scaleToSizeX(playerIconSize);
-            //#1
-            quitButton2.setPadding(0,0,0,70);
             quitButton2.setName("quitButton2");
             header2.addElement(quitButton2,DDLeft);
 
@@ -945,15 +963,23 @@ vec3 RandReasonableTeamColor(int playerNr){
 }
     
 // Just moves character into the position and activates him
-void SpawnCharacter(Object@ spawn, Object@ char)
+void SpawnCharacter(Object@ spawn, Object@ char, bool isAlreadyPlayer = false)
 {
     Log(warning, "spawn:"+spawn.GetTranslation().x+","+spawn.GetTranslation().y+","+spawn.GetTranslation().z);
+    Log(warning, "char:"+char.GetID()+" isAlreadyPlayer"+isAlreadyPlayer);
+    if(isAlreadyPlayer){
+        MovementObject@ mo = ReadCharacterID(char.GetID());
+        mo.position = spawn.GetTranslation();
+        mo.velocity = vec3(0);
+    }
     char.SetTranslation(spawn.GetTranslation());
     vec4 rot_vec4 = spawn.GetRotationVec4();
     quaternion q(rot_vec4.x, rot_vec4.y, rot_vec4.z, rot_vec4.a);
     char.SetRotation(q);
 
-    char.SetPlayer(true);
+    if(!isAlreadyPlayer){
+        char.SetPlayer(true);
+    }
 }
     
 // Find a suitable spawn
@@ -979,8 +1005,7 @@ string IntToSpecies(int speciesNr){
     
     return speciesMap[speciesNr].Name;
 }
-bool test = false;
-float testTime;
+
 void Update() {
     if(GetInputDown(0,"f8")){
         LoadLevel(GetCurrLevelRelPath());
@@ -992,38 +1017,8 @@ void Update() {
     if(GetInputDown(0,"f10")) {
         MovementObject@ mo = ReadCharacter(0);
         Object@ char = ReadObjectFromID(mo.GetID());
-        SpawnCharacter(FindRandSpawnPoint(0),char);
-    }
-
-    //TODO! put this into CheckPlayersState()
-    if(respawnNeeded[0]){
-        respawnQueue[0] = respawnQueue[0]-time_step;
-        //Log(warning, "Elapsed:"+respawnQueue[0] );
-        if(respawnQueue[0]<=0){
-            MovementObject@ mo = ReadCharacter(0);
-            Object@ char = ReadObjectFromID(mo.GetID());
-            ScriptParams@ params = char.GetScriptParams();
-            
-            respawnNeeded[0] = false;
-            mo.Execute("Recover();");
-            
-            //test = true;
-            testTime = 2;
-            
-            params.Remove("already_dead");
-            char.UpdateScriptParams();
-            SpawnCharacter(FindRandSpawnPoint(0),char);
-        }  
-    }
-    if(test){
-        testTime = testTime-time_step;
-        Log(warning, "TEST Elapsed:"+testTime);
-        if(testTime<=0){
-            MovementObject@ mo = ReadCharacter(0);
-            Object@ char = ReadObjectFromID(mo.GetID());
-            SpawnCharacter(FindRandSpawnPoint(0),char);
-            test = false;
-        }
+        Object@ spawn = FindRandSpawnPoint(0);
+        SpawnCharacter(FindRandSpawnPoint(0),char,true);
     }
 
     
@@ -1071,6 +1066,25 @@ void CheckPlayersState(){
                 ChangeGameState(2); //Start game
 			}
 		}
+        
+        // Warmup respawning logic
+        for (uint i = 0; i < respawnQueue.size() ; i++) {
+            if(respawnQueue[i]>-respawnBlockTime){
+                respawnQueue[i] = respawnQueue[i]-time_step;
+                if(respawnQueue[i]<0 && respawnNeeded[i]){
+                    respawnNeeded[i] = false;
+                    MovementObject@ mo = ReadCharacter(i);
+                    Object@ char = ReadObjectFromID(mo.GetID());
+                    ScriptParams@ params = char.GetScriptParams();
+
+                    // This line took me 4hrs to figure out
+                    mo.Execute("SetState(0);Recover();");
+                    
+                    SpawnCharacter(FindRandSpawnPoint(i),char,true);
+                }
+            }
+        }
+
     }
     else if(currentState==1) {
         if (GetInputDown(0, "item")) {
@@ -1080,7 +1094,6 @@ void CheckPlayersState(){
     }
     
     if(currentState==2 || currentState==0){
-
         for(int i=0; i<GetNumCharacters(); i++){
             if(GetInputDown(i,"item") && GetInputDown(i,"drop")) {
                 if(GetInputPressed(i,"attack")) {
@@ -1422,9 +1435,4 @@ void FindSpawnPoints(){
             }
         }
     }
-}
-
-void SpawnPlayers(){
-    //TODO! only 
-    int random = rand()%2;
 }
