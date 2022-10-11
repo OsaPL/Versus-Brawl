@@ -1,6 +1,7 @@
 #include "ui_effects.as"
 #include "music_load.as"
 #include "ui_tools.as"
+#include "speciesStats.as"
 
 MusicLoad ml("Data/Music/challengelevel.xml");
 
@@ -22,18 +23,14 @@ int playerIconSize = 100;
 // All objects spawned by the script
 array<int> spawned_object_ids;
 
-//TODO! This (and probably game state) should just be enum
-array<string> races = {"Textures/ui/arena_mode/glyphs/rabbit_foot.png", "Textures/ui/arena_mode/glyphs/skull.png", "Textures/ui/arena_mode/glyphs/slave_shackles.png", "Textures/ui/arena_mode/glyphs/contender_crown.png", "Textures/ui/challenge_mode/quit_icon_c.tga"};
-// 0 rabbit, 1 cat, 2 rat, 3 wolf
-array<uint> currentRace =  {0,0,0,0};
-
 void Init(string p_level_name) {
     versus_gui.Init();
     FindSpawnPoints();
-}
-
-bool HasFocus(){
-    return false;
+    // Spawn 4 players, otherwise it gets funky and spawns a player where editor camera was
+    for(int i = 0; i < 4; i++)
+    {
+        SpawnCharacter(FindRandSpawnPoint(i),CreateCharacter(i, IntToSpecies(currentRace[i])));
+    }
 }
 
 void ReceiveMessage(string msg) {
@@ -113,7 +110,7 @@ class VersusAHGUI : AHGUI::GUI {
     void UpdateText(){
         AHGUI::Element@ headerElement = root.findElement("header");
         if( headerElement is null  ) {
-            //DisplayError("GUI Error", "Unable to find header");
+            DisplayError("GUI Error", "Unable to find header");
         }
         AHGUI::Divider@ header = cast<AHGUI::Divider>(headerElement);
         // Get rid of the old contents
@@ -127,15 +124,20 @@ class VersusAHGUI : AHGUI::GUI {
     {
         AHGUI::Element@ headerElement = root.findElement("quitButton"+playerIdx);
         AHGUI::Image@ quitButton = cast<AHGUI::Image>(headerElement);
-        if(currentIcon[playerIdx] != races[iconNr]){
-            currentIcon[playerIdx] = races[iconNr];
-            Log(error, "quitButton"+playerIdx);
-            Log(error, "iconName "+races[iconNr]);
-            Log(error, "currentIcon[playerIdx] "+currentIcon[playerIdx]);
+        string iconPath;
+        if(iconNr == -1){
+            // For -1 we use generic icon
+            iconPath= placeholderRaceIconPath;
+        }else{
+            iconPath=speciesMap[iconNr].RaceIcon;
+        }
+        if(currentIcon[playerIdx] != iconPath){
+            currentIcon[playerIdx] = iconPath;
             
-            quitButton.setImageFile(races[iconNr]);
+            quitButton.setImageFile(iconPath);
             quitButton.scaleToSizeX(playerIconSize);
         }
+        
         if(currentGlow[playerIdx] != glow){
             Log(error, "glow"+glow);
             currentGlow[playerIdx] = glow;
@@ -188,7 +190,7 @@ class VersusAHGUI : AHGUI::GUI {
                 header3.showBorder();
             }
 
-            AHGUI::Image@ quitButton3 = AHGUI::Image("Textures/ui/challenge_mode/quit_icon_c.tga");
+            AHGUI::Image@ quitButton3 = AHGUI::Image(placeholderRaceIconPath);
             quitButton3.scaleToSizeX(playerIconSize);
             quitButton3.setName("quitButton3");
             header3.addElement(quitButton3,DDLeft);
@@ -204,7 +206,7 @@ class VersusAHGUI : AHGUI::GUI {
                 header2.showBorder();
             }
 
-            AHGUI::Image@ quitButton2 = AHGUI::Image("Textures/ui/challenge_mode/quit_icon_c.tga");
+            AHGUI::Image@ quitButton2 = AHGUI::Image(placeholderRaceIconPath);
             quitButton2.scaleToSizeX(playerIconSize);
             //#1
             quitButton2.setPadding(0,0,0,70);
@@ -222,7 +224,7 @@ class VersusAHGUI : AHGUI::GUI {
                 header1.showBorder();
             }
 
-            AHGUI::Image@ quitButton1 = AHGUI::Image("Textures/ui/challenge_mode/quit_icon_c.tga");
+            AHGUI::Image@ quitButton1 = AHGUI::Image(placeholderRaceIconPath);
             quitButton1.scaleToSizeX(playerIconSize);
             //#1
             quitButton1.setPadding(0,0,0,70);
@@ -240,7 +242,7 @@ class VersusAHGUI : AHGUI::GUI {
                 header0.showBorder();
             }
 
-            AHGUI::Image@ quitButton0 = AHGUI::Image("Textures/ui/challenge_mode/quit_icon_c.tga");
+            AHGUI::Image@ quitButton0 = AHGUI::Image(placeholderRaceIconPath);
             quitButton0.scaleToSizeX(playerIconSize);
             quitButton0.setName("quitButton0");
             header0.addElement(quitButton0,DDLeft);
@@ -613,6 +615,200 @@ class VersusGUI  {
 
 VersusGUI versus_gui;
 
+array<Species@> speciesMap={
+    Species("rabbit", "Textures/ui/arena_mode/glyphs/rabbit_foot_1x1.png",
+        {
+            "Data/Objects/characters/rabbits/male_rabbit_2_actor.xml", 
+            "Data/Objects/IGF_Characters/pale_turner_actor.xml"
+        }),
+    Species("dog", "Textures/ui/arena_mode/glyphs/fighter_swords.png",
+        {
+            "Data/Objects/characters/dogs/light_armored_dog_male_1_actor.xml"
+        }),
+    Species("cat", "Textures/ui/arena_mode/glyphs/contender_crown.png",
+        {
+            "Data/Objects/characters/cats/female_cat_actor.xml"
+        }),
+    Species("rat", "Textures/ui/arena_mode/glyphs/slave_shackles.png",
+        {
+            "Data/Objects/characters/rats/hooded_rat_actor.xml"
+        }),
+    Species("wolf", "Textures/ui/arena_mode/glyphs/skull.png",
+        {
+            "Data/Objects/characters/wolves/male_wolf_actor.xml"
+        }),
+    Species("rabbot", "Textures/ui/arena_mode/glyphs/skull.png",
+        {
+            "Data/Objects/characters/rabbot_actor.xml"
+        })
+};
+
+void CreateSpecies(){
+    speciesMap.resize(5);
+    array<string> rabbitChars = {""};
+}
+
+class Species{
+    string Name;
+    string RaceIcon;
+    array<string> CharacterPaths;
+    Species(string newName, string newRaceIcon, array<string> newCharacterPaths){
+        Name = newName;
+        CharacterPaths = newCharacterPaths;
+        RaceIcon = newRaceIcon;
+    }
+}
+string placeholderRaceIconPath = "Textures/ui/challenge_mode/quit_icon_c.tga";
+
+array<uint> currentRace = {0,1,2,3};
+
+string GetSpeciesRandCharacterPath(string species)
+{
+    // Dumb usage of uint, I know, shouldve used std::vector<T>::size_type ofc
+    for (uint i = 0; i < speciesMap.size(); i++)
+    {
+        if (speciesMap[i].Name == species) {
+            // Species found, now get a random entry
+            if(speciesMap[i].CharacterPaths is null){
+                DisplayError("GetSpeciesRandCharacterPath", "GetSpeciesRandCharacterPath found that speciesMap["+i+"].CharacterPaths is null"); 
+            }
+
+            return speciesMap[i].CharacterPaths[
+                rand()%speciesMap[i].CharacterPaths.size()];
+        }
+    }
+    DisplayError("GetSpeciesRandCharacterPath", "GetSpeciesRandCharacterPath couldnt find any paths for species: " + species);
+    return "Data/Objects/characters/rabbot_actor.xml";
+}
+// This creates a pseudo random character by juggling all available parameters
+Object@ CreateCharacter(int playerNr, string species){
+    // Select random species character and create it
+    string characterPath = GetSpeciesRandCharacterPath(species);
+    int obj_id = CreateObject(characterPath, true);
+    // Remember to track him for future cleanup
+    spawned_object_ids.push_back(obj_id);
+    Object@ char_obj = ReadObjectFromID(obj_id);
+    
+    // Setup
+    MovementObject@ mo = ReadCharacterID(char_obj.GetID());
+    character_getter.Load(mo.char_path);
+    ScriptParams@ params = char_obj.GetScriptParams();
+    // Some small tweaks to make it look more unique
+    // Scale, Muscle and Fat has to be 0-1 range
+    //TODO: these would be cool to have governing variables (max_fat, minimum_fat etc.)
+    float scale = (90.0+(rand()%25))/100;
+    params.SetFloat("Character Scale", scale);
+    float muscles = (50.0+((rand()%15)))/100;
+    params.SetFloat("Muscle", muscles);
+    float fat = (50.0+((rand()%15)))/100;
+    params.SetFloat("Fat", fat);
+    
+    // Color the dinosaur, or even the rabbit
+    vec3 furColor = GetRandomFurColor();
+    vec3 clothesColor = RandReasonableTeamColor(playerNr);
+    for(int i = 0; i < 4; i++) {
+        const string channel = character_getter.GetChannel(i);
+        //TODO: fill this up more, maybe even extract to a top level variable for easy edits?
+        if(channel == "fur" || channel == "spots" || channel == "rope" || channel == "back" || channel == "legs" || channel == "fur spots"  ) {
+            // These will use fur generator color, mixed with another
+            char_obj.SetPaletteColor(i, mix(furColor, GetRandomFurColor(), 0.7));
+        } else if(channel == "cloth" || channel == "pants" || channel == "neck" || channel == "leather" || channel == "leather insets" ) {
+            // TODO: These will use team color generator
+            char_obj.SetPaletteColor(i, clothesColor);
+            clothesColor = mix(clothesColor, vec3(0.0), 0.9);
+        }
+    }
+    
+    // This will add species specific stats, and also apply everythink we changed in `params`
+    addSpeciesStats(char_obj);
+    
+    return char_obj;
+}
+    
+vec3 RandReasonableTeamColor(int playerNr){
+    int max_red;
+    int max_green;
+    int max_blue;
+    
+    int max_main=100;
+    int max_sub=0+rand()%20;
+    
+    switch (playerNr) {
+        case 0:
+            //Green
+            max_red = max_sub;
+            max_green = max_main;
+            max_blue = max_sub;
+            break;
+        case 1:
+            //Red
+            max_red = max_main;
+            max_green = max_sub;
+            max_blue = max_sub;
+            break;
+        case 2:
+            //Blue
+            max_red = max_sub;
+            max_green = max_sub;
+            max_blue = max_main;
+            break;
+        case 3:
+            //Yellow
+            max_red = max_main;
+            max_green = max_main;
+            max_blue = max_sub;
+            break;
+        default: DisplayError("RandReasonableTeamColor", "Unsuported RandReasonableTeamColor value of: " + playerNr);
+            //Purple guy?
+            max_red = max_main;
+            max_green = max_sub;
+            max_blue = max_main;
+            break;
+    }
+    
+    vec3 color;
+    color.x = max_red;
+    color.y = max_green;
+    color.z = max_blue;
+    float avg = (color.x + color.y + color.z) / 3.0f;
+    color = mix(color, vec3(avg), 0.3f);
+    return FloatTintFromByte(color);
+}
+    
+// Just moves character into the position and activates him
+void SpawnCharacter(Object@ spawn, Object@ char)
+{
+    char.SetTranslation(spawn.GetTranslation());
+    vec4 rot_vec4 = spawn.GetRotationVec4();
+    quaternion q(rot_vec4.x, rot_vec4.y, rot_vec4.z, rot_vec4.a);
+    char.SetRotation(q);
+
+    char.SetPlayer(true);
+}
+    
+// Find a suitable spawn
+// TODO: `useGeneric` will take into account generic spawns
+// TODO: `useOneType` will only take team spawns if `useGeneric = false` adn only generic spawns if `useGeneric = true`
+Object@ FindRandSpawnPoint(int playerNr, bool useGeneric = false, bool useOneType=true){
+    int obj_id = spawnPointIds[playerNr][
+        rand()%(spawnPointIds[playerNr].size())];
+    return ReadObjectFromID(obj_id);
+}
+    
+//TODO!    
+int SpeciesToInt(string species){
+    return -1;
+}
+// 0 rabbit, 1 dog, 2 cat, 3 rat, 4 wolf
+string IntToSpecies(int speciesNr){
+    int speciesSize = speciesMap.size();
+    if(speciesNr> speciesSize|| speciesNr<0){
+        DisplayError("IntToSpecies", "Unsuported IntToSpecies value of: " + speciesNr);
+        return "rabbot";
+    }
+    
+    return speciesMap[speciesNr].Name;
+}
 
 void Update() {
     if(GetInputDown(0,"f8")){
@@ -620,33 +816,9 @@ void Update() {
     }
 
     if(GetInputDown(0,"f9")){
-        Object@ obj = ReadObjectFromID(spawnPointIds[0][0]);
-        Object@ char_obj = SpawnObjectAtSpawnPoint(obj, "Data/Objects/characters/wolves/male_wolf_actor.xml");
-        char_obj.SetPlayer(true);
-        MovementObject@ mo = ReadCharacterID(char_obj.GetID());
-        character_getter.Load(mo.char_path);
-        ScriptParams@ params = char_obj.GetScriptParams();
-        // Scale, Muscle has to be 0-1 range
-        float scale = (90.0+(rand()%25))/100;
-        params.SetFloat("Character Scale", scale);
-        float muscles = (50.0+((rand()%15)))/100;
-        Log(error, ""+muscles);
-        params.SetFloat("Muscle", muscles);
+        int playerNr=rand()%4;
         
-        for(int i = 0; i < 4; ++i) {
-            const string channel = character_getter.GetChannel(i);
-            vec3 furColor = GetRandomFurColor();
-            //TODO: fill this up more
-            if(channel == "fur" || channel == "spots" || channel == "rope" || channel == "back" || channel == "legs"  ) {
-                // These will use fur generator color, mixed with another
-                char_obj.SetPaletteColor(i, mix(furColor, GetRandomFurColor(), 0.7));
-            } else if(channel == "cloth" || channel == "pants" ||channel == "neck") {
-                // These will use team color generator
-                vec3 clr = RandReasonableColor();
-                char_obj.SetPaletteColor(i, clr);
-            }
-        }
-        char_obj.UpdateScriptParams();
+        SpawnCharacter(FindRandSpawnPoint(playerNr),CreateCharacter(playerNr, IntToSpecies(currentRace[playerNr])));
     }
     if(GetInputDown(0,"f10")) {
     
@@ -709,7 +881,8 @@ void CheckPlayersState(){
                 versus_gui.ChangeIcon(i, currentRace[i], true);
             }
             else {
-                versus_gui.ChangeIcon(i, 4, false);
+                // Last element is always the default state icon
+                versus_gui.ChangeIcon(i, -1, false);
             }
         }
 
@@ -989,16 +1162,6 @@ void DeleteObjectsInList(array<int> &inout ids){
         DeleteObjectID(ids[i]);
     }
     ids.resize(0);
-}
-
-vec3 RandReasonableColor(){
-    vec3 color;
-    color.x = (rand()%255);
-    color.y = (rand()%255);
-    color.z = (rand()%255);
-    float avg = (color.x + color.y + color.z) / 3.0f;
-    color = mix(color, vec3(avg), 0.7f);
-    return FloatTintFromByte(color);
 }
 
 vec3 GetRandomFurColor() {
