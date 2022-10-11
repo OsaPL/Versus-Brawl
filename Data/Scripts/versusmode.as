@@ -802,11 +802,6 @@ array<Species@> speciesMap={
         })
 };
 
-void CreateSpecies(){
-    speciesMap.resize(5);
-    array<string> rabbitChars = {""};
-}
-
 class Species{
     string Name;
     string RaceIcon;
@@ -847,7 +842,13 @@ Object@ CreateCharacter(int playerNr, string species){
     // Remember to track him for future cleanup
     spawned_object_ids.push_back(obj_id);
     Object@ char_obj = ReadObjectFromID(obj_id);
+
+    RecolorCharacter(playerNr, species, char_obj);
     
+    return char_obj;
+}
+
+void RecolorCharacter(int playerNr, string species, Object@ char_obj){
     // Setup
     MovementObject@ mo = ReadCharacterID(char_obj.GetID());
     character_getter.Load(mo.char_path);
@@ -862,17 +863,17 @@ Object@ CreateCharacter(int playerNr, string species){
     params.SetFloat("Muscle", muscles);
     float fat = (50.0+((rand()%15)))/100;
     params.SetFloat("Fat", fat);
-    
+
     // Color the dinosaur, or even the rabbit
     vec3 furColor = GetRandomFurColor();
     vec3 clothesColor = RandReasonableTeamColor(playerNr);
-    
+
     for(int i = 0; i < 4; i++) {
         const string channel = character_getter.GetChannel(i);
         Log(error, "species:"+species + "channel:"+channel);
         //TODO: fill this up more, maybe even extract to a top level variable for easy edits?
 
-        
+
         if(channel == "fur" ) {
             // These will use fur generator color, mixed with another
             char_obj.SetPaletteColor(i, mix(furColor, GetRandomFurColor(), 0.7));
@@ -884,21 +885,19 @@ Object@ CreateCharacter(int playerNr, string species){
                 }
             }
         } else if(channel == "cloth" ) {
-                char_obj.SetPaletteColor(i, clothesColor);
-                clothesColor = mix(clothesColor, vec3(0.0), 0.9);
+            char_obj.SetPaletteColor(i, clothesColor);
+            clothesColor = mix(clothesColor, vec3(0.0), 0.9);
         }
     }
 
     // Reset any Teams
     //TODO: Here probably will be the team assignment stufff
     params.SetString("Teams", "");
-    
+
     char_obj.UpdateScriptParams();
-    
+
     // This will add species specific stats
     addSpeciesStats(char_obj);
-    
-    return char_obj;
 }
 
 //TODO! These colors are awful, make them slightly better?
@@ -980,10 +979,6 @@ void SpawnCharacter(Object@ spawn, Object@ char, bool isAlreadyPlayer = false)
     if(!isAlreadyPlayer){
         char.SetPlayer(true);
     }
-
-    //TODO: this probably should be called after everyone has spawned, for the best effect
-    // Forces call `Notice` on all characters (helps with npc just standing there like morons)
-    char.ReceiveScriptMessage("set_omniscient true");
 }
     
 // Find a suitable spawn
@@ -1010,6 +1005,10 @@ string IntToSpecies(int speciesNr){
     return speciesMap[speciesNr].Name;
 }
 
+// How often we want to make all char aware
+float set_omniscientTimeSpan = 3;
+float set_omniscientTimer = set_omniscientTimeSpan;
+
 void Update() {
     if(GetInputDown(0,"f8")){
         LoadLevel(GetCurrLevelRelPath());
@@ -1018,11 +1017,28 @@ void Update() {
     if(GetInputDown(0,"f9")){
 
     }
-    if(GetInputDown(0,"f10")) {
+    if(GetInputPressed(0,"f10")) {
         MovementObject@ mo = ReadCharacter(0);
         Object@ char = ReadObjectFromID(mo.GetID());
-        Object@ spawn = FindRandSpawnPoint(0);
-        SpawnCharacter(FindRandSpawnPoint(0),char,true);
+        // TEMP Reroll character (playerNr, obj)
+        string species = IntToSpecies(currentRace[0]);
+        string newCharPath = GetSpeciesRandCharacterPath(species);
+        
+        string executeCmd = "SwitchCharacter(\""+ newCharPath +"\");";
+        Log(error, species+" "+newCharPath+" "+executeCmd);
+        mo.Execute("SwitchCharacter(\"Data/Objects/characters/rabbits/male_rabbit_2_actor.xml\");");
+        //mo.Execute(executeCmd);
+        //RecolorCharacter(0, species, char);
+        
+    }
+
+    // Forces call `Notice` on all characters (helps with npc just standing there like morons)
+    if(set_omniscientTimeSpan<0){
+        set_omniscientTimer = set_omniscientTimer-time_step;
+        for (uint i = 0; i < spawned_object_ids.size(); i++) {
+            Object@ char = ReadObjectFromID(spawned_object_ids[i]);
+            char.ReceiveScriptMessage("set_omniscient true");
+        }
     }
 
     
