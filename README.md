@@ -115,6 +115,8 @@ Trait: Pounces on you - sharp claws, cant use weapons
 - player one can sometimes change species on selecting number of players
 - clothing colors may look wonky, low priority
 - changing anything in the script, causes ui to bug out (my fault, probably global script variables are being cleared)
+- for 2 players the UI still stays the same as for 3/4 players setup
+- most of the UI stuff is filled with placeholders atm
 
 # Download and instalation
 ## WIP mod
