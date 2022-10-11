@@ -696,7 +696,8 @@ Object@ CreateCharacter(int playerNr, string species){
     // Some small tweaks to make it look more unique
     // Scale, Muscle and Fat has to be 0-1 range
     //TODO: these would be cool to have governing variables (max_fat, minimum_fat etc.)
-    float scale = (90.0+(rand()%25))/100;
+    //TODO! Scale is overwritten by addSpeciesStats() atm!
+    float scale = (90.0+(rand()%15))/100;
     params.SetFloat("Character Scale", scale);
     float muscles = (50.0+((rand()%15)))/100;
     params.SetFloat("Muscle", muscles);
@@ -718,8 +719,9 @@ Object@ CreateCharacter(int playerNr, string species){
             clothesColor = mix(clothesColor, vec3(0.0), 0.9);
         }
     }
+    params.UpdateScriptParams();
     
-    // This will add species specific stats, and also apply everythink we changed in `params`
+    // This will add species specific stats
     addSpeciesStats(char_obj);
     
     return char_obj;
@@ -799,7 +801,7 @@ Object@ FindRandSpawnPoint(int playerNr, bool useGeneric = false, bool useOneTyp
 int SpeciesToInt(string species){
     return -1;
 }
-// 0 rabbit, 1 dog, 2 cat, 3 rat, 4 wolf
+
 string IntToSpecies(int speciesNr){
     int speciesSize = speciesMap.size();
     if(speciesNr> speciesSize|| speciesNr<0){
