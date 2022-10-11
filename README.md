@@ -1,6 +1,6 @@
 # Versus-Brawl
 ## THE Overgrowth Versus mode overhaul
-I had a dream mod I wanted to make 5 yrs ago, and I didnt really try to make it. I've done a basic 4 player mod, and called it a day.
+I had a dream mod I wanted to make 6 yrs ago, and I didnt really try to make it. I've done a basic 4 player mod, and called it a day.
 
 After dusting it off, and having a complete blast with my buddies, I decided now is the time.
 
