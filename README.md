@@ -63,7 +63,7 @@ Dogs:
 - Jump height:5/10 (no change)
 - Size: 6/10 (5/10)
 
-Special: Whos a good swordsman? - Cant be disarmed, cant block with weapon
+Special: Whos a good swordsman? - Cant be disarmed, 👻cant block with weapon
 
 Cats:
 - Att dmg:5/10 (no change)
