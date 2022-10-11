@@ -1,5 +1,5 @@
 # Versus-Brawl
-##THE Overgrowth Versus mode overhaul
+## THE Overgrowth Versus mode overhaul
 
 # Quick disclaimer:
 There are things missing atm:
