@@ -781,24 +781,37 @@ VersusGUI versus_gui;
 array<Species@> speciesMap={
     Species("rabbit", "Textures/ui/arena_mode/glyphs/rabbit_foot_1x1.png",
         {
-            "Data/Objects/characters/rabbits/male_rabbit_2_actor.xml", 
-            "Data/Objects/IGF_Characters/pale_turner_actor.xml"
+            "Data/Characters/male_rabbit_1.xml",
+            "Data/Characters/male_rabbit_2.xml",
+            "Data/Characters/male_rabbit_3.xml",
+            "Data/Characters/female_rabbit_1.xml",
+            "Data/Characters/female_rabbit_2.xml",
+            "Data/Characters/female_rabbit_3.xml",
+            "Data/Characters/pale_rabbit_civ.xml"
         }),
     Species("dog", "Textures/ui/arena_mode/glyphs/fighter_swords.png",
         {
-            "Data/Objects/characters/dogs/light_armored_dog_male_1_actor.xml"
+            "Data/Characters/lt_dog_big.xml",
+            "Data/Characters/lt_dog_female.xml",
+            "Data/Characters/lt_dog_male_1.xml",
+            "Data/Characters/lt_dog_male_2.xml"
         }),
     Species("cat", "Textures/ui/arena_mode/glyphs/contender_crown.png",
         {
-            "Data/Objects/characters/cats/female_cat_actor.xml"
+            "Data/Characters/fancy_striped_cat.xml",
+            "Data/Characters/female_cat.xml",
+            "Data/Characters/male_cat.xml",
+            "Data/Characters/striped_cat.xml"
         }),
     Species("rat", "Textures/ui/arena_mode/glyphs/slave_shackles.png",
         {
-            "Data/Objects/characters/rats/hooded_rat_actor.xml"
+            "Data/Characters/hooded_rat.xml",
+            "Data/Characters/female_rat.xml",
+            "Data/Characters/rat.xml"
         }),
     Species("wolf", "Textures/ui/arena_mode/glyphs/skull.png",
         {
-            "Data/Objects/characters/wolves/male_wolf_actor.xml"
+            "Data/Characters/male_wolf.xml"
         })
 };
 
@@ -834,15 +847,20 @@ string GetSpeciesRandCharacterPath(string species)
     DisplayError("GetSpeciesRandCharacterPath", "GetSpeciesRandCharacterPath couldnt find any paths for species: " + species);
     return "Data/Objects/characters/rabbot_actor.xml";
 }
+string placeHolderActorPath = "Data/Objects/characters/rabbot_actor.xml";
 // This creates a pseudo random character by juggling all available parameters
 Object@ CreateCharacter(int playerNr, string species){
     // Select random species character and create it
+    int obj_id = CreateObject(placeHolderActorPath, true);
     string characterPath = GetSpeciesRandCharacterPath(species);
-    int obj_id = CreateObject(characterPath, true);
+    
     // Remember to track him for future cleanup
     spawned_object_ids.push_back(obj_id);
     Object@ char_obj = ReadObjectFromID(obj_id);
-
+    MovementObject@ char = ReadCharacterID(char_obj.GetID());
+    
+    string executeCmd = "SwitchCharacter(\""+ characterPath +"\");";
+    char.Execute(executeCmd);
     RecolorCharacter(playerNr, species, char_obj);
     
     return char_obj;
@@ -1021,15 +1039,14 @@ void Update() {
         MovementObject@ mo = ReadCharacter(0);
         Object@ char = ReadObjectFromID(mo.GetID());
         // TEMP Reroll character (playerNr, obj)
+        // Warning! Rolling character also revives/heals him
         string species = IntToSpecies(currentRace[0]);
         string newCharPath = GetSpeciesRandCharacterPath(species);
         
         string executeCmd = "SwitchCharacter(\""+ newCharPath +"\");";
         Log(error, species+" "+newCharPath+" "+executeCmd);
-        mo.Execute("SwitchCharacter(\"Data/Objects/characters/rabbits/male_rabbit_2_actor.xml\");");
-        //mo.Execute(executeCmd);
-        //RecolorCharacter(0, species, char);
-        
+        mo.Execute(executeCmd);
+        RecolorCharacter(0, species, char);
     }
 
     // Forces call `Notice` on all characters (helps with npc just standing there like morons)
