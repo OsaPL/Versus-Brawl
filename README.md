@@ -12,7 +12,7 @@ I say, slash, bonk, impale and do whatever else you want to do with your friends
 
 # Quick disclaimer:
 There are things missing atm:
-- No timer based respawn handling
+- No respawn system is not yet completed
 - No ability to team up
 - No modifications to the default character scripts
 - No generic gamemode interface
@@ -27,11 +27,12 @@ Anything marked by 👻 is missing atm.
 - Two maps that arent just a gm_flatgrass (👻6 planned, atleast 1 per mode)
 - Only a single level script and few basic prefabs needed to create a map. You can have a map ready in matter of minutes.
 - Ability to change race on respawn, with each race having diffrent stats and a unique trait
+- Warmup before the rounds start
 - `F8` now does a hard-reload of the map (this saved me EONS of time)
 - 👻SuperEasy<sup>TM</sup> to extend with new races (mostly true, but there are still few hardcoded places)
-- 👻Warmup round for setup (ok this kinda works, but no respawning)
 - 👻Randomized character apperance (almost completely done, missing some variants)
 - 👻Easy to extend with new gamemodes
+- 👻NPC opponents support (this will rely on map maker to implement detailed paths)
 
 # Gamemodes:
 

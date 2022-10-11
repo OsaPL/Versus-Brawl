@@ -980,6 +980,10 @@ void SpawnCharacter(Object@ spawn, Object@ char, bool isAlreadyPlayer = false)
     if(!isAlreadyPlayer){
         char.SetPlayer(true);
     }
+
+    //TODO: this probably should be called after everyone has spawned, for the best effect
+    // Forces call `Notice` on all characters (helps with npc just standing there like morons)
+    char.ReceiveScriptMessage("set_omniscient true");
 }
     
 // Find a suitable spawn
