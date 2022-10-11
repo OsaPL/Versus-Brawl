@@ -14,7 +14,6 @@ int score_rightDown = 0;
 float reset_timer = 2.0f;
 float end_game_delay = 0.0f;
 uint player_number;
-uint max_players;
 uint currentState=99;
 bool failsafe;
 
@@ -33,6 +32,17 @@ void Init(string p_level_name) {
     }
 }
 
+// Stolen from arena_level.as
+enum MessageParseType {
+    kSimple = 0,
+    kOneInt = 1,
+    kTwoInt = 2
+}
+
+array<bool> respawnNeeded ={false,false,false,false};
+array<float> respawnQueue ={0.0,0.0,0.0,0.0};
+int respawnTime = 2;
+
 void ReceiveMessage(string msg) {
     TokenIterator token_iter;
     token_iter.Init();
@@ -41,10 +51,146 @@ void ReceiveMessage(string msg) {
     }
     string token = token_iter.GetToken(msg);
     if(token == "reset"){
+        DeleteObjectsInList(spawned_object_ids);
+        for(uint i = 0; i < player_number; i++)
+        {
+            SpawnCharacter(FindRandSpawnPoint(i),CreateCharacter(i, IntToSpecies(currentRace[i])));
+        }
         time = 0.0f;
         reset_timer = 2.0f;
     } else if(token == "manual_reset"){
         ClearVersusScores();
+    }
+
+    // Handle simple tokens, or mark as requiring extra parameters
+    MessageParseType type = kSimple;
+
+    if( token != "added_object" && token != "notify_deleted" )
+    {
+        //Log( info, "ArenaMessage: " + msg );
+    }
+
+    if(token == "knocked_over" ||
+        token == "passive_blocked" ||
+        token == "active_blocked" ||
+        token == "dodged" ||
+        token == "character_attack_feint" ||
+        token == "character_attack_missed" ||
+        token == "character_throw_escape" ||
+        token == "character_thrown" ||
+        token == "cut")
+    {
+        type = kTwoInt;
+    } else if(token == "character_died" ||
+        token == "character_knocked_out" ||
+        token == "character_start_flip" ||
+        token == "character_start_roll" ||
+        token == "character_failed_flip"||
+        token == "item_hit")
+    {
+        type = kOneInt;
+    }
+
+    if(type == kOneInt) {
+        token_iter.FindNextToken(msg);
+        int char_a = atoi(token_iter.GetToken(msg));
+        if(token == "character_died") {
+            Log(info, "Player "+char_a+" was killed");
+        } else if(token == "character_knocked_out") {
+            Log(info, "Player "+char_a+" was knocked out");
+        } else if(token == "character_start_flip") {
+            Log(info, "Player "+char_a+" started a flip");
+        } else if(token == "character_start_roll") {
+            Log(info, "Player "+char_a+" started a roll");
+        } else if(token == "character_failed_flip") {
+            Log(info, "Player "+char_a+" failed a flip");
+        } else if(token == "item_hit") {
+            Log(info, "Player "+char_a+" was hit by an item");
+        }
+
+        if( token == "character_died" )
+        {
+            // This should respawn on kill
+            if(currentState==0){
+                for (uint i = 0; i < spawned_object_ids.size(); i++) {
+                    if(spawned_object_ids[i] == char_a){
+                        Object@ char = ReadObjectFromID(char_a);
+                        MovementObject@ mo = ReadCharacterID(char_a);
+                        ScriptParams@ params = char.GetScriptParams();
+                        params.SetString("already_dead", "yes");
+                        char.UpdateScriptParams();
+                        respawnNeeded[0] = true;
+                        respawnQueue[0]= respawnTime;
+                    }
+                }
+            }
+            // if(char_a != battle.playerObjectId ) TODO! What is this checking?
+            // {
+            //     Object@ player_obj = ReadObjectFromID(battle.playerObjectId);
+            //     ScriptParams@ player_params = player_obj.GetScriptParams();
+            //
+            //     Object@ other_obj = ReadObjectFromID(char_a);
+            //     ScriptParams@ other_params = other_obj.GetScriptParams();
+            //
+            //
+            //     if( player_params.GetString("Teams") != other_params.GetString("Teams") )
+            //     {
+            //         //msh.PlayerKilledCharacter();
+            //         Log(info,"Player got a kill\n");
+            //         global_data.player_kills++;
+            //     }
+            // }
+            // else
+            // {
+            //     //msh.PlayerDied();
+            //     Log(info,"Player got mortally wounded\n");
+            // }
+        }
+        else if( token == "character_knocked_out" )
+        {
+            // if( char_a != battle.playerObjectId )
+            // {
+            //     Object@ player_obj = ReadObjectFromID(battle.playerObjectId);
+            //     ScriptParams@ player_params = player_obj.GetScriptParams();
+            //
+            //     Object@ other_obj = ReadObjectFromID(char_a);
+            //     ScriptParams@ other_params = other_obj.GetScriptParams();
+            //
+            //     if( player_params.GetString("Teams") != other_params.GetString("Teams") )
+            //     {
+            //         //msh.PlayerKilledCharacter();
+            //         Log(info,"Player got a ko\n");
+            //     }
+            // }
+            // else
+            // {
+            //     ///msh.PlayerDied();
+            // }
+        }
+    } else if(type == kTwoInt) {
+        token_iter.FindNextToken(msg);
+        int char_a = atoi(token_iter.GetToken(msg));
+        token_iter.FindNextToken(msg);
+        int char_b = atoi(token_iter.GetToken(msg));
+        if(token == "knocked_over") {
+            Log(info, "Player "+char_a+" was knocked over by player "+char_b);
+        } else if(token == "passive_blocked") {
+            Log(info, "Player "+char_a+" passive-blocked an attack by player "+char_b);
+        } else if(token == "active_blocked") {
+            Log(info, "Player "+char_a+" active-blocked an attack by player "+char_b);
+        } else if(token == "dodged") {
+            Log(info, "Player "+char_a+" dodged an attack by player "+char_b);
+        } else if(token == "character_attack_feint") {
+            Log(info, "Player "+char_a+" feinted an attack aimed at "+char_b);
+        } else if(token == "character_attack_missed") {
+            Log(info, "Player "+char_a+" missed an attack aimed at "+char_b);
+        } else if(token == "character_throw_escape") {
+            Log(info, "Player "+char_a+" escaped a throw attempt by "+char_b);
+        } else if(token == "character_thrown") {
+            Log(info, "Player "+char_a+" was thrown by "+char_b);
+        } else if(token == "cut") {
+            Log(info, "Player "+char_a+" was cut by "+char_b);
+        }
     }
 }
 
@@ -332,7 +478,6 @@ class VersusGUI  {
         score_change_time = 0.0f;
 		failsafe = true;
 		array<int> movement_objects = GetObjectIDsType(_movement_object);
-		max_players=movement_objects.size();
 		
         for(int i=0; i<5; ++i){
             rightUp_score_marks[i].mirrored = false;
@@ -636,10 +781,6 @@ array<Species@> speciesMap={
     Species("wolf", "Textures/ui/arena_mode/glyphs/skull.png",
         {
             "Data/Objects/characters/wolves/male_wolf_actor.xml"
-        }),
-    Species("rabbot", "Textures/ui/arena_mode/glyphs/skull.png",
-        {
-            "Data/Objects/characters/rabbot_actor.xml"
         })
 };
 
@@ -707,24 +848,50 @@ Object@ CreateCharacter(int playerNr, string species){
     // Color the dinosaur, or even the rabbit
     vec3 furColor = GetRandomFurColor();
     vec3 clothesColor = RandReasonableTeamColor(playerNr);
+    
     for(int i = 0; i < 4; i++) {
         const string channel = character_getter.GetChannel(i);
+        Log(error, "species:"+species + "channel:"+channel);
         //TODO: fill this up more, maybe even extract to a top level variable for easy edits?
-        if(channel == "fur" || channel == "spots" || channel == "rope" || channel == "back" || channel == "legs" || channel == "fur spots"  ) {
+
+        
+        if(channel == "fur" ) {
             // These will use fur generator color, mixed with another
             char_obj.SetPaletteColor(i, mix(furColor, GetRandomFurColor(), 0.7));
-        } else if(channel == "cloth" || channel == "pants" || channel == "neck" || channel == "leather" || channel == "leather insets" ) {
-            // TODO: These will use team color generator
-            char_obj.SetPaletteColor(i, clothesColor);
-            clothesColor = mix(clothesColor, vec3(0.0), 0.9);
+
+            // Wolves are problematic for coloring all channels are marked as `fur`
+            if(species == "wolf"){
+                if(i==1 || i==4){
+                    char_obj.SetPaletteColor(i, clothesColor);
+                }
+            }
+        } else if(channel == "cloth" ) {
+                char_obj.SetPaletteColor(i, clothesColor);
+                clothesColor = mix(clothesColor, vec3(0.0), 0.9);
         }
     }
-    params.UpdateScriptParams();
+
+    // Reset any Teams
+    //TODO: Here probably will be the team assignment stufff
+    params.SetString("Teams", "");
+    
+    char_obj.UpdateScriptParams();
     
     // This will add species specific stats
     addSpeciesStats(char_obj);
     
     return char_obj;
+}
+
+//TODO! These colors are awful, make them slightly better?
+vec3 RandReasonableWolfTeamColor(int playerNr){
+    switch (playerNr) {
+        case 0:return vec3(0.0,255.0,0.0);
+        case 1:return vec3(255.0,0.0,0.0);
+        case 2:return vec3(0.0,0.0,255.0);
+        case 3:return vec3(255.0,255.0,0.0);
+    }
+    return vec3(255,255,255);
 }
     
 vec3 RandReasonableTeamColor(int playerNr){
@@ -780,6 +947,7 @@ vec3 RandReasonableTeamColor(int playerNr){
 // Just moves character into the position and activates him
 void SpawnCharacter(Object@ spawn, Object@ char)
 {
+    Log(warning, "spawn:"+spawn.GetTranslation().x+","+spawn.GetTranslation().y+","+spawn.GetTranslation().z);
     char.SetTranslation(spawn.GetTranslation());
     vec4 rot_vec4 = spawn.GetRotationVec4();
     quaternion q(rot_vec4.x, rot_vec4.y, rot_vec4.z, rot_vec4.a);
@@ -811,20 +979,53 @@ string IntToSpecies(int speciesNr){
     
     return speciesMap[speciesNr].Name;
 }
-
+bool test = false;
+float testTime;
 void Update() {
     if(GetInputDown(0,"f8")){
         LoadLevel(GetCurrLevelRelPath());
     }
 
     if(GetInputDown(0,"f9")){
-        int playerNr=rand()%4;
-        
-        SpawnCharacter(FindRandSpawnPoint(playerNr),CreateCharacter(playerNr, IntToSpecies(currentRace[playerNr])));
+
     }
     if(GetInputDown(0,"f10")) {
-    
+        MovementObject@ mo = ReadCharacter(0);
+        Object@ char = ReadObjectFromID(mo.GetID());
+        SpawnCharacter(FindRandSpawnPoint(0),char);
     }
+
+    //TODO! put this into CheckPlayersState()
+    if(respawnNeeded[0]){
+        respawnQueue[0] = respawnQueue[0]-time_step;
+        //Log(warning, "Elapsed:"+respawnQueue[0] );
+        if(respawnQueue[0]<=0){
+            MovementObject@ mo = ReadCharacter(0);
+            Object@ char = ReadObjectFromID(mo.GetID());
+            ScriptParams@ params = char.GetScriptParams();
+            
+            respawnNeeded[0] = false;
+            mo.Execute("Recover();");
+            
+            //test = true;
+            testTime = 2;
+            
+            params.Remove("already_dead");
+            char.UpdateScriptParams();
+            SpawnCharacter(FindRandSpawnPoint(0),char);
+        }  
+    }
+    if(test){
+        testTime = testTime-time_step;
+        Log(warning, "TEST Elapsed:"+testTime);
+        if(testTime<=0){
+            MovementObject@ mo = ReadCharacter(0);
+            Object@ char = ReadObjectFromID(mo.GetID());
+            SpawnCharacter(FindRandSpawnPoint(0),char);
+            test = false;
+        }
+    }
+
     
     CheckPlayersState();
     // On first update we switch to warmup state
@@ -833,34 +1034,39 @@ void Update() {
     }
     versus_gui.Update();
     time += time_step;
-	if(max_players!=1 && currentState!=0)
+	if(currentState==2)
     VictoryCheckVersus();
     PlaySong("ambient-tense");
 }
 
+// This makes sure there is atleast a single spawn per playerNr
+bool CheckSpawnsNumber(){
+    for (int i = 0; i < 3; i++) {
+        if(spawnPointIds[i].size() < 1)
+            return false;
+    }
+    return true;
+}
+
 void CheckPlayersState(){
     if(currentState==0){
-        if(max_players==1 || (max_players!=4 && failsafe)) {
-            //Warn about the incorrect number of players
+        if(!CheckSpawnsNumber() && failsafe) {
+            //Warn about the incorrect number of spawns
             ChangeGameState(1);
         }
 		array<int> movement_objects = GetObjectIDsType(_movement_object);
         
         //Select players number
-		if(GetInputDown(0,"item")){
+		if(GetInputDown(0,"item") && !GetInputDown(0,"drop")){
 			if(GetInputDown(0,"crouch")){
 				player_number = 2;
                 ChangeGameState(2); //Start game
 			}
 			if(GetInputDown(0,"jump")){
-				if(max_players<3)
-					return;
 				player_number = 3;
                 ChangeGameState(2); //Start game
 			}
 			if(GetInputDown(0,"attack")){
-				if(max_players<4)
-					return;
 				player_number = 4;
                 ChangeGameState(2); //Start game
 			}
@@ -872,13 +1078,14 @@ void CheckPlayersState(){
             ChangeGameState(0);
         }
     }
-    else if(currentState==2){
+    
+    if(currentState==2 || currentState==0){
 
         for(int i=0; i<GetNumCharacters(); i++){
             if(GetInputDown(i,"item") && GetInputDown(i,"drop")) {
                 if(GetInputPressed(i,"attack")) {
                     currentRace[i]= currentRace[i]+1;
-                    currentRace[i]= currentRace[i]%4;
+                    currentRace[i]= currentRace[i]%speciesMap.size();
                 }
                 versus_gui.ChangeIcon(i, currentRace[i], true);
             }
@@ -889,12 +1096,6 @@ void CheckPlayersState(){
         }
 
     }
-    // This will remove players when over max_players
-    //TODO! Fix this up later
-    // for(uint i = max_players-1; i >= player_number; i--){
-    //     MovementObject@ char1 = ReadCharacter(i);
-    //     char1.Execute("TakeBloodDamage(1.0f);");
-    // }
 }
 
 void ChangeGameState(uint newState){
@@ -909,13 +1110,9 @@ void ChangeGameState(uint newState){
                 "@crouch@=2, @jump@=3, @attack@=4");
             break;
         case 1: 
-            //Failsafe, not enough player to control, waiting for acknowledgment
-            if(max_players==1){
-                versus_gui.SetText("Warning! Only one player detected!",
-                    "After adding more player controlled characters, please save and reload the map.");
-                return;
-            }
-            if(max_players!=4 && failsafe){
+            //Failsafe, not enough spawns, waiting for acknowledgment
+            //TODO! Rewrite this for spawns
+            if(failsafe){
                 array<int> movement_objects = GetObjectIDsType(_movement_object);
                 versus_gui.SetText("Warning! Only "+movement_objects.size()+" players detected!",
                     "After adding more player controlled characters, please save and reload the map. Press @item@ to play anyway.");
@@ -930,9 +1127,6 @@ void ChangeGameState(uint newState){
             // Clear text
             versus_gui.SetText("");
             level.SendMessage("reset");
-            // Removes* any unneeded players
-            if(max_players>player_number)
-                RemovePlayers();
             break;
     }
 }
@@ -984,15 +1178,7 @@ void ClearVersusScores(){
     score_rightDown = 0;
     versus_gui.ClearScores();        
 }
-void RemovePlayers(){
-	array<int> movement_objects = GetObjectIDsType(_movement_object);
-	for(uint i = max_players-1; i >= player_number; i--){
-		MovementObject@ char1 = ReadCharacter(i);
-		char1.Execute("TakeBloodDamage(1.0f);Ragdoll(_RGDL_FALL);zone_killed=1;");
-		Object @new_obj = ReadObjectFromID(movement_objects[i]);
-		new_obj.SetPlayer(false);
-	}
-}
+
 int CheckScores(){
 	int who_wins = -1;
 	int max_score = -1;

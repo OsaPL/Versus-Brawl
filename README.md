@@ -101,7 +101,7 @@ Rats:
 Trait: Cant be stomped - knockout shield (set to 2)
 
 Wolf:
-- Att dmg:7/10 (no change)
+- Att dmg:8/10 (10/10) 
 - Att knockback:6/10 (5/10)
 - Att speed:3/10 (5/10)
 - Damage resistance:6/10 (5/10)

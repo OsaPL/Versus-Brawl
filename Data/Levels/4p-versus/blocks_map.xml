@@ -350,7 +350,7 @@
     <Decal t0="-119.396" t1="72.9062" t2="253.522" s0="5.53899" s1="3.61376" s2="7.33375" q0="-0.218045" q1="-0.749432" q2="0.0770004" q3="0.620386" euler_x="-2.08571" euler_y="-1.11134" euler_z="1.8805" id="98" type_file="Data/Objects/Decals/hex_crete_damage.xml" color_r="0.717647" color_g="0.717647" color_b="0.717647" overbright="0">
         <parameters />
     </Decal>
-    <CameraObject t0="-200.768" t1="139.353" t2="46.8275" s0="1" s1="1" s2="1" q0="0.280945" q1="0.633546" q2="-0.265584" q3="0.67019" euler_x="0.7939" euler_y="1.5146" euler_z="1.59174e-006" id="99">
+    <CameraObject t0="-171.795" t1="128.178" t2="53.8455" s0="1" s1="1" s2="1" q0="-0.0840607" q1="0.718265" q2="-0.0881394" q3="-0.685026" euler_x="-2.8974" euler_y="-1.52343" euler_z="-3.14159" id="99">
         <parameters />
     </CameraObject>
     <Hotspot t0="-172.639" t1="126.203" t2="41.8607" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="101" type_file="Data/Objects/playerSpawn.xml">
@@ -361,7 +361,7 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-175.315" t1="123.96" t2="54.0991" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="103" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="-175.271" t1="126.69" t2="54.6157" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="103" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="3" />
@@ -412,7 +412,7 @@
     <EnvObject t0="-195.975" t1="81.3931" t2="58.4589" s0="1.19632" s1="2.58426" s2="1.04484" q0="0.0164663" q1="0.0210936" q2="0.0413006" q3="0.998788" euler_x="0.0346708" euler_y="0.0407872" euler_z="0.0833615" id="115" color_r="0.117647" color_g="0.117647" color_b="0.117647" overbright="0" type_file="Data/Objects/Crete/hex_crete_tall.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-169.942" t1="84.6513" t2="59.1449" s0="1.08213" s1="2.3376" s2="0.945112" q0="-0.062947" q1="-0.0558986" q2="0.0489617" q3="0.995247" euler_x="-0.13188" euler_y="-0.105296" euler_z="0.105272" id="116" color_r="0.498039" color_g="0.498039" color_b="0.498039" overbright="0" type_file="Data/Objects/Crete/hex_crete_tall.xml">
+    <EnvObject t0="-170.332" t1="86.4818" t2="59.4546" s0="1.08213" s1="2.3376" s2="0.945112" q0="-0.062947" q1="-0.0558986" q2="0.0489617" q3="0.995247" euler_x="-0.13188" euler_y="-0.105296" euler_z="0.105272" id="116" color_r="0.498039" color_g="0.498039" color_b="0.498039" overbright="0" type_file="Data/Objects/Crete/hex_crete_tall.xml">
         <parameters />
     </EnvObject>
     <ItemObject t0="-197.66" t1="125.18" t2="58.8493" s0="1" s1="1" s2="1" q0="-0.00047946" q1="0.00216574" q2="0.00227249" q3="0.999995" euler_x="-0.000949081" euler_y="0.00433365" euler_z="0.00454294" id="117" type_file="Data/Items/staffbasic.xml" color_r="1" color_g="1" color_b="1" overbright="0">
@@ -2831,4 +2831,5 @@
 </ActorObjects>
 <RecentItems>
     <SpawnerItem display_name="playerSpawn.xml" path="Data/Objects/playerSpawn.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Fire" path="Data/Objects/fire.xml" thumbnail_path="" />
 </RecentItems>

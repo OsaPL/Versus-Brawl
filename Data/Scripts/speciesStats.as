@@ -44,17 +44,24 @@
         params.SetFloat("Movement Speed",   1.2); //params.AddFloatSlider("Movement Speed", 1, "min:0.1,max:1.5,step:0.1,text_mult:100");
         params.SetFloat("Character Scale",  1.0); //params.AddFloatSlider("Character Scale", 1, "min:0.6,max:1.4,step:0.02,text_mult:100");
 
-        params.SetInt("Knockout Shield",    2); //params.AddIntSlider("Knockout Shield", 0, "min:0,max:10");
+        params.SetInt("Knockout Shield",    1); //params.AddIntSlider("Knockout Shield", 0, "min:0,max:10");
     }
     else if(species == "wolf"){
-        params.SetFloat("Attack Damage",    1.0); //params.AddFloatSlider("Attack Damage", 1, "min:0,max:2,step:0.1,text_mult:100");
-        params.SetFloat("Attack Knockback", 1.2); //params.AddFloatSlider("Attack Knockback", 1, "min:0,max:2,step:0.1,text_mult:100");
-        params.SetFloat("Attack Speed",     0.6); //params.AddFloatSlider("Attack Speed", 1, "min:0,max:2,step:0.1,text_mult:100");
-        params.SetFloat("Damage Resistance",1.4); //params.AddFloatSlider("Damage Resistance", 1, "min:0,max:2,step:0.1,text_mult:100");
-        params.SetFloat("Movement Speed",   0.7); //params.AddFloatSlider("Movement Speed", 1, "min:0.1,max:1.5,step:0.1,text_mult:100");
+        params.SetFloat("Attack Damage",    0.15); //params.AddFloatSlider("Attack Damage", 1, "min:0,max:2,step:0.1,text_mult:100");
+        params.SetFloat("Attack Knockback", 0.7); //params.AddFloatSlider("Attack Knockback", 1, "min:0,max:2,step:0.1,text_mult:100");
+        params.SetFloat("Attack Speed",     0.5); //params.AddFloatSlider("Attack Speed", 1, "min:0,max:2,step:0.1,text_mult:100");
+        params.SetFloat("Damage Resistance",1.2); //params.AddFloatSlider("Damage Resistance", 1, "min:0,max:2,step:0.1,text_mult:100");
+        params.SetFloat("Movement Speed",   0.6); //params.AddFloatSlider("Movement Speed", 1, "min:0.1,max:1.5,step:0.1,text_mult:100");
         params.SetFloat("Character Scale",  1.0); //params.AddFloatSlider("Character Scale", 1, "min:0.6,max:1.4,step:0.02,text_mult:100");
     }
 
     char.UpdateScriptParams();
     Log(error, "Added stats to:"+species);
 }
+
+/* Some balancing notes:
+Wolf shouldnt be able to one hit kill dog
+wolf is weak vs weapons, rats and dogs
+cat is glass cannon, good vs lower hp rabbit and rat
+rat is great for pushing opponents
+ */
