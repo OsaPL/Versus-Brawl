@@ -8,8 +8,8 @@
     <Thumbnail>Data/Images/4p-versus/thumb.jpg</Thumbnail>
     <PreviewImage>Data/Images/4p-versus/thumb.jpg</PreviewImage>
 
-    <Description>Why is a description needed?!</Description>
-    <Version>0.0.1</Version>
+    <Description>Versus mode overhaul! Custom races, new maps, new gamemodes. README.ms in Mods/4p-versus folder for more information</Description>
+    <Version>0.8.1</Version>
     <Author>Osa__PL</Author>
 
     <Tag>Versus</Tag>
@@ -18,7 +18,8 @@
     <NeedsRestart>false</NeedsRestart>
 
     <Campaign title="Versus Brawl" thumbnail="Images/4p-versus/campaign.jpg" menu_script="arena_campaign_menu.as" main_script="linear_campaign.as">
-        <Level title="Blocks" thumbnail="UI/mainmenu/images/grass_beach.png">4p-versus/blocks_map.xml</Level>
-		<Level title="Plank" thumbnail="UI/mainmenu/images/grass_beach.png">4p-versus/plank_map.xml</Level>
+        <Level title="Blocks " thumbnail="UI/mainmenu/images/grass_beach.png">4p-versus/blocks_map.xml</Level>
+		<Level title="Planks" thumbnail="UI/mainmenu/images/grass_beach.png">4p-versus/plank_map.xml</Level>
+        <Level title="Tree Canyon Summer" thumbnail="UI/mainmenu/images/grass_beach.png">4p-versus/tree_canyon_summer_map.xml</Level>
     </Campaign>
 </Mod>

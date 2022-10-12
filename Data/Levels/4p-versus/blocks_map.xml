@@ -93,7 +93,7 @@
     <EnvObject t0="-180.74" t1="79.0375" t2="78.9168" s0="1.67676" s1="1.67676" s2="1.67676" q0="-0.00322628" q1="-0.443898" q2="-0.0200838" q3="0.895846" euler_x="0.0198852" euler_y="-0.919763" euler_z="-0.0546795" id="14" color_r="0.607843" color_g="0.568627" color_b="0.47451" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1a_lichen.xml">
         <parameters />
     </EnvObject>
-    <Hotspot t0="-198.497" t1="127.088" t2="34.4548" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="15" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="-198.497" t1="127.088" t2="34.4548" s0="1" s1="1" s2="1" q0="0" q1="0.189418" q2="0" q3="0.981897" euler_x="0" euler_y="0.381138" euler_z="0" id="15" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="1" />
@@ -350,10 +350,10 @@
     <Decal t0="-119.396" t1="72.9062" t2="253.522" s0="5.53899" s1="3.61376" s2="7.33375" q0="-0.218045" q1="-0.749432" q2="0.0770004" q3="0.620386" euler_x="-2.08571" euler_y="-1.11134" euler_z="1.8805" id="98" type_file="Data/Objects/Decals/hex_crete_damage.xml" color_r="0.717647" color_g="0.717647" color_b="0.717647" overbright="0">
         <parameters />
     </Decal>
-    <CameraObject t0="-171.795" t1="128.178" t2="53.8455" s0="1" s1="1" s2="1" q0="-0.0840607" q1="0.718265" q2="-0.0881394" q3="-0.685026" euler_x="-2.8974" euler_y="-1.52343" euler_z="-3.14159" id="99">
+    <CameraObject t0="-170.961" t1="131.177" t2="34.1526" s0="1" s1="1" s2="1" q0="-0.115917" q1="0.883216" q2="-0.299829" q3="-0.341459" euler_x="-2.48706" euler_y="-0.737818" euler_z="3.14159" id="99">
         <parameters />
     </CameraObject>
-    <Hotspot t0="-172.639" t1="126.203" t2="41.8607" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="101" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="-173.14" t1="126.86" t2="39.8253" s0="1" s1="1" s2="1" q0="0.0265767" q1="-0.709059" q2="-0.0136619" q3="0.704513" euler_x="1.69239" euler_y="-1.51346" euler_z="-1.67412" id="101" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="2" />
@@ -361,7 +361,7 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-175.271" t1="126.69" t2="54.6157" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="103" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="-175.271" t1="126.69" t2="54.6157" s0="1" s1="1" s2="1" q0="0" q1="-0.895126" q2="0" q3="0.445813" euler_x="3.14159" euler_y="-0.924165" euler_z="-3.14159" id="103" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="3" />

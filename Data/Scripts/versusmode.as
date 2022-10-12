@@ -1027,6 +1027,18 @@ string IntToSpecies(int speciesNr){
 float set_omniscientTimeSpan = 3;
 float set_omniscientTimer = set_omniscientTimeSpan;
 
+// Warning! Rolling character also revives/heals him
+void RerollCharacter(int playerNr, Object@ char){
+    MovementObject@ mo = ReadCharacterID(char.GetID());
+    string species = IntToSpecies(currentRace[playerNr]);
+    string newCharPath = GetSpeciesRandCharacterPath(species);
+
+    string executeCmd = "SwitchCharacter(\""+ newCharPath +"\");";
+    Log(error, species+" "+newCharPath+" "+executeCmd);
+    mo.Execute(executeCmd);
+    RecolorCharacter(playerNr, species, char);
+}
+
 void Update() {
     if(GetInputDown(0,"f8")){
         LoadLevel(GetCurrLevelRelPath());
@@ -1036,17 +1048,7 @@ void Update() {
 
     }
     if(GetInputPressed(0,"f10")) {
-        MovementObject@ mo = ReadCharacter(0);
-        Object@ char = ReadObjectFromID(mo.GetID());
-        // TEMP Reroll character (playerNr, obj)
-        // Warning! Rolling character also revives/heals him
-        string species = IntToSpecies(currentRace[0]);
-        string newCharPath = GetSpeciesRandCharacterPath(species);
         
-        string executeCmd = "SwitchCharacter(\""+ newCharPath +"\");";
-        Log(error, species+" "+newCharPath+" "+executeCmd);
-        mo.Execute(executeCmd);
-        RecolorCharacter(0, species, char);
     }
 
     // Forces call `Notice` on all characters (helps with npc just standing there like morons)
@@ -1057,7 +1059,6 @@ void Update() {
             char.ReceiveScriptMessage("set_omniscient true");
         }
     }
-
     
     CheckPlayersState();
     // On first update we switch to warmup state
@@ -1136,6 +1137,12 @@ void CheckPlayersState(){
                 if(GetInputPressed(i,"attack")) {
                     currentRace[i]= currentRace[i]+1;
                     currentRace[i]= currentRace[i]%speciesMap.size();
+                    
+                    if(currentState==0){
+                        MovementObject@ mo = ReadCharacter(i);
+                        Object@ char = ReadObjectFromID(mo.GetID());
+                        RerollCharacter(i,char);
+                    }
                 }
                 versus_gui.ChangeIcon(i, currentRace[i], true);
             }
@@ -1144,7 +1151,6 @@ void CheckPlayersState(){
                 versus_gui.ChangeIcon(i, -1, false);
             }
         }
-
     }
 }
 
@@ -1174,6 +1180,7 @@ void ChangeGameState(uint newState){
         case 2:
             //Game Start
             currentState = newState;
+            PlaySound("Data/Sounds/versus/voice_start_1.wav");
             // Clear text
             versus_gui.SetText("");
             level.SendMessage("reset");
@@ -1181,7 +1188,7 @@ void ChangeGameState(uint newState){
     }
 }
 
-void IncrementScoreLeftUp(){
+void IncrementScoreLeftUp() {
     if(score_leftUp < 5){
         versus_gui.IncrementScoreLeftUp(score_leftUp);
     }
@@ -1201,7 +1208,7 @@ void IncrementScoreRightUp() {
     ++score_rightUp;
 }
 
-void IncrementScoreLeftDown(){
+void IncrementScoreLeftDown() {
     if(score_leftDown < 5){
         versus_gui.IncrementScoreLeftDown(score_leftDown);
     }
@@ -1459,9 +1466,9 @@ void FindSpawnPoints(){
                         DisplayError("FindSpawnPoints Error", "Spawn has PlayerNr less than -1 and greater than 3");
                     }
                     if(playerNr==-1){
-                        // If its -1, its a generic spawn point, add it to the 5th array (generic spawns)
-                        spawnPointIds[4].resize(spawnPointIds[4].size() + 1);
-                        spawnPointIds[4][spawnPointIds[4].size()] = object_ids[i];
+                        // If its -1, its a generic spawn point, add it to the last array (generic spawns)
+                        spawnPointIds[spawnPointIds.size()].resize(spawnPointIds[4].size() + 1);
+                        spawnPointIds[spawnPointIds.size()][spawnPointIds[spawnPointIds.size()].size()] = object_ids[i];
                     }
                     else{
                         // If its 0 or greater, make sure it lands on the correct playerIndex array
