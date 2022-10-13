@@ -1,6 +1,6 @@
 <?xml version="2.0" ?>
 <Type>saved</Type>
-<Name>test</Name>
+<Name>raceTest_map</Name>
 <Description></Description>
 <Shader>post</Shader>
 <Shadows>true</Shadows>
@@ -33,15 +33,16 @@
 <Script>raceGamemode.as</Script>
 <LevelScriptParameters>
     <parameter name="Achievements" type="string" val="flawless, no_injuries, no_kills" />
-    <parameter name="Fog amount" type="string" val="1" />
-    <parameter name="HDR Black point" type="string" val="0.019" />
-    <parameter name="HDR Bloom multiplier" type="string" val="0.194" />
-    <parameter name="HDR White point" type="string" val="0.751" />
-    <parameter name="Level Boundaries" type="string" val="1" />
+    <parameter name="Fog amount" type="float" val="1" />
+    <parameter name="HDR Black point" type="float" val="0.019" />
+    <parameter name="HDR Bloom multiplier" type="float" val="0.194" />
+    <parameter name="HDR White point" type="float" val="0.751" />
+    <parameter name="Level Boundaries" type="int" val="1" />
     <parameter name="Objectives" type="string" val="destroy_all" />
+    <parameter name="Poo" type="string" val="No" />
     <parameter name="Saturation" type="float" val="1" />
-    <parameter name="Sky Brightness" type="string" val="0.8300000000000001" />
-    <parameter name="Sky Rotation" type="string" val="0" />
+    <parameter name="Sky Brightness" type="float" val="0.83" />
+    <parameter name="Sky Rotation" type="float" val="0" />
     <parameter name="Sky Tint" type="string" val="255, 255, 255" />
 </LevelScriptParameters>
 <NavMeshParameters generate="true" cell_size="0.3" cell_height="0.2" agent_height="1.7" agent_radius="0.4" agent_max_climb="1.5" agent_max_slope="60" />
@@ -350,7 +351,7 @@
     <Decal t0="-119.396" t1="72.9062" t2="253.522" s0="5.53899" s1="3.61376" s2="7.33375" q0="-0.218045" q1="-0.749432" q2="0.0770004" q3="0.620386" euler_x="-2.08571" euler_y="-1.11134" euler_z="1.8805" id="98" type_file="Data/Objects/Decals/hex_crete_damage.xml" color_r="0.717647" color_g="0.717647" color_b="0.717647" overbright="0">
         <parameters />
     </Decal>
-    <CameraObject t0="-182.267" t1="130.567" t2="40.7897" s0="1" s1="1" s2="1" q0="0.0718684" q1="-0.927847" q2="0.270425" q3="0.246586" euler_x="-2.5744" euler_y="-0.519515" euler_z="3.14159" id="99">
+    <CameraObject t0="-184.462" t1="131.477" t2="49.5356" s0="1" s1="1" s2="1" q0="0.00239273" q1="0.997605" q2="-0.0478513" q3="0.0498839" euler_x="-3.04573" euler_y="0.0999241" euler_z="-3.14159" id="99">
         <parameters />
     </CameraObject>
     <Hotspot t0="-173.14" t1="126.86" t2="39.8253" s0="1" s1="1" s2="1" q0="0.0265767" q1="-0.709059" q2="-0.0136619" q3="0.704513" euler_x="1.69236" euler_y="-1.51345" euler_z="-1.67409" id="101" type_file="Data/Objects/playerSpawn.xml">
@@ -392,7 +393,7 @@
     <EnvObject t0="-201.14" t1="89.3845" t2="44.4425" s0="1.01162" s1="2.18529" s2="0.883532" q0="0.0153264" q1="-0.0441156" q2="0.0179088" q3="0.998748" euler_x="0.0291533" euler_y="-0.0887863" euler_z="0.0345635" id="109" color_r="0.368627" color_g="0.368627" color_b="0.368627" overbright="0" type_file="Data/Objects/Crete/hex_crete_tall.xml">
         <parameters />
     </EnvObject>
-    <ReflectionCaptureObject t0="-193.613" t1="89.6417" t2="32.5783" s0="0.48742" s1="0.48742" s2="0.48742" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="110" gicoeff00="0.105255" gicoeff01="0.145905" gicoeff02="0.149429" gicoeff03="0.0634537" gicoeff04="0.0862122" gicoeff05="0.0917816" gicoeff06="0.0866089" gicoeff07="0.135574" gicoeff08="0.165131" gicoeff09="0.0862579" gicoeff10="0.099411" gicoeff11="0.0750732" gicoeff12="0.0689545" gicoeff13="0.0931244" gicoeff14="0.095459" gicoeff15="0.101044" gicoeff16="0.137833" gicoeff17="0.143127">
+    <ReflectionCaptureObject t0="-193.613" t1="89.6417" t2="32.5783" s0="0.48742" s1="0.48742" s2="0.48742" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="110" gicoeff00="0.0869751" gicoeff01="0.115555" gicoeff02="0.117722" gicoeff03="0.0513306" gicoeff04="0.0649261" gicoeff05="0.0679321" gicoeff06="0.0731277" gicoeff07="0.113037" gicoeff08="0.137741" gicoeff09="0.0716705" gicoeff10="0.0732422" gicoeff11="0.0503769" gicoeff12="0.0518951" gicoeff13="0.0633087" gicoeff14="0.0618591" gicoeff15="0.0871277" gicoeff16="0.115372" gicoeff17="0.119843">
         <parameters>
             <parameter name="Global" type="string" val="1" />
         </parameters>
@@ -2809,23 +2810,82 @@
         <NavMeshConnections>
             <NavMeshConnection other_object_id="875" offmesh_connection_id="1029" poly_area="7" />
             <NavMeshConnection other_object_id="874" offmesh_connection_id="1028" poly_area="8" />
-            <NavMeshConnection other_object_id="886" offmesh_connection_id="1032" poly_area="8" />
+            <NavMeshConnection other_object_id="886" offmesh_connection_id="-1" poly_area="8" />
             <NavMeshConnection other_object_id="876" offmesh_connection_id="1030" poly_area="8" />
             <NavMeshConnection other_object_id="877" offmesh_connection_id="1031" poly_area="9" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
-    <NavmeshConnectionObject t0="-185.216" t1="129.644" t2="45.9878" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="886" type_file="">
+    <NavmeshConnectionObject t0="-185.125" t1="129.757" t2="45.9674" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="886" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="885" offmesh_connection_id="1032" poly_area="8" />
+            <NavMeshConnection other_object_id="885" offmesh_connection_id="-1" poly_area="8" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <Hotspot t0="-184.857" t1="129.905" t2="45.3826" s0="0.139773" s1="0.139773" s2="0.139773" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="890" type_file="Data/Objects/raceGoal.xml">
         <parameters>
             <parameter name="Type" type="string" val="Smoke" />
+            <parameter name="checkpointNumber" type="int" val="-1" />
+            <parameter name="gameMode" type="string" val="Race" />
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="player0Reached" type="int" val="-1" />
+            <parameter name="player1Reached" type="int" val="-1" />
+            <parameter name="player2Reached" type="int" val="-1" />
+            <parameter name="player3Reached" type="int" val="-1" />
+            <parameter name="playersReached" type="string" val="-1,-1,-1,-1" />
+        </parameters>
+        <Connections>
+            <Connection id="903" />
+            <Connection id="900" />
+        </Connections>
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-197.997" t1="125.364" t2="58.8877" s0="0.139773" s1="0.139773" s2="0.139773" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="895" type_file="Data/Objects/raceGoal.xml">
+        <parameters>
+            <parameter name="Type" type="string" val="Smoke" />
+            <parameter name="checkpointNumber" type="int" val="-1" />
+            <parameter name="gameMode" type="string" val="Race" />
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="player0Reached" type="int" val="-1" />
+            <parameter name="player1Reached" type="int" val="-1" />
+            <parameter name="player2Reached" type="int" val="-1" />
+            <parameter name="player3Reached" type="int" val="-1" />
+            <parameter name="playersReached" type="string" val="-1,-1,-1,-1" />
+        </parameters>
+        <Connections>
+            <Connection id="896" />
+            <Connection id="897" />
+        </Connections>
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-200.816" t1="126.526" t2="57.9608" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="896" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="1" />
         </parameters>
         <Connections />
-        <ConnectionsFrom />
+        <ConnectionsFrom>
+            <Connection id="895" />
+        </ConnectionsFrom>
+    </Hotspot>
+    <Hotspot t0="-197.39" t1="126.278" t2="61.7122" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="897" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="0" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom>
+            <Connection id="895" />
+        </ConnectionsFrom>
+    </Hotspot>
+    <Hotspot t0="-180.366" t1="127.785" t2="46.8129" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="900" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="0" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom>
+            <Connection id="890" />
+        </ConnectionsFrom>
     </Hotspot>
     <PlaceholderObject t0="-181.407" t1="126.332" t2="43.5605" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="902" type_file="" special_type="0">
         <parameters>
@@ -2835,9 +2895,19 @@
             <Connection id="902" />
         </Connections>
     </PlaceholderObject>
+    <Hotspot t0="-188.26" t1="127.288" t2="42.6373" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="903" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="1" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom>
+            <Connection id="890" />
+        </ConnectionsFrom>
+    </Hotspot>
 </ActorObjects>
 <RecentItems>
-    <SpawnerItem display_name="playerSpawn.xml" path="Data/Objects/playerSpawn.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Fire" path="Data/Objects/fire.xml" thumbnail_path="" />
     <SpawnerItem display_name="raceGoal.xml" path="Data/Objects/raceGoal.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="playerSpawn.xml" path="Data/Objects/playerSpawn.xml" thumbnail_path="empty_placeholder.png" />
 </RecentItems>

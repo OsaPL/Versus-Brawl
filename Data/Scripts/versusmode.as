@@ -165,9 +165,35 @@ void SpawnCharacter(Object@ spawn, Object@ char, bool isAlreadyPlayer = false) {
 // TODO: `useGeneric` will take into account generic spawns
 // TODO: `useOneType` will only take team spawns if `useGeneric = false` adn only generic spawns if `useGeneric = true`
 Object@ FindRandSpawnPoint(int playerNr, bool useGeneric = false, bool useOneType=true) {
+    
+    //Lets do a quick copy
+    array<array<int>> availableSpawnPoints = {};
+    availableSpawnPoints.resize(spawnPointIds.size());
+    for (uint i = 0; i < spawnPointIds.size(); i++) {
+        availableSpawnPoints[i]= spawnPointIds[i];
+    }
+    
+    while(availableSpawnPoints[playerNr].size() > 0 ){
+        int index = rand()%(availableSpawnPoints[playerNr].size());
+        int obj_id = availableSpawnPoints[playerNr][index];
+
+        Object@ obj = ReadObjectFromID(obj_id);
+        
+        // If its disabled just go on
+        if(obj.GetEnabled()){
+            return obj;
+        }
+        else {
+            availableSpawnPoints[playerNr].removeAt(index);
+        }
+    }
+
+    // If you cant found anything, just use any
+    DisplayError("FindRandSpawnPoint", "FindRandSpawnPoint couldnt find a spawn with playerNr:"+playerNr+" useGeneric:"+useGeneric+" useOneType:"+useOneType); 
     int obj_id = spawnPointIds[playerNr][
     rand()%(spawnPointIds[playerNr].size())];
-    return ReadObjectFromID(obj_id);
+    Object@ obj = ReadObjectFromID(obj_id);
+    return obj;
 }
 
 // Warning! Rolling character also revives/heals him

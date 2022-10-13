@@ -32,3 +32,11 @@ void Dispose(){
         DeleteObjectID(placeholderId);
     }
 }
+
+bool AcceptConnectionsFrom(Object@ other) {
+    return true;
+}
+
+bool AcceptConnectionsTo(Object@ other) {
+    return true;
+}

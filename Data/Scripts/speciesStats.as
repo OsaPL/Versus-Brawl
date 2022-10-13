@@ -69,7 +69,7 @@ rat is great for pushing opponents
 playtesting sessions notes:
 
 -session #1 (mostly blocks, 3 players) 11 Oct 
-wolf is in a surprisingly is a good place, maybe make attack or movement speed slightly higher?
+wolf is in a surprisingly good place, maybe make attack or movement speed slightly higher?
 rat is kinda annoying on maps with hazards, good, tis the way of the rat
 cats feel weak, even with high movements and attack speeds, buff them a little?
 rabbits feel now better that default, maybe even a slight dmg nerf is needed still

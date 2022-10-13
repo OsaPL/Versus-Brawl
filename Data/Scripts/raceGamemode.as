@@ -1,12 +1,14 @@
-﻿#include "versusmode.as"
+#include "versusmode.as"
 // ^^ only this is needed
 
 //Configurables
 float suicideTime = 1;
 int forcedSpeciesType = 2;
+int checkPointNeeded = 2;
 
 //State
-array<float> suicideTimers ={0,0,0,0};
+array<float> suicideTimers = {0,0,0,0};
+array<int> checkpointReached = {0,0,0,0};
 
 //Level methods
 void Init(string msg){
@@ -17,9 +19,14 @@ void Init(string msg){
     for (uint i = 0; i < currentRace.size() ; i++) {
         currentRace[i] = forcedSpeciesType;
     }
-    
+
     //Always need to call this first!
     VersusInit("");
+
+    //TODO! Adding some level parameters
+    ScriptParams@ params = level.GetScriptParams();
+    if(!params.HasParam("Poo"))
+        params.SetString("Poo", "Yes");
 }
 
 void DrawGUI() {
