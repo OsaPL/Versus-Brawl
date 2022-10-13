@@ -12,45 +12,74 @@ I say, slash, bonk, impale and do whatever else you want to do with your friends
 
 # Quick disclaimer:
 There are things missing atm:
-- No respawn system is not yet completed
+- Respawn system is not yet completed (still a little wonky, missing a more generic spawn code)
 - No ability to team up
 - No modifications to the default character scripts
-- No generic gamemode interface
-- No events/hotspots for new gamemodes implementation
+- Missing elements for new gamemodes implementation
 
 Some of the functionality will come eventually, once I have laid the foundation by developing these features.
-Anything marked by 👻 is missing atm.
+**Anything marked by 👻 is missing atm.**
 
-# Fixed/Reworked
+# Features
 - 2/3/4 player support, with UI help and gamepad support
+- Ability to change species, with each character having different stats and a unique trait
 - Players should no longer get their Id swapped, resulting in gamepads being always correctly arranged
 - Two maps that arent just a gm_flatgrass (👻6 planned, atleast 1 per mode)
 - Only a single level script and few basic prefabs needed to create a map. You can have a map ready in matter of minutes.
-- Ability to change race on respawn, with each race having diffrent stats and a unique trait
-- Warmup before the rounds start
+- Warmup before the game start
+- Easy to extend with new gamemodes (with even more options coming)
 - `F8` now does a hard-reload of the map (this saved me EONS of time)
 - 👻SuperEasy<sup>TM</sup> to extend with new races (mostly true, but there are still few hardcoded places)
-- 👻Randomized character apperance (almost completely done, missing some variants)
-- 👻Easy to extend with new gamemodes
+- 👻Randomized character apperance (almost completely done, missing some variants, colors look whack sometimes)
 - 👻NPC opponents support (this will rely on map maker to implement detailed paths)
+
+# FAQ
+
+1. **How do I swap characters?**
+
+For each player its always `drop` and `item` key together, then press `attack` to switch to next.
+The UI should start showing you different species icons, if its not the gamemode doesnt allow it. 
+Some gamemodes only allow for next round change while game is in progress.
+2. **How do I select amount of players**
+
+I mean, its on the screen but ok. Player nr 1 has to hold `item` key and press corresponding buttons for players number.
+`crouch` for 2 players
+`jump` for 3 players
+`attack` for 4 players
+3. **Gamepads not working/controlling one character/other stupid controller related bugs**
+
+Make sure your gamepads are all connected before starting the map. If problem persists, try restarting the game. If the problem still occurs, try reassigning gamepads.
+
+4. **What does `<action here>` key correspond to?**
+
+For an XbOne gamepad its: 
+
+`item` A
+`drop` X
+`attack` right trigger
+`grab` left trigger
+`crouch` right bumper
+`jump` left bumper
+
+If you have other any gamepad, you're smart, I believe you'll figure it out.
 
 # Gamemodes:
 
-- Versus fight
+- Last Bun Standing
   
-Last bun standing gets the point
+Survivor gets the point
 
-- 👻Race
+- 👻Race (mostly done, needed maps and balancing)
   
-*self explanatory*
+*self explanatory* On each checkpoint, everyone but 1st place, gets a knife to throw.
 
 - 👻Sacrifice 
   
-each body thrown to your abbys, gives a point
+Each enemy body thrown to your abbys, gives a point, your body in your abbys takes back two.
 
 - 👻Capture the fur 
   
-basically capture the flag
+Just CTF
 
 # Species:
 *These are subject to change*
@@ -113,11 +142,12 @@ Wolf:
 Trait: Pounces on you - sharp claws, cant use weapons
 
 # Small bugs (dont report these, I know :) )
-- player one can sometimes change species on selecting number of players
+- wolf can grab the weapon thrown at him
 - clothing colors may look wonky, low priority
 - changing anything in the script, causes ui to bug out (my fault, probably global script variables are being cleared)
 - for 2 players the UI still stays the same as for 3/4 players setup
 - most of the UI stuff is filled with placeholders atm
+- going from warmup to game can scramble controlerIds if you didnt select 4 players (add pre warmup to select number of players?)
 
 # Download and instalation
 ## WIP mod
@@ -125,6 +155,9 @@ Trait: Pounces on you - sharp claws, cant use weapons
 # Thanks to:
 [WolfireGames](https://github.com/WolfireGames) - for being awesome developers (source code helped me a lot)
 
-Jukucz, Naxer, Dante and Emperot - for playtesting this shit
+[Surak](https://github.com/Surak) for [Timed-Execution](https://github.com/EmpSurak/Timed-Execution) simplified A LOT of my code
+
+Jukucz, Naxer, Dante, Emperot and DemonAngel - for playtesting this shit
 
 WhaleMan - Praise the WhaleMan
+
