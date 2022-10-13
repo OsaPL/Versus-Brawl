@@ -8,6 +8,7 @@
     //TODO! Stats to implement:
     //1)jump height
     //2)No blocking
+    //TODO! Extract it to top level for ease of editing if needed
     if(species == "rabbit"){
         params.SetFloat("Attack Damage",    1.0); //params.AddFloatSlider("Attack Damage", 1, "min:0,max:2,step:0.1,text_mult:100");
         params.SetFloat("Attack Knockback", 1.0); //params.AddFloatSlider("Attack Knockback", 1, "min:0,max:2,step:0.1,text_mult:100");
@@ -61,7 +62,16 @@
 
 /* Some balancing notes:
 Wolf shouldnt be able to one hit kill dog
-wolf is weak vs weapons, rats and dogs
+wolf is weak vs weapons
 cat is glass cannon, good vs lower hp rabbit and rat
 rat is great for pushing opponents
+
+playtesting sessions notes:
+
+-session #1 (mostly blocks, 3 players) 11 Oct 
+wolf is in a surprisingly is a good place, maybe make attack or movement speed slightly higher?
+rat is kinda annoying on maps with hazards, good, tis the way of the rat
+cats feel weak, even with high movements and attack speeds, buff them a little?
+rabbits feel now better that default, maybe even a slight dmg nerf is needed still
+nobody played dog, other than to counter wolf, maybe hes too weak against other species? maybe he feels sluggish and underpowered when comparing to wolf?
  */
