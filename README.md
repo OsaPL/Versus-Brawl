@@ -73,6 +73,10 @@ Survivor gets the point
   
 *self explanatory* On each checkpoint, everyone but 1st place, gets a knife to throw.
 
+- 👻Deathmatch
+
+Gather kills to get points
+
 - 👻Sacrifice 
   
 Each enemy body thrown to your abbys, gives a point, your body in your abbys takes back two.

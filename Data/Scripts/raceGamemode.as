@@ -111,6 +111,7 @@ void Update(){
     if(currentState == 3){
         winStateTimer += time_step;
 
+        //Ninja mode, this probably needs to be extracted into a powerup
         MovementObject@ mo = ReadCharacterID(winnerId);
         int weapon = mo.GetArrayIntVar("weapon_slots",mo.GetIntVar("primary_weapon_slot"));
         if(weapon == -1) {
