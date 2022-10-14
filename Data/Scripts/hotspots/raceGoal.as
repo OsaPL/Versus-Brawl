@@ -21,7 +21,7 @@ void Update(){
     if(init){
         connected_object_ids = hotspot.GetConnectedObjects();
 
-        //Disable all respawns
+        //Disable all connected objects
         for (uint i = 0; i < connected_object_ids.size(); i++) {
             Object@ obj = ReadObjectFromID(connected_object_ids[i]);
             obj.SetEnabled(false);
@@ -29,6 +29,13 @@ void Update(){
         }
         init = false;
     }
+}
+
+void Reset(){
+    for (int i = 0; i < 4; i++) {
+        params.SetInt("player"+i+"Reached", -1);
+    }
+    init = true;
 }
 
 void Dispose(){
@@ -65,6 +72,14 @@ bool IsAcceptedConnectionType(Object@ other){
 }
 
 void HandleEvent(string event, MovementObject @mo){
+    
+    ScriptParams@ lvlParams = level.GetScriptParams();
+    if(lvlParams.HasParam("InProgress"))
+        if(lvlParams.GetInt("InProgress") < 1){
+            //Ignore if the game didnt start yet
+            return;
+        }
+    
     if(event == "enter"){
         if(mo.is_player){
             // Check if this is already taken by that playerNr
@@ -99,7 +114,7 @@ void HandleEvent(string event, MovementObject @mo){
                     // Enable the one connected
                     obj.SetEnabled(true);
                     //TODO! receive and increment checkpoints number in race Gamemode script
-                    // level.SendMessage("checkpoint "+mo.controller_id);
+                    level.SendMessage("checkpoint "+mo.controller_id);
                     break;
                 }
             }

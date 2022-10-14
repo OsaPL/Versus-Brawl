@@ -321,6 +321,16 @@ int SpeciesToInt(string species) {
     return -1;
 }
 
+string IntToColorName(int playerNr) {
+    switch (playerNr){
+        case 0:return "Green";
+        case 1:return "Red";
+        case 2:return "Blue";
+        case 3:return "Yellow";
+    }
+    return "Youre not supposed to see this!";
+}
+
 string IntToSpecies(int speciesNr) {
     int speciesSize = speciesMap.size();
     if(speciesNr> speciesSize|| speciesNr<0){
@@ -385,10 +395,18 @@ vec3 FloatTintFromByte(const vec3 &in tint) {
 
 void VersusInit(string p_level_name) {
     FindSpawnPoints();
-    // Spawn 4 players, otherwise it gets funky and spawns a player where editor camera was
-    for(int i = 0; i < 4; i++)
-    {
-        SpawnCharacter(FindRandSpawnPoint(i),CreateCharacter(i, IntToSpecies(currentRace[i])));
+
+    // if(!CheckSpawnsNumber() && failsafe) {
+    //     //Warn about the incorrect number of spawns
+    //     ChangeGameState(1);
+    // }
+    
+    if(currentState != 1){
+        // Spawn 4 players, otherwise it gets funky and spawns a player where editor camera was
+        for(int i = 0; i < 4; i++)
+        {
+            SpawnCharacter(FindRandSpawnPoint(i),CreateCharacter(i, IntToSpecies(currentRace[i])));
+        }
     }
     
     timer.Add(LevelEventJob("reset", function(_params){
@@ -416,12 +434,8 @@ void VersusDrawGUI(){
 void VersusUpdate() {
     timer.Update();
 
-    if(GetInputDown(0,"f8")){
-        LoadLevel(GetCurrLevelRelPath());
-    }
-
     if(GetInputDown(0,"f10")){
-        level.SendMessage("reset");
+        LoadLevel(GetCurrLevelRelPath());
     }
 
     // Forces call `Notice` on all characters (helps with npc just standing there like morons)
@@ -539,6 +553,8 @@ class VersusAHGUI : AHGUI::GUI {
         AHGUI::Element@ headerElement = root.findElement("header");
         if( headerElement is null  ) {
             DisplayError("GUI Error", "Unable to find header");
+            // Just reload the level on this error
+            LoadLevel(GetCurrLevelRelPath());
         }
         AHGUI::Divider@ header = cast<AHGUI::Divider>(headerElement);
         // Get rid of the old contents
@@ -806,7 +822,7 @@ void CheckPlayersState() {
         }
     }
     
-    if(currentState==2 || constantRespawning){
+    if(currentState>2 || constantRespawning){
         // Respawning logic
         for (uint i = 0; i < respawnQueue.size() ; i++) {
             if(respawnQueue[i]>-respawnBlockTime){
