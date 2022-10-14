@@ -37,6 +37,7 @@
     <parameter name="HDR Black point" type="float" val="0.019" />
     <parameter name="HDR Bloom multiplier" type="float" val="0.194" />
     <parameter name="HDR White point" type="float" val="0.751" />
+    <parameter name="InProgress" type="int" val="0" />
     <parameter name="Level Boundaries" type="int" val="1" />
     <parameter name="Objectives" type="string" val="destroy_all" />
     <parameter name="Poo" type="string" val="No" />
@@ -351,7 +352,7 @@
     <Decal t0="-119.396" t1="72.9062" t2="253.522" s0="5.53899" s1="3.61376" s2="7.33375" q0="-0.218045" q1="-0.749432" q2="0.0770004" q3="0.620386" euler_x="-2.08571" euler_y="-1.11134" euler_z="1.8805" id="98" type_file="Data/Objects/Decals/hex_crete_damage.xml" color_r="0.717647" color_g="0.717647" color_b="0.717647" overbright="0">
         <parameters />
     </Decal>
-    <CameraObject t0="-184.462" t1="131.477" t2="49.5356" s0="1" s1="1" s2="1" q0="0.00239273" q1="0.997605" q2="-0.0478513" q3="0.0498839" euler_x="-3.04573" euler_y="0.0999241" euler_z="-3.14159" id="99">
+    <CameraObject t0="-197.795" t1="127.528" t2="56.8257" s0="1" s1="1" s2="1" q0="0.0834002" q1="-0.905966" q2="0.357058" q3="0.211612" euler_x="-2.39074" euler_y="-0.458925" euler_z="3.14159" id="99">
         <parameters />
     </CameraObject>
     <Hotspot t0="-173.14" t1="126.86" t2="39.8253" s0="1" s1="1" s2="1" q0="0.0265767" q1="-0.709059" q2="-0.0136619" q3="0.704513" euler_x="1.69236" euler_y="-1.51345" euler_z="-1.67409" id="101" type_file="Data/Objects/playerSpawn.xml">
@@ -384,12 +385,9 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <EnvObject t0="-184.851" t1="77.8532" t2="46.3464" s0="2.01594" s1="2.86972" s2="2.37766" q0="-0.00474894" q1="0.00257536" q2="0.0122051" q3="0.999911" euler_x="-0.00943444" euler_y="0.00526621" euler_z="0.0243863" id="107" color_r="0.27451" color_g="0.27451" color_b="0.27451" overbright="0" type_file="Data/Objects/Crete/hex_crete_tall.xml">
+    <EnvObject t0="-184.852" t1="77.8539" t2="46.3465" s0="2.01594" s1="2.86972" s2="2.37766" q0="-0.00474894" q1="0.00257536" q2="0.0122051" q3="0.999911" euler_x="-0.00943444" euler_y="0.00526621" euler_z="0.0243863" id="107" color_r="0.27451" color_g="0.27451" color_b="0.27451" overbright="0" type_file="Data/Objects/Crete/hex_crete_tall.xml">
         <parameters />
     </EnvObject>
-    <ItemObject t0="-198.324" t1="125.193" t2="58.8765" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="108" type_file="Data/Items/staffbasic.xml" color_r="1" color_g="1" color_b="1" overbright="0">
-        <parameters />
-    </ItemObject>
     <EnvObject t0="-201.14" t1="89.3845" t2="44.4425" s0="1.01162" s1="2.18529" s2="0.883532" q0="0.0153264" q1="-0.0441156" q2="0.0179088" q3="0.998748" euler_x="0.0291533" euler_y="-0.0887863" euler_z="0.0345635" id="109" color_r="0.368627" color_g="0.368627" color_b="0.368627" overbright="0" type_file="Data/Objects/Crete/hex_crete_tall.xml">
         <parameters />
     </EnvObject>
@@ -410,15 +408,12 @@
     <EnvObject t0="-185.482" t1="84.6563" t2="63.7039" s0="1.07547" s1="2.32321" s2="0.939296" q0="0" q1="-0.00310743" q2="0" q3="0.999995" euler_x="0" euler_y="-0.00621487" euler_z="0" id="114" color_r="0.2" color_g="0.2" color_b="0.2" overbright="0" type_file="Data/Objects/Crete/hex_crete_tall.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-195.975" t1="81.3931" t2="58.4589" s0="1.19632" s1="2.58426" s2="1.04484" q0="0.0164663" q1="0.0210936" q2="0.0413006" q3="0.998788" euler_x="0.0346708" euler_y="0.0407872" euler_z="0.0833615" id="115" color_r="0.117647" color_g="0.117647" color_b="0.117647" overbright="0" type_file="Data/Objects/Crete/hex_crete_tall.xml">
+    <EnvObject t0="-195.975" t1="81.393" t2="58.4589" s0="1.19632" s1="2.58426" s2="1.04484" q0="0.0164663" q1="0.0210936" q2="0.0413006" q3="0.998788" euler_x="0.0346708" euler_y="0.0407872" euler_z="0.0833615" id="115" color_r="0.117647" color_g="0.117647" color_b="0.117647" overbright="0" type_file="Data/Objects/Crete/hex_crete_tall.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-170.332" t1="86.4818" t2="59.4546" s0="1.08213" s1="2.3376" s2="0.945112" q0="-0.062947" q1="-0.0558986" q2="0.0489617" q3="0.995247" euler_x="-0.13188" euler_y="-0.105296" euler_z="0.105272" id="116" color_r="0.498039" color_g="0.498039" color_b="0.498039" overbright="0" type_file="Data/Objects/Crete/hex_crete_tall.xml">
         <parameters />
     </EnvObject>
-    <ItemObject t0="-197.66" t1="125.18" t2="58.8493" s0="1" s1="1" s2="1" q0="-0.00047946" q1="0.00216574" q2="0.00227249" q3="0.999995" euler_x="-0.000949081" euler_y="0.00433365" euler_z="0.00454294" id="117" type_file="Data/Items/staffbasic.xml" color_r="1" color_g="1" color_b="1" overbright="0">
-        <parameters />
-    </ItemObject>
     <EnvObject t0="-184.764" t1="124.762" t2="58.3709" s0="3.48257" s1="1.50764" s2="0.997895" q0="-0.325164" q1="-0.427935" q2="-0.648746" q3="0.538766" euler_x="0.451694" euler_y="-1.08224" euler_z="-2.02992" id="118" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
         <parameters />
     </EnvObject>
@@ -2810,7 +2805,7 @@
         <NavMeshConnections>
             <NavMeshConnection other_object_id="875" offmesh_connection_id="1029" poly_area="7" />
             <NavMeshConnection other_object_id="874" offmesh_connection_id="1028" poly_area="8" />
-            <NavMeshConnection other_object_id="886" offmesh_connection_id="-1" poly_area="8" />
+            <NavMeshConnection other_object_id="886" offmesh_connection_id="1032" poly_area="8" />
             <NavMeshConnection other_object_id="876" offmesh_connection_id="1030" poly_area="8" />
             <NavMeshConnection other_object_id="877" offmesh_connection_id="1031" poly_area="9" />
         </NavMeshConnections>
@@ -2818,7 +2813,7 @@
     <NavmeshConnectionObject t0="-185.125" t1="129.757" t2="45.9674" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="886" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="885" offmesh_connection_id="-1" poly_area="8" />
+            <NavMeshConnection other_object_id="885" offmesh_connection_id="1032" poly_area="8" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <Hotspot t0="-184.857" t1="129.905" t2="45.3826" s0="0.139773" s1="0.139773" s2="0.139773" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="890" type_file="Data/Objects/raceGoal.xml">
@@ -2834,6 +2829,7 @@
             <parameter name="playersReached" type="string" val="-1,-1,-1,-1" />
         </parameters>
         <Connections>
+            <Connection id="884" />
             <Connection id="903" />
             <Connection id="900" />
         </Connections>
@@ -2841,19 +2837,18 @@
     </Hotspot>
     <Hotspot t0="-197.997" t1="125.364" t2="58.8877" s0="0.139773" s1="0.139773" s2="0.139773" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="895" type_file="Data/Objects/raceGoal.xml">
         <parameters>
-            <parameter name="Type" type="string" val="Smoke" />
-            <parameter name="checkpointNumber" type="int" val="-1" />
             <parameter name="gameMode" type="string" val="Race" />
             <parameter name="game_type" type="string" val="versusBrawl" />
-            <parameter name="player0Reached" type="int" val="-1" />
+            <parameter name="player0Reached" type="int" val="0" />
             <parameter name="player1Reached" type="int" val="-1" />
             <parameter name="player2Reached" type="int" val="-1" />
             <parameter name="player3Reached" type="int" val="-1" />
-            <parameter name="playersReached" type="string" val="-1,-1,-1,-1" />
         </parameters>
         <Connections>
             <Connection id="896" />
             <Connection id="897" />
+            <Connection id="904" />
+            <Connection id="901" />
         </Connections>
         <ConnectionsFrom />
     </Hotspot>
@@ -2887,6 +2882,11 @@
             <Connection id="890" />
         </ConnectionsFrom>
     </Hotspot>
+    <ItemObject t0="-197.628" t1="125.263" t2="58.8612" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="901" type_file="Data/Items/staffbasic.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="KeepDisabled" type="string" val="" />
+        </parameters>
+    </ItemObject>
     <PlaceholderObject t0="-181.407" t1="126.332" t2="43.5605" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="902" type_file="" special_type="0">
         <parameters>
             <parameter name="Name" type="string" val="player_spawn" />
@@ -2905,9 +2905,16 @@
             <Connection id="890" />
         </ConnectionsFrom>
     </Hotspot>
+    <ItemObject t0="-198.328" t1="125.256" t2="58.8133" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="904" type_file="Data/Items/staffbasic.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="KeepDisabled" type="string" val="" />
+        </parameters>
+    </ItemObject>
 </ActorObjects>
 <RecentItems>
     <SpawnerItem display_name="Fire" path="Data/Objects/fire.xml" thumbnail_path="" />
     <SpawnerItem display_name="raceGoal.xml" path="Data/Objects/raceGoal.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="playerSpawn.xml" path="Data/Objects/playerSpawn.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Stick" path="Data/Items/stick.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Staff" path="Data/Items/staffbasic.xml" thumbnail_path="" />
 </RecentItems>
