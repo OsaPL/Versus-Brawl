@@ -11,6 +11,7 @@ float winStateTime = 10;
 array<float> suicideTimers = {0,0,0,0};
 array<int> checkpointReached = {0,0,0,0};
 float winStateTimer = 0;
+int winnerId = -1;
 
 //Level methods
 void Init(string msg){
@@ -98,6 +99,7 @@ void Update(){
                     }
                     else{
                         // Buff the winner?
+                        winnerId = objTemp.GetID();
                     }
                     objTemp.UpdateScriptParams();
                 }
@@ -108,6 +110,14 @@ void Update(){
     
     if(currentState == 3){
         winStateTimer += time_step;
+
+        MovementObject@ mo = ReadCharacterID(winnerId);
+        int weapon = mo.GetArrayIntVar("weapon_slots",mo.GetIntVar("primary_weapon_slot"));
+        if(weapon == -1) {
+            int knifeId = CreateObject("Data/Items/rabbit_weapons/rabbit_knife.xml");
+            mo.Execute("AttachWeapon(" + knifeId + ");");
+        }
+        
         if(winStateTimer>winStateTime){
             // Now we just need to reset few things
             winStateTimer = 0;
