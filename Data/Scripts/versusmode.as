@@ -822,7 +822,7 @@ void CheckPlayersState() {
         }
     }
     
-    if(currentState>2 || constantRespawning){
+    if(currentState<2 || constantRespawning){
         // Respawning logic
         for (uint i = 0; i < respawnQueue.size() ; i++) {
             if(respawnQueue[i]>-respawnBlockTime){
@@ -842,7 +842,7 @@ void CheckPlayersState() {
         }
     }
     
-    if((currentState>=2 || currentState==0) && !blockSpeciesChange){
+    if(!blockSpeciesChange){
         for(int i=0; i<GetNumCharacters(); i++){
             if(GetInputDown(i,"item") && GetInputDown(i,"drop")) {
                 if(GetInputPressed(i,"attack")) {
