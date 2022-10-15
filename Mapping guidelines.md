@@ -46,3 +46,11 @@ OR
 Linking checkpoint to any other objects will switch the enabled flag and send in an `switch` event, good for opening doorway, disabling walls, spawning in weapons etc.
 
 If you wish your item to be stay disabled until checkpoint activation, add `KeepDisabled` parameter to the object (no value needed)
+
+
+# Special events/messages
+
+### `oneKilledByTwo <victim obj ID> <attacker obj ID>`
+Sent when a character is killed by another (checks `attacked_by_id` on victim) 
+### `spawned <spawned obj ID> <first spawn bool>`
+Sent when a character is being spawned or respawned (if current game state is not warmup)

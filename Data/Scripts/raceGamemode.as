@@ -33,7 +33,7 @@ void Init(string msg){
     
     lvlParams.SetInt("InProgress", 0);
 
-    timer.Add(LevelEventJob("checkpoint", function(_params){
+    levelTimer.Add(LevelEventJob("checkpoint", function(_params){
         Log(error, "Received checkpoint "+_params[1]);
         checkpointReached[parseInt(_params[1])]++;
         return true;

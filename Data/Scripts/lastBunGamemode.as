@@ -25,11 +25,11 @@ void Init(string msg){
     //Gamemode specific below
     versus_gui.Init();
     
-    timer.Add(LevelEventJob("manual_reset", function(_params){
+    levelTimer.Add(LevelEventJob("manual_reset", function(_params){
         ClearVersusScores();
         return true;
     }));
-    timer.Add(LevelEventJob("reset", function(_params){
+    levelTimer.Add(LevelEventJob("reset", function(_params){
         time = 0.0f;
         reset_timer = 2.0f;
         return true;

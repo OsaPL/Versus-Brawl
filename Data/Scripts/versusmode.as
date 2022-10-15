@@ -38,7 +38,8 @@ array<float> respawnQueue ={-100,-100,-100,-100};
 string placeHolderActorPath = "Data/Objects/characters/rabbot_actor.xml";
 
 VersusAHGUI versusAHGUI;
-TimedExecution timer;
+TimedExecution levelTimer;
+array<TimedExecution@> charsTimers;
 
 // All objects spawned by the script
 array<int> spawned_object_ids;
@@ -50,7 +51,7 @@ array<int> spawned_object_ids;
 //Requests a respawn for a player
 //TODO! This shouldnt need objID, just playerNr
 void CallRespawn(int playerNr, int objId) {
-    if(!respawnNeeded[playerNr] && respawnQueue[playerNr]<-respawnBlockTime){
+    if(!respawnNeeded[playerNr] && respawnQueue[playerNr]<-respawnBlockTime ){
         respawnNeeded[playerNr] = true;
         respawnQueue[playerNr]= respawnTime;
         Object@ char = ReadObjectFromID(objId);
@@ -72,10 +73,14 @@ Object@ CreateCharacter(int playerNr, string species) {
 
     string executeCmd = "SwitchCharacter(\""+ characterPath +"\");";
     char.Execute(executeCmd);
-    RecolorCharacter(playerNr, species, char_obj);
+    RecolorCharacter(playerNr, species, char_obj);  
 
+    return char_obj;
+}
+
+void AttachTimers(int obj_id){
     //Adds respawning on warmup
-    timer.Add(CharDeathJob(obj_id, function(char_a){
+    charsTimer.Add(CharDeathJob(obj_id, function(char_a){
         // This should respawn on kill
         if(currentState==0 || constantRespawning){
             for (uint i = 0; i < spawned_object_ids.size(); i++) {
@@ -84,10 +89,26 @@ Object@ CreateCharacter(int playerNr, string species) {
                 }
             }
         }
-        return true;
+        return false;
     }));
 
-    return char_obj;
+    charsTimer.Add(CharDeathJob(obj_id, function(char_a){
+        // This will try to figure out who should get a point
+        if(currentState < 100){
+            MovementObject@ char = ReadCharacterID(char_a.GetID());
+            Log(error, "Death of:"+ char_a.GetID() +" attacked_by_id:"+char.GetIntVar("attacked_by_id"));
+            for (uint k = 0; k < spawned_object_ids.size(); k++)
+            {
+                if(char.GetIntVar("attacked_by_id") == spawned_object_ids[k]){
+                    level.SendMessage("oneKilledByTwo "+ char_a.GetID()+ " " + char.GetIntVar("attacked_by_id"));
+                    return false;
+                }
+            }
+
+        }
+
+        return false;
+    }));
 }
 
 void RecolorCharacter(int playerNr, string species, Object@ char_obj) {
@@ -112,7 +133,7 @@ void RecolorCharacter(int playerNr, string species, Object@ char_obj) {
 
     for(int i = 0; i < 4; i++) {
         const string channel = character_getter.GetChannel(i);
-        Log(error, "species:"+species + "channel:"+channel);
+        //Log(error, "species:"+species + "channel:"+channel);
         //TODO: fill this up more, maybe even extract to a top level variable for easy edits?
 
 
@@ -143,9 +164,15 @@ void RecolorCharacter(int playerNr, string species, Object@ char_obj) {
 }
 
 // Just moves character into the position and activates him
-void SpawnCharacter(Object@ spawn, Object@ char, bool isAlreadyPlayer = false) {
-    Log(warning, "spawn:"+spawn.GetTranslation().x+","+spawn.GetTranslation().y+","+spawn.GetTranslation().z);
-    Log(warning, "char:"+char.GetID()+" isAlreadyPlayer"+isAlreadyPlayer);
+void SpawnCharacter(Object@ spawn, Object@ char, bool isAlreadyPlayer = false, bool isFirst = true) {
+    Log(error, "spawn:"+spawn.GetTranslation().x+","+spawn.GetTranslation().y+","+spawn.GetTranslation().z);
+    Log(error, "char:"+char.GetID()+" isAlreadyPlayer"+isAlreadyPlayer+" isFirst:"+isFirst);
+    
+    if(currentState >= 2 ){
+        // If game is inprogress, send spawn event
+        level.SendMessage("spawned "+ char.GetID() +" " + isFirst);
+    }
+    
     if(isAlreadyPlayer){
         MovementObject@ mo = ReadCharacterID(char.GetID());
         mo.position = spawn.GetTranslation();
@@ -155,6 +182,8 @@ void SpawnCharacter(Object@ spawn, Object@ char, bool isAlreadyPlayer = false) {
     vec4 rot_vec4 = spawn.GetRotationVec4();
     quaternion q(rot_vec4.x, rot_vec4.y, rot_vec4.z, rot_vec4.a);
     char.SetRotation(q);
+
+    AttachTimers(char.GetID());
 
     if(!isAlreadyPlayer){
         char.SetPlayer(true);
@@ -405,14 +434,23 @@ void VersusInit(string p_level_name) {
         // Spawn 4 players, otherwise it gets funky and spawns a player where editor camera was
         for(int i = 0; i < 4; i++)
         {
+            Log(error, "INIT SpawnCharacter");
+
             SpawnCharacter(FindRandSpawnPoint(i),CreateCharacter(i, IntToSpecies(currentRace[i])));
         }
     }
     
-    timer.Add(LevelEventJob("reset", function(_params){
+    levelTimer.Add(LevelEventJob("reset", function(_params){
         DeleteObjectsInList(spawned_object_ids);
+        Log(error, "RESETS charsTimer");
+        charsTimer.DeleteAll();
+        
+        respawnQueue ={-100,-100,-100,-100};
+        respawnNeeded ={false,false,false,false};
+        
         for(uint i = 0; i < players_number; i++)
         {
+            Log(error, "RESET EVENT SpawnCharacter");
             SpawnCharacter(FindRandSpawnPoint(i),CreateCharacter(i, IntToSpecies(currentRace[i])));
         }
         return true;
@@ -420,11 +458,7 @@ void VersusInit(string p_level_name) {
 }
 
 void VersusReset(){
-    DeleteObjectsInList(spawned_object_ids);
-    for(uint i = 0; i < players_number; i++)
-    {
-        SpawnCharacter(FindRandSpawnPoint(i),CreateCharacter(i, IntToSpecies(currentRace[i])));
-    }
+
 }
 
 void VersusDrawGUI(){
@@ -432,7 +466,8 @@ void VersusDrawGUI(){
 }
 
 void VersusUpdate() {
-    timer.Update();
+    levelTimer.Update();
+    charsTimer.Update();
 
     if(GetInputDown(0,"f10")){
         LoadLevel(GetCurrLevelRelPath());
@@ -458,11 +493,13 @@ void VersusUpdate() {
 }
 
 void VersusReceiveMessage(string msg){
-    timer.AddLevelEvent(msg);
+    levelTimer.AddLevelEvent(msg);
+    charsTimer.AddLevelEvent(msg);
 }
 
 void VersusPreScriptReload(){
-    timer.DeleteAll();
+    levelTimer.DeleteAll();
+    charsTimer.DeleteAll();
 }
 
 class Species{
@@ -836,7 +873,8 @@ void CheckPlayersState() {
                     // This line took me 4hrs to figure out
                     mo.Execute("SetState(0);Recover();");
 
-                    SpawnCharacter(FindRandSpawnPoint(i),char,true);
+                    Log(error, "UPDATE SpawnCharacter");
+                    SpawnCharacter(FindRandSpawnPoint(i),char,true, false);
                 }
             }
         }

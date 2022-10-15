@@ -73,17 +73,23 @@ Survivor gets the point
   
 *self explanatory* On each checkpoint, everyone but 1st place, gets a knife to throw.
 
-- 👻Deathmatch
+- 👻Deathmatch (mostly working, weapon respawn mechanics are still needed)
 
 Gather kills to get points
 
-- 👻Sacrifice 
+- 👻Tag
+
+Catchers needs to catch everyone
+
+- 👻Sacrifice
   
 Each enemy body thrown to your abbys, gives a point, your body in your abbys takes back two.
 
 - 👻Capture the fur 
   
 Just CTF
+
+** Important note: Gamemode list is a subject to change at any time. **
 
 # Species:
 *These are subject to change*
@@ -132,7 +138,7 @@ Rats:
 - 👻Jump height:6/10 (5/10)
 - Size: 3.5/10 (5.10)
 
-Trait: Cant be stomped - knockout shield (set to 2)
+Trait: Cant be stomped - knockout shield (set to 1)
 
 Wolf:
 - Att dmg:8/10 (10/10) 

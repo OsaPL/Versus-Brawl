@@ -57,7 +57,7 @@
     }
 
     char.UpdateScriptParams();
-    Log(error, "Added stats to:"+species);
+    //Log(error, "Added stats to:"+species);
 }
 
 /* Some balancing notes:
