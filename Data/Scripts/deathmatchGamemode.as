@@ -1,7 +1,7 @@
 #include "versusmode.as"
 // ^^ only this is needed
 
-// Conficurables
+// Configurables
 int pointsToWin = 3;
 float winStateTime = 10;
 
@@ -23,10 +23,11 @@ void Init(string msg){
     levelTimer.Add(LevelEventJob("oneKilledByTwo", function(_params){
         if(currentState>=2){
             Log(error, "Player "+_params[1]+" was killed by player "+_params[2]);
-            for (uint k = 0; k < spawned_object_ids.size(); k++)
+            for (uint k = 0; k < versusPlayers.size(); k++)
             {
-                if(spawned_object_ids[k] == parseInt(_params[2])){
-                    killsCount[k]++;
+                VersusPlayer@ player = GetPlayerByNr(k);
+                if(player.objId == parseInt(_params[2])){
+                    killsCount[player.playerNr]++;
                     updateScores = true;
                 }
             }
@@ -55,10 +56,12 @@ void Update(){
 
     //time += time_step;
     if(time>3.0){
-        for (uint i = 0; i < 4; i++) {
-            MovementObject@ char = ReadCharacter(i);
-            Log(error, "Player "+i+" targets player "+char.GetIntVar("target_id"));
-            Log(error, "Player "+i+" is attacked by player "+char.GetIntVar("attacked_by_id"));
+        for (uint k = 0; k < versusPlayers.size(); k++)
+        {
+            VersusPlayer@ player = GetPlayerByNr(k);
+            MovementObject@ char = ReadCharacterID(player.objId);
+            Log(error, "Player "+player.playerNr+" targets player "+char.GetIntVar("target_id"));
+            Log(error, "Player "+player.playerNr+" is attacked by player "+char.GetIntVar("attacked_by_id"));
         }
         time = 0;
     }
@@ -75,9 +78,10 @@ void Update(){
         }
     }
 
+    // TODO! This "win state" could be generic
     if(currentState == 3){
         winStateTimer += time_step;
-
+        
         if(winStateTimer>winStateTime){
             // Now we just need to reset few things
             winStateTimer = 0;
@@ -99,22 +103,6 @@ void Update(){
 void ReceiveMessage(string msg){
     //Always need to call this first!
     VersusReceiveMessage(msg);
-
-    TokenIterator token_iter;
-    token_iter.Init();
-    
-    
-    if(token_iter.FindNextToken(msg))
-        return;
-    string char_a = atoi(token_iter.GetToken(msg));
-    
-    if(token_iter.FindNextToken(msg))
-        return;
-    string char_b = atoi(token_iter.GetToken(msg));
-    
-    //TODO: find out all events and correlate them
-    
-    Log(error, "ReceiveMessage \""+ msg + "\"");
 }
 
 void PreScriptReload(){
@@ -133,7 +121,6 @@ array<AHGUI::Text@> uiKillCounters={};
 
 void UpdateUI(){
     // TODO! Probably would be cooler to use Textures\ui\arena_mode icons to count deaths
-
     
     if(initUI){
         for (int i = 0; i < 4; i++) {
@@ -162,10 +149,6 @@ void UpdateUI(){
         {
             uiKillCounters[i].setText("" + killsCount[i]);
         }
-
-        // killCounterDiv.clear();
-        // killCounterDiv.clearUpdateBehaviors();
-        // killCounterDiv.setDisplacement();
 
         updateScores=false;
     }

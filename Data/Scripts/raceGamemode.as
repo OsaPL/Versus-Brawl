@@ -11,7 +11,7 @@ float winStateTime = 10;
 array<float> suicideTimers = {0,0,0,0};
 array<int> checkpointReached = {0,0,0,0};
 float winStateTimer = 0;
-int winnerId = -1;
+int winnerNr = -1;
 
 //Level methods
 void Init(string msg){
@@ -19,9 +19,6 @@ void Init(string msg){
     constantRespawning = true;
     blockSpeciesChange = true;
     respawnTime = 1;
-    for (uint i = 0; i < currentRace.size() ; i++) {
-        currentRace[i] = forcedSpeciesType;
-    }
 
     //Always need to call this first!
     VersusInit("");
@@ -55,51 +52,53 @@ void Update(){
         lvlParams.SetInt("InProgress", 1);
         
         // Suicide check
-        for(int i=0; i<GetNumCharacters(); i++)
+        for (uint k = 0; k < versusPlayers.size(); k++)
         {
-            if (GetInputDown(i, "attack") && GetInputDown(i, "grab")) {
-                suicideTimers[i] += time_step;
-                Log(error, "suicideTimers "+i+": "+suicideTimers[i]); 
-                if(suicideTimers[i]>suicideTime){
-                    MovementObject@ mo = ReadCharacter(i);
-                    mo.Execute("CutThroat();");
-                    suicideTimers[i] = 0;
+            VersusPlayer@ player = GetPlayerByNr(k);
+            if (GetInputDown(player.playerNr, "attack") && GetInputDown(player.playerNr, "grab")) {
+                suicideTimers[player.playerNr] += time_step;
+                if(suicideTimers[player.playerNr]>suicideTime){
+                    ReadCharacterID(playerTemp.objId).Execute("CutThroat();");
+                    suicideTimers[player.playerNr] = 0;
                 }
             } else {
-                suicideTimers[i] = 0;
+                suicideTimers[player.playerNr] = 0;
             }
            
         }
 
-        for(uint i=0; i<checkpointReached.size(); i++)
+        for (uint k = 0; k < versusPlayers.size(); k++)
         {
+            VersusPlayer@ player = GetPlayerByNr(k);
             //Checks for win
-            if(checkpointReached[i]>=checkPointNeeded){
+            if(checkpointReached[player.playerNr]>=checkPointNeeded){
                 // 3 is win state
                 currentState = 3;
+                
+                //GENERIC
                 constantRespawning = false;
                 PlaySound("Data/Sounds/versus/fight_end.wav");
-                versusAHGUI.SetText(""+IntToColorName(i)+" wins!","");
+                versusAHGUI.SetText(""+IntToColorName(player.playerNr)+" wins!","");
+                
+                // Buff the winner?
+                winnerNr = player.playerNr;
 
-                for(int j=0; j<GetNumCharacters(); j++)
+                for (uint j = 0; j < versusPlayers.size(); j++)
                 {
-                    MovementObject@ mo = ReadCharacter(j);
-                    Object@ objTemp = ReadObjectFromID(mo.GetID());
-                    ScriptParams@ params = objTemp.GetScriptParams();
+                    VersusPlayer@ playerTemp = GetPlayerByNr(j);
+                    MovementObject@ mo = ReadCharacterID(playerTemp.objId);
+                    Object@ objTemp = ReadObjectFromID(playerTemp.objId);
+                    ScriptParams@ charParams = objTemp.GetScriptParams();
                     
-                    if(j != int(i)){
+                    if(playerTemp.playerNr != int(player.playerNr)){
                         // Weaken the losers
                         mo.Execute("TakeBloodDamage(0.6);");
-                        params.SetFloat("Attack Damage",    0.0); //params.AddFloatSlider("Attack Damage", 1, "min:0,max:2,step:0.1,text_mult:100");
+                        charParams.SetFloat("Attack Damage",    0.0); //params.AddFloatSlider("Attack Damage", 1, "min:0,max:2,step:0.1,text_mult:100");
                         // Heheh yeet slap
-                        params.SetFloat("Attack Knockback", 5.0); //params.AddFloatSlider("Attack Knockback", 1, "min:0,max:2,step:0.1,text_mult:100");
-                        params.SetFloat("Attack Speed",     0.2); //params.AddFloatSlider("Attack Speed", 1, "min:0,max:2,step:0.1,text_mult:100");
-                        params.SetFloat("Damage Resistance",0.2); //params.AddFloatSlider("Damage Resistance", 1, "min:0,max:2,step:0.1,text_mult:100");
-                        params.SetFloat("Movement Speed",   0.1); //params.AddFloatSlider("Movement Speed", 1, "min:0.1,max:1.5,step:0.1,text_mult:100");
-                    }
-                    else{
-                        // Buff the winner?
-                        winnerId = objTemp.GetID();
+                        charParams.SetFloat("Attack Knockback", 5.0); //params.AddFloatSlider("Attack Knockback", 1, "min:0,max:2,step:0.1,text_mult:100");
+                        charParams.SetFloat("Attack Speed",     0.2); //params.AddFloatSlider("Attack Speed", 1, "min:0,max:2,step:0.1,text_mult:100");
+                        charParams.SetFloat("Damage Resistance",0.2); //params.AddFloatSlider("Damage Resistance", 1, "min:0,max:2,step:0.1,text_mult:100");
+                        charParams.SetFloat("Movement Speed",   0.1); //params.AddFloatSlider("Movement Speed", 1, "min:0.1,max:1.5,step:0.1,text_mult:100");
                     }
                     objTemp.UpdateScriptParams();
                 }
@@ -112,14 +111,15 @@ void Update(){
         winStateTimer += time_step;
 
         //Ninja mode, this probably needs to be extracted into a powerup
-        MovementObject@ mo = ReadCharacterID(winnerId);
+        VersusPlayer@ player = GetPlayerByNr(winnerNr);
+        MovementObject@ mo = ReadCharacterID(playerTemp.objId);
         int weapon = mo.GetArrayIntVar("weapon_slots",mo.GetIntVar("primary_weapon_slot"));
         if(weapon == -1) {
             int knifeId = CreateObject("Data/Items/rabbit_weapons/rabbit_knife.xml");
             mo.Execute("AttachWeapon(" + knifeId + ");");
         }
         
-        if(winStateTimer>winStateTime){
+        if(winStateTimer>=winStateTime){
             // Now we just need to reset few things
             winStateTimer = 0;
             currentState = 2;

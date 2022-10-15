@@ -18,6 +18,7 @@ float set_omniscientTimeSpan = 3;
 float set_omniscientTimer = set_omniscientTimeSpan;
 // This blocks currentRace from being changed by player
 bool blockSpeciesChange = false; 
+int forcedSpecies = 2;
 // This allows instant race change even during game (state==2)
 bool instantSpeciesChange = false;
 
@@ -25,24 +26,112 @@ bool instantSpeciesChange = false;
 int playerIconSize = 100;
 string placeholderRaceIconPath = "Textures/ui/challenge_mode/quit_icon_c.tga";
 
+
 //States
 uint players_number;
 uint currentState=99;
 bool failsafe;
 
-array<uint> currentRace = {0,1,2,3};
-array<bool> respawnNeeded ={false,false,false,false};
-// indexes 0-3 are for playerNr ones, last one is for generic spawns
-array<array<int>> spawnPointIds={{},{},{},{},{},{}};
-array<float> respawnQueue ={-100,-100,-100,-100};
 string placeHolderActorPath = "Data/Objects/characters/rabbot_actor.xml";
 
 VersusAHGUI versusAHGUI;
 TimedExecution levelTimer;
-array<TimedExecution@> charsTimers;
 
 // All objects spawned by the script
 array<int> spawned_object_ids;
+
+class VersusPlayer{
+    int playerNr;
+    int objId;
+    
+    TimedExecution@ charTimer;
+    
+    int currentRace;
+    
+    bool respawnNeeded;
+    float respawnQueue;
+    array<int> spawnPointIds;
+
+    VersusPlayer(int newPlayerNr){
+        playerNr = newPlayerNr;
+        objId = -1;
+
+        TimedExecution newCharTimer();
+        @charTimer = @newCharTimer;
+       
+        currentRace = forcedSpecies;
+        
+        respawnNeeded = false;
+        respawnQueue = -100;
+        spawnPointIds = {};
+    }
+    
+    // TODO! These methods dont like being inside a class remove them
+    Object@ SetObject(Object@ newObj){
+        if(objId != -1){
+            //TODO! Test whether this fucks up something regarding controllers
+            
+            newObj.SetPlayer(false);
+            DeleteObjectID(newObj.GetID());
+        }
+
+        objId = newObj.GetID();
+
+        return newObj;
+    }
+    
+}
+array<int> genericSpawnPointIds = {};
+array<VersusPlayer@> versusPlayers = {};
+
+class Species{
+    string Name;
+    string RaceIcon;
+    array<string> CharacterPaths;
+    Species(string newName, string newRaceIcon, array<string> newCharacterPaths){
+        Name = newName;
+        CharacterPaths = newCharacterPaths;
+        RaceIcon = newRaceIcon;
+    }
+}
+// This can be extended with new races
+array<Species@> speciesMap={
+    Species("rabbit", "Textures/ui/arena_mode/glyphs/rabbit_foot_1x1.png",
+{
+    "Data/Characters/male_rabbit_1.xml",
+        "Data/Characters/male_rabbit_2.xml",
+        "Data/Characters/male_rabbit_3.xml",
+        "Data/Characters/female_rabbit_1.xml",
+        "Data/Characters/female_rabbit_2.xml",
+        "Data/Characters/female_rabbit_3.xml",
+        "Data/Characters/pale_rabbit_civ.xml"
+}),
+Species("dog", "Textures/ui/arena_mode/glyphs/fighter_swords.png",
+    {
+        "Data/Characters/lt_dog_big.xml",
+        "Data/Characters/lt_dog_female.xml",
+        "Data/Characters/lt_dog_male_1.xml",
+        "Data/Characters/lt_dog_male_2.xml"
+    }),
+    Species("cat", "Textures/ui/arena_mode/glyphs/contender_crown.png",
+        {
+            "Data/Characters/fancy_striped_cat.xml",
+            "Data/Characters/female_cat.xml",
+            "Data/Characters/male_cat.xml",
+            "Data/Characters/striped_cat.xml"
+        }),
+    Species("rat", "Textures/ui/arena_mode/glyphs/slave_shackles.png",
+        {
+            "Data/Characters/hooded_rat.xml",
+            "Data/Characters/female_rat.xml",
+            "Data/Characters/rat.xml"
+        }),
+    Species("wolf", "Textures/ui/arena_mode/glyphs/skull.png",
+        {
+            "Data/Characters/male_wolf.xml"
+        })
+};
+
 
 ///
 ///     This section contains the gamemode interface methods
@@ -51,12 +140,11 @@ array<int> spawned_object_ids;
 //Requests a respawn for a player
 //TODO! This shouldnt need objID, just playerNr
 void CallRespawn(int playerNr, int objId) {
-    if(!respawnNeeded[playerNr] && respawnQueue[playerNr]<-respawnBlockTime ){
-        respawnNeeded[playerNr] = true;
-        respawnQueue[playerNr]= respawnTime;
-        Object@ char = ReadObjectFromID(objId);
-        MovementObject@ mo = ReadCharacterID(objId);
-        Log(error, "Respawn requested objId:"+objId+" playerNr:"+playerNr);
+    VersusPlayer@ player = GetPlayerByNr(playerNr);
+    if(!player.respawnNeeded && player.respawnQueue<-respawnBlockTime){
+        player.respawnNeeded = true;
+        player.respawnQueue = respawnTime;
+        Log(error, "Respawn requested objId:"+player.objId+" playerNr:"+player.playerNr);
     }
 }
 
@@ -73,26 +161,28 @@ Object@ CreateCharacter(int playerNr, string species) {
 
     string executeCmd = "SwitchCharacter(\""+ characterPath +"\");";
     char.Execute(executeCmd);
+    char.controller_id = playerNr;
+    
     RecolorCharacter(playerNr, species, char_obj);  
 
     return char_obj;
 }
 
 void AttachTimers(int obj_id){
-    //Adds respawning on warmup
-    charsTimer.Add(CharDeathJob(obj_id, function(char_a){
+   
+    VersusPlayer@ player = GetPlayerByObjectId(obj_id);
+    player.charTimer.DeleteAll();
+    
+    player.charTimer.Add(CharDeathJob(obj_id, function(char_a){
         // This should respawn on kill
+        VersusPlayer@ player = GetPlayerByObjectId(char_a.GetID());
         if(currentState==0 || constantRespawning){
-            for (uint i = 0; i < spawned_object_ids.size(); i++) {
-                if(spawned_object_ids[i] == char_a.GetID()){
-                    CallRespawn(i, char_a.GetID());
-                }
-            }
+            CallRespawn(player.playerNr, player.objId);
         }
         return false;
     }));
 
-    charsTimer.Add(CharDeathJob(obj_id, function(char_a){
+    player.charTimer.Add(CharDeathJob(obj_id, function(char_a){
         // This will try to figure out who should get a point
         if(currentState < 100){
             MovementObject@ char = ReadCharacterID(char_a.GetID());
@@ -115,17 +205,17 @@ void RecolorCharacter(int playerNr, string species, Object@ char_obj) {
     // Setup
     MovementObject@ mo = ReadCharacterID(char_obj.GetID());
     character_getter.Load(mo.char_path);
-    ScriptParams@ params = char_obj.GetScriptParams();
+    ScriptParams@ charParams = char_obj.GetScriptParams();
     // Some small tweaks to make it look more unique
     // Scale, Muscle and Fat has to be 0-1 range
     //TODO: these would be cool to have governing variables (max_fat, minimum_fat etc.)
     //TODO! Scale is overwritten by addSpeciesStats() atm!
     float scale = (90.0+(rand()%15))/100;
-    params.SetFloat("Character Scale", scale);
+    charParams.SetFloat("Character Scale", scale);
     float muscles = (50.0+((rand()%15)))/100;
-    params.SetFloat("Muscle", muscles);
+    charParams.SetFloat("Muscle", muscles);
     float fat = (50.0+((rand()%15)))/100;
-    params.SetFloat("Fat", fat);
+    charParams.SetFloat("Fat", fat);
 
     // Color the dinosaur, or even the rabbit
     vec3 furColor = GetRandomFurColor();
@@ -155,7 +245,7 @@ void RecolorCharacter(int playerNr, string species, Object@ char_obj) {
 
     // Reset any Teams
     //TODO: Here probably will be the team assignment stufff
-    params.SetString("Teams", "");
+    charParams.SetString("Teams", "");
 
     char_obj.UpdateScriptParams();
 
@@ -178,6 +268,7 @@ void SpawnCharacter(Object@ spawn, Object@ char, bool isAlreadyPlayer = false, b
         mo.position = spawn.GetTranslation();
         mo.velocity = vec3(0);
     }
+    
     char.SetTranslation(spawn.GetTranslation());
     vec4 rot_vec4 = spawn.GetRotationVec4();
     quaternion q(rot_vec4.x, rot_vec4.y, rot_vec4.z, rot_vec4.a);
@@ -196,15 +287,12 @@ void SpawnCharacter(Object@ spawn, Object@ char, bool isAlreadyPlayer = false, b
 Object@ FindRandSpawnPoint(int playerNr, bool useGeneric = false, bool useOneType=true) {
     
     //Lets do a quick copy
-    array<array<int>> availableSpawnPoints = {};
-    availableSpawnPoints.resize(spawnPointIds.size());
-    for (uint i = 0; i < spawnPointIds.size(); i++) {
-        availableSpawnPoints[i]= spawnPointIds[i];
-    }
+    VersusPlayer@ player = GetPlayerByNr(playerNr);
+    array<int> availableSpawnPoints = player.spawnPointIds;
     
-    while(availableSpawnPoints[playerNr].size() > 0 ){
-        int index = rand()%(availableSpawnPoints[playerNr].size());
-        int obj_id = availableSpawnPoints[playerNr][index];
+    while(availableSpawnPoints.size() > 0 ){
+        int index = rand()%(availableSpawnPoints.size());
+        int obj_id = availableSpawnPoints[index];
 
         Object@ obj = ReadObjectFromID(obj_id);
         
@@ -213,33 +301,51 @@ Object@ FindRandSpawnPoint(int playerNr, bool useGeneric = false, bool useOneTyp
             return obj;
         }
         else {
-            availableSpawnPoints[playerNr].removeAt(index);
+            availableSpawnPoints.removeAt(index);
         }
     }
 
     // If you cant found anything, just use any
-    DisplayError("FindRandSpawnPoint", "FindRandSpawnPoint couldnt find a spawn with playerNr:"+playerNr+" useGeneric:"+useGeneric+" useOneType:"+useOneType); 
-    int obj_id = spawnPointIds[playerNr][
-    rand()%(spawnPointIds[playerNr].size())];
+    DisplayError("FindRandSpawnPoint", "FindRandSpawnPoint couldnt find a spawn with playerNr:"+playerNr+" useGeneric:"+useGeneric+" useOneType:"+useOneType);
+    int index = rand()%(availableSpawnPoints.size());
+    int obj_id = player.spawnPointIds[index];
     Object@ obj = ReadObjectFromID(obj_id);
     return obj;
 }
 
 // Warning! Rolling character also revives/heals him
 void RerollCharacter(int playerNr, Object@ char) {
-    MovementObject@ mo = ReadCharacterID(char.GetID());
-    string species = IntToSpecies(currentRace[playerNr]);
+    VersusPlayer@ player = GetPlayerByNr(playerNr);
+    string species = IntToSpecies(player.currentRace);
     string newCharPath = GetSpeciesRandCharacterPath(species);
 
     string executeCmd = "SwitchCharacter(\""+ newCharPath +"\");";
     Log(error, species+" "+newCharPath+" "+executeCmd);
-    mo.Execute(executeCmd);
+    ReadCharacterID(player.objId).Execute(executeCmd);
     RecolorCharacter(playerNr, species, char);
 }
 
 ///
 ///     Utility stuff
 ///
+VersusPlayer@ GetPlayerByObjectId(int id){
+    for(uint i = 0; i < versusPlayers.size(); i++) {
+        if(versusPlayers[i].objId == id){
+            return versusPlayers[i];
+        }
+    }
+    return null;
+}
+
+VersusPlayer@ GetPlayerByNr(int playerNr){
+    for(uint i = 0; i < versusPlayers.size(); i++) {
+        if(versusPlayers[i].playerNr == playerNr){
+            return versusPlayers[i];
+        }
+    }
+    return null;
+}
+
 // This thingamajig extract key name for text dialogs
 string InsertKeysToString( string text )
 {
@@ -423,6 +529,11 @@ vec3 FloatTintFromByte(const vec3 &in tint) {
 ///
 
 void VersusInit(string p_level_name) {
+    for(int i = 0; i< 4; i++) {
+        VersusPlayer player (i);
+        versusPlayers.push_back(player);
+    }
+    
     FindSpawnPoints();
 
     // if(!CheckSpawnsNumber() && failsafe) {
@@ -431,30 +542,33 @@ void VersusInit(string p_level_name) {
     // }
     
     if(currentState != 1){
-        // Spawn 4 players, otherwise it gets funky and spawns a player where editor camera was
-        for(int i = 0; i < 4; i++)
+        // Spawn players, otherwise it gets funky and spawns a player where editor camera was
+        for(uint i = 0; i < versusPlayers.size(); i++)
         {
             Log(error, "INIT SpawnCharacter");
-
-            SpawnCharacter(FindRandSpawnPoint(i),CreateCharacter(i, IntToSpecies(currentRace[i])));
+            VersusPlayer@ player = GetPlayerByNr(i);
+            SpawnCharacter(FindRandSpawnPoint(player.playerNr),player.SetObject(CreateCharacter(i, IntToSpecies(forcedSpecies))));
         }
     }
     
+    
     levelTimer.Add(LevelEventJob("reset", function(_params){
         DeleteObjectsInList(spawned_object_ids);
-        Log(error, "RESETS charsTimer");
-        charsTimer.DeleteAll();
-        
-        respawnQueue ={-100,-100,-100,-100};
-        respawnNeeded ={false,false,false,false};
         
         for(uint i = 0; i < players_number; i++)
         {
             Log(error, "RESET EVENT SpawnCharacter");
-            SpawnCharacter(FindRandSpawnPoint(i),CreateCharacter(i, IntToSpecies(currentRace[i])));
+            VersusPlayer@ player = GetPlayerByNr(i);
+            player.objId = -1;
+            player.respawnQueue = -100;
+            player.respawnNeeded = false;
+
+            SpawnCharacter(FindRandSpawnPoint(player.playerNr),player.SetObject(CreateCharacter(i, IntToSpecies(forcedSpecies))));
         }
         return true;
     }));
+
+    
 }
 
 void VersusReset(){
@@ -467,18 +581,30 @@ void VersusDrawGUI(){
 
 void VersusUpdate() {
     levelTimer.Update();
-    charsTimer.Update();
+    for(uint i = 0; i < versusPlayers.size(); i++)
+    {
+        VersusPlayer@ player = GetPlayerByNr(i);
+        if(player is null){
+            DisplayError("","player is null");
+            LoadLevel(GetCurrLevelRelPath());
+        }
+        player.charTimer.Update();
+    }
+    
 
     if(GetInputDown(0,"f10")){
         LoadLevel(GetCurrLevelRelPath());
     }
 
     // Forces call `Notice` on all characters (helps with npc just standing there like morons)
+
     if(set_omniscientTimeSpan<0){
         set_omniscientTimer = set_omniscientTimer-time_step;
-        for (uint i = 0; i < spawned_object_ids.size(); i++) {
-            Object@ char = ReadObjectFromID(spawned_object_ids[i]);
-            char.ReceiveScriptMessage("set_omniscient true");
+        
+        for(uint i = 0; i < versusPlayers.size(); i++)
+        {
+            VersusPlayer@ player = GetPlayerByNr(i);
+            ReadObjectFromID(player.objId).ReceiveScriptMessage("set_omniscient true");
         }
     }
 
@@ -494,61 +620,21 @@ void VersusUpdate() {
 
 void VersusReceiveMessage(string msg){
     levelTimer.AddLevelEvent(msg);
-    charsTimer.AddLevelEvent(msg);
+    for(uint i = 0; i < versusPlayers.size(); i++)
+    {
+        VersusPlayer@ player = GetPlayerByNr(i);
+        player.charTimer.AddLevelEvent(msg);
+    }
 }
 
 void VersusPreScriptReload(){
     levelTimer.DeleteAll();
-    charsTimer.DeleteAll();
-}
-
-class Species{
-    string Name;
-    string RaceIcon;
-    array<string> CharacterPaths;
-    Species(string newName, string newRaceIcon, array<string> newCharacterPaths){
-        Name = newName;
-        CharacterPaths = newCharacterPaths;
-        RaceIcon = newRaceIcon;
+    for(uint i = 0; i < versusPlayers.size(); i++)
+    {
+        VersusPlayer@ player = GetPlayerByNr(i);
+        player.charTimer.DeleteAll();
     }
 }
-// This can be extended with new races
-array<Species@> speciesMap={
-    Species("rabbit", "Textures/ui/arena_mode/glyphs/rabbit_foot_1x1.png",
-        {
-            "Data/Characters/male_rabbit_1.xml",
-                "Data/Characters/male_rabbit_2.xml",
-                "Data/Characters/male_rabbit_3.xml",
-                "Data/Characters/female_rabbit_1.xml",
-                "Data/Characters/female_rabbit_2.xml",
-                "Data/Characters/female_rabbit_3.xml",
-                "Data/Characters/pale_rabbit_civ.xml"
-        }),
-    Species("dog", "Textures/ui/arena_mode/glyphs/fighter_swords.png",
-        {
-            "Data/Characters/lt_dog_big.xml",
-            "Data/Characters/lt_dog_female.xml",
-            "Data/Characters/lt_dog_male_1.xml",
-            "Data/Characters/lt_dog_male_2.xml"
-        }),
-    Species("cat", "Textures/ui/arena_mode/glyphs/contender_crown.png",
-        {
-            "Data/Characters/fancy_striped_cat.xml",
-            "Data/Characters/female_cat.xml",
-            "Data/Characters/male_cat.xml",
-            "Data/Characters/striped_cat.xml"
-        }),
-    Species("rat", "Textures/ui/arena_mode/glyphs/slave_shackles.png",
-        {
-            "Data/Characters/hooded_rat.xml",
-            "Data/Characters/female_rat.xml",
-            "Data/Characters/rat.xml"
-        }),
-    Species("wolf", "Textures/ui/arena_mode/glyphs/skull.png",
-        {
-            "Data/Characters/male_wolf.xml"
-        })
-};
 
 class VersusAHGUI : AHGUI::GUI {
     VersusAHGUI() {
@@ -790,8 +876,6 @@ void FindSpawnPoints(){
     array<int> @object_ids = GetObjectIDs();
     int num_objects = object_ids.length();
     for(int i=0; i<num_objects; ++i){
-
-        //SetSpawnPointPreview(obj,level.GetPath("spawn_preview"));
         Object @obj = ReadObjectFromID(object_ids[i]);
         ScriptParams@ params = obj.GetScriptParams();
         if(params.HasParam("game_type")){
@@ -805,13 +889,12 @@ void FindSpawnPoints(){
                     }
                     if(playerNr==-1){
                         // If its -1, its a generic spawn point, add it to the last array (generic spawns)
-                        spawnPointIds[spawnPointIds.size()].resize(spawnPointIds[spawnPointIds.size()].size() + 1);
-                        spawnPointIds[spawnPointIds.size()][spawnPointIds[spawnPointIds.size()].size()] = object_ids[i];
+                        genericSpawnPointIds.push_back(object_ids[i]);
                     }
                     else{
                         // If its 0 or greater, make sure it lands on the correct playerIndex array
-                        spawnPointIds[playerNr].resize(spawnPointIds[playerNr].size() + 1);
-                        spawnPointIds[playerNr][spawnPointIds[playerNr].size()-1] = object_ids[i];
+                        VersusPlayer@ player = GetPlayerByNr(playerNr);
+                        player.spawnPointIds.push_back(object_ids[i]);
                     }
                 }
             }
@@ -821,8 +904,8 @@ void FindSpawnPoints(){
 
 // This makes sure there is atleast a single spawn per playerNr
 bool CheckSpawnsNumber() {
-    for (int i = 0; i < 3; i++) {
-        if(spawnPointIds[i].size() < 1)
+    for(uint i = 0; i < versusPlayers.size(); i++) {
+        if(versusPlayers[i].spawnPointIds.size() < 1)
             return false;
     }
     return true;
@@ -834,7 +917,6 @@ void CheckPlayersState() {
             //Warn about the incorrect number of spawns
             ChangeGameState(1);
         }
-		array<int> movement_objects = GetObjectIDsType(_movement_object);
         
         //Select players number
 		if(GetInputDown(0,"item") && !GetInputDown(0,"drop")){
@@ -861,43 +943,41 @@ void CheckPlayersState() {
     
     if(currentState<2 || constantRespawning){
         // Respawning logic
-        for (uint i = 0; i < respawnQueue.size() ; i++) {
-            if(respawnQueue[i]>-respawnBlockTime){
-                respawnQueue[i] = respawnQueue[i]-time_step;
-                if(respawnQueue[i]<0 && respawnNeeded[i]){
-                    respawnNeeded[i] = false;
-                    MovementObject@ mo = ReadCharacter(i);
-                    Object@ char = ReadObjectFromID(mo.GetID());
-                    ScriptParams@ params = char.GetScriptParams();
-
+        for(uint i = 0; i < versusPlayers.size(); i++) {
+            VersusPlayer@ player = GetPlayerByNr(i);
+            if(player.respawnQueue>-respawnBlockTime){
+                player.respawnQueue = player.respawnQueue-time_step;
+                if(player.respawnQueue<0 && player.respawnNeeded){
+                    player.respawnNeeded = false;
                     // This line took me 4hrs to figure out
-                    mo.Execute("SetState(0);Recover();");
+                    ReadCharacterID(player.objId).Execute("SetState(0);Recover();");
 
                     Log(error, "UPDATE SpawnCharacter");
-                    SpawnCharacter(FindRandSpawnPoint(i),char,true, false);
+                    SpawnCharacter(FindRandSpawnPoint(player.playerNr),ReadObjectFromID(player.objId),true, false);
                 }
             }
         }
     }
     
     if(!blockSpeciesChange){
-        for(int i=0; i<GetNumCharacters(); i++){
+        for(uint i = 0; i < versusPlayers.size(); i++) {
+            VersusPlayer@ player = GetPlayerByNr(i);
             if(GetInputDown(i,"item") && GetInputDown(i,"drop")) {
                 if(GetInputPressed(i,"attack")) {
-                    currentRace[i]= currentRace[i]+1;
-                    currentRace[i]= currentRace[i]%speciesMap.size();
+                    player.currentRace++;
+                    player.currentRace = player.currentRace % speciesMap.size();
                     
                     if(currentState==0 || instantSpeciesChange){
-                        MovementObject@ mo = ReadCharacter(i);
+                        MovementObject@ mo = ReadCharacter(player.playerNr);
                         Object@ char = ReadObjectFromID(mo.GetID());
-                        RerollCharacter(i,char);
+                        RerollCharacter(player.playerNr,ReadObjectFromID(player.objId));
                     }
                 }
-                versusAHGUI.ChangeIcon(i, currentRace[i], true);
+                versusAHGUI.ChangeIcon(player.playerNr, player.currentRace, true);
             }
             else {
                 // Last element is always the default state icon
-                versusAHGUI.ChangeIcon(i, -1, false);
+                versusAHGUI.ChangeIcon(player.playerNr, -1, false);
             }
         }
     }
