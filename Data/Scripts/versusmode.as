@@ -179,6 +179,9 @@ Object@ CreateCharacter(int playerNr, string species) {
     Object@ char_obj = ReadObjectFromID(obj_id);
     MovementObject@ char = ReadCharacterID(char_obj.GetID());
 
+    //You need to set Species param before SwitchCharacter(), otherwise `species` field wont be changed
+    charParams.SetString("Species", species);
+    
     string executeCmd = "SwitchCharacter(\""+ characterPath +"\");";
     char.Execute(executeCmd);
     char.controller_id = playerNr;
@@ -214,7 +217,6 @@ void AttachTimers(int obj_id){
                     return false;
                 }
             }
-
         }
 
         return false;
@@ -362,9 +364,14 @@ Object@ FindRandSpawnPoint(int playerNr) {
 // Warning! Rolling character also revives/heals him
 void RerollCharacter(int playerNr, Object@ char) {
     VersusPlayer@ player = GetPlayerByNr(playerNr);
+    Object@ obj = ReadObjectFromID(player.objId);
+    ScriptParams@ charParams = obj.GetScriptParams();
     string species = IntToSpecies(player.currentRace);
     string newCharPath = GetSpeciesRandCharacterPath(species);
 
+    //You need to set Species param before SwitchCharacter(), otherwise `species` field wont be changed
+    charParams.SetString("Species", species);
+    
     string executeCmd = "SwitchCharacter(\""+ newCharPath +"\");";
     Log(error, species+" "+newCharPath+" "+executeCmd);
     ReadCharacterID(player.objId).Execute(executeCmd);
