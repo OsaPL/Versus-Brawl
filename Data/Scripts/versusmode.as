@@ -21,7 +21,7 @@ float set_omniscientTimeSpan = 3;
 float set_omniscientTimer = set_omniscientTimeSpan;
 // This blocks currentRace from being changed by player
 bool blockSpeciesChange = false; 
-int forcedSpecies = 2;
+int forcedSpecies = _rabbit;
 // This allows instant race change even during game (state>=2)
 bool instantSpeciesChange = false;
 
@@ -115,30 +115,35 @@ class Species{
     }
 }
 // This can be extended with new races
+enum SpeciesInt {
+    _rabbit = 0,
+        _wolf = 1,
+        _dog = 2,
+        _rat = 3,
+        _cat = 4
+};
+
 array<Species@> speciesMap={
     Species("rabbit", "Textures/ui/arena_mode/glyphs/rabbit_foot_1x1.png",
-{
-    "Data/Characters/male_rabbit_1.xml",
-        "Data/Characters/male_rabbit_2.xml",
-        "Data/Characters/male_rabbit_3.xml",
-        "Data/Characters/female_rabbit_1.xml",
-        "Data/Characters/female_rabbit_2.xml",
-        "Data/Characters/female_rabbit_3.xml",
-        "Data/Characters/pale_rabbit_civ.xml"
-}),
-Species("dog", "Textures/ui/arena_mode/glyphs/fighter_swords.png",
     {
-        "Data/Characters/lt_dog_big.xml",
-        "Data/Characters/lt_dog_female.xml",
-        "Data/Characters/lt_dog_male_1.xml",
-        "Data/Characters/lt_dog_male_2.xml"
+        "Data/Characters/male_rabbit_1.xml",
+            "Data/Characters/male_rabbit_2.xml",
+            "Data/Characters/male_rabbit_3.xml",
+            "Data/Characters/female_rabbit_1.xml",
+            "Data/Characters/female_rabbit_2.xml",
+            "Data/Characters/female_rabbit_3.xml",
+            "Data/Characters/pale_rabbit_civ.xml"
     }),
-    Species("cat", "Textures/ui/arena_mode/glyphs/contender_crown.png",
+    Species("wolf", "Textures/ui/arena_mode/glyphs/skull.png",
         {
-            "Data/Characters/fancy_striped_cat.xml",
-            "Data/Characters/female_cat.xml",
-            "Data/Characters/male_cat.xml",
-            "Data/Characters/striped_cat.xml"
+            "Data/Characters/male_wolf.xml"
+        }),
+    Species("dog", "Textures/ui/arena_mode/glyphs/fighter_swords.png",
+        {
+            "Data/Characters/lt_dog_big.xml",
+            "Data/Characters/lt_dog_female.xml",
+            "Data/Characters/lt_dog_male_1.xml",
+            "Data/Characters/lt_dog_male_2.xml"
         }),
     Species("rat", "Textures/ui/arena_mode/glyphs/slave_shackles.png",
         {
@@ -146,9 +151,12 @@ Species("dog", "Textures/ui/arena_mode/glyphs/fighter_swords.png",
             "Data/Characters/female_rat.xml",
             "Data/Characters/rat.xml"
         }),
-    Species("wolf", "Textures/ui/arena_mode/glyphs/skull.png",
+    Species("cat", "Textures/ui/arena_mode/glyphs/contender_crown.png",
         {
-            "Data/Characters/male_wolf.xml"
+            "Data/Characters/fancy_striped_cat.xml",
+            "Data/Characters/female_cat.xml",
+            "Data/Characters/male_cat.xml",
+            "Data/Characters/striped_cat.xml"
         })
 };
 
@@ -178,6 +186,7 @@ Object@ CreateCharacter(int playerNr, string species) {
     spawned_object_ids.push_back(obj_id);
     Object@ char_obj = ReadObjectFromID(obj_id);
     MovementObject@ char = ReadCharacterID(char_obj.GetID());
+    ScriptParams@ charParams = char_obj.GetScriptParams();
 
     //You need to set Species param before SwitchCharacter(), otherwise `species` field wont be changed
     charParams.SetString("Species", species);
@@ -347,8 +356,7 @@ Object@ FindRandSpawnPoint(int playerNr) {
     while(startListSpawnPoints.size() > 0 ) {
         int index = rand() % (startListSpawnPoints.size());
         int obj_id = startListSpawnPoints[index].objId;
-        Object
-        @obj = ReadObjectFromID(obj_id);
+        Object @obj = ReadObjectFromID(obj_id);
         if (obj.GetEnabled()) {
             return obj;
         } 
@@ -375,6 +383,7 @@ void RerollCharacter(int playerNr, Object@ char) {
     string executeCmd = "SwitchCharacter(\""+ newCharPath +"\");";
     Log(error, species+" "+newCharPath+" "+executeCmd);
     ReadCharacterID(player.objId).Execute(executeCmd);
+    
     RecolorCharacter(playerNr, species, char);
 }
 
