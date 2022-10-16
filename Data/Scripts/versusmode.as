@@ -11,15 +11,18 @@
 //Configurables
 float respawnTime = 2;
 // This will block any stupid respawns calls from hotspots that kill on the way to spawn, higher values could help on bigger "trips"
-float respawnBlockTime = 0.5;
+float respawnBlockTime = 2;
 bool constantRespawning = false;
+bool useGenericSpawns = false;
+bool useSingleSpawnType = true;
+float spawnPointBlockTime = 1;
 // How often we want to make all char aware
 float set_omniscientTimeSpan = 3;
 float set_omniscientTimer = set_omniscientTimeSpan;
 // This blocks currentRace from being changed by player
 bool blockSpeciesChange = false; 
 int forcedSpecies = 2;
-// This allows instant race change even during game (state==2)
+// This allows instant race change even during game (state>=2)
 bool instantSpeciesChange = false;
 
 //New UI Stuff
@@ -32,10 +35,19 @@ uint players_number;
 uint currentState=99;
 bool failsafe;
 
+// For preloading characters
+uint preloadSpeciesIndex = 0;
+uint preloadIndex = 0;
+int placeholderId = -1;
+bool preload = true;
+
 string placeHolderActorPath = "Data/Objects/characters/rabbot_actor.xml";
 
 VersusAHGUI versusAHGUI;
 TimedExecution levelTimer;
+
+array<SpawnPoint@> genericSpawnPoints = {};
+array<VersusPlayer@> versusPlayers = {};
 
 // All objects spawned by the script
 array<int> spawned_object_ids;
@@ -50,7 +62,7 @@ class VersusPlayer{
     
     bool respawnNeeded;
     float respawnQueue;
-    array<int> spawnPointIds;
+    array<SpawnPoint@> spawnPoints;
 
     VersusPlayer(int newPlayerNr){
         playerNr = newPlayerNr;
@@ -63,7 +75,7 @@ class VersusPlayer{
         
         respawnNeeded = false;
         respawnQueue = -100;
-        spawnPointIds = {};
+        spawnPoints = {};
     }
     
     // TODO! These methods dont like being inside a class remove them
@@ -81,8 +93,16 @@ class VersusPlayer{
     }
     
 }
-array<int> genericSpawnPointIds = {};
-array<VersusPlayer@> versusPlayers = {};
+
+class SpawnPoint{
+    int objId;
+    float spawnPointBlockTimer;
+
+    SpawnPoint(int newObjId){
+        objId = newObjId;
+        spawnPointBlockTimer = 0;
+    }
+}
 
 class Species{
     string Name;
@@ -163,7 +183,7 @@ Object@ CreateCharacter(int playerNr, string species) {
     char.Execute(executeCmd);
     char.controller_id = playerNr;
     
-    RecolorCharacter(playerNr, species, char_obj);  
+    RecolorCharacter(playerNr, species, char_obj);
 
     return char_obj;
 }
@@ -282,22 +302,38 @@ void SpawnCharacter(Object@ spawn, Object@ char, bool isAlreadyPlayer = false, b
 }
 
 // Find a suitable spawn
-// TODO: `useGeneric` will take into account generic spawns
-// TODO: `useOneType` will only take team spawns if `useGeneric = false` adn only generic spawns if `useGeneric = true`
-Object@ FindRandSpawnPoint(int playerNr, bool useGeneric = false, bool useOneType=true) {
+// `useGenericSpawns` will take into account generic spawns
+// `useSingleSpawnType` will only take team spawns if `useGeneric = false` adn only generic spawns if `useGeneric = true`
+Object@ FindRandSpawnPoint(int playerNr) {
     
     //Lets do a quick copy
     VersusPlayer@ player = GetPlayerByNr(playerNr);
-    array<int> availableSpawnPoints = player.spawnPointIds;
+    array<SpawnPoint@> availableSpawnPoints = player.spawnPoints;
+    // This keeps start of the total list of the spawns, incase you have too many locked ones atm
+    array<SpawnPoint@> startListSpawnPoints = player.spawnPoints;
+    
+    //If useGenericSpawns is true, add generic ones too
+    if(useGenericSpawns && !useSingleSpawnType){
+        for(uint i = 0; i <genericSpawnPoints.size() ; i++) {
+            availableSpawnPoints.push_back(genericSpawnPoints[i]);
+            startListSpawnPoints.push_back(genericSpawnPoints[i]);
+        }
+    }
+    // If both useGenericSpawns and useSingleSpawnType are true, we ONLY use generic ones
+    else if(useGenericSpawns && useSingleSpawnType){
+        availableSpawnPoints = genericSpawnPoints;
+        startListSpawnPoints = genericSpawnPoints;
+    }
     
     while(availableSpawnPoints.size() > 0 ){
         int index = rand()%(availableSpawnPoints.size());
-        int obj_id = availableSpawnPoints[index];
+        int obj_id = availableSpawnPoints[index].objId;
 
         Object@ obj = ReadObjectFromID(obj_id);
         
         // If its disabled just go on
-        if(obj.GetEnabled()){
+        if(obj.GetEnabled() && availableSpawnPoints[index].spawnPointBlockTimer<=0){
+            availableSpawnPoints[index].spawnPointBlockTimer = spawnPointBlockTime;
             return obj;
         }
         else {
@@ -305,12 +341,22 @@ Object@ FindRandSpawnPoint(int playerNr, bool useGeneric = false, bool useOneTyp
         }
     }
 
-    // If you cant found anything, just use any
-    DisplayError("FindRandSpawnPoint", "FindRandSpawnPoint couldnt find a spawn with playerNr:"+playerNr+" useGeneric:"+useGeneric+" useOneType:"+useOneType);
-    int index = rand()%(availableSpawnPoints.size());
-    int obj_id = player.spawnPointIds[index];
-    Object@ obj = ReadObjectFromID(obj_id);
-    return obj;
+    // If you cant found anything, just ignore the block timer
+    while(startListSpawnPoints.size() > 0 ) {
+        int index = rand() % (startListSpawnPoints.size());
+        int obj_id = startListSpawnPoints[index].objId;
+        Object
+        @obj = ReadObjectFromID(obj_id);
+        if (obj.GetEnabled()) {
+            return obj;
+        } 
+        else {
+            startListSpawnPoints.removeAt(index);
+        }
+    }
+    
+    DisplayError("FindRandSpawnPoint", "FindRandSpawnPoint couldnt find a spawn with playerNr:" + playerNr + " useGeneric:" + useGenericSpawns + " useOneType:" + useSingleSpawnType);
+    return null;
 }
 
 // Warning! Rolling character also revives/heals him
@@ -536,10 +582,10 @@ void VersusInit(string p_level_name) {
     
     FindSpawnPoints();
 
-    // if(!CheckSpawnsNumber() && failsafe) {
-    //     //Warn about the incorrect number of spawns
-    //     ChangeGameState(1);
-    // }
+    if(!CheckSpawnsNumber() && failsafe) {
+        //Warn about the incorrect number of spawns
+        ChangeGameState(1);
+    }
     
     if(currentState != 1){
         // Spawn players, otherwise it gets funky and spawns a player where editor camera was
@@ -547,10 +593,9 @@ void VersusInit(string p_level_name) {
         {
             Log(error, "INIT SpawnCharacter");
             VersusPlayer@ player = GetPlayerByNr(i);
-            SpawnCharacter(FindRandSpawnPoint(player.playerNr),player.SetObject(CreateCharacter(i, IntToSpecies(forcedSpecies))));
+            SpawnCharacter(FindRandSpawnPoint(player.playerNr),player.SetObject(CreateCharacter(i, IntToSpecies(player.currentRace))));
         }
     }
-    
     
     levelTimer.Add(LevelEventJob("reset", function(_params){
         DeleteObjectsInList(spawned_object_ids);
@@ -563,7 +608,7 @@ void VersusInit(string p_level_name) {
             player.respawnQueue = -100;
             player.respawnNeeded = false;
 
-            SpawnCharacter(FindRandSpawnPoint(player.playerNr),player.SetObject(CreateCharacter(i, IntToSpecies(forcedSpecies))));
+            SpawnCharacter(FindRandSpawnPoint(player.playerNr),player.SetObject(CreateCharacter(i,IntToSpecies(player.currentRace))));
         }
         return true;
     }));
@@ -580,6 +625,35 @@ void VersusDrawGUI(){
 }
 
 void VersusUpdate() {
+        
+    //`AssetManager` is not exposed to `as_context` and `Preload.xml` is a static file, so I need to do this the dirty way
+    // We load a new model each frame, onto the actor
+    if(preload){
+        if(placeholderId == -1)
+            placeholderId = CreateObject(placeHolderActorPath, true);
+        
+        // This will load all character models, avoids hitching on first swaps
+        Object@ char_obj = ReadObjectFromID(placeholderId);
+        if(preloadSpeciesIndex< speciesMap.size()){
+            if(preloadIndex< speciesMap[preloadSpeciesIndex].CharacterPaths.size()) {
+                string executeCmd = "SwitchCharacter(\""+ speciesMap[preloadSpeciesIndex].CharacterPaths[preloadIndex] +"\");";
+                Log(warning, " "+executeCmd);
+                //DisplayError("", "Loading: "+executeCmd+" preloadSpeciesIndex:"+preloadSpeciesIndex+" preloadIndex:"+preloadIndex);   
+                ReadCharacterID(placeholderId).Execute(executeCmd);
+                preloadIndex++;
+            }
+            else{
+                //DisplayError("", "Going next: preloadSpeciesIndex:"+preloadSpeciesIndex+" preloadIndex:"+preloadIndex);
+                preloadSpeciesIndex++;
+                preloadIndex = 0;
+            }
+        }
+        else{
+            DeleteObjectID(placeholderId);
+            preload = false;
+        }
+    }
+    
     levelTimer.Update();
     for(uint i = 0; i < versusPlayers.size(); i++)
     {
@@ -605,6 +679,31 @@ void VersusUpdate() {
         {
             VersusPlayer@ player = GetPlayerByNr(i);
             ReadObjectFromID(player.objId).ReceiveScriptMessage("set_omniscient true");
+        }
+    }
+    
+    // Reduce spawns block timers
+    for(uint i = 0; i <genericSpawnPoints.size() ; i++) {
+        if(genericSpawnPoints[i].spawnPointBlockTimer>0){
+            genericSpawnPoints[i].spawnPointBlockTimer -= time_step;
+            if(genericSpawnPoints[i].spawnPointBlockTimer<0){
+                Log(error, "resetting spawnPointBlockTimer for:"+genericSpawnPoints[i].objId);
+                genericSpawnPoints[i].spawnPointBlockTimer = 0;
+            }
+        }
+    }
+    for(uint i = 0; i <versusPlayers.size() ; i++) {
+        VersusPlayer@ player = GetPlayerByNr(i);
+            
+        for(uint k = 0; k <player.spawnPoints.size() ; k++)
+        {
+            if (player.spawnPoints[i].spawnPointBlockTimer > 0) {
+                player.spawnPoints[i].spawnPointBlockTimer -= time_step;
+                if (player.spawnPoints[i].spawnPointBlockTimer < 0) {
+                    Log(error, "resetting spawnPointBlockTimer for:"+player.spawnPoints[i].objId);
+                    player.spawnPoints[i].spawnPointBlockTimer = 0;
+                }
+            }
         }
     }
 
@@ -885,16 +984,17 @@ void FindSpawnPoints(){
                 if(params.HasParam("playerNr")) {
                     int playerNr= params.GetInt("playerNr");
                     if(playerNr < -1 || playerNr > 3){
-                        DisplayError("FindSpawnPoints Error", "Spawn has PlayerNr less than -1 and greater than 3");
+                        DisplayError("FindSpawnPoints Error", "Spawn:"+object_ids[i]+" has PlayerNr less than -1 or greater than 3");
                     }
-                    if(playerNr==-1){
+                    else if(playerNr==-1){
                         // If its -1, its a generic spawn point, add it to the last array (generic spawns)
-                        genericSpawnPointIds.push_back(object_ids[i]);
+                        
+                        genericSpawnPoints.push_back(SpawnPoint(object_ids[i]));
                     }
                     else{
                         // If its 0 or greater, make sure it lands on the correct playerIndex array
                         VersusPlayer@ player = GetPlayerByNr(playerNr);
-                        player.spawnPointIds.push_back(object_ids[i]);
+                        player.spawnPoints.push_back(SpawnPoint(object_ids[i]));
                     }
                 }
             }
@@ -904,10 +1004,27 @@ void FindSpawnPoints(){
 
 // This makes sure there is atleast a single spawn per playerNr
 bool CheckSpawnsNumber() {
+    bool missingPlayerSpawns = false;
+    bool missingGenericSpawns = false;
+    
     for(uint i = 0; i < versusPlayers.size(); i++) {
-        if(versusPlayers[i].spawnPointIds.size() < 1)
-            return false;
+        if(versusPlayers[i].spawnPoints.size() < 1)
+            missingPlayerSpawns = true;
     }
+    if(genericSpawnPoints.size() < 4)
+        missingGenericSpawns = true;
+
+    
+    if(!useGenericSpawns){
+        return missingPlayerSpawns;
+    }
+    else if(useGenericSpawns && useSingleSpawnType){
+        return missingGenericSpawns;
+    }
+    else if(useGenericSpawns && !useSingleSpawnType){
+        return missingPlayerSpawns || missingPlayerSpawns;
+    }
+
     return true;
 }
 
@@ -951,9 +1068,12 @@ void CheckPlayersState() {
                     player.respawnNeeded = false;
                     // This line took me 4hrs to figure out
                     ReadCharacterID(player.objId).Execute("SetState(0);Recover();");
-
+                    
+                    Object@ char = ReadObjectFromID(player.objId);
+                    RerollCharacter(player.playerNr, char);
+                    
                     Log(error, "UPDATE SpawnCharacter");
-                    SpawnCharacter(FindRandSpawnPoint(player.playerNr),ReadObjectFromID(player.objId),true, false);
+                    SpawnCharacter(FindRandSpawnPoint(player.playerNr),char,true, false);
                 }
             }
         }

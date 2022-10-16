@@ -50,9 +50,10 @@ If you wish your item to be stay disabled until checkpoint activation, add `Keep
  
 You can create your own gamemodes pretty easily! Start with `versusGameplayTemplate`.
 
-### CurrentState and you
+### Global variables available
 
  `currentState` contains current game state, template already has: `warmup=0`, `map unsupported/missing components=1`, `gamestart>=2` `gameend>=100`, but you are free to implement more and use the `currentState` value.
+
 ### UI 
 You can use `versusAHGUI` class to have some basic UI.
 

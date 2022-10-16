@@ -16,6 +16,8 @@ int winnerNr = -1;
 //Level methods
 void Init(string msg){
     //We setup the parameters before init call
+    useGenericSpawns = true;
+    useSingleSpawnType = false;
     constantRespawning = true;
     blockSpeciesChange = true;
     respawnTime = 1;
