@@ -6901,8 +6901,7 @@ void UnSheathe(int dst, int src) {
 }
 
 void HandleAnimationMiscEvent(const string &in event, const vec3 &in world_pos) {
-    if(event == "grabitem" && (weapon_slots[primary_weapon_slot] == -1 || weapon_slots[secondary_weapon_slot] == -1) && knocked_out == _awake && tethered == _TETHERED_FREE 
-        && species != _wolf) { //Wolves shouldnt be able to hold weapons
+    if(event == "grabitem" && (weapon_slots[primary_weapon_slot] == -1 || weapon_slots[secondary_weapon_slot] == -1) && knocked_out == _awake && tethered == _TETHERED_FREE) {
         vec3 hand_pos;
 
         if(weapon_slots[_held_right] == -1 && (primary_weapon_slot == _held_right || weapon_slots[_held_left] != -1)) {
