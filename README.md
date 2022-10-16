@@ -94,16 +94,16 @@ Just CTF
 # Species:
 *These are subject to change*
 
-*I appreciate any feedback!*
+*I appreciate any balancing feedback!*
 
 ## Rabbits:
 - Att dmg:5/10 (no change) 
 - Att knockback:5/10 (no change)
 - Att speed:5/10 (no change)
-- Damage resistance:4/10 (5/10)
+- Damage resistance:3.5/10 (5/10)
 - Movement speed:4/10 (5/10)
-- Jump height:10/10 (no change)
-- Size: 4/10 (5/10)
+- Jumps: Even higher and far, but not that fast
+- Size: 4.5/10 (5/10)
 
 Trait: Rabbit binkies - Midair powerful attack
 
@@ -113,18 +113,18 @@ Dogs:
 - Att speed:4/10 (5/10)
 - Damage resistance:6/10 (5/10)
 - Movement speed:4/10 (5/10)
-- Jump height:5/10 (no change)
-- Size: 6/10 (5/10)
+- Jumps: Pretty high, but not far
+- Size: 5/10 (no change)
 
-Trait: Whos a good swordsman? - Cant be disarmed, 👻cant block with weapon
+Trait: Now you catch! - throws weapons much harder
 
 Cats:
 - Att dmg:5/10 (no change)
 - Att knockback:3/10 (5/10)
 - Att speed:6/10 (5/10)
-- Damage resistance:3/10 (5/10)
+- Damage resistance:2.5/10 (5/10)
 - Movement speed:6/10 (5/10)
-- 👻Jump height:7/10 (5/10)
+- Jumps: Pretty low, but far and fast
 - Size: 5/10 (no change)
 
 Trait: Always lands on its feet- No dmg from falls
@@ -135,8 +135,8 @@ Rats:
 - Att speed:6/10 (5/10)
 - Damage resistance:4/10 (5/10)
 - Movement speed:7/10 (5/10)
-- 👻Jump height:6/10 (5/10)
-- Size: 3.5/10 (5.10)
+- Jumps: Really low but really fast
+- Size: 4.5/10 (5.10)
 
 Trait: Cant be stomped - knockout shield (set to 1)
 
@@ -146,12 +146,13 @@ Wolf:
 - Att speed:3/10 (5/10)
 - Damage resistance:6/10 (5/10)
 - Movement speed:3.5/10 (5/10)
-- Jump height:5/10 (no change)
-- Size: 7/10 (5/10)
+- Jumps: Slightly higher that dog, but slower and shorter
+- Size: 5/10 (no change)
 
 Trait: Pounces on you - sharp claws, cant use weapons (still can defend by grabbing incoming ones)
 
 # Small bugs (dont report these, I know :) )
+- maps stutter after load (preloading is done after level load since AssetManager is not available in `as_context`)
 - clothing colors may look wonky, low priority
 - changing anything in the script, causes ui to bug out (my fault, probably global script variables are being cleared)
 - for 2 players the UI still stays the same as for 3/4 players setup

@@ -598,10 +598,10 @@ void VersusInit(string p_level_name) {
     
     FindSpawnPoints();
 
-    if(!CheckSpawnsNumber() && failsafe) {
-        //Warn about the incorrect number of spawns
-        ChangeGameState(1);
-    }
+    // if(!CheckSpawnsNumber() && failsafe) {
+    //     //Warn about the incorrect number of spawns
+    //     ChangeGameState(1);
+    // }
     
     if(currentState != 1){
         // Spawn players, otherwise it gets funky and spawns a player where editor camera was
@@ -682,7 +682,7 @@ void VersusUpdate() {
     }
     
 
-    if(GetInputDown(0,"f10")){
+    if(GetInputPressed(0,"f10")){
         LoadLevel(GetCurrLevelRelPath());
     }
 
@@ -713,11 +713,11 @@ void VersusUpdate() {
             
         for(uint k = 0; k <player.spawnPoints.size() ; k++)
         {
-            if (player.spawnPoints[i].spawnPointBlockTimer > 0) {
-                player.spawnPoints[i].spawnPointBlockTimer -= time_step;
-                if (player.spawnPoints[i].spawnPointBlockTimer < 0) {
-                    Log(error, "resetting spawnPointBlockTimer for:"+player.spawnPoints[i].objId);
-                    player.spawnPoints[i].spawnPointBlockTimer = 0;
+            if (player.spawnPoints[k].spawnPointBlockTimer > 0) {
+                player.spawnPoints[k].spawnPointBlockTimer -= time_step;
+                if (player.spawnPoints[k].spawnPointBlockTimer < 0) {
+                    Log(error, "resetting spawnPointBlockTimer for:"+player.spawnPoints[k].objId);
+                    player.spawnPoints[k].spawnPointBlockTimer = 0;
                 }
             }
         }
@@ -807,6 +807,10 @@ class VersusAHGUI : AHGUI::GUI {
         if(blockSpeciesChange)
             return;
         AHGUI::Element@ headerElement = root.findElement("quitButton"+playerIdx);
+        if( headerElement is null  ) {
+            //DisplayError("GUI Error", "Unable to find quitButton"+playerIdx);
+            return;
+        }
         AHGUI::Image@ quitButton = cast<AHGUI::Image>(headerElement);
         string iconPath;
         if(iconNr == -1){
@@ -1029,7 +1033,6 @@ bool CheckSpawnsNumber() {
     }
     if(genericSpawnPoints.size() < 4)
         missingGenericSpawns = true;
-
     
     if(!useGenericSpawns){
         return missingPlayerSpawns;
@@ -1046,29 +1049,30 @@ bool CheckSpawnsNumber() {
 
 void CheckPlayersState() {
     if(currentState==0){
-        if(!CheckSpawnsNumber() && failsafe) {
-            //Warn about the incorrect number of spawns
-            ChangeGameState(1);
-        }
+        // if(!CheckSpawnsNumber() && failsafe) {
+        //     //Warn about the incorrect number of spawns
+        //     Log(error, "CheckSpawnsNumber"+ ());
+        //     ChangeGameState(1);
+        // }
         
         //Select players number
 		if(GetInputDown(0,"item") && !GetInputDown(0,"drop")){
-			if(GetInputDown(0,"crouch")){
+			if(GetInputPressed(0,"crouch")){
 				players_number = 2;
                 ChangeGameState(2); //Start game
 			}
-			if(GetInputDown(0,"jump")){
+			if(GetInputPressed(0,"jump")){
 				players_number = 3;
                 ChangeGameState(2); //Start game
 			}
-			if(GetInputDown(0,"attack")){
+			if(GetInputPressed(0,"attack")){
 				players_number = 4;
                 ChangeGameState(2); //Start game
 			}
 		}
     }
     else if(currentState==1) {
-        if (GetInputDown(0, "item")) {
+        if (GetInputPressed(0, "item")) {
             failsafe = false;
             ChangeGameState(0);
         }

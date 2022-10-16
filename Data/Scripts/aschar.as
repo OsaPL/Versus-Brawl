@@ -12,6 +12,12 @@ enum WalkDir {
         FORWARDS
 };
 
+
+// -- My new params
+float throwMassMlt;
+float throwVelocityMlt;
+//
+
 AttackScriptGetter attack_getter;
 AttackScriptGetter attack_getter2;
 
@@ -10062,6 +10068,7 @@ void ThrowWeapon(int slot) {
         }
 
         float effective_mass = io.GetMass();
+        effective_mass *= throwMassMlt;
 
         if(io.GetLabel() == "big_sword" && throw_anim) {
             effective_mass *= 0.25f;
@@ -10072,6 +10079,7 @@ void ThrowWeapon(int slot) {
         }
 
         vec3 launch_vel = CalcLaunchVel(start, end, effective_mass, this_mo.velocity, target_vel, time);
+        launch_vel *= throwVelocityMlt;
 
         if(ThrowTargeting()) {
             float flat_launch_speed = _base_launch_speed / max(1.0f, effective_mass) +
@@ -15252,6 +15260,14 @@ void SetParameters() {
     p_jump_fuel = params.GetFloat("Jump - Jump Sustain");
     p_jump_fuel_burn = params.GetFloat("Jump - Jump Sustain Boost");
     // -- End jump parameters
+
+    // -- My new params
+    params.AddFloatSlider("Throw - Initial Velocity Multiplier", 1.0, "min:0.1,max:5.0,step:0.01,text_mult:1");
+    params.AddFloatSlider("Throw - Mass Multiplier", 1.0, "min:0.0,max:5.0,step:0.01,text_mult:1");
+    
+    throwVelocityMlt = params.GetFloat("Throw - Initial Velocity Multiplier");
+    throwMassMlt = params.GetFloat("Throw - Mass Multiplier");
+    // -- End new parameters
 
     g_fear_causes_fear_on_sight = params.GetInt("Fear - Causes Fear On Sight") != 0;
     g_fear_always_afraid_on_sight = params.GetInt("Fear - Always Afraid On Sight") != 0;
