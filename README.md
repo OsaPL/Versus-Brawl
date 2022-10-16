@@ -149,10 +149,9 @@ Wolf:
 - Jump height:5/10 (no change)
 - Size: 7/10 (5/10)
 
-Trait: Pounces on you - sharp claws, cant use weapons
+Trait: Pounces on you - sharp claws, cant use weapons (still can defend by grabbing incoming ones)
 
 # Small bugs (dont report these, I know :) )
-- wolf can grab the weapon thrown at him
 - clothing colors may look wonky, low priority
 - changing anything in the script, causes ui to bug out (my fault, probably global script variables are being cleared)
 - for 2 players the UI still stays the same as for 3/4 players setup
