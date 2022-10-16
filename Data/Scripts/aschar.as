@@ -1,6 +1,8 @@
 #include "interpdirection.as"
 #include "aschar_aux.as"
+// Borrowed from github, to add more params available for Jump customization
 #include "aircontrols.as"
+#include "aircontrols_params.as"
 
 //This is a copy of aschar.as as of 16oct 2022
 
@@ -1134,6 +1136,9 @@ void HitByItem(string material, vec3 point, int id, int type) {
     // Take damage from item impact
     float force_len = length(force);
     level.SendMessage("item_hit " + this_mo.getID());
+    
+    //Borrowed from github
+    attacked_by_id = io.last_held_char_id_;
 
     if(this_mo.controlled) {
         if(tutorial == "stealth") {
@@ -5097,7 +5102,9 @@ int WasHit(string type, string attack_path, vec3 dir, vec3 pos, int attacker_id,
     }
 
     attack_getter2.Load(attack_path);
-
+    // Borrowed from github
+    attacked_by_id = attacker_id;
+    
     if(knife_layer_id != -1) {
         this_mo.rigged_object().anim_client().RemoveLayer(knife_layer_id, 4.0f);
     }
@@ -15233,6 +15240,19 @@ void SetParameters() {
     params.AddIntCheckbox("Fear - Always Afraid On Sight", params.HasParam("scared"));
     params.AddIntCheckbox("Fear - Never Afraid On Sight", species == _wolf || species == _dog);
     params.AddFloatSlider("Fear - Afraid At Health Level", 0.0, "min:0.0,max:1.0,step:0.01,text_mult:100");
+
+    // Borrowed from github
+    // -- Jump parameters
+    params.AddFloatSlider("Jump - Initial Velocity", 5.0, "min:0.1,max:50.0,step:0.01,text_mult:1");
+    params.AddFloatSlider("Jump - Air Control", 3.0, "min:0.0,max:50.0,step:0.01,text_mult:1");
+    params.AddFloatSlider("Jump - Jump Sustain", 5.0, "min:0.0,max:50.0,step:0.01,text_mult:1");
+    params.AddFloatSlider("Jump - Jump Sustain Boost", 10.0, "min:0.0,max:100.0,step:0.01,text_mult:1");
+
+    p_jump_initial_velocity = params.GetFloat("Jump - Initial Velocity");
+    p_jump_air_control = params.GetFloat("Jump - Air Control");
+    p_jump_fuel = params.GetFloat("Jump - Jump Sustain");
+    p_jump_fuel_burn = params.GetFloat("Jump - Jump Sustain Boost");
+    // -- End jump parameters
 
     g_fear_causes_fear_on_sight = params.GetInt("Fear - Causes Fear On Sight") != 0;
     g_fear_always_afraid_on_sight = params.GetInt("Fear - Always Afraid On Sight") != 0;
