@@ -75,7 +75,7 @@ void Update(){
             //Checks for win
             if(checkpointReached[player.playerNr]>=checkPointNeeded){
                 // 3 is win state
-                currentState = 3;
+                ChangeGameState(3);
                 
                 //GENERIC
                 constantRespawning = false;
@@ -124,7 +124,7 @@ void Update(){
         if(winStateTimer>=winStateTime){
             // Now we just need to reset few things
             winStateTimer = 0;
-            currentState = 2;
+            ChangeGameState(2);
             checkpointReached = {0,0,0,0};
             constantRespawning = true;
             versusAHGUI.SetText("","");

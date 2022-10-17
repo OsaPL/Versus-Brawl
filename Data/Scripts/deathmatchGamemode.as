@@ -71,7 +71,7 @@ void Update(){
         for (uint i = 0; i < killsCount.size(); i++) {
             if(pointsToWin <= killsCount[i]){
                 // 3 is win state
-                currentState = 3;
+                ChangeGameState(3);
                 constantRespawning = false;
                 PlaySound("Data/Sounds/versus/fight_end.wav");
                 versusAHGUI.SetText(""+IntToColorName(i)+" wins!","");
@@ -86,7 +86,7 @@ void Update(){
         if(winStateTimer>winStateTime){
             // Now we just need to reset few things
             winStateTimer = 0;
-            currentState = 2;
+            ChangeGameState(2);
             killsCount = {0,0,0,0};
             updateScores = true;
             constantRespawning = true;

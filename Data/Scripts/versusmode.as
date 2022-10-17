@@ -33,12 +33,12 @@ string placeholderRaceIconPath = "Textures/ui/challenge_mode/quit_icon_c.tga";
 //States
 uint players_number;
 uint currentState=99;
-bool failsafe;
 
 // For preloading characters
 uint preloadSpeciesIndex = 0;
 uint preloadIndex = 0;
 int placeholderId = -1;
+float placeholderTimer = 2;
 bool preload = true;
 
 string placeHolderActorPath = "Data/Objects/characters/rabbot_actor.xml";
@@ -215,7 +215,6 @@ void AttachTimers(int obj_id){
     }));
 
     player.charTimer.Add(CharDeathJob(obj_id, function(char_a){
-        // This will try to figure out who should get a point
         if(currentState < 100){
             MovementObject@ char = ReadCharacterID(char_a.GetID());
             Log(error, "Death of:"+ char_a.GetID() +" attacked_by_id:"+char.GetIntVar("attacked_by_id"));
@@ -597,11 +596,6 @@ void VersusInit(string p_level_name) {
     }
     
     FindSpawnPoints();
-
-    // if(!CheckSpawnsNumber() && failsafe) {
-    //     //Warn about the incorrect number of spawns
-    //     ChangeGameState(1);
-    // }
     
     if(currentState != 1){
         // Spawn players, otherwise it gets funky and spawns a player where editor camera was
@@ -614,6 +608,12 @@ void VersusInit(string p_level_name) {
     }
     
     levelTimer.Add(LevelEventJob("reset", function(_params){
+        // We cleanup everything that could be problematic
+        for(uint i = 0; i < versusPlayers.size(); i++)
+        {
+            VersusPlayer@ player = GetPlayerByNr(i);
+            player.charTimer.DeleteAll();
+        }
         DeleteObjectsInList(spawned_object_ids);
         
         for(uint i = 0; i < players_number; i++)
@@ -641,10 +641,16 @@ void VersusDrawGUI(){
 }
 
 void VersusUpdate() {
-        
+
+    if(!CheckSpawnsNumber()) {
+        //Warn about the incorrect number of spawns
+        ChangeGameState(1);
+    }
+    
     //`AssetManager` is not exposed to `as_context` and `Preload.xml` is a static file, so I need to do this the dirty way
     // We load a new model each frame, onto the actor
     if(preload){
+        placeholderTimer -= time_step;
         if(placeholderId == -1)
             placeholderId = CreateObject(placeHolderActorPath, true);
         
@@ -665,8 +671,10 @@ void VersusUpdate() {
             }
         }
         else{
-            DeleteObjectID(placeholderId);
-            preload = false;
+            if(placeholderTimer<0){
+                DeleteObjectID(placeholderId);
+                preload = false; 
+            }
         }
     }
     
@@ -688,15 +696,16 @@ void VersusUpdate() {
 
     // Forces call `Notice` on all characters (helps with npc just standing there like morons)
 
-    if(set_omniscientTimeSpan<0){
-        set_omniscientTimer = set_omniscientTimer-time_step;
-        
-        for(uint i = 0; i < versusPlayers.size(); i++)
-        {
-            VersusPlayer@ player = GetPlayerByNr(i);
-            ReadObjectFromID(player.objId).ReceiveScriptMessage("set_omniscient true");
-        }
-    }
+    // TODO: Somehow this sometimes causes crashes? Maybe when the event arives during cleanup?
+    // if(set_omniscientTimeSpan<0){
+    //     set_omniscientTimer = set_omniscientTimer-time_step;
+    //    
+    //     for(uint i = 0; i < versusPlayers.size(); i++)
+    //     {
+    //         VersusPlayer@ player = GetPlayerByNr(i);
+    //         ReadObjectFromID(player.objId).ReceiveScriptMessage("set_omniscient true");
+    //     }
+    // }
     
     // Reduce spawns block timers
     for(uint i = 0; i <genericSpawnPoints.size() ; i++) {
@@ -725,7 +734,7 @@ void VersusUpdate() {
 
     CheckPlayersState();
     // On first update we switch to warmup state
-    if(currentState==99){
+    if(currentState==99 && !preload){
         ChangeGameState(0);
     }
 
@@ -749,6 +758,8 @@ void VersusPreScriptReload(){
         VersusPlayer@ player = GetPlayerByNr(i);
         player.charTimer.DeleteAll();
     }
+    
+    LoadLevel(GetCurrLevelRelPath());
 }
 
 class VersusAHGUI : AHGUI::GUI {
@@ -758,8 +769,8 @@ class VersusAHGUI : AHGUI::GUI {
     }
     
     bool layoutChanged = true;
-    string text="1";
-    string extraText="2";
+    string text="Loading...";
+    string extraText="";
     int assignmentTextSize = 70;
     int footerTextSize = 50;
     bool showBorders = false;
@@ -1024,24 +1035,31 @@ void FindSpawnPoints(){
 
 // This makes sure there is atleast a single spawn per playerNr
 bool CheckSpawnsNumber() {
-    bool missingPlayerSpawns = false;
-    bool missingGenericSpawns = false;
+    bool okPlayerSpawns = true;
+    bool okGenericSpawns = true;
     
     for(uint i = 0; i < versusPlayers.size(); i++) {
         if(versusPlayers[i].spawnPoints.size() < 1)
-            missingPlayerSpawns = true;
+            okPlayerSpawns = false;
     }
-    if(genericSpawnPoints.size() < 4)
-        missingGenericSpawns = true;
+    if(genericSpawnPoints.size() < 1)
+        okGenericSpawns = false;
+    
+    //DisplayError("CheckSpawnsNumber", "CheckSpawnsNumber okPlayerSpawns:"+ okPlayerSpawns +" okGenericSpawns:"+ okGenericSpawns);
+    //DisplayError("CheckSpawnsNumber", "CheckSpawnsNumber versusPlayers.size():"+ versusPlayers.size() +" genericSpawnPoints.size():"+ genericSpawnPoints.size());
+    for(uint i = 0; i < versusPlayers.size(); i++) {
+        if(versusPlayers[i].spawnPoints.size() < 1)
+            okPlayerSpawns = false;
+    }
     
     if(!useGenericSpawns){
-        return missingPlayerSpawns;
+        return okPlayerSpawns;
     }
     else if(useGenericSpawns && useSingleSpawnType){
-        return missingGenericSpawns;
+        return okGenericSpawns;
     }
     else if(useGenericSpawns && !useSingleSpawnType){
-        return missingPlayerSpawns || missingPlayerSpawns;
+        return okPlayerSpawns || okGenericSpawns;
     }
 
     return true;
@@ -1049,12 +1067,6 @@ bool CheckSpawnsNumber() {
 
 void CheckPlayersState() {
     if(currentState==0){
-        // if(!CheckSpawnsNumber() && failsafe) {
-        //     //Warn about the incorrect number of spawns
-        //     Log(error, "CheckSpawnsNumber"+ ());
-        //     ChangeGameState(1);
-        // }
-        
         //Select players number
 		if(GetInputDown(0,"item") && !GetInputDown(0,"drop")){
 			if(GetInputPressed(0,"crouch")){
@@ -1070,12 +1082,6 @@ void CheckPlayersState() {
                 ChangeGameState(2); //Start game
 			}
 		}
-    }
-    else if(currentState==1) {
-        if (GetInputPressed(0, "item")) {
-            failsafe = false;
-            ChangeGameState(0);
-        }
     }
     
     if(currentState<2 || constantRespawning){
@@ -1129,23 +1135,17 @@ void ChangeGameState(uint newState) {
     switch (newState) {
         case 0: 
             //Warmup, select player number
-            failsafe = true;
             currentState = newState;
             versusAHGUI.SetText("Hold @item@ and select player number by then pressing:",
                 "@crouch@=2, @jump@=3, @attack@=4");
             break;
         case 1: 
             //Failsafe, not enough spawns, waiting for acknowledgment
-            //TODO! Rewrite this for spawns
-            if(failsafe){
-                array<int> movement_objects = GetObjectIDsType(_movement_object);
-                versusAHGUI.SetText("Warning! Only "+movement_objects.size()+" players detected!",
-                    "After adding more player controlled characters, please save and reload the map. Press @item@ to play anyway.");
+            //TODO: Inform what is the amount of what type needed for the current settings
+            versusAHGUI.SetText("Warning! Not enough player spawns detected!",
+                "After adding more player spawns, please save and reload the map.");
 
-                return;
-            }
-            currentState = newState;
-            break;
+            return;
         case 2:
             //Game Start
             currentState = newState;
@@ -1154,5 +1154,7 @@ void ChangeGameState(uint newState) {
             versusAHGUI.SetText("");
             level.SendMessage("reset");
             break;
+        default:
+            currentState = newState;
     }
 }
