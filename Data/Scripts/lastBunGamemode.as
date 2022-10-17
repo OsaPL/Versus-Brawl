@@ -1,5 +1,18 @@
 #include "versusmode.as"
-// ^^ only this is needed
+// ^^ only this is n
+
+
+
+
+
+// IMPORTANT NOTE
+// If youre reading this file while trying to implement your own stuff, stop.
+// This file is full of awfully unoptimized code, error prone variables names, copy-pasta like youve never seen and old-pre AHGUI/Imgui implementation of the ui.
+// I did this only to port the old versus mode over, since its still fun.
+
+
+
+
 
 MusicLoad ml("Data/Music/challengelevel.xml");
 
@@ -259,7 +272,6 @@ class VersusGUI  {
         players_number = 2;
         blackout_amount = 0.0f;
         score_change_time = 0.0f;
-        failsafe = true;
         array<int> movement_objects = GetObjectIDsType(_movement_object);
 
         for(int i=0; i<5; ++i){
