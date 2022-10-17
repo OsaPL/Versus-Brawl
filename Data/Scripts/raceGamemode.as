@@ -111,15 +111,6 @@ void Update(){
     
     if(currentState == 3){
         winStateTimer += time_step;
-
-        //Ninja mode, this probably needs to be extracted into a powerup
-        VersusPlayer@ player = GetPlayerByNr(winnerNr);
-        MovementObject@ mo = ReadCharacterID(playerTemp.objId);
-        int weapon = mo.GetArrayIntVar("weapon_slots",mo.GetIntVar("primary_weapon_slot"));
-        if(weapon == -1) {
-            int knifeId = CreateObject("Data/Items/rabbit_weapons/rabbit_knife.xml");
-            mo.Execute("AttachWeapon(" + knifeId + ");");
-        }
         
         if(winStateTimer>=winStateTime){
             // Now we just need to reset few things

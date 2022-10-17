@@ -152,12 +152,12 @@ Wolf:
 Trait: Pounces on you - sharp claws, cant use weapons (still can defend by grabbing incoming ones)
 
 # Small bugs (dont report these, I know :) )
-- maps stutter after load (preloading is done after level load since AssetManager is not available in `as_context`)
+- maps stutterw after load (preloading is done after level load since AssetManager is not available in `as_context`)
 - clothing colors may look wonky, low priority
-- changing anything in the script, causes ui to bug out (my fault, probably global script variables are being cleared)
+- map will reload on a script reload (helps me to keep everything synced up, without just tracking everything at all times)
 - for 2 players the UI still stays the same as for 3/4 players setup
 - most of the UI stuff is filled with placeholders atm
-- going from warmup to game can scramble controlerIds if you didnt select 4 players (add pre warmup to select number of players?)
+- going from warmup to game can scramble controlerIds if you didnt select 4 players (should be fixed already? will remove this if it doesnt occur again)
 
 # Download and instalation
 ## WIP mod
