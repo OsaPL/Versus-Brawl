@@ -159,7 +159,10 @@ Just CTF
 # Powerups
 
 - **Ninja** (dark smoke) - Have an infinite supply of knives to throw (hands must be free)
-
+- 👻**Heal** (green poof) - Heals all damage
+- 👻**Rock** (blue sparks) - Negates all character damage
+- 👻**Yeet** (orange explosions) - Next hit (expires after `activeTime`) will launch enemy really hard
+- 👻**Speed** (yellow shortlived smoke) - Increases Movement and Attack speeds
 
 # Download and instalation
 ## WIP mod
