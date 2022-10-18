@@ -1,6 +1,6 @@
 # Versus-Brawl
 ## THE Overgrowth Versus mode overhaul
-I had a dream mod I wanted to make 6 yrs ago, and I didnt really try to make it. I've done a basic 4 player mod, and called it a day.
+I had a dream mod I wanted to make 6 yrs ago, and I didnt really try to make it. I've done a basic [4 player mod](https://forums.wolfire.com/viewtopic.php?f=16&t=40260&p=245753&hilit=4+players#p245753), and called it a day.
 
 After dusting it off, and having a complete blast with my buddies, I decided now is the time.
 
@@ -26,9 +26,9 @@ Some of the functionality will come eventually, once I have laid the foundation 
 - Players should no longer get their Id swapped, resulting in gamepads being always correctly arranged
 - Two maps that arent just a gm_flatgrass (👻6 planned, atleast 1 per mode)
 - Only a single level script and few basic prefabs needed to create a map. You can have a map ready in matter of minutes.
-- Warmup before the game start
+- Warmup before the game start (with preloading for smoother gameplay)
 - Easy to extend with new gamemodes (with even more options coming)
-- `F8` now does a hard-reload of the map (this saved me EONS of time)
+- 👻Pickup wacky powerups and be able to add your own with only few lines of code (need to create a template for external use)
 - 👻SuperEasy<sup>TM</sup> to extend with new races (mostly true, but there are still few hardcoded places)
 - 👻Randomized character apperance (almost completely done, missing some variants, colors look whack sometimes)
 - 👻NPC opponents support (this will rely on map maker to implement detailed paths)
@@ -40,17 +40,14 @@ Some of the functionality will come eventually, once I have laid the foundation 
 For each player its always `drop` and `item` key together, then press `attack` to switch to next.
 The UI should start showing you different species icons, if its not the gamemode doesnt allow it. 
 Some gamemodes only allow for next round change while game is in progress.
-2. **How do I select amount of players**
+
+2. **How do I select amount of players?**
 
 I mean, its on the screen but ok. Player nr 1 has to hold `item` key and press corresponding buttons for players number.
 `crouch` for 2 players
 `jump` for 3 players
 `attack` for 4 players
-3. **Gamepads not working/controlling one character/other stupid controller related bugs**
-
-Make sure your gamepads are all connected before starting the map. If problem persists, try restarting the game. If the problem still occurs, try reassigning gamepads.
-
-4. **What does `<action here>` key correspond to?**
+3. **What does `<action here>` key correspond to?**
 
 For an XbOne gamepad its: 
 
@@ -62,6 +59,14 @@ For an XbOne gamepad its:
 `jump` left bumper
 
 If you have other any gamepad, you're smart, I believe you'll figure it out.
+
+4. **Gamepads not working/controlling one character/other stupid controller related bugs**
+
+Make sure your gamepads are all connected before starting the map. If problem persists, try restarting the game. If the problem still occurs, try reassigning gamepads.
+
+5. **The game sometimes crashes on a new round**
+
+Unfortunately, spawning in new cameras for players in `SetPlayer(true)` is sometimes unstable. Can't do much about it rn.
 
 # Gamemodes:
 
@@ -96,7 +101,7 @@ Just CTF
 
 *I appreciate any balancing feedback!*
 
-## Rabbits:
+### Rabbits:
 - Att dmg:5/10 (no change) 
 - Att knockback:5/10 (no change)
 - Att speed:5/10 (no change)
@@ -105,9 +110,9 @@ Just CTF
 - Jumps: Even higher and far, but not that fast
 - Size: 4.5/10 (5/10)
 
-Trait: Rabbit binkies - Midair powerful attack
+**Trait**: Rabbit binkies - Midair powerful attack
 
-Dogs:
+### Dogs:
 - Att dmg:6/10 (5/10) 
 - Att knockback:6/10 (5/10)
 - Att speed:4/10 (5/10)
@@ -116,9 +121,9 @@ Dogs:
 - Jumps: Pretty high, but not far
 - Size: 5/10 (no change)
 
-Trait: Now you catch! - throws weapons much harder
+**Trait**: Now you catch! - throws weapons much harder
 
-Cats:
+### Cats:
 - Att dmg:5/10 (no change)
 - Att knockback:3/10 (5/10)
 - Att speed:6/10 (5/10)
@@ -127,9 +132,9 @@ Cats:
 - Jumps: Pretty low, but far and fast
 - Size: 5/10 (no change)
 
-Trait: Always lands on its feet- No dmg from falls
+**Trait**: Always lands on its feet - No dmg from falls
 
-Rats:
+### Rats:
 - Att dmg:3.5/10 (5/10)
 - Att knockback:7.5/10 (5/10)
 - Att speed:6/10 (5/10)
@@ -138,9 +143,9 @@ Rats:
 - Jumps: Really low but really fast
 - Size: 4.5/10 (5.10)
 
-Trait: Cant be stomped - knockout shield (set to 1)
+**Trait**: Cant be stomped - knockout shield
 
-Wolf:
+### Wolf:
 - Att dmg:8/10 (10/10) 
 - Att knockback:6/10 (5/10)
 - Att speed:3/10 (5/10)
@@ -149,7 +154,15 @@ Wolf:
 - Jumps: Slightly higher that dog, but slower and shorter
 - Size: 5/10 (no change)
 
-Trait: Pounces on you - sharp claws, cant use weapons (still can defend by grabbing incoming ones)
+**Trait**: Pounces on you - sharp claws, cant use weapons (still can defend by grabbing incoming ones)
+
+# Powerups
+
+- **Ninja** (dark smoke) - Have an infinite supply of knives to throw (hands must be free)
+
+
+# Download and instalation
+## WIP mod
 
 # Small bugs (dont report these, I know :) )
 - maps stutterw after load (preloading is done after level load since AssetManager is not available in `as_context`)
@@ -159,8 +172,6 @@ Trait: Pounces on you - sharp claws, cant use weapons (still can defend by grabb
 - most of the UI stuff is filled with placeholders atm
 - going from warmup to game can scramble controlerIds if you didnt select 4 players (should be fixed already? will remove this if it doesnt occur again)
 
-# Download and instalation
-## WIP mod
 
 # Thanks to:
 [WolfireGames](https://github.com/WolfireGames) - for being awesome developers (source code helped me a lot)

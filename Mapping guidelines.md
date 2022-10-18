@@ -1,5 +1,9 @@
 ﻿# Mapping 
-These are general guidelines, tips, explanations that will make the map more enjoyable and less janky, for this mod.
+These are general guidelines, tips, explanations that will make your map/gamemode more enjoyable and less janky, for this mod.
+If you have any questions, suggestions or requests, feel free to DM me.
+
+- `F8` now does a hard-reload of the map (this saved me EONS of time)
+- `PreScriptReload()` will now reload the map automatically, to stay synced and reduce crashes due to a pointer fuckup or weird timing issues. Can be turned off with 👻`noReloads=true` flag
 
 ### Navigation
 1. Take into account that `jump nav point` will be used regardles of species by NPCs, so make it jumpable even for slowest ones.
@@ -24,9 +28,9 @@ Instead create for example, a row of columns, allowing rabbits to shine, but oth
 To implement Last Bun Standing/Deathmatch:
 
 1. Place separate spawnHotspot for all players, change playerNr accordingly, -1 will be a free for all spawn
-2. Setup level parameters to your liking (like 👻useGeneric, 👻oneSpawnTypeOnly, blockRaceChange etc.)
+2. Setup level parameters to your liking (like useGeneric, oneSpawnTypeOnly, blockRaceChange etc.)
 
-### 👻Race
+### Race
 
 To implement a race:
 
@@ -51,8 +55,21 @@ If you wish your item to be stay disabled until checkpoint activation, add `Keep
 You can create your own gamemodes pretty easily! Start with `versusGameplayTemplate`.
 
 ### Global variables available
-
  `currentState` contains current game state, template already has: `warmup=0`, `map unsupported/missing components=1`, `gamestart>=2` `gameend>=100`, but you are free to implement more and use the `currentState` value.
+
+**👻Most of these are available from level scripts parameters menu**
+
+`constantRespawning` controls whether you should be automatically queued for a respawn.
+
+`useGenericSpawns` decides whether to include generic (`playerNr==-1`) spawns into spawning logic.
+
+`useSingleSpawnType` if is `true` will only use either generic or player specific spawns exclusively.
+
+`blockSpeciesChange` will block players from changing species if `true`.
+
+`forcedSpecies` number representing start species for each player, at the map load. 
+
+
 
 ### UI 
 You can use `versusAHGUI` class to have some basic UI.

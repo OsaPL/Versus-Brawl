@@ -6,7 +6,7 @@ void Init() {
 void SetParameters() {
     params.SetString("game_type", "versusBrawl");
     //params.SetInt("objectIdToFollow", -1);
-    params.SetString("pathToParticles", "Data/Particles/fire_smokeFast.xml");
+    params.SetString("pathToParticles", "Data/Particles/ninja_smoke.xml");
 }
 
 void Update(){
