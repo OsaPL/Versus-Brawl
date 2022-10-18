@@ -1,85 +1,49 @@
-﻿float respawnPickupTimer = 0;
-int lastEnteredPlayerObjId = -1; 
-bool readyForPickup = true;
-vec3 fixedScale = vec3(0.27,0.27,0.27);
-bool error = false;
+﻿#include "powerUpBase.as"
 
 array<int> spawned_objectIds = {};
 
-void Init()
-{
-    // Get hotspot
-    Object
-    @me = ReadObjectFromID(hotspot.GetID());
-    me.SetScale(fixedScale);
-}
-
-void HandleEvent(string event, MovementObject @mo)
-{
-    if (event == "enter") {
-        if (mo.is_player) {
-            if(readyForPickup){
-                lastEnteredPlayerObjId = mo.GetID();
-                readyForPickup = false;
-                respawnPickupTimer = params.GetFloat("activeTime");
-                int emitterId = CreateObject("Data/Objects/powerups/objectFollowerEmitter.xml");
-                spawned_objectIds.push_back(emitterId);
-                Object@ obj = ReadObjectFromID(emitterId);
-                ScriptParams@ objParams = obj.GetScriptParams();
-                objParams.SetInt("objectIdToFollow", lastEnteredPlayerObjId);
-                obj.UpdateScriptParams();
-                PlaySound(params.GetString("startSoundPath"));
-            }
-        }
-    }
+void Init(){
+    PowerupInit();
+    powerupTimer.Add(LevelEventJob("activate", function(_params){
+        PlaySound(params.GetString("startSoundPath"));
+        return true;
+    }));
+    powerupTimer.Add(LevelEventJob("deactivate", function(_params){
+        PlaySound(params.GetString("endSoundPath"));
+        return true;
+    }));
 }
 
 void SetParameters() {
-    params.AddString("game_type", "versusBrawl");
-    
-    // This one specific
-    params.AddFloatSlider("respawnTime", 6.0f,"min:0,max:100,step:0.1,text_mult:1");
-    params.AddFloatSlider("activeTime", 3.0f,"min:0,max:100,step:0.1,text_mult:1");
-    
-    params.AddString("startSoundPath", "Data/Sounds/versus/voice_end_1.wav");
-    params.AddString("endSoundPath", "Data/Sounds/versus/voice_end_2.wav");
-    params.AddString("notReadyIconPath", "Data/Textures/ui/arena_mode/glyphs/10_kills_1x1.png");
-    params.AddString("readyIconPath", "Data/Textures/ui/arena_mode/glyphs/10_kos_1x1.png");
-    params.AddFloatSlider("colorR", 0.5f,"min:0,max:1,step:0.01,text_mult:255");
-    params.AddFloatSlider("colorG", 0.0f,"min:0,max:1,step:0.01,text_mult:255");
-    params.AddFloatSlider("colorB", 1.0f,"min:0,max:1,step:0.01,text_mult:255");
-    params.AddFloatSlider("notReadyAlpha", 0.5f,"min:0,max:1,step:0.01,text_mult:255");
-    params.AddFloatSlider("readyAlpha", 0.9f,"min:0,max:1,step:0.01,text_mult:255");}
+    PowerupSetParameters();
 
-void Update(){
-    // Show error and ignore updating this
-    if(params.GetFloat("respawnTime") < params.GetFloat("activeTime") && !error){
-        DisplayError("PowerupsError", "respawnTime cant be smaller than activeTime! ID:"+hotspot.GetID());
-        error = true;
-    }
-    if(error){
-        if(params.GetFloat("respawnTime") >= params.GetFloat("activeTime"))
-        {
-            error = false;
-        }
-        else{
-            return;
-        }
-    }
+    // These ones are specific
+    params.SetFloat("activeTime", 3.0f);
+    params.SetFloat("respawnTime", 6.0f);
     
-    // Get hotspot
-    Object@ me = ReadObjectFromID(hotspot.GetID());
+    params.SetFloat("colorR", 0.5f);
+    params.SetFloat("colorG", 0.0f);
+    params.SetFloat("colorR", 1.0f);
 
-    // TODO! We'll need to check whether he is still close enough to be considered for pickup
-    // Get lastEnteredPlayerObjId and check its translation, if its close enough to activate
-    
-    if(!readyForPickup && lastEnteredPlayerObjId != -1 && respawnPickupTimer>0){
-        respawnPickupTimer -= time_step;
+    params.SetFloat("particleDelay", 0.02f);
+    params.SetString("pathToParticles", "Data/Particles/ninja_smoke.xml");
+    params.SetFloat("particleColorR", 0.1f);
+    params.SetFloat("particleColorG", 0.1f);
+    params.SetFloat("particleColorB", 0.1f);
+}
 
+void HandleEvent(string event, MovementObject @mo){
+    PowerupHandleEvent(event, @mo);
+}
+
+void Update()
+{
+    PowerupUpdate();
+    if(active){
         //Powerup logic
         MovementObject@ mo = ReadCharacterID(lastEnteredPlayerObjId);
         int weapon = mo.GetArrayIntVar("weapon_slots",mo.GetIntVar("primary_weapon_slot"));
-        
+
         if(weapon == -1) {
             int knifeId = CreateObject("Data/Items/rabbit_weapons/rabbit_knife.xml");
             spawned_objectIds.push_back(knifeId);
@@ -87,47 +51,29 @@ void Update(){
         }
     }
     else{
-        respawnPickupTimer += time_step;
         // Cleanup knives
         if(spawned_objectIds.size()>0){
             lastEnteredPlayerObjId = -1;
-            PlaySound(params.GetString("endSoundPath"));
             DeleteObjectsInList(spawned_objectIds);
         }
-        lastEnteredPlayerObjId = -1;
-        if(respawnPickupTimer>params.GetFloat("respawnTime"))
-            readyForPickup = true;
     }
 }
 
 void Dispose(){
+    PowerupDispose();
     DeleteObjectsInList(spawned_objectIds);
 }
 
-void DeleteObjectsInList(array<int> &inout ids) {
-    int num_ids = ids.length();
-    for(int i=0; i<num_ids; ++i){
-        DeleteObjectID(ids[i]);
-    }
-    ids.resize(0);
+void Draw()
+{
+    PowerupDraw();
 }
 
-void Draw(){
-    // Get hotspot
-    Object@ me = ReadObjectFromID(hotspot.GetID());
-    // Its really dumb we cant use SetBillboardColorMap on hotspots
-    if(!readyForPickup){
-        DebugDrawBillboard(params.GetString("notReadyIconPath"),
-            me.GetTranslation(),
-            me.GetScale()[1]*5.0,
-            vec4(vec3(params.GetFloat("colorR"),params.GetFloat("colorG"),params.GetFloat("colorB")), params.GetFloat("notReadyAlpha")),
-            _delete_on_draw);
-    }
-    else{
-        DebugDrawBillboard(params.GetString("readyIconPath"),
-            me.GetTranslation(),
-            me.GetScale()[1]*6.0,
-            vec4(vec3(params.GetFloat("colorR"),params.GetFloat("colorG"),params.GetFloat("colorB")), params.GetFloat("readyAlpha")),
-            _delete_on_draw);
-    }
+void ReceiveMessage(string msg){
+    PowerupReceiveMessage(msg);
+}
+
+void PreScriptReload()
+{
+    powerupTimer.DeleteAll();
 }

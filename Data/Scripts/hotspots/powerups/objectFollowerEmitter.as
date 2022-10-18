@@ -5,8 +5,13 @@ void Init() {
 
 void SetParameters() {
     params.SetString("game_type", "versusBrawl");
-    //params.SetInt("objectIdToFollow", -1);
-    params.SetString("pathToParticles", "Data/Particles/ninja_smoke.xml");
+    
+    params.AddFloat("particleDelay", 1.0f);
+    params.AddFloat("particleRangeMultiply", 1.0f);
+    params.AddString("pathToParticles", "Data/Particles/smoke.xml");
+    params.AddFloatSlider("particleColorR", 1.0f,"min:0,max:1,step:0.01,text_mult:255");
+    params.AddFloatSlider("particleColorG", 1.0f,"min:0,max:1,step:0.01,text_mult:255");
+    params.AddFloatSlider("particleColorB", 1.0f,"min:0,max:1,step:0.01,text_mult:255");
 }
 
 void Update(){
@@ -21,9 +26,7 @@ void Update(){
         Object@ obj = ReadObjectFromID(objectIdToFollow);
         MovementObject@ mo = ReadCharacterID(objectIdToFollow);
         PlaceholderObject@ placeholder_object = cast<PlaceholderObject@>(obj);
-        // This part makes placeholder follow
         me.SetTranslation(mo.position);
-        //me.SetRotation(mo.rotation);
     }
 }
 
@@ -46,12 +49,14 @@ void PreDraw(float curr_game_time) {
         if(delay <= 0.0f){
             for(int i=0; i<1; ++i){
                 vec3 offset;
-                offset.x += RangedRandomFloat(-scale.x*1.0f,scale.x*1.0f);
-                offset.y += RangedRandomFloat(-scale.y*1.0f,scale.y*1.0f);
-                offset.z += RangedRandomFloat(-scale.z*1.0f,scale.z*1.0f);
-                uint32 id = MakeParticle(pathToParticles, pos + Mult(rotation, offset), vec3(0.0f), vec3(0.1f));
+                float rangeMlt = params.GetFloat("particleRangeMultiply");
+                vec3 color = vec3(params.GetFloat("particleColorR"),params.GetFloat("particleColorG"),params.GetFloat("particleColorB"));
+                offset.x += RangedRandomFloat(-scale.x*rangeMlt,scale.x*rangeMlt);
+                offset.y += RangedRandomFloat(-scale.y*rangeMlt,scale.y*rangeMlt);
+                offset.z += RangedRandomFloat(-scale.z*rangeMlt,scale.z*rangeMlt);
+                uint32 id = MakeParticle(pathToParticles, pos + Mult(rotation, offset), vec3(0.0f), color);
             }
-            delay += 0.02f;
+            delay += params.GetFloat("particleDelay");
         }
         if(delay < -1.0){
             delay = -1.0;
