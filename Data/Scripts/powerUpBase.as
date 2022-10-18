@@ -1,11 +1,12 @@
 ﻿#include "timed_execution/timed_execution.as"
+#include "timed_execution/char_death_job.as"
 #include "timed_execution/level_event_job.as"
 
 float respawnPickupTimer = 0;
 int lastEnteredPlayerObjId = -1;
 bool readyForPickup = true;
 vec3 fixedScale = vec3(0.27,0.27,0.27);
-bool error = false;
+bool _error = false;
 bool active = false;
 
 int particleEmitterId = -1;
@@ -23,27 +24,45 @@ void PowerupHandleEvent(string event, MovementObject @mo)
 {
     if (event == "enter") {
         if (mo.is_player) {
-            if(readyForPickup && !active){
-                lastEnteredPlayerObjId = mo.GetID();
-                readyForPickup = false;
-                active = true;
-                Object@ me = ReadObjectFromID(hotspot.GetID());
-                me.ReceiveScriptMessage("activate");
-                
-                respawnPickupTimer = params.GetFloat("activeTime");
-                int emitterId = CreateObject("Data/Objects/powerups/objectFollowerEmitter.xml");
-                particleEmitterId = emitterId;
-                Object@ obj = ReadObjectFromID(emitterId);
-                ScriptParams@ objParams = obj.GetScriptParams();
-                objParams.SetInt("objectIdToFollow", lastEnteredPlayerObjId);
-                objParams.SetFloat("particleDelay", params.GetFloat("particleDelay"));
-                objParams.SetFloat("particleRangeMultiply", params.GetFloat("particleRangeMultiply"));
-                objParams.SetString("pathToParticles", params.GetString("pathToParticles"));
-                objParams.SetFloat("particleColorR", params.GetFloat("particleColorR"));
-                objParams.SetFloat("particleColorG", params.GetFloat("particleColorG"));
-                objParams.SetFloat("particleColorB", params.GetFloat("particleColorB"));
-                obj.UpdateScriptParams();
-            }
+            // Bodies shouldnt be able to get powerups
+            if(mo.GetIntVar("knocked_out") == _awake)
+                if(readyForPickup && !active){
+                    lastEnteredPlayerObjId = mo.GetID();
+                    readyForPickup = false;
+                    active = true;
+                    Object@ me = ReadObjectFromID(hotspot.GetID());
+                    me.ReceiveScriptMessage("activate");
+
+                    powerupTimer.Add(CharDeathJob(lastEnteredPlayerObjId, function(char_a){
+                        //Disable powerup on death 
+                        if(lastEnteredPlayerObjId == char_a.GetID())
+                        {
+                            respawnPickupTimer = 0;
+                        }
+                        return false;
+                    }));
+                    
+                    powerupTimer.Add(LevelEventJob("reset", function(_params){
+                        //Reset powerup on reset
+                        readyForPickup = true;
+
+                        return false;
+                    }));
+                    
+                    respawnPickupTimer = params.GetFloat("activeTime");
+                    int emitterId = CreateObject("Data/Objects/powerups/objectFollowerEmitter.xml");
+                    particleEmitterId = emitterId;
+                    Object@ obj = ReadObjectFromID(emitterId);
+                    ScriptParams@ objParams = obj.GetScriptParams();
+                    objParams.SetInt("objectIdToFollow", lastEnteredPlayerObjId);
+                    objParams.SetFloat("particleDelay", params.GetFloat("particleDelay"));
+                    objParams.SetFloat("particleRangeMultiply", params.GetFloat("particleRangeMultiply"));
+                    objParams.SetString("pathToParticles", params.GetString("pathToParticles"));
+                    objParams.SetFloat("particleColorR", params.GetFloat("particleColorR"));
+                    objParams.SetFloat("particleColorG", params.GetFloat("particleColorG"));
+                    objParams.SetFloat("particleColorB", params.GetFloat("particleColorB"));
+                    obj.UpdateScriptParams();
+                }
         }
     }
 }
@@ -85,14 +104,14 @@ void PowerupPreScriptReload()
 void PowerupUpdate(){
     powerupTimer.Update();
     // Show error and ignore updating this
-    if(params.GetFloat("respawnTime") < params.GetFloat("activeTime") && !error){
+    if(params.GetFloat("respawnTime") < params.GetFloat("activeTime") && !_error){
         DisplayError("PowerupsError", "respawnTime cant be smaller than activeTime! ID:"+hotspot.GetID());
-        error = true;
+        _error = true;
     }
-    if(error){
+    if(_error){
         if(params.GetFloat("respawnTime") >= params.GetFloat("activeTime"))
         {
-            error = false;
+            _error = false;
         }
         else{
             return;
@@ -116,9 +135,10 @@ void PowerupUpdate(){
             DeleteObjectID(particleEmitterId);
             active = false;
         }
-        lastEnteredPlayerObjId = -1;
-        if(respawnPickupTimer>params.GetFloat("respawnTime"))
+        if(respawnPickupTimer>params.GetFloat("respawnTime")){
+            lastEnteredPlayerObjId = -1;
             readyForPickup = true;
+        }
     }
 }
 

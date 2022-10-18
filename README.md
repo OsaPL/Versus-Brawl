@@ -66,7 +66,7 @@ Make sure your gamepads are all connected before starting the map. If problem pe
 
 5. **The game sometimes crashes on a new round**
 
-Unfortunately, spawning in new cameras for players in `SetPlayer(true)` is sometimes unstable. Can't do much about it rn.
+Unfortunately, it looks like spawning in new cameras for players in `SetPlayer(true)` is sometimes unstable. Can't do much about it rn.
 
 # Gamemodes:
 
@@ -159,8 +159,8 @@ Just CTF
 # Powerups
 
 - **Ninja** (dark smoke) - Have an infinite supply of knives to throw (hands must be free)
-- 👻**Heal** (green poof) - Heals all damage
-- 👻**Rock** (blue sparks) - Negates all character damage
+- **Heal** (green poof) - Heals all damage
+- **Rock** (blue sparks) - Gives high damage resistance
 - 👻**Yeet** (orange explosions) - Next hit (expires after `activeTime`) will launch enemy really hard
 - 👻**Speed** (yellow shortlived smoke) - Increases Movement and Attack speeds
 
