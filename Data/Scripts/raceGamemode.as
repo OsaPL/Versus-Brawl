@@ -60,7 +60,7 @@ void Update(){
             if (GetInputDown(player.playerNr, "attack") && GetInputDown(player.playerNr, "grab")) {
                 suicideTimers[player.playerNr] += time_step;
                 if(suicideTimers[player.playerNr]>suicideTime){
-                    ReadCharacterID(playerTemp.objId).Execute("CutThroat();");
+                    ReadCharacterID(player.objId).Execute("CutThroat();");
                     suicideTimers[player.playerNr] = 0;
                 }
             } else {

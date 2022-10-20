@@ -11355,41 +11355,6 @@ void PostReset() {
     FixDiscontinuity();
 }
 
-void PostResetOsa() {
-    tutorial = "";
-    CacheSkeletonInfo();
-    weapon_slots.resize(_num_weap_slots);
-
-    for(int i = 0; i < _num_weap_slots; ++i) {
-        weapon_slots[i] = -1;
-    }
-
-    if(body_bob_freq == 0.0f) {
-        body_bob_freq = RangedRandomFloat(0.9f, 1.1f);
-        body_bob_time_offset = RangedRandomFloat(0.0f, 100.0f);
-    }
-
-    SetOnGround(true);
-    StartFootStance();
-    CheckSpecies();
-    target_rotation = 0;
-    target_rotation2 = 0;
-    cam_rotation = target_rotation;
-    cam_rotation2 = target_rotation2;
-
-    if(this_mo.controlled) {
-        SetCameraFromFacing();
-    }
-
-    splash_ids.resize(kMaxSplash);
-
-    for(int i = 0; i < kMaxSplash; ++i) {
-        splash_ids[i] = -1;
-    }
-
-    //FixDiscontinuity();
-}
-
 bool in_water = false;
 int water_id = -1;
 float last_splash_time = 0.0;
