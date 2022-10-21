@@ -58,21 +58,22 @@ You dont need to do anything in particular, as long as you use default `aschar.a
 👻(not tested)
 
 If youre using anything custom, a custom implementation will be probably needed.
-1. Set Level Parameter `characterPath` with your players `actor.xml` path.
-2. Set any Script Parameters changes to that actor, so the newly spawned player will also have them.
+1. Set Level Parameter `characterActorPath` with your players `actor.xml` path.
+2. Set any Script Parameters changes to that actor file, so the newly spawned player will also have them.
 3. If you ever use players MovementObject to do something in level/hotspot script, you should change it to smth like:
 ```angelScript
 for (int i = 0; i < GetNumCharacters(); i++) {
     MovementObject@ char = ReadCharacter(i);
     
     if(char.is_player){
-        // This will affect both players now
+        // This will affect all players now
         char.Execute("TakeBloodDamage(1.0f);");
     }
 }
 ```
 
 ### Custom `aschar.as` support
+👻(not tested)
 
 You probably just need to include `coopPartners.as` script and do the same thing I've done in my `aschar.as`. 
 

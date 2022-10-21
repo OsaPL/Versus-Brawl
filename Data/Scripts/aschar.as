@@ -2451,10 +2451,9 @@ void Update(int num_frames) {
     }
 
     // CoopPartnersCheck
-    // Delaying this cause sometimes controller_id and is_player are not available this early?
+    // Delaying this fixes some crashes?!
     if(time > 0.8f){
-        if(this_mo.controller_id == 0 && this_mo.is_player)
-            CoopPartnersCheck();
+        CoopPartnersCheck();
     }
 
     // DebugText("pos" + this_mo.GetID(), "Pos" + this_mo.GetID() + ": " + this_mo.position, 0.5);
