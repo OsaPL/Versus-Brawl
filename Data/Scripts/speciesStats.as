@@ -4,6 +4,9 @@
     string species = character_getter.GetTag("species");
     MovementObject@ mo = ReadCharacterID(char.GetID());
     character_getter.Load(mo.char_path);
+
+    // Reset any Teams
+    params.SetString("Teams", "");
     
     //TODO! Stats to implement:
     //1)jump height
@@ -37,8 +40,9 @@
         params.SetFloat("Jump - Jump Sustain",        3.0);//params.AddFloatSlider("Jump - Jump Sustain", 5.0, "min:0.0,max:50.0,step:0.01,text_mult:1");
         params.SetFloat("Jump - Jump Sustain Boost",  1.0);//params.AddFloatSlider("Jump - Jump Sustain Boost", 10.0, "min:0.0,max:100.0,step:0.01,text_mult:1");
 
+        //TODO! These still make dog throw inaccurate
         params.SetFloat("Throw - Initial Velocity Multiplier",  2.0);//params.AddFloatSlider("Throw - Initial Velocity Multiplier", 1.0, "min:0.1,max:50.0,step:0.01,text_mult:1");
-        params.SetFloat("Throw - Mass Multiplier",  2.0);//params.AddFloatSlider("Throw - Mass Multiplier", 1.0, "min:0.0,max:50.0,step:0.01,text_mult:1");
+        params.SetFloat("Throw - Mass Multiplier",  1.0);//params.AddFloatSlider("Throw - Mass Multiplier", 1.0, "min:0.0,max:50.0,step:0.01,text_mult:1");
     }
     else if(species == "cat"){
         params.SetFloat("Attack Damage",       1.0); //params.AddFloatSlider("Attack Damage", 1, "min:0,max:2,step:0.1,text_mult:100");

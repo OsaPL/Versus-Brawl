@@ -22,9 +22,10 @@ Some of the functionality will come eventually, once I have laid the foundation 
 
 # Features
 - 2/3/4 player support, with UI help and gamepad support
+- Play Coop on any level (👻custom levels support missing)
 - Ability to change species, with each character having different stats and a unique trait
 - Players should no longer get their Id swapped, resulting in gamepads being always correctly arranged
-- Two maps that arent just a gm_flatgrass (👻6 planned, atleast 1 per mode)
+- New maps that arent just a gm_flatgrass, designed for game modes (👻6 planned, atleast 1 per mode)
 - Only a single level script and few basic prefabs needed to create a map. You can have a map ready in matter of minutes.
 - Warmup before the game start (with preloading for smoother gameplay)
 - Easy to extend with new gamemodes (with even more options coming)
@@ -47,6 +48,12 @@ I mean, its on the screen but ok. Player nr 1 has to hold `item` key and press c
 `crouch` for 2 players
 `jump` for 3 players
 `attack` for 4 players
+
+4. **How do I enable coop on a level?**
+
+You need to press `skip_dialogue` on the gamepads.
+Not all custom levels are supported atm. Please, dont message me if its incompatible, let the mapper know.
+
 3. **What does `<action here>` key correspond to?**
 
 For an XbOne gamepad its: 
@@ -57,6 +64,7 @@ For an XbOne gamepad its:
 `grab` left trigger
 `crouch` right bumper
 `jump` left bumper
+`skip_dialogue` start
 
 If you have other any gamepad, you're smart, I believe you'll figure it out.
 
@@ -66,7 +74,8 @@ Make sure your gamepads are all connected before starting the map. If problem pe
 
 5. **The game sometimes crashes on a new round**
 
-Unfortunately, it looks like spawning in new cameras for players in `SetPlayer(true)` is sometimes unstable. Can't do much about it rn.
+Unfortunately, it looks like spawning in new characters and then setting `SetPlayer(true)` is sometimes unstable. Can't do much about it rn.
+(I have a possible fix in the works, just needs a lot of testing)
 
 # Gamemodes:
 
@@ -81,6 +90,10 @@ Survivor gets the point
 - 👻Deathmatch (mostly working, weapon respawn mechanics are still needed)
 
 Gather kills to get points
+
+- Coop
+
+Play through campaign with friendsos.
 
 - 👻Tag
 

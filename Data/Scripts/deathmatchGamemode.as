@@ -130,7 +130,7 @@ void UpdateUI(){
             AHGUI::Element@ headerElement = versusAHGUI.root.findElement("header"+i);
             AHGUI::Divider@ div = cast<AHGUI::Divider>(headerElement);
             
-            uiKillCounters.push_back(@AHGUI::Text(""+killsCount[i], "OpenSans-Regular", 50, 1, 1, 1, 1 ));
+            uiKillCounters.push_back(@AHGUI::Text("Kills: "+killsCount[i], "edosz", 65, 1, 1, 1, 1 ));
 
             uiKillCountersDivs.push_back(@div.addDivider( DDCenter,  DOVertical, ivec2( AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE)));
             uiKillCountersDivs[i].addElement(uiKillCounters[i],DDCenter);
@@ -148,7 +148,7 @@ void UpdateUI(){
 
         for (uint i = 0; i < uiKillCounters.size(); i++)
         {
-            uiKillCounters[i].setText("" + killsCount[i]);
+            uiKillCounters[i].setText("Kills: " + killsCount[i]);
         }
 
         updateScores=false;

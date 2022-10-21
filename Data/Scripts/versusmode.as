@@ -3,6 +3,7 @@
 #include "ui_tools.as"
 
 #include "speciesStats.as"
+#include "colorHelpers.as"
 
 #include "timed_execution/timed_execution.as"
 #include "timed_execution/char_death_job.as"
@@ -196,6 +197,8 @@ Object@ CreateCharacter(int playerNr, string species) {
     char.controller_id = playerNr;
     
     RecolorCharacter(playerNr, species, char_obj);
+    
+    addSpeciesStats(char_obj);
 
     return char_obj;
 }
@@ -229,58 +232,6 @@ void AttachTimers(int obj_id){
 
         return false;
     }));
-}
-
-void RecolorCharacter(int playerNr, string species, Object@ char_obj) {
-    // Setup
-    MovementObject@ mo = ReadCharacterID(char_obj.GetID());
-    character_getter.Load(mo.char_path);
-    ScriptParams@ charParams = char_obj.GetScriptParams();
-    // Some small tweaks to make it look more unique
-    // Scale, Muscle and Fat has to be 0-1 range
-    //TODO: these would be cool to have governing variables (max_fat, minimum_fat etc.)
-    //TODO! Scale is overwritten by addSpeciesStats() atm!
-    float scale = (90.0+(rand()%15))/100;
-    charParams.SetFloat("Character Scale", scale);
-    float muscles = (50.0+((rand()%15)))/100;
-    charParams.SetFloat("Muscle", muscles);
-    float fat = (50.0+((rand()%15)))/100;
-    charParams.SetFloat("Fat", fat);
-
-    // Color the dinosaur, or even the rabbit
-    vec3 furColor = GetRandomFurColor();
-    vec3 clothesColor = RandReasonableTeamColor(playerNr);
-
-    for(int i = 0; i < 4; i++) {
-        const string channel = character_getter.GetChannel(i);
-        //Log(error, "species:"+species + "channel:"+channel);
-        //TODO: fill this up more, maybe even extract to a top level variable for easy edits?
-
-
-        if(channel == "fur" ) {
-            // These will use fur generator color, mixed with another
-            char_obj.SetPaletteColor(i, mix(furColor, GetRandomFurColor(), 0.7));
-
-            // Wolves are problematic for coloring all channels are marked as `fur`
-            if(species == "wolf"){
-                if(i==1 || i==4){
-                    char_obj.SetPaletteColor(i, clothesColor);
-                }
-            }
-        } else if(channel == "cloth" ) {
-            char_obj.SetPaletteColor(i, clothesColor);
-            clothesColor = mix(clothesColor, vec3(0.0), 0.9);
-        }
-    }
-
-    // Reset any Teams
-    //TODO: Here probably will be the team assignment stufff
-    charParams.SetString("Teams", "");
-
-    char_obj.UpdateScriptParams();
-
-    // This will add species specific stats
-    addSpeciesStats(char_obj);
 }
 
 // Just moves character into the position and activates him
@@ -384,6 +335,9 @@ void RerollCharacter(int playerNr, Object@ char) {
     ReadCharacterID(player.objId).Execute(executeCmd);
     
     RecolorCharacter(playerNr, species, char);
+    
+    // This will add species specific stats
+    addSpeciesStats(obj);
 }
 
 ///
@@ -451,72 +405,6 @@ string GetSpeciesRandCharacterPath(string species)
     return "Data/Objects/characters/rabbot_actor.xml";
 }
 
-//TODO! These colors are awful, make them slightly better?
-vec3 RandReasonableWolfTeamColor(int playerNr) {
-    switch (playerNr) {
-        case 0:return vec3(0.0,255.0,0.0);
-        case 1:return vec3(255.0,0.0,0.0);
-        case 2:return vec3(0.0,0.0,255.0);
-        case 3:return vec3(255.0,255.0,0.0);
-    }
-    return vec3(255,255,255);
-}
-
-vec3 RandReasonableTeamColor(int playerNr) {
-    int max_red;
-    int max_green;
-    int max_blue;
-
-    int max_main=100;
-    int max_sub=0+rand()%20;
-
-    switch (playerNr) {
-        case 0:
-            //Green
-            max_red = max_sub;
-            max_green = max_main;
-            max_blue = max_sub;
-            break;
-        case 1:
-            //Red
-            max_red = max_main;
-            max_green = max_sub;
-            max_blue = max_sub;
-            break;
-        case 2:
-            //Blue
-            max_red = max_sub;
-            max_green = max_sub;
-            max_blue = max_main;
-            break;
-        case 3:
-            //Yellow
-            max_red = max_main;
-            max_green = max_main;
-            max_blue = max_sub;
-            break;
-        default: DisplayError("RandReasonableTeamColor", "Unsuported RandReasonableTeamColor value of: " + playerNr);
-            //Purple guy?
-            max_red = max_main;
-            max_green = max_sub;
-            max_blue = max_main;
-            break;
-    }
-
-    vec3 color;
-    color.x = max_red;
-    color.y = max_green;
-    color.z = max_blue;
-    float avg = (color.x + color.y + color.z) / 3.0f;
-    color = mix(color, vec3(avg), 0.3f);
-    return FloatTintFromByte(color);
-}
-
-//TODO!    
-int SpeciesToInt(string species) {
-    return -1;
-}
-
 string IntToColorName(int playerNr) {
     switch (playerNr){
         case 0:return "Green";
@@ -558,38 +446,15 @@ void DeleteObjectsInList(array<int> &inout ids) {
     ids.resize(0);
 }
 
-vec3 GetRandomFurColor() {
-    vec3 fur_color_byte;
-    int rnd = rand() % 7;
-
-    //TODO! Extend this
-    switch(rnd) {
-        case 0: fur_color_byte = vec3(255); break;
-        case 1: fur_color_byte = vec3(34); break;
-        case 2: fur_color_byte = vec3(137); break;
-        case 3: fur_color_byte = vec3(105, 73, 54); break;
-        case 4: fur_color_byte = vec3(53, 28, 10); break;
-        case 5: fur_color_byte = vec3(172, 124, 62); break;
-        case 6: fur_color_byte = vec3(74, 86, 89); break;
-    }
-
-    return FloatTintFromByte(fur_color_byte);
-}
-
-// Convert byte colors to float colors (255,0,0) to (1.0f,0.0f,0.0f)
-vec3 FloatTintFromByte(const vec3 &in tint) {
-    vec3 float_tint;
-    float_tint.x = tint.x / 255.0f;
-    float_tint.y = tint.y / 255.0f;
-    float_tint.z = tint.z / 255.0f;
-    return float_tint;
-}
-
 ///
 ///     General stuff
 ///
 
 void VersusInit(string p_level_name) {
+
+    ScriptParams@ lvlParams = level.GetScriptParams();
+    lvlParams.AddString("game_type", "versusBrawl");
+    
     for(int i = 0; i< 4; i++) {
         VersusPlayer player (i);
         versusPlayers.push_back(player);
@@ -971,7 +836,7 @@ class VersusAHGUI : AHGUI::GUI {
             }
         }
         for(uint k = 0; k < sentences.size(); k++){
-            AHGUI::Text singleSentence( sentences[k], "OpenSans-Regular", textSize, color.x, color.y, color.z, color.a );
+            AHGUI::Text singleSentence( sentences[k], "edosz", textSize, color.x, color.y, color.z, color.a );
             singleSentence.setShadowed(true);
             //singleSentence.addUpdateBehavior( AHGUI::FadeIn( 1000, @inSine ) );
             div.addElement(singleSentence, dd);
@@ -982,7 +847,7 @@ class VersusAHGUI : AHGUI::GUI {
             }
         }
         if(extraTextVal != ""){
-            AHGUI::Text extraSentence(extraTextVal, "OpenSans-Regular", extraTextSize, color.x, color.y, color.z, color.a );
+            AHGUI::Text extraSentence(extraTextVal, "edosz", extraTextSize, color.x, color.y, color.z, color.a );
             extraSentence.setShadowed(true);
             div.addElement(extraSentence, dd);
         }

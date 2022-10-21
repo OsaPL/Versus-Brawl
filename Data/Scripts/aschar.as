@@ -6,17 +6,21 @@
 
 //This is a copy of aschar.as as of 16oct 2022
 
-enum WalkDir {
-    WALK_BACKWARDS,
-        STRAFE,
-        FORWARDS
-};
-
+// My includes
+#include "colorHelpers.as"
+#include "coopPartners.as"
+//
 
 // -- My new params
 float throwMassMlt;
 float throwVelocityMlt;
 //
+
+enum WalkDir {
+    WALK_BACKWARDS,
+        STRAFE,
+        FORWARDS
+};
 
 AttackScriptGetter attack_getter;
 AttackScriptGetter attack_getter2;
@@ -825,6 +829,10 @@ void ClearShadowObjects() {
 }
 
 void Dispose() {
+    
+    // CoopPartnersDispose
+    CoopPartnersDispose();
+    
     if(on_fire_loop_handle != -1) {
         StopSound(on_fire_loop_handle);
         on_fire_loop_handle = -1;
@@ -2442,6 +2450,13 @@ void Update(int num_frames) {
         return;
     }
 
+    // CoopPartnersCheck
+    // Delaying this cause sometimes controller_id and is_player are not available this early?
+    if(time > 0.8f){
+        if(this_mo.controller_id == 0 && this_mo.is_player)
+            CoopPartnersCheck();
+    }
+
     // DebugText("pos" + this_mo.GetID(), "Pos" + this_mo.GetID() + ": " + this_mo.position, 0.5);
     // DebugText("num_hit_on_ground" + this_mo.GetID(), "num_hit_on_ground" + this_mo.GetID() + ": " + num_hit_on_ground, 0.5);
 
@@ -3308,15 +3323,6 @@ void SwapWeaponHands() {
     sheathe_layer_id = this_mo.rigged_object().anim_client().AddLayer("Data/Animations/r_heldweaponswap.anm", 8.0f, flags);
 }
 
-// Convert byte colors to float colors (255, 0, 0) to (1.0f, 0.0f, 0.0f)
-vec3 FloatTintFromByte(const vec3 &in tint) {
-    vec3 float_tint;
-    float_tint.x = tint.x / 255.0f;
-    float_tint.y = tint.y / 255.0f;
-    float_tint.z = tint.z / 255.0f;
-    return float_tint;
-}
-
 // Create a random color tint, avoiding excess saturation
 vec3 RandReasonableColor() {
     vec3 color;
@@ -3326,22 +3332,6 @@ vec3 RandReasonableColor() {
     float avg = (color.x + color.y + color.z) / 3.0f;
     color = mix(color, vec3(avg), 0.7f);
     return FloatTintFromByte(color);
-}
-
-vec3 GetRandomFurColor() {
-    vec3 fur_color_byte;
-    int rnd = rand() % 6;
-
-    switch(rnd) {
-        case 0: fur_color_byte = vec3(255); break;
-        case 1: fur_color_byte = vec3(34); break;
-        case 2: fur_color_byte = vec3(137); break;
-        case 3: fur_color_byte = vec3(105, 73, 54); break;
-        case 4: fur_color_byte = vec3(53, 28, 10); break;
-        case 5: fur_color_byte = vec3(172, 124, 62); break;
-    }
-
-    return FloatTintFromByte(fur_color_byte);
 }
 
 void RandomizeColors() {

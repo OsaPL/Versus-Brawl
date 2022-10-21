@@ -124,6 +124,7 @@ void HandleEvent(string event, MovementObject @mo){
     if(lvlParams.HasParam("InProgress"))
         if(lvlParams.GetInt("InProgress") < 1){
             //Ignore if the game didnt start yet
+                Log(error, "Not `InProgress` yet");
             return;
         }
     
@@ -136,6 +137,7 @@ void HandleEvent(string event, MovementObject @mo){
             }
 
             params.SetInt("player"+mo.controller_id+"Reached", 0);
+            level.SendMessage("checkpoint "+mo.controller_id);  
             
             PlaySoundGroup("Data/Sounds/versus/fight_win1.xml");
 
@@ -163,14 +165,13 @@ void HandleEvent(string event, MovementObject @mo){
             
                         // Switch the one connected
                         obj.SetEnabled(true);
-                        //TODO! receive and increment checkpoints number in race Gamemode script
-                        level.SendMessage("checkpoint "+mo.controller_id);
                     }
                 }
             }
 
             // Its not a spawn, just switch the enable flag it and send an event to notify
             if(firstActivation){
+                
                 // Switch the one connected
                 for (uint j = 0; j <atLoadState.size() ; j++) {
                     Object@ objTemp = ReadObjectFromID(atLoadState[j].id);
