@@ -1,0 +1,6 @@
+<?xml version="2.0" ?>
+<Type>generic</Type>
+<Hotspot>
+	<BillboardColorMap>Data/Textures/ui/versusBrawl/placeholder_weapon_spawn.png</BillboardColorMap>
+	<Script>hotspots/weaponSpawn.as</Script>
+</Hotspot>
