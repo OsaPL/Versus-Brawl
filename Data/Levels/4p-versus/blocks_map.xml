@@ -351,7 +351,7 @@
     <Decal t0="-119.396" t1="72.9062" t2="253.522" s0="5.53899" s1="3.61376" s2="7.33375" q0="-0.218045" q1="-0.749432" q2="0.0770004" q3="0.620386" euler_x="-2.08571" euler_y="-1.11134" euler_z="1.8805" id="98" type_file="Data/Objects/Decals/hex_crete_damage.xml" color_r="0.717647" color_g="0.717647" color_b="0.717647" overbright="0">
         <parameters />
     </Decal>
-    <CameraObject t0="-202.311" t1="130.236" t2="39.4061" s0="1" s1="1" s2="1" q0="-0.0662578" q1="-0.913272" q2="0.165136" q3="-0.366434" euler_x="-2.78382" euler_y="0.763137" euler_z="3.14159" id="99">
+    <CameraObject t0="-192.07" t1="127.829" t2="60.4568" s0="1" s1="1" s2="1" q0="0.225709" q1="-0.49499" q2="0.134907" q3="0.828155" euler_x="0.532165" euler_y="-1.07746" euler_z="0" id="99">
         <parameters />
     </CameraObject>
     <Hotspot t0="-175.231" t1="126.363" t2="54.6584" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="101" type_file="Data/Objects/playerSpawn.xml">
@@ -387,9 +387,16 @@
     <EnvObject t0="-184.851" t1="77.8532" t2="46.3464" s0="2.01594" s1="2.86972" s2="2.37766" q0="-0.00474894" q1="0.00257536" q2="0.0122051" q3="0.999911" euler_x="-0.00943444" euler_y="0.00526621" euler_z="0.0243863" id="107" color_r="0.27451" color_g="0.27451" color_b="0.27451" overbright="0" type_file="Data/Objects/Crete/hex_crete_tall.xml">
         <parameters />
     </EnvObject>
-    <ItemObject t0="-198.162" t1="125.209" t2="58.8765" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="108" type_file="Data/Items/staffbasic.xml" color_r="1" color_g="1" color_b="1" overbright="0">
-        <parameters />
-    </ItemObject>
+    <Hotspot t0="-197.755" t1="124.616" t2="58.3763" s0="0.1" s1="0.1" s2="0.1" q0="0.289422" q1="-0.655073" q2="-0.278226" q3="0.640079" euler_x="1.60584" euler_y="-0.744424" euler_z="-1.58856" id="108" type_file="Data/Objects/weaponSpawn.xml">
+        <parameters>
+            <parameter name="ItemPath" type="string" val="Data/Items/staffbasic.xml" />
+            <parameter name="RespawnDistance" type="int" val="3" />
+            <parameter name="RespawnTime" type="int" val="6" />
+            <parameter name="game_type" type="string" val="versusBrawl" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
     <EnvObject t0="-201.14" t1="89.3845" t2="44.4425" s0="1.01162" s1="2.18529" s2="0.883532" q0="0.0153264" q1="-0.0441156" q2="0.0179088" q3="0.998748" euler_x="0.0291533" euler_y="-0.0887863" euler_z="0.0345635" id="109" color_r="0.368627" color_g="0.368627" color_b="0.368627" overbright="0" type_file="Data/Objects/Crete/hex_crete_tall.xml">
         <parameters />
     </EnvObject>
@@ -416,9 +423,6 @@
     <EnvObject t0="-170.332" t1="86.4818" t2="59.4546" s0="1.08213" s1="2.3376" s2="0.945112" q0="-0.062947" q1="-0.0558986" q2="0.0489617" q3="0.995247" euler_x="-0.13188" euler_y="-0.105296" euler_z="0.105272" id="116" color_r="0.498039" color_g="0.498039" color_b="0.498039" overbright="0" type_file="Data/Objects/Crete/hex_crete_tall.xml">
         <parameters />
     </EnvObject>
-    <ItemObject t0="-197.805" t1="125.191" t2="58.8499" s0="1" s1="1" s2="1" q0="-0.00047946" q1="0.00216574" q2="0.00227249" q3="0.999995" euler_x="-0.000949081" euler_y="0.00433365" euler_z="0.00454294" id="117" type_file="Data/Items/staffbasic.xml" color_r="1" color_g="1" color_b="1" overbright="0">
-        <parameters />
-    </ItemObject>
     <EnvObject t0="-184.764" t1="124.762" t2="58.3709" s0="3.48257" s1="1.50764" s2="0.997895" q0="-0.325164" q1="-0.427935" q2="-0.648746" q3="0.538766" euler_x="0.451694" euler_y="-1.08224" euler_z="-2.02992" id="118" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
         <parameters />
     </EnvObject>
@@ -440,9 +444,16 @@
     <EnvObject t0="-184.954" t1="127.613" t2="45.4104" s0="0.909375" s1="0.401902" s2="0.703795" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="124" color_r="0.34902" color_g="0.368627" color_b="0.407843" overbright="0" type_file="Data/Objects/Buildings/arena/arena_pillar.xml">
         <parameters />
     </EnvObject>
-    <ItemObject t0="-184.958" t1="129.651" t2="45.3861" s0="1" s1="1" s2="1" q0="0.541142" q1="0.523462" q2="-0.45232" q3="0.478079" euler_x="2.82451" euler_y="1.42962" euler_z="1.26181" id="125" type_file="Data/Items/DogWeapons/DogBroadSword.xml" color_r="1" color_g="1" color_b="1" overbright="0">
-        <parameters />
-    </ItemObject>
+    <Hotspot t0="-185.057" t1="130.006" t2="45.4061" s0="0.1" s1="0.1" s2="0.1" q0="0.738098" q1="0.0502815" q2="-0.0550859" q3="0.670561" euler_x="1.66664" euler_y="0.149305" euler_z="0.000352354" id="125" type_file="Data/Objects/weaponSpawn.xml">
+        <parameters>
+            <parameter name="ItemPath" type="string" val="Data/Items/DogWeapons/DogBroadSword.xml" />
+            <parameter name="RespawnDistance" type="int" val="3" />
+            <parameter name="RespawnTime" type="int" val="6" />
+            <parameter name="game_type" type="string" val="versusBrawl" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
     <EnvObject t0="-34.9176" t1="86.0891" t2="-149.456" s0="2.01564" s1="2.86929" s2="2.37731" q0="-0.00474894" q1="0.00257536" q2="0.0122051" q3="0.999911" euler_x="-0.00943444" euler_y="0.00526621" euler_z="0.0243863" id="126" color_r="0.27451" color_g="0.27451" color_b="0.27451" overbright="0" type_file="Data/Objects/Crete/hex_crete_tall.xml">
         <parameters />
     </EnvObject>
@@ -2879,6 +2890,16 @@
     <EnvObject t0="-201.644" t1="121.873" t2="25.37" s0="1" s1="1" s2="1" q0="-0.0446857" q1="0.0677651" q2="0.0762421" q3="0.99378" euler_x="-0.0793634" euler_y="0.141978" euler_z="0.147492" id="911" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/plain_rock_small.xml">
         <parameters />
     </EnvObject>
+    <Hotspot t0="-198.005" t1="124.594" t2="59.5338" s0="0.1" s1="0.1" s2="0.1" q0="0.205003" q1="-0.695292" q2="-0.110595" q3="0.679936" euler_x="1.68796" euler_y="-1.12015" euler_z="-1.55088" id="913" type_file="Data/Objects/weaponSpawn.xml">
+        <parameters>
+            <parameter name="ItemPath" type="string" val="Data/Items/staffbasic.xml" />
+            <parameter name="RespawnDistance" type="int" val="3" />
+            <parameter name="RespawnTime" type="int" val="6" />
+            <parameter name="game_type" type="string" val="versusBrawl" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
     <EnvObject t0="-184.102" t1="119.618" t2="34.3203" s0="3.8534" s1="2.28306" s2="3.1976" q0="0.622996" q1="0.00314501" q2="-0.0621385" q3="0.779748" euler_x="1.34437" euler_y="0.082422" euler_z="-0.0934387" id="914" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/medium_lichen_rock.xml">
         <parameters />
     </EnvObject>
@@ -2895,4 +2916,5 @@
     <SpawnerItem display_name="Crete Impact" path="Data/Objects/Decals/crete_impact.xml" thumbnail_path="Data/UI/spawner/thumbs/Decal/crete_impact.png" />
     <SpawnerItem display_name="Dark Rubble" path="Data/Objects/Decals/dark_rubble.xml" thumbnail_path="Data/UI/spawner/thumbs/Decal/dark_rubble.png" />
     <SpawnerItem display_name="playerSpawn.xml" path="Data/Objects/playerSpawn.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="weaponSpawn.xml" path="Data/Objects/weaponSpawn.xml" thumbnail_path="empty_placeholder.png" />
 </RecentItems>

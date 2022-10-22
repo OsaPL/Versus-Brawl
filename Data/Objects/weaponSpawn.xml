@@ -1,6 +1,6 @@
 <?xml version="2.0" ?>
 <Type>generic</Type>
 <Hotspot>
-	<BillboardColorMap>Data/Textures/ui/versusBrawl/placeholder_weapon_spawn.png</BillboardColorMap>
+	<BillboardColorMap>Data/UI/spawner/thumbs/Hotspot/empty.png</BillboardColorMap>
 	<Script>hotspots/weaponSpawn.as</Script>
 </Hotspot>
