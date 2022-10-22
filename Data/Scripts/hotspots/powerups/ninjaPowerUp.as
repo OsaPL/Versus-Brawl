@@ -18,8 +18,8 @@ void SetParameters() {
     PowerupSetParameters();
 
     // These ones are specific
-    params.SetFloat("activeTime", 3.0f);
-    params.SetFloat("respawnTime", 6.0f);
+    params.SetFloat("activeTime", 9.0f);
+    params.SetFloat("respawnTime", 30.0f);
     
     params.SetFloat("colorR", 0.5f);
     params.SetFloat("colorG", 0.0f);

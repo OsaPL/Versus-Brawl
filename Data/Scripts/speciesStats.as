@@ -69,7 +69,7 @@
         params.SetFloat("Character Scale",  0.9); //params.AddFloatSlider("Character Scale", 1, "min:0.6,max:1.4,step:0.02,text_mult:100");
 
         //Lowest, slightly further and fastest jumps
-        params.SetFloat("Jump - Initial Velocity",    2.0);//params.AddFloatSlider("Jump - Initial Velocity", 5.0, "min:0.1,max:50.0,step:0.01,text_mult:1");
+        params.SetFloat("Jump - Initial Velocity",    3.5);//params.AddFloatSlider("Jump - Initial Velocity", 5.0, "min:0.1,max:50.0,step:0.01,text_mult:1");
         params.SetFloat("Jump - Air Control",         4.0);//params.AddFloatSlider("Jump - Air Control", 3.0, "min:0.0,max:50.0,step:0.01,text_mult:1");
         params.SetFloat("Jump - Jump Sustain",        12.0);//params.AddFloatSlider("Jump - Jump Sustain", 5.0, "min:0.0,max:50.0,step:0.01,text_mult:1");
         params.SetFloat("Jump - Jump Sustain Boost", 12.0);//params.AddFloatSlider("Jump - Jump Sustain Boost", 10.0, "min:0.0,max:100.0,step:0.01,text_mult:1");

@@ -505,8 +505,6 @@ void VersusInit(string p_level_name) {
         }
         return true;
     }));
-
-    
 }
 
 void VersusSetParameters(){

@@ -1,0 +1,187 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<Name>branches_map</Name>
+<Description></Description>
+<Shader>post</Shader>
+<Shadows>true</Shadows>
+<LoadingScreen>
+    <Image></Image>
+</LoadingScreen>
+<OutOfDate NavMesh="true" NavMeshParamHash="-1674835251" />
+<AmbientSounds />
+<Script>raceGamemode.as</Script>
+<LevelScriptParameters>
+    <parameter name="Achievements" type="string" val="flawless, no_injuries, no_kills" />
+    <parameter name="Fog amount" type="float" val="1.6871" />
+    <parameter name="HDR Black point" type="float" val="0.005" />
+    <parameter name="HDR Bloom multiplier" type="float" val="1" />
+    <parameter name="HDR White point" type="float" val="0.971" />
+    <parameter name="InProgress" type="int" val="1" />
+    <parameter name="Level Boundaries" type="int" val="1" />
+    <parameter name="Objectives" type="string" val="destroy_all" />
+    <parameter name="Poo" type="string" val="Yes" />
+    <parameter name="Saturation" type="float" val="1" />
+    <parameter name="Sky Brightness" type="float" val="1" />
+    <parameter name="Sky Rotation" type="float" val="-62" />
+    <parameter name="Sky Tint" type="string" val="255, 255, 255" />
+    <parameter name="game_type" type="string" val="versusBrawl" />
+</LevelScriptParameters>
+<NavMeshParameters generate="true" cell_size="0.3" cell_height="0.2" agent_height="1.7" agent_radius="0.4" agent_max_climb="1.5" agent_max_slope="60" />
+<Sky>
+    <DomeTexture>Data/Textures/skies/Stormy1_Peak.tga_converted.dds</DomeTexture>
+    <SunAngularRad>0.153056</SunAngularRad>
+    <SunColorAngle>57.589</SunColorAngle>
+    <RayToSun r0="0.843168" r1="0.508385" r2="0.174962" />
+</Sky>
+<ActorObjects>
+    <CameraObject t0="19.6533" t1="34.6342" t2="3.04102" s0="1" s1="1" s2="1" q0="0.0965439" q1="-0.383985" q2="0.0404097" q3="0.917389" euler_x="0.209704" euler_y="-0.792811" euler_z="0" id="2">
+        <parameters />
+    </CameraObject>
+    <Hotspot t0="12.3209" t1="28.943" t2="-6.35029" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="9" type_file="Data/Objects/raceGoal.xml">
+        <parameters>
+            <parameter name="gameMode" type="string" val="Race" />
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="player0Reached" type="int" val="-1" />
+            <parameter name="player1Reached" type="int" val="-1" />
+            <parameter name="player2Reached" type="int" val="-1" />
+            <parameter name="player3Reached" type="int" val="-1" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="8.22103" t1="37.2072" t2="-0.293342" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14" type_file="Data/Objects/raceGoal.xml">
+        <parameters>
+            <parameter name="gameMode" type="string" val="Race" />
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="player0Reached" type="int" val="-1" />
+            <parameter name="player1Reached" type="int" val="-1" />
+            <parameter name="player2Reached" type="int" val="-1" />
+            <parameter name="player3Reached" type="int" val="-1" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject t0="5.0818" t1="41.812" t2="10.8354" s0="6.49162" s1="6.49162" s2="6.49162" q0="-0.213982" q1="0.0259117" q2="-0.741877" q3="0.634949" euler_x="-0.329491" euler_y="-0.28858" euler_z="-1.67751" id="23" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/Joshua/Joshua_Branch.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="19.9956" t1="47.9502" t2="7.13701" s0="2.14798" s1="2.26777" s2="2.43141" q0="-0.204653" q1="-0.036119" q2="-0.632849" q3="0.745866" euler_x="-0.276817" euler_y="-0.318254" euler_z="-1.36251" id="24" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/Elm/Elm_Branch.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="2.68883" t1="64.2196" t2="0.854725" s0="2.14797" s1="1.75486" s2="5.17745" q0="-0.204653" q1="-0.036119" q2="-0.632849" q3="0.745866" euler_x="-0.276817" euler_y="-0.318254" euler_z="-1.36251" id="25" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/Elm/Elm_Branch.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="10.3869" t1="34.4625" t2="-5.22405" s0="9.00577" s1="9.00577" s2="9.00577" q0="0.36583" q1="0.511002" q2="-0.539482" q3="0.560367" euler_x="-0.592255" euler_y="1.31481" euler_z="-1.99544" id="26" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/broken_branch_mossy.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="10.0546" t1="49.5082" t2="5.14783" s0="3.65611" s1="6.07867" s2="9.00576" q0="-0.745372" q1="0.087428" q2="-0.660179" q3="0.0307552" euler_x="-2.2357" euler_y="-1.36442" euler_z="-0.986531" id="27" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/broken_branch_mossy.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="20.7622" t1="30.6326" t2="22.2889" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="36" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="1" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject t0="10.2546" t1="26.9089" t2="-3.66206" s0="6.49162" s1="6.49162" s2="6.49162" q0="-0.468198" q1="0.285535" q2="-0.430161" q3="0.717096" euler_x="-1.16088" euler_y="0.00671103" euler_z="-1.08505" id="37" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/Joshua/Joshua_Branch.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="23.8542" t1="31.495" t2="19.891" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="39" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="0" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="18.9144" t1="29.9839" t2="24.0456" s0="1.14538" s1="1.14538" s2="1.14538" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="41" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="3" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="22.7373" t1="31.2807" t2="21.176" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="43" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="2" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Prefab t0="-0.305698" t1="108.86" t2="4.29434" s0="130.482" s1="640.17" s2="124.995" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="45" version="1" prefab_locked="true" prefab_path="Data/Objects/Plants/Trees/prefabs/fir_dead.xml" os0="9.03896" os1="32.0927" os2="7.96273">
+        <parameters />
+        <Group t0="-0.305698" t1="108.86" t2="4.29434" s0="130.338" s1="639.971" s2="124.838" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="135" version="1">
+            <parameters />
+            <EnvObject t0="21.4888" t1="60.3749" t2="18.5226" s0="10.3205" s1="14.2613" s2="11.2228" q0="0.744295" q1="0.424055" q2="0.180123" q3="-0.483485" euler_x="-2.26045" euler_y="-0.74528" euler_z="0.671232" id="406" color_r="0.698039" color_g="0.682353" color_b="0.662745" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/broken_branch_bleached.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="4.77964" t1="99.4215" t2="7.35595" s0="22.0372" s1="30.4519" s2="23.9638" q0="-0.000252984" q1="-0.853086" q2="0.000413975" q3="0.521771" euler_x="-3.13946" euler_y="-1.09785" euler_z="3.1397" id="695" color_r="0.96" color_g="0.972549" color_b="0.991373" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_trunk.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0.766128" t1="403.349" t2="6.34276" s0="8.17816" s1="11.3009" s2="8.89312" q0="0.292068" q1="-0.427625" q2="-0.544588" q3="0.65974" euler_x="1.07199" euler_y="-0.248685" euler_z="-1.52836" id="492" color_r="0.65098" color_g="0.67451" color_b="0.67451" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/bleached_bough.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="7.62154" t1="237.283" t2="-5.72523" s0="7.69268" s1="10.6301" s2="8.3652" q0="-0.392298" q1="0.272018" q2="0.438294" q3="0.761582" euler_x="-0.583248" euler_y="0.860565" euler_z="0.770606" id="433" color_r="0.698039" color_g="0.682353" color_b="0.662745" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/broken_branch_bleached.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="-37.4291" t1="184.634" t2="16.0708" s0="12.7494" s1="17.6176" s2="13.8639" q0="0" q1="0" q2="-0.230444" q3="0.973086" euler_x="0" euler_y="0" euler_z="-0.465067" id="2583" color_r="0.698039" color_g="0.682353" color_b="0.662745" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/bleached_bough.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="-11.8158" t1="93.8188" t2="33.3147" s0="12.7494" s1="17.6176" s2="13.8639" q0="-0.0209625" q1="0.301915" q2="0.0660173" q3="0.950815" euler_x="0" euler_y="0.614927" euler_z="0.138642" id="2584" color_r="0.698039" color_g="0.682353" color_b="0.662745" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/bleached_bough.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="-0.566275" t1="218.369" t2="34.839" s0="12.7494" s1="17.6176" s2="13.8639" q0="-0.0339249" q1="0.488603" q2="0.0603887" q3="0.869752" euler_x="0" euler_y="1.02367" euler_z="0.138641" id="2590" color_r="0.698039" color_g="0.682353" color_b="0.662745" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/bleached_bough.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="30.7068" t1="137.628" t2="-2.66649" s0="12.7494" s1="17.6176" s2="13.8639" q0="-0.0691808" q1="0.996381" q2="-0.00342038" q3="-0.049261" euler_x="-3.14159" euler_y="-0.0987994" euler_z="-3.00295" id="2591" color_r="0.698039" color_g="0.682353" color_b="0.662745" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/bleached_bough.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="36.5467" t1="66.8203" t2="5.16669" s0="12.7494" s1="17.6176" s2="13.8639" q0="-0.0691808" q1="0.996381" q2="-0.00342038" q3="-0.049261" euler_x="-3.14159" euler_y="-0.0987994" euler_z="-3.00295" id="2585" color_r="0.698039" color_g="0.682353" color_b="0.662745" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/bleached_bough.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="8.16384" t1="108.877" t2="-24.6863" s0="12.7494" s1="17.6176" s2="13.8639" q0="-0.588409" q1="0.672288" q2="-0.379858" q3="-0.239814" euler_x="-2.77566" euler_y="-0.878014" euler_z="-1.877" id="2586" color_r="0.698039" color_g="0.682353" color_b="0.662745" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/bleached_bough.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="-13.2059" t1="167.806" t2="13.1376" s0="10.3205" s1="14.2613" s2="11.2228" q0="0.101981" q1="0.657132" q2="0.739788" q3="0.102427" euler_x="1.45497" euler_y="-0.0162731" euler_z="2.85194" id="2587" color_r="0.698039" color_g="0.682353" color_b="0.662745" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/broken_branch_bleached.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="6.4409" t1="270.663" t2="-11.6686" s0="9.5731" s1="13.2285" s2="10.41" q0="-0.293864" q1="0.838541" q2="-0.17164" q3="-0.425479" euler_x="-3.07642" euler_y="-0.951765" euler_z="-2.50105" id="2588" color_r="0.698039" color_g="0.682353" color_b="0.662745" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/bleached_bough.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="5.97636" t1="356.733" t2="-2.15631" s0="9.5731" s1="13.2285" s2="10.41" q0="-0.525563" q1="0.799397" q2="0.12747" q3="-0.261724" euler_x="2.61853" euler_y="-0.288438" euler_z="-1.9007" id="2589" color_r="0.65098" color_g="0.67451" color_b="0.67451" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/bleached_bough.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+    </Prefab>
+    <EnvObject t0="21.4663" t1="29.45" t2="21.6151" s0="2.66413" s1="4.92771" s2="1.00002" q0="0.400824" q1="-0.584465" q2="-0.672373" q3="-0.213712" euler_x="1.57815" euler_y="0.908888" euler_z="-2.84244" id="46" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="17.5587" t1="27.7971" t2="19.0881" s0="2.19261" s1="3.33303" s2="3.14872" q0="0.595645" q1="0.693867" q2="0.210614" q3="0.345526" euler_x="2.33338" euler_y="0.230635" euler_z="1.62385" id="47" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/Elm/Elm_Branch.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="18.8706" t1="22.8485" t2="11.2569" s0="16.5516" s1="1" s2="15.9212" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="48" type_file="Data/Objects/Hotspots/generic_kill.xml">
+        <parameters>
+            <parameter name="KillNPC" type="int" val="1" />
+            <parameter name="KillPlayer" type="int" val="1" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+</ActorObjects>
+<RecentItems>
+    <SpawnerItem display_name="Tree Broken Branch Rotting" path="Data/Objects/Plants/Trees/temperate/broken_branch_rotting.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/broken_branch_rotting.png" />
+    <SpawnerItem display_name="Fir Tree Capped" path="Data/Objects/Plants/Trees/prefabs/fir_tree_capped.xml" thumbnail_path="Data/UI/spawner/thumbs/Prefabs/fir_tree_capped.png" />
+    <SpawnerItem display_name="Tree Segment Bonsai Branch 1" path="Data/Prototypes/CaveArena/Bonsai_Branch1.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Tree Segment Desert Joshua Branch" path="Data/Objects/Plants/Trees/Joshua/Joshua_Branch.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/joshua_branch.png" />
+    <SpawnerItem display_name="playerSpawn.xml" path="Data/Objects/playerSpawn.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Tree Broken Branch Mossy" path="Data/Objects/Plants/Trees/temperate/broken_branch_mossy.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/broken_branch_mossy.png" />
+    <SpawnerItem display_name="Tree Segment Elm Branch" path="Data/Objects/Plants/Trees/Elm/Elm_Branch.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/elm_branch.png" />
+    <SpawnerItem display_name="Fir Tree Dead" path="Data/Objects/Plants/Trees/prefabs/fir_dead.xml" thumbnail_path="Data/UI/spawner/thumbs/Prefabs/fir_dead.png" />
+    <SpawnerItem display_name="Large Wood Plate" path="Data/Objects/Gear/rabbit_gear/large_wood_plate.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Wooden Fence" path="Data/Objects/Buildings/Fence1.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/Fence1.png" />
+    <SpawnerItem display_name="Generic Kill Hotspot" path="Data/Objects/Hotspots/generic_kill.xml" thumbnail_path="Data/UI/spawner/thumbs/Hotspot/kill.png" />
+    <SpawnerItem display_name="raceGoal.xml" path="Data/Objects/raceGoal.xml" thumbnail_path="empty_placeholder.png" />
+</RecentItems>
