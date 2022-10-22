@@ -5,11 +5,11 @@
 
     <Category>Versus</Category>
 
-    <Thumbnail>Data/Images/4p-versus/thumb.jpg</Thumbnail>
-    <PreviewImage>Data/Images/4p-versus/thumb.jpg</PreviewImage>
+    <Thumbnail>Data/Images/4p-versus/placeholder.jpg</Thumbnail>
+    <PreviewImage>Data/Images/4p-versus/placeholder.jpg</PreviewImage>
 
-    <Description>Versus mode overhaul! Custom races, new maps, new gamemodes. README.ms in Mods/4p-versus folder for more information</Description>
-    <Version>0.7.0</Version>
+    <Description>Versus mode overhaul! Custom races, new maps, new gamemodes. README.md in Mods/4p-versus folder for more information</Description>
+    <Version>0.4.0</Version>
     <Author>Osa__PL</Author>
 
     <Tag>Versus</Tag>
@@ -17,10 +17,10 @@
     <SupportedVersion>*</SupportedVersion>
     <NeedsRestart>false</NeedsRestart>
 
-    <Campaign title="Versus Brawl" thumbnail="Images/4p-versus/campaign.jpg" menu_script="arena_campaign_menu.as" main_script="linear_campaign.as">
-        <Level title="Blocks DM" thumbnail="UI/mainmenu/images/grass_beach.png">4p-versus/blocks_map.xml</Level>
-		<Level title="Planks LBS" thumbnail="UI/mainmenu/images/grass_beach.png">4p-versus/plank_map.xml</Level>
-        <Level title="Cave DM" thumbnail="UI/mainmenu/images/grass_beach.png">4p-versus/cave_map.xml</Level>
+    <Campaign title="Versus Brawl" thumbnail="Images/4p-versus/placeholder.png" menu_script="arena_campaign_menu.as" main_script="linear_campaign.as">
+        <Level title="Blocks DM" thumbnail="Images/4p-versus/blocks.jpg">4p-versus/blocks_map.xml</Level>
+		<Level title="Planks LBS" thumbnail="Images/4p-versus/planks.jpg">4p-versus/plank_map.xml</Level>
+        <Level title="Cave DM" thumbnail="Images/4p-versus/cave.jpg">4p-versus/cave_map.xml</Level>
         <Level title="(WIP)Tree Canyon Summer LBS" thumbnail="UI/mainmenu/images/grass_beach.png">4p-versus/tree_canyon_summer_map.xml</Level>
         <Level title="(WIP)Branches RACE" thumbnail="UI/mainmenu/images/grass_beach.png">4p-versus/branches_map.xml</Level>
     </Campaign>
