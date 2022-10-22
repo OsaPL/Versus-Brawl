@@ -14,6 +14,7 @@
 // -- My new params
 float throwMassMlt;
 float throwVelocityMlt;
+bool initCoopPartners = true;
 //
 
 enum WalkDir {
@@ -829,10 +830,7 @@ void ClearShadowObjects() {
 }
 
 void Dispose() {
-    
-    // CoopPartnersDispose
-    CoopPartnersDispose();
-    
+
     if(on_fire_loop_handle != -1) {
         StopSound(on_fire_loop_handle);
         on_fire_loop_handle = -1;
@@ -2451,9 +2449,9 @@ void Update(int num_frames) {
     }
 
     // CoopPartnersCheck
-    // Delaying this fixes some crashes?!
-    if(time > 0.8f){
+    if(initCoopPartners){
         CoopPartnersCheck();
+        initCoopPartners = false;
     }
 
     // DebugText("pos" + this_mo.GetID(), "Pos" + this_mo.GetID() + ": " + this_mo.position, 0.5);

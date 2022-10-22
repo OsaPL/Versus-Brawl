@@ -111,6 +111,27 @@ vec3 RandReasonableTeamColor(int playerNr) {
     return FloatTintFromByte(color);
 }
 
+vec3 GetTeamUIColor(int playerNr){
+    switch (playerNr) {
+        case 0:
+            //Green
+            return vec3(0.0f,0.8f,0.0f);
+        case 1:
+            //Red
+            return vec3(0.8f,0.0f,0.0f);
+        case 2:
+            //Blue
+            return vec3(0.0f,0.0f,0.8f);
+        case 3:
+            //Yellow
+            return vec3(0.8f,0.8f,0.0f);
+        default: DisplayError("RandReasonableTeamColor", "Unsuported RandReasonableTeamColor value of: " + playerNr);
+            //Purple guy?
+            return vec3(1.0f,0.0f,1.0f);
+    }
+    return vec3(1.0f);
+}
+
 vec3 GetRandomFurColor() {
     vec3 fur_color_byte;
     int rnd = rand() % 7;

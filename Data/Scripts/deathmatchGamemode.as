@@ -12,6 +12,12 @@ array<int> killsCount = {0,0,0,0};
 float winStateTimer = 0;
 int winnerId = -1;
 
+array<string> insults = {
+    "For sure not thanks to always hogging all the weapons...",
+    "ez, gg no re",
+    "Maybe you should try Tai Chi instead."
+};
+
 //Level methods
 void Init(string msg){
     constantRespawning = true;
@@ -43,7 +49,8 @@ void DrawGUI() {
 }
 
 float time = 0;
-
+bool pointsTextShow = true;
+float pointsTextShowTime = 7.0f;
 
 void Update(){
     //Always need to call this first!
@@ -54,27 +61,28 @@ void Update(){
         killsCount[2]++;
         updateScores=true;
     }
-
-    //time += time_step;
-    if(time>3.0){
-        for (uint k = 0; k < versusPlayers.size(); k++)
-        {
-            VersusPlayer@ player = GetPlayerByNr(k);
-            MovementObject@ char = ReadCharacterID(player.objId);
-            Log(error, "Player "+player.playerNr+" targets player "+char.GetIntVar("target_id"));
-            Log(error, "Player "+player.playerNr+" is attacked by player "+char.GetIntVar("attacked_by_id"));
-        }
-        time = 0;
-    }
     
     if(currentState == 2){
+        
+        if(pointsTextShow){
+            pointsTextShow = false;
+            versusAHGUI.SetText("Playing to: "+pointsToWin+" kills!");
+        }
+        else{
+            if(time>pointsTextShowTime){
+                versusAHGUI.SetText("");
+            }
+            else{
+                time += time_step;
+            }
+        }
         for (uint i = 0; i < killsCount.size(); i++) {
             if(pointsToWin <= killsCount[i]){
                 // 3 is win state
                 ChangeGameState(3);
                 constantRespawning = false;
                 PlaySound("Data/Sounds/versus/fight_end.wav");
-                versusAHGUI.SetText(""+IntToColorName(i)+" wins!","");
+                versusAHGUI.SetText(""+IntToColorName(i)+" wins!",insults[rand()%insults.size()], GetTeamUIColor(i));
             }
         }
     }
@@ -86,6 +94,8 @@ void Update(){
         if(winStateTimer>winStateTime){
             // Now we just need to reset few things
             winStateTimer = 0;
+            time = 0;
+            pointsTextShow = true;
             ChangeGameState(2);
             killsCount = {0,0,0,0};
             updateScores = true;
@@ -124,7 +134,7 @@ void UpdateUI(){
     // TODO! Probably would be cooler to use Textures\ui\arena_mode icons to count deaths
     
     if(initUI){
-        for (int i = 0; i < 4; i++) {
+        for (uint i = 0; i < versusPlayers.size(); i++) {
             Log(error, "initUI");
 
             AHGUI::Element@ headerElement = versusAHGUI.root.findElement("header"+i);
@@ -137,7 +147,7 @@ void UpdateUI(){
 
             uiKillCountersDivs[i].setBorderSize(4);
             uiKillCountersDivs[i].setBorderColor(0.0, 1.0, 1.0, 1.0);
-            uiKillCountersDivs[i].showBorder();
+            //uiKillCountersDivs[i].showBorder();
         }
         
         initUI = false;

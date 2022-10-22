@@ -455,7 +455,7 @@ void VersusInit(string p_level_name) {
     ScriptParams@ lvlParams = level.GetScriptParams();
     lvlParams.AddString("game_type", "versusBrawl");
     
-    for(int i = 0; i< 4; i++) {
+    for(int i = 0; i< GetConfigValueInt("local_players"); i++) {
         VersusPlayer player (i);
         versusPlayers.push_back(player);
     }
@@ -636,6 +636,7 @@ class VersusAHGUI : AHGUI::GUI {
     bool layoutChanged = true;
     string text="Loading...";
     string extraText="";
+    vec3 textColor = vec3(1.0f);
     int assignmentTextSize = 70;
     int footerTextSize = 50;
     bool showBorders = false;
@@ -657,9 +658,10 @@ class VersusAHGUI : AHGUI::GUI {
     }
     
     //Use this to easily set current onscreen text
-    void SetText(string maintext, string subtext=""){
+    void SetText(string maintext, string subtext="", vec3 color = vec3(1.0f)){
         text = InsertKeysToString(maintext);
         extraText = InsertKeysToString(subtext);
+        textColor = color;
         layoutChanged = true;
     }
     
@@ -675,7 +677,7 @@ class VersusAHGUI : AHGUI::GUI {
         header.clear();
         header.clearUpdateBehaviors();
         header.setDisplacement();
-        DisplayText(DDTop, header, 8, text, 90, vec4(1,1,1,1), extraText, 70);
+        DisplayText(DDTop, header, 8, text, 90, vec4(textColor,1.0f), extraText, 70);
     }
     
     void ChangeIcon(int playerIdx, int iconNr, bool glow)
@@ -709,108 +711,134 @@ class VersusAHGUI : AHGUI::GUI {
                 quitButton.setColor(vec4(0.7,0.7,0.7,0.8));
             }
             else{
-                quitButton.setColor(vec4(1.0,1.0,1.0,1.0));
+                quitButton.setColor(vec4(GetTeamUIColor(playerIdx), 1.0f));
             }
             quitButton.scaleToSizeX(playerIconSize);
         }
     }
     
     void CheckForUIChange(){
-        if(initUI){
+        if(initUI) {
             initUI = false;
             //TODO: #1 this is a dumb fix for the whole UI being moved a little to right for some reason
-    
+
             //Violet 
-            AHGUI::Divider@ container = root.addDivider( DDCenter,  DOVertical, ivec2( AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE ) );
+            AHGUI::Divider
+            @container = root.addDivider(DDCenter, DOVertical, ivec2(AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE));
             container.setVeritcalAlignment(BACenter);
-            if(showBorders){
+            if (showBorders) {
                 container.setBorderSize(5);
                 container.setBorderColor(1.0, 0.0, 1.0, 1.0);
                 container.showBorder();
             }
-    
+
             //Cyan For Text
-            AHGUI::Divider@ header = container.addDivider( DDTopLeft,  DOVertical, ivec2( AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE ) );
+            AHGUI::Divider
+            @header = container.addDivider(DDTopLeft, DOVertical, ivec2(AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE));
             header.setName("header");
             header.setVeritcalAlignment(BARight);
             header.setHorizontalAlignment(BABottom);
-            if(showBorders){
+            if (showBorders) {
                 header.setBorderSize(3);
                 header.setBorderColor(0.0, 1.0, 1.0, 1.0);
                 header.showBorder();
             }
-    
-            AHGUI::Divider@ containerBottom = root.addDivider( DDTop,  DOHorizontal, ivec2( AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE ) );
-            AHGUI::Divider@ containerTop = root.addDivider( DDBottom,  DOHorizontal, ivec2( AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE ) );
-    
+
+            AHGUI::Divider
+            @containerBottom = root.addDivider(DDTop, DOHorizontal, ivec2(AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE));
+            AHGUI::Divider
+            @containerTop = root.addDivider(DDBottom, DOHorizontal, ivec2(AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE));
+
+            int playerNr = versusPlayers.size();
+
             //Yellow
-            AHGUI::Divider@ header3 = containerBottom.addDivider( DDRight,  DOHorizontal, ivec2( AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE ) );
+            AHGUI::Divider
+            @header3 = containerBottom.addDivider(DDRight, DOHorizontal, ivec2(AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE));
             header3.setName("header3");
             header3.setVeritcalAlignment(BALeft);
             header3.setHorizontalAlignment(BABottom);
-            if(showBorders){
+            if (showBorders) {
                 header3.setBorderSize(3);
                 header3.setBorderColor(1.0, 1.0, 0.0, 1.0);
                 header3.showBorder();
             }
-    
-            AHGUI::Image@ quitButton3 = AHGUI::Image(placeholderRaceIconPath);
+            AHGUI::Image
+            @quitButton3 = AHGUI::Image(placeholderRaceIconPath);
+            if (playerNr > 3) {
+                quitButton3.setImageFile(placeholderRaceIconPath);
+            }
             //#1
-            quitButton3.setPadding(0,0,0,70);
+            quitButton3.setPadding(0, 0, 0, 70);
             quitButton3.scaleToSizeX(playerIconSize);
             quitButton3.setName("quitButton3");
-            header3.addElement(quitButton3,DDLeft);
-    
-    
+            quitButton3.setColor(vec4(GetTeamUIColor(3), 1.0f));
+            header3.addElement(quitButton3, DDLeft);
+
             //Blue
-            AHGUI::Divider@ header2 = containerBottom.addDivider( DDLeft,  DOHorizontal, ivec2( AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE ) );
+            AHGUI::Divider
+            @header2 = containerBottom.addDivider(DDLeft, DOHorizontal, ivec2(AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE));
             header2.setName("header2");
             header2.setVeritcalAlignment(BALeft);
             header2.setHorizontalAlignment(BABottom);
-            if(showBorders){
+            if (showBorders) {
                 header2.setBorderSize(3);
                 header2.setBorderColor(0.0, 0.0, 1.0, 1.0);
                 header2.showBorder();
             }
-    
-            AHGUI::Image@ quitButton2 = AHGUI::Image(placeholderRaceIconPath);
+            AHGUI::Image
+            @quitButton2 = AHGUI::Image(placeholderRaceIconPath);
+            if (playerNr > 2) {
+                quitButton2.setImageFile(placeholderRaceIconPath);
+            }
             quitButton2.scaleToSizeX(playerIconSize);
             quitButton2.setName("quitButton2");
-            header2.addElement(quitButton2,DDLeft);
-    
+            quitButton2.setColor(vec4(GetTeamUIColor(2), 1.0f));
+            header2.addElement(quitButton2, DDLeft);
+
             //Red
-            AHGUI::Divider@ header1 = containerTop.addDivider( DDRight,  DOHorizontal, ivec2( AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE ) );
+            AHGUI::Divider
+            @header1 = containerTop.addDivider(DDRight, DOHorizontal, ivec2(AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE));
             header1.setName("header1");
             header1.setVeritcalAlignment(BALeft);
             header1.setHorizontalAlignment(BABottom);
-            if(showBorders){
+            if (showBorders) {
                 header1.setBorderSize(3);
                 header1.setBorderColor(1.0, 0.0, 0.0, 1.0);
                 header1.showBorder();
             }
-    
-            AHGUI::Image@ quitButton1 = AHGUI::Image(placeholderRaceIconPath);
+            AHGUI::Image
+            @quitButton1 = AHGUI::Image(placeholderRaceIconPath);
+            if (playerNr > 1) {
+                quitButton1.setImageFile(placeholderRaceIconPath);
+            }
             quitButton1.scaleToSizeX(playerIconSize);
             //#1
-            quitButton1.setPadding(0,0,0,70);
+            quitButton1.setPadding(0, 0, 0, 70);
             quitButton1.setName("quitButton1");
-            header1.addElement(quitButton1,DDLeft);
-    
+            quitButton1.setColor(vec4(GetTeamUIColor(1), 1.0f));
+            header1.addElement(quitButton1, DDLeft);
+
+
             //Green
-            AHGUI::Divider@ header0 = containerTop.addDivider( DDLeft,  DOHorizontal, ivec2( AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE ) );
+            AHGUI::Divider
+            @header0 = containerTop.addDivider(DDLeft, DOHorizontal, ivec2(AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE));
             header0.setName("header0");
             header0.setVeritcalAlignment(BALeft);
             header0.setHorizontalAlignment(BABottom);
-            if(showBorders){
+            if (showBorders) {
                 header0.setBorderSize(3);
                 header0.setBorderColor(0.0, 1.0, 0.0, 1.0);
                 header0.showBorder();
             }
-    
-            AHGUI::Image@ quitButton0 = AHGUI::Image(placeholderRaceIconPath);
+            AHGUI::Image
+            @quitButton0 = AHGUI::Image(placeholderRaceIconPath);
+            if (playerNr > 0) {
+                quitButton0.setImageFile(placeholderRaceIconPath);
+            }
             quitButton0.scaleToSizeX(playerIconSize);
             quitButton0.setName("quitButton0");
-            header0.addElement(quitButton0,DDLeft);
+            quitButton0.setColor(vec4(GetTeamUIColor(0), 1.0f));
+            header0.addElement(quitButton0, DDLeft);
         }
     
         if(layoutChanged){
@@ -819,7 +847,8 @@ class VersusAHGUI : AHGUI::GUI {
         UpdateText();
         AHGUI::GUI::update();
     }
-    
+
+    // TODO! This is needlessly complicated
     void DisplayText(DividerDirection dd, AHGUI::Divider@ div, int maxWords, string text, int textSize, vec4 color, string extraTextVal = "", int extraTextSize = 0) {
         //The maxWords is the amount of words per line.
         array<string> sentences;
@@ -890,7 +919,9 @@ void FindSpawnPoints(){
                     else{
                         // If its 0 or greater, make sure it lands on the correct playerIndex array
                         VersusPlayer@ player = GetPlayerByNr(playerNr);
-                        player.spawnPoints.push_back(SpawnPoint(object_ids[i]));
+                        // Ignore if null is returned, no such player
+                        if(!(player is null))
+                            player.spawnPoints.push_back(SpawnPoint(object_ids[i]));
                     }
                 }
             }
@@ -933,19 +964,9 @@ bool CheckSpawnsNumber() {
 void CheckPlayersState() {
     if(currentState==0){
         //Select players number
-		if(GetInputDown(0,"item") && !GetInputDown(0,"drop")){
-			if(GetInputPressed(0,"crouch")){
-				players_number = 2;
-                ChangeGameState(2); //Start game
-			}
-			if(GetInputPressed(0,"jump")){
-				players_number = 3;
-                ChangeGameState(2); //Start game
-			}
-			if(GetInputPressed(0,"attack")){
-				players_number = 4;
-                ChangeGameState(2); //Start game
-			}
+		if(GetInputDown(0,"skip_dialogue")){
+		    players_number = versusPlayers.size();
+            ChangeGameState(2); //Start game
 		}
     }
     
@@ -1001,8 +1022,8 @@ void ChangeGameState(uint newState) {
         case 0: 
             //Warmup, select player number
             currentState = newState;
-            versusAHGUI.SetText("Hold @item@ and select player number by then pressing:",
-                "@crouch@=2, @jump@=3, @attack@=4");
+            versusAHGUI.SetText("Warmup!",
+                "Press @skip_dialogue@ button to begin.");
             break;
         case 1: 
             //Failsafe, not enough spawns, waiting for acknowledgment
