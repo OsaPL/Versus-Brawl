@@ -35,12 +35,18 @@ void Init(string msg){
     }));
 }
 
+void SetParameters() {
+    //Always need to call this first!
+    VersusSetParameters();
+
+    // params.AddInt("DeathMatch - PointsToWin", pointsToWin);
+    // params.AddFloatSlider("DeathMatch - PointsTextShowTime", pointsTextShowTime, "min:0,max:60,step:0.1");
+}
+
 void DrawGUI() {
     //Always need to call this first!
     VersusDrawGUI();
 }
-
-
 
 void Update(){
     //Always need to call this first!

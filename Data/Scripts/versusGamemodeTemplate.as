@@ -7,6 +7,12 @@ void Init(string msg){
     VersusInit("");
 }
 
+void SetParameters()
+{
+    //Always need to call this first!
+    VersusSetParameters();
+}
+
 void DrawGUI() {
     //Always need to call this first!
     VersusDrawGUI();

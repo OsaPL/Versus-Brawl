@@ -509,6 +509,21 @@ void VersusInit(string p_level_name) {
     
 }
 
+void VersusSetParameters(){
+    // params.AddFloatSlider("VersusBase - RespawnTime", respawnTime, "min:0,max:60,step:0.1");
+    // params.AddFloatSlider("VersusBase - RespawnBlockTime", respawnBlockTime, "min:0,max:1,step:0.01");
+    // params.AddFloatSlider("VersusBase - SpawnPointBlockTime", spawnPointBlockTime, "min:0,max:60,step:0.1");
+    // params.AddFloatSlider("VersusBase - WinStateTime", winStateTime, "min:0,max:60,step:0.1");
+    // params.AddFloatSlider("VersusBase - WinStateTime", forcedSpecies, "min:0,max:60,step:0.1");
+    // params.AddIntSlider("VersusBase - ForcedSpecies", forcedSpecies, "min:0,max:"+speciesMap.size());
+    // params.AddIntCheckbox("VersusBase - ConstantRespawning", constantRespawning);
+    // params.AddIntCheckbox("VersusBase - UseGenericSpawns", useGenericSpawns);
+    // params.AddIntCheckbox("VersusBase - UseSingleSpawnType", useSingleSpawnType);
+    // params.AddIntCheckbox("VersusBase - BlockSpeciesChange", blockSpeciesChange);
+    // params.AddIntCheckbox("VersusBase - InstantSpeciesChange", instantSpeciesChange);
+    // params.AddIntCheckbox("VersusBase - Preload", preload);
+}
+
 void VersusReset(){
 
 }
