@@ -5,13 +5,10 @@
 float suicideTime = 1;
 int forcedSpeciesType = 2;
 int checkPointNeeded = 2;
-float winStateTime = 10;
 
 //State
 array<float> suicideTimers = {0,0,0,0};
 array<int> checkpointReached = {0,0,0,0};
-float winStateTimer = 0;
-int winnerNr = -1;
 
 //Level methods
 void Init(string msg){
@@ -60,7 +57,8 @@ void Update(){
             if (GetInputDown(player.playerNr, "attack") && GetInputDown(player.playerNr, "grab")) {
                 suicideTimers[player.playerNr] += time_step;
                 if(suicideTimers[player.playerNr]>suicideTime){
-                    ReadCharacterID(player.objId).Execute("CutThroat();");
+                    if(ReadCharacterID(player.objId).GetIntVar("knocked_out") == _awake)
+                        ReadCharacterID(player.objId).Execute("CutThroat();");
                     suicideTimers[player.playerNr] = 0;
                 }
             } else {
@@ -75,15 +73,13 @@ void Update(){
             //Checks for win
             if(checkpointReached[player.playerNr]>=checkPointNeeded){
                 // 3 is win state
-                ChangeGameState(3);
+                winnerNr = player.playerNr;
+                ChangeGameState(100);
                 
-                //GENERIC
                 constantRespawning = false;
                 PlaySound("Data/Sounds/versus/fight_end.wav");
-                versusAHGUI.SetText(""+IntToColorName(player.playerNr)+" wins!","");
                 
-                // Buff the winner?
-                winnerNr = player.playerNr;
+                // TODO: Buff the winner?
 
                 for (uint j = 0; j < versusPlayers.size(); j++)
                 {
@@ -109,16 +105,11 @@ void Update(){
         }
     }
     
-    if(currentState == 3){
-        winStateTimer += time_step;
-        
-        if(winStateTimer>=winStateTime){
+    if(currentState == 100){
+        if(winStateTimer>winStateTime){
             // Now we just need to reset few things
-            winStateTimer = 0;
-            ChangeGameState(2);
             checkpointReached = {0,0,0,0};
             constantRespawning = true;
-            versusAHGUI.SetText("","");
             ScriptParams@ lvlParams = level.GetScriptParams();
             lvlParams.SetInt("InProgress", 1);
 
@@ -134,9 +125,6 @@ void Update(){
                     }
                 }
             }
-            
-            // And now reset level
-            level.SendMessage("reset");
         }
     }
 }

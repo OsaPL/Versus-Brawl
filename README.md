@@ -178,9 +178,10 @@ Just CTF
 # Download and instalation
 ## WIP mod
 
-# Small bugs (dont report these, I know :) )
-- Coop partners sometimes bug out under the ground/behind walls where its cramped
+# Small bugs ( dont report these, I know :) )
+- Coop partners sometimes bug out under the ground/behind walls whenever its cramped
 - for 2 players the UI still stays the same as for 3/4 players setup
+- for `constantRespawning` spawning can lockup, cause you died in the 0.5s window window (needs a rework to the spawn guard `respawnBlockTime` thingy, maybe just make char invincible for that window?)
 - most of the UI stuff is filled with placeholders atm
 - maps stutters after load (preloading is done after level load since AssetManager is not available in `as_context`)
 - clothing colors may look wonky, low priority

@@ -104,7 +104,7 @@ You can use `versusAHGUI` class to have some basic UI.
 
 Like setting onscreen text using :
 ```c++
-versusAHGUI.SetText("big text","small text", /*text color:*/ vec4(1.0f,0.0f,0.0f,0.0f));
+versusAHGUI.SetText("big text","small text", /*text color:*/ vec4(1.0f,0.0f,0.0f,1.0f));
 ```
 or adding an element to players bar
 ```c++

@@ -9,6 +9,14 @@
 #include "timed_execution/char_death_job.as"
 #include "timed_execution/level_event_job.as"
 
+array<string> insults = {
+    "For sure not thanks to always hogging all the weapons...",
+    "ez, gg no re",
+    "Maybe you should try Tai Chi instead.",
+    "You should try turning on `Baby Mode`.",
+    "vidja gams are hart"
+};
+
 //Configurables
 float respawnTime = 2;
 // This will block any stupid respawns calls from hotspots that kill on the way to spawn, higher values could help on bigger "trips"
@@ -22,9 +30,12 @@ float set_omniscientTimeSpan = 3;
 float set_omniscientTimer = set_omniscientTimeSpan;
 // This blocks currentRace from being changed by player
 bool blockSpeciesChange = false; 
+// Starting species
 int forcedSpecies = _rabbit;
 // This allows instant race change even during game (state>=2)
 bool instantSpeciesChange = false;
+// Sets the lenght of victory state
+float winStateTime = 10;
 
 //New UI Stuff
 int playerIconSize = 100;
@@ -32,14 +43,15 @@ string placeholderRaceIconPath = "Textures/ui/challenge_mode/quit_icon_c.tga";
 
 
 //States
-uint players_number;
-uint currentState=99;
+int currentState=-1;
+int winnerNr = -1;
+float winStateTimer = 0;
 
 // For preloading characters
 uint preloadSpeciesIndex = 0;
 uint preloadIndex = 0;
 int placeholderId = -1;
-float placeholderTimer = 2;
+float placeholderTimer = 1;
 bool preload = true;
 
 string placeHolderActorPath = "Data/Objects/characters/rabbot_actor.xml";
@@ -481,7 +493,7 @@ void VersusInit(string p_level_name) {
         }
         DeleteObjectsInList(spawned_object_ids);
         
-        for(uint i = 0; i < players_number; i++)
+        for(uint i = 0; i < versusPlayers.size(); i++)
         {
             Log(error, "RESET EVENT SpawnCharacter");
             VersusPlayer@ player = GetPlayerByNr(i);
@@ -599,7 +611,7 @@ void VersusUpdate() {
 
     CheckPlayersState();
     // On first update we switch to warmup state
-    if(currentState==99 && !preload){
+    if(currentState==-1 && !preload){
         ChangeGameState(0);
     }
 
@@ -959,7 +971,6 @@ void CheckPlayersState() {
     if(currentState==0){
         //Select players number
 		if(GetInputDown(0,"skip_dialogue")){
-		    players_number = versusPlayers.size();
             ChangeGameState(2); //Start game
 		}
     }
@@ -1007,15 +1018,28 @@ void CheckPlayersState() {
             }
         }
     }
+    
+    if(currentState >= 100){
+        winStateTimer += time_step;
+        
+        // We want this to occur atleast frame late, to allow custom win state things to occur
+        if(winStateTimer-time_step>winStateTime){
+            // Now we just need to reset few things
+            winStateTimer = 0;
+            
+            ChangeGameState(2);
+        }
+    }
 }
 
 void ChangeGameState(uint newState) {
-    if(newState == currentState)
-        return;
+    if(currentState != -1)
+        if(newState == uint(currentState))
+            return;
+    currentState = newState;
     switch (newState) {
         case 0: 
             //Warmup, select player number
-            currentState = newState;
             versusAHGUI.SetText("Warmup!",
                 "Press @skip_dialogue@ button to begin.");
             break;
@@ -1024,17 +1048,19 @@ void ChangeGameState(uint newState) {
             //TODO: Inform what is the amount of what type needed for the current settings
             versusAHGUI.SetText("Warning! Not enough player spawns detected!",
                 "After adding more player spawns, please save and reload the map.");
-
-            return;
+            break;
         case 2:
             //Game Start
-            currentState = newState;
+            winnerNr = -1;
             PlaySound("Data/Sounds/versus/voice_start_1.wav");
             // Clear text
             versusAHGUI.SetText("");
             level.SendMessage("reset");
             break;
+        case 100:
+            versusAHGUI.SetText(""+IntToColorName(winnerNr)+" wins!",insults[rand()%insults.size()], GetTeamUIColor(winnerNr));
+            break;
         default:
-            currentState = newState;
+            break;
     }
 }
