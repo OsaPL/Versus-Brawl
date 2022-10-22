@@ -1,4 +1,7 @@
-﻿
+﻿// This is specifically detached from versusmode.as and its dependecies to be a easy and clean include for anyone implementing a modded aschar.as, to add cleanly Coop support
+
+#include "colorHelpers.as"
+
 void CoopPartnersCheck(){
     
     if(!this_mo.is_player)
@@ -22,8 +25,6 @@ void CoopPartnersCheck(){
     
     for (int j = 1; j < GetConfigValueInt("local_players"); j++)
     {
-        DisplayError("CoopPartnersCheck","CoopPartnersCheck: "+GetConfigValueInt("local_players") + " j:" + j);
-        
         string placeHolderActorPath = "Data/Objects/characters/rabbot_actor.xml";
 
         // We check for a custom actor path to use
@@ -53,7 +54,21 @@ void CoopPartnersCheck(){
         newCharObj.UpdateScriptParams();
 
         // Place into the level
-        newCharObj.SetTranslation(charObj.GetTranslation());
+        vec3 translation = charObj.GetTranslation();
+        // Space them a little to avoid clipping
+        translation.y += 1;
+        switch (j) {
+            case 1:
+                translation.x += 1;
+                break;
+            case 2:
+                translation.x -= 1;
+                break;
+            case 3:
+                translation.z -= 1;
+                break;
+        }
+        newCharObj.SetTranslation(translation);
         
         //TEST
         RecolorCharacter(j, newCharParams.GetString("Species"), newCharObj);
