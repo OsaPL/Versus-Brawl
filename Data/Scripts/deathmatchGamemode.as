@@ -2,7 +2,7 @@
 // ^^ only this is needed
 
 // Configurables
-int pointsToWin = 3;
+int pointsToWin = 10;
 bool pointsTextShow = true;
 float pointsTextShowTime = 7.0f;
 
