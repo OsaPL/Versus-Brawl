@@ -17,7 +17,7 @@ int placeholderId = -1;
 
 void SetParameters() {
     params.AddString("ItemPath", oldPath);
-    params.AddIntSlider("RespawnTime", 6.0f, "min:0.0,max:100.0");
+    params.AddIntSlider("RespawnTime", 10.0f, "min:0.0,max:100.0");
     params.AddIntSlider("RespawnDistance", 3.0f, "min:0.0,max:100.0");
     params.AddString("game_type", "versusBrawl");
 }

@@ -351,7 +351,7 @@
     <Decal t0="-119.396" t1="72.9062" t2="253.522" s0="5.53899" s1="3.61376" s2="7.33375" q0="-0.218045" q1="-0.749432" q2="0.0770004" q3="0.620386" euler_x="-2.08571" euler_y="-1.11134" euler_z="1.8805" id="98" type_file="Data/Objects/Decals/hex_crete_damage.xml" color_r="0.717647" color_g="0.717647" color_b="0.717647" overbright="0">
         <parameters />
     </Decal>
-    <CameraObject t0="-192.07" t1="127.829" t2="60.4568" s0="1" s1="1" s2="1" q0="0.225709" q1="-0.49499" q2="0.134907" q3="0.828155" euler_x="0.532165" euler_y="-1.07746" euler_z="0" id="99">
+    <CameraObject t0="-176.572" t1="130.35" t2="46.4176" s0="1" s1="1" s2="1" q0="0.139726" q1="-0.524327" q2="0.0876988" q3="0.835384" euler_x="0.331452" euler_y="-1.121" euler_z="0" id="99">
         <parameters />
     </CameraObject>
     <Hotspot t0="-175.231" t1="126.363" t2="54.6584" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="101" type_file="Data/Objects/playerSpawn.xml">
@@ -387,11 +387,11 @@
     <EnvObject t0="-184.851" t1="77.8532" t2="46.3464" s0="2.01594" s1="2.86972" s2="2.37766" q0="-0.00474894" q1="0.00257536" q2="0.0122051" q3="0.999911" euler_x="-0.00943444" euler_y="0.00526621" euler_z="0.0243863" id="107" color_r="0.27451" color_g="0.27451" color_b="0.27451" overbright="0" type_file="Data/Objects/Crete/hex_crete_tall.xml">
         <parameters />
     </EnvObject>
-    <Hotspot t0="-197.755" t1="124.616" t2="58.3763" s0="0.1" s1="0.1" s2="0.1" q0="0.289422" q1="-0.655073" q2="-0.278226" q3="0.640079" euler_x="1.60584" euler_y="-0.744424" euler_z="-1.58856" id="108" type_file="Data/Objects/weaponSpawn.xml">
+    <Hotspot t0="-197.755" t1="124.616" t2="58.3763" s0="0.1" s1="0.1" s2="0.1" q0="0.289422" q1="-0.655073" q2="-0.278226" q3="0.640079" euler_x="1.60584" euler_y="-0.744423" euler_z="-1.58856" id="108" type_file="Data/Objects/weaponSpawn.xml">
         <parameters>
             <parameter name="ItemPath" type="string" val="Data/Items/staffbasic.xml" />
             <parameter name="RespawnDistance" type="int" val="3" />
-            <parameter name="RespawnTime" type="int" val="6" />
+            <parameter name="RespawnTime" type="int" val="10" />
             <parameter name="game_type" type="string" val="versusBrawl" />
         </parameters>
         <Connections />
@@ -448,7 +448,7 @@
         <parameters>
             <parameter name="ItemPath" type="string" val="Data/Items/DogWeapons/DogBroadSword.xml" />
             <parameter name="RespawnDistance" type="int" val="3" />
-            <parameter name="RespawnTime" type="int" val="6" />
+            <parameter name="RespawnTime" type="int" val="10" />
             <parameter name="game_type" type="string" val="versusBrawl" />
         </parameters>
         <Connections />
@@ -2890,11 +2890,11 @@
     <EnvObject t0="-201.644" t1="121.873" t2="25.37" s0="1" s1="1" s2="1" q0="-0.0446857" q1="0.0677651" q2="0.0762421" q3="0.99378" euler_x="-0.0793634" euler_y="0.141978" euler_z="0.147492" id="911" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/plain_rock_small.xml">
         <parameters />
     </EnvObject>
-    <Hotspot t0="-198.005" t1="124.594" t2="59.5338" s0="0.1" s1="0.1" s2="0.1" q0="0.205003" q1="-0.695292" q2="-0.110595" q3="0.679936" euler_x="1.68796" euler_y="-1.12015" euler_z="-1.55088" id="913" type_file="Data/Objects/weaponSpawn.xml">
+    <Hotspot t0="-198.005" t1="124.594" t2="59.5338" s0="0.1" s1="0.1" s2="0.1" q0="0.205003" q1="-0.695292" q2="-0.110595" q3="0.679936" euler_x="1.68796" euler_y="-1.12014" euler_z="-1.55088" id="913" type_file="Data/Objects/weaponSpawn.xml">
         <parameters>
             <parameter name="ItemPath" type="string" val="Data/Items/staffbasic.xml" />
             <parameter name="RespawnDistance" type="int" val="3" />
-            <parameter name="RespawnTime" type="int" val="6" />
+            <parameter name="RespawnTime" type="int" val="10" />
             <parameter name="game_type" type="string" val="versusBrawl" />
         </parameters>
         <Connections />
