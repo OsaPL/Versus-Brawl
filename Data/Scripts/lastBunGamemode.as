@@ -28,12 +28,14 @@ int score_rightDown = 0;
 float time = 0.0f;
 float reset_timer = 2.0f;
 float end_game_delay = 0.0f;
-
+int players_number;
 
 //Level methods
 void Init(string msg){
     //Always need to call this first!
     VersusInit("");
+
+    players_number = versusPlayers.size();
     
     //Gamemode specific below
     versus_gui.Init();

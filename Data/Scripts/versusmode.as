@@ -22,8 +22,8 @@ float respawnTime = 2;
 // This will block any stupid respawns calls from hotspots that kill on the way to spawn, higher values could help on bigger "trips"
 float respawnBlockTime = 0.5;
 bool constantRespawning = false;
-bool useGenericSpawns = false;
-bool useSingleSpawnType = true;
+bool useGenericSpawns = true;
+bool useSingleSpawnType = false;
 float spawnPointBlockTime = 2;
 // How often we want to make all char aware
 float set_omniscientTimeSpan = 3;

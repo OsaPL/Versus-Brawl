@@ -43,6 +43,7 @@
     <parameter name="Sky Brightness" type="float" val="0.83" />
     <parameter name="Sky Rotation" type="float" val="0" />
     <parameter name="Sky Tint" type="string" val="255, 255, 255" />
+    <parameter name="game_type" type="string" val="versusBrawl" />
 </LevelScriptParameters>
 <NavMeshParameters generate="true" cell_size="0.3" cell_height="0.2" agent_height="1.7" agent_radius="0.4" agent_max_climb="1.5" agent_max_slope="60" />
 <Sky>
@@ -73,10 +74,10 @@
     <EnvObject t0="-225.899" t1="67.5163" t2="327.337" s0="0.739155" s1="0.739155" s2="0.739155" q0="-0.0705863" q1="-0.725729" q2="-0.0143442" q3="0.6842" euler_x="-2.267" euler_y="-1.47189" euler_z="2.14667" id="8" color_r="0.717647" color_g="0.690196" color_b="0.552941" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1a_lichen.xml">
         <parameters />
     </EnvObject>
-    <Hotspot t0="-183.692" t1="126.364" t2="28.6338" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="9" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="-173.069" t1="126.125" t2="40.0017" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="9" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
-            <parameter name="playerNr" type="int" val="0" />
+            <parameter name="playerNr" type="int" val="-1" />
         </parameters>
         <Connections />
         <ConnectionsFrom />
@@ -93,10 +94,10 @@
     <EnvObject t0="-180.74" t1="79.0375" t2="78.9168" s0="1.67676" s1="1.67676" s2="1.67676" q0="-0.00322628" q1="-0.443898" q2="-0.0200838" q3="0.895846" euler_x="0.0198852" euler_y="-0.919763" euler_z="-0.0546795" id="14" color_r="0.607843" color_g="0.568627" color_b="0.47451" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1a_lichen.xml">
         <parameters />
     </EnvObject>
-    <Hotspot t0="-198.497" t1="127.088" t2="34.4548" s0="1" s1="1" s2="1" q0="0" q1="0.189418" q2="0" q3="0.981897" euler_x="0" euler_y="0.381139" euler_z="0" id="15" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="-198.189" t1="127.389" t2="33.8129" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="15" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
-            <parameter name="playerNr" type="int" val="1" />
+            <parameter name="playerNr" type="int" val="-1" />
         </parameters>
         <Connections />
         <ConnectionsFrom />
@@ -350,21 +351,21 @@
     <Decal t0="-119.396" t1="72.9062" t2="253.522" s0="5.53899" s1="3.61376" s2="7.33375" q0="-0.218045" q1="-0.749432" q2="0.0770004" q3="0.620386" euler_x="-2.08571" euler_y="-1.11134" euler_z="1.8805" id="98" type_file="Data/Objects/Decals/hex_crete_damage.xml" color_r="0.717647" color_g="0.717647" color_b="0.717647" overbright="0">
         <parameters />
     </Decal>
-    <CameraObject t0="-194.535" t1="126.238" t2="53.9192" s0="1" s1="1" s2="1" q0="-0.0650098" q1="-0.359949" q2="0.0251517" q3="-0.930364" euler_x="0.139525" euler_y="0.738308" euler_z="0" id="99">
+    <CameraObject t0="-166.426" t1="134.985" t2="40.5822" s0="1" s1="1" s2="1" q0="0.224433" q1="-0.691608" q2="0.24154" q3="0.642624" euler_x="-2.46959" euler_y="-1.4974" euler_z="-3.14159" id="99">
         <parameters />
     </CameraObject>
-    <Hotspot t0="-173.14" t1="126.86" t2="39.8253" s0="1" s1="1" s2="1" q0="0.0265767" q1="-0.709059" q2="-0.0136619" q3="0.704513" euler_x="1.69236" euler_y="-1.51345" euler_z="-1.67409" id="101" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="-175.848" t1="126.867" t2="54.9699" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="101" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
-            <parameter name="playerNr" type="int" val="2" />
+            <parameter name="playerNr" type="int" val="-1" />
         </parameters>
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-175.271" t1="126.69" t2="54.6157" s0="1" s1="1" s2="1" q0="0" q1="-0.895126" q2="0" q3="0.445813" euler_x="3.14159" euler_y="-0.924164" euler_z="3.14159" id="103" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="-201.99" t1="127.785" t2="45.448" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="103" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
-            <parameter name="playerNr" type="int" val="3" />
+            <parameter name="playerNr" type="int" val="-1" />
         </parameters>
         <Connections />
         <ConnectionsFrom />
@@ -2864,6 +2865,14 @@
     <EnvObject t0="-183.367" t1="121.968" t2="33.6007" s0="3.18086" s1="2.14416" s2="2.67283" q0="0.143549" q1="0.0140006" q2="-0.988667" q3="-0.0416602" euler_x="-0.0413418" euler_y="0.286585" euler_z="3.0514" id="908" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/medium_lichen_rock.xml">
         <parameters />
     </EnvObject>
+    <Hotspot t0="-183.464" t1="126.485" t2="29.6337" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="909" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
     <EnvObject t0="-184.306" t1="124.963" t2="27.7055" s0="0.915332" s1="0.915332" s2="0.915332" q0="-0.50888" q1="-0.0219387" q2="0.853429" q3="-0.110601" euler_x="0.154883" euler_y="1.06222" euler_z="-2.79275" id="910" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/bleached_bough.xml">
         <parameters />
     </EnvObject>
@@ -2881,9 +2890,9 @@
     </EnvObject>
 </ActorObjects>
 <RecentItems>
-    <SpawnerItem display_name="playerSpawn.xml" path="Data/Objects/playerSpawn.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Fire" path="Data/Objects/fire.xml" thumbnail_path="" />
     <SpawnerItem display_name="ninjaPowerUp.xml" path="Data/Objects/powerups/ninjaPowerUp.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Crete Impact" path="Data/Objects/Decals/crete_impact.xml" thumbnail_path="Data/UI/spawner/thumbs/Decal/crete_impact.png" />
     <SpawnerItem display_name="Dark Rubble" path="Data/Objects/Decals/dark_rubble.xml" thumbnail_path="Data/UI/spawner/thumbs/Decal/dark_rubble.png" />
+    <SpawnerItem display_name="playerSpawn.xml" path="Data/Objects/playerSpawn.xml" thumbnail_path="empty_placeholder.png" />
 </RecentItems>

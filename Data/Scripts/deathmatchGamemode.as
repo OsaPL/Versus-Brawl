@@ -15,8 +15,6 @@ float pointsTextShowTimer = 0;
 //Level methods
 void Init(string msg){
     constantRespawning = true;
-    useGenericSpawns = true;
-    useSingleSpawnType = false;
     //Always need to call this first!
     VersusInit("");
 
