@@ -36,7 +36,7 @@
     <RayToSun r0="-0.0114565" r1="0.998364" r2="0.0560155" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="14.6963" t1="5.39889" t2="-3.02265" s0="1" s1="1" s2="1" q0="0.28214" q1="-0.610595" q2="0.246969" q3="0.697551" euler_x="0.76871" euler_y="-1.43805" euler_z="0" id="0">
+    <CameraObject t0="17.4401" t1="11.0791" t2="24.9682" s0="1" s1="1" s2="1" q0="-0.108809" q1="0.0945062" q2="-0.0103922" q3="-0.989506" euler_x="0.219046" euler_y="-0.190439" euler_z="0" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="9.43688" t1="-3.84359" t2="-2.40162" s0="40.3102" s1="1" s2="35.1901" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
@@ -324,7 +324,7 @@
             <parameter name="BelongsTo" type="int" val="84" />
         </parameters>
     </ItemObject>
-    <Hotspot t0="5.03179" t1="3.71919" t2="3.5039" s0="0.0752143" s1="0.0752143" s2="0.0752143" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="87" type_file="Data/Objects/Hotspots/fire_test.xml">
+    <Hotspot t0="4.95367" t1="3.70468" t2="3.42028" s0="0.0752143" s1="0.0752143" s2="0.0752143" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="87" type_file="Data/Objects/Hotspots/fire_test.xml">
         <parameters>
             <parameter name="Fire Ribbons" type="int" val="4" />
             <parameter name="FlameTaken" type="int" val="88" />
@@ -350,7 +350,7 @@
             <parameter name="BelongsTo" type="int" val="88" />
         </parameters>
     </ItemObject>
-    <Hotspot t0="21.4755" t1="10.0948" t2="6.6482" s0="0.0752143" s1="0.0752143" s2="0.0752143" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="91" type_file="Data/Objects/Hotspots/fire_test.xml">
+    <Hotspot t0="21.4783" t1="10.1018" t2="6.59689" s0="0.0752143" s1="0.0752143" s2="0.0752143" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="91" type_file="Data/Objects/Hotspots/fire_test.xml">
         <parameters>
             <parameter name="Fire Ribbons" type="int" val="4" />
             <parameter name="FlameTaken" type="int" val="92" />
@@ -420,7 +420,7 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="13.7722" t1="5.00729" t2="-3.37467" s0="0.101967" s1="0.101967" s2="0.101967" q0="-0.0477732" q1="0.566617" q2="0.0663324" q3="0.819918" euler_x="-0.00897213" euler_y="1.20966" euler_z="0.15525" id="102" type_file="Data/Objects/weaponSpawn.xml">
+    <Hotspot t0="13.7722" t1="5.00729" t2="-3.37467" s0="0.1" s1="0.1" s2="0.1" q0="-0.0477732" q1="0.566617" q2="0.0663324" q3="0.819918" euler_x="-0.00897188" euler_y="1.20966" euler_z="0.15525" id="102" type_file="Data/Objects/weaponSpawn.xml">
         <parameters>
             <parameter name="ItemPath" type="string" val="Data/Items/DogWeapons/DogSword.xml" />
             <parameter name="RespawnDistance" type="int" val="3" />
@@ -467,7 +467,7 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="12.8279" t1="5.63116" t2="19.3024" s0="0.0752143" s1="0.0752143" s2="0.0752143" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="122" type_file="Data/Objects/Hotspots/fire_test.xml">
+    <Hotspot t0="18.9779" t1="0.408589" t2="16.9763" s0="0.0752143" s1="0.0752143" s2="0.0752143" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="122" type_file="Data/Objects/Hotspots/fire_test.xml">
         <parameters>
             <parameter name="Fire Ribbons" type="int" val="4" />
             <parameter name="FlameTaken" type="int" val="123" />
@@ -590,6 +590,9 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
+    <EnvObject t0="4.34293" t1="1.14454" t2="7.38851" s0="0.360275" s1="0.360275" s2="0.360275" q0="0.00863749" q1="0.000763118" q2="-0.0208682" q3="0.999746" euler_x="0.0172396" euler_y="0.00188635" euler_z="-0.0417248" id="175" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/halloween/pumpkin.xml">
+        <parameters />
+    </EnvObject>
     <Hotspot t0="19.7716" t1="11.4043" t2="8.63735" s0="0.27" s1="0.27" s2="0.27" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="176" type_file="Data/Objects/powerups/ninjaPowerUp.xml">
         <parameters>
             <parameter name="activeTime" type="float" val="9" />
@@ -657,6 +660,9 @@
         <parameters />
     </EnvObject>
     <EnvObject t0="16.3882" t1="0.628935" t2="4.64797" s0="1.72803" s1="1.72803" s2="1.72803" q0="0.0500388" q1="-0.807718" q2="-0.482189" q3="0.335541" euler_x="1.93509" euler_y="-0.516441" euler_z="-2.65788" id="191" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Gear/RatJunk/RatJunkBirdSkull.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="6.61796" t1="1.03062" t2="7.47096" s0="0.417737" s1="0.29579" s2="0.367913" q0="0.0274044" q1="-0.154522" q2="-0.0201256" q3="0.987401" euler_x="0.063379" euler_y="-0.308938" euler_z="-0.050631" id="192" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/halloween/pumpkin.xml">
         <parameters />
     </EnvObject>
     <Decal t0="17.8407" t1="1.38708" t2="4.70095" s0="4.186" s1="4.186" s2="4.186" q0="-0.192428" q1="-0.00262636" q2="0.416957" q3="0.88832" euler_x="-0.355777" euler_y="0.15644" euler_z="0.84952" id="194" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="1" color_g="0" color_b="0" overbright="0">
@@ -923,7 +929,7 @@
     <EnvObject t0="14.001" t1="4.75053" t2="-4.27677" s0="0.972923" s1="1" s2="0.98237" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="258" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/baskets/basket_tall.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="13.8601" t1="4.57517" t2="-3.43555" s0="1" s1="1" s2="1" q0="0.0470966" q1="0.183805" q2="-0.115059" q3="0.97507" euler_x="0.0533418" euler_y="0.378238" euler_z="-0.224704" id="259" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/baskets/basket_bowl.xml">
+    <EnvObject t0="13.8601" t1="4.57517" t2="-3.43555" s0="1" s1="1" s2="1" q0="0.0470966" q1="0.183805" q2="-0.115059" q3="0.97507" euler_x="0.053342" euler_y="0.378238" euler_z="-0.224704" id="259" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/baskets/basket_bowl.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="13.4568" t1="4.78432" t2="-2.90785" s0="1" s1="1" s2="1" q0="-0.11642" q1="-0.0138856" q2="-0.0248531" q3="0.992793" euler_x="-0.232694" euler_y="-0.033364" euler_z="-0.0461569" id="260" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/baskets/basket_covered.xml">
@@ -971,7 +977,7 @@
     <Decal t0="4.5906" t1="-0.10563" t2="20.7764" s0="9.27804" s1="8.21993" s2="9.63415" q0="-0.0307358" q1="0.0123464" q2="-0.000565011" q3="0.99945" euler_x="-0.0615092" euler_y="0.024647" euler_z="-0.00188893" id="274" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="6.61176" t1="2.30376" t2="10.8504" s0="7.10638" s1="6.29593" s2="7.37914" q0="-0.0435616" q1="-0.132527" q2="-0.125312" q3="0.982267" euler_x="-0.0544306" euler_y="-0.274714" euler_z="-0.246255" id="275" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="6.31886" t1="2.41375" t2="11.4353" s0="6.82528" s1="6.29593" s2="6.08259" q0="-0.0435616" q1="-0.132527" q2="-0.125312" q3="0.982267" euler_x="-0.0544306" euler_y="-0.274714" euler_z="-0.246255" id="275" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-3.81926" t1="0.628934" t2="5.74862" s0="7.10638" s1="6.29593" s2="7.37914" q0="-0.0435616" q1="-0.132527" q2="-0.125312" q3="0.982267" euler_x="-0.0544306" euler_y="-0.274714" euler_z="-0.246255" id="276" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
