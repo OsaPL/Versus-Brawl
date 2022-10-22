@@ -2,7 +2,7 @@
 These are general guidelines, tips, explanations that will make your map/gamemode more enjoyable and less janky, for this mod.
 If you have any questions, suggestions or requests, feel free to DM me.
 
-- `F8` now does a hard-reload of the map (this saved me EONS of time)
+- `F10` now does a hard-reload of the map (this saved me EONS of time)
 - `PreScriptReload()` will now reload the map automatically, to stay synced and reduce crashes due to a pointer fuckup or weird timing issues. Can be turned off with 👻`noReloads=true` flag
 
 ### Navigation
@@ -84,7 +84,7 @@ Just correctly call `CoopPartnersCheck()` and `CoopPartnersDispose()`.
 You can create your own gamemodes pretty easily! Start with `versusGameplayTemplate`.
 
 ### Global variables available
- `currentState` contains current game state, template already has: `warmup=0`, `map unsupported/missing components=1`, `gamestart>=2` `gameend>=100`, but you are free to implement more and use the `currentState` value.
+ `currentState` contains current game state, template already has: `warmup=0`, `map unsupported/missing components=1`, `gamestart>=2` `gameend>=100`, but you are free to implement more and use the `ChangeGameState(value)` call to switch.
 
 **👻Most of these are available from level scripts parameters menu**
 
@@ -96,8 +96,7 @@ You can create your own gamemodes pretty easily! Start with `versusGameplayTempl
 
 `blockSpeciesChange` will block players from changing species if `true`.
 
-`forcedSpecies` number representing start species for each player, at the map load. 
-
+`forcedSpecies` number representing starting species for each player, at the map load.
 
 
 ### UI 
@@ -105,7 +104,7 @@ You can use `versusAHGUI` class to have some basic UI.
 
 Like setting onscreen text using :
 ```c++
-versusAHGUI.SetText("big text","small text");
+versusAHGUI.SetText("big text","small text", /*text color:*/ vec4(1.0f,0.0f,0.0f,0.0f));
 ```
 or adding an element to players bar
 ```c++

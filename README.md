@@ -44,15 +44,14 @@ Some gamemodes only allow for next round change while game is in progress.
 
 2. **How do I select amount of players?**
 
-I mean, its on the screen but ok. Player nr 1 has to hold `item` key and press corresponding buttons for players number.
-`crouch` for 2 players
-`jump` for 3 players
-`attack` for 4 players
+Go to the `Settings -> Game -> Local Players`. If you're already on a level, you'll need to go back to the main menu and load the map again (or do a full map reload `F10` where supported).
 
 4. **How do I enable coop on a level?**
 
-You need to press `skip_dialogue` on the gamepads.
-Not all custom levels are supported atm. Please, dont message me if its incompatible, let the mapper know.
+Just set `Local Players` and launch a level.
+Not all custom levels are supported atm. Please, dont message me if its incompatible, you should let the mapper know. (there is a mapping guidelines)
+
+For already coop supported old levels, set `Local Players` to `1` for compatibility.
 
 3. **What does `<action here>` key correspond to?**
 
@@ -72,10 +71,9 @@ If you have other any gamepad, you're smart, I believe you'll figure it out.
 
 Make sure your gamepads are all connected before starting the map. If problem persists, try restarting the game. If the problem still occurs, try reassigning gamepads.
 
-5. **The game sometimes crashes on a new round**
+5. **The game sometimes crashes on spawning characters**
 
-Unfortunately, it looks like spawning in new characters and then setting `SetPlayer(true)` is sometimes unstable. Can't do much about it rn.
-(I have a possible fix in the works, just needs a lot of testing)
+Unfortunately, it looks like spawning in new characters and then setting `SetPlayer(true)` is sometimes unstable, probably correlated with input/controller_id. Can't do much about it rn.
 
 # Gamemodes:
 
@@ -85,7 +83,7 @@ Survivor gets the point
 
 - 👻Race (mostly done, needed maps and balancing)
   
-*self explanatory* On each checkpoint, everyone but 1st place, gets a knife to throw.
+*self explanatory* 
 
 - 👻Deathmatch (mostly working, weapon respawn mechanics are still needed)
 
@@ -181,13 +179,13 @@ Just CTF
 ## WIP mod
 
 # Small bugs (dont report these, I know :) )
-- maps stutterw after load (preloading is done after level load since AssetManager is not available in `as_context`)
-- clothing colors may look wonky, low priority
-- map will reload on a script reload (helps me to keep everything synced up, without just tracking everything at all times)
+- Coop partners sometimes bug out under the ground/behind walls where its cramped
 - for 2 players the UI still stays the same as for 3/4 players setup
 - most of the UI stuff is filled with placeholders atm
-- going from warmup to game can scramble controlerIds if you didnt select 4 players (should be fixed already? will remove this if it doesnt occur again)
-
+- maps stutters after load (preloading is done after level load since AssetManager is not available in `as_context`)
+- clothing colors may look wonky, low priority
+- map will reload on a script reload (helps me to keep everything synced up, without just tracking everything at all times)
+- UI gets wonky on weird resolutions
 
 # Thanks to:
 [WolfireGames](https://github.com/WolfireGames) - for being awesome developers (source code helped me a lot)

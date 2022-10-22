@@ -720,8 +720,6 @@ class VersusAHGUI : AHGUI::GUI {
     void CheckForUIChange(){
         if(initUI) {
             initUI = false;
-            //TODO: #1 this is a dumb fix for the whole UI being moved a little to right for some reason
-
             //Violet 
             AHGUI::Divider
             @container = root.addDivider(DDCenter, DOVertical, ivec2(AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE));
@@ -767,12 +765,10 @@ class VersusAHGUI : AHGUI::GUI {
             if (playerNr > 3) {
                 quitButton3.setImageFile(placeholderRaceIconPath);
             }
-            //#1
-            quitButton3.setPadding(0, 0, 0, 70);
             quitButton3.scaleToSizeX(playerIconSize);
             quitButton3.setName("quitButton3");
             quitButton3.setColor(vec4(GetTeamUIColor(3), 1.0f));
-            header3.addElement(quitButton3, DDLeft);
+            header3.addElement(quitButton3, DDRight);
 
             //Blue
             AHGUI::Divider
@@ -812,11 +808,9 @@ class VersusAHGUI : AHGUI::GUI {
                 quitButton1.setImageFile(placeholderRaceIconPath);
             }
             quitButton1.scaleToSizeX(playerIconSize);
-            //#1
-            quitButton1.setPadding(0, 0, 0, 70);
             quitButton1.setName("quitButton1");
             quitButton1.setColor(vec4(GetTeamUIColor(1), 1.0f));
-            header1.addElement(quitButton1, DDLeft);
+            header1.addElement(quitButton1, DDRight);
 
 
             //Green
