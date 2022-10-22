@@ -121,10 +121,10 @@ vec3 GetTeamUIColor(int playerNr){
             return vec3(0.8f,0.0f,0.0f);
         case 2:
             //Blue
-            return vec3(0.0f,0.0f,0.8f);
+            return vec3(0.1f,0.1f,0.8f);
         case 3:
             //Yellow
-            return vec3(0.8f,0.8f,0.0f);
+            return vec3(0.9f,0.9f,0.1f);
         default: DisplayError("RandReasonableTeamColor", "Unsuported RandReasonableTeamColor value of: " + playerNr);
             //Purple guy?
             return vec3(1.0f,0.0f,1.0f);
