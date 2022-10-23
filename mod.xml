@@ -1,26 +1,33 @@
 <?xml version="1.0" ?>
 <Mod>
-    <Id>fourp-versus</Id>
-    <Name>4 Player Versus Brawl</Name>
+    <Id>versus-brawlTest</Id>
+    <Name>Versus Brawl - local play overhaul</Name>
 
-    <Category>Versus</Category>
+    <Category>VersusBrawl</Category>
 
-    <Thumbnail>Data/Images/4p-versus/placeholder.jpg</Thumbnail>
-    <PreviewImage>Data/Images/4p-versus/placeholder.jpg</PreviewImage>
+    <Thumbnail>Data/Images/versus-brawl/placeholder.png</Thumbnail>
+    <PreviewImage>Data/Images/versus-brawl/placeholder.png</PreviewImage>
 
     <Description>Versus mode overhaul! Custom races, new maps, new gamemodes. README.md in Mods/4p-versus folder for more information</Description>
     <Version>0.4.0</Version>
     <Author>Osa__PL</Author>
 
-    <Tag>Versus</Tag>
+    <Tag>VersusBrawl</Tag>
+    <Tag>Oct2022Jam</Tag>
+    <Tag>split screen</Tag>
+    <Tag>2 players</Tag>
+    <Tag>Local Multiplayer</Tag>
+    <Tag>Splitscreen</Tag>
+    <Tag>Coop</Tag>
+    <Tag>Remote Play</Tag>
 
     <SupportedVersion>*</SupportedVersion>
     <NeedsRestart>false</NeedsRestart>
 
-    <Campaign title="Versus Brawl" thumbnail="Images/4p-versus/placeholder.png" menu_script="arena_campaign_menu.as" main_script="linear_campaign.as">
-        <Level title="Blocks DM" thumbnail="Images/4p-versus/blocks.jpg">4p-versus/blocks_map.xml</Level>
-		<Level title="Planks LBS" thumbnail="Images/4p-versus/planks.jpg">4p-versus/plank_map.xml</Level>
-        <Level title="Cave DM" thumbnail="Images/4p-versus/cave.jpg">4p-versus/cave_map.xml</Level>
+    <Campaign title="Versus Brawl" thumbnail="Images/versus-brawl/placeholder.png" menu_script="arena_campaign_menu.as" main_script="linear_campaign.as">
+        <Level title="Blocks DM" thumbnail="Images/versus-brawl/blocks.jpg">4p-versus/blocks_map.xml</Level>
+		<Level title="Planks LBS" thumbnail="Images/versus-brawl/planks.jpg">4p-versus/plank_map.xml</Level>
+        <Level title="Cave DM" thumbnail="Images/versus-brawl/cave.jpg">4p-versus/cave_map.xml</Level>
         <Level title="(WIP)Tree Canyon Summer LBS" thumbnail="UI/mainmenu/images/grass_beach.png">4p-versus/tree_canyon_summer_map.xml</Level>
         <Level title="(WIP)Branches RACE" thumbnail="UI/mainmenu/images/grass_beach.png">4p-versus/branches_map.xml</Level>
     </Campaign>
