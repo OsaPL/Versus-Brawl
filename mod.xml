@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <Mod>
-    <Id>versus-brawlTest</Id>
+    <Id>versus-brawl</Id>
     <Name>Versus Brawl - local play overhaul</Name>
 
     <Category>VersusBrawl</Category>
@@ -25,10 +25,10 @@
     <NeedsRestart>false</NeedsRestart>
 
     <Campaign title="Versus Brawl" thumbnail="Images/versus-brawl/placeholder.png" menu_script="arena_campaign_menu.as" main_script="linear_campaign.as">
-        <Level title="Blocks DM" thumbnail="Images/versus-brawl/blocks.jpg">4p-versus/blocks_map.xml</Level>
-		<Level title="Planks LBS" thumbnail="Images/versus-brawl/planks.jpg">4p-versus/plank_map.xml</Level>
-        <Level title="Cave DM" thumbnail="Images/versus-brawl/cave.jpg">4p-versus/cave_map.xml</Level>
-        <Level title="(WIP)Tree Canyon Summer LBS" thumbnail="UI/mainmenu/images/grass_beach.png">4p-versus/tree_canyon_summer_map.xml</Level>
-        <Level title="(WIP)Branches RACE" thumbnail="UI/mainmenu/images/grass_beach.png">4p-versus/branches_map.xml</Level>
+        <Level title="Blocks DM" thumbnail="Images/versus-brawl/blocks.jpg">versus-brawl/blocks_map.xml</Level>
+		<Level title="Planks LBS" thumbnail="Images/versus-brawl/planks.jpg">versus-brawl/plank_map.xml</Level>
+        <Level title="Cave DM" thumbnail="Images/versus-brawl/cave.jpg">versus-brawl/cave_map.xml</Level>
+        <Level title="(WIP)Tree Canyon Summer LBS" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/tree_canyon_summer_map.xml</Level>
+        <Level title="(WIP)Branches RACE" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/branches_map.xml</Level>
     </Campaign>
 </Mod>

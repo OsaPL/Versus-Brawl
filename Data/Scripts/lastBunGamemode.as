@@ -271,7 +271,6 @@ class VersusGUI  {
         player_two_win_alpha = 0.0f;
         player_three_win_alpha = 0.0f;
         player_four_win_alpha = 0.0f;
-        players_number = 2;
         blackout_amount = 0.0f;
         score_change_time = 0.0f;
         array<int> movement_objects = GetObjectIDsType(_movement_object);
