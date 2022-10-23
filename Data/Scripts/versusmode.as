@@ -24,7 +24,7 @@ float respawnBlockTime = 0.5;
 bool constantRespawning = false;
 bool useGenericSpawns = true;
 bool useSingleSpawnType = false;
-float spawnPointBlockTime = 2;
+float spawnPointBlockTime = 5;
 // How often we want to make all char aware
 float set_omniscientTimeSpan = 3;
 float set_omniscientTimer = set_omniscientTimeSpan;

@@ -33,11 +33,11 @@ void Init(){
 void SetParameters() {
     PowerupSetParameters();
 
-    params.AddFloatSlider("reduction", 8.0f,"min:0,max:100,step:0.01,text_mult:1");
+    params.AddFloatSlider("reduction", 6.0f,"min:0,max:100,step:0.01,text_mult:1");
 
     // These ones are specific
-    params.SetFloat("activeTime", 15.0f);
-    params.SetFloat("respawnTime", 18.0f);
+    params.SetFloat("activeTime", 12.0f);
+    params.SetFloat("respawnTime", 25.0f);
 
     params.SetString("startSoundPath", "Data/Sounds/rockbreak.wav");
     params.SetString("endSoundPath", "Data/Sounds/rockhit.wav");

@@ -42,6 +42,19 @@ void Update()
     if(active){
         //Powerup logic
         MovementObject@ mo = ReadCharacterID(lastEnteredPlayerObjId);
+        Object@ obj = ReadObjectFromID(mo.GetID());
+        ScriptParams@ objParams = obj.GetScriptParams();
+        
+        // If its "wolf" dont give a knife, cause he cant hold one
+        if(objParams.HasParam("species")){
+            Log(error, "has species");
+            if(objParams.GetString("species") == "wolf")
+            {
+                Log(error, "is wolf");
+                return;
+            }
+        }
+        
         int weapon = mo.GetArrayIntVar("weapon_slots",mo.GetIntVar("primary_weapon_slot"));
 
         if(weapon == -1) {

@@ -7,6 +7,7 @@
 
     // Reset any Teams
     params.SetString("Teams", "");
+    params.SetString("species", species);
     
     //TODO! Stats to implement:
     //1)jump height
@@ -79,8 +80,8 @@
     else if(species == "wolf"){
         params.SetFloat("Attack Damage",    0.15); //params.AddFloatSlider("Attack Damage", 1, "min:0,max:2,step:0.1,text_mult:100");
         params.SetFloat("Attack Knockback", 0.7); //params.AddFloatSlider("Attack Knockback", 1, "min:0,max:2,step:0.1,text_mult:100");
-        params.SetFloat("Attack Speed",     0.4); //params.AddFloatSlider("Attack Speed", 1, "min:0,max:2,step:0.1,text_mult:100");
-        params.SetFloat("Damage Resistance",1.2); //params.AddFloatSlider("Damage Resistance", 1, "min:0,max:2,step:0.1,text_mult:100");
+        params.SetFloat("Attack Speed",     0.35); //params.AddFloatSlider("Attack Speed", 1, "min:0,max:2,step:0.1,text_mult:100");
+        params.SetFloat("Damage Resistance",1.0); //params.AddFloatSlider("Damage Resistance", 1, "min:0,max:2,step:0.1,text_mult:100");
         params.SetFloat("Movement Speed",   0.5); //params.AddFloatSlider("Movement Speed", 1, "min:0.1,max:1.5,step:0.1,text_mult:100");
         params.SetFloat("Character Scale",  1.0); //params.AddFloatSlider("Character Scale", 1, "min:0.6,max:1.4,step:0.02,text_mult:100");
 
@@ -109,4 +110,11 @@ rat is kinda annoying on maps with hazards, good, tis the way of the rat
 cats feel weak, even with high movements and attack speeds, buff them a little?
 rabbits feel now better that default, maybe even a slight dmg nerf is needed still
 nobody played dog, other than to counter wolf, maybe hes too weak against other species? maybe he feels sluggish and underpowered when comparing to wolf?
+
+-session #2 (cave, block and planks, 4 players) 23 Oct
+rock a little to easy to camp on  => longer respawn, shorter active time (done)
+wolf a little to hard to kill? =? decrease slightly attack speed and resistance (done)
+wolf op on planks => maybe allow species to be blocked per map?
+cave - swap healing with rock, and make the rock powerup place more hostile (more ways to die)
+planks - you can get on top of the tower things => lower planks
  */
