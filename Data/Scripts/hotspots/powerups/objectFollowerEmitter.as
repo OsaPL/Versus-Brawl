@@ -6,8 +6,8 @@ void Init() {
 void SetParameters() {
     params.SetString("game_type", "versusBrawl");
     
-    params.AddFloat("particleDelay", 1.0f);
-    params.AddFloat("particleRangeMultiply", 1.0f);
+    params.AddFloatSlider("particleDelay", 1.0f, "min:0,max:5,step:0.01");
+    params.AddFloatSlider("particleRangeMultiply", 1.0f, "min:0,max:5,step:0.01");
     params.AddString("pathToParticles", "Data/Particles/smoke.xml");
     params.AddFloatSlider("particleColorR", 1.0f,"min:0,max:1,step:0.01,text_mult:255");
     params.AddFloatSlider("particleColorG", 1.0f,"min:0,max:1,step:0.01,text_mult:255");
