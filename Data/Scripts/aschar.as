@@ -5862,7 +5862,8 @@ int HitByAttack(const vec3 &in dir, const vec3 &in pos, int attacker_id, float a
         if(sharp_damage == 0.0f || knocked_out != _awake || block_health <= 0) {
 
             // Sends event on a blunt hit (no sharp dmg, hand to hand or a blunt weapon like staff)
-            level.SendMessage("bluntHit " + this_mo.getID() + " " + attacker_id);
+            if(sharp_damage <= 0.0f)
+                level.SendMessage("bluntHit " + this_mo.getID() + " " + attacker_id);
             
             if(rand() % 2 == 0) {
                 hit_flash_time = the_time;

@@ -996,7 +996,7 @@ void CheckPlayersState() {
 		}
     }
     
-    if(currentState<2 || constantRespawning){
+    if(currentState < 100){
         // Respawning logic
         for(uint i = 0; i < versusPlayers.size(); i++) {
             VersusPlayer@ player = GetPlayerByNr(i);

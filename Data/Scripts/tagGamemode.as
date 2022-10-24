@@ -3,9 +3,9 @@
 
 // Configurables
 // How long does a round takes
-float roundMaxTime = 60;
+float roundMaxTime = 20;
 // For how long freeze the chasers on spawn
-float freezeTime = 2;
+float freezeTime = 3;
 // Dying as runner switches to Chasers, if `false` just a direct hit is enough
 bool deathsChangesToChasers = false;
 // Killing a Chaser respawns him as Runner, if `false` they just respawn
@@ -17,13 +17,77 @@ int runnerSpecies = _rat;
 bool biggerTeamWins = false;
 
 // States
+array<bool> killedRunners = { false, false, false, false };
 array<bool> currentChasers = { false, false, false, false };
 array<float> freezeTimers = { 0, 0, 0, 0 };
 array<bool> isFreezed = { false, false, false, false };
 array<int> freezeEmmiters = { -1, -1, -1, -1 };
 float timer = 0;
+int lastTimer = 0;
 bool initUI = true;
 bool updateChaserRunnerLabels = false;
+bool start = true;
+
+int whoWon = -1;
+// 0=runner, 1=chasers, 3=draw
+string IntToWinnerName(int teamNr){
+    switch (teamNr) {
+        case 0: return "Runners";
+        case 1: return "Chasers";
+        case 3: return "Nobody";
+    }
+    return "Error m8";
+}
+
+void ResetTag(){
+    whoWon = -1;
+
+    killedRunners = { false, false, false, false };
+    currentChasers = { false, false, false, false };
+    freezeTimers = { 0, 0, 0, 0 };
+    isFreezed = { false, false, false, false };
+    freezeEmmiters = { -1, -1, -1, -1 };
+    timer = 0;
+    lastTimer = 0;
+    start = true;
+
+    //Select a random chaser
+    int firstChaserNr = rand()%currentChasers.size();
+    SetChaser(firstChaserNr);
+
+    for (uint i = 0; i < versusPlayers.size(); i++) {
+        //Make the rest a runner
+        if(i != uint(firstChaserNr))
+            SetRunner(i);
+    }
+
+    Log(error, "Registered Reset");
+    for (uint i = 0; i < versusPlayers.size(); i++) {
+        VersusPlayer@ playerToAttach = versusPlayers[i];
+        playerToAttach.charTimer.Add(CharDeathJob(playerToAttach.objId, function(char_a){
+            // This should respawn on kill
+            VersusPlayer@ player = GetPlayerByObjectId(char_a.GetID());
+            if(currentState==2){
+                // Runner death means, no respawn, but also not another catcher
+                if(!currentChasers[player.playerNr]){
+                    currentChasers[player.playerNr] = true;
+                    killedRunners[player.playerNr] = true;
+                    updateChaserRunnerLabels = true;
+                }
+                else{
+                    // First check if its not an already dead runner
+                    if(!killedRunners[player.playerNr]){
+                        // Respawn if its the catcher
+                        CallRespawn(player.playerNr, player.objId);   
+                    }
+                }
+            }
+            return true;
+        }));
+    }
+    
+    updateChaserRunnerLabels = true;
+}
 
 //Level methods
 void Init(string msg){
@@ -31,16 +95,13 @@ void Init(string msg){
     blockSpeciesChange = true;
     //Always need to call this first!
     VersusInit("");
-    
-    //Select a random chaser
-    int firstChaserNr = 0;//rand()%currentChasers.size();
-    SetChaser(firstChaserNr);
-    
-    //Make the rest a runner
-    for (uint i = 0; i < versusPlayers.size(); i++) {
-        if(i != uint(firstChaserNr))
-            SetRunner(i);
-    }
+
+    ResetTag();
+
+    levelTimer.Add(LevelEventJob("reset", function(_params){
+        ResetTag();
+        return true;
+    }));
 
     // Adds tag mechanics 
     levelTimer.Add(LevelEventJob("bluntHit", function(_params){
@@ -48,8 +109,8 @@ void Init(string msg){
 
         VersusPlayer@ victim = GetPlayerByObjectId(parseInt(_params[1]));
         VersusPlayer@ attacker = GetPlayerByObjectId(parseInt(_params[2]));
-        
-        if(!currentChasers[victim.playerNr] && currentChasers[attacker.playerNr]){
+
+        if(!currentChasers[victim.playerNr] && currentChasers[attacker.playerNr] && currentState == 2){
             // Change team, if hit by 
             SetChaser(victim.playerNr);
         }
@@ -60,7 +121,21 @@ void Init(string msg){
         ScriptParams@ AcharParams = AcharObj.GetScriptParams();
 
         Log(error, "teams victim: " + VcharParams.GetString("Teams") + " attacker:" + AcharParams.GetString("Teams"));
-        
+
+        return true;
+    }));
+    
+    levelTimer.Add(LevelEventJob("spawned", function(_params){
+        Log(error, "spawned: "+ _params[1]+ " " +_params[2]);
+
+        VersusPlayer@ victim = GetPlayerByObjectId(parseInt(_params[1]));
+
+        // Ugh, angelscript doesnt have something like parseBool(string)
+        if(currentChasers[victim.playerNr] && currentState == 2 && _params[2] == "false"){
+            // Freeze chaser on respawn
+            Freeze(victim.playerNr);
+        }
+
         return true;
     }));
 }
@@ -80,7 +155,7 @@ void Update(){
     //Always need to call this first!
     VersusUpdate();
     
-    if(currentState <= 2){
+    if(currentState == 2){
         timer += time_step;
         //Check if Chasers won
         bool allChasers = true;
@@ -95,7 +170,9 @@ void Update(){
             {
                 freezeTimers[i] = -1    ;
             }
-            ChangeGameState(3);
+            whoWon = 1;
+            PlaySound("Data/Sounds/voice/animal3/voice_cat_attack_2.wav");
+            ChangeGameState(101);
         }
         
         // Timeout
@@ -115,24 +192,67 @@ void Update(){
                 
                 if(chasers == runners){
                     // TODO! Draw
+                    PlaySound("Data/Sounds/voice/lugaru/rabbit_chitter_1.wav");
+                    whoWon = 3;
                 }
                 else if(chasers > runners){
                     // TODO! Chasers win
+                    PlaySound("Data/Sounds/voice/animal3/voice_cat_attack_2.wav");
+                    whoWon = 1;
                 }
                 else{
                     // TODO! Runners win
+                    whoWon = 0;
+                    PlaySound("Data/Sounds/voice/animal3/voice_rat_death_2.wav");
+                }
+            }
+            else{
+                // TODO! Runners win
+                whoWon = 0;
+                PlaySound("Data/Sounds/voice/animal3/voice_rat_death_2.wav");
+                ChangeGameState(101);
+            }
+        }
+        else{
+            if(start) {
+                lastTimer = int(freezeTime) - int(timer) - 1;
+                Log(error, "lastTimer: " + lastTimer);
+                if(lastTimer == 0){
+                    versusAHGUI.SetText("Time left: "+lastTimer, "Get ready!", vec3(0.0f, 0.6f, 1.0f));
+                }
+                else if(lastTimer == -1){
+                    start = false;
+                    timer = 0;
+                }    
+                else{
+                    versusAHGUI.SetText("Time left: "+lastTimer, "Hide or run now!", vec3(0.0f, 0.0f, 1.0f));
+                }
+            }
+            else{
+                if(int(roundMaxTime) - int(timer) != lastTimer){
+                    lastTimer = int(roundMaxTime) - int(timer);
+                    if(lastTimer <= 15 && lastTimer%2==0){
+                        versusAHGUI.SetText("Time left: "+lastTimer, "", vec3(1.0f, 0.5f, 0.0f));
+                    }
+                    else if(lastTimer <= 5) {
+                        versusAHGUI.SetText("Time left: "+lastTimer, "", vec3(1.0f, 0.0f, 0.0f));
+                    }
+                    else{
+                        versusAHGUI.SetText("Time left: "+lastTimer);
+                    }
                 }
             }
         }
 
         // Unfreeze
-        Log(error, "freezeTimers[3]: " + freezeTimers[3] + "isFreezed[3]: "+isFreezed[3]);
+        //Log(error, "freezeTimers[3]: " + freezeTimers[3] + "isFreezed[3]: "+isFreezed[3]);
 
         for (uint i = 0; i < freezeTimers.size(); i++) 
         {
             if(freezeTimers[i]< 0 && isFreezed[i]){
                 VersusPlayer@ victim = GetPlayerByNr(i);
                 Log(error, "unfreeze: "+ victim.playerNr);
+                PlaySound("Data/Sounds/ice_foley/bf_ice_medium_3.wav");
 
                 // Remove the emitter
                 if(freezeEmmiters[i] != -1)
@@ -150,8 +270,16 @@ void Update(){
     }
     
     // Win state
-    if(currentState == 3){
-        
+    if(currentState == 101){
+        versusAHGUI.SetText(""+IntToWinnerName(whoWon)+" win!",insults[rand()%insults.size()], GetTeamUIColor(whoWon));
+        whoWon = -1;
+        ChangeGameState(102);
+    }
+    
+    if(currentState== 102){
+        if(winStateTimer>=winStateTime) {
+            ResetTag();
+        }
     }
 
     UpdateUI();
@@ -219,13 +347,18 @@ void UpdateUI(){
                     Log(error, "updateChaserRunnerLabels freeze");
                     vec3 uiFreezedChaserColor = GetTeamUIColor(2);
                     uiLabels[i].setColor(vec4(uiFreezedChaserColor, 1.0f));
-                    uiLabels[i].setText("Freezed Chaser");
+                    uiLabels[i].setText("Freezed");
                 }
                 else{
                     Log(error, "updateChaserRunnerLabels unfreeze");
                     vec3 uiChaserColor = GetTeamUIColor(1);
                     uiLabels[i].setColor(vec4(uiChaserColor, 1.0f));
-                    uiLabels[i].setText("Chaser");
+                    if(killedRunners[i]) {
+                        uiLabels[i].setText("Dead");
+                    }
+                    else{
+                        uiLabels[i].setText("Chaser");
+                    }
                 }
             }
             else{
@@ -239,16 +372,11 @@ void UpdateUI(){
     }
 }
 
-void SetChaser(int playerNr){
-
+void Freeze(int playerNr){
     VersusPlayer@ victim = GetPlayerByNr(playerNr);
+    PlaySound("Data/Sounds/ice_foley/bf_ice_heavy_2.wav");
     
-    currentChasers[playerNr] = true;
-    
-    victim.currentRace = chaserSpecies;
-    RerollCharacter(victim.playerNr, ReadObjectFromID(victim.objId));
-
-    //TODO: Freeze chaser
+    // Freezes chaser on spawn
     Object@ charObj = ReadObjectFromID(victim.objId);
     ScriptParams@ charParams = charObj.GetScriptParams();
     charParams.SetString("Teams", "chasers");
@@ -260,6 +388,9 @@ void SetChaser(int playerNr){
     charParams.SetFloat("Jump - Jump Sustain Boost",  0.1f);
     charObj.UpdateScriptParams();
 
+    if(freezeTimers[playerNr] != -1)
+        DeleteObjectID(freezeEmmiters[playerNr]);
+        
     freezeTimers[playerNr] = freezeTime;
     isFreezed[playerNr] = true;
     updateChaserRunnerLabels = true;
@@ -276,9 +407,22 @@ void SetChaser(int playerNr){
     objParams.SetFloat("particleColorR", 0.6f);
     objParams.SetFloat("particleColorG", 0.6f);
     objParams.SetFloat("particleColorB", 0.9f);
-    
 
-    Log(error, "SetChaser: "+ playerNr + " teams: " + charParams.GetString("Teams"));
+    Log(error, "Freeze: "+ playerNr + " teams: " + charParams.GetString("Teams"));
+}
+
+void SetChaser(int playerNr){
+
+    VersusPlayer@ victim = GetPlayerByNr(playerNr);
+    
+    currentChasers[playerNr] = true;
+    
+    victim.currentRace = chaserSpecies;
+    RerollCharacter(victim.playerNr, ReadObjectFromID(victim.objId));
+
+    if(currentState == 2){
+        Freeze(playerNr);
+    }
 }
 
 void SetRunner(int playerNr){
@@ -289,16 +433,18 @@ void SetRunner(int playerNr){
 
     victim.currentRace = runnerSpecies;
     RerollCharacter(victim.playerNr, ReadObjectFromID(victim.objId));
-    
-    addSpeciesStats(ReadObjectFromID(victim.objId));
 
-    Object@ charObj = ReadObjectFromID(victim.objId);
-    ScriptParams@ charParams = charObj.GetScriptParams();
-    charParams.SetString("Teams", "runners");
-    charObj.UpdateScriptParams();
-    
-    isFreezed[playerNr] = false;
-    updateChaserRunnerLabels = true;
+    if(currentState == 2) {
+        addSpeciesStats(ReadObjectFromID(victim.objId));
 
-    Log(error, "SetRunner: "+ playerNr + " teams: " + charParams.GetString("Teams"));
+        Object@ charObj = ReadObjectFromID(victim.objId);
+        ScriptParams@ charParams = charObj.GetScriptParams();
+        charParams.SetString("Teams", "runners");
+        charObj.UpdateScriptParams();
+
+        isFreezed[playerNr] = false;
+        updateChaserRunnerLabels = true;
+
+        Log(error, "SetRunner: " + playerNr + " teams: " + charParams.GetString("Teams"));
+    }
 }

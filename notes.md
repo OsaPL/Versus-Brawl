@@ -1,6 +1,9 @@
 ### For changelogs
 `git log <hash>..HEAD --pretty=format:%s`
 
+### To convert to stupid workshop bbcode
+https://md2bb.mizle.net/
+
 ### Some balancing notes:
 Wolf shouldnt be able to one hit kill dog
 
