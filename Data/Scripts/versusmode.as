@@ -84,7 +84,13 @@ class VersusPlayer{
         TimedExecution newCharTimer();
         @charTimer = @newCharTimer;
        
-        currentRace = forcedSpecies;
+        // If lower than 0, just select random for each player
+        if(forcedSpecies < 0){
+            currentRace = rand()%speciesMap.size();
+        }
+        else{
+            currentRace = forcedSpecies;
+        }
         
         respawnNeeded = false;
         respawnQueue = -100;

@@ -1,5 +1,5 @@
 #include "versusmode.as"
-// ^^ only this is n
+// ^^ only this is needed
 
 
 
@@ -32,6 +32,8 @@ int players_number;
 
 //Level methods
 void Init(string msg){
+    forcedSpecies = -1;
+    
     //Always need to call this first!
     VersusInit("");
 

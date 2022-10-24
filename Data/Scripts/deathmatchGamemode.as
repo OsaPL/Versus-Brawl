@@ -15,6 +15,8 @@ float pointsTextShowTimer = 0;
 //Level methods
 void Init(string msg){
     constantRespawning = true;
+    forcedSpecies = -1;
+    
     //Always need to call this first!
     VersusInit("");
 
@@ -51,12 +53,6 @@ void DrawGUI() {
 void Update(){
     //Always need to call this first!
     VersusUpdate();
-
-    if(GetInputPressed(0, "F3")){
-        killsCount[0]++;
-        killsCount[2]++;
-        updateScores=true;
-    }
     
     if(currentState == 2){
         if(pointsTextShow){
