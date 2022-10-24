@@ -50,11 +50,11 @@ Linking checkpoint to any other objects will switch the enabled flag and send in
 
 If you wish your item to be stay disabled until checkpoint activation, add `KeepDisabled` parameter to the object (no value needed)
 
-## Coop
+### Coop
 
 You dont need to do anything in particular, as long as you use default `aschar.as`, and dont change the parameters of the character. 
 
-### Custom levels support 
+#### Custom levels support 
 👻(not tested)
 
 If youre using anything custom, a custom implementation will be probably needed.
@@ -72,7 +72,7 @@ for (int i = 0; i < GetNumCharacters(); i++) {
 }
 ```
 
-### Custom `aschar.as` support
+#### Custom `aschar.as` support
 👻(not tested)
 
 You probably just need to include `coopPartners.as` script and do the same thing I've done in my `aschar.as`. 

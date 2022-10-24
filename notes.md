@@ -34,4 +34,4 @@ wolf op on planks => maybe allow species to be blocked per map?
 
 cave - swap healing with rock, and make the rock powerup place more hostile (more ways to die)
 
-planks - you can get on top of the tower things => lower planks
+planks - you can get on top of the tower things => lower planks (done)

@@ -20,7 +20,7 @@ void Update(){
     
     int objectIdToFollow = params.GetInt("objectIdToFollow");
     string pathToParticles = params.GetString("pathToParticles");
-    Log(error, "Following:"+objectIdToFollow);
+    //Log(error, "Following:"+objectIdToFollow);
     if(objectIdToFollow != -1){
         Object@ me = ReadObjectFromID(hotspot.GetID());
         Object@ obj = ReadObjectFromID(objectIdToFollow);

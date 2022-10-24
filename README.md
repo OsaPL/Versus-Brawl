@@ -14,7 +14,7 @@ I say, slash, bonk, impale and do whatever else you want to do with your friends
 There are things missing atm:
 - Respawn system is not yet completed (still a little wonky, missing a more generic spawn code)
 - No ability to team up
-- No modifications to the default character scripts
+- No big modifications to the default character scripts
 - Missing elements for new gamemodes implementation
 
 Some of the functionality will come eventually, once I have laid the foundation by developing these features.
@@ -49,7 +49,8 @@ Go to the `Settings -> Game -> Local Players`. If you're already on a level, you
 4. **How do I enable coop on a level?**
 
 Just set `Local Players` and launch a level.
-Not all custom levels are supported atm. Please, dont message me if its incompatible, you should let the mapper know. (there is a mapping guidelines)
+Not all custom levels are supported atm. Please, dont message me if its incompatible, you should let the mapper know. 
+[There is a helpful README for modders/mappers.](https://github.com/OsaPL/Versus-Brawl/blob/main/Adding%20maps%20and%20gamemodes%20README.md)
 
 For already coop supported old levels, set `Local Players` to `1` for compatibility.
 
@@ -85,7 +86,7 @@ Survivor gets the point
   
 *self explanatory* 
 
-- 👻Deathmatch (mostly working, weapon respawn mechanics are still needed)
+- Deathmatch
 
 Gather kills to get points
 
@@ -157,11 +158,11 @@ Just CTF
 **Trait**: Cant be stomped - knockout shield
 
 ### Wolf:
-- Att dmg:8/10 (10/10) 
-- Att knockback:6/10 (5/10)
-- Att speed:3/10 (5/10)
-- Damage resistance:6/10 (5/10)
-- Movement speed:3.5/10 (5/10)
+- Att dmg: 1.5/10 (10/10) 
+- Att knockback:3.5/10 (5/10)
+- Att speed:2/10 (5/10)
+- Damage resistance:5/10 (no change)
+- Movement speed:2.5/10 (5/10)
 - Jumps: Slightly higher that dog, but slower and shorter
 - Size: 5/10 (no change)
 
@@ -172,8 +173,8 @@ Just CTF
 - **Ninja** (dark smoke) - Have an infinite supply of knives to throw (hands must be free)
 - **Heal** (green poof) - Heals all damage
 - **Rock** (blue sparks) - Gives high damage resistance
-- 👻**Yeet** (orange explosions) - Next hit (expires after `activeTime`) will launch enemy really hard
-- 👻**Speed** (yellow shortlived smoke) - Increases Movement and Attack speeds
+- **Yeet** (yellow dots) - Next direct hit (expires after `activeTime`) will launch enemy really hard
+- 👻**Haste** (yellow shortlived smoke) - Increases Movement and Attack speeds
 
 # Download and instalation
 ## WIP mod

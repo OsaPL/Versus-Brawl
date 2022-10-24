@@ -15,8 +15,10 @@ TimedExecution powerupTimer;
 
 void PowerupInit()
 {
+    // Enables receiving level msgs (performance heavy)
+    level.ReceiveLevelEvents(hotspot.GetID());
     // Get hotspot
-    Object@me = ReadObjectFromID(hotspot.GetID());
+    Object@ me = ReadObjectFromID(hotspot.GetID());
     me.SetScale(fixedScale);
 }
 
@@ -93,7 +95,11 @@ void PowerupSetParameters() {
 
 void PowerupReceiveMessage(string msg)
 {
+    // this will receive messages aimed at this object
     powerupTimer.AddLevelEvent(msg);
+    
+    // this will receive level messages
+    powerupTimer.AddEvent(msg);
 }
 
 void PowerupPreScriptReload()
@@ -143,6 +149,7 @@ void PowerupUpdate(){
 }
 
 void PowerupDispose(){
+    level.StopReceivingLevelEvents(hotspot.GetID());
     DeleteObjectID(particleEmitterId);
 }
 

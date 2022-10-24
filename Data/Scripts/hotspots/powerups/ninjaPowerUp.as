@@ -39,6 +39,7 @@ void HandleEvent(string event, MovementObject @mo){
 void Update()
 {
     PowerupUpdate();
+    
     if(active){
         //Powerup logic
         MovementObject@ mo = ReadCharacterID(lastEnteredPlayerObjId);
@@ -47,10 +48,8 @@ void Update()
         
         // If its "wolf" dont give a knife, cause he cant hold one
         if(objParams.HasParam("species")){
-            Log(error, "has species");
             if(objParams.GetString("species") == "wolf")
             {
-                Log(error, "is wolf");
                 return;
             }
         }
