@@ -1,4 +1,5 @@
-﻿# Mapping 
+﻿Reminder: **Anything marked by 👻 is missing atm.**
+# Mapping
 These are general guidelines, tips, explanations that will make your map/gamemode more enjoyable and less janky, for this mod.
 If you have any questions, suggestions or requests, feel free to DM me.
 
@@ -109,14 +110,14 @@ versusAHGUI.SetText("big text","small text", /*text color:*/ vec4(1.0f,0.0f,0.0f
 or adding an element to players bar
 ```c++
 AHGUI::Element@ headerElement = versusAHGUI.root.findElement("header"+playerNr);
-headerElement.addElement(@AHGUI::Text(""+killsCount[playerNr], "OpenSans-Regular", 50, 1, 1, 1, 1 ),DDTop);
+headerElement.addElement(@AHGUI::Text("Kills: "+killsCount[playerNr], "OpenSans-Regular", 50, 1, 1, 1, 1 ),DDTop);
 ```
 
 ## Special events/messages
 
 ### `oneKilledByTwo <victim obj ID> <attacker obj ID>`
 Sent when a character is killed by another (checks `attacked_by_id` on victim) 
-### `bluntHit <spawned obj ID> <first spawn bool>`
+### `bluntHit <victim obj ID> <attacker obj ID>`
 Sent when a character is hit with a blunt weapon or hand to hand (unguarded hits, that deal dmg)
 ### `spawned <spawned obj ID> <first spawn bool>`
 Sent when a character is being spawned or respawned (if current game state is not warmup)

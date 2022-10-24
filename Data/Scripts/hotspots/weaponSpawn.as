@@ -70,7 +70,7 @@ void Update(){
         
         if(length(distVec)> params.GetInt("RespawnDistance"))
         {
-            Log(error, "Is too far "+ length(distVec) + " spawnTimer:"+spawnTimer);
+            //Log(error, "Is too far "+ length(distVec) + " spawnTimer:"+spawnTimer);
             spawnTimer -= time_step;
             if(spawnTimer<0){
                 Log(error, "removing: "+weaponId+" distance:"+length(distVec)); 

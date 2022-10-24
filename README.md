@@ -175,7 +175,9 @@ Just CTF
 - **Rock** (blue sparks) - Gives high damage resistance
 - **Yeet** (yellow dots) - Next direct hit (expires after `activeTime`) will launch enemy really hard
 - 👻**Haste** (yellow shortlived smoke) - Increases Movement and Attack speeds
-
+- 👻**Firefists** (red flames) - hitting an enemy ignites him
+- 👻**Virus** (aqua cloud) - being close to an enemy inverts his controls (movement inverted, attack and defend, grab and item, crouch and jump switched)
+ 
 # Download and instalation
 ## WIP mod
 

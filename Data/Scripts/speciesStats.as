@@ -4,9 +4,7 @@
     string species = character_getter.GetTag("species");
     MovementObject@ mo = ReadCharacterID(char.GetID());
     character_getter.Load(mo.char_path);
-
-    // Reset any Teams
-    params.SetString("Teams", "");
+    
     params.SetString("species", species);
     
     //TODO! Stats to implement:

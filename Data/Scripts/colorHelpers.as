@@ -20,10 +20,10 @@
     
     bool foundClothChannel = false;
     
-    Log(error, "furColor:"+furColor + "clothesColor:"+clothesColor);
+    Log(error, "furColor:"+furColor + " clothesColor:"+clothesColor);
     for(int i = 0; i < 4; i++) {
         const string channel = character_getter.GetChannel(i);
-        Log(error, "species:"+species + "channel:"+channel);
+        Log(error, "species:"+species + " channel:"+channel);
         
         if(channel == "fur" ) {
             // These will use fur generator color, mixed with another

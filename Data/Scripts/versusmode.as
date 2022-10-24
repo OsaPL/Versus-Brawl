@@ -136,16 +136,16 @@ class Species{
 // This can be extended with new races
 enum SpeciesInt {
     _rabbit = 0,
-        _wolf = 1,
-        _dog = 2,
-        _rat = 3,
-        _cat = 4
+    _wolf = 1,
+    _dog = 2,
+    _rat = 3,
+    _cat = 4
 };
 
 array<Species@> speciesMap={
     Species("rabbit", "Textures/ui/arena_mode/glyphs/rabbit_foot_1x1.png",
     {
-        "Data/Characters/male_rabbit_1.xml",
+            "Data/Characters/male_rabbit_1.xml",
             "Data/Characters/male_rabbit_2.xml",
             "Data/Characters/male_rabbit_3.xml",
             "Data/Characters/female_rabbit_1.xml",
@@ -209,6 +209,8 @@ Object@ CreateCharacter(int playerNr, string species) {
 
     //You need to set Species param before SwitchCharacter(), otherwise `species` field wont be changed
     charParams.SetString("Species", species);
+    // Reset any Teams
+    charParams.SetString("Teams", "");
     
     string executeCmd = "SwitchCharacter(\""+ characterPath +"\");";
     char.Execute(executeCmd);

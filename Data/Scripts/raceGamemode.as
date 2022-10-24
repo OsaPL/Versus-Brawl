@@ -3,7 +3,7 @@
 
 //Configurables
 float suicideTime = 1;
-int forcedSpeciesType = 2;
+int forcedSpeciesType = _rabbit;
 int checkPointNeeded = 2;
 
 //State
