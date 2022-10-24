@@ -79,7 +79,7 @@ You probably just need to include `coopPartners.as` script and do the same thing
 
 Just correctly call `CoopPartnersCheck()` and `CoopPartnersDispose()`.
 
-## Gamemode creation
+# Gamemode creation
  
 You can create your own gamemodes pretty easily! Start with `versusGameplayTemplate`.
 
@@ -99,7 +99,7 @@ You can create your own gamemodes pretty easily! Start with `versusGameplayTempl
 `forcedSpecies` number representing starting species for each player, at the map load.
 
 
-### UI 
+## UI 
 You can use `versusAHGUI` class to have some basic UI.
 
 Like setting onscreen text using :
@@ -112,9 +112,25 @@ AHGUI::Element@ headerElement = versusAHGUI.root.findElement("header"+playerNr);
 headerElement.addElement(@AHGUI::Text(""+killsCount[playerNr], "OpenSans-Regular", 50, 1, 1, 1, 1 ),DDTop);
 ```
 
-### Special events/messages
+## Special events/messages
 
 ### `oneKilledByTwo <victim obj ID> <attacker obj ID>`
 Sent when a character is killed by another (checks `attacked_by_id` on victim) 
+### `bluntHit <spawned obj ID> <first spawn bool>`
+Sent when a character is hit with a blunt weapon or hand to hand (unguarded hits, that deal dmg)
 ### `spawned <spawned obj ID> <first spawn bool>`
 Sent when a character is being spawned or respawned (if current game state is not warmup)
+
+
+## `aschar.as` modifications
+
+- 👻(not working yet fully) new values controlling item throws:
+```angelScript
+throwVelocityMlt = params.GetFloat("Throw - Initial Velocity Multiplier");
+throwMassMlt = params.GetFloat("Throw - Mass Multiplier");
+```
+- Added fixes from `internal testing` branch regarding `attacker_id`
+- Added jump parameters from `internal testing` branch to change jumping behaviour
+- `bluntHit` message
+- `coopPartners.as` include, with an additional call in `Update()`
+- Moved color functions to `ColorHelper.as`
