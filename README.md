@@ -94,7 +94,7 @@ Gather kills to get points
 
 Play through campaign with friendsos.
 
-- 👻Tag
+- 👻Tag (done, needs maps)
 
 Catchers needs to catch everyone
 
@@ -144,7 +144,7 @@ Just CTF
 - Jumps: Pretty low, but far and fast
 - Size: 5/10 (no change)
 
-**Trait**: Always lands on its feet - No dmg from falls
+**Trait**: Always lands on its feet - No dmg from falls, catches weapons automatically
 
 ### Rats:
 - Att dmg:3.5/10 (5/10)

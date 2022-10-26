@@ -14,7 +14,36 @@ array<string> insults = {
     "ez, gg no re",
     "Maybe you should try Tai Chi instead.",
     "You should try turning on `Baby Mode`.",
-    "vidja gams are hart"
+    "vidja gams are hart",
+    "Are you still playing?",
+    "Oooh! That's gonna leave a mark!"
+};
+
+// TODO! Add cases when which should be used (only use first two if `blockSpeciesChange==false` etc.)
+array<string> warmupHints = {
+    "Hold @drop@ and @item@ to activate character change...",
+    "... then just press @attack@ to cycle through them.",
+    "If your character wont change right now, it will on next respawn.",
+    "Weapons will respawn after not being picked back up.",
+    "Violet powerup is ninja mode, infinite throwing knife, just hold @item@.",
+    "Blue powerup makes you sturdy as a rock.",
+    "Green powerup will heall all your wounds.",
+    "Orange powerup enchances your next blunt hit. Crush'em!"
+};
+
+// TODO! Show them randomly during the match? if the text is empty
+array<string> randomHints = {
+    "Horizontal mobility is great, but cats and rats can dominate vertical spaces.",
+    "Try using @jump@ as a dash, while playing cat or rat.",
+    "Dogs are resilient, can withstand more punishment than other races.",
+    "Wolves are great target for sharp weapons.",
+    "Wolves are slow, if they're about to attack, run.",
+    "Rabbit kick is sometimes what a cheeky wolf needs.",
+    "Fighting a wolf bare handed, probably not the best idea.",
+    "Tired of getting things thrown at you? Be a cat!",
+    "Holster weapons holding @drop@.",
+    "Throwing a weapon does less damage than swinging it.",
+    "You can press @block@ to catch an thrown weapon."
 };
 
 //Configurables

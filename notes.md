@@ -15,6 +15,9 @@ rat is great for pushing opponents
 
 ### Playtesting sessions notes:
 
+`=>` is a decided task,
+`?` probably needs more testing/thinking
+
 - session #1 (mostly blocks, 3 players) 11 Oct
 
 wolf is in a surprisingly good place, maybe make attack or movement speed slightly higher?
@@ -35,6 +38,18 @@ wolf a little to hard to kill? =? decrease slightly attack speed and resistance 
 
 wolf op on planks => maybe allow species to be blocked per map?
 
-cave - swap healing with rock, and make the rock powerup place more hostile (more ways to die)
+cave - swap healing with rock, and make the rock powerup place more hostile (more ways to die)?
 
 planks - you can get on top of the tower things => lower planks (done)
+
+- session #3 (2 and 4 players, laggy as hell (over sea remote play), a little on cave, a little of planks, lots of time on blocks) 24 Oct
+
+People seem to enjoy blocks alot => create more simple and small arenas
+
+cave is a little too dark => marginally lighten it up
+
+fights a little to fast? increase hp all over the board?
+
+No instructions on how to do lots of things. => add warmup hints (important), and ingame hints (less important), start game explanation for LBS ("Be the last one standing.")
+
+The shortnames for modes are cryptic => seperate gamemodes into folders?
