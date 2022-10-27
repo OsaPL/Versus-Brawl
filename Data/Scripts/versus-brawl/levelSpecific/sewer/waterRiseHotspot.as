@@ -1,11 +1,15 @@
+#include "hotspots/placeholderFollower.as"
+
+float bobbingMlt = 800;
+float defaultStep = 0.005f;
+float phaseChangeTime = 10;
+
 uint currentPhase = 0;
 uint previousPhase = 0;
 bool rising = false;
 float step;
-float defaultStep = 0.005f;
-
-float time=0;
-float phaseChangeTime = 5;
+float time = 0;
+float bobbingTime = 0;
 float soundTimer=0;
 float phaseHeight;
 float startingPhaseHeight;
@@ -24,6 +28,16 @@ void SetParameters() {
 }
 
 void Update(){
+    PlaceHolderFollowerUpdate();
+    
+    // Get hotspot and placeholder, and then setup
+    Object@ placeholderObj = ReadObjectFromID(placeholderId);
+    PlaceholderObject@ placeholder_object = cast<PlaceholderObject@>(placeholderObj);
+    placeholder_object.SetBillboard("Data/UI/spawner/thumbs/Hotspot/water.png");
+
+    placeholderObj.SetEditorLabel("[WaterRise] CurrentPhase: [" +  currentPhase+ "] phaseHeight:[" + phaseHeight + "]");
+    
+    
     array<int> connected_object_ids = hotspot.GetConnectedObjects();
 
     objectsToMove = {};
@@ -47,7 +61,16 @@ void Update(){
     
     Object@ me = ReadObjectFromID(hotspot.GetID());
     me.SetEditorLabel("[WaterRise]");
+
     
+    if(!me.GetEnabled() || EditorModeActive()){
+        time = 0;
+        return;
+    }
+
+    // Animate water and objects to bob around a little
+    AnimateBobbing();
+
     // TIme elapsed, go to next
     if(time>phaseChangeTime) {
         NextPhase();
@@ -88,6 +111,7 @@ void Update(){
 }
 
 void Dispose(){
+    PlaceHolderFollowerDispose();
 }
 
 bool AcceptConnectionsFrom(Object@ other) {
@@ -105,6 +129,17 @@ bool ConnectTo(Object@ other){
 
 float calculateStep(int x){
     return log10(x) - 2;
+}
+
+void AnimateBobbing(){
+    bobbingTime += time_step;
+    //Log(error, "AnimateBobbing");
+    for (uint i = 0; i < objectsToMove.size(); i++) {
+        Object@ obj = ReadObjectFromID(objectsToMove[i]);
+        vec3 original = obj.GetTranslation();
+        //Log(error, "sin(bobbingTime): "+ sin(bobbingTime)/bobbingMlt);
+        obj.SetTranslation(vec3(original.x, original.y+sin(bobbingTime)/bobbingMlt, original.z));
+    }
 }
 
 void NextPhase(){

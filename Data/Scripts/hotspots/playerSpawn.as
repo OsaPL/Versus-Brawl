@@ -1,4 +1,4 @@
-int placeholderId = -1;
+#include "hotspots/placeholderFollower.as"
 
 void Init() {
     hotspot.SetCollisionEnabled(false);
@@ -10,27 +10,20 @@ void SetParameters() {
 }
 
 void Update(){
-    // placeholder is missing create it
-    if(placeholderId == -1)
-        placeholderId = CreateObject("Data/Objects/placeholder/placeholder_arena_spawn.xml");
-    
+    PlaceHolderFollowerUpdate();
+
     int playerNr = params.GetInt("playerNr");
+
     // Get hotspot and placeholder, and then setup
-    Object@ me = ReadObjectFromID(hotspot.GetID());
     Object@ obj = ReadObjectFromID(placeholderId);
     PlaceholderObject@ placeholder_object = cast<PlaceholderObject@>(obj);
     placeholder_object.SetBillboard("Data/Textures/ui/versusBrawl/placeholder_arena_spawn_"+playerNr+".png");
+
     obj.SetEditorLabel("["+playerNr+"]");
-    // This part makes placeholder follow
-    obj.SetTranslation(me.GetTranslation());
-    obj.SetRotation(me.GetRotation());
 }
 
 void Dispose(){
-    if(ObjectExists(placeholderId)) {
-        // Cleanup placeholder
-        DeleteObjectID(placeholderId);
-    }
+    PlaceHolderFollowerDispose();
 }
 
 bool AcceptConnectionsFrom(Object@ other) {

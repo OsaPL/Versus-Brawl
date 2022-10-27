@@ -35,7 +35,7 @@
     <RayToSun r0="0.121363" r1="0.062051" r2="0.990667" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-0.00262478" t1="9.09022" t2="-10.7888" s0="1" s1="1" s2="1" q0="0.142731" q1="-0.837005" q2="0.25971" q3="0.46" euler_x="-2.53986" euler_y="-1.00504" euler_z="-3.14159" id="0">
+    <CameraObject t0="-17.607" t1="13.799" t2="-5.20802" s0="1" s1="1" s2="1" q0="0.296457" q1="0.671762" q2="-0.338399" q3="0.588502" euler_x="-2.20831" euler_y="1.43886" euler_z="-3.14159" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="-7.16227" t1="0.0203524" t2="-5.76615" s0="13.1841" s1="1" s2="11.7716" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
@@ -44,7 +44,7 @@
     <EnvObject t0="4.44774" t1="10.0622" t2="-9.33115" s0="5.24743" s1="2.79185" s2="2.79691" q0="0.00842142" q1="-0.712553" q2="-0.0144824" q3="0.701421" euler_x="2.01902" euler_y="-1.53489" euler_z="-2.02759" id="2" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
         <parameters />
     </EnvObject>
-    <Hotspot t0="-7.37739" t1="-10.9441" t2="-6.33424" s0="6.83337" s1="6.23008" s2="5.97218" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6" type_file="Data/Objects/Hotspots/wet_cube.xml">
+    <Hotspot t0="-7.37739" t1="-11.1784" t2="-6.33424" s0="6.83337" s1="6.23008" s2="5.97218" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6" type_file="Data/Objects/Hotspots/wet_cube.xml">
         <parameters>
             <parameter name="Water Fog" type="float" val="1" />
             <parameter name="Wave Density" type="float" val="0.157" />
@@ -75,7 +75,7 @@
     <EnvObject t0="-10.9861" t1="8.80107" t2="1.41432" s0="69.6237" s1="6.91314" s2="46.4707" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="12" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/LitterLoads/StoneBlock.xml">
         <parameters />
     </EnvObject>
-    <Hotspot t0="-7.52994" t1="-9.74892" t2="-6.7941" s0="7.18895" s1="3.93354" s2="6.75542" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13" type_file="Data/Objects/Hotspots/generic_kill.xml">
+    <Hotspot t0="-7.52994" t1="-9.98324" t2="-6.7941" s0="7.18895" s1="3.93354" s2="6.75542" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13" type_file="Data/Objects/Hotspots/generic_kill.xml">
         <parameters>
             <parameter name="KillNPC" type="int" val="1" />
             <parameter name="KillPlayer" type="int" val="1" />
@@ -198,10 +198,10 @@
     <EnvObject t0="-7.24487" t1="9.19876" t2="6.45269" s0="13.1841" s1="1" s2="11.7716" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="40" color_r="0.0856286" color_g="0.0941176" color_b="0.0734487" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-2.64947" t1="1.28752" t2="-7.70631" s0="1.77354" s1="1.77354" s2="1.77354" q0="0.0888475" q1="-0.0129565" q2="-0.0552535" q3="0.994427" euler_x="0.179115" euler_y="-0.015951" euler_z="-0.112445" id="41" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
+    <EnvObject t0="-2.4465" t1="1.31699" t2="-7.64917" s0="1.96404" s1="1.77354" s2="2.08956" q0="0.0888475" q1="-0.0129565" q2="-0.0552535" q3="0.994427" euler_x="0.179115" euler_y="-0.015951" euler_z="-0.112445" id="41" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-7.15909" t1="1.01682" t2="-10.2641" s0="2.00999" s1="1.99843" s2="1.82545" q0="-0.0492007" q1="0.112297" q2="0.0334913" q3="0.991893" euler_x="-0.0926081" euler_y="0.22804" euler_z="0.0568921" id="42" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
+    <EnvObject t0="-6.95612" t1="1.04629" t2="-10.207" s0="2.22589" s1="1.99843" s2="2.15072" q0="-0.0492007" q1="0.112297" q2="0.0334913" q3="0.991893" euler_x="-0.0926081" euler_y="0.22804" euler_z="0.0568921" id="42" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
         <parameters />
     </EnvObject>
     <Hotspot t0="-17.7325" t1="16.9039" t2="-16.0323" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="43" type_file="Data/Objects/playerSpawn.xml">
@@ -212,7 +212,7 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <EnvObject t0="-11.9972" t1="1.02182" t2="-5.45432" s0="2.21839" s1="2.20564" s2="2.01471" q0="0.102428" q1="0.66742" q2="0.0415049" q3="0.736434" euler_x="1.16706" euler_y="1.34457" euler_z="1.08032" id="44" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
+    <EnvObject t0="-11.7942" t1="1.05129" t2="-5.39718" s0="2.45667" s1="2.20564" s2="2.37371" q0="0.102428" q1="0.66742" q2="0.0415049" q3="0.736434" euler_x="1.16706" euler_y="1.34457" euler_z="1.08032" id="44" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
         <parameters />
     </EnvObject>
     <Hotspot t0="-2.65616" t1="17.0761" t2="-16.0355" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="45" type_file="Data/Objects/playerSpawn.xml">
@@ -223,7 +223,7 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <EnvObject t0="-7.74642" t1="1.09032" t2="-3.77448" s0="2.17431" s1="2.16181" s2="1.97468" q0="0.0102028" q1="0.628397" q2="-0.139173" q3="0.765273" euler_x="-0.648892" euler_y="1.30404" euler_z="-0.862439" id="46" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
+    <EnvObject t0="-7.54345" t1="1.11979" t2="-3.71734" s0="2.40786" s1="2.16181" s2="2.32654" q0="0.0102028" q1="0.628397" q2="-0.139173" q3="0.765273" euler_x="-0.648892" euler_y="1.30404" euler_z="-0.862439" id="46" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="6.46531" t1="9.35245" t2="-6.04666" s0="13.1841" s1="1" s2="11.7716" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="48" color_r="0.0856703" color_g="0.0941176" color_b="0.0745559" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">

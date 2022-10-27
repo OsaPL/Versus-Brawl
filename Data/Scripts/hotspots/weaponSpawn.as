@@ -1,11 +1,4 @@
-﻿void Init(){
-    Object@ me = ReadObjectFromID(hotspot.GetID());
-
-    oldPos = me.GetTranslation();
-    oldRot = me.GetRotation();
-
-    me.SetScale(vec3(0.1f));
-}
+﻿#include "hotspots/placeholderFollower.as"
 
 vec3 oldPos;
 quaternion oldRot;
@@ -13,7 +6,14 @@ string oldPath = "Data/Items/Rapier.xml";
 float spawnTimer = 0;
 int weaponId = -1;
 
-int placeholderId = -1;
+void Init(){
+    Object@ me = ReadObjectFromID(hotspot.GetID());
+
+    oldPos = me.GetTranslation();
+    oldRot = me.GetRotation();
+
+    me.SetScale(vec3(0.1f));
+}
 
 void SetParameters() {
     params.AddString("ItemPath", oldPath);
@@ -23,9 +23,7 @@ void SetParameters() {
 }
 
 void Update(){
-    // placeholder is missing create it
-    if(placeholderId == -1)
-        placeholderId = CreateObject("Data/Objects/placeholder/placeholder_arena_spawn.xml");
+    PlaceHolderFollowerUpdate();
     
     // Get hotspot and placeholder, and then setup
     Object@ me = ReadObjectFromID(hotspot.GetID());
@@ -34,8 +32,6 @@ void Update(){
     placeholder_object.SetBillboard("Data/Textures/ui/versusBrawl/placeholder_weapon_spawn.png");
     placeholderObj.SetEditorLabel("["+oldPath+"]");
     // This part makes placeholder follow
-    placeholderObj.SetTranslation(me.GetTranslation());
-    placeholderObj.SetRotation(me.GetRotation());
     placeholderObj.SetScale(vec3(2));
     
     if(weaponId == -1){
@@ -92,10 +88,7 @@ void Dispose(){
         DeleteObjectID(weaponId);
         weaponId = -1;
     }
-    if(ObjectExists(placeholderId)) {
-        // Cleanup placeholder
-        DeleteObjectID(placeholderId);
-    }
+    PlaceHolderFollowerDispose();
 }
 
 void Reset(){
