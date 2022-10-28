@@ -4,7 +4,7 @@ These are general guidelines, tips, explanations that will make your map/gamemod
 If you have any questions, suggestions or requests, feel free to DM me.
 
 - `F10` now does a hard-reload of the map (this saved me EONS of time)
-- `PreScriptReload()` will now reload the map automatically, to stay synced and reduce crashes due to a pointer fuckup or weird timing issues. Can be turned off with 👻`noReloads=true` flag
+- `PreScriptReload()` will now reload the map automatically, to stay synced and reduce crashes due to a pointer fuckup or weird timing issues. Can be turned off with `noReloads=true` flag
 
 ### Navigation
 1. Take into account that `jump nav point` will be used regardles of species by NPCs, so make it jumpable even for slowest ones.
@@ -49,7 +49,7 @@ and lastly, setup level parameters to your liking (like checkPointsNeeded, block
 
 Linking checkpoint to any other objects will switch the enabled flag and send in an `switch` event message, good for opening doorway, disabling walls, spawning in weapons etc.
 
-If you wish your item to be stay disabled until checkpoint activation, add `KeepDisabled` parameter to the object (no value needed)
+If you wish your item to be stay disabled until checkpoint first activation, add `KeepDisabled` parameter to the object (no value needed)
 
 ### Coop
 
@@ -135,3 +135,44 @@ throwMassMlt = params.GetFloat("Throw - Mass Multiplier");
 - `bluntHit` message
 - `coopPartners.as` include, with an additional call in `Update()`
 - Moved color functions to `ColorHelper.as`
+
+## Generic Available Hotspots
+
+### `playerSpawn` 
+
+Used to simply set player spawns.
+
+The only option you can set is `playerNr`. If its `0-3`, player with that number can spawn there, if its `-1` its a generic spawn (anyone can spawn there if `useGenericSpawns==true`)
+
+### `powerupBase`
+
+Simple pickup that executes a function on the character. Disables on death or round reset.
+
+👻TODO: write up on all parameters (most are self-explanatory still)
+
+### `weaponSpawnHotspot`
+
+This allows you to create a dynamically spawned weapon. 
+
+To use, fill the parameters with desired settings.
+
+Options:
+
+- `ItemPath` path to the item you want to spawn
+- `RespawnTime` how long will it stay, if its not being held/attached to a character, before respawning
+- `RespawnDistance` how far from spawn point qualifies as too far, and to start `RespawnTime` timer
+
+### `waterRiseHotspot` and `waterPhaseHotspot`
+
+These two hotspots can be used together to create a phase based object up and down movement (see sewer_map for example)
+
+To use, setup your desired objects and few `waterPhaseHotspot` (with `Phase` param set) and connect them to the `waterRiseHotspot`
+
+They should rise/lower between `waterPhaseHotspot` phases.
+
+Options you can set are:
+
+- `loop` decides whether always start from end/beginning if `true` or just reverse the order if `false`
+- `defaultStep` movement step per frame (higher means everything moves faster)
+- `phaseChangeTime` how often does phases advance
+- `bobbingMlt` defines the strength of objects bobbing, lower values increase the bobbing, (default: `800`)

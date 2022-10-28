@@ -1,0 +1,153 @@
+﻿[h1]Versus-Brawl[/h1]
+[h2]THE Overgrowth Versus mode overhaul[/h2]
+I had a dream mod I wanted to make 6 yrs ago, and I didnt really try to make it. I’ve done a basic [url=https://forums.wolfire.com/viewtopic.php?f=16&t=40260&p=245753&hilit=4+players#p245753]4 player mod[/url], and called it a day.
+
+After dusting it off, and having a complete blast with my buddies, I decided now is the time.
+
+No more wonky scripts, no more boring maps, no more rabbits (<sub>okay few rabbits can stay</sub>), no more maps that are hard to create.
+
+I say, slash, bonk, impale and do whatever else you want to do with your friends (<sub>ew, not that, gross</sub>).
+
+[i]Pro tip: I really recommend using Steams Remote Play Together.[/i]
+
+[h1]Quick disclaimer:[/h1]
+There are things missing atm:
+[list]
+[*]Respawn system is not yet completed (still a little wonky, missing a more generic spawn code)
+[*]No ability to team up
+[*]No big modifications to the default character scripts
+[*]Missing elements for new gamemodes implementation
+[/list]
+
+Some of the functionality will come eventually, once I have laid the foundation by developing these features.
+[b]Anything marked by 👻 is missing atm.[/b]
+
+[h1]Features[/h1]
+[list]
+[*]2/3/4 player support, with UI help and gamepad support
+[*]Play Coop on any level (👻custom levels support missing)
+[*]Ability to change species, with each character having different stats and a unique trait
+[*]Players should no longer get their Id swapped, resulting in gamepads being always correctly arranged
+[*]New maps that arent just a gm_flatgrass, designed for game modes (👻6 planned, atleast 1 per mode)
+[*]Only a single level script and few basic prefabs needed to create a map. You can have a map ready in matter of minutes.
+[*]Warmup before the game start (with preloading for smoother gameplay)
+[*]Easy to extend with new gamemodes (with even more options coming)
+[*]👻Pickup wacky powerups and be able to add your own with only few lines of code (need to create a template for external use)
+[*]👻SuperEasy<sup>TM</sup> to extend with new races (mostly true, but there are still few hardcoded places)
+[*]👻Randomized character apperance (almost completely done, missing some variants, colors look whack sometimes)
+[*]👻NPC opponents support (this will rely on map maker to implement detailed paths)
+[/list]
+
+[h1]FAQ[/h1]
+
+[olist]
+[*][b]How do I swap characters?[/b]
+[/olist]
+
+For each player its always [b]drop[/b] and [b]item[/b] key together, then press [b]attack[/b] to switch to next.
+The UI should start showing you different species icons, if its not the gamemode doesnt allow it. 
+Some gamemodes only allow for next round change while game is in progress.
+
+[olist]
+[*][b]How do I select amount of players?[/b]
+[/olist]
+
+Go to the [b]Settings -> Game -> Local Players[/b]. If you’re already on a level, you’ll need to go back to the main menu and load the map again (or do a full map reload [b]F10[/b] where supported).
+
+[olist]
+[*][b]How do I enable coop on a level?[/b]
+[/olist]
+
+Just set [b]Local Players[/b] and launch a level.
+Not all custom levels are supported atm. Please, dont message me if its incompatible, you should let the mapper know. 
+[url=https://github.com/OsaPL/Versus-Brawl/blob/main/Adding%20maps%20and%20gamemodes%20README.md]There is a helpful README for modders/mappers.[/url]
+
+For already coop supported old levels, set [b]Local Players[/b] to [b]1[/b] for compatibility.
+
+[olist]
+[*][b]What does <action here> key correspond to?[/b]
+[/olist]
+
+For an XbOne gamepad its: 
+
+[b]item[/b] A
+[b]drop[/b] X
+[b]attack[/b] right trigger
+[b]grab[/b] left trigger
+[b]crouch[/b] right bumper
+[b]jump[/b] left bumper
+[b]skip_dialogue[/b] start
+
+If you have other any gamepad, you’re smart, I believe you’ll figure it out.
+
+[olist]
+[*][b]Gamepads not working/controlling one character/other stupid controller related bugs[/b]
+[/olist]
+
+Make sure your gamepads are all connected before starting the map. If problem persists, try restarting the game. If the problem still occurs, try reassigning gamepads.
+
+[olist]
+[*][b]The game sometimes crashes on spawning characters[/b]
+[/olist]
+
+Unfortunately, it looks like spawning in new characters and then setting [b]SetPlayer(true)[/b] is sometimes unstable, probably correlated with input/controller_id. Can’t do much about it rn.
+
+[h1]Gamemodes:[/h1]
+[list][*]Last Bun Standing
+[/list]Survivor gets the point
+[list][*]👻Race (mostly done, needed maps and balancing)
+[/list][i]self explanatory[/i] 
+[list][*]Deathmatch
+[/list]Gather kills to get points
+[list][*]Coop
+[/list]Play through campaign with friendsos.
+[list][*]👻Tag (done, needs maps)
+[/list]Catchers needs to catch everyone
+[list][*]👻Sacrifice
+[/list]Each enemy body thrown to your abbys, gives a point, your body in your abbys takes back two.
+[list][*]👻Capture the fur 
+[/list]Just CTF
+
+[b] Important note: Gamemode list is a subject to change at any time. [/b]
+
+[h1]Species:[/h1]
+[i]These are subject to change[/i]
+
+[i]I appreciate any balancing feedback![/i]
+
+[h3]Rabbits:[/h3]
+Pretty agile, king of horizontal movement.
+[b]Trait[/b]: Rabbit binkies - Midair powerful attack
+
+[h3]Dogs:[/h3]
+Tanky and hard hitting.
+[b]Trait[/b]: Now you catch! - throws weapons much harder
+
+[h3]Cats:[/h3]
+Agile and fast but fragile.
+[b]Trait[/b]: Always lands on its feet - No dmg from falls, catches weapons automatically
+
+[h3]Rats:[/h3]
+Really fast, kings of vertical spaces.
+[b]Trait[/b]: Cant be stomped - knockout shield
+
+[h3]Wolf:[/h3]:
+Slow but powerful.
+[b]Trait[/b]: Pounces on you - sharp claws, cant use weapons (still can defend by grabbing incoming ones)
+
+[h1]Powerups[/h1]
+[list][*][b]Ninja[/b] (dark smoke) - Have an infinite supply of knives to throw (hands must be free)
+[*][b]Heal[/b] (green poof) - Heals all damage
+[*][b]Rock[/b] (blue sparks) - Gives high damage resistance
+[*][b]Yeet[/b] (yellow dots) - Next direct hit (expires after [b]activeTime[/b]) will launch enemy really hard
+[/list]
+[h1]Small bugs ( dont report these, I know :) )[/h1]
+[list][*]Coop partners sometimes bug out under the ground/behind walls whenever its cramped
+[*]for 2 players the UI still stays the same as for 3/4 players setup
+[*]for [b]constantRespawning[/b] spawning can lockup, cause you died in the 0.5s window window (needs a rework to the spawn guard [b]respawnBlockTime[/b] thingy, maybe just make char invincible for that window?)
+[*]most of the UI stuff is filled with placeholders atm
+[*]maps stutters after load (preloading is done after level load since [b]AssetManager[/b] is not available in [b]as_context[/b])
+[*]clothing colors may look wonky, low priority
+[*]map will reload on a script reload (helps me to keep everything synced up, without just tracking everything at all times)
+[*]UI gets wonky on weird resolutions
+[/list]

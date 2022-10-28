@@ -69,7 +69,7 @@ float winStateTime = 10;
 //New UI Stuff
 int playerIconSize = 100;
 string placeholderRaceIconPath = "Textures/ui/challenge_mode/quit_icon_c.tga";
-
+bool noReloads=false;
 
 //States
 int currentState=-1;
@@ -685,8 +685,8 @@ void VersusPreScriptReload(){
         VersusPlayer@ player = GetPlayerByNr(i);
         player.charTimer.DeleteAll();
     }
-    
-    LoadLevel(GetCurrLevelRelPath());
+    if(!noReloads)
+        LoadLevel(GetCurrLevelRelPath());
 }
 
 class VersusAHGUI : AHGUI::GUI {

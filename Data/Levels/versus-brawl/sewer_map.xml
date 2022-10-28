@@ -35,7 +35,7 @@
     <RayToSun r0="0.121363" r1="0.062051" r2="0.990667" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-17.607" t1="13.799" t2="-5.20802" s0="1" s1="1" s2="1" q0="0.296457" q1="0.671762" q2="-0.338399" q3="0.588502" euler_x="-2.20831" euler_y="1.43886" euler_z="-3.14159" id="0">
+    <CameraObject t0="-7.24617" t1="14.1567" t2="-2.77276" s0="1" s1="1" s2="1" q0="0.40986" q1="-0.051262" q2="0.0230777" q3="0.910415" euler_x="0.846024" euler_y="-0.112494" euler_z="0" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="-7.16227" t1="0.0203524" t2="-5.76615" s0="13.1841" s1="1" s2="11.7716" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
@@ -198,7 +198,7 @@
     <EnvObject t0="-7.24487" t1="9.19876" t2="6.45269" s0="13.1841" s1="1" s2="11.7716" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="40" color_r="0.0856286" color_g="0.0941176" color_b="0.0734487" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-2.4465" t1="1.31699" t2="-7.64917" s0="1.96404" s1="1.77354" s2="2.08956" q0="0.0888475" q1="-0.0129565" q2="-0.0552535" q3="0.994427" euler_x="0.179115" euler_y="-0.015951" euler_z="-0.112445" id="41" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
+    <EnvObject t0="-2.48217" t1="1.33445" t2="-7.7235" s0="1.96404" s1="1.77354" s2="2.08956" q0="0.0888475" q1="-0.0129565" q2="-0.0552535" q3="0.994427" euler_x="0.179115" euler_y="-0.015951" euler_z="-0.112445" id="41" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-6.95612" t1="1.04629" t2="-10.207" s0="2.22589" s1="1.99843" s2="2.15072" q0="-0.0492007" q1="0.112297" q2="0.0334913" q3="0.991893" euler_x="-0.0926081" euler_y="0.22804" euler_z="0.0568921" id="42" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
@@ -223,7 +223,7 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <EnvObject t0="-7.54345" t1="1.11979" t2="-3.71734" s0="2.40786" s1="2.16181" s2="2.32654" q0="0.0102028" q1="0.628397" q2="-0.139173" q3="0.765273" euler_x="-0.648892" euler_y="1.30404" euler_z="-0.862439" id="46" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
+    <EnvObject t0="-8.20703" t1="1.26347" t2="-3.79217" s0="2.40786" s1="2.16181" s2="2.32654" q0="0.0102028" q1="0.628397" q2="-0.139173" q3="0.765273" euler_x="-0.648892" euler_y="1.30404" euler_z="-0.862439" id="46" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="6.46531" t1="9.35245" t2="-6.04666" s0="13.1841" s1="1" s2="11.7716" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="48" color_r="0.0856703" color_g="0.0941176" color_b="0.0745559" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
@@ -253,6 +253,46 @@
     <EnvObject t0="-5.56334" t1="1.62732" t2="-15.4154" s0="0.402575" s1="0.402575" s2="0.402575" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="56" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Splash.xml">
         <parameters />
     </EnvObject>
+    <Hotspot t0="-8.15699" t1="5.04573" t2="-6.94554" s0="0.1" s1="0.1" s2="0.1" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="64" type_file="Data/Objects/weaponSpawn.xml">
+        <parameters>
+            <parameter name="ItemPath" type="string" val="Data/Items/DogWeapons/DogSpear.xml" />
+            <parameter name="RespawnDistance" type="int" val="3" />
+            <parameter name="RespawnTime" type="int" val="10" />
+            <parameter name="game_type" type="string" val="versusBrawl" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-7.65023" t1="9.53852" t2="-6.56662" s0="0.1" s1="0.1" s2="0.1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="67" type_file="Data/Objects/weaponSpawn.xml">
+        <parameters>
+            <parameter name="ItemPath" type="string" val="Data/Items/Rapier.xml" />
+            <parameter name="RespawnDistance" type="int" val="3" />
+            <parameter name="RespawnTime" type="int" val="10" />
+            <parameter name="game_type" type="string" val="versusBrawl" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-4.84681" t1="13.9431" t2="-4.08969" s0="0.1" s1="0.1" s2="0.1" q0="0" q1="0" q2="0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="70" type_file="Data/Objects/weaponSpawn.xml">
+        <parameters>
+            <parameter name="ItemPath" type="string" val="Data/Items/DogWeapons/DogKnife.xml" />
+            <parameter name="RespawnDistance" type="int" val="3" />
+            <parameter name="RespawnTime" type="int" val="10" />
+            <parameter name="game_type" type="string" val="versusBrawl" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-10.574" t1="14.0453" t2="-9.02221" s0="0.1" s1="0.1" s2="0.1" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="73" type_file="Data/Objects/weaponSpawn.xml">
+        <parameters>
+            <parameter name="ItemPath" type="string" val="Data/Items/DogWeapons/DogKnife.xml" />
+            <parameter name="RespawnDistance" type="int" val="3" />
+            <parameter name="RespawnTime" type="int" val="10" />
+            <parameter name="game_type" type="string" val="versusBrawl" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
 </ActorObjects>
 <RecentItems>
     <SpawnerItem display_name="Water Hotspot" path="Data/Objects/Hotspots/wet_cube.xml" thumbnail_path="Data/UI/spawner/thumbs/Hotspot/water.png" />
@@ -275,4 +315,8 @@
     <SpawnerItem display_name="Wooden Crate 1" path="Data/Prototypes/CaveArena/Crate_1.xml" thumbnail_path="" />
     <SpawnerItem display_name="Wooden Barrel" path="Data/Objects/therium/barrel.xml" thumbnail_path="" />
     <SpawnerItem display_name="Generic Kill Hotspot" path="Data/Objects/Hotspots/generic_kill.xml" thumbnail_path="Data/UI/spawner/thumbs/Hotspot/kill.png" />
+    <SpawnerItem display_name="Cat Rapier" path="Data/Items/Rapier.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/wcatsword.png" />
+    <SpawnerItem display_name="weaponSpawn.xml" path="Data/Objects/weaponSpawn.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Dog Spear" path="Data/Items/DogWeapons/DogSpear.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/wspear.png" />
+    <SpawnerItem display_name="Dog Knife" path="Data/Items/DogWeapons/DogKnife.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/wknife.png" />
 </RecentItems>

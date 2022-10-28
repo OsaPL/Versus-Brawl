@@ -2,7 +2,9 @@
 
 float bobbingMlt = 800;
 float defaultStep = 0.005f;
-float phaseChangeTime = 10;
+float phaseChangeTime = 12;
+// This will change whether phase changes to 0 after last one, or should it reverse the order (true: 0->1->2(last)->0->1->2(last)->0... or false: 0->1->2(last)->1->0(first)->1...)
+bool loop = false;
 
 uint currentPhase = 0;
 uint previousPhase = 0;
@@ -15,6 +17,7 @@ float phaseHeight;
 float startingPhaseHeight;
 array<int> objectsToMove;
 array<int> phases;
+bool phaseDirectionForward = true;
 
 void Init() {
     hotspot.SetCollisionEnabled(false);
@@ -36,7 +39,6 @@ void Update(){
     placeholder_object.SetBillboard("Data/UI/spawner/thumbs/Hotspot/water.png");
 
     placeholderObj.SetEditorLabel("[WaterRise] CurrentPhase: [" +  currentPhase+ "] phaseHeight:[" + phaseHeight + "]");
-    
     
     array<int> connected_object_ids = hotspot.GetConnectedObjects();
 
@@ -61,7 +63,6 @@ void Update(){
     
     Object@ me = ReadObjectFromID(hotspot.GetID());
     me.SetEditorLabel("[WaterRise]");
-
     
     if(!me.GetEnabled() || EditorModeActive()){
         time = 0;
@@ -69,10 +70,12 @@ void Update(){
     }
 
     // Animate water and objects to bob around a little
+    bobbingTime += time_step;
     AnimateBobbing();
-
+    
     // TIme elapsed, go to next
     if(time>phaseChangeTime) {
+        previousPhase = currentPhase;
         NextPhase();
         Log(error, "Rising to: " + currentPhase);
         rising = true;
@@ -84,7 +87,7 @@ void Update(){
         Object@ endPhasephaseObj = ReadObjectFromID(phases[currentPhase]);
         float endPhasephaseHeight = endPhasephaseObj.GetTranslation().y;
 
-        Log(error, "startPhasephaseHeight: " + startPhasephaseHeight + " endPhasephaseHeight: " + endPhasephaseHeight);
+        
         
         if(startPhasephaseHeight > endPhasephaseHeight){
             step = defaultStep*-1;
@@ -96,7 +99,8 @@ void Update(){
             phaseHeight = abs(endPhasephaseHeight - startPhasephaseHeight);
             startingPhaseHeight = phaseHeight;
         }
-        //Log(error, "phaseHeight: " + phaseHeight);
+        Log(error, "startPhasephaseHeight: " + startPhasephaseHeight + " endPhasephaseHeight: " + endPhasephaseHeight + " step:" + step);
+        Log(error, "phaseHeight: " + phaseHeight);
     }
     else {
         if(!rising)
@@ -132,7 +136,6 @@ float calculateStep(int x){
 }
 
 void AnimateBobbing(){
-    bobbingTime += time_step;
     //Log(error, "AnimateBobbing");
     for (uint i = 0; i < objectsToMove.size(); i++) {
         Object@ obj = ReadObjectFromID(objectsToMove[i]);
@@ -143,29 +146,69 @@ void AnimateBobbing(){
 }
 
 void NextPhase(){
-    previousPhase = currentPhase;
-    currentPhase++;
-    for (uint i = currentPhase; i < phases.size(); i++)
-    {
-        if(phases[currentPhase] != -1){
-            // Found the next PhaseHotspot
-            break;
-        }
-        currentPhase++;
-    }
-    // Did we went over?
-    if(currentPhase >= phases.size() - 1){
-        currentPhase = 0;
-        // Go again from the start then
-        for (uint i = currentPhase; i < phases.size(); i++)
+    int nextPhase = -1;
+    Log(error, "NextPhase currentPhase: " + currentPhase);
+    Log(error, "NextPhase phaseDirectionForward: " + phaseDirectionForward);
+
+
+    if(phaseDirectionForward){
+        // Go forward
+
+        for (uint i = currentPhase+1; i < phases.size(); i++)
         {
-            if(phases[currentPhase] != -1){
+            if(phases[i] != -1){
                 // Found the next PhaseHotspot
+                nextPhase = i;
                 break;
             }
-            currentPhase++;
+        }
+        
+        // Didnt found next one
+        if(nextPhase == -1){
+            if(loop){
+                nextPhase = 0;
+            }
+            else{
+                // Revert direction
+                phaseDirectionForward = !phaseDirectionForward;
+                NextPhase();
+                return;
+            }
         }
     }
+    else{
+        // Go back
+        for (int i = currentPhase-1; i >= 0; i--)
+        {
+            if(phases[i] != -1){
+                // Found the next PhaseHotspot
+                nextPhase = i;
+                break;
+            }
+        }
+
+        // Didnt found next one
+        if(nextPhase == -1){
+            if(loop){
+                for (uint i = phases.size()-1; i >= 0; i--)
+                {
+                    if(phases[i] != -1){
+                        // Found the next PhaseHotspot
+                        nextPhase = i;
+                        break;
+                    }
+                }
+            }
+            else{
+                // Revert direction
+                currentPhase = 0;
+                phaseDirectionForward = !phaseDirectionForward;
+                NextPhase();
+                return;
+            }
+        }
+    }
+    currentPhase = nextPhase;
 }
 
 void MoveObjects(){
@@ -177,8 +220,10 @@ void MoveObjects(){
             soundTimer = 0;
             PlaySoundGroup("Data/Sounds/water_foley/small_waves.xml");
         }
-        if(phaseHeight < step)
+        if(phaseHeight < step){
+            Log(error, "phaseHeight than step smaller, fixing: step: " + step + " phaseHeight: " + phaseHeight);
             step = phaseHeight;
+        }
         
         if(step > 0){
             phaseHeight -= step;
@@ -187,7 +232,7 @@ void MoveObjects(){
             phaseHeight += step;
         }
             
-        Log(error, "phaseHeight left: " + phaseHeight);
+        //Log(error, "phaseHeight left: " + phaseHeight);
         for (uint i = 0; i < objectsToMove.size(); i++) {
             Object@ obj = ReadObjectFromID(objectsToMove[i]);
             vec3 original = obj.GetTranslation();
