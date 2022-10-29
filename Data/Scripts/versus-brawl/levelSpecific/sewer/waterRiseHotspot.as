@@ -1,10 +1,14 @@
 #include "hotspots/placeholderFollower.as"
 
+// TODO! Add support for Reset!
+
 float bobbingMlt = 800;
 float defaultStep = 0.005f;
-float phaseChangeTime = 12;
+float phaseChangeTime = 2;
 // This will change whether phase changes to 0 after last one, or should it reverse the order (true: 0->1->2(last)->0->1->2(last)->0... or false: 0->1->2(last)->1->0(first)->1...)
-bool loop = false;
+bool loop = true;
+//Defines how we move in phases array
+bool phaseDirectionForward = false;
 
 uint currentPhase = 0;
 uint previousPhase = 0;
@@ -16,8 +20,11 @@ float soundTimer=0;
 float phaseHeight;
 float startingPhaseHeight;
 array<int> objectsToMove;
+// Phases hotspot IDs
 array<int> phases;
-bool phaseDirectionForward = true;
+bool init = true;
+//Defines how we move in physical space
+bool movementDirectionForward = true;
 
 void Init() {
     hotspot.SetCollisionEnabled(false);
@@ -44,12 +51,11 @@ void Update(){
 
     objectsToMove = {};
     // TODO: Limiting to ten is not really necessary
-    phases = {hotspot.GetID(),-1,-1,-1,-1,-1,-1,-1,-1,-1};
+    phases = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
     
     // Get all WaterPhasesHotspots
     for (uint i = 0; i < connected_object_ids.size(); i++) {
         Object@ obj = ReadObjectFromID(connected_object_ids[i]);
-
         // Check if its a phase
         if(IsWaterPhase(obj)){
             ScriptParams@ objParams = obj.GetScriptParams();
@@ -60,9 +66,8 @@ void Update(){
             objectsToMove.push_back(obj.GetID());
         }
     }
-    
+
     Object@ me = ReadObjectFromID(hotspot.GetID());
-    me.SetEditorLabel("[WaterRise]");
     
     if(!me.GetEnabled() || EditorModeActive()){
         time = 0;
@@ -75,10 +80,12 @@ void Update(){
     
     // TIme elapsed, go to next
     if(time>phaseChangeTime) {
-        previousPhase = currentPhase;
         NextPhase();
         Log(error, "Rising to: " + currentPhase);
         rising = true;
+        
+        // If rising up, just enable next one right away
+        
         time = 0;
         soundTimer = 1;
 
@@ -86,19 +93,23 @@ void Update(){
         float startPhasephaseHeight = startPhaseObj.GetTranslation().y;
         Object@ endPhasephaseObj = ReadObjectFromID(phases[currentPhase]);
         float endPhasephaseHeight = endPhasephaseObj.GetTranslation().y;
-
-        
         
         if(startPhasephaseHeight > endPhasephaseHeight){
             step = defaultStep*-1;
             phaseHeight = abs(startPhasephaseHeight - endPhasephaseHeight);
             startingPhaseHeight = phaseHeight;
+            movementDirectionForward = false;
         }
         else{
             step = defaultStep;
             phaseHeight = abs(endPhasephaseHeight - startPhasephaseHeight);
             startingPhaseHeight = phaseHeight;
+            movementDirectionForward = true;
         }
+
+        if(movementDirectionForward)
+            SwitchConnected();
+        
         Log(error, "startPhasephaseHeight: " + startPhasephaseHeight + " endPhasephaseHeight: " + endPhasephaseHeight + " step:" + step);
         Log(error, "phaseHeight: " + phaseHeight);
     }
@@ -127,12 +138,16 @@ bool AcceptConnectionsTo(Object@ other) {
 }
 
 bool ConnectTo(Object@ other){
-    Log(error, "" + hotspot.GetID() + "connecting to:"+other.GetID());
+    // Put its initial state in
+    ScriptParams@ objParams = other.GetScriptParams();
+    if(objParams.HasParam("KeepDisabled")){
+        other.SetEnabled(false);
+        Log(error, "object:"+other.GetID() + " KeepDisabled");
+    }
+    else{
+        Log(error, "object:"+other.GetID());
+    }
     return true;
-}
-
-float calculateStep(int x){
-    return log10(x) - 2;
 }
 
 void AnimateBobbing(){
@@ -147,13 +162,14 @@ void AnimateBobbing(){
 
 void NextPhase(){
     int nextPhase = -1;
+    previousPhase = currentPhase;
+    
     Log(error, "NextPhase currentPhase: " + currentPhase);
     Log(error, "NextPhase phaseDirectionForward: " + phaseDirectionForward);
 
-
+    // TODO: This is yucky
     if(phaseDirectionForward){
         // Go forward
-
         for (uint i = currentPhase+1; i < phases.size(); i++)
         {
             if(phases[i] != -1){
@@ -235,6 +251,11 @@ void MoveObjects(){
         //Log(error, "phaseHeight left: " + phaseHeight);
         for (uint i = 0; i < objectsToMove.size(); i++) {
             Object@ obj = ReadObjectFromID(objectsToMove[i]);
+            ScriptParams@ objParams = obj.GetScriptParams();
+            
+            if(objParams.HasParam("DontMove"))
+                continue;
+            
             vec3 original = obj.GetTranslation();
             obj.SetTranslation(vec3(original.x, original.y+step, original.z));
         }
@@ -242,6 +263,9 @@ void MoveObjects(){
     else{
         Log(error, "rising ended");
         rising = false;
+        // If rising down, enable after moving
+        if(!movementDirectionForward)
+            SwitchConnected();
     }
 }
 
@@ -253,4 +277,24 @@ bool IsWaterPhase(Object@ obj){
         }
     }
     return false;
+}
+
+// Should be called after currentPhase change, to switch connected to phase objects
+void SwitchConnected(){
+    Log(error, "SwitchConnected currentPhase: " + currentPhase + " previousPhase: "+previousPhase);
+        if(phases[currentPhase] != -1) {
+            Object@ phaseObj = ReadObjectFromID(phases[currentPhase]);
+
+            phaseObj.ReceiveScriptMessage("switch");
+            
+            Log(error, "SwitchConnected phases[currentPhase]: "+ phases[currentPhase]);
+        }
+
+        if(phases[previousPhase] != -1) {
+            Object@ phaseObj = ReadObjectFromID(phases[previousPhase]);
+    
+            phaseObj.ReceiveScriptMessage("switch");
+    
+            Log(error, "SwitchConnected phases[previousPhase]: "+ phases[previousPhase]);
+        }
 }

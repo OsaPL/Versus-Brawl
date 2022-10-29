@@ -20,7 +20,7 @@ Instead create for example, a row of columns, allowing rabbits to shine, but oth
 3. Weapons should be available to the all players similarly, even the playing field
 4. Spawns should be pretty close, for that quick, swift action.
 5. ... dont put them right next to each other tho
-6. Spruce the level with some small obstacles, killzones, spikes, lava pits, whatever can be used to "accidently" trip into (with or without help of your enemies)
+6. Spruce the level with some small obstacles, killzones, spikes, lava pits, whatever can be used to "accidentally" trip into (with or without help of your enemies)
 
 ## Gametype specific
 
@@ -134,9 +134,9 @@ throwMassMlt = params.GetFloat("Throw - Mass Multiplier");
 - Added jump parameters from `internal testing` branch to change jumping behaviour
 - `bluntHit` message
 - `coopPartners.as` include, with an additional call in `Update()`
-- Moved color functions to `ColorHelper.as`
+- Moved color functions to `colorHelper.as`
 
-## Generic Available Hotspots
+## Generic available Hotspots
 
 ### `playerSpawn` 
 
@@ -158,7 +158,7 @@ To use, fill the parameters with desired settings.
 
 Options:
 
-- `ItemPath` path to the item you want to spawn
+- `ItemPath` path to the item you want to spawn (paste the path in, to avoid crashes, why there is no `checkPath(path)` or smth ;_; )
 - `RespawnTime` how long will it stay, if its not being held/attached to a character, before respawning
 - `RespawnDistance` how far from spawn point qualifies as too far, and to start `RespawnTime` timer
 
@@ -166,13 +166,17 @@ Options:
 
 These two hotspots can be used together to create a phase based object up and down movement (see sewer_map for example)
 
-To use, setup your desired objects and few `waterPhaseHotspot` (with `Phase` param set) and connect them to the `waterRiseHotspot`
+To use, setup your desired objects and few `waterPhaseHotspot` (with `Phase` param set) and connect them to the `waterRiseHotspot`.
 
-They should rise/lower between `waterPhaseHotspot` phases.
+Objects rise/lower between `waterPhaseHotspot` phases.
 
-Options you can set are:
+If you want to set some dynamic stuff, you can connect any object to the `waterPhaseHotspot`, and it will be switched on/off accordingly, if you want to reverse the behaviour, add `KeepDisabled` param to the object (switching changes `Enabled` variable and sends `switch` event)
 
+Options you can set for `waterRiseHotspot`:
 - `loop` decides whether always start from end/beginning if `true` or just reverse the order if `false`
 - `defaultStep` movement step per frame (higher means everything moves faster)
 - `phaseChangeTime` how often does phases advance
 - `bobbingMlt` defines the strength of objects bobbing, lower values increase the bobbing, (default: `800`)
+
+Options you can set for `waterPhaseHotspot`:
+- `Phase` decides what phase number in order it is
