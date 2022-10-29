@@ -1,11 +1,15 @@
 ﻿#include "powerUpBase.as"
 
 array<int> spawned_objectIds = {};
+float time = 0;
+// Lowest time between spawns
+float minDelay = 0.3f;
 
 void Init(){
     PowerupInit();
     powerupTimer.Add(LevelEventJob("activate", function(_params){
         PlaySound(params.GetString("startSoundPath"));
+        time = 0;
         return true;
     }));
     powerupTimer.Add(LevelEventJob("deactivate", function(_params){
@@ -53,10 +57,17 @@ void Update()
                 return;
             }
         }
+
+        time += time_step;
+        // Down spawn too often
+        if(time < minDelay) {
+            return;
+        }
         
         int weapon = mo.GetArrayIntVar("weapon_slots",mo.GetIntVar("primary_weapon_slot"));
 
         if(weapon == -1) {
+            time = 0;
             int knifeId = CreateObject("Data/Items/rabbit_weapons/rabbit_knife.xml");
             spawned_objectIds.push_back(knifeId);
             mo.Execute("AttachWeapon(" + knifeId + ");");
