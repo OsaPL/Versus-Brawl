@@ -8,7 +8,7 @@
     <Thumbnail>Data/Images/versus-brawl/placeholder.png</Thumbnail>
     <PreviewImage>Data/Images/versus-brawl/placeholder.png</PreviewImage>
 
-    <Description>Versus mode overhaul! Custom races, new maps, new gamemodes. README.md in Mods/4p-versus folder for more information</Description>
+    <Description>Versus mode overhaul! Custom characters, new maps, new gamemodes, coop support and more.</Description>
     <Version>0.4.4</Version>
     <Author>Osa__PL</Author>
 
@@ -30,5 +30,6 @@
         <Level title="Cave DM" thumbnail="Images/versus-brawl/cave.jpg">versus-brawl/cave_map.xml</Level>
         <Level title="(WIP)Sewer DM" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/sewer_map.xml</Level>
         <Level title="(WIP)Branches RACE" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/branches_map.xml</Level>
+        <Level title="(WIP)LavaTower RACE" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/lavaTower_map.xml</Level>
     </Campaign>
 </Mod>

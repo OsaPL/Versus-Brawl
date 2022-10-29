@@ -4,7 +4,7 @@
 // Configurables
 int pointsToWin = 10;
 bool pointsTextShow = true;
-float pointsTextShowTime = 7.0f;
+float pointsTextShowTime = 7.2f;
 
 // States
 bool initUI=true;
@@ -19,6 +19,8 @@ void Init(string msg){
     
     //Always need to call this first!
     VersusInit("");
+
+    SetParameters();
 
     Log(error, "Adding oneKilledByTwo handler");
     levelTimer.Add(LevelEventJob("oneKilledByTwo", function(_params){
@@ -38,11 +40,14 @@ void Init(string msg){
 }
 
 void SetParameters() {
+    Log(error, "Called SetParameters");
     //Always need to call this first!
     VersusSetParameters();
 
-    // params.AddInt("DeathMatch - PointsToWin", pointsToWin);
-    // params.AddFloatSlider("DeathMatch - PointsTextShowTime", pointsTextShowTime, "min:0,max:60,step:0.1");
+    ScriptParams@ lvlParams = level.GetScriptParams();
+    lvlParams.AddInt("DeathMatch - PointsToWin", pointsToWin);
+    lvlParams.AddFloatSlider("DeathMatch - PointsTextShowTime", pointsTextShowTime, "min:0,max:10,step:0.5");
+    lvlParams.SetFloat("DeathMatch - PointsTextShowTime", pointsTextShowTime);
 }
 
 void DrawGUI() {
@@ -53,7 +58,9 @@ void DrawGUI() {
 void Update(){
     //Always need to call this first!
     VersusUpdate();
-    
+
+    //UpdateParams();
+
     if(currentState == 2){
         if(pointsTextShow){
             pointsTextShow = false;
@@ -147,4 +154,10 @@ void UpdateUI(){
 
         updateScores=false;
     }
+}
+
+void UpdateParams(){
+    ScriptParams@ lvlParams = level.GetScriptParams();
+    pointsToWin = lvlParams.GetInt("DeathMatch - PointsToWin");
+    pointsTextShowTime = lvlParams.GetFloat("DeathMatch - PointsTextShowTime");
 }

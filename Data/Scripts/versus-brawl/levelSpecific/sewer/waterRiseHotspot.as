@@ -33,8 +33,20 @@ void Init() {
 }
 
 void SetParameters() {
-    params.AddFloatSlider("RiseSpeed", 0.05f, "min:0.0,max:3.0");
+    params.AddFloatSlider("Rise Speed", 0.005f, "min:0.0,max:3.0");
+    params.AddFloatSlider("Bobbing Multiplier", 800, "min:200.0,max:1800.0");
+    params.AddFloatSlider("Phase Change Time", 2.0f, "min:0.0,max:360.0");
+    params.AddIntCheckbox("Loop Phases", true);
+    params.AddIntCheckbox("Phase Starting Direction Forward", true);
     params.AddString("game_type", "versusBrawl");
+}
+
+void UpdateParameters(){
+    bobbingMlt = params.GetFloat("Rise Speed");
+    defaultStep = params.GetFloat("Bobbing Multiplier");
+    phaseChangeTime = params.GetFloat("Phase Change Time");
+    loop = params.GetInt("Loop Phases") != 0;
+    phaseDirectionForward = params.GetInt("Phase Starting Direction Forward") != 0;
 }
 
 void Update(){
@@ -45,7 +57,11 @@ void Update(){
     PlaceholderObject@ placeholder_object = cast<PlaceholderObject@>(placeholderObj);
     placeholder_object.SetBillboard("Data/UI/spawner/thumbs/Hotspot/water.png");
 
-    placeholderObj.SetEditorLabel("[WaterRise] CurrentPhase: [" +  currentPhase+ "] phaseHeight:[" + phaseHeight + "]");
+    Object@ me = ReadObjectFromID(hotspot.GetID());
+    string enabled = me.GetEnabled() ? "Enabled" : "Disabled";
+    placeholderObj.SetEditorLabel("[WaterRise] CurrentPhase: [" +  currentPhase+ "] phaseHeight:[" + phaseHeight + "] [" + enabled + "]");
+
+    UpdateParameters();
     
     array<int> connected_object_ids = hotspot.GetConnectedObjects();
 
@@ -66,8 +82,6 @@ void Update(){
             objectsToMove.push_back(obj.GetID());
         }
     }
-
-    Object@ me = ReadObjectFromID(hotspot.GetID());
     
     if(!me.GetEnabled() || EditorModeActive()){
         time = 0;

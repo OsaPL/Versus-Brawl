@@ -47,15 +47,15 @@ array<string> randomHints = {
 };
 
 //Configurables
-float respawnTime = 2;
+float respawnTime = 2.0f;
 // This will block any stupid respawns calls from hotspots that kill on the way to spawn, higher values could help on bigger "trips"
-float respawnBlockTime = 0.5;
+float respawnBlockTime = 0.5f;
 bool constantRespawning = false;
 bool useGenericSpawns = true;
 bool useSingleSpawnType = false;
 float spawnPointBlockTime = 5;
 // How often we want to make all char aware
-float set_omniscientTimeSpan = 3;
+float set_omniscientTimeSpan = 3.0f;
 float set_omniscientTimer = set_omniscientTimeSpan;
 // This blocks currentRace from being changed by player
 bool blockSpeciesChange = false; 
@@ -64,7 +64,8 @@ int forcedSpecies = _rabbit;
 // This allows instant race change even during game (state>=2)
 bool instantSpeciesChange = false;
 // Sets the lenght of victory state
-float winStateTime = 10;
+float winStateTime = 10.0f;
+bool enablePreload = true;
 
 //New UI Stuff
 int playerIconSize = 100;
@@ -216,10 +217,11 @@ array<Species@> speciesMap={
 //Requests a respawn for a player
 //TODO! This shouldnt need objID, just playerNr
 void CallRespawn(int playerNr, int objId) {
+    ScriptParams@ lvlParams = level.GetScriptParams();
     VersusPlayer@ player = GetPlayerByNr(playerNr);
     if(!player.respawnNeeded && player.respawnQueue<-respawnBlockTime){
         player.respawnNeeded = true;
-        player.respawnQueue = respawnTime;
+        player.respawnQueue = lvlParams.GetFloat("VersusBase - RespawnTime");
         Log(error, "Respawn requested objId:"+player.objId+" playerNr:"+player.playerNr);
     }
 }
@@ -503,7 +505,9 @@ void VersusInit(string p_level_name) {
 
     ScriptParams@ lvlParams = level.GetScriptParams();
     lvlParams.AddString("game_type", "versusBrawl");
-    
+
+    VersusSetParameters();
+
     for(int i = 0; i< GetConfigValueInt("local_players"); i++) {
         VersusPlayer player (i);
         versusPlayers.push_back(player);
@@ -545,19 +549,21 @@ void VersusInit(string p_level_name) {
 }
 
 void VersusSetParameters(){
-    // params.AddFloatSlider("VersusBase - RespawnTime", respawnTime, "min:0,max:60,step:0.1");
-    // params.AddFloatSlider("VersusBase - RespawnBlockTime", respawnBlockTime, "min:0,max:1,step:0.01");
-    // params.AddFloatSlider("VersusBase - SpawnPointBlockTime", spawnPointBlockTime, "min:0,max:60,step:0.1");
-    // params.AddFloatSlider("VersusBase - WinStateTime", winStateTime, "min:0,max:60,step:0.1");
-    // params.AddFloatSlider("VersusBase - WinStateTime", forcedSpecies, "min:0,max:60,step:0.1");
-    // params.AddIntSlider("VersusBase - ForcedSpecies", forcedSpecies, "min:0,max:"+speciesMap.size());
-    // params.AddIntCheckbox("VersusBase - ConstantRespawning", constantRespawning);
-    // params.AddIntCheckbox("VersusBase - UseGenericSpawns", useGenericSpawns);
-    // params.AddIntCheckbox("VersusBase - UseSingleSpawnType", useSingleSpawnType);
-    // params.AddIntCheckbox("VersusBase - BlockSpeciesChange", blockSpeciesChange);
-    // params.AddIntCheckbox("VersusBase - InstantSpeciesChange", instantSpeciesChange);
-    // params.AddIntCheckbox("VersusBase - Preload", preload);
+    ScriptParams@ lvlParams = level.GetScriptParams();
+    lvlParams.AddFloat("VersusBase - RespawnTime", respawnTime);
+    lvlParams.AddFloat("VersusBase - RespawnBlockTime", respawnBlockTime);
+    lvlParams.AddFloat("VersusBase - SpawnPointBlockTime", spawnPointBlockTime);
+    lvlParams.AddFloat("VersusBase - WinStateTime", winStateTime);
+    lvlParams.AddIntSlider("VersusBase - ForcedSpecies", forcedSpecies, "min:0,max:"+speciesMap.size());
+    lvlParams.AddIntCheckbox("VersusBase - ConstantRespawning", constantRespawning);
+    lvlParams.AddIntCheckbox("VersusBase - UseGenericSpawns", useGenericSpawns);
+    lvlParams.AddIntCheckbox("VersusBase - UseSingleSpawnType", useSingleSpawnType);
+    lvlParams.AddIntCheckbox("VersusBase - BlockSpeciesChange", blockSpeciesChange);
+    lvlParams.AddIntCheckbox("VersusBase - InstantSpeciesChange", instantSpeciesChange);
+    lvlParams.AddIntCheckbox("VersusBase - Enable Preload", enablePreload);
+    lvlParams.AddIntCheckbox("VersusBase - Reload Automatically", noReloads);
 }
+
 
 void VersusReset(){
 
@@ -569,6 +575,8 @@ void VersusDrawGUI(){
 
 void VersusUpdate() {
 
+    UpdateVersusParams();
+    
     if(!CheckSpawnsNumber()) {
         //Warn about the incorrect number of spawns
         ChangeGameState(1);
@@ -577,6 +585,10 @@ void VersusUpdate() {
     //`AssetManager` is not exposed to `as_context` and `Preload.xml` is a static file, so I need to do this the dirty way
     // We load a new model each frame, onto the actor
     if(preload){
+        // Disables preloading
+        if(!enablePreload)
+            preload = false;
+        
         placeholderTimer -= time_step;
         if(placeholderId == -1)
             placeholderId = CreateObject(placeHolderActorPath, true);
@@ -983,6 +995,22 @@ void FindSpawnPoints(){
             }
         }
     }
+}
+
+void UpdateVersusParams() {
+    ScriptParams@ lvlParams = level.GetScriptParams();
+    respawnTime = lvlParams.GetFloat("VersusBase - RespawnTime");
+    respawnBlockTime = lvlParams.GetFloat("VersusBase - RespawnBlockTime");
+    spawnPointBlockTime = lvlParams.GetFloat("VersusBase - SpawnPointBlockTime");
+    winStateTime = lvlParams.GetFloat("VersusBase - WinStateTime");
+    forcedSpecies = lvlParams.GetInt("VersusBase - ForcedSpecies");
+    constantRespawning = lvlParams.GetInt("VersusBase - ConstantRespawning") != 0;
+    useGenericSpawns = lvlParams.GetInt("VersusBase - UseGenericSpawns")  != 0;
+    useSingleSpawnType = lvlParams.GetInt("VersusBase - UseSingleSpawnType") != 0;
+    blockSpeciesChange = lvlParams.GetInt("VersusBase - BlockSpeciesChange") != 0;
+    instantSpeciesChange = lvlParams.GetInt("VersusBase - InstantSpeciesChange") != 0;
+    enablePreload = lvlParams.GetInt("VersusBase - Enable Preload") != 0;
+    noReloads = lvlParams.GetInt("VersusBase - Reload Automatically") != 0;
 }
 
 // This makes sure there is atleast a single spawn per playerNr
