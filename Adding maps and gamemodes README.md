@@ -22,6 +22,28 @@ Instead create for example, a row of columns, allowing rabbits to shine, but oth
 5. ... dont put them right next to each other tho
 6. Spruce the level with some small obstacles, killzones, spikes, lava pits, whatever can be used to "accidentally" trip into (with or without help of your enemies)
 
+### `.json` config file
+
+You can also add a `<map_name>.xml.json` file (see example file: `Levels\Test_map.xml.json`)
+
+This allows you to control the parameters of both base and gamemode scripts, per map. These will overwrite the original value, use with caution.
+
+To create a config, create a empty file, and name it correctly
+For example, we create `branches_map.xml.json`, to change params for `branches_map.xml`.
+We can change checkpoints number needed to win to 7 in the race gamemode, but also force species to rabbit. We do this like this:
+
+
+```json
+{
+  "VersusBase": {
+    "ForcedSpecies": 0
+  },
+  "Race": {
+    "CheckPointsNeeded": 7
+  }
+}
+```
+
 ## Gametype specific
 
 ### Last Bun Standing/Deathmatch

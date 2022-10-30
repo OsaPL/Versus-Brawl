@@ -194,10 +194,12 @@ Just CTF
 # Thanks to:
 [WolfireGames](https://github.com/WolfireGames) - for being awesome developers (source code helped me a lot)
 
-[Surak](https://github.com/Surak) for [Timed-Execution](https://github.com/EmpSurak/Timed-Execution) simplified A LOT of my code
+[Surak](https://github.com/Surak) - for [Timed-Execution](https://github.com/EmpSurak/Timed-Execution) simplified A LOT of my code
 
-[constance](https://steamcommunity.com/sharedfiles/filedetails/?id=1525405745) for pumpkins (cave_map)
+[constance](https://steamcommunity.com/sharedfiles/filedetails/?id=1525405745) - for pumpkins (cave_map)
+
+[Gyrth](https://github.com/Gyrth) - for showing me not documented stuff
 
 Jukucz, Naxer, Dante, Emperot and DemonAngel - for playtesting this shit
 
-WhaleMan - Praise the WhaleMan
+WhaleMan - 🐋 Praise the WhaleMan 🐋
