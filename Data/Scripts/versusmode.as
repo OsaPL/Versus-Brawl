@@ -504,7 +504,13 @@ void VersusInit(string p_level_name) {
     ScriptParams@ lvlParams = level.GetScriptParams();
     lvlParams.AddString("game_type", "versusBrawl");
     
-    for(int i = 0; i< GetConfigValueInt("local_players"); i++) {
+    // This makes sure player number is already set and not below 1
+    int playersNr = GetConfigValueInt("local_players");
+    Log(error, "local_players: " + playersNr);
+    if(playersNr < 1)
+        playersNr = 1;
+    
+    for(int i = 0; i< playersNr; i++) {
         VersusPlayer player (i);
         versusPlayers.push_back(player);
     }
