@@ -3,8 +3,7 @@
 
 //Configurables
 float suicideTime = 1;
-int forcedSpeciesType = _rabbit;
-int checkPointNeeded = 2;
+int checkPointsNeeded = 1;
 
 //State
 array<float> suicideTimers = {0,0,0,0};
@@ -22,6 +21,8 @@ void Init(string msg){
     //Always need to call this first!
     VersusInit("");
 
+    loadCallbacks.push_back(@RaceLoad);
+
     //TODO! Adding some level parameters
     ScriptParams@ lvlParams = level.GetScriptParams();
     if(!lvlParams.HasParam("Poo"))
@@ -34,6 +35,23 @@ void Init(string msg){
         checkpointReached[parseInt(_params[1])]++;
         return true;
     }));
+
+    // And finally load JSON Params
+    LoadJSONLevelParams();
+}
+
+void RaceLoad(JSONValue settings){
+    Log(error, "RaceLoad:");
+    if(FoundMember(settings, "Race")) {
+        JSONValue race = settings["Race"];
+        Log(error, "Available: " + join(race.getMemberNames(),","));
+
+        if (FoundMember(race, "suicideTime"))
+            suicideTime = race["SuicideTime"].asFloat();
+
+        if (FoundMember(race, "CheckPointsNeeded"))
+            checkPointsNeeded = race["CheckPointsNeeded"].asInt();
+    }
 }
 
 void DrawGUI() {
@@ -71,7 +89,7 @@ void Update(){
         {
             VersusPlayer@ player = GetPlayerByNr(k);
             //Checks for win
-            if(checkpointReached[player.playerNr]>=checkPointNeeded){
+            if(checkpointReached[player.playerNr]>=checkPointsNeeded){
                 // 3 is win state
                 winnerNr = player.playerNr;
                 ChangeGameState(100);

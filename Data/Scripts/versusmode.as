@@ -5,6 +5,8 @@
 #include "speciesStats.as"
 #include "colorHelpers.as"
 
+#include "versus-brawl/save_load.as"
+
 #include "timed_execution/timed_execution.as"
 #include "timed_execution/char_death_job.as"
 #include "timed_execution/level_event_job.as"
@@ -15,10 +17,11 @@ array<string> insults = {
     "Maybe you should try Tai Chi instead.",
     "You should try turning on `Baby Mode`.",
     "vidja gams are hart",
-    "Are you still playing?",
+    "Are you guys still playing?",
     "Oooh! That's gonna leave a mark!"
 };
 
+// TODO! We can extend both in gamemode Init() with gamemode specific hints
 // TODO! Add cases when which should be used (only use first two if `blockSpeciesChange==false` etc.)
 array<string> warmupHints = {
     "Hold @drop@ and @item@ to activate character change...",
@@ -50,27 +53,29 @@ array<string> randomHints = {
 float respawnTime = 2.0f;
 // This will block any stupid respawns calls from hotspots that kill on the way to spawn, higher values could help on bigger "trips"
 float respawnBlockTime = 0.5f;
+float spawnPointBlockTime = 5.0f;
 bool constantRespawning = false;
 bool useGenericSpawns = true;
 bool useSingleSpawnType = false;
-float spawnPointBlockTime = 5;
-// How often we want to make all char aware
-float set_omniscientTimeSpan = 3.0f;
-float set_omniscientTimer = set_omniscientTimeSpan;
-// This blocks currentRace from being changed by player
-bool blockSpeciesChange = false; 
-// Starting species
-int forcedSpecies = _rabbit;
-// This allows instant race change even during game (state>=2)
-bool instantSpeciesChange = false;
 // Sets the lenght of victory state
 float winStateTime = 10.0f;
+// Starting species
+int forcedSpecies = _rabbit;
+// This blocks currentRace from being changed by player
+bool blockSpeciesChange = false;
+// This allows instant race change even during game (state>=2)
+bool instantSpeciesChange = false;
 bool enablePreload = true;
+bool noReloads=false;
+
+
+// How often we want to make all char aware TODO! Fix up this?
+float set_omniscientTimeSpan = 3.0f;
+float set_omniscientTimer = set_omniscientTimeSpan;
 
 //New UI Stuff
 int playerIconSize = 100;
 string placeholderRaceIconPath = "Textures/ui/challenge_mode/quit_icon_c.tga";
-bool noReloads=false;
 
 //States
 int currentState=-1;
@@ -221,7 +226,7 @@ void CallRespawn(int playerNr, int objId) {
     VersusPlayer@ player = GetPlayerByNr(playerNr);
     if(!player.respawnNeeded && player.respawnQueue<-respawnBlockTime){
         player.respawnNeeded = true;
-        player.respawnQueue = lvlParams.GetFloat("VersusBase - RespawnTime");
+        player.respawnQueue = respawnTime;
         Log(error, "Respawn requested objId:"+player.objId+" playerNr:"+player.playerNr);
     }
 }
@@ -503,12 +508,20 @@ void DeleteObjectsInList(array<int> &inout ids) {
 
 void VersusInit(string p_level_name) {
 
+    // Register callback for loading JSON config
+    loadCallbacks.push_back(@VersusBaseLoad);
+
     ScriptParams@ lvlParams = level.GetScriptParams();
     lvlParams.AddString("game_type", "versusBrawl");
+    
+    // This makes sure player number is already set and not below 1
+    int playersNr = GetConfigValueInt("local_players");
+    Log(error, "local_players: " + playersNr);
+    if(playersNr < 1)
+        playersNr = 1;
+    
+    for(int i = 0; i< playersNr; i++) {
 
-    VersusSetParameters();
-
-    for(int i = 0; i< GetConfigValueInt("local_players"); i++) {
         VersusPlayer player (i);
         versusPlayers.push_back(player);
     }
@@ -548,22 +561,6 @@ void VersusInit(string p_level_name) {
     }));
 }
 
-void VersusSetParameters(){
-    ScriptParams@ lvlParams = level.GetScriptParams();
-    lvlParams.AddFloat("VersusBase - RespawnTime", respawnTime);
-    lvlParams.AddFloat("VersusBase - RespawnBlockTime", respawnBlockTime);
-    lvlParams.AddFloat("VersusBase - SpawnPointBlockTime", spawnPointBlockTime);
-    lvlParams.AddFloat("VersusBase - WinStateTime", winStateTime);
-    lvlParams.AddIntSlider("VersusBase - ForcedSpecies", forcedSpecies, "min:0,max:"+speciesMap.size());
-    lvlParams.AddIntCheckbox("VersusBase - ConstantRespawning", constantRespawning);
-    lvlParams.AddIntCheckbox("VersusBase - UseGenericSpawns", useGenericSpawns);
-    lvlParams.AddIntCheckbox("VersusBase - UseSingleSpawnType", useSingleSpawnType);
-    lvlParams.AddIntCheckbox("VersusBase - BlockSpeciesChange", blockSpeciesChange);
-    lvlParams.AddIntCheckbox("VersusBase - InstantSpeciesChange", instantSpeciesChange);
-    lvlParams.AddIntCheckbox("VersusBase - Enable Preload", enablePreload);
-    lvlParams.AddIntCheckbox("VersusBase - Reload Automatically", noReloads);
-}
-
 
 void VersusReset(){
 
@@ -574,8 +571,6 @@ void VersusDrawGUI(){
 }
 
 void VersusUpdate() {
-
-    UpdateVersusParams();
     
     if(!CheckSpawnsNumber()) {
         //Warn about the incorrect number of spawns
@@ -997,20 +992,59 @@ void FindSpawnPoints(){
     }
 }
 
-void UpdateVersusParams() {
-    ScriptParams@ lvlParams = level.GetScriptParams();
-    respawnTime = lvlParams.GetFloat("VersusBase - RespawnTime");
-    respawnBlockTime = lvlParams.GetFloat("VersusBase - RespawnBlockTime");
-    spawnPointBlockTime = lvlParams.GetFloat("VersusBase - SpawnPointBlockTime");
-    winStateTime = lvlParams.GetFloat("VersusBase - WinStateTime");
-    forcedSpecies = lvlParams.GetInt("VersusBase - ForcedSpecies");
-    constantRespawning = lvlParams.GetInt("VersusBase - ConstantRespawning") != 0;
-    useGenericSpawns = lvlParams.GetInt("VersusBase - UseGenericSpawns")  != 0;
-    useSingleSpawnType = lvlParams.GetInt("VersusBase - UseSingleSpawnType") != 0;
-    blockSpeciesChange = lvlParams.GetInt("VersusBase - BlockSpeciesChange") != 0;
-    instantSpeciesChange = lvlParams.GetInt("VersusBase - InstantSpeciesChange") != 0;
-    enablePreload = lvlParams.GetInt("VersusBase - Enable Preload") != 0;
-    noReloads = lvlParams.GetInt("VersusBase - Reload Automatically") != 0;
+void VersusBaseLoad(JSONValue settings){
+    Log(error, "VersusBase:");
+    if(FoundMember(settings, "VersusBase")){
+        JSONValue versusBase = settings["VersusBase"];
+        Log(error, "Available: " + join(versusBase.getMemberNames(),","));
+
+        if(FoundMember(versusBase, "RespawnTime"))
+            respawnTime = versusBase["RespawnTime"].asFloat();
+        
+        if(FoundMember(versusBase, "RespawnBlockTime"))
+            respawnBlockTime = versusBase["RespawnBlockTime"].asFloat();
+        
+        if(FoundMember(versusBase, "SpawnPointBlockTime"))
+            spawnPointBlockTime = versusBase["SpawnPointBlockTime"].asFloat();
+        
+        if(FoundMember(versusBase, "WinStateTime"))
+            winStateTime = versusBase["WinStateTime"].asFloat();
+        
+        if(FoundMember(versusBase, "ForcedSpecies")){
+            forcedSpecies = versusBase["ForcedSpecies"].asInt();
+            
+            //This makes sure first spawned character are correct species
+            for(uint i = 0; i < versusPlayers.size(); i++)
+            {
+                VersusPlayer@ player = GetPlayerByNr(i);
+                player.currentRace = forcedSpecies;
+                RerollCharacter(player.playerNr, ReadObjectFromID(player.objId));
+            }
+            
+            Log(error, "Refreshing currentRace, cause loaded new forcedSpecies: " + forcedSpecies);
+        }
+        
+        if(FoundMember(versusBase, "ConstantRespawning"))
+            constantRespawning = versusBase["ConstantRespawning"].asBool();
+        
+        if(FoundMember(versusBase, "UseGenericSpawns"))
+            useGenericSpawns = versusBase["UseGenericSpawns"].asBool();
+
+        if(FoundMember(versusBase, "UseSingleSpawnType"))
+            useSingleSpawnType = versusBase["UseSingleSpawnType"].asBool();
+
+        if(FoundMember(versusBase, "BlockSpeciesChange"))
+            blockSpeciesChange = versusBase["BlockSpeciesChange"].asBool();
+
+        if(FoundMember(versusBase, "InstantSpeciesChange"))
+            instantSpeciesChange = versusBase["InstantSpeciesChange"].asBool();
+
+        if(FoundMember(versusBase, "EnablePreload"))
+            enablePreload = versusBase["EnablePreload"].asBool();
+
+        if(FoundMember(versusBase, "NoReloads"))
+            noReloads = versusBase["NoReloads"].asBool();
+    }
 }
 
 // This makes sure there is atleast a single spawn per playerNr

@@ -1,0 +1,24 @@
+{
+  "VersusBase": {
+    "RespawnTime": 2.0,
+    "RespawnBlockTime": 0.5,
+    "SpawnPointBlockTime": 5.0,
+    "ConstantRespawning": true,
+    "UseGenericSpawns": true,
+    "UseSingleSpawnType": false,
+    "WinStateTime": 10.0,
+    "ForcedSpecies": 0,
+    "BlockSpeciesChange": false,
+    "InstantSpeciesChange": false,
+    "EnablePreload": true,
+    "NoReloads": false
+  },
+  "Deathmatch": {
+    "PointsToWin": 3,
+    "PointsTextShowTime": 7.2
+  },
+  "Race": {
+    "SuicideTime": 1.0,
+    "CheckPointsNeeded": 2
+  }
+}

@@ -1,16 +1,15 @@
-﻿#include "versusmode.as"
+#include "versusmode.as"
 // ^^ only this is needed
 
 //Level methods
 void Init(string msg){
     //Always need to call this first!
     VersusInit("");
-}
 
-void SetParameters()
-{
-    //Always need to call this first!
-    VersusSetParameters();
+    // Your code between
+
+    // And finally load JSON Params
+    LoadJSONLevelParams();
 }
 
 void DrawGUI() {

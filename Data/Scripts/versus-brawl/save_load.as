@@ -1,44 +1,42 @@
-void SaveSettings(string level_path) {
-	JSON data;
+// This whole script is due to levelParams being buggy as hell atm (using floatSlider crash the game, using `SetFloat` provides UI with an intSlider and truncate)
+
+funcdef void ConfigCallback(JSONValue settings);
+
+array<ConfigCallback@> loadCallbacks = {};
+
+// This is called by implementation to load JSON with level params, and call all `loadCallbacks`
+void LoadJSONLevelParams(){
+	string cfgPath = GetCurrLevelRelPath() + ".json";
+	// This will also call all loadCallbacks
+	JSONValue settings = LoadJSONFile(cfgPath);
+}
+
+JSONValue LoadJSONFile(string file){
+	JSON jsonFile;
+	jsonFile.parseFile(file);
+	Log(error, "parseFile(" + file + "): " + jsonFile.writeString());
+
 	JSONValue root;
 
-	JSONValue settings;
+	root = jsonFile.getRoot();
 
-	settings["world_size"] = JSONValue(world_size);
-	settings["game_mode"] = JSONValue(game_mode);
-	settings["enemy_spawn_mult"] = JSONValue(enemy_spawn_mult);
-	settings["weather_state"] = JSONValue(weather_state);
-	settings["add_detail_objects"] = JSONValue(add_detail_objects);
-	/* settings["distance_cull"] = JSONValue(distance_cull); */
-	root["settings"] = settings;
+	Log(error, "json loaded: " + join(root.getMemberNames(),","));
 
-	data.getRoot() = root;
-	SavedLevel@ saved_level = save_file.GetSavedLevel("black_forest_data");
-	saved_level.SetValue("settings", data.writeString(false));
-	save_file.WriteInPlace();
-}
-
-void LoadSettings(string level_path) {
-	SavedLevel@ saved_level = save_file.GetSavedLevel("black_forest_data");
-	string settings_json = saved_level.GetValue("settings");
-	JSON data;
-
-	if(settings_json != "" && data.parseString(settings_json)){
-		JSONValue root;
-
-		root = data.getRoot();
-		JSONValue settings = root["settings"];
-		world_size = settings["world_size"].asInt();
-		game_mode = game_modes(settings["game_mode"].asInt());
-		enemy_spawn_mult = settings["enemy_spawn_mult"].asFloat();
-		add_detail_objects = settings["add_detail_objects"].asBool();
-		/* distance_cull = settings["distance_cull"].asBool(); */
-		weather_state = weather_states(settings["weather_state"].asInt());
+	for (uint i = 0; i < loadCallbacks.size(); i++){
+		loadCallbacks[i](root);
 	}
+
+	return root;
 }
 
-void DeleteSettings() {
-	SavedLevel@ saved_level = save_file.GetSavedLevel("black_forest_data");
-	saved_level.SetValue("settings", "");
-	save_file.WriteInPlace();
+bool FoundMember(JSONValue root, string varName){
+	array<string> members = root.getMemberNames();
+	
+	for(uint i = 0; i < members.size(); i++){
+		if(members[i] == varName)
+			return true;
+	}
+
+	Log(error, "Cant find in JSON: " + varName + " Available: " + join(members, ","));
+	return false;
 }

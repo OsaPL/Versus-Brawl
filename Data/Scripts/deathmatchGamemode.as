@@ -3,10 +3,10 @@
 
 // Configurables
 int pointsToWin = 10;
-bool pointsTextShow = true;
 float pointsTextShowTime = 7.2f;
 
 // States
+bool pointsTextShow = true;
 bool initUI=true;
 bool updateScores=false;
 array<int> killsCount = {0,0,0,0};
@@ -20,7 +20,7 @@ void Init(string msg){
     //Always need to call this first!
     VersusInit("");
 
-    SetParameters();
+    loadCallbacks.push_back(@DeathmatchLoad);
 
     Log(error, "Adding oneKilledByTwo handler");
     levelTimer.Add(LevelEventJob("oneKilledByTwo", function(_params){
@@ -37,17 +37,23 @@ void Init(string msg){
         }
         return true;
     }));
+
+    // And finally load JSON Params
+    LoadJSONLevelParams();
 }
 
-void SetParameters() {
-    Log(error, "Called SetParameters");
-    //Always need to call this first!
-    VersusSetParameters();
+void DeathmatchLoad(JSONValue settings) {
+    Log(error, "DeathmatchLoad:");
+    if(FoundMember(settings, "Deathmatch")) {
+        JSONValue deathmatch = settings["Deathmatch"];
+        Log(error, "Available: " + join(deathmatch.getMemberNames(),","));
 
-    ScriptParams@ lvlParams = level.GetScriptParams();
-    lvlParams.AddInt("DeathMatch - PointsToWin", pointsToWin);
-    lvlParams.AddFloatSlider("DeathMatch - PointsTextShowTime", pointsTextShowTime, "min:0,max:10,step:0.5");
-    lvlParams.SetFloat("DeathMatch - PointsTextShowTime", pointsTextShowTime);
+        if (FoundMember(deathmatch, "PointsToWin"))
+            pointsToWin = deathmatch["PointsToWin"].asInt();
+        
+        if (FoundMember(deathmatch, "PointsTextShowTime"))
+            pointsTextShowTime = deathmatch["PointsTextShowTime"].asFloat();
+    }
 }
 
 void DrawGUI() {
@@ -154,10 +160,4 @@ void UpdateUI(){
 
         updateScores=false;
     }
-}
-
-void UpdateParams(){
-    ScriptParams@ lvlParams = level.GetScriptParams();
-    pointsToWin = lvlParams.GetInt("DeathMatch - PointsToWin");
-    pointsTextShowTime = lvlParams.GetFloat("DeathMatch - PointsTextShowTime");
 }
