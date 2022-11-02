@@ -52,10 +52,10 @@
         params.SetFloat("Character Scale",     1.0); //params.AddFloatSlider("Character Scale", 1, "min:0.6,max:1.4,step:0.02,text_mult:100");
 
         //Low, far and fast jumps
-        params.SetFloat("Jump - Initial Velocity",    7.0);//params.AddFloatSlider("Jump - Initial Velocity", 5.0, "min:0.1,max:50.0,step:0.01,text_mult:1");
+        params.SetFloat("Jump - Initial Velocity",    8.0);//params.AddFloatSlider("Jump - Initial Velocity", 5.0, "min:0.1,max:50.0,step:0.01,text_mult:1");
         params.SetFloat("Jump - Air Control",         5.0);//params.AddFloatSlider("Jump - Air Control", 3.0, "min:0.0,max:50.0,step:0.01,text_mult:1");
-        params.SetFloat("Jump - Jump Sustain",        1.0);//params.AddFloatSlider("Jump - Jump Sustain", 5.0, "min:0.0,max:50.0,step:0.01,text_mult:1");
-        params.SetFloat("Jump - Jump Sustain Boost",  1.0);//params.AddFloatSlider("Jump - Jump Sustain Boost", 10.0, "min:0.0,max:100.0,step:0.01,text_mult:1");
+        params.SetFloat("Jump - Jump Sustain",        2.0);//params.AddFloatSlider("Jump - Jump Sustain", 5.0, "min:0.0,max:50.0,step:0.01,text_mult:1");
+        params.SetFloat("Jump - Jump Sustain Boost",  2.0);//params.AddFloatSlider("Jump - Jump Sustain Boost", 10.0, "min:0.0,max:100.0,step:0.01,text_mult:1");
 
         params.SetFloat("Fall Damage Multiplier",0); //params.AddFloatSlider("Fall Damage Multiplier", default_fall_damage_multiplier, "min:0,max:10,step:0.1,text_mult:1");
     }
@@ -70,8 +70,8 @@
         //Lowest, slightly further and fastest jumps
         params.SetFloat("Jump - Initial Velocity",    3.5);//params.AddFloatSlider("Jump - Initial Velocity", 5.0, "min:0.1,max:50.0,step:0.01,text_mult:1");
         params.SetFloat("Jump - Air Control",         4.0);//params.AddFloatSlider("Jump - Air Control", 3.0, "min:0.0,max:50.0,step:0.01,text_mult:1");
-        params.SetFloat("Jump - Jump Sustain",        12.0);//params.AddFloatSlider("Jump - Jump Sustain", 5.0, "min:0.0,max:50.0,step:0.01,text_mult:1");
-        params.SetFloat("Jump - Jump Sustain Boost", 12.0);//params.AddFloatSlider("Jump - Jump Sustain Boost", 10.0, "min:0.0,max:100.0,step:0.01,text_mult:1");
+        params.SetFloat("Jump - Jump Sustain",        10.0);//params.AddFloatSlider("Jump - Jump Sustain", 5.0, "min:0.0,max:50.0,step:0.01,text_mult:1");
+        params.SetFloat("Jump - Jump Sustain Boost", 10.0);//params.AddFloatSlider("Jump - Jump Sustain Boost", 10.0, "min:0.0,max:100.0,step:0.01,text_mult:1");
 
         params.SetInt("Knockout Shield",    1); //params.AddIntSlider("Knockout Shield", 0, "min:0,max:10");
     }

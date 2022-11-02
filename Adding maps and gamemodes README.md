@@ -28,7 +28,7 @@ You can also add a `<map_name>.xml.json` file (see example file: `Levels\Test_ma
 
 This allows you to control the parameters of both base and gamemode scripts, per map. These will overwrite the original value, use with caution.
 
-To create a config, create a empty file, and name it correctly
+To create a config, create an empty file, and name it correctly.
 For example, we create `branches_map.xml.json`, to change params for `branches_map.xml`.
 We can change checkpoints number needed to win to 7 in the race gamemode, but also force species to rabbit. We do this like this:
 
@@ -109,7 +109,7 @@ You can create your own gamemodes pretty easily! Start with `versusGameplayTempl
 ### Global variables available
  `currentState` contains current game state, template already has: `warmup=0`, `map unsupported/missing components=1`, `gamestart>=2` `gameend>=100`, but you are free to implement more and use the `ChangeGameState(value)` call to switch.
 
-**👻Most of these are available from level scripts parameters menu**
+**👻Document all params**
 
 `constantRespawning` controls whether you should be automatically queued for a respawn.
 

@@ -42,6 +42,7 @@ string IntToWinnerName(int teamNr){
 void ResetTag(){
     whoWon = -1;
 
+    //TODO! This is not bueno! fix those arrays up so it actually works for 2 and 3 player situation (and really any amount of players)
     killedRunners = { false, false, false, false };
     currentChasers = { false, false, false, false };
     freezeTimers = { 0, 0, 0, 0 };
@@ -96,6 +97,8 @@ void Init(string msg){
     //Always need to call this first!
     VersusInit("");
 
+    loadCallbacks.push_back(@TagLoad);
+
     ResetTag();
 
     levelTimer.Add(LevelEventJob("reset", function(_params){
@@ -138,12 +141,38 @@ void Init(string msg){
 
         return true;
     }));
+
+    // And finally load JSON Params
+    LoadJSONLevelParams();
 }
 
-void SetParameters()
-{
-    //Always need to call this first!
-    VersusSetParameters();
+void TagLoad(JSONValue settings) {
+    Log(error, "TagLoad:");
+    if(FoundMember(settings, "Tag")) {
+        JSONValue tag = settings["Tag"];
+        Log(error, "Available: " + join(tag.getMemberNames(),","));
+
+        if (FoundMember(tag, "RoundMaxTime"))
+            roundMaxTime = tag["RoundMaxTime"].asFloat();
+
+        if (FoundMember(tag, "FreezeTime"))
+            freezeTime = tag["FreezeTime"].asFloat();
+
+        if (FoundMember(tag, "DeathsChangesToChasers"))
+            deathsChangesToChasers = tag["DeathsChangesToChasers"].asBool();
+
+        if (FoundMember(tag, "KillsChangesToRunners"))
+            killsChangesToRunners = tag["KillsChangesToRunners"].asBool();
+
+        if (FoundMember(tag, "ChaserSpecies"))
+            chaserSpecies = tag["ChaserSpecies"].asInt();
+
+        if (FoundMember(tag, "RunnerSpecies"))
+            runnerSpecies = tag["RunnerSpecies"].asInt();
+
+        if (FoundMember(tag, "BiggerTeamWins"))
+            biggerTeamWins = tag["BiggerTeamWins"].asBool();
+    }
 }
 
 void DrawGUI() {
