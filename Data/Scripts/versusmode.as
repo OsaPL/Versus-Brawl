@@ -746,7 +746,14 @@ class VersusAHGUI : AHGUI::GUI {
         header.clear();
         header.clearUpdateBehaviors();
         header.setDisplacement();
-        DisplayText(DDTop, header, 8, text, 90, vec4(textColor,1.0f), extraText, 70);
+    
+        // If in editor hide the text
+        if(EditorModeActive()){
+            DisplayText(DDTop, header, 8, "", 90, vec4(textColor,1.0f), "", 70);
+        }
+        else{
+            DisplayText(DDTop, header, 8, text, 90, vec4(textColor,1.0f), extraText, 70);
+        }
     }
     
     void ChangeIcon(int playerIdx, int iconNr, bool glow)
