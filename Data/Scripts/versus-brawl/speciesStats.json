@@ -1,0 +1,76 @@
+{
+  "SpeciesStats": {
+    "rabbit": {
+      "Attack Damage" : 1.0,
+      "Attack Knockback": 1.0,
+      "Attack Speed": 1.0,
+      "Damage Resistance": 0.7,
+      "Movement Speed": 0.8,
+      "Character Scale": 0.9,
+
+      "Jump - Initial Velocity": 7.0,
+      "Jump - Air Control": 2.0,
+      "Jump - Jump Sustain": 5.0,
+      "Jump - Jump Sustain Boost": 10.0
+    },
+    "dog": {
+      "Attack Damage" : 1.2,
+      "Attack Knockback": 1.2,
+      "Attack Speed": 0.8,
+      "Damage Resistance": 1.2,
+      "Movement Speed": 0.8,
+      "Character Scale": 1.0,
+
+      "Jump - Initial Velocity": 10.0,
+      "Jump - Air Control": 1.5,
+      "Jump - Jump Sustain": 3.0,
+      "Jump - Jump Sustain Boost": 1.0,
+
+      "Throw - Initial Velocity Multiplier": 5.0,
+      "Throw - Mass Multiplier": 2.0
+    },
+    "cat": {
+      "Attack Damage" : 1.1,
+      "Attack Knockback": 0.6,
+      "Attack Speed": 1.2,
+      "Damage Resistance": 0.5,
+      "Movement Speed": 1.2,
+      "Character Scale": 1.0,
+
+      "Jump - Initial Velocity": 8.0,
+      "Jump - Air Control": 5.0,
+      "Jump - Jump Sustain": 2.0,
+      "Jump - Jump Sustain Boost": 2.0,
+
+      "Fall Damage Multiplier": 0.0
+    },
+    "rat": {
+      "Attack Damage" : 0.7,
+      "Attack Knockback": 1.5,
+      "Attack Speed": 1.2,
+      "Damage Resistance": 0.5,
+      "Movement Speed": 1.2,
+      "Character Scale": 0.9,
+
+      "Jump - Initial Velocity": 3.5,
+      "Jump - Air Control": 4.0,
+      "Jump - Jump Sustain": 10.0,
+      "Jump - Jump Sustain Boost": 10.0,
+
+      "Knockout Shield": 1
+    },
+    "wolf": {
+      "Attack Damage" : 0.15,
+      "Attack Knockback": 0.7,
+      "Attack Speed": 0.35,
+      "Damage Resistance": 0.8,
+      "Movement Speed": 0.5,
+      "Character Scale": 1.0,
+
+      "Jump - Initial Velocity": 10.0,
+      "Jump - Air Control": 1.0,
+      "Jump - Jump Sustain": 5.0,
+      "Jump - Jump Sustain Boost": 5.0
+    }
+  }
+}

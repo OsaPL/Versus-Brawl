@@ -182,6 +182,7 @@ Just CTF
 ## WIP mod
 
 # Small bugs ( dont report these, I know :) )
+- Level specific `SpeciesStats` will not be set for first spawns
 - Coop partners sometimes bug out under the ground/behind walls whenever its cramped
 - for 2 players the UI still stays the same as for 3/4 players setup
 - for `constantRespawning` spawning can lockup, cause you died in the 0.5s window window (needs a rework to the spawn guard `respawnBlockTime` thingy, maybe just make char invincible for that window?)

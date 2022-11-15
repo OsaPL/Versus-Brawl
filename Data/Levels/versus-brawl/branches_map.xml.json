@@ -4,5 +4,10 @@
   },
   "Race": {
     "CheckPointsNeeded": 7
+  },
+  "SpeciesStats": {
+    "rabbit": {
+      "Attack Speed": 1.5
+    }
   }
 }

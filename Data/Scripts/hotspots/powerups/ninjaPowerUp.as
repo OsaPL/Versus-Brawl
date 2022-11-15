@@ -1,4 +1,4 @@
-﻿#include "powerUpBase.as"
+#include "powerUpBase.as"
 
 array<int> spawned_objectIds = {};
 float time = 0;

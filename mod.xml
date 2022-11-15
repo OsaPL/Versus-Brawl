@@ -28,8 +28,7 @@
         <Level title="Blocks DM" thumbnail="Images/versus-brawl/blocks.jpg">versus-brawl/blocks_map.xml</Level>
 		<Level title="Planks LBS" thumbnail="Images/versus-brawl/planks.jpg">versus-brawl/plank_map.xml</Level>
         <Level title="Cave DM" thumbnail="Images/versus-brawl/cave.jpg">versus-brawl/cave_map.xml</Level>
-        <Level title="(WIP)Sewer DM" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/sewer_map.xml</Level>
+        <Level title="(Beta)Sewer DM" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/sewer_map.xml</Level>
         <Level title="(WIP)Branches RACE" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/branches_map.xml</Level>
-        <Level title="(WIP)LavaTower RACE" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/lavaTower_map.xml</Level>
     </Campaign>
 </Mod>

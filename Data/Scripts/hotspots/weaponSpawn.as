@@ -1,4 +1,4 @@
-﻿#include "hotspots/placeholderFollower.as"
+#include "hotspots/placeholderFollower.as"
 
 vec3 oldPos;
 quaternion oldRot;

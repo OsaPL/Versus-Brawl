@@ -1,4 +1,4 @@
-﻿int placeholderId = -1;
+int placeholderId = -1;
 
 void PlaceHolderFollowerUpdate(){
     // placeholder is missing create it

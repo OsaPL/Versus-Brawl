@@ -510,6 +510,9 @@ void VersusInit(string p_level_name) {
 
     // Register callback for loading JSON config
     loadCallbacks.push_back(@VersusBaseLoad);
+    loadCallbacks.push_back(@SpeciesStatsLoad);
+    // Load speciesStats.json
+    BaseSpeciesStatsLoad();
 
     ScriptParams@ lvlParams = level.GetScriptParams();
     lvlParams.AddString("game_type", "versusBrawl");

@@ -32,7 +32,6 @@ To create a config, create an empty file, and name it correctly.
 For example, we create `branches_map.xml.json`, to change params for `branches_map.xml`.
 We can change checkpoints number needed to win to 7 in the race gamemode, but also force species to rabbit. We do this like this:
 
-
 ```json
 {
   "VersusBase": {
@@ -43,6 +42,25 @@ We can change checkpoints number needed to win to 7 in the race gamemode, but al
   }
 }
 ```
+
+You can also modify paremeters of characters for that map by adding `SpeciesStats`:
+
+```json
+{
+  "VersusBase": {
+    "ForcedSpecies": 0
+  },
+  "Race": {
+    "CheckPointsNeeded": 7
+  },
+  "SpeciesStats": {
+    "rabbit": {
+      "Attack Knockback": 6.9
+    }
+  }
+}
+```
+(see `Scripts/versus-brawl/speciesStats.json` for available options)
 
 ## Gametype specific
 

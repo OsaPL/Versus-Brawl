@@ -3,8 +3,8 @@
 // TODO! Add support for Reset!
 
 float bobbingMlt = 800;
-float defaultStep = 0.005f;
-float phaseChangeTime = 2;
+float defaultStep = 0.003f;
+float phaseChangeTime = 10;
 // This will change whether phase changes to 0 after last one, or should it reverse the order (true: 0->1->2(last)->0->1->2(last)->0... or false: 0->1->2(last)->1->0(first)->1...)
 bool loop = true;
 //Defines how we move in phases array
@@ -42,8 +42,8 @@ void SetParameters() {
 }
 
 void UpdateParameters(){
-    bobbingMlt = params.GetFloat("Rise Speed");
-    defaultStep = params.GetFloat("Bobbing Multiplier");
+    defaultStep = params.GetFloat("Rise Speed");
+    bobbingMlt = params.GetFloat("Bobbing Multiplier");
     phaseChangeTime = params.GetFloat("Phase Change Time");
     loop = params.GetInt("Loop Phases") != 0;
     phaseDirectionForward = params.GetInt("Phase Starting Direction Forward") != 0;
@@ -60,7 +60,7 @@ void Update(){
     Object@ me = ReadObjectFromID(hotspot.GetID());
     string enabled = me.GetEnabled() ? "Enabled" : "Disabled";
     placeholderObj.SetEditorLabel("[WaterRise] CurrentPhase: [" +  currentPhase+ "] phaseHeight:[" + phaseHeight + "] [" + enabled + "]");
-
+    
     UpdateParameters();
     
     array<int> connected_object_ids = hotspot.GetConnectedObjects();

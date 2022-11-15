@@ -36,10 +36,10 @@
     <RayToSun r0="-0.0114565" r1="0.998364" r2="0.0560155" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-0.65531" t1="11.4586" t2="2.46955" s0="1" s1="1" s2="1" q0="-0.206546" q1="-0.598891" q2="0.163569" q3="-0.756249" euler_x="0.533233" euler_y="1.33959" euler_z="0" id="0">
+    <CameraObject t0="-1.53343" t1="5.07783" t2="11.8551" s0="1" s1="1" s2="1" q0="-0.0535226" q1="0.941253" q2="-0.179139" q3="-0.281224" euler_x="-2.76545" euler_y="-0.580668" euler_z="-3.14159" id="0">
         <parameters />
     </CameraObject>
-    <EnvObject t0="9.43688" t1="-3.84359" t2="-2.40162" s0="40.3102" s1="1" s2="35.1901" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+    <EnvObject t0="9.49128" t1="-3.87804" t2="-2.41337" s0="40.3102" s1="1" s2="35.1901" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-11.9667" t1="13.9019" t2="21.4494" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="5" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
@@ -223,13 +223,13 @@
     <EnvObject t0="17.6457" t1="36.818" t2="-3.36111" s0="1.2681" s1="1.36999" s2="0.932369" q0="-0.849265" q1="0.0172463" q2="0.527547" q3="-0.011754" euler_x="3.05568" euler_y="1.10989" euler_z="-0.0938865" id="57" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Cliffs/CliffTrim_02_lichen.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-11.0279" t1="18.508" t2="18.6568" s0="1.29588" s1="1.29588" s2="1.29588" q0="-0.210499" q1="0.0286492" q2="-0.0674772" q3="0.974843" euler_x="-0.427316" euler_y="0.0274527" euler_z="-0.144174" id="58" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
+    <EnvObject t0="-11.0279" t1="18.508" t2="18.6568" s0="1.29588" s1="1.29588" s2="1.29588" q0="-0.210499" q1="0.0286492" q2="-0.0674772" q3="0.974843" euler_x="-0.427316" euler_y="0.0274526" euler_z="-0.144174" id="58" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="0.0912228" t1="15.5962" t2="24.8268" s0="0.313732" s1="0.313732" s2="0.313732" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="59" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-20.0142" t1="13.0771" t2="8.87583" s0="0.527305" s1="0.306382" s2="0.780239" q0="-0.119702" q1="0.116218" q2="-0.296408" q3="0.940376" euler_x="-0.301846" euler_y="0.148158" euler_z="-0.633261" id="60" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
+    <EnvObject t0="-20.0142" t1="13.0771" t2="8.87583" s0="0.527305" s1="0.306382" s2="0.780239" q0="-0.119702" q1="0.116218" q2="-0.296408" q3="0.940376" euler_x="-0.301845" euler_y="0.148157" euler_z="-0.63326" id="60" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="4.97886" t1="21.9332" t2="21.6318" s0="1.08595" s1="0.698" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="61" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
@@ -241,7 +241,7 @@
     <EnvObject t0="-12.1989" t1="8.48504" t2="-22.5961" s0="0.802184" s1="0.490156" s2="1.1756" q0="-0.20428" q1="0.476071" q2="-0.0437142" q3="0.854233" euler_x="-0.70055" euler_y="0.919818" euler_z="-0.460315" id="63" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-7.48928" t1="8.07396" t2="-24.8613" s0="0.885546" s1="0.541093" s2="1.29777" q0="-0.13299" q1="0.71193" q2="-5.97537e-005" q3="0.689543" euler_x="-1.83206" euler_y="1.37969" euler_z="-1.64292" id="64" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
+    <EnvObject t0="-7.48928" t1="8.07396" t2="-24.8613" s0="0.885546" s1="0.541093" s2="1.29777" q0="-0.13299" q1="0.71193" q2="-5.97537e-005" q3="0.689543" euler_x="-1.83206" euler_y="1.3797" euler_z="-1.64293" id="64" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="24.1515" t1="23.0977" t2="-11.2933" s0="0.802184" s1="0.490156" s2="1.1756" q0="-0.20428" q1="0.476071" q2="-0.0437142" q3="0.854233" euler_x="-0.70055" euler_y="0.919818" euler_z="-0.460315" id="65" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
@@ -253,7 +253,7 @@
     <EnvObject t0="-16.221" t1="13.5527" t2="16.6517" s0="0.614113" s1="0.37524" s2="0.899983" q0="-0.20428" q1="0.476071" q2="-0.0437142" q3="0.854233" euler_x="-0.70055" euler_y="0.919818" euler_z="-0.460315" id="67" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="3.27714" t1="24.4288" t2="20.043" s0="2.12623" s1="2.52393" s2="1.55294" q0="0.67119" q1="-0.445618" q2="0.384639" q3="0.450538" euler_x="2.42065" euler_y="-1.16267" euler_z="-0.686616" id="68" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Cliffs/CliffRock_04.xml">
+    <EnvObject t0="3.69636" t1="24.7397" t2="21.1064" s0="0.880448" s1="0.53334" s2="0.717392" q0="-0.432468" q1="-0.703132" q2="-0.545641" q3="-0.144465" euler_x="1.95703" euler_y="-0.272135" euler_z="2.2225" id="68" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-8.2133" t1="22.7648" t2="18.4238" s0="1" s1="2.2034" s2="1.55294" q0="0.67119" q1="-0.445618" q2="0.384639" q3="0.450538" euler_x="2.42065" euler_y="-1.16267" euler_z="-0.686616" id="69" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Cliffs/CliffRock_04.xml">
@@ -265,7 +265,7 @@
     <EnvObject t0="39.5228" t1="19.7673" t2="1.19677" s0="0.802184" s1="0.490156" s2="1.1756" q0="-0.20428" q1="0.476071" q2="-0.0437142" q3="0.854233" euler_x="-0.70055" euler_y="0.919818" euler_z="-0.460315" id="71" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="39.1821" t1="22.9569" t2="3.63945" s0="0.802184" s1="0.490156" s2="1.1756" q0="-0.537403" q1="0.716473" q2="-0.162145" q3="0.414211" euler_x="-2.2991" euler_y="0.432639" euler_z="-1.6582" id="72" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
+    <EnvObject t0="39.1821" t1="22.9569" t2="3.63945" s0="0.802184" s1="0.490156" s2="1.1756" q0="-0.537403" q1="0.716473" q2="-0.162145" q3="0.414211" euler_x="-2.2991" euler_y="0.432638" euler_z="-1.6582" id="72" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="39.8344" t1="46.7259" t2="5.16233" s0="2.59298" s1="2.00841" s2="2.21936" q0="-0.723441" q1="-0.659173" q2="-0.137156" q3="-0.152741" euler_x="2.72811" euler_y="0.00291695" euler_z="1.4773" id="73" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Cliffs/CliffTrim_01_lichen.xml">
@@ -289,7 +289,7 @@
     <EnvObject t0="13.2802" t1="2.16483" t2="19.2498" s0="1.56294" s1="0.946766" s2="1.27349" q0="0.643974" q1="-0.591418" q2="-0.3607" q3="0.32472" euler_x="2.13017" euler_y="0.0805595" euler_z="-1.53042" id="79" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="21.8617" t1="3.95555" t2="9.30987" s0="2.79709" s1="1.69437" s2="2.27908" q0="0.651773" q1="-0.664229" q2="-0.313118" q3="0.189695" euler_x="2.40545" euler_y="0.156804" euler_z="-1.65034" id="80" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
+    <EnvObject t0="21.8617" t1="3.95564" t2="9.30997" s0="2.79709" s1="1.69437" s2="2.27908" q0="0.651773" q1="-0.664229" q2="-0.313118" q3="0.189695" euler_x="2.40545" euler_y="0.156804" euler_z="-1.65034" id="80" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="1.56717" t1="1.06504" t2="-13.9841" s0="2.32107" s1="1.40601" s2="1.89121" q0="-0.252745" q1="0.661" q2="-0.665676" q3="-0.236818" euler_x="-1.5729" euler_y="-0.707013" euler_z="-3.11681" id="81" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
@@ -324,7 +324,7 @@
             <parameter name="BelongsTo" type="int" val="84" />
         </parameters>
     </ItemObject>
-    <Hotspot t0="1.13944" t1="0.352581" t2="-1.60627" s0="0.0752143" s1="0.0752143" s2="0.0752143" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="87" type_file="Data/Objects/Hotspots/fire_test.xml">
+    <Hotspot t0="2.76861" t1="0.355102" t2="6.8762" s0="0.0752143" s1="0.0752143" s2="0.0752143" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="87" type_file="Data/Objects/Hotspots/fire_test.xml">
         <parameters>
             <parameter name="Fire Ribbons" type="int" val="4" />
             <parameter name="FlameTaken" type="int" val="88" />
@@ -350,7 +350,7 @@
             <parameter name="BelongsTo" type="int" val="88" />
         </parameters>
     </ItemObject>
-    <Hotspot t0="21.4755" t1="10.0948" t2="6.6482" s0="0.0752143" s1="0.0752143" s2="0.0752143" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="91" type_file="Data/Objects/Hotspots/fire_test.xml">
+    <Hotspot t0="21.0431" t1="10.2222" t2="8.21446" s0="0.0752143" s1="0.0752143" s2="0.0752143" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="91" type_file="Data/Objects/Hotspots/fire_test.xml">
         <parameters>
             <parameter name="Fire Ribbons" type="int" val="4" />
             <parameter name="FlameTaken" type="int" val="92" />
@@ -456,7 +456,7 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <EnvObject t0="32.0339" t1="0.0821686" t2="-11.5791" s0="0.522871" s1="0.510238" s2="0.861359" q0="-0.303975" q1="0.713879" q2="-0.539555" q3="-0.326879" euler_x="-1.91366" euler_y="-0.918559" euler_z="-3.0073" id="112" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
+    <EnvObject t0="32.0339" t1="0.0821686" t2="-11.5791" s0="0.522871" s1="0.510238" s2="0.861359" q0="-0.303975" q1="0.713879" q2="-0.539555" q3="-0.326879" euler_x="-1.91366" euler_y="-0.918557" euler_z="-3.0073" id="112" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
     <Hotspot t0="13.2542" t1="7.45374" t2="18.7607" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="118" type_file="Data/Objects/playerSpawn.xml">
@@ -511,7 +511,7 @@
     <Decal t0="21.0382" t1="19.8225" t2="16.5602" s0="14.2703" s1="14.6176" s2="22.5114" q0="0.827455" q1="-0.383139" q2="0.3521" q3="-0.211086" euler_x="-2.39036" euler_y="-0.434485" euler_z="-1.04093" id="147" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <EnvObject t0="4.83971" t1="-0.239548" t2="3.40985" s0="1.56294" s1="0.946766" s2="1.27349" q0="0.350554" q1="-0.0257863" q2="-0.933745" q3="0.0677231" euler_x="0.126349" euler_y="0.709117" euler_z="-2.94997" id="148" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
+    <EnvObject t0="4.83971" t1="-0.239548" t2="3.40985" s0="1.56294" s1="0.946766" s2="1.27349" q0="0.350554" q1="-0.0257863" q2="-0.933745" q3="0.0677231" euler_x="0.126349" euler_y="0.709116" euler_z="-2.94997" id="148" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
     <Hotspot t0="15.9256" t1="0.628934" t2="5.84073" s0="1.10655" s1="1.10655" s2="1.10655" q0="0.0911788" q1="-0.502723" q2="0.380735" q3="0.770715" euler_x="-0.469168" euler_y="-1.00534" euler_z="1.17896" id="149" type_file="Data/Objects/Hotspots/spike.xml">
@@ -559,7 +559,7 @@
     <Decal t0="3.37545" t1="21.4804" t2="-0.640228" s0="14.2705" s1="14.6178" s2="22.5117" q0="0.349227" q1="0.0120766" q2="0.936867" q3="-0.0135957" euler_x="0.0173739" euler_y="-0.713768" euler_z="-3.11905" id="161" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="23.6231" t1="18.4514" t2="-0.643929" s0="14.2703" s1="14.6176" s2="22.5114" q0="0.857027" q1="0.0118712" q2="0.513348" q3="-0.0429721" euler_x="-3.01135" euler_y="-1.07782" euler_z="-0.0502499" id="162" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="23.6404" t1="18.4675" t2="-0.645228" s0="14.2703" s1="14.6176" s2="22.5114" q0="0.857027" q1="0.0118712" q2="0.513348" q3="-0.0429721" euler_x="-3.01135" euler_y="-1.07782" euler_z="-0.0502499" id="162" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-6.83726" t1="13.2393" t2="-3.785" s0="14.2703" s1="14.6176" s2="22.5114" q0="0.857027" q1="0.0118712" q2="0.513348" q3="-0.0429721" euler_x="-3.01135" euler_y="-1.07782" euler_z="-0.0502499" id="163" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
@@ -920,7 +920,7 @@
     <EnvObject t0="21.8516" t1="10.8339" t2="5.45785" s0="0.930199" s1="0.930199" s2="0.930199" q0="0.883154" q1="-0.00551958" q2="-0.466745" q3="0.046429" euler_x="2.98718" euler_y="0.968264" euler_z="-0.0938159" id="255" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="5.41216" t1="1.00878" t2="7.51506" s0="0.930199" s1="0.930199" s2="0.930199" q0="0.883154" q1="-0.00551958" q2="-0.466745" q3="0.046429" euler_x="2.98718" euler_y="0.968264" euler_z="-0.0938159" id="256" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
+    <EnvObject t0="5.36856" t1="0.993678" t2="7.87412" s0="0.930199" s1="0.930199" s2="0.930199" q0="0.883154" q1="-0.00551958" q2="-0.466745" q3="0.046429" euler_x="2.98718" euler_y="0.968264" euler_z="-0.0938159" id="256" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="33.818" t1="4.65877" t2="-0.717833" s0="1" s1="1" s2="1" q0="0.0671179" q1="-0.0593445" q2="0.0136719" q3="0.995885" euler_x="0.133418" euler_y="-0.120326" euler_z="0.0194067" id="257" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_post_a.xml">
@@ -932,7 +932,7 @@
     <EnvObject t0="13.8601" t1="4.57517" t2="-3.43555" s0="1" s1="1" s2="1" q0="0.0470966" q1="0.183805" q2="-0.115059" q3="0.97507" euler_x="0.053342" euler_y="0.378238" euler_z="-0.224704" id="259" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/baskets/basket_bowl.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="13.072" t1="4.9286" t2="-4.19331" s0="0.99976" s1="0.99976" s2="0.99976" q0="-0.0138332" q1="-0.12216" q2="0.00693398" q3="0.992391" euler_x="-0.0300496" euler_y="-0.244704" euler_z="0.0176695" id="260" color_r="1" color_g="0.99999" color_b="0.99999" overbright="0" type_file="Data/Objects/Environment/baskets/basket_covered.xml">
+    <EnvObject t0="13.072" t1="4.9286" t2="-4.19331" s0="0.99976" s1="0.99976" s2="0.99976" q0="-0.0138332" q1="-0.12216" q2="0.00693398" q3="0.992391" euler_x="-0.0300496" euler_y="-0.244704" euler_z="0.0176694" id="260" color_r="1" color_g="0.99999" color_b="0.99999" overbright="0" type_file="Data/Objects/Environment/baskets/basket_covered.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="13.4881" t1="4.75566" t2="-3.8179" s0="1" s1="1" s2="1" q0="0.0578614" q1="-0.0179929" q2="-0.0220623" q3="0.99792" euler_x="0.116605" euler_y="-0.033364" euler_z="-0.0461571" id="261" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/baskets/basket_covered.xml">
@@ -968,7 +968,7 @@
     <EnvObject t0="-2.43208" t1="1.04261" t2="13.6406" s0="0.417737" s1="0.29579" s2="0.367913" q0="0.00863051" q1="0.0418087" q2="0.0295765" q3="0.998648" euler_x="0.0197803" euler_y="0.0830894" euler_z="0.0600378" id="271" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/halloween/pumpkin.xml">
         <parameters />
     </EnvObject>
-    <Decal t0="0.225221" t1="-3.38668" t2="9.43689" s0="9.27804" s1="8.21993" s2="9.63415" q0="-0.00505161" q1="0.0859872" q2="-0.00601735" q3="0.996263" euler_x="-0.011267" euler_y="0.172119" euler_z="-0.0130517" id="272" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="0.225221" t1="-3.38668" t2="9.43689" s0="9.27804" s1="8.21993" s2="9.63415" q0="-0.00505161" q1="0.0859872" q2="-0.00601735" q3="0.996263" euler_x="-0.011267" euler_y="0.17212" euler_z="-0.0130517" id="272" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-6.29616" t1="-1.53404" t2="11.0678" s0="8.45655" s1="4.69074" s2="5.69449" q0="-0.0307358" q1="0.0123464" q2="-0.000565011" q3="0.99945" euler_x="-0.0615092" euler_y="0.024647" euler_z="-0.00188893" id="273" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
@@ -992,7 +992,7 @@
     <Decal t0="8.03185" t1="0.628934" t2="-6.81853" s0="5.25171" s1="4.65278" s2="5.45329" q0="-0.0435616" q1="-0.132527" q2="-0.125312" q3="0.982267" euler_x="-0.0544306" euler_y="-0.274714" euler_z="-0.246255" id="279" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="25.07" t1="-0.685494" t2="-4.25095" s0="11.8023" s1="10.4563" s2="12.2553" q0="-0.0435616" q1="-0.132527" q2="-0.125312" q3="0.982267" euler_x="-0.0544306" euler_y="-0.274714" euler_z="-0.246255" id="280" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="24.8035" t1="-4.47223" t2="-4.40272" s0="11.8023" s1="10.4563" s2="12.2553" q0="0.00359905" q1="0.0165548" q2="-0.0152614" q3="0.999745" euler_x="0.00669471" euler_y="0.0332171" euler_z="-0.0304173" id="280" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="40.3296" t1="0.777019" t2="-1.67059" s0="7.54972" s1="6.68871" s2="7.8395" q0="-0.0435616" q1="-0.132527" q2="-0.125312" q3="0.982267" euler_x="-0.0544306" euler_y="-0.274714" euler_z="-0.246255" id="281" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
@@ -1022,7 +1022,7 @@
     <Decal t0="14.9368" t1="0.699426" t2="1.66485" s0="3.62216" s1="3.20907" s2="3.76119" q0="0.0865642" q1="0.102215" q2="0.00850095" q3="0.990952" euler_x="0.17785" euler_y="0.202489" euler_z="0.0352722" id="289" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="11.2072" t1="-0.130278" t2="10.3254" s0="8.29586" s1="4.28356" s2="7.0838" q0="-0.110151" q1="0.0376055" q2="0.0317446" q3="0.992694" euler_x="-0.218771" euler_y="0.0817459" euler_z="0.0549518" id="290" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="11.0796" t1="-0.25741" t2="10.1107" s0="8.29586" s1="4.28356" s2="7.0838" q0="-0.110151" q1="0.0376055" q2="0.0317446" q3="0.992694" euler_x="-0.218771" euler_y="0.0817459" euler_z="0.0549518" id="290" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="5.51964" t1="0.583113" t2="15.5252" s0="4.70564" s1="4.16898" s2="4.88625" q0="0.0865642" q1="0.102215" q2="0.00850095" q3="0.990952" euler_x="0.17785" euler_y="0.202489" euler_z="0.0352722" id="291" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
@@ -1058,9 +1058,9 @@
     <EnvObject t0="31.9301" t1="2.26083" t2="10.1928" s0="1.37615" s1="0.833619" s2="1.1213" q0="-0.221948" q1="0.261614" q2="-0.70323" q3="0.622725" euler_x="-0.70028" euler_y="0.0136666" euler_z="-1.69709" id="301" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
-    <Group t0="32.1183" t1="5.64702" t2="13.4474" s0="0.492672" s1="1.70453" s2="0.37197" q0="0.0858597" q1="0.162034" q2="0.0168482" q3="0.982898" euler_x="0.184677" euler_y="0.321123" euler_z="0.0642718" id="302" version="1">
+    <Group t0="32.1183" t1="5.64702" t2="13.4474" s0="0.492672" s1="1.70453" s2="0.37197" q0="0.0858597" q1="0.162034" q2="0.0168482" q3="0.982898" euler_x="0.184677" euler_y="0.321123" euler_z="0.064272" id="302" version="1">
         <parameters />
-        <Hotspot t0="31.9356" t1="6.25023" t2="13.5151" s0="0.0316937" s1="0.0316937" s2="0.0316937" q0="0.573553" q1="-0.571103" q2="0.156901" q3="0.565912" euler_x="2.15429" euler_y="-0.972631" euler_z="-1.01221" id="303" type_file="Data/Objects/Hotspots/fire_test.xml">
+        <Hotspot t0="31.9356" t1="6.25023" t2="13.5151" s0="0.0316937" s1="0.0316937" s2="0.0316937" q0="0.573553" q1="-0.571103" q2="0.156901" q3="0.565912" euler_x="2.15428" euler_y="-0.972631" euler_z="-1.01221" id="303" type_file="Data/Objects/Hotspots/fire_test.xml">
             <parameters>
                 <parameter name="Fire Ribbons" type="int" val="2" />
                 <parameter name="Ignite Characters" type="int" val="1" />
@@ -1070,7 +1070,7 @@
             <Connections />
             <ConnectionsFrom />
         </Hotspot>
-        <EnvObject t0="32.094" t1="6.30668" t2="13.5949" s0="0.431435" s1="0.842364" s2="0.680585" q0="-0.435731" q1="-0.639109" q2="0.355717" q3="0.524541" euler_x="-1.78321" euler_y="-0.368786" euler_z="1.6459" id="304" color_r="0.764706" color_g="0.710727" color_b="0.710727" overbright="12.5" type_file="Data/Objects/Environment/camp/bed_roll.xml">
+        <EnvObject t0="32.094" t1="6.30668" t2="13.5949" s0="0.431435" s1="0.842364" s2="0.680585" q0="-0.435731" q1="-0.639109" q2="0.355717" q3="0.524541" euler_x="-1.78321" euler_y="-0.368787" euler_z="1.6459" id="304" color_r="0.764706" color_g="0.710727" color_b="0.710727" overbright="12.5" type_file="Data/Objects/Environment/camp/bed_roll.xml">
             <parameters />
         </EnvObject>
         <EnvObject t0="32.1695" t1="5.61219" t2="13.3968" s0="2" s1="2" s2="2" q0="0.12148" q1="-0.805658" q2="-0.0896129" q3="0.572816" euler_x="2.42825" euler_y="-1.12257" euler_z="-2.38202" id="305" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/torch.xml">
@@ -1133,6 +1133,9 @@
     <EnvObject t0="-9.17435" t1="0.955302" t2="15.4083" s0="3.91645" s1="3.91645" s2="3.91645" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="335" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/camp/wood_pile.xml">
         <parameters />
     </EnvObject>
+    <EnvObject t0="10.7394" t1="2.0826" t2="7.94218" s0="3.09215" s1="1.49705" s2="2.31824" q0="0.834723" q1="0.0205137" q2="-0.540293" q3="0.104359" euler_x="2.77359" euler_y="1.13438" euler_z="-0.186857" id="338" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/caves/cave_pillar.xml">
+        <parameters />
+    </EnvObject>
     <EnvObject t0="-6.19486" t1="0.992054" t2="18.7699" s0="4.20006" s1="3.22629" s2="2.73592" q0="-0.0736321" q1="0.299636" q2="0.0126024" q3="0.951122" euler_x="-0.162241" euler_y="0.608743" euler_z="-0.0245681" id="339" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/camp/wood_pile.xml">
         <parameters />
     </EnvObject>
@@ -1149,6 +1152,9 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
+    <EnvObject t0="22.0164" t1="1.11227" t2="-2.25102" s0="2.56686" s1="1.49705" s2="1.6736" q0="0.622656" q1="-0.215274" q2="-0.752213" q3="0.0108549" euler_x="1.19808" euler_y="1.20008" euler_z="-2.23865" id="342" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/caves/cave_pillar.xml">
+        <parameters />
+    </EnvObject>
     <Hotspot t0="-9.41631" t1="0.778705" t2="14.843" s0="0.210829" s1="0.10585" s2="0.197387" q0="0.00232702" q1="-0.0924446" q2="-0.023771" q3="0.995431" euler_x="0.00918461" euler_y="-0.184987" euler_z="-0.0486031" id="343" type_file="Data/Objects/Hotspots/fire_test.xml">
         <parameters>
             <parameter name="Fire Ribbons" type="int" val="30" />
@@ -1189,7 +1195,7 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <EnvObject t0="-4.87505" t1="-0.0936446" t2="-6.06315" s0="5.56778" s1="3.06029" s2="1.90146" q0="-0.421749" q1="-0.25188" q2="-0.142356" q3="0.859316" euler_x="-0.900858" euler_y="-0.58592" euler_z="-0.038653" id="350" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/caves/cave_pillar.xml">
+    <EnvObject t0="-4.87505" t1="-0.0936446" t2="-6.06315" s0="5.56778" s1="3.06029" s2="1.90146" q0="-0.421749" q1="-0.25188" q2="-0.142356" q3="0.859316" euler_x="-0.900859" euler_y="-0.58592" euler_z="-0.0386523" id="350" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/caves/cave_pillar.xml">
         <parameters />
     </EnvObject>
     <Hotspot t0="-6.2568" t1="0.782478" t2="18.7379" s0="0.210829" s1="0.10585" s2="0.197387" q0="0.00232702" q1="-0.0924446" q2="-0.023771" q3="0.995431" euler_x="0.00918461" euler_y="-0.184987" euler_z="-0.0486031" id="351" type_file="Data/Objects/Hotspots/fire_test.xml">
@@ -1347,16 +1353,16 @@
     <Decal t0="27.2396" t1="4.31199" t2="16.1427" s0="7.62547" s1="7.03406" s2="6.79571" q0="-0.0435616" q1="-0.132527" q2="-0.125312" q3="0.982267" euler_x="-0.0544306" euler_y="-0.274714" euler_z="-0.246255" id="382" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-1.1817" t1="0.946824" t2="1.11327" s0="8.29586" s1="4.28356" s2="7.0838" q0="0.0564183" q1="0.29938" q2="-0.151901" q3="0.940271" euler_x="0.0185942" euler_y="0.618898" euler_z="-0.314387" id="383" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="-1.1817" t1="0.946824" t2="1.11327" s0="8.29586" s1="4.28356" s2="7.0838" q0="0.0564183" q1="0.29938" q2="-0.151901" q3="0.940271" euler_x="0.0185946" euler_y="0.618896" euler_z="-0.314386" id="383" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="8.51852" t1="0.631402" t2="23.5812" s0="8.29586" s1="4.28356" s2="7.0838" q0="0.0564183" q1="0.29938" q2="-0.151901" q3="0.940271" euler_x="0.0185942" euler_y="0.618898" euler_z="-0.314387" id="384" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="8.51852" t1="0.631402" t2="23.5812" s0="8.29586" s1="4.28356" s2="7.0838" q0="0.0564183" q1="0.29938" q2="-0.151901" q3="0.940271" euler_x="0.0185946" euler_y="0.618896" euler_z="-0.314386" id="384" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="15.2951" t1="-0.376925" t2="24.7099" s0="8.29586" s1="4.28356" s2="7.0838" q0="0.0564183" q1="0.29938" q2="-0.151901" q3="0.940271" euler_x="0.0185942" euler_y="0.618898" euler_z="-0.314387" id="385" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="15.2951" t1="-0.376925" t2="24.7099" s0="8.29586" s1="4.28356" s2="7.0838" q0="0.0564183" q1="0.29938" q2="-0.151901" q3="0.940271" euler_x="0.0185946" euler_y="0.618896" euler_z="-0.314386" id="385" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="23.5513" t1="1.62961" t2="17.5177" s0="4.65023" s1="4.28356" s2="3.77033" q0="0.0564183" q1="0.29938" q2="-0.151901" q3="0.940271" euler_x="0.0185942" euler_y="0.618898" euler_z="-0.314387" id="386" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="23.5513" t1="1.62961" t2="17.5177" s0="4.65023" s1="4.28356" s2="3.77033" q0="0.0564183" q1="0.29938" q2="-0.151901" q3="0.940271" euler_x="0.0185946" euler_y="0.618896" euler_z="-0.314386" id="386" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="30.7582" t1="4.57523" t2="16.6583" s0="2.40037" s1="4.28356" s2="4.35166" q0="0.0126161" q1="0.970123" q2="0.229261" q3="0.0782666" euler_x="2.67297" euler_y="0.146596" euler_z="3.08053" id="387" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
@@ -1365,58 +1371,58 @@
     <Decal t0="29.5495" t1="4.9197" t2="14.1773" s0="2.40037" s1="4.28356" s2="4.35166" q0="0.0126161" q1="0.970123" q2="0.229261" q3="0.0782666" euler_x="2.67297" euler_y="0.146596" euler_z="3.08053" id="388" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="13.6638" t1="0.540322" t2="3.00113" s0="3.19456" s1="4.28356" s2="5.34325" q0="-0.00893454" q1="0.74564" q2="0.0690577" q3="0.662691" euler_x="2.45902" euler_y="1.42569" euler_z="2.56967" id="389" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="13.6638" t1="0.540322" t2="3.00113" s0="3.19456" s1="4.28356" s2="5.34325" q0="-0.00893454" q1="0.74564" q2="0.0690577" q3="0.662691" euler_x="2.45902" euler_y="1.4257" euler_z="2.56968" id="389" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="12.8913" t1="0.892855" t2="-14.7289" s0="5.37996" s1="4.28356" s2="7.35456" q0="-0.00893454" q1="0.74564" q2="0.0690577" q3="0.662691" euler_x="2.45902" euler_y="1.42569" euler_z="2.56967" id="390" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="12.8913" t1="0.892855" t2="-14.7289" s0="5.37996" s1="4.28356" s2="7.35456" q0="-0.00893454" q1="0.74564" q2="0.0690577" q3="0.662691" euler_x="2.45902" euler_y="1.4257" euler_z="2.56968" id="390" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="10.5867" t1="0.631403" t2="-6.69775" s0="5.37996" s1="4.28356" s2="7.35456" q0="-0.00893454" q1="0.74564" q2="0.0690577" q3="0.662691" euler_x="2.45902" euler_y="1.42569" euler_z="2.56967" id="391" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="10.5867" t1="0.631403" t2="-6.69775" s0="5.37996" s1="4.28356" s2="7.35456" q0="-0.00893454" q1="0.74564" q2="0.0690577" q3="0.662691" euler_x="2.45902" euler_y="1.4257" euler_z="2.56968" id="391" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="3.79929" t1="-0.588364" t2="-0.117981" s0="5.37996" s1="4.28356" s2="7.35456" q0="-0.00893454" q1="0.74564" q2="0.0690577" q3="0.662691" euler_x="2.45902" euler_y="1.42569" euler_z="2.56967" id="392" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="3.79929" t1="-0.588364" t2="-0.117981" s0="5.37996" s1="4.28356" s2="7.35456" q0="-0.00893454" q1="0.74564" q2="0.0690577" q3="0.662691" euler_x="2.45902" euler_y="1.4257" euler_z="2.56968" id="392" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-6.57088" t1="1.04087" t2="-5.65592" s0="3.67658" s1="4.28356" s2="6.03396" q0="-0.000873029" q1="0.393024" q2="-0.12237" q3="0.911345" euler_x="-0.14056" euler_y="0.798267" euler_z="-0.326315" id="393" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="-6.57088" t1="1.04087" t2="-5.65592" s0="3.67658" s1="4.28356" s2="6.03396" q0="-0.000873029" q1="0.393024" q2="-0.12237" q3="0.911345" euler_x="-0.140559" euler_y="0.798266" euler_z="-0.326314" id="393" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <EnvObject t0="-15.8349" t1="3.15217" t2="-9.04237" s0="1.7429" s1="0.869214" s2="1.10607" q0="0.51167" q1="-0.580274" q2="-0.484941" q3="0.407828" euler_x="1.76919" euler_y="0.0229569" euler_z="-1.7151" id="394" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
+    <EnvObject t0="-15.8349" t1="3.15217" t2="-9.04237" s0="1.7429" s1="0.869214" s2="1.10607" q0="0.51167" q1="-0.580274" q2="-0.484941" q3="0.407828" euler_x="1.76919" euler_y="0.0229576" euler_z="-1.7151" id="394" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-11.3877" t1="1.57693" t2="-9.22395" s0="1.7429" s1="0.869214" s2="1.10607" q0="-0.375479" q1="-0.578274" q2="-0.519032" q3="0.505207" euler_x="1.35152" euler_y="-1.34256" euler_z="-2.73178" id="395" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
-    <Decal t0="-6.4552" t1="-0.238028" t2="-10.3774" s0="5.95592" s1="4.28356" s2="7.95645" q0="-0.000873029" q1="0.393024" q2="-0.12237" q3="0.911345" euler_x="-0.14056" euler_y="0.798267" euler_z="-0.326315" id="396" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="-6.4552" t1="-0.238028" t2="-10.3774" s0="5.95592" s1="4.28356" s2="7.95645" q0="-0.000873029" q1="0.393024" q2="-0.12237" q3="0.911345" euler_x="-0.140559" euler_y="0.798266" euler_z="-0.326314" id="396" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-0.646041" t1="-1.24144" t2="-7.07643" s0="5.95592" s1="4.28356" s2="7.95645" q0="0.000614166" q1="0.371756" q2="0.0465113" q3="0.92716" euler_x="0.0493254" euler_y="0.760518" euler_z="0.119965" id="397" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="-0.646041" t1="-1.24144" t2="-7.07643" s0="5.95592" s1="4.28356" s2="7.95645" q0="0.000614166" q1="0.371756" q2="0.0465113" q3="0.92716" euler_x="0.0493254" euler_y="0.760519" euler_z="0.119965" id="397" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="22.6762" t1="-0.149478" t2="-0.732673" s0="5.95592" s1="4.28356" s2="7.95645" q0="0.000614166" q1="0.371756" q2="0.0465113" q3="0.92716" euler_x="0.0493254" euler_y="0.760518" euler_z="0.119965" id="398" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="22.6762" t1="-0.149478" t2="-0.732673" s0="5.95592" s1="4.28356" s2="7.95645" q0="0.000614166" q1="0.371756" q2="0.0465113" q3="0.92716" euler_x="0.0493254" euler_y="0.760519" euler_z="0.119965" id="398" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="30.2775" t1="-0.611176" t2="0.9599" s0="4.7867" s1="4.28355" s2="7.83573" q0="0.000614166" q1="0.371756" q2="0.0465113" q3="0.92716" euler_x="0.0493254" euler_y="0.760518" euler_z="0.119965" id="399" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="30.2775" t1="-0.611176" t2="0.9599" s0="4.7867" s1="4.28355" s2="7.83573" q0="0.000614166" q1="0.371756" q2="0.0465113" q3="0.92716" euler_x="0.0493254" euler_y="0.760519" euler_z="0.119965" id="399" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="32.596" t1="0.631402" t2="4.5001" s0="4.7867" s1="4.28355" s2="7.83573" q0="0.000614166" q1="0.371756" q2="0.0465113" q3="0.92716" euler_x="0.0493254" euler_y="0.760518" euler_z="0.119965" id="400" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="32.596" t1="0.631402" t2="4.5001" s0="4.7867" s1="4.28355" s2="7.83573" q0="0.000614166" q1="0.371756" q2="0.0465113" q3="0.92716" euler_x="0.0493254" euler_y="0.760519" euler_z="0.119965" id="400" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="35.507" t1="0.506943" t2="-4.35587" s0="3.59435" s1="3.0572" s2="5.96676" q0="-0.0588436" q1="0.45023" q2="0.0609344" q3="0.888878" euler_x="-0.0844401" euler_y="0.940021" euler_z="0.0939731" id="401" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="35.507" t1="0.506943" t2="-4.35587" s0="3.59435" s1="3.0572" s2="5.96676" q0="-0.0588436" q1="0.45023" q2="0.0609344" q3="0.888878" euler_x="-0.0844404" euler_y="0.940021" euler_z="0.093973" id="401" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <EnvObject t0="44.7324" t1="1.12595" t2="-5.54377" s0="0.522871" s1="0.510238" s2="0.861359" q0="-0.262068" q1="0.737778" q2="-0.554074" q3="-0.282837" euler_x="-1.89642" euler_y="-0.786312" euler_z="-3.03769" id="402" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
+    <EnvObject t0="44.7324" t1="1.12595" t2="-5.54377" s0="0.522871" s1="0.510238" s2="0.861359" q0="-0.262068" q1="0.737778" q2="-0.554074" q3="-0.282837" euler_x="-1.89642" euler_y="-0.786311" euler_z="-3.03769" id="402" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="40.1507" t1="1.31047" t2="9.84938" s0="0.472931" s1="0.461504" s2="0.77909" q0="-0.904527" q1="0.301693" q2="-0.290417" q3="0.0803702" euler_x="-2.76819" euler_y="-0.497109" euler_z="-0.739673" id="403" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
+    <EnvObject t0="40.1507" t1="1.31047" t2="9.84938" s0="0.472931" s1="0.461504" s2="0.77909" q0="-0.904527" q1="0.301693" q2="-0.290417" q3="0.0803702" euler_x="-2.76819" euler_y="-0.497108" euler_z="-0.739673" id="403" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="0.277985" t1="1.63351" t2="23.8156" s0="0.472931" s1="0.722744" s2="1.2598" q0="-0.845377" q1="-0.415281" q2="0.298816" q3="0.153547" euler_x="-2.56111" euler_y="0.387305" euler_z="1.03023" id="404" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="3.6293" t1="1.42701" t2="27.0276" s0="0.444602" s1="0.439155" s2="0.778658" q0="-0.0544412" q1="0.0511402" q2="0.721734" q3="-0.688103" euler_x="0.149301" euler_y="0.0082048" euler_z="-1.61785" id="405" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
+    <EnvObject t0="3.6293" t1="1.42701" t2="27.0276" s0="0.444602" s1="0.439155" s2="0.778658" q0="-0.0544412" q1="0.0511402" q2="0.721734" q3="-0.688103" euler_x="0.149301" euler_y="0.00820477" euler_z="-1.61785" id="405" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-2.22768" t1="0.631402" t2="24.6419" s0="0.444602" s1="0.439155" s2="0.778658" q0="-0.0544412" q1="0.0511402" q2="0.721734" q3="-0.688103" euler_x="0.149301" euler_y="0.0082048" euler_z="-1.61785" id="406" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
+    <EnvObject t0="-2.22768" t1="0.631402" t2="24.6419" s0="0.444602" s1="0.439155" s2="0.778658" q0="-0.0544412" q1="0.0511402" q2="0.721734" q3="-0.688103" euler_x="0.149301" euler_y="0.00820477" euler_z="-1.61785" id="406" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-9.58566" t1="1.29576" t2="22.8833" s0="0.999999" s1="1.42949" s2="2.57906" q0="-0.00491297" q1="0.203063" q2="-0.0195767" q3="0.978958" euler_x="-0.0191477" euler_y="0.408669" euler_z="-0.0439577" id="407" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Furniture/shop_display.xml">
@@ -1430,7 +1436,7 @@
     </Decal>
     <Group t0="11.2011" t1="4.49657" t2="17.0578" s0="3.11896" s1="2.88953" s2="3.48818" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="417" version="1">
         <parameters />
-        <Decal t0="11.108" t1="4.23803" t2="16.2493" s0="1.15852" s1="1.15852" s2="1.15852" q0="-0.529912" q1="0.321304" q2="0.158967" q3="0.768553" euler_x="-1.25607" euler_y="0.723959" euler_z="-0.12873" id="413" type_file="Data/Objects/Decals/Scratches/scratches_02.xml" color_r="1" color_g="1" color_b="1" overbright="28.642">
+        <Decal t0="11.108" t1="4.23803" t2="16.2493" s0="1.15852" s1="1.15852" s2="1.15852" q0="-0.529912" q1="0.321304" q2="0.158967" q3="0.768553" euler_x="-1.25607" euler_y="0.723958" euler_z="-0.12873" id="413" type_file="Data/Objects/Decals/Scratches/scratches_02.xml" color_r="1" color_g="1" color_b="1" overbright="28.642">
             <parameters />
         </Decal>
         <Group t0="11.2011" t1="4.49657" t2="17.0961" s0="3.10896" s1="2.87953" s2="3.40155" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="416" version="1">
@@ -1441,31 +1447,31 @@
             <Decal t0="10.3772" t1="4.49119" t2="17.7287" s0="1" s1="1" s2="1" q0="-0.427561" q1="0.156395" q2="0.161116" q3="0.875654" euler_x="-0.873135" euler_y="0.424285" euler_z="0.163597" id="411" type_file="Data/Objects/Decals/Scratches/scratches_02.xml" color_r="1" color_g="1" color_b="1" overbright="28.642">
                 <parameters />
             </Decal>
-            <Decal t0="10.6789" t1="4.98192" t2="17.9569" s0="1.15852" s1="1.15852" s2="1.15852" q0="-0.534838" q1="0.447159" q2="0.0504964" q3="0.715152" euler_x="-1.53192" euler_y="0.766458" euler_z="-0.598889" id="412" type_file="Data/Objects/Decals/Scratches/scratches_02.xml" color_r="1" color_g="1" color_b="1" overbright="28.642">
+            <Decal t0="10.6789" t1="4.98192" t2="17.9569" s0="1.15852" s1="1.15852" s2="1.15852" q0="-0.534838" q1="0.447159" q2="0.0504964" q3="0.715152" euler_x="-1.53193" euler_y="0.766458" euler_z="-0.598889" id="412" type_file="Data/Objects/Decals/Scratches/scratches_02.xml" color_r="1" color_g="1" color_b="1" overbright="28.642">
                 <parameters />
             </Decal>
-            <Decal t0="11.688" t1="4.87736" t2="16.3797" s0="1.45872" s1="1.22809" s2="1.40844" q0="-0.586956" q1="0.423296" q2="0.244245" q3="0.645481" euler_x="-1.65661" euler_y="0.984836" euler_z="-0.334604" id="414" type_file="Data/Objects/Decals/Scratches/scratches_03.xml" color_r="1" color_g="0.99999" color_b="0.99999" overbright="23.179">
+            <Decal t0="11.688" t1="4.87736" t2="16.3797" s0="1.45872" s1="1.22809" s2="1.40844" q0="-0.586956" q1="0.423296" q2="0.244245" q3="0.645481" euler_x="-1.65661" euler_y="0.984836" euler_z="-0.334603" id="414" type_file="Data/Objects/Decals/Scratches/scratches_03.xml" color_r="1" color_g="0.99999" color_b="0.99999" overbright="23.179">
                 <parameters />
             </Decal>
-            <Decal t0="10.8879" t1="3.99118" t2="17.2078" s0="1.45872" s1="1.22809" s2="1.40844" q0="-0.586956" q1="0.423296" q2="0.244245" q3="0.645481" euler_x="-1.65661" euler_y="0.984836" euler_z="-0.334604" id="415" type_file="Data/Objects/Decals/Scratches/scratches_03.xml" color_r="1" color_g="0.99999" color_b="0.99999" overbright="23.179">
+            <Decal t0="10.8879" t1="3.99118" t2="17.2078" s0="1.45872" s1="1.22809" s2="1.40844" q0="-0.586956" q1="0.423296" q2="0.244245" q3="0.645481" euler_x="-1.65661" euler_y="0.984836" euler_z="-0.334603" id="415" type_file="Data/Objects/Decals/Scratches/scratches_03.xml" color_r="1" color_g="0.99999" color_b="0.99999" overbright="23.179">
                 <parameters />
             </Decal>
         </Group>
     </Group>
-    <Group t0="19.7959" t1="8.84426" t2="12.9029" s0="3.11896" s1="2.88953" s2="3.48818" q0="-0.199982" q1="-0.6852" q2="0.0765082" q3="-0.696141" euler_x="1.67973" euler_y="1.39503" euler_z="1.28464" id="418" version="1">
+    <Group t0="19.7959" t1="8.84426" t2="12.9029" s0="3.11896" s1="2.88953" s2="3.48818" q0="-0.199982" q1="-0.6852" q2="0.0765082" q3="-0.696141" euler_x="1.67973" euler_y="1.39503" euler_z="1.28463" id="418" version="1">
         <parameters />
-        <Decal t0="18.9463" t1="8.90368" t2="12.9651" s0="1.15852" s1="1.15852" s2="1.15852" q0="0.0816904" q1="-0.759038" q2="-0.479214" q3="-0.432999" euler_x="1.81784" euler_y="0.826582" euler_z="2.69749" id="419" type_file="Data/Objects/Decals/Scratches/scratches_02.xml" color_r="1" color_g="1" color_b="1" overbright="28.642">
+        <Decal t0="18.9463" t1="8.90368" t2="12.9651" s0="1.15852" s1="1.15852" s2="1.15852" q0="0.0816904" q1="-0.759038" q2="-0.479214" q3="-0.432999" euler_x="1.81784" euler_y="0.826581" euler_z="2.69749" id="419" type_file="Data/Objects/Decals/Scratches/scratches_02.xml" color_r="1" color_g="1" color_b="1" overbright="28.642">
             <parameters />
         </Decal>
-        <Group t0="19.8312" t1="8.82957" t2="12.9021" s0="3.10896" s1="2.87953" s2="3.40155" q0="-0.199982" q1="-0.6852" q2="0.0765082" q3="-0.696141" euler_x="1.67973" euler_y="1.39503" euler_z="1.28464" id="420" version="1">
+        <Group t0="19.8312" t1="8.82957" t2="12.9021" s0="3.10896" s1="2.87953" s2="3.40155" q0="-0.199982" q1="-0.6852" q2="0.0765082" q3="-0.696141" euler_x="1.67973" euler_y="1.39503" euler_z="1.28463" id="420" version="1">
             <parameters />
-            <Decal t0="19.9456" t1="9.14416" t2="13.1137" s0="1.18779" s1="1" s2="1.14685" q0="0.118134" q1="-0.705239" q2="-0.49308" q3="-0.495492" euler_x="1.60991" euler_y="0.953384" euler_z="2.55164" id="421" type_file="Data/Objects/Decals/Scratches/scratches_03.xml" color_r="1" color_g="0.99999" color_b="0.99999" overbright="23.179">
+            <Decal t0="19.9456" t1="9.14416" t2="13.1137" s0="1.18779" s1="1" s2="1.14685" q0="0.118134" q1="-0.705239" q2="-0.49308" q3="-0.495492" euler_x="1.60991" euler_y="0.953385" euler_z="2.55164" id="421" type_file="Data/Objects/Decals/Scratches/scratches_03.xml" color_r="1" color_g="0.99999" color_b="0.99999" overbright="23.179">
                 <parameters />
             </Decal>
-            <Decal t0="20.3728" t1="8.44418" t2="13.7004" s0="1" s1="1" s2="1" q0="0.00016582" q1="-0.709363" q2="-0.369406" q3="-0.600248" euler_x="1.58299" euler_y="1.01924" euler_z="2.1331" id="422" type_file="Data/Objects/Decals/Scratches/scratches_02.xml" color_r="1" color_g="1" color_b="1" overbright="28.642">
+            <Decal t0="20.3728" t1="8.44418" t2="13.7004" s0="1" s1="1" s2="1" q0="0.00016582" q1="-0.709363" q2="-0.369406" q3="-0.600248" euler_x="1.583" euler_y="1.01924" euler_z="2.1331" id="422" type_file="Data/Objects/Decals/Scratches/scratches_02.xml" color_r="1" color_g="1" color_b="1" overbright="28.642">
                 <parameters />
             </Decal>
-            <Decal t0="20.7852" t1="8.85297" t2="13.4842" s0="1.15852" s1="1.15852" s2="1.15852" q0="0.160494" q1="-0.832129" q2="-0.436332" q3="-0.302274" euler_x="2.17724" euler_y="0.698566" euler_z="-3.13726" id="423" type_file="Data/Objects/Decals/Scratches/scratches_02.xml" color_r="1" color_g="1" color_b="1" overbright="28.642">
+            <Decal t0="20.7852" t1="8.85297" t2="13.4842" s0="1.15852" s1="1.15852" s2="1.15852" q0="0.160494" q1="-0.832129" q2="-0.436332" q3="-0.302274" euler_x="2.17724" euler_y="0.698565" euler_z="-3.13726" id="423" type_file="Data/Objects/Decals/Scratches/scratches_02.xml" color_r="1" color_g="1" color_b="1" overbright="28.642">
                 <parameters />
             </Decal>
             <Decal t0="19.3386" t1="9.5316" t2="12.5025" s0="1.45872" s1="1.22809" s2="1.40844" q0="0.0797778" q1="-0.73302" q2="-0.607478" q3="-0.295371" euler_x="1.67401" euler_y="0.558544" euler_z="2.85229" id="424" type_file="Data/Objects/Decals/Scratches/scratches_03.xml" color_r="1" color_g="0.99999" color_b="0.99999" overbright="23.179">
@@ -1476,76 +1482,76 @@
             </Decal>
         </Group>
     </Group>
-    <Group t0="19.3042" t1="7.52357" t2="11.9836" s0="3.11896" s1="2.88953" s2="3.48818" q0="0.958403" q1="-0.196861" q2="-0.18898" q3="-0.0834554" euler_x="-3.04831" euler_y="0.406174" euler_z="-0.38594" id="426" version="1">
+    <Group t0="19.3042" t1="7.52357" t2="11.9836" s0="3.11896" s1="2.88953" s2="3.48818" q0="0.958403" q1="-0.196861" q2="-0.18898" q3="-0.0834554" euler_x="-3.04831" euler_y="0.406173" euler_z="-0.38594" id="426" version="1">
         <parameters />
         <Decal t0="19.5969" t1="7.6012" t2="12.782" s0="1.15852" s1="1.15852" s2="1.15852" q0="0.810199" q1="-0.230315" q2="0.0451091" q3="0.537001" euler_x="2.02901" euler_y="-0.326208" euler_z="-0.349938" id="427" type_file="Data/Objects/Decals/Scratches/scratches_02.xml" color_r="1" color_g="1" color_b="1" overbright="28.642">
             <parameters />
         </Decal>
-        <Group t0="19.2916" t1="7.53255" t2="11.9486" s0="3.10896" s1="2.87953" s2="3.40155" q0="0.958363" q1="-0.196853" q2="-0.188973" q3="-0.0834519" euler_x="-3.0483" euler_y="0.406138" euler_z="-0.385906" id="428" version="1">
+        <Group t0="19.2916" t1="7.53255" t2="11.9486" s0="3.10896" s1="2.87953" s2="3.40155" q0="0.958363" q1="-0.196853" q2="-0.188973" q3="-0.0834519" euler_x="-3.0483" euler_y="0.406139" euler_z="-0.385906" id="428" version="1">
             <parameters />
             <Decal t0="19.0206" t1="7.24743" t2="11.9939" s0="1.18779" s1="1" s2="1.14685" q0="0.796922" q1="-0.215308" q2="-0.0400463" q3="0.562809" euler_x="1.94864" euler_y="-0.179489" euler_z="-0.405623" id="429" type_file="Data/Objects/Decals/Scratches/scratches_03.xml" color_r="1" color_g="0.99999" color_b="0.99999" overbright="23.179">
                 <parameters />
             </Decal>
-            <Decal t0="18.3842" t1="7.97062" t2="11.696" s0="1" s1="1" s2="1" q0="0.871871" q1="-0.258787" q2="-0.113095" q3="0.397533" euler_x="2.28698" euler_y="-0.00854379" euler_z="-0.572069" id="430" type_file="Data/Objects/Decals/Scratches/scratches_02.xml" color_r="1" color_g="1" color_b="1" overbright="28.642">
+            <Decal t0="18.3842" t1="7.97062" t2="11.696" s0="1" s1="1" s2="1" q0="0.871871" q1="-0.258787" q2="-0.113095" q3="0.397533" euler_x="2.28698" euler_y="-0.00854436" euler_z="-0.572068" id="430" type_file="Data/Objects/Decals/Scratches/scratches_02.xml" color_r="1" color_g="1" color_b="1" overbright="28.642">
                 <parameters />
             </Decal>
-            <Decal t0="18.3651" t1="7.47394" t2="11.326" s0="1.15852" s1="1.15852" s2="1.15852" q0="0.804535" q1="-0.125415" q2="0.18389" q3="0.550431" euler_x="1.94119" euler_y="-0.44888" euler_z="0.000706643" id="431" type_file="Data/Objects/Decals/Scratches/scratches_02.xml" color_r="1" color_g="1" color_b="1" overbright="28.642">
+            <Decal t0="18.3651" t1="7.47394" t2="11.326" s0="1.15852" s1="1.15852" s2="1.15852" q0="0.804535" q1="-0.125415" q2="0.18389" q3="0.550431" euler_x="1.94119" euler_y="-0.44888" euler_z="0.000705965" id="431" type_file="Data/Objects/Decals/Scratches/scratches_02.xml" color_r="1" color_g="1" color_b="1" overbright="28.642">
                 <parameters />
             </Decal>
-            <Decal t0="19.7862" t1="6.85032" t2="12.3789" s0="1.45872" s1="1.22809" s2="1.40844" q0="0.699469" q1="-0.285534" q2="0.14776" q3="0.638106" euler_x="1.74419" euler_y="-0.607857" euler_z="-0.259816" id="432" type_file="Data/Objects/Decals/Scratches/scratches_03.xml" color_r="1" color_g="0.99999" color_b="0.99999" overbright="23.179">
+            <Decal t0="19.7862" t1="6.85032" t2="12.3789" s0="1.45872" s1="1.22809" s2="1.40844" q0="0.699469" q1="-0.285534" q2="0.14776" q3="0.638106" euler_x="1.74419" euler_y="-0.607856" euler_z="-0.259815" id="432" type_file="Data/Objects/Decals/Scratches/scratches_03.xml" color_r="1" color_g="0.99999" color_b="0.99999" overbright="23.179">
                 <parameters />
             </Decal>
-            <Decal t0="19.1949" t1="8.12622" t2="12.0134" s0="1.45872" s1="1.22809" s2="1.40844" q0="0.699469" q1="-0.285534" q2="0.14776" q3="0.638106" euler_x="1.74419" euler_y="-0.607857" euler_z="-0.259816" id="433" type_file="Data/Objects/Decals/Scratches/scratches_03.xml" color_r="1" color_g="0.99999" color_b="0.99999" overbright="23.179">
+            <Decal t0="19.1949" t1="8.12622" t2="12.0134" s0="1.45872" s1="1.22809" s2="1.40844" q0="0.699469" q1="-0.285534" q2="0.14776" q3="0.638106" euler_x="1.74419" euler_y="-0.607856" euler_z="-0.259815" id="433" type_file="Data/Objects/Decals/Scratches/scratches_03.xml" color_r="1" color_g="0.99999" color_b="0.99999" overbright="23.179">
                 <parameters />
             </Decal>
         </Group>
     </Group>
-    <Group t0="18.8062" t1="5.76715" t2="14.9107" s0="3.11896" s1="2.88953" s2="3.48818" q0="-0.0708563" q1="-0.557344" q2="0.120041" q3="-0.818474" euler_x="-0.0482943" euler_y="1.19266" euler_z="-0.324009" id="434" version="1">
+    <Group t0="18.8062" t1="5.76715" t2="14.9107" s0="3.11896" s1="2.88953" s2="3.48818" q0="-0.0708563" q1="-0.557344" q2="0.120041" q3="-0.818474" euler_x="-0.0482957" euler_y="1.19266" euler_z="-0.324011" id="434" version="1">
         <parameters />
         <Decal t0="17.9785" t1="5.73154" t2="14.7038" s0="1.15852" s1="1.15852" s2="1.15852" q0="0.252083" q1="-0.743643" q2="-0.355948" q3="-0.506573" euler_x="2.27572" euler_y="1.20232" euler_z="-3.10185" id="435" type_file="Data/Objects/Decals/Scratches/scratches_02.xml" color_r="1" color_g="1" color_b="1" overbright="28.642">
             <parameters />
         </Decal>
-        <Group t0="18.8405" t1="5.75758" t2="14.9248" s0="3.10896" s1="2.87953" s2="3.40155" q0="-0.0708534" q1="-0.557321" q2="0.120035" q3="-0.818439" euler_x="-0.048283" euler_y="1.19245" euler_z="-0.323936" id="436" version="1">
+        <Group t0="18.8405" t1="5.75758" t2="14.9248" s0="3.10896" s1="2.87953" s2="3.40155" q0="-0.0708534" q1="-0.557321" q2="0.120035" q3="-0.818439" euler_x="-0.0482821" euler_y="1.19245" euler_z="-0.323935" id="436" version="1">
             <parameters />
-            <Decal t0="18.8719" t1="6.1317" t2="15.0506" s0="1.18779" s1="1" s2="1.14685" q0="0.297106" q1="-0.682127" q2="-0.374736" q3="-0.55299" euler_x="2.1013" euler_y="1.35634" euler_z="3.09847" id="437" type_file="Data/Objects/Decals/Scratches/scratches_03.xml" color_r="1" color_g="0.99999" color_b="0.99999" overbright="23.179">
+            <Decal t0="18.8719" t1="6.1317" t2="15.0506" s0="1.18779" s1="1" s2="1.14685" q0="0.297106" q1="-0.682127" q2="-0.374736" q3="-0.55299" euler_x="2.10131" euler_y="1.35634" euler_z="3.09848" id="437" type_file="Data/Objects/Decals/Scratches/scratches_03.xml" color_r="1" color_g="0.99999" color_b="0.99999" overbright="23.179">
                 <parameters />
             </Decal>
-            <Decal t0="19.1171" t1="5.6912" t2="15.9239" s0="1" s1="1" s2="1" q0="0.179316" q1="-0.655899" q2="-0.276113" q3="-0.679113" euler_x="1.0054" euler_y="1.42842" euler_z="1.66269" id="438" type_file="Data/Objects/Decals/Scratches/scratches_02.xml" color_r="1" color_g="1" color_b="1" overbright="28.642">
+            <Decal t0="19.1171" t1="5.6912" t2="15.9239" s0="1" s1="1" s2="1" q0="0.179316" q1="-0.655899" q2="-0.276113" q3="-0.679113" euler_x="1.0054" euler_y="1.42842" euler_z="1.6627" id="438" type_file="Data/Objects/Decals/Scratches/scratches_02.xml" color_r="1" color_g="1" color_b="1" overbright="28.642">
                 <parameters />
             </Decal>
-            <Decal t0="19.5623" t1="6.07039" t2="15.7189" s0="1.15852" s1="1.15852" s2="1.15852" q0="0.304933" q1="-0.824323" q2="-0.284953" q3="-0.379667" euler_x="2.72948" euler_y="0.926829" euler_z="-2.63938" id="439" type_file="Data/Objects/Decals/Scratches/scratches_02.xml" color_r="1" color_g="1" color_b="1" overbright="28.642">
+            <Decal t0="19.5623" t1="6.07039" t2="15.7189" s0="1.15852" s1="1.15852" s2="1.15852" q0="0.304859" q1="-0.824121" q2="-0.284883" q3="-0.379575" euler_x="2.72915" euler_y="0.926178" euler_z="-2.63898" id="439" type_file="Data/Objects/Decals/Scratches/scratches_02.xml" color_r="1" color_g="1" color_b="1" overbright="28.642">
                 <parameters />
             </Decal>
-            <Decal t0="18.4743" t1="6.24531" t2="14.2015" s0="1.45872" s1="1.22809" s2="1.40844" q0="0.24771" q1="-0.759301" q2="-0.479514" q3="-0.363266" euler_x="2.0369" euler_y="0.909533" euler_z="-3.09628" id="440" type_file="Data/Objects/Decals/Scratches/scratches_03.xml" color_r="1" color_g="0.99999" color_b="0.99999" overbright="23.179">
+            <Decal t0="18.4743" t1="6.24531" t2="14.2015" s0="1.45872" s1="1.22809" s2="1.40844" q0="0.24771" q1="-0.759301" q2="-0.479514" q3="-0.363266" euler_x="2.0369" euler_y="0.909534" euler_z="-3.09628" id="440" type_file="Data/Objects/Decals/Scratches/scratches_03.xml" color_r="1" color_g="0.99999" color_b="0.99999" overbright="23.179">
                 <parameters />
             </Decal>
-            <Decal t0="18.6917" t1="5.28073" t2="15.2661" s0="1.45872" s1="1.22809" s2="1.40844" q0="0.24771" q1="-0.759301" q2="-0.479514" q3="-0.363266" euler_x="2.0369" euler_y="0.909533" euler_z="-3.09628" id="441" type_file="Data/Objects/Decals/Scratches/scratches_03.xml" color_r="1" color_g="0.99999" color_b="0.99999" overbright="23.179">
+            <Decal t0="18.6917" t1="5.28073" t2="15.2661" s0="1.45872" s1="1.22809" s2="1.40844" q0="0.24771" q1="-0.759301" q2="-0.479514" q3="-0.363266" euler_x="2.0369" euler_y="0.909534" euler_z="-3.09628" id="441" type_file="Data/Objects/Decals/Scratches/scratches_03.xml" color_r="1" color_g="0.99999" color_b="0.99999" overbright="23.179">
                 <parameters />
             </Decal>
         </Group>
     </Group>
-    <Decal t0="17.0666" t1="0.109966" t2="14.6164" s0="5.75002" s1="2.46723" s2="8.69478" q0="-0.0520266" q1="0.267941" q2="0.0192006" q3="0.961844" euler_x="-0.105126" euler_y="0.543849" euler_z="0.0105829" id="442" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="17.0666" t1="0.109966" t2="14.6164" s0="5.75002" s1="2.46723" s2="8.69478" q0="-0.0520266" q1="0.267941" q2="0.0192006" q3="0.961844" euler_x="-0.105126" euler_y="0.543848" euler_z="0.0105829" id="442" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="7.14578" t1="0.631402" t2="14.2916" s0="5.75002" s1="2.46723" s2="8.69478" q0="-0.0520266" q1="0.267941" q2="0.0192006" q3="0.961844" euler_x="-0.105126" euler_y="0.543849" euler_z="0.0105829" id="443" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="7.14578" t1="0.631402" t2="14.2916" s0="5.75002" s1="2.46723" s2="8.69478" q0="-0.0520266" q1="0.267941" q2="0.0192006" q3="0.961844" euler_x="-0.105126" euler_y="0.543848" euler_z="0.0105829" id="443" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="9.00066" t1="1.01694" t2="7.47773" s0="4.30842" s1="1.82246" s2="7.58376" q0="-0.0144429" q1="-0.261063" q2="0.0955783" q3="0.960478" euler_x="-0.0897046" euler_y="-0.522133" euler_z="0.222353" id="444" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="21.2493" t1="0.792802" t2="-12.3858" s0="5.67284" s1="2.3996" s2="9.98543" q0="0.0607811" q1="0.111789" q2="-0.0211399" q3="0.991654" euler_x="0.11913" euler_y="0.226207" euler_z="-0.0290825" id="445" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="21.2493" t1="0.792802" t2="-12.3858" s0="5.67284" s1="2.3996" s2="9.98543" q0="0.0607811" q1="0.111789" q2="-0.0211399" q3="0.991654" euler_x="0.11913" euler_y="0.226206" euler_z="-0.0290825" id="445" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="21.3215" t1="1.52578" t2="-5.84027" s0="5.67284" s1="2.3996" s2="9.98543" q0="0.014348" q1="0.0100145" q2="-0.0330372" q3="0.999308" euler_x="0.0280243" euler_y="0.0209646" euler_z="-0.0658033" id="446" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="21.3215" t1="1.52578" t2="-5.84027" s0="5.67284" s1="2.3996" s2="9.98543" q0="0.014348" q1="0.0100145" q2="-0.0330372" q3="0.999308" euler_x="0.0280243" euler_y="0.0209647" euler_z="-0.0658032" id="446" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <EnvObject t0="6.83967" t1="4.4342" t2="-16.6559" s0="3.68242" s1="1.86654" s2="1.90146" q0="0.256477" q1="-0.782696" q2="0.324437" q3="0.465121" euler_x="-2.49506" euler_y="-1.10735" euler_z="-2.9167" id="447" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/caves/cave_pillar.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="42.5406" t1="0.980212" t2="-5.39959" s0="0.505177" s1="0.492972" s2="0.832212" q0="-0.728038" q1="0.600036" q2="0.204788" q3="0.260707" euler_x="-2.97168" euler_y="0.657392" euler_z="-1.32054" id="448" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
+    <EnvObject t0="42.5406" t1="0.980212" t2="-5.39959" s0="0.505177" s1="0.492972" s2="0.832212" q0="-0.728038" q1="0.600036" q2="0.204788" q3="0.260707" euler_x="-2.97168" euler_y="0.657391" euler_z="-1.32054" id="448" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="1.67551" t1="1.99495" t2="5.97574" s0="1.61882" s1="2.48212" s2="0.824302" q0="-0.382957" q1="0.418552" q2="0.800209" q3="0.194501" euler_x="0.970852" euler_y="0.887837" euler_z="-3.12687" id="449" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
+    <EnvObject t0="1.67551" t1="1.99495" t2="5.97574" s0="1.61882" s1="2.48212" s2="0.824302" q0="-0.382957" q1="0.418552" q2="0.800209" q3="0.194501" euler_x="0.970851" euler_y="0.887837" euler_z="-3.12687" id="449" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
         <parameters />
     </EnvObject>
     <Decal t0="20.0571" t1="10.3808" t2="8.37657" s0="4.41937" s1="1.45534" s2="4.36073" q0="-0.0435616" q1="-0.132527" q2="-0.125312" q3="0.982267" euler_x="-0.0544306" euler_y="-0.274714" euler_z="-0.246255" id="450" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
@@ -1557,22 +1563,22 @@
     <Decal t0="20.5062" t1="10.5993" t2="11.0421" s0="4.41937" s1="1.45534" s2="4.36073" q0="-0.0435616" q1="-0.132527" q2="-0.125312" q3="0.982267" euler_x="-0.0544306" euler_y="-0.274714" euler_z="-0.246255" id="452" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <EnvObject t0="2.43181" t1="1.08013" t2="7.02122" s0="0.930199" s1="0.930199" s2="0.930199" q0="0.857762" q1="0.0330729" q2="-0.51049" q3="-0.050481" euler_x="-2.89276" euler_y="1.06013" euler_z="0.22339" id="453" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
+    <EnvObject t0="2.434" t1="1.0335" t2="7.0429" s0="0.930199" s1="0.930199" s2="0.930199" q0="0.857762" q1="0.0330729" q2="-0.51049" q3="-0.050481" euler_x="-2.89276" euler_y="1.06013" euler_z="0.22339" id="453" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="0.616456" t1="1.12087" t2="4.72478" s0="0.930199" s1="0.930199" s2="0.930199" q0="0.857762" q1="0.0330729" q2="-0.51049" q3="-0.050481" euler_x="-2.89276" euler_y="1.06013" euler_z="0.22339" id="454" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
+    <EnvObject t0="0.618668" t1="1.04274" t2="4.73123" s0="0.930199" s1="0.930199" s2="0.930199" q0="0.857762" q1="0.0330729" q2="-0.51049" q3="-0.050481" euler_x="-2.89276" euler_y="1.06013" euler_z="0.22339" id="454" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-0.101468" t1="1.07907" t2="4.17617" s0="0.930199" s1="0.930199" s2="0.930199" q0="0.912245" q1="0.00795925" q2="-0.409522" q3="0.00606228" euler_x="3.13476" euler_y="0.843936" euler_z="0.0143811" id="455" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
+    <EnvObject t0="-0.101468" t1="1.07907" t2="4.17617" s0="0.930199" s1="0.930199" s2="0.930199" q0="0.912245" q1="0.00795925" q2="-0.409522" q3="0.00606228" euler_x="3.13476" euler_y="0.843937" euler_z="0.0143811" id="455" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-0.311775" t1="1.0807" t2="5.13496" s0="0.930199" s1="0.930199" s2="0.930199" q0="0.912245" q1="0.00795925" q2="-0.409522" q3="0.00606228" euler_x="3.13476" euler_y="0.843936" euler_z="0.0143811" id="456" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
+    <EnvObject t0="-0.311775" t1="1.0807" t2="5.13496" s0="0.930199" s1="0.930199" s2="0.930199" q0="0.912245" q1="0.00795925" q2="-0.409522" q3="0.00606228" euler_x="3.13476" euler_y="0.843937" euler_z="0.0143811" id="456" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-0.122686" t1="1.97143" t2="4.16942" s0="0.930199" s1="0.930199" s2="0.930199" q0="0.908121" q1="0.0078252" q2="-0.418596" q3="-0.00569016" euler_x="-3.1156" euler_y="0.863595" euler_z="0.0292114" id="457" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
+    <EnvObject t0="-0.122686" t1="1.97143" t2="4.16942" s0="0.930199" s1="0.930199" s2="0.930199" q0="0.908121" q1="0.0078252" q2="-0.418596" q3="-0.00569016" euler_x="-3.1156" euler_y="0.863594" euler_z="0.0292114" id="457" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-11.0061" t1="3.02625" t2="-17.4301" s0="2.32095" s1="1.40594" s2="1.89111" q0="-0.665232" q1="0.320289" q2="-0.338001" q3="-0.583651" euler_x="1.73056" euler_y="-0.967679" euler_z="-0.055712" id="458" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
+    <EnvObject t0="-11.0061" t1="3.02625" t2="-17.4301" s0="2.32095" s1="1.40594" s2="1.89111" q0="-0.665232" q1="0.320289" q2="-0.338001" q3="-0.583651" euler_x="1.73056" euler_y="-0.96768" euler_z="-0.0557104" id="458" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
     <Group t0="-14.048" t1="8.09718" t2="-12.8426" s0="0.25481" s1="1.70022" s2="0.24464" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="459" version="1">
@@ -1603,7 +1609,7 @@
     <EnvObject t0="-14.4932" t1="8.19471" t2="-14.5857" s0="0.402381" s1="0.487081" s2="0.327532" q0="0.00863051" q1="0.0418087" q2="0.0295765" q3="0.998648" euler_x="0.0197803" euler_y="0.0830894" euler_z="0.0600378" id="466" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/halloween/pumpkin.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-15.1557" t1="7.03352" t2="-12.1038" s0="0.482307" s1="0.467072" s2="0.419758" q0="-0.322326" q1="0.337031" q2="-0.132214" q3="0.874661" euler_x="-0.857473" euler_y="0.528622" euler_z="-0.546215" id="467" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/halloween/pumpkin.xml">
+    <EnvObject t0="-15.1557" t1="7.03352" t2="-12.1038" s0="0.482307" s1="0.467072" s2="0.419758" q0="-0.322326" q1="0.337031" q2="-0.132214" q3="0.874661" euler_x="-0.857473" euler_y="0.528622" euler_z="-0.546216" id="467" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/halloween/pumpkin.xml">
         <parameters />
     </EnvObject>
     <Decal t0="-8.72312" t1="7.31751" t2="-16.7217" s0="5.22604" s1="3.90936" s2="6.68989" q0="-0.0435616" q1="-0.132527" q2="-0.125312" q3="0.982267" euler_x="-0.0544306" euler_y="-0.274714" euler_z="-0.246255" id="468" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
@@ -1615,37 +1621,37 @@
     <Decal t0="-14.5716" t1="7.09271" t2="-9.21851" s0="5.22604" s1="3.90936" s2="6.68989" q0="-0.0435616" q1="-0.132527" q2="-0.125312" q3="0.982267" euler_x="-0.0544306" euler_y="-0.274714" euler_z="-0.246255" id="470" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-12.0397" t1="4.81646" t2="-8.50379" s0="2.92053" s1="2.18472" s2="3.7386" q0="0.0449272" q1="-0.17697" q2="0.0501361" q3="0.981915" euler_x="0.0753762" euler_y="-0.359754" euler_z="0.0883184" id="471" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="-12.0397" t1="4.81646" t2="-8.50379" s0="2.92053" s1="2.18472" s2="3.7386" q0="0.0449272" q1="-0.17697" q2="0.0501361" q3="0.981915" euler_x="0.0753763" euler_y="-0.359754" euler_z="0.0883185" id="471" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-12.3744" t1="3.52717" t2="-6.28071" s0="2.92053" s1="2.18472" s2="3.7386" q0="0.0449272" q1="-0.17697" q2="0.0501361" q3="0.981915" euler_x="0.0753762" euler_y="-0.359754" euler_z="0.0883184" id="472" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="-12.3744" t1="3.52717" t2="-6.28071" s0="2.92053" s1="2.18472" s2="3.7386" q0="0.0449272" q1="-0.17697" q2="0.0501361" q3="0.981915" euler_x="0.0753763" euler_y="-0.359754" euler_z="0.0883185" id="472" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-9.38222" t1="2.53518" t2="-7.93415" s0="2.92053" s1="2.18472" s2="3.7386" q0="0.0449272" q1="-0.17697" q2="0.0501361" q3="0.981915" euler_x="0.0753762" euler_y="-0.359754" euler_z="0.0883184" id="473" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="-9.38222" t1="2.53518" t2="-7.93415" s0="2.92053" s1="2.18472" s2="3.7386" q0="0.0449272" q1="-0.17697" q2="0.0501361" q3="0.981915" euler_x="0.0753763" euler_y="-0.359754" euler_z="0.0883185" id="473" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="3.47786" t1="5.62529" t2="-13.1095" s0="4.17915" s1="3.04529" s2="6.09752" q0="0.0469441" q1="-0.108616" q2="-0.0125247" q3="0.9929" euler_x="0.0983876" euler_y="-0.216194" euler_z="-0.0359128" id="474" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="3.47786" t1="5.62529" t2="-13.1095" s0="4.17915" s1="3.04529" s2="6.09752" q0="0.0469441" q1="-0.108616" q2="-0.0125247" q3="0.9929" euler_x="0.0983877" euler_y="-0.216194" euler_z="-0.0359129" id="474" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-0.667951" t1="5.51535" t2="-13.9486" s0="4.17915" s1="3.04529" s2="6.09752" q0="0.0469441" q1="-0.108616" q2="-0.0125247" q3="0.9929" euler_x="0.0983876" euler_y="-0.216194" euler_z="-0.0359128" id="475" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="-0.667951" t1="5.51535" t2="-13.9486" s0="4.17915" s1="3.04529" s2="6.09752" q0="0.0469441" q1="-0.108616" q2="-0.0125247" q3="0.9929" euler_x="0.0983877" euler_y="-0.216194" euler_z="-0.0359129" id="475" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="13.014" t1="5.39032" t2="18.6955" s0="2.97024" s1="2.16438" s2="4.33369" q0="0.0469441" q1="-0.108616" q2="-0.0125247" q3="0.9929" euler_x="0.0983876" euler_y="-0.216194" euler_z="-0.0359128" id="476" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="13.014" t1="5.39032" t2="18.6955" s0="2.97024" s1="2.16438" s2="4.33369" q0="0.0469441" q1="-0.108616" q2="-0.0125247" q3="0.9929" euler_x="0.0983877" euler_y="-0.216194" euler_z="-0.0359129" id="476" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <EnvObject t0="-6.91547" t1="0.961784" t2="25.517" s0="0.930199" s1="0.930199" s2="0.930199" q0="0.857762" q1="0.0330729" q2="-0.51049" q3="-0.050481" euler_x="-2.89276" euler_y="1.06013" euler_z="0.22339" id="477" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-7.94921" t1="0.986238" t2="25.585" s0="0.930199" s1="0.930199" s2="0.930199" q0="0.912245" q1="0.00795925" q2="-0.409522" q3="0.00606228" euler_x="3.13476" euler_y="0.843936" euler_z="0.0143811" id="478" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
+    <EnvObject t0="-7.94921" t1="0.986238" t2="25.585" s0="0.930199" s1="0.930199" s2="0.930199" q0="0.912245" q1="0.00795925" q2="-0.409522" q3="0.00606228" euler_x="3.13476" euler_y="0.843937" euler_z="0.0143811" id="478" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-7.43967" t1="0.982518" t2="24.8133" s0="0.930199" s1="0.930199" s2="0.930199" q0="0.912245" q1="0.00795925" q2="-0.409522" q3="0.00606228" euler_x="3.13476" euler_y="0.843936" euler_z="0.0143811" id="479" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
+    <EnvObject t0="-7.43967" t1="0.982518" t2="24.8133" s0="0.930199" s1="0.930199" s2="0.930199" q0="0.912245" q1="0.00795925" q2="-0.409522" q3="0.00606228" euler_x="3.13476" euler_y="0.843937" euler_z="0.0143811" id="479" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="9.34163" t1="0.412134" t2="-0.268169" s0="3.09215" s1="1.49705" s2="2.31824" q0="0.0141791" q1="-0.944489" q2="0.0375847" q3="0.32606" euler_x="-3.06304" euler_y="-0.664906" euler_z="-3.1387" id="480" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/caves/cave_pillar.xml">
+    <EnvObject t0="9.25951" t1="1.14196" t2="-0.190261" s0="3.09215" s1="1.49705" s2="2.31824" q0="0.0141791" q1="-0.944489" q2="0.0375847" q3="0.32606" euler_x="-3.06304" euler_y="-0.664907" euler_z="-3.1387" id="480" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/caves/cave_pillar.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-18.6785" t1="0.679866" t2="-6.06419" s0="4.00353" s1="1.7884" s2="3.23011" q0="-0.0447454" q1="-0.898668" q2="-0.16708" q3="0.403067" euler_x="2.73827" euler_y="-0.832176" euler_z="-3.0609" id="481" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/caves/cave_pillar.xml">
+    <EnvObject t0="-18.6785" t1="0.679866" t2="-6.06419" s0="4.00353" s1="1.7884" s2="3.23011" q0="-0.0447454" q1="-0.898668" q2="-0.16708" q3="0.403067" euler_x="2.73827" euler_y="-0.832177" euler_z="-3.0609" id="481" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/caves/cave_pillar.xml">
         <parameters />
     </EnvObject>
     <Group t0="16.7233" t1="1.261" t2="-16.4157" s0="0.25481" s1="1.70022" s2="0.24464" q0="0.133269" q1="-0.785512" q2="0.0585592" q3="0.60148" euler_x="2.89339" euler_y="-1.28896" euler_z="-2.61852" id="482" version="1">
@@ -1669,7 +1675,7 @@
     </Group>
     <Group t0="4.05073" t1="3.18906" t2="25.8547" s0="0.25481" s1="1.70022" s2="0.24464" q0="-0.0710247" q1="-0.839962" q2="0.0973728" q3="0.529089" euler_x="-2.6259" euler_y="-1.06543" euler_z="2.66439" id="487" version="1">
         <parameters />
-        <Hotspot t0="4.08388" t1="3.80996" t2="25.6838" s0="0.0316937" s1="0.0316937" s2="0.0316937" q0="0.406196" q1="-0.529626" q2="0.483538" q3="0.566289" euler_x="-0.446175" euler_y="-1.44961" euler_z="1.81" id="488" type_file="Data/Objects/Hotspots/fire_test.xml">
+        <Hotspot t0="4.08388" t1="3.80996" t2="25.6838" s0="0.0316937" s1="0.0316937" s2="0.0316937" q0="0.406196" q1="-0.529626" q2="0.483538" q3="0.566289" euler_x="-0.446169" euler_y="-1.4496" euler_z="1.81" id="488" type_file="Data/Objects/Hotspots/fire_test.xml">
             <parameters>
                 <parameter name="Fire Ribbons" type="int" val="2" />
                 <parameter name="Ignite Characters" type="int" val="1" />
@@ -1686,6 +1692,30 @@
             <parameters />
         </EnvObject>
     </Group>
+    <EnvObject t0="18.7258" t1="5.05903" t2="13.6029" s0="3.42764" s1="0.935882" s2="2.83482" q0="-0.0196241" q1="-0.391242" q2="-0.0291237" q3="-0.91961" euler_x="0.0847522" euler_y="0.801553" euler_z="0.0992454" id="493" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/caves/cave_pillar.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="11.2822" t1="-0.846699" t2="8.16366" s0="0.880448" s1="0.53334" s2="0.717392" q0="-0.0851795" q1="-0.665192" q2="-0.740983" q3="0.0349944" euler_x="1.46856" euler_y="-0.173661" euler_z="3.07915" id="494" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="3.48444" t1="23.313" t2="18.1793" s0="0.880448" s1="0.53334" s2="0.717392" q0="-0.0851795" q1="-0.665192" q2="-0.740983" q3="0.0349944" euler_x="1.46856" euler_y="-0.173661" euler_z="3.07915" id="495" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-7.3107" t1="22.2101" t2="17.2016" s0="0.880448" s1="0.53334" s2="0.717392" q0="-0.0851795" q1="-0.665192" q2="-0.740983" q3="0.0349944" euler_x="1.46856" euler_y="-0.173661" euler_z="3.07915" id="496" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="0.9367" t1="21.8042" t2="24.2527" s0="1.7429" s1="0.869214" s2="1.10607" q0="-0.375479" q1="-0.578274" q2="-0.519032" q3="0.505207" euler_x="1.35152" euler_y="-1.34256" euler_z="-2.73178" id="499" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="24.1986" t1="1.39423" t2="-5.75698" s0="1.7429" s1="0.869214" s2="1.10607" q0="-0.375479" q1="-0.578274" q2="-0.519032" q3="0.505207" euler_x="1.35152" euler_y="-1.34256" euler_z="-2.73178" id="500" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="18.6111" t1="5.80393" t2="4.2891" s0="0.75462" s1="0.249163" s2="1.44973" q0="-0.680354" q1="-0.552603" q2="-0.26548" q3="-0.401559" euler_x="2.13928" euler_y="0.0826591" euler_z="1.31899" id="501" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="21.9945" t1="0.331427" t2="-1.9292" s0="2.24473" s1="1.43162" s2="1.32592" q0="0.00243467" q1="0.10761" q2="-0.0126705" q3="0.994109" euler_x="0.00216386" euler_y="0.215682" euler_z="-0.0252555" id="511" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/caves/cave_pillar.xml">
+        <parameters />
+    </EnvObject>
 </ActorObjects>
 <RecentItems>
     <SpawnerItem display_name="Cliff Rock 01" path="Data/Objects/Environment/Cliffs/CliffRock_01.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/Cliff_Rock_01.png" />

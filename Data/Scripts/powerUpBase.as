@@ -1,4 +1,4 @@
-﻿#include "timed_execution/timed_execution.as"
+#include "timed_execution/timed_execution.as"
 #include "timed_execution/char_death_job.as"
 #include "timed_execution/level_event_job.as"
 
