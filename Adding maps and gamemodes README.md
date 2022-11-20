@@ -139,6 +139,8 @@ You can create your own gamemodes pretty easily! Start with `versusGameplayTempl
 
 `forcedSpecies` number representing starting species for each player, at the map load.
 
+`maxCollateralKillTime` how long does a death count as kill for the last attacker
+
 
 ## UI 
 You can use `versusAHGUI` class to have some basic UI.
@@ -156,7 +158,7 @@ headerElement.addElement(@AHGUI::Text("Kills: "+killsCount[playerNr], "OpenSans-
 ## Special events/messages
 
 ### `oneKilledByTwo <victim obj ID> <attacker obj ID>`
-Sent when a character is killed by another (checks `attacked_by_id` on victim) 
+Sent when a character is killed by another (checks `attacked_by_id` on victim and takes into account `maxCollateralKillTime`) 
 ### `bluntHit <victim obj ID> <attacker obj ID>`
 Sent when a character is hit with a blunt weapon or hand to hand (unguarded hits, that deal dmg)
 ### `spawned <spawned obj ID> <first spawn bool>`
@@ -175,6 +177,7 @@ throwMassMlt = params.GetFloat("Throw - Mass Multiplier");
 - `bluntHit` message
 - `coopPartners.as` include, with an additional call in `Update()`
 - Moved color functions to `colorHelper.as`
+- `timeSinceAttackedById` tracks time since last `attacked_by_id` change (as long as its not `-1`)
 
 ## Generic available Hotspots
 

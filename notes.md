@@ -1,3 +1,8 @@
+# DO THOSE THINGS FIRST:
+- add checkmarks or something to race goal to show you've already hit them
+- finish hints system
+- fix tag gamemode to work, atm it only works for 4 players
+
 ### For changelogs
 `git log <hash>..HEAD --pretty=format:%s`
 
@@ -46,17 +51,10 @@ planks - you can get on top of the tower things => lower planks (done)
 
 People seem to enjoy blocks alot => create more simple and small arenas
 
-cave is a little too dark => marginally lighten it up
+cave is a little too dark => marginally lighten it up (done)
 
 fights a little to fast? increase hp all over the board?
 
 No instructions on how to do lots of things. => add warmup hints (important), and ingame hints (less important), start game explanation for LBS ("Be the last one standing.")
 
 The shortnames for modes are cryptic => seperate gamemodes into folders?
-
-
-# DO THOSE THINGS FIRST:
-- add checkmarks or something to race goal to show you've already hit them
-- finish hints system
-- fix `attacker_id` persisting for much too long
-- fix tag gamemode to work, atm it only works for 4 players

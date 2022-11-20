@@ -11,7 +11,8 @@
     "BlockSpeciesChange": false,
     "InstantSpeciesChange": false,
     "EnablePreload": true,
-    "NoReloads": false
+    "NoReloads": false,
+    "MaxCollateralKillTime": 5.0
   },
   "Deathmatch": {
     "PointsToWin": 3,
@@ -20,5 +21,14 @@
   "Race": {
     "SuicideTime": 1.0,
     "CheckPointsNeeded": 2
+  },
+  "Tag": {
+    "RoundMaxTime": 20.0,
+    "FreezeTime": 3.0,
+    "DeathsChangesToChasers": false,
+    "KillsChangesToRunners": false,
+    "ChaserSpecies": 4,
+    "RunnerSpecies": 3,
+    "BiggerTeamWins": false
   }
 }

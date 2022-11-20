@@ -14,6 +14,7 @@
 float throwMassMlt;
 float throwVelocityMlt;
 bool initCoopPartners = true;
+float timeSinceAttackedById = 0;
 //
 
 enum WalkDir {
@@ -1665,6 +1666,7 @@ void MovementObjectDeleted(int id) {
 
     if(id == attacked_by_id) {
         attacked_by_id = -1;
+        timeSinceAttackedById = 0;
     }
 
     if(id == force_look_target_id) {
@@ -2446,6 +2448,9 @@ void Update(int num_frames) {
 
         return;
     }
+
+    if(attacked_by_id != -1)
+        timeSinceAttackedById += time_step;
 
     // CoopPartnersCheck
     if(initCoopPartners){
@@ -5096,6 +5101,7 @@ int WasHit(string type, string attack_path, vec3 dir, vec3 pos, int attacker_id,
     attack_getter2.Load(attack_path);
     // Borrowed from github
     attacked_by_id = attacker_id;
+    timeSinceAttackedById = 0;
     
     if(knife_layer_id != -1) {
         this_mo.rigged_object().anim_client().RemoveLayer(knife_layer_id, 4.0f);
@@ -5132,6 +5138,8 @@ int WasGrabbed(const vec3 &in dir, const vec3 &in pos, int attacker_id) {
     }
 
     attacked_by_id = attacker_id;
+    timeSinceAttackedById = 0;
+    
     MovementObject@ attacker = ReadCharacterID(attacker_id);
     vec3 offset(attacker.position.x - this_mo.position.x,
         0.0f,
@@ -5641,6 +5649,7 @@ int HitByAttack(const vec3 &in dir, const vec3 &in pos, int attacker_id, float a
     }
 
     attacked_by_id = attacker_id;
+    timeSinceAttackedById = 0;
 
     if(this_mo.controlled) {
         camera_shake += 1.0f;  // Shake camera if player is hit
@@ -6196,6 +6205,7 @@ bool HandleDodge(const vec3 &in dir, int attacker_id) {
     this_mo.SetAnimation(anim_path, 10.0f, flags);
     this_mo.rigged_object().anim_client().SetAnimationCallback("void EndHitReaction()");
     attacked_by_id = attacker_id;
+    timeSinceAttackedById = 0;
     active_dodge_time = -1.0;  // Avoid double dodge from one dodge input
 
     return true;

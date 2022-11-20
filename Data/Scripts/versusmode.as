@@ -67,7 +67,7 @@ bool blockSpeciesChange = false;
 bool instantSpeciesChange = false;
 bool enablePreload = true;
 bool noReloads=false;
-
+float maxCollateralKillTime = 5.0f;
 
 // How often we want to make all char aware TODO! Fix up this?
 float set_omniscientTimeSpan = 3.0f;
@@ -279,7 +279,7 @@ void AttachTimers(int obj_id){
             Log(error, "Death of:"+ char_a.GetID() +" attacked_by_id:"+char.GetIntVar("attacked_by_id"));
             for (uint k = 0; k < spawned_object_ids.size(); k++)
             {
-                if(char.GetIntVar("attacked_by_id") == spawned_object_ids[k]){
+                if(char.GetIntVar("attacked_by_id") == spawned_object_ids[k] && maxCollateralKillTime > char.GetFloatVar("timeSinceAttackedById")){
                     level.SendMessage("oneKilledByTwo "+ char_a.GetID()+ " " + char.GetIntVar("attacked_by_id"));
                     return false;
                 }
@@ -1054,6 +1054,10 @@ void VersusBaseLoad(JSONValue settings){
 
         if(FoundMember(versusBase, "NoReloads"))
             noReloads = versusBase["NoReloads"].asBool();
+
+        if(FoundMember(versusBase, "MaxCollateralKillTime"))
+            maxCollateralKillTime = versusBase["MaxCollateralKillTime"].asFloat();
+        
     }
 }
 
