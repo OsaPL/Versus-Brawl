@@ -41,19 +41,28 @@ string IntToWinnerName(int teamNr){
 
 void ResetTag(){
     whoWon = -1;
-
-    //TODO! This is not bueno! fix those arrays up so it actually works for 2 and 3 player situation (and really any amount of players)
-    killedRunners = { false, false, false, false };
-    currentChasers = { false, false, false, false };
-    freezeTimers = { 0, 0, 0, 0 };
-    isFreezed = { false, false, false, false };
-    freezeEmmiters = { -1, -1, -1, -1 };
+    
+    killedRunners = {};
+    currentChasers = {};
+    freezeTimers = {};
+    isFreezed = {};
+    freezeEmmiters = {};
     timer = 0;
     lastTimer = 0;
     start = true;
 
+    for (uint i = 0; i < versusPlayers.size(); i++)
+    {
+        // Resetting all tables correctly
+        currentChasers.push_back(false);
+        killedRunners.push_back(false);
+        freezeTimers.push_back(0);
+        isFreezed.push_back(false);
+        freezeEmmiters.push_back(-1);
+    }
+
     //Select a random chaser
-    int firstChaserNr = rand()%currentChasers.size();
+    int firstChaserNr = rand()%versusPlayers.size();
     SetChaser(firstChaserNr);
 
     for (uint i = 0; i < versusPlayers.size(); i++) {
@@ -188,14 +197,14 @@ void Update(){
         timer += time_step;
         //Check if Chasers won
         bool allChasers = true;
-        for (uint i = 0; i < currentChasers.size(); i++) {
+        for (uint i = 0; i < versusPlayers.size(); i++) {
             if(!currentChasers[i])
                 allChasers = false;
         }
         
         if(allChasers){
             // TODO! Chasers win
-            for (uint i = 0; i < freezeTimers.size(); i++)
+            for (uint i = 0; i < versusPlayers.size(); i++)
             {
                 freezeTimers[i] = -1    ;
             }
@@ -209,7 +218,7 @@ void Update(){
             if(biggerTeamWins){
                 int chasers = 0;
                 int runners = 0;
-                for (uint i = 0; i < currentChasers.size(); i++)
+                for (uint i = 0; i < versusPlayers.size(); i++)
                 {
                     if(currentChasers[i]){
                         chasers++;
@@ -247,27 +256,27 @@ void Update(){
                 lastTimer = int(freezeTime) - int(timer) - 1;
                 Log(error, "lastTimer: " + lastTimer);
                 if(lastTimer == 0){
-                    versusAHGUI.SetText("Time left: "+lastTimer, "Get ready!", vec3(0.0f, 0.6f, 1.0f));
+                    versusAHGUI.SetText("Time left: " + lastTimer, "Get ready!", vec3(0.0f, 0.6f, 1.0f));
                 }
                 else if(lastTimer == -1){
                     start = false;
                     timer = 0;
                 }    
                 else{
-                    versusAHGUI.SetText("Time left: "+lastTimer, "Hide or run now!", vec3(0.0f, 0.0f, 1.0f));
+                    versusAHGUI.SetText("Time left: " + lastTimer, "Hide or run now!", vec3(0.0f, 0.0f, 1.0f));
                 }
             }
             else{
                 if(int(roundMaxTime) - int(timer) != lastTimer){
                     lastTimer = int(roundMaxTime) - int(timer);
                     if(lastTimer <= 15 && lastTimer%2==0){
-                        versusAHGUI.SetText("Time left: "+lastTimer, "", vec3(1.0f, 0.5f, 0.0f));
+                        versusAHGUI.SetText("Time left: " + lastTimer, "", vec3(1.0f, 0.5f, 0.0f));
                     }
                     else if(lastTimer <= 5) {
-                        versusAHGUI.SetText("Time left: "+lastTimer, "", vec3(1.0f, 0.0f, 0.0f));
+                        versusAHGUI.SetText("Time left: " + lastTimer, "", vec3(1.0f, 0.0f, 0.0f));
                     }
                     else{
-                        versusAHGUI.SetText("Time left: "+lastTimer);
+                        versusAHGUI.SetText("Time left: " + lastTimer);
                     }
                 }
             }
@@ -298,9 +307,9 @@ void Update(){
         }
     }
     
-    // Win state
+    // Win state, this doesnt reuse the default 100 state, cause we need a custom UI label
     if(currentState == 101){
-        versusAHGUI.SetText(""+IntToWinnerName(whoWon)+" win!",insults[rand()%insults.size()], GetTeamUIColor(whoWon));
+        versusAHGUI.SetText("" + IntToWinnerName(whoWon) + " win!", insults[rand()%insults.size()], GetTeamUIColor(whoWon));
         whoWon = -1;
         ChangeGameState(102);
     }

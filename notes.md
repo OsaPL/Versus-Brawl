@@ -1,7 +1,6 @@
 # DO THOSE THINGS FIRST:
 - add checkmarks or something to race goal to show you've already hit them
 - finish hints system
-- fix tag gamemode to work, atm it only works for 4 players
 
 ### For changelogs
 `git log <hash>..HEAD --pretty=format:%s`
