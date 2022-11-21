@@ -4,17 +4,14 @@ bool init = true;
 bool switched = false;
 
 void Init() {
+    hotspot.SetCollisionEnabled(false);
     Object@ me = ReadObjectFromID(hotspot.GetID());
     me.SetScale(vec3(1, 0.1f, 1));
-    hotspot.SetCollisionEnabled(false);
 }
 
 void SetParameters() {
     params.AddIntSlider("Phase", 0, "min:0.0,max:10.0");
     params.AddString("game_type", "versusBrawl");
-    
-    Object@ me = ReadObjectFromID(hotspot.GetID());
-    me.SetEditorLabel("["+ params.GetInt("Phase") +"]");
 }
 
 void ReceiveMessage(string msg){

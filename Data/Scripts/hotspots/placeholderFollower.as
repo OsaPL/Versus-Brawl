@@ -13,7 +13,7 @@ void PlaceHolderFollowerUpdate(string iconPath, string text, float scale = 1){
         DebugDrawBillboard(iconPath,
             me.GetTranslation(),
             scale,
-            color   ,
+            color,
             _delete_on_update);
         
         DebugDrawText(
