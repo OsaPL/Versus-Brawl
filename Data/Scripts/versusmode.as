@@ -66,7 +66,7 @@ bool blockSpeciesChange = false;
 // This allows instant race change even during game (state>=2)
 bool instantSpeciesChange = false;
 bool enablePreload = true;
-bool noReloads=false;
+bool noReloads = false;
 float maxCollateralKillTime = 5.0f;
 
 // How often we want to make all char aware TODO! Fix up this?
@@ -214,7 +214,6 @@ array<Species@> speciesMap={
         })
 };
 
-
 ///
 ///     This section contains the gamemode interface methods
 ///
@@ -222,7 +221,6 @@ array<Species@> speciesMap={
 //Requests a respawn for a player
 //TODO! This shouldnt need objID, just playerNr
 void CallRespawn(int playerNr, int objId) {
-    ScriptParams@ lvlParams = level.GetScriptParams();
     VersusPlayer@ player = GetPlayerByNr(playerNr);
     if(!player.respawnNeeded && player.respawnQueue<-respawnBlockTime){
         player.respawnNeeded = true;
@@ -1107,16 +1105,25 @@ void CheckPlayersState() {
             VersusPlayer@ player = GetPlayerByNr(i);
             if(player.respawnQueue>-respawnBlockTime){
                 player.respawnQueue = player.respawnQueue-time_step;
+                
+                Object@ char_obj = ReadObjectFromID(player.objId);
+                MovementObject@ char = ReadCharacterID(char_obj.GetID());
+                
                 if(player.respawnQueue<0 && player.respawnNeeded){
                     player.respawnNeeded = false;
                     // This line took me 4hrs to figure out
-                    ReadCharacterID(player.objId).Execute("SetState(0);Recover();");
+                    // This also makes character invincible, for the spawn protection aka. `respawnBlockTime`
+                    char.Execute("SetState(0);Recover();invincible = true;");
                     
-                    Object@ char = ReadObjectFromID(player.objId);
-                    RerollCharacter(player.playerNr, char);
+                    RerollCharacter(player.playerNr, char_obj);
                     
                     Log(error, "UPDATE SpawnCharacter");
-                    SpawnCharacter(FindRandSpawnPoint(player.playerNr),char,true, false);
+                    SpawnCharacter(FindRandSpawnPoint(player.playerNr), char_obj, true, false);
+                }
+                else if(player.respawnQueue<=-respawnBlockTime) {
+                    // Removing player temporary resistance
+                    Log(error, "Removing spawn protection for " + i);
+                    char.Execute("invincible = false;");
                 }
             }
         }
