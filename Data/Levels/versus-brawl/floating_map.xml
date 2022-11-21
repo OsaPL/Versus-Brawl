@@ -1,0 +1,176 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<Name>floating_map</Name>
+<Description></Description>
+<Shader>post</Shader>
+<Shadows>true</Shadows>
+<LoadingScreen>
+    <Image></Image>
+</LoadingScreen>
+<OutOfDate NavMesh="true" NavMeshParamHash="-1674835251" />
+<AmbientSounds />
+<Script></Script>
+<LevelScriptParameters>
+    <parameter name="Achievements" type="string" val="flawless, no_injuries, no_kills" />
+    <parameter name="Custom Shader" type="string" val="" />
+    <parameter name="Fog amount" type="float" val="1" />
+    <parameter name="GPU Particle Field" type="string" val="" />
+    <parameter name="HDR Black point" type="float" val="0.005" />
+    <parameter name="HDR Bloom multiplier" type="float" val="1" />
+    <parameter name="HDR White point" type="float" val="0.971" />
+    <parameter name="Level Boundaries" type="int" val="1" />
+    <parameter name="Load Tip" type="string" val="" />
+    <parameter name="MainPlayerId" type="int" val="15" />
+    <parameter name="Objectives" type="string" val="destroy_all" />
+    <parameter name="Saturation" type="float" val="1" />
+    <parameter name="Sky Brightness" type="float" val="1" />
+    <parameter name="Sky Rotation" type="float" val="0" />
+    <parameter name="Sky Tint" type="string" val="255, 255, 255" />
+</LevelScriptParameters>
+<NavMeshParameters generate="true" cell_size="0.3" cell_height="0.2" agent_height="1.7" agent_radius="0.4" agent_max_climb="1.5" agent_max_slope="60" />
+<Sky>
+    <DomeTexture>Data/Textures/skies/CloudySunset.tga</DomeTexture>
+    <SunAngularRad>0.153056</SunAngularRad>
+    <SunColorAngle>353.589</SunColorAngle>
+    <RayToSun r0="0.121363" r1="0.062051" r2="0.990667" />
+</Sky>
+<ActorObjects>
+    <CameraObject t0="7.2152" t1="9.27455" t2="-28.347" s0="1" s1="1" s2="1" q0="0.00155718" q1="0.98399" q2="-0.17801" q3="0.00860772" euler_x="-2.78365" euler_y="0.0174951" euler_z="-3.14159" id="0">
+        <parameters />
+    </CameraObject>
+    <EnvObject t0="5.09546" t1="3.59347" t2="-11.4142" s0="0.2828" s1="0.2828" s2="0.2828" q0="0.0222648" q1="0.0394913" q2="-0.0489985" q3="0.997769" euler_x="0.0407051" euler_y="0.0810771" euler_z="-0.0964859" id="1" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/OutCrop_1.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-2.8217" t1="5.2129" t2="-13.0027" s0="0.16604" s1="0.16604" s2="0.16604" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/OutCrop_7.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="2.11994" t1="5.27678" t2="-16.7883" s0="0.153041" s1="0.153041" s2="0.153041" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/OutCrop_2.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="12.889" t1="6.16811" t2="-15.0025" s0="0.19203" s1="0.19203" s2="0.19203" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="5" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/OutCrop_5.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="6.92735" t1="2.20374" t2="-25.746" s0="0.661846" s1="0.661846" s2="0.661846" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/OutCrop_4.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="14.0634" t1="7.38344" t2="-23.2527" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/CArocks_Block.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="14.2549" t1="6.84541" t2="-26.9332" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="8" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/CArocks_Flat.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="8.75351" t1="6.81002" t2="-31.2347" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="9" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/CavePlants_Liverwort1.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="7.30099" t1="6.86387" t2="-31.7633" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="10" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/CavePlants_Liverwort2.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="6.70275" t1="6.09542" t2="-17.9114" s0="0.346607" s1="0.346607" s2="0.346607" q0="-0.0156016" q1="-0.0253794" q2="-0.0345411" q3="0.99896" euler_x="-0.0294612" euler_y="-0.051807" euler_z="-0.0683632" id="11" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/arena/subterranean_arena/streight_chain.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="5.94576" t1="8.07327" t2="-23.7917" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="12" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
+        <parameters>
+            <parameter name="Bobbing Multiplier" type="float" val="800" />
+            <parameter name="Delay Time" type="float" val="65.954" />
+            <parameter name="Loop Phases" type="int" val="1" />
+            <parameter name="Phase Change Time" type="float" val="2" />
+            <parameter name="Phase Starting Direction Forward" type="int" val="1" />
+            <parameter name="Rise Speed" type="float" val="0.005" />
+            <parameter name="game_type" type="string" val="versusBrawl" />
+        </parameters>
+        <Connections>
+            <Connection id="1" />
+        </Connections>
+        <ConnectionsFrom />
+    </Hotspot>
+    <ActorObject t0="3.41992" t1="7.99133" t2="-29.2895" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14" type_file="Data/Objects/IGF_Characters/IGF_TurnerActor.xml" is_player="1">
+        <parameters>
+            <parameter name="Aggression" type="float" val="0.5" />
+            <parameter name="Attack Damage" type="float" val="1" />
+            <parameter name="Attack Knockback" type="float" val="1" />
+            <parameter name="Attack Speed" type="float" val="1" />
+            <parameter name="Block Follow-up" type="float" val="0.5" />
+            <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Character Scale" type="float" val="1" />
+            <parameter name="Damage Resistance" type="float" val="1" />
+            <parameter name="Ear Size" type="float" val="1" />
+            <parameter name="Fall Damage Multiplier" type="float" val="1" />
+            <parameter name="Fat" type="float" val="0.5" />
+            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+            <parameter name="Focus FOV distance" type="float" val="100" />
+            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+            <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Jump - Air Control" type="float" val="3" />
+            <parameter name="Jump - Initial Velocity" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+            <parameter name="Knockout Shield" type="int" val="0" />
+            <parameter name="Left handed" type="int" val="0" />
+            <parameter name="Movement Speed" type="float" val="1" />
+            <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="Peripheral FOV distance" type="float" val="4" />
+            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+            <parameter name="Species" type="string" val="rabbit" />
+            <parameter name="Static" type="int" val="0" />
+            <parameter name="Stick To Nav Mesh" type="int" val="0" />
+            <parameter name="Teams" type="string" val="turner" />
+            <parameter name="Throw - Initial Velocity Multiplier" type="float" val="1" />
+            <parameter name="Throw - Mass Multiplier" type="float" val="1" />
+            <parameter name="Throw Counter Probability" type="float" val="0.4" />
+            <parameter name="Throw Trainer" type="int" val="0" />
+            <parameter name="Weapon Catch Skill" type="float" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+        <ItemConnections />
+        <Palette>
+            <Color label="Cloth" channel="0" red="1" green="1" blue="1" />
+            <Color label="Rope" channel="1" red="1" green="1" blue="1" />
+            <Color label="Fur" channel="2" red="1" green="1" blue="1" />
+        </Palette>
+    </ActorObject>
+    <Hotspot t0="6.15698" t1="8.08962" t2="-26.0671" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="17" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
+        <parameters>
+            <parameter name="Bobbing Multiplier" type="float" val="800" />
+            <parameter name="Delay Time" type="float" val="0" />
+            <parameter name="Loop Phases" type="int" val="1" />
+            <parameter name="Phase Change Time" type="float" val="2" />
+            <parameter name="Phase Starting Direction Forward" type="int" val="1" />
+            <parameter name="Rise Speed" type="float" val="0.005" />
+            <parameter name="game_type" type="string" val="versusBrawl" />
+        </parameters>
+        <Connections>
+            <Connection id="4" />
+        </Connections>
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="9.49518" t1="7.942" t2="-23.6636" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="18" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
+        <parameters>
+            <parameter name="Bobbing Multiplier" type="float" val="800" />
+            <parameter name="Delay Time" type="float" val="52.214" />
+            <parameter name="Loop Phases" type="int" val="1" />
+            <parameter name="Phase Change Time" type="float" val="2" />
+            <parameter name="Phase Starting Direction Forward" type="int" val="1" />
+            <parameter name="Rise Speed" type="float" val="0.005" />
+            <parameter name="game_type" type="string" val="versusBrawl" />
+        </parameters>
+        <Connections>
+            <Connection id="5" />
+            <Connection id="3" />
+        </Connections>
+        <ConnectionsFrom />
+    </Hotspot>
+</ActorObjects>
+<RecentItems>
+    <SpawnerItem display_name="waterPhaseHotspot.xml" path="Data/Objects/versus-brawl/levelSpecific/sewer/waterPhaseHotspot.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="waterRiseHotSpot.xml" path="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml" thumbnail_path="empty_placeholder.png" />
+</RecentItems>

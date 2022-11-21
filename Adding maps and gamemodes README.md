@@ -216,10 +216,12 @@ Objects rise/lower between `waterPhaseHotspot` phases.
 If you want to set some dynamic stuff, you can connect any object to the `waterPhaseHotspot`, and it will be switched on/off accordingly, if you want to reverse the behaviour, add `KeepDisabled` param to the object (switching changes `Enabled` variable and sends `switch` event)
 
 Options you can set for `waterRiseHotspot`:
-- `loop` decides whether always start from end/beginning if `true` or just reverse the order if `false`
-- `defaultStep` movement step per frame (higher means everything moves faster)
-- `phaseChangeTime` how often does phases advance
-- `bobbingMlt` defines the strength of objects bobbing, lower values increase the bobbing, (default: `800`)
+- `Loop Phases` decides whether always start from end/beginning if `true` or just reverse the order if `false`
+- `Rise Speed` movement step per frame (higher means everything moves faster)
+- `Phase Change Time` how often does phases advance
+- `Bobbing Multiplier` defines the strength of objects bobbing, lower values increase the bobbing, (default: `800`)
+- `Delay Time` add delay, allows for bobbing not in sync
+- `Phase Starting Direction Forward` in which direction should be consider phases at the start
 
 Options you can set for `waterPhaseHotspot`:
 - `Phase` decides what phase number in order it is

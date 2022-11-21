@@ -9,6 +9,7 @@ float phaseChangeTime = 10;
 bool loop = true;
 //Defines how we move in phases array
 bool phaseDirectionForward = false;
+float addDelay = 0;
 
 uint currentPhase = 0;
 uint previousPhase = 0;
@@ -31,15 +32,16 @@ bool movementDirectionForward = true;
 void Init() {
     hotspot.SetCollisionEnabled(false);
     Object@ me = ReadObjectFromID(hotspot.GetID());
-    me.SetScale(vec3(2, 0.1f, 2));
+    me.SetScale(vec3(0.5f));
 }
 
 void SetParameters() {
-    params.AddFloatSlider("Rise Speed", 0.005f, "min:0.0,max:3.0");
+    params.AddFloatSlider("Rise Speed", 0.005f, "min:0.0,max:3.0,step:0.01");
     params.AddFloatSlider("Bobbing Multiplier", 800, "min:200.0,max:1800.0");
-    params.AddFloatSlider("Phase Change Time", 2.0f, "min:0.0,max:360.0");
+    params.AddFloatSlider("Phase Change Time", 2.0f, "min:0.0,max:360.0,step:0.1");
     params.AddIntCheckbox("Loop Phases", true);
     params.AddIntCheckbox("Phase Starting Direction Forward", true);
+    params.AddFloatSlider("Delay Time", 0.0f, "min:0.0,max:360.0,step:0.01");
     params.AddString("game_type", "versusBrawl");
 }
 
@@ -49,6 +51,7 @@ void UpdateParameters(){
     phaseChangeTime = params.GetFloat("Phase Change Time");
     loop = params.GetInt("Loop Phases") != 0;
     phaseDirectionForward = params.GetInt("Phase Starting Direction Forward") != 0;
+    addDelay = params.GetFloat("Delay Time");
 }
 
 void Update(){
@@ -58,6 +61,10 @@ void Update(){
     PlaceHolderFollowerUpdate("Data/UI/spawner/thumbs/Hotspot/water.png", "[WaterRise] CurrentPhase: [" +  currentPhase+ "] phaseHeight:[" + phaseHeight + "] [" + enabled + "]");
     
     UpdateParameters();
+    
+    if(init){
+        bobbingTime = addDelay;
+    }
     
     objectsToMove = {};
     // TODO: Limiting to ten is not really necessary
@@ -80,7 +87,7 @@ void Update(){
     // This helps mapping, since it stops and resets everything if disabled or in editor
     if(!me.GetEnabled() || EditorModeActive()){
         time = 0;
-        bobbingTime = 0;
+        bobbingTime = addDelay;
         ResetObjectsPos();
         currentPhase = 0;
         previousPhase = 0;
