@@ -10,23 +10,15 @@ void SetParameters() {
 }
 
 void Update(){
-    PlaceHolderFollowerUpdate();
-
-    int playerNr = params.GetInt("playerNr");
-    
     Object@ me = ReadObjectFromID(  hotspot.GetID());
 
-    // Get hotspot and placeholder, and then setup
-    Object@ obj = ReadObjectFromID(placeholderId);
-    PlaceholderObject@ placeholder_object = cast<PlaceholderObject@>(obj);
-    placeholder_object.SetBillboard("Data/Textures/ui/versusBrawl/placeholder_arena_spawn_"+playerNr+".png");
-
     string enabled = me.GetEnabled() ? "Enabled" : "Disabled";
-    obj.SetEditorLabel("["+playerNr+"] [" + enabled + "]");
+    int playerNr = params.GetInt("playerNr");
+
+    PlaceHolderFollowerUpdate("Data/Textures/ui/versusBrawl/placeholder_arena_spawn_"+playerNr+".png", "["+playerNr+"] [" + enabled + "]", 2.0f);
 }
 
 void Dispose(){
-    PlaceHolderFollowerDispose();
 }
 
 bool AcceptConnectionsFrom(Object@ other) {

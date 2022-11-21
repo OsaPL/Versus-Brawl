@@ -1,20 +1,26 @@
-int placeholderId = -1;
+void PlaceHolderFollowerUpdate(string iconPath, string text, float scale = 1){
 
-void PlaceHolderFollowerUpdate(){
-    // placeholder is missing create it
-    if(placeholderId == -1)
-        placeholderId = CreateObject("Data/Objects/placeholder/placeholder_arena_spawn.xml");
-
-    Object@ obj = ReadObjectFromID(placeholderId);
-    // This part makes placeholder follow
-    Object@ me = ReadObjectFromID(hotspot.GetID());
-    obj.SetTranslation(me.GetTranslation());
-    obj.SetRotation(me.GetRotation());
-}
-
-void PlaceHolderFollowerDispose(){
-    if(ObjectExists(placeholderId)) {
-        // Cleanup placeholder
-        DeleteObjectID(placeholderId);
+    if(EditorModeActive()){
+        Object@ me = ReadObjectFromID(hotspot.GetID());
+        vec4 color;
+        if(me.GetEnabled()){
+            color = vec4(1);
+        }
+        else{
+            color = vec4(vec3(1), 0.2f);
+        }
+        
+        DebugDrawBillboard(iconPath,
+            me.GetTranslation(),
+            scale,
+            color   ,
+            _delete_on_update);
+        
+        DebugDrawText(
+            me.GetTranslation(), 
+            text, 
+            1.0f, 
+            true,
+            _delete_on_update);
     }
 }

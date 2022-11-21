@@ -20,6 +20,8 @@ float soundTimer=0;
 float phaseHeight;
 float startingPhaseHeight;
 array<int> objectsToMove;
+array<int> savedConnectedObjectIds;
+array<vec3> savedConnectedObjectStartPositions;
 // Phases hotspot IDs
 array<int> phases;
 bool init = true;
@@ -50,28 +52,20 @@ void UpdateParameters(){
 }
 
 void Update(){
-    PlaceHolderFollowerUpdate();
-    
-    // Get hotspot and placeholder, and then setup
-    Object@ placeholderObj = ReadObjectFromID(placeholderId);
-    PlaceholderObject@ placeholder_object = cast<PlaceholderObject@>(placeholderObj);
-    placeholder_object.SetBillboard("Data/UI/spawner/thumbs/Hotspot/water.png");
-
     Object@ me = ReadObjectFromID(hotspot.GetID());
     string enabled = me.GetEnabled() ? "Enabled" : "Disabled";
-    placeholderObj.SetEditorLabel("[WaterRise] CurrentPhase: [" +  currentPhase+ "] phaseHeight:[" + phaseHeight + "] [" + enabled + "]");
+    
+    PlaceHolderFollowerUpdate("Data/UI/spawner/thumbs/Hotspot/water.png", "[WaterRise] CurrentPhase: [" +  currentPhase+ "] phaseHeight:[" + phaseHeight + "] [" + enabled + "]");
     
     UpdateParameters();
     
-    array<int> connected_object_ids = hotspot.GetConnectedObjects();
-
     objectsToMove = {};
     // TODO: Limiting to ten is not really necessary
     phases = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
     
     // Get all WaterPhasesHotspots
-    for (uint i = 0; i < connected_object_ids.size(); i++) {
-        Object@ obj = ReadObjectFromID(connected_object_ids[i]);
+    for (uint i = 0; i < savedConnectedObjectIds.size(); i++) {
+        Object@ obj = ReadObjectFromID(savedConnectedObjectIds[i]);
         // Check if its a phase
         if(IsWaterPhase(obj)){
             ScriptParams@ objParams = obj.GetScriptParams();
@@ -83,14 +77,25 @@ void Update(){
         }
     }
     
+    // This helps mapping, since it stops and resets everything if disabled or in editor
     if(!me.GetEnabled() || EditorModeActive()){
         time = 0;
+        bobbingTime = 0;
+        ResetObjectsPos();
+        currentPhase = 0;
+        previousPhase = 0;
+        phaseHeight = 0;
+        rising = false;
         return;
     }
 
     // Animate water and objects to bob around a little
     bobbingTime += time_step;
     AnimateBobbing();
+    
+    // There is something wrong with the setup, dont bother
+    if(phases[previousPhase] == -1 || phases[currentPhase] == -1 )
+        return;
     
     // TIme elapsed, go to next
     if(time>phaseChangeTime) {
@@ -140,14 +145,16 @@ void Update(){
 }
 
 void Dispose(){
-    PlaceHolderFollowerDispose();
 }
 
 bool AcceptConnectionsFrom(Object@ other) {
-    return true;
+    return false;
 }
 
 bool AcceptConnectionsTo(Object@ other) {
+    if(other.IsExcludedFromSave())
+        return false;
+    
     return true;
 }
 
@@ -161,7 +168,40 @@ bool ConnectTo(Object@ other){
     else{
         Log(error, "object:"+other.GetID());
     }
+
+    savedConnectedObjectIds.push_back(other.GetID());
+    savedConnectedObjectStartPositions.push_back(other.GetTranslation());
+    
     return true;
+}
+
+bool Disconnect(Object@ other)
+{
+    int removeIndex = -1;
+    for (uint i = 0; i < savedConnectedObjectIds.size(); i++)
+    {
+        if(savedConnectedObjectIds[i] == other.GetID()){
+            removeIndex = i;
+        }
+    }
+    
+    if(removeIndex != -1){
+        savedConnectedObjectIds.removeAt(removeIndex);
+        savedConnectedObjectStartPositions.removeAt(removeIndex);
+
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+void ResetObjectsPos(){
+    for (uint i = 0; i < savedConnectedObjectIds.size(); i++) {
+        Object@ obj = ReadObjectFromID(savedConnectedObjectIds[i]);
+        vec3 original = savedConnectedObjectStartPositions[i];
+        obj.SetTranslation(vec3(original.x, original.y, original.z));
+    }
 }
 
 void AnimateBobbing(){

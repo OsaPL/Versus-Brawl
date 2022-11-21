@@ -23,16 +23,10 @@ void SetParameters() {
 }
 
 void Update(){
-    PlaceHolderFollowerUpdate();
+    PlaceHolderFollowerUpdate("Data/Textures/ui/versusBrawl/placeholder_weapon_spawn.png", "["+oldPath+"]");
     
     // Get hotspot and placeholder, and then setup
     Object@ me = ReadObjectFromID(hotspot.GetID());
-    Object@ placeholderObj = ReadObjectFromID(placeholderId);
-    PlaceholderObject@ placeholder_object = cast<PlaceholderObject@>(placeholderObj);
-    placeholder_object.SetBillboard("Data/Textures/ui/versusBrawl/placeholder_weapon_spawn.png");
-    placeholderObj.SetEditorLabel("["+oldPath+"]");
-    // This part makes placeholder follow
-    placeholderObj.SetScale(vec3(2));
     
     if(weaponId == -1){
         Log(error, "weaponId missing, spawning");
@@ -88,7 +82,6 @@ void Dispose(){
         DeleteObjectID(weaponId);
         weaponId = -1;
     }
-    PlaceHolderFollowerDispose();
 }
 
 void Reset(){

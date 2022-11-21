@@ -31,25 +31,34 @@ void Reset(){
 }
 
 void Update(){
-    PlaceHolderFollowerUpdate();
+    PlaceHolderFollowerUpdate("Data/UI/spawner/thumbs/Hotspot/water.png", "Phase: ["+ params.GetInt("Phase") +"]");
     
-    // Get hotspot and placeholder, and then setup
-    Object@ obj = ReadObjectFromID(placeholderId);
-    PlaceholderObject@ placeholder_object = cast<PlaceholderObject@>(obj);
-    placeholder_object.SetBillboard("Data/UI/spawner/thumbs/Hotspot/water.png");
-
-    obj.SetEditorLabel("Phase: ["+ params.GetInt("Phase") +"]");
+    Object@ me = ReadObjectFromID(hotspot.GetID());
+    
+    if(EditorModeActive()){
+        if(switched){
+            Switch();
+        }
+    }
 }
 
 void Dispose(){
-    PlaceHolderFollowerDispose();
 }
 
 bool AcceptConnectionsFrom(Object@ other) {
-    return true;
+    ScriptParams@ objParams = other.GetScriptParams();
+    // TOOD: Not a pretty way to check, but works
+    if(objParams.HasParam("Bobbing Multiplier"))
+        return true;
+    
+    return false;
 }
 
 bool AcceptConnectionsTo(Object@ other) {
+    // TODO: This should probably just use permission check `obj.permission_flags & Object::CAN_SELECT`
+    if(other.IsExcludedFromSave())
+        return false;
+    
     return true;
 }
 
