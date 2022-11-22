@@ -8,11 +8,12 @@ float phaseChangeTime = 10;
 // This will change whether phase changes to 0 after last one, or should it reverse the order (true: 0->1->2(last)->0->1->2(last)->0... or false: 0->1->2(last)->1->0(first)->1...)
 bool loop = true;
 //Defines how we move in phases array
-bool phaseDirectionForward = false;
+bool startPhaseDirectionForward = false;
 float addDelay = 0;
 
 uint currentPhase = 0;
 uint previousPhase = 0;
+bool phaseDirectionForward = false;
 bool rising = false;
 float step;
 float time = 0;
@@ -50,7 +51,7 @@ void UpdateParameters(){
     bobbingMlt = params.GetFloat("Bobbing Multiplier");
     phaseChangeTime = params.GetFloat("Phase Change Time");
     loop = params.GetInt("Loop Phases") != 0;
-    phaseDirectionForward = params.GetInt("Phase Starting Direction Forward") != 0;
+    startPhaseDirectionForward = params.GetInt("Phase Starting Direction Forward") != 0;
     addDelay = params.GetFloat("Delay Time");
 }
 
@@ -64,6 +65,8 @@ void Update(){
     
     if(init){
         bobbingTime = addDelay;
+        phaseDirectionForward = startPhaseDirectionForward;
+        init = false;
     }
     
     objectsToMove = {};
@@ -86,13 +89,7 @@ void Update(){
     
     // This helps mapping, since it stops and resets everything if disabled or in editor
     if(!me.GetEnabled() || EditorModeActive()){
-        time = 0;
-        bobbingTime = addDelay;
-        ResetObjectsPos();
-        currentPhase = 0;
-        previousPhase = 0;
-        phaseHeight = 0;
-        rising = false;
+        Reset();
         return;
     }
 
@@ -203,6 +200,17 @@ bool Disconnect(Object@ other)
     }
 }
 
+void Reset(){
+    time = 0;
+    bobbingTime = addDelay;
+    phaseDirectionForward = startPhaseDirectionForward;
+    ResetObjectsPos();
+    currentPhase = 0;
+    previousPhase = 0;
+    phaseHeight = 0;
+    rising = false;
+}
+
 void ResetObjectsPos(){
     for (uint i = 0; i < savedConnectedObjectIds.size(); i++) {
         Object@ obj = ReadObjectFromID(savedConnectedObjectIds[i]);
@@ -247,6 +255,7 @@ void NextPhase(){
             }
             else{
                 // Revert direction
+                Log(error, "1 reversing phaseDirectionForward");
                 phaseDirectionForward = !phaseDirectionForward;
                 NextPhase();
                 return;
@@ -254,10 +263,13 @@ void NextPhase(){
         }
     }
     else{
+        Log(error, "phaseDirectionForward false");
         // Go back
         for (int i = currentPhase-1; i >= 0; i--)
         {
+            Log(error, "i: " + i);
             if(phases[i] != -1){
+                Log(error, "found: " + phases[i]);
                 // Found the next PhaseHotspot
                 nextPhase = i;
                 break;
@@ -266,11 +278,14 @@ void NextPhase(){
 
         // Didnt found next one
         if(nextPhase == -1){
+            Log(error, "didnt find nextPhase");
             if(loop){
                 for (uint i = phases.size()-1; i >= 0; i--)
                 {
+                    Log(error, "i: " + i);
                     if(phases[i] != -1){
                         // Found the next PhaseHotspot
+                        Log(error, "found: " + phases[i]);
                         nextPhase = i;
                         break;
                     }
@@ -279,6 +294,7 @@ void NextPhase(){
             else{
                 // Revert direction
                 currentPhase = 0;
+                Log(error, "2 reversing phaseDirectionForward");
                 phaseDirectionForward = !phaseDirectionForward;
                 NextPhase();
                 return;

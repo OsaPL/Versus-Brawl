@@ -22,9 +22,8 @@ void ReceiveMessage(string msg){
 
 void Reset(){
     // Reset if switched back
-    //TODO! This will be uncommented once, WaterRise starts supporting reset
-    // if(switched)
-    //     Switch();
+    if(switched)
+        Switch();
 }
 
 void Update(){
@@ -34,9 +33,8 @@ void Update(){
     
     // Reset on entering the editor
     if(EditorModeActive()){
-        if(switched){
+        if(switched)
             Switch();
-        }
     }
 }
 

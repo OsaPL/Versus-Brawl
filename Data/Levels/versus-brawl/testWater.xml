@@ -34,7 +34,7 @@
     <RayToSun r0="0.121363" r1="0.062051" r2="0.990667" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="3.3762" t1="12.5326" t2="8.20376" s0="1" s1="1" s2="1" q0="0.390654" q1="0.0240246" q2="-0.0101996" q3="0.920168" euler_x="0.802973" euler_y="0.052206" euler_z="0" id="0">
+    <CameraObject t0="3.55303" t1="13.3438" t2="8.80045" s0="1" s1="1" s2="1" q0="0.437761" q1="-0.128745" q2="0.0634998" q3="0.887557" euler_x="0.916418" euler_y="-0.288102" euler_z="0" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="0" t1="0" t2="0" s0="6" s1="1" s2="6" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
@@ -79,8 +79,14 @@
             <Connection id="9" />
         </ConnectionsFrom>
     </Hotspot>
-    <Hotspot t0="-6.13887" t1="2.46754" t2="5.87737" s0="2" s1="0.1" s2="2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="9" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
+    <Hotspot t0="-6.13887" t1="2.46754" t2="5.87737" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="9" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
         <parameters>
+            <parameter name="Bobbing Multiplier" type="float" val="800" />
+            <parameter name="Delay Time" type="float" val="0" />
+            <parameter name="Loop Phases" type="int" val="0" />
+            <parameter name="Phase Change Time" type="float" val="2" />
+            <parameter name="Phase Starting Direction Forward" type="int" val="1" />
+            <parameter name="Rise Speed" type="float" val="0.005" />
             <parameter name="RiseSpeed" type="float" val="0.05" />
             <parameter name="game_type" type="string" val="versusBrawl" />
         </parameters>
