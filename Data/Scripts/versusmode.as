@@ -31,7 +31,7 @@ array<string> warmupHints = {
     "Violet powerup is ninja mode, infinite throwing knife, just hold @item@.",
     "Blue powerup makes you sturdy as a rock.",
     "Green powerup will heall all your wounds.",
-    "Orange powerup enchances your next blunt hit. Crush'em!"
+    "Orange powerup enchances your next blunt hit. Slap!"
 };
 
 // TODO! Show them randomly during the match? if the text is empty

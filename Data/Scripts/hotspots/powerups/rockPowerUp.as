@@ -1,6 +1,10 @@
 ﻿#include "powerUpBase.as"
 
 float originalDamageReduction;
+string hitSoundGroup = "Data/Sounds/rocks_foley/fs_heavy_rocks_crouchwalk.xml";
+float soundGain = 7;
+
+TimedExecution rockTimer;
 
 void Init(){
     PowerupInit();
@@ -11,6 +15,33 @@ void Init(){
         originalDamageReduction = objParams.GetFloat("Damage Resistance");
         objParams.SetFloat("Damage Resistance", originalDamageReduction*params.GetFloat("reduction"));
         obj.UpdateScriptParams();
+        
+        // Attach timers for hit sounds
+        rockTimer.Add(LevelEventJob("bluntHit", function(_params){
+            if(lastEnteredPlayerObjId == parseInt(_params[1]))
+                PlaySoundGroup(hitSoundGroup, soundGain);
+            return true;
+        }));
+        rockTimer.Add(LevelEventJob("item_hit", function(_params){
+            if(lastEnteredPlayerObjId == parseInt(_params[1]))
+                PlaySoundGroup(hitSoundGroup, soundGain);
+            return true;
+        }));
+        rockTimer.Add(LevelEventJob("active_blocked", function(_params){
+            if(lastEnteredPlayerObjId == parseInt(_params[1]))
+                PlaySoundGroup(hitSoundGroup, soundGain);
+            return true;
+        }));
+        rockTimer.Add(LevelEventJob("passive_blocked", function(_params){
+            if(lastEnteredPlayerObjId == parseInt(_params[1]))
+                PlaySoundGroup(hitSoundGroup, soundGain);
+            return true;
+        }));
+        rockTimer.Add(LevelEventJob("character_thrown", function(_params){
+            if(lastEnteredPlayerObjId == parseInt(_params[1]))
+                PlaySoundGroup(hitSoundGroup, soundGain);
+            return true;
+        }));
         
         PlaySound(params.GetString("startSoundPath"));
         return true;
@@ -23,6 +54,9 @@ void Init(){
         originalDamageReduction = objParams.GetFloat("Damage Resistance");
         objParams.SetFloat("Damage Resistance", originalDamageReduction/params.GetFloat("reduction"));
         obj.UpdateScriptParams();
+
+        // Delete all hitsound timers
+        rockTimer.DeleteAll();
         
         PlaySound(params.GetString("endSoundPath"));
 
@@ -30,10 +64,11 @@ void Init(){
     }));
 }
 
+
 void SetParameters() {
     PowerupSetParameters();
 
-    params.AddFloatSlider("reduction", 6.0f,"min:0,max:100,step:0.01,text_mult:1");
+    params.AddFloatSlider("reduction", 4.0f,"min:0,max:100,step:0.01,text_mult:1");
 
     // These ones are specific
     params.SetFloat("activeTime", 12.0f);
@@ -59,6 +94,7 @@ void HandleEvent(string event, MovementObject @mo){
 
 void Update()
 {
+    rockTimer.Update();
     PowerupUpdate();
 }
 
@@ -73,9 +109,13 @@ void Draw()
 
 void ReceiveMessage(string msg){
     PowerupReceiveMessage(msg);
+
+    rockTimer.AddLevelEvent(msg);
+    rockTimer.AddEvent(msg);
 }
 
 void PreScriptReload()
 {
-    powerupTimer.DeleteAll();
+    PowerupPreScriptReload();
+    rockTimer.DeleteAll();
 }

@@ -2,6 +2,8 @@
 
 #include "colorHelpers.as"
 
+int playerChars = 0;
+
 void CoopPartnersCheck(){
     
     if(!this_mo.is_player)
@@ -23,7 +25,20 @@ void CoopPartnersCheck(){
         return;
     }
     
-    for (int j = 1; j < GetConfigValueInt("local_players"); j++)
+    int missingCharacters = GetConfigValueInt("local_players");
+    int num_chars = GetNumCharacters();
+    // We count already available player controlled characters
+    for(int i=0; i<num_chars; ++i)
+    {
+        MovementObject@ mo = ReadCharacter(i);
+        if(mo.is_player){
+            playerChars++;
+        }
+    }
+
+    // Calculate how many more to spawn
+    missingCharacters -= playerChars;
+    for (int j = 1; j < missingCharacters+1; j++)
     {
         string placeHolderActorPath = "Data/Objects/characters/rabbot_actor.xml";
 

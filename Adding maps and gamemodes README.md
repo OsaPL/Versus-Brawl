@@ -118,7 +118,7 @@ for (int i = 0; i < GetNumCharacters(); i++) {
 
 You probably just need to include `coopPartners.as` script and do the same thing I've done in my `aschar.as`. 
 
-Just correctly call `CoopPartnersCheck()` and `CoopPartnersDispose()`.
+Just correctly call `CoopPartnersCheck()`.
 
 # Gamemode creation
  
@@ -164,8 +164,8 @@ Sent when a character is hit with a blunt weapon or hand to hand (unguarded hits
 ### `spawned <spawned obj ID> <first spawn bool>`
 Sent when a character is being spawned or respawned (if current game state is not warmup)
 
-
-## `aschar.as` modifications
+# Changes to default scripts 
+## `aschar.as`
 
 - 👻(not working yet fully) new values controlling item throws:
 ```angelScript
@@ -178,6 +178,9 @@ throwMassMlt = params.GetFloat("Throw - Mass Multiplier");
 - `coopPartners.as` include, with an additional call in `Update()`
 - Moved color functions to `colorHelper.as`
 - `timeSinceAttackedById` tracks time since last `attacked_by_id` change (as long as its not `-1`)
+
+## `playercontrol.as`
+- `drunkMode` added, with new methods to invert controls
 
 ## Generic available Hotspots
 

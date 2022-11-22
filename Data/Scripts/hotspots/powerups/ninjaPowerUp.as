@@ -16,6 +16,12 @@ void Init(){
         PlaySound(params.GetString("endSoundPath"));
         return true;
     }));
+    powerupTimer.Add(LevelEventJob("item_hit", function(_params){
+        MovementObject@ mo = ReadCharacterID(parseInt(_params[1]));
+        if(mo.GetIntVar("attacked_by_id") == lastEnteredPlayerObjId)
+            PlaySound("Data/Sounds/unused/blow_dart_hit_02.wav");
+        return true;
+    }));
 }
 
 void SetParameters() {

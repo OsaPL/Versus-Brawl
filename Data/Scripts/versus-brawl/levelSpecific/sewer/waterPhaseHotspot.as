@@ -32,6 +32,7 @@ void Update(){
     
     Object@ me = ReadObjectFromID(hotspot.GetID());
     
+    // Reset on entering the editor
     if(EditorModeActive()){
         if(switched){
             Switch();

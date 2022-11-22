@@ -1,6 +1,6 @@
 ﻿#include "powerUpBase.as"
 
-float knockbackMlt = 6.0f;
+float knockbackMlt = 7.0f;
 string slapSoundPath = "Data/Sounds/pop1.wav";
 
 // did it expire or has been used
@@ -39,7 +39,7 @@ void Init(){
     }));
 
     powerupTimer.Add(LevelEventJob("bluntHit", function(_params){
-        Log(error, "PowerUp bluntHit: "+ _params[1]+ " " +_params[2]+" lastEnteredPlayerObjId: " + lastEnteredPlayerObjId);
+        Log(error, "YeetPowerUp bluntHit: "+ _params[1]+ " " +_params[2]+" lastEnteredPlayerObjId: " + lastEnteredPlayerObjId);
         
         if(active){
             // Reset after hit
@@ -64,14 +64,14 @@ void SetParameters() {
     params.SetFloat("activeTime", 15.0f);
     params.SetFloat("respawnTime", 18.0f);
 
-    params.SetString("startSoundPath", "Data/Sounds/footstep_mud_1.wav");
-    params.SetString("stopSoundPath", "Data/Sounds/footstep_mud_5.wav");
+    params.SetString("startSoundPath", "Data/Sounds/DirtImpact2.wav");
+    params.SetString("stopSoundPath", "Data/Sounds/DirtImpact1.wav");
 
     params.SetFloat("colorR", 1.0f);
     params.SetFloat("colorG", 1.0f);
     params.SetFloat("colorB", 0.0f);
 
-    params.SetFloat("particleDelay", 0.002f);
+    params.SetFloat("particleDelay", 0.0005f);
     params.SetString("pathToParticles", "Data/Particles/metalspark.xml");
     params.SetFloat("particleColorR", 0.7f);
     params.SetFloat("particleColorG", 0.5f);

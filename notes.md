@@ -1,6 +1,8 @@
 # DO THOSE THINGS FIRST:
-- add checkmarks or something to race goal to show you've already hit them
 - finish hints system
+- add checkmarks or something to race goal to show you've already hit them
+- waterRise and Phase should support Reset (reuse the thing you did for EditorModeActive)
+- add `coop panic` button for each coop partner, that resurrects and teleports coop player back to the first player
 
 ### For changelogs
 `git log <hash>..HEAD --pretty=format:%s`
