@@ -238,11 +238,13 @@ void NextPhase(){
 
     // TODO: This is yucky
     if(phaseDirectionForward){
+        Log(error, "phaseDirectionForward true");
         // Go forward
         for (uint i = currentPhase+1; i < phases.size(); i++)
         {
             if(phases[i] != -1){
                 // Found the next PhaseHotspot
+                Log(error, "found: " + phases[i]);
                 nextPhase = i;
                 break;
             }
@@ -250,12 +252,13 @@ void NextPhase(){
         
         // Didnt found next one
         if(nextPhase == -1){
+            Log(error, "didnt find nextPhase");
             if(loop){
                 nextPhase = 0;
             }
             else{
                 // Revert direction
-                Log(error, "1 reversing phaseDirectionForward");
+                Log(error, "reversing phaseDirectionForward");
                 phaseDirectionForward = !phaseDirectionForward;
                 NextPhase();
                 return;
@@ -267,10 +270,9 @@ void NextPhase(){
         // Go back
         for (int i = currentPhase-1; i >= 0; i--)
         {
-            Log(error, "i: " + i);
             if(phases[i] != -1){
-                Log(error, "found: " + phases[i]);
                 // Found the next PhaseHotspot
+                Log(error, "found: " + phases[i]);
                 nextPhase = i;
                 break;
             }
@@ -282,7 +284,6 @@ void NextPhase(){
             if(loop){
                 for (uint i = phases.size()-1; i >= 0; i--)
                 {
-                    Log(error, "i: " + i);
                     if(phases[i] != -1){
                         // Found the next PhaseHotspot
                         Log(error, "found: " + phases[i]);
@@ -294,7 +295,7 @@ void NextPhase(){
             else{
                 // Revert direction
                 currentPhase = 0;
-                Log(error, "2 reversing phaseDirectionForward");
+                Log(error, "reversing phaseDirectionForward");
                 phaseDirectionForward = !phaseDirectionForward;
                 NextPhase();
                 return;
