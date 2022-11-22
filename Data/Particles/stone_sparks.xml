@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<particle>
+    <textures color_map = "Data/Textures/smoke.tga" 
+              normal_map = "Data/Textures/smoke_normal.tga"
+              shader = "glowsprite"
+              soft_shader = "envobject #PARTICLE #GLOW #NORMAL_MAP_TRANSLUCENT"/>
+    <size min = "0.01" max = "0.05"/>
+    <color red =   "2.7"
+           green = "2.7"
+           blue =  "3.5"
+           alpha_min = "1.0" alpha_max = "1.0"/>
+    <behavior inertia="0.05" gravity="0.1" wind="0.1" size_decay_rate="0.15" opacity_decay_rate="0.005"/>
+</particle>

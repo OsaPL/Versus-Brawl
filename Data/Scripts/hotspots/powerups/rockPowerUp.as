@@ -81,8 +81,9 @@ void SetParameters() {
     params.SetFloat("colorG", 0.1f);
     params.SetFloat("colorB", 0.7f);
 
-    params.SetFloat("particleDelay", 0.02f);
-    params.SetString("pathToParticles", "Data/Particles/explosion_fire.xml");
+    params.SetFloat("particleDelay", 0.001f);
+    params.SetString("pathToParticles", "Data/Particles/stone_sparks.xml");
+    params.SetFloat("particleRangeMultiply", 0.5f);
     params.SetFloat("particleColorR", 0.2f);
     params.SetFloat("particleColorG", 0.2f);
     params.SetFloat("particleColorB", 1.0f);

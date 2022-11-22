@@ -57,6 +57,8 @@ void PowerupHandleEvent(string event, MovementObject @mo)
                     Object@ obj = ReadObjectFromID(emitterId);
                     ScriptParams@ objParams = obj.GetScriptParams();
                     objParams.SetInt("objectIdToFollow", lastEnteredPlayerObjId);
+                    if(params.HasParam("boneToFollow"))
+                        objParams.SetString("boneToFollow", params.GetString("boneToFollow"));
                     objParams.SetFloat("particleDelay", params.GetFloat("particleDelay"));
                     objParams.SetFloat("particleRangeMultiply", params.GetFloat("particleRangeMultiply"));
                     objParams.SetString("pathToParticles", params.GetString("pathToParticles"));

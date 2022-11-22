@@ -31,8 +31,8 @@ void SetParameters() {
     params.AddFloatSlider("decayTime", decayTime,"min:0,max:100,step:0.01,text_mult:1");
 
     // These ones are specific
-    params.SetFloat("activeTime", 15.0f);
-    params.SetFloat("respawnTime", 18.0f);
+    params.SetFloat("activeTime", 10.0f);
+    params.SetFloat("respawnTime", 15.0f);
 
     params.SetString("startSoundPath", "Data/Sounds/footstep_mud_3.wav");
     params.SetString("stopSoundPath", "Data/Sounds/footstep_mud_7.wav");
@@ -43,7 +43,7 @@ void SetParameters() {
 
     params.SetFloat("particleDelay", 0.06f);
     params.SetString("pathToParticles", "Data/Particles/toxic_cloud.xml");
-    params.SetFloat("particleRangeMultiply", range * 1.0f);
+    params.SetFloat("particleRangeMultiply", range * 1.1f);
     params.SetFloat("particleColorR", 0.05f);
     params.SetFloat("particleColorG", 0.4f);
     params.SetFloat("particleColorB", 0.3f);
@@ -126,30 +126,30 @@ void Update()
                 }
             }
         }
-        
-        // Now check if it expired for anyone
-        array<int> toRemove = {};
-        for(uint k=0; k<affectedTimers.size(); ++k)
-        {
-            affectedTimers[k] -= time_step;
-            //Log(error, "Drunkmode timer for: " + mo.GetID());
-            if (affectedTimers[k] < 0) {
-                Log(error, "Drunkmode disabled for: " + affectedIds[k]);
-                MovementObject@ mo = ReadCharacterID(affectedIds[k]);
-                mo.Execute("drunkMode=false;");
-                PlaySound("Data/Sounds/unused/blow_dart_03.wav");
-                
-                DeleteObjectID(affectedEmittersIds[k]);
-                toRemove.push_back(k);
-            }
+    }
+
+    // Now check if it expired for anyone
+    array<int> toRemove = {};
+    for(uint k=0; k<affectedTimers.size(); ++k)
+    {
+        affectedTimers[k] -= time_step;
+        //Log(error, "Drunkmode timer for: " + mo.GetID());
+        if (affectedTimers[k] < 0) {
+            Log(error, "Drunkmode disabled for: " + affectedIds[k]);
+            MovementObject@ mo = ReadCharacterID(affectedIds[k]);
+            mo.Execute("drunkMode=false;");
+            PlaySound("Data/Sounds/unused/blow_dart_03.wav");
+
+            DeleteObjectID(affectedEmittersIds[k]);
+            toRemove.push_back(k);
         }
-        
-        for(uint k=0; k<toRemove.size(); ++k)
-        {
-            affectedIds.removeAt(toRemove[k]);
-            affectedTimers.removeAt(toRemove[k]);
-            affectedEmittersIds.removeAt(toRemove[k]);
-        }
+    }
+
+    for(uint k=0; k<toRemove.size(); ++k)
+    {
+        affectedIds.removeAt(toRemove[k]);
+        affectedTimers.removeAt(toRemove[k]);
+        affectedEmittersIds.removeAt(toRemove[k]);
     }
     
     PowerupUpdate();

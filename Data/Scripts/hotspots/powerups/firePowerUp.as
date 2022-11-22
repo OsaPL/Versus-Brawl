@@ -3,9 +3,13 @@
 float fireTime = 0.2f;
 float fireStep = 0.02f;
 float fireStepCounter = 0;
+float auraParticleDelay = 0.1f;
+float fistsParticleDelay = 0.001f;
 string slapSoundPath = "Data/Sounds/pop1.wav";
 array<float> fireTimer = {};
 array<int> fireTargets = {};
+//TODO! Add fire emitters to hands and feet when unarmed
+array<int> fireEmittersIds = {};
 
 // did it expire or has been used
 bool used = false;
@@ -20,7 +24,12 @@ void Init(){
     }));
     powerupTimer.Add(LevelEventJob("deactivate", function(_params){
         PlaySound(params.GetString("stopSoundPath"));
-
+        
+        for (uint i = 0; i < fireEmittersIds.size(); i++) {
+            DeleteObjectID(fireEmittersIds[i]);
+        }
+        fireEmittersIds = {};
+        
         return true;
     }));
 
@@ -72,8 +81,8 @@ void SetParameters() {
     PowerupSetParameters();
 
     // These ones are specific
-    params.SetFloat("activeTime", 15.0f);
-    params.SetFloat("respawnTime", 16.0f);
+    params.SetFloat("activeTime", 11.0f);
+    params.SetFloat("respawnTime", 15.0f);
 
     params.SetString("startSoundPath", "Data/Sounds/fire/character_catch_fire.wav");
     params.SetString("stopSoundPath", "Data/Sounds/fire/character_catch_fire_small.wav");
@@ -82,9 +91,9 @@ void SetParameters() {
     params.SetFloat("colorG", 0.2f);
     params.SetFloat("colorB", 0.0f);
 
-    params.SetFloat("particleDelay", 0.001f);
-    params.SetString("pathToParticles", "Data/Particles/explosion_fire.xml");
-    params.SetFloat("particleRangeMultiply", 0.3f);
+    params.SetFloat("particleDelay", auraParticleDelay);
+    params.SetString("pathToParticles", "Data/Particles/fire_fists.xml");
+    params.SetFloat("particleRangeMultiply", 0.5f);
     params.SetFloat("particleColorR", 1.0f);
     params.SetFloat("particleColorG", 0.3f);
     params.SetFloat("particleColorB", 0.0f);
@@ -96,6 +105,47 @@ void HandleEvent(string event, MovementObject @mo){
 
 void Update()
 {
+    if(active){
+        MovementObject@ user = ReadCharacterID(lastEnteredPlayerObjId);
+        int weapon = user.GetArrayIntVar("weapon_slots", user.GetIntVar("primary_weapon_slot"));
+    
+        if(weapon == -1) {
+            // Create emitters on hands and feet.
+            if(fireEmittersIds.size() <= 0){
+                for (uint i = 0; i < 4; i++) {
+                    int emitterId = CreateObject("Data/Objects/powerups/objectFollowerEmitter.xml");
+                    fireEmittersIds.push_back(emitterId);
+                    
+                    Object@ obj = ReadObjectFromID(emitterId);
+                    ScriptParams@ objParams = obj.GetScriptParams();
+                    objParams.SetInt("objectIdToFollow", lastEnteredPlayerObjId);
+        
+                    objParams.SetFloat("particleDelay", fistsParticleDelay);
+                    objParams.SetString("pathToParticles", "Data/Particles/fire_fists.xml");
+                    objParams.SetFloat("particleRangeMultiply", 0.025f);
+                    objParams.SetFloat("particleColorR", 0.8f);
+                    objParams.SetFloat("particleColorG", 0.2f);
+                    objParams.SetFloat("particleColorB", 0.0f);
+                    
+                    switch (i){
+                        case 0: objParams.SetString("boneToFollow", "leftarm"); break;
+                        case 1: objParams.SetString("boneToFollow", "rightarm"); break;
+                        case 2: objParams.SetString("boneToFollow", "left_leg"); break;
+                        case 3: objParams.SetString("boneToFollow", "right_leg"); break;
+                    }
+        
+                    obj.UpdateScriptParams();
+                }
+            }
+        }
+        else{
+            // Cleanup if there are any left
+            for (uint i = 0; i < fireEmittersIds.size(); i++) {
+                DeleteObjectID(fireEmittersIds[i]);
+            }
+            fireEmittersIds = {};
+        }
+    }
     // This is mainly done so that first roll after getting hit doesnt almost completely negate this powerup
     fireStepCounter += time_step;
     if(fireStepCounter>=fireStep){
@@ -130,6 +180,9 @@ void Update()
 
 void Dispose(){
     PowerupDispose();
+    for (uint i = 0; i < fireEmittersIds.size(); i++) {
+        DeleteObjectID(fireEmittersIds[i]);
+    }
 }
 
 void Draw()

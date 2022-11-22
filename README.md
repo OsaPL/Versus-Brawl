@@ -80,7 +80,7 @@ Unfortunately, it looks like spawning in new characters and then setting `SetPla
 
 6. **Fights are too fast!**
 
-You try changing the difficulty level to also slow down the game speed.
+You can try changing the difficulty level to also slow down the game speed.
 
 # Gamemodes:
 
@@ -188,7 +188,6 @@ Just CTF
 
 ## To be fixed 
 (or atleast to try to fix)
-- Virus powerup effect sometimes stays on forever (if you managed to reproduce it somehow, pls msg me)
 - Rock powerup can sometimes save you from dying from `genericKillHotspot`
 - Level specific `SpeciesStats` will not be set for the first spawn
 - for 2 players the UI still stays the same as for 3/4 players setup

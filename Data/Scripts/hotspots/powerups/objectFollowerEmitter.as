@@ -1,4 +1,5 @@
-﻿
+﻿int lightId = -1;
+float time = 0;
 void Init() {
     hotspot.SetCollisionEnabled(false);
 }
@@ -12,9 +13,11 @@ void SetParameters() {
     params.AddFloatSlider("particleColorR", 1.0f,"min:0,max:1,step:0.01,text_mult:255");
     params.AddFloatSlider("particleColorG", 1.0f,"min:0,max:1,step:0.01,text_mult:255");
     params.AddFloatSlider("particleColorB", 1.0f,"min:0,max:1,step:0.01,text_mult:255");
+    
 }
 
 void Update(){
+    time += time_step;
     if(!params.HasParam("objectIdToFollow"))
         return;
     
@@ -25,8 +28,34 @@ void Update(){
         Object@ me = ReadObjectFromID(hotspot.GetID());
         Object@ obj = ReadObjectFromID(objectIdToFollow);
         MovementObject@ mo = ReadCharacterID(objectIdToFollow);
+        vec3 pos = vec3(0);
+        string bonName = "torso";
+        if(params.HasParam("boneToFollow")){
+            bonName = params.GetString("boneToFollow");
+        }
+
+        vec3 bonePos = mo.rigged_object().GetIKTargetTransform(bonName).GetTranslationPart();
+        pos = bonePos;
+        
         PlaceholderObject@ placeholder_object = cast<PlaceholderObject@>(obj);
-        me.SetTranslation(mo.position);
+        me.SetTranslation(pos);
+        
+        // Also we move the light
+        if(lightId == -1){
+            // Lets spawn a small light
+            lightId = CreateObject("Data/Objects/lights/dynamic_light.xml");
+            Log(error, "Created lightId: " + lightId);
+            Object@ lightObj = ReadObjectFromID(lightId);
+            lightObj.SetScale(vec3(1));
+            vec3 color = vec3(params.GetFloat("particleColorR"), params.GetFloat("particleColorG"), params.GetFloat("particleColorB"));
+            lightObj.SetTint(color);
+        }
+
+        Object@ lightObj = ReadObjectFromID(lightId);
+        lightObj.SetScale(vec3(2.6f) + (vec3(sin(time)) / 5));
+        Log(error, "lightObj.GetScale(): " + lightObj.GetScale());
+
+        lightObj.SetTranslation(pos);
     }
 }
 
@@ -38,6 +67,7 @@ void PreDraw(float curr_game_time) {
     string pathToParticles = params.GetString("pathToParticles");
     
     if(ReadObjectFromID(hotspot.GetID()).GetEnabled()){
+        
         float delta_time = curr_game_time - last_game_time;
 
         Object@ obj = ReadObjectFromID(hotspot.GetID());
@@ -50,7 +80,8 @@ void PreDraw(float curr_game_time) {
             for(int i=0; i<1; ++i){
                 vec3 offset;
                 float rangeMlt = params.GetFloat("particleRangeMultiply");
-                vec3 color = vec3(params.GetFloat("particleColorR"),params.GetFloat("particleColorG"),params.GetFloat("particleColorB"));
+                vec3 color = vec3(params.GetFloat("particleColorR"), params.GetFloat("particleColorG"), params.GetFloat("particleColorB"));
+                
                 offset.x += RangedRandomFloat(-scale.x*rangeMlt,scale.x*rangeMlt);
                 offset.y += RangedRandomFloat(-scale.y*rangeMlt,scale.y*rangeMlt);
                 offset.z += RangedRandomFloat(-scale.z*rangeMlt,scale.z*rangeMlt);
@@ -64,6 +95,12 @@ void PreDraw(float curr_game_time) {
     }
     last_game_time = curr_game_time;
     LeaveTelemetryZone();
+}
+
+void Dispose(){
+    if(ObjectExists(lightId)){
+        DeleteObjectID(lightId);
+    }
 }
 
 bool AcceptConnectionsFrom(Object@ other) {

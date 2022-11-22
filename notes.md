@@ -3,6 +3,7 @@
 - add checkmarks or something to race goal to show you've already hit them
 - waterRise and Phase should support Reset (reuse the thing you did for EditorModeActive)
 - add `coop panic` button for each coop partner, that resurrects and teleports coop player back to the first player
+- extend `powerUpBase.as` to allow more than a single particle emitter
 
 ### For changelogs
 `git log <hash>..HEAD --pretty=format:%s`
@@ -62,9 +63,11 @@ The shortnames for modes are cryptic => seperate gamemodes into folders?
 
 ### Scuffed things (that are probably bugs in OG) that need to get reported:
 - Level params are unusable for other values than string (float are getting converted to ints, sliders crash the game etc.)
-- You can spawn an object in code with `CreateObject("object.xml", /* save object: */ false);` and still connect stuff to it.
+- You can spawn an object in code with `CreateObject("object.xml", /* save object: */ false);` and still connect stuff to it in editor.
 - `Input` class crashes when it tries to ask for input pressed for a player that got spawned, but not yet acquired a controllerId (probably why, didnt get much deeper into it, still, its easy to reproduce)
 - Why `AssetManager` is not exposed to `as_context`?! >:(
 - Death event message is called so many times on a single death, its actually clogging up the pipe for other (time sensitive) messages (probably is called each frame a character is dead?)
 - `Load Item...` menu entry sometimes occupies the same place as `Load` making clicking on `Load` also click on `Load Item...`. (just include Gyrth Object Menu mod cowards)
 - `DebugDrawBillboard` has wrong TEXTURE_WRAP setting, which makes the texture bleed on top sometimes (`GL_CLAMP_TO_EDGE` should help?)
+- `SetEditorLabel` only works for placeholder objects
+- using `JSONValue` sometimes just crashes games (easiest way to reproduce is just to keep reloading the level script)

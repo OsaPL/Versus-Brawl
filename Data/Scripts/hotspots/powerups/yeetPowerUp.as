@@ -61,8 +61,8 @@ void SetParameters() {
     params.AddFloatSlider("knockbackMlt", knockbackMlt,"min:0,max:100,step:0.01,text_mult:1");
 
     // These ones are specific
-    params.SetFloat("activeTime", 15.0f);
-    params.SetFloat("respawnTime", 18.0f);
+    params.SetFloat("activeTime", 10.0f);
+    params.SetFloat("respawnTime", 10.0f);
 
     params.SetString("startSoundPath", "Data/Sounds/DirtImpact2.wav");
     params.SetString("stopSoundPath", "Data/Sounds/DirtImpact1.wav");
@@ -71,8 +71,9 @@ void SetParameters() {
     params.SetFloat("colorG", 1.0f);
     params.SetFloat("colorB", 0.0f);
 
-    params.SetFloat("particleDelay", 0.0005f);
+    params.SetFloat("particleDelay", 0.0001f);
     params.SetString("pathToParticles", "Data/Particles/metalspark.xml");
+    params.SetFloat("particleRangeMultiply", 0.7f);
     params.SetFloat("particleColorR", 0.7f);
     params.SetFloat("particleColorG", 0.5f);
     params.SetFloat("particleColorB", 0.0f);

@@ -42,7 +42,7 @@ void SetParameters() {
     params.AddFloatSlider("Phase Change Time", 2.0f, "min:0.0,max:360.0,step:0.1");
     params.AddIntCheckbox("Loop Phases", true);
     params.AddIntCheckbox("Phase Starting Direction Forward", true);
-    params.AddFloatSlider("Delay Time", 0.0f, "min:0.0,max:360.0,step:0.01");
+    params.AddFloatSlider("Delay Time", 0.0f, "min:0.0,max:9.8696,step:0.01"); // 2x PI is ~9.8696
     params.AddString("game_type", "versusBrawl");
 }
 
