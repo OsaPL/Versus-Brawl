@@ -53,7 +53,7 @@ void Update(){
 
         Object@ lightObj = ReadObjectFromID(lightId);
         lightObj.SetScale(vec3(2.6f) + (vec3(sin(time)) / 5));
-        Log(error, "lightObj.GetScale(): " + lightObj.GetScale());
+        //Log(error, "lightObj.GetScale(): " + lightObj.GetScale());
 
         lightObj.SetTranslation(pos);
     }

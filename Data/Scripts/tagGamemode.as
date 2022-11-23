@@ -22,6 +22,8 @@ array<bool> currentChasers = { false, false, false, false };
 array<float> freezeTimers = { 0, 0, 0, 0 };
 array<bool> isFreezed = { false, false, false, false };
 array<int> freezeEmmiters = { -1, -1, -1, -1 };
+array<int> blingEmmiters = { -1, -1, -1, -1 };
+
 float timer = 0;
 int lastTimer = 0;
 bool initUI = true;
@@ -47,6 +49,7 @@ void ResetTag(){
     freezeTimers = {};
     isFreezed = {};
     freezeEmmiters = {};
+    blingEmmiters = {};
     timer = 0;
     lastTimer = 0;
     start = true;
@@ -59,6 +62,7 @@ void ResetTag(){
         freezeTimers.push_back(0);
         isFreezed.push_back(false);
         freezeEmmiters.push_back(-1);
+        blingEmmiters.push_back(-1);
     }
 
     //Select a random chaser
@@ -254,7 +258,7 @@ void Update(){
         else{
             if(start) {
                 lastTimer = int(freezeTime) - int(timer) - 1;
-                Log(error, "lastTimer: " + lastTimer);
+                //Log(error, "lastTimer: " + lastTimer);
                 if(lastTimer == 0){
                     versusAHGUI.SetText("Time left: " + lastTimer, "Get ready!", vec3(0.0f, 0.6f, 1.0f));
                 }
@@ -293,9 +297,13 @@ void Update(){
                 PlaySound("Data/Sounds/ice_foley/bf_ice_medium_3.wav");
 
                 // Remove the emitter
-                if(freezeEmmiters[i] != -1)
+                if(freezeEmmiters[i] != -1){
                     DeleteObjectID(freezeEmmiters[i]);
+                    DeleteObjectID(blingEmmiters[i]);
+                }
+                    
                 freezeEmmiters[i] = -1;
+                blingEmmiters[i] = -1;
                 
                 addSpeciesStats(ReadObjectFromID(victim.objId));
                 isFreezed[i] = false;
@@ -426,8 +434,10 @@ void Freeze(int playerNr){
     charParams.SetFloat("Jump - Jump Sustain Boost",  0.1f);
     charObj.UpdateScriptParams();
 
-    if(freezeTimers[playerNr] != -1)
+    if(freezeTimers[playerNr] != -1){
         DeleteObjectID(freezeEmmiters[playerNr]);
+        DeleteObjectID(blingEmmiters[playerNr]);
+    }
         
     freezeTimers[playerNr] = freezeTime;
     isFreezed[playerNr] = true;
@@ -440,11 +450,23 @@ void Freeze(int playerNr){
     ScriptParams@ objParams = obj.GetScriptParams();
     objParams.SetInt("objectIdToFollow", victim.objId);
     objParams.SetFloat("particleDelay", 0.005f);
-    objParams.SetFloat("particleRangeMultiply", 1.0f);
+    objParams.SetFloat("particleRangeMultiply", 0.8f);
     objParams.SetString("pathToParticles", "Data/Particles/smoke.xml");
     objParams.SetFloat("particleColorR", 0.6f);
     objParams.SetFloat("particleColorG", 0.6f);
     objParams.SetFloat("particleColorB", 0.9f);
+
+    int blingEmitterId = CreateObject("Data/Objects/powerups/objectFollowerEmitter.xml");
+    blingEmmiters[playerNr] = blingEmitterId;
+    Object@ blingObj = ReadObjectFromID(blingEmitterId);
+    ScriptParams@ blingParams = blingObj.GetScriptParams();
+    blingParams.SetInt("objectIdToFollow", victim.objId);
+    blingParams.SetFloat("particleDelay", 0.05f);
+    blingParams.SetFloat("particleRangeMultiply", 0.5f);
+    blingParams.SetString("pathToParticles", "Data/Particles/stone_sparks.xml");
+    blingParams.SetFloat("particleColorR", 0.6f);
+    blingParams.SetFloat("particleColorG", 0.6f);
+    blingParams.SetFloat("particleColorB", 0.9f);
 
     Log(error, "Freeze: "+ playerNr + " teams: " + charParams.GetString("Teams"));
 }

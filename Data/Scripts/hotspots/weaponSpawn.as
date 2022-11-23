@@ -55,7 +55,7 @@ void Update(){
     
     if(!itemObj.IsHeld()){
         // Dont move if just dropped/thrown!
-        if(!thrown){
+        if(!justReleased){
             if (oldPos != me.GetTranslation() || oldRot != me.GetRotation()) {
                 //Log(error, "pos or rot changed, moving");
                 if(spawnTimer != params.GetInt("RespawnTime"))
