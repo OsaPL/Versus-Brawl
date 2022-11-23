@@ -36,7 +36,7 @@
     <RayToSun r0="0.30044" r1="0.8" r2="0.519361" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="18.3026" t1="10.9564" t2="-1.81357" s0="1" s1="1" s2="1" q0="0.0110558" q1="-0.539037" q2="0.00707632" q3="0.84218" euler_x="0.0262536" euler_y="-1.1387" euler_z="0" id="0">
+    <CameraObject t0="19.4455" t1="11.3881" t2="3.56419" s0="1" s1="1" s2="1" q0="0.114937" q1="-0.690287" q2="0.112468" q3="0.705439" euler_x="0.323026" euler_y="-1.54908" euler_z="-5.49078e-006" id="0">
         <parameters />
     </CameraObject>
     <Hotspot t0="3.12233" t1="9.41678" t2="-19.3385" s0="0.333358" s1="0.333358" s2="0.333358" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" type_file="Data/Objects/playerSpawn.xml">
@@ -131,6 +131,7 @@
             <parameter name="game_type" type="string" val="versusBrawl" />
         </parameters>
         <Connections>
+            <Connection id="1" />
             <Connection id="7" />
             <Connection id="11" />
             <Connection id="28" />
@@ -176,7 +177,6 @@
             <Connection id="647" />
             <Connection id="648" />
             <Connection id="641" />
-            <Connection id="1" />
             <Connection id="626" />
         </Connections>
         <ConnectionsFrom />
@@ -2243,7 +2243,7 @@
     <DynamicLightObject t0="15.8761" t1="8.84863" t2="10.1201" s0="2.77081" s1="2.77081" s2="2.77081" q0="-0.0167321" q1="-0.006302" q2="0.000981358" q3="0.99984" euler_x="-0.0334801" euler_y="-0.0125695" euler_z="0.00217347" id="650" color_r="0.164219" color_g="0" color_b="0.537255" overbright="0">
         <parameters />
     </DynamicLightObject>
-    <Hotspot t0="10.3731" t1="-1.01714" t2="-17.668" s0="53.6995" s1="0.916985" s2="54.9621" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="651" type_file="Data/Objects/Hotspots/generic_kill.xml">
+    <Hotspot t0="15.6264" t1="-9.76306" t2="6.69719" s0="53.6995" s1="0.916985" s2="54.9621" q0="-0.00427586" q1="-0.0154839" q2="-0.00534093" q3="0.999857" euler_x="-0.00838923" euler_y="-0.031014" euler_z="-0.0105532" id="651" type_file="Data/Objects/Hotspots/generic_kill.xml">
         <parameters>
             <parameter name="KillNPC" type="int" val="1" />
             <parameter name="KillPlayer" type="int" val="1" />

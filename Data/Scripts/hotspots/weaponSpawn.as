@@ -5,6 +5,7 @@ quaternion oldRot;
 string oldPath = "Data/Items/Rapier.xml";
 float spawnTimer = 0;
 int weaponId = -1;
+bool justReleased = true;
 
 void Init(){
     Object@ me = ReadObjectFromID(hotspot.GetID());
@@ -28,6 +29,7 @@ void Update(){
     // Get hotspot and placeholder, and then setup
     Object@ me = ReadObjectFromID(hotspot.GetID());
     
+    
     if(weaponId == -1){
         Log(error, "weaponId missing, spawning");
         weaponId = CreateObject(params.GetString("ItemPath"));
@@ -35,45 +37,55 @@ void Update(){
         obj.SetTranslation(me.GetTranslation());
         obj.SetRotation(me.GetRotation());
         spawnTimer = params.GetInt("RespawnTime");
+        justReleased = false;
     }
-    
-    if(oldPath != params.GetString("ItemPath")) {
+
+    if (oldPath != params.GetString("ItemPath")) {
         Log(error, "ItemPath changed, removing");
         DeleteObjectID(weaponId);
         weaponId = -1;
         spawnTimer = params.GetInt("RespawnTime");
         oldPath = params.GetString("ItemPath");
+        justReleased = false;
         return;
     }
 
     Object@ obj = ReadObjectFromID(weaponId);
-
-    if(oldPos != me.GetTranslation() || oldRot != me.GetRotation()) {
-        Log(error, "pos or rot changed, moving");
-        obj.SetTranslation(me.GetTranslation());
-        obj.SetRotation(me.GetRotation());
-    }
-
     ItemObject@ itemObj = ReadItemID(weaponId);
+    
     if(!itemObj.IsHeld()){
-        vec3 distVec = itemObj.GetPhysicsTransform()* vec3(0.0f, 0.0f, 0.0f) - me.GetTransform()* vec3(0.0f, 0.0f, 0.0f);
+        // Dont move if just dropped/thrown!
+        if(!thrown){
+            if (oldPos != me.GetTranslation() || oldRot != me.GetRotation()) {
+                //Log(error, "pos or rot changed, moving");
+                if(spawnTimer != params.GetInt("RespawnTime"))
+                    Log(error, "spawnTimer: " + spawnTimer);
+                obj.SetTranslation(me.GetTranslation());
+                obj.SetRotation(me.GetRotation());
+            }
+        }
         
+        vec3 distVec = itemObj.GetPhysicsTransform()* vec3(0.0f, 0.0f, 0.0f) - me.GetTransform()* vec3(0.0f, 0.0f, 0.0f);
+
         if(length(distVec)> params.GetInt("RespawnDistance"))
         {
             //Log(error, "Is too far "+ length(distVec) + " spawnTimer:"+spawnTimer);
             spawnTimer -= time_step;
             if(spawnTimer<0){
-                Log(error, "removing: "+weaponId+" distance:"+length(distVec)); 
+                Log(error, "removing: "+weaponId+" distance:"+length(distVec));
                 DeleteObjectID(weaponId);
                 weaponId = -1;
                 spawnTimer = 0;
+                justReleased = false;
             }
-
         }
         else
         {
             spawnTimer = params.GetInt("RespawnTime");
         }
+    }
+    else{
+        justReleased = true;
     }
 }
 
