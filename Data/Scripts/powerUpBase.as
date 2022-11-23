@@ -182,3 +182,8 @@ void PowerupDraw(){
             _delete_on_draw);
     }
 }
+
+void PowerupReset(){
+    Object@ me = ReadObjectFromID(hotspot.GetID());
+    me.ReceiveScriptMessage("deactivate");
+}

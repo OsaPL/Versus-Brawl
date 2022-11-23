@@ -24,6 +24,7 @@ float startingPhaseHeight;
 array<int> objectsToMove;
 array<int> savedConnectedObjectIds;
 array<vec3> savedConnectedObjectStartPositions;
+bool exitedEditorMode = false;
 // Phases hotspot IDs
 array<int> phases;
 bool init = true;
@@ -89,8 +90,20 @@ void Update(){
     
     // This helps mapping, since it stops and resets everything if disabled or in editor
     if(!me.GetEnabled() || EditorModeActive()){
+        exitedEditorMode = true;
+        // Clearing savedConnectedObjectStartPositions helps with making changes to object placements
+        savedConnectedObjectStartPositions = {};
         Reset();
         return;
+    }
+
+    // If we exited editormode, fill again savedConnectedObjectStartPositions
+    if(exitedEditorMode){
+        for (uint i = 0; i < savedConnectedObjectIds.size(); i++) {
+            Object@ other = ReadObjectFromID(savedConnectedObjectIds[i]);
+            savedConnectedObjectStartPositions.push_back(other.GetTranslation());
+        }
+        exitedEditorMode = false;
     }
 
     // Animate water and objects to bob around a little
