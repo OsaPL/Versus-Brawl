@@ -90,10 +90,13 @@ void Update(){
     
     // This helps mapping, since it stops and resets everything if disabled or in editor
     if(!me.GetEnabled() || EditorModeActive()){
-        exitedEditorMode = true;
+        if(!exitedEditorMode){
+            Reset();
+            exitedEditorMode = true;
+        }
+
         // Clearing savedConnectedObjectStartPositions helps with making changes to object placements
         savedConnectedObjectStartPositions = {};
-        Reset();
         return;
     }
 
