@@ -2457,6 +2457,7 @@ void Update(int num_frames) {
         CoopPartnersCheck();
         initCoopPartners = false;
     }
+    CoopPanic();
 
     // DebugText("pos" + this_mo.GetID(), "Pos" + this_mo.GetID() + ": " + this_mo.position, 0.5);
     // DebugText("num_hit_on_ground" + this_mo.GetID(), "num_hit_on_ground" + this_mo.GetID() + ": " + num_hit_on_ground, 0.5);

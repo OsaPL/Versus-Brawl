@@ -96,11 +96,11 @@ Gather kills to get points
 
 Play through campaign with friendsos.
 
-- 👻Race (mostly done, needed maps and balancing)
+- Race (👻mostly done, needed maps and balancing)
   
 *self explanatory*
 
-- 👻Tag (done, needs maps)
+- Tag (👻done, needs maps)
 
 Catchers needs to catch everyone
 
@@ -188,7 +188,7 @@ Just CTF
 
 ## To be fixed 
 (or atleast to try to fix)
-- Rock powerup can sometimes save you from dying from `genericKillHotspot`
+- Rock powerup can sometimes save you from dying from `genericKillHotspot` (dont use on maps where you need to kill players using that)
 - Level specific `SpeciesStats` will not be set for the first spawn
 - for 2 players the UI still stays the same as for 3/4 players setup
 - most of the UI stuff is filled with placeholders atm
@@ -198,8 +198,8 @@ Just CTF
 - Coop partners sometimes bug out under the ground/behind walls whenever its cramped (depends on map makers to accomodate)
 - maps stutter after load (preloading is done after level load since `AssetManager` is not available in `as_context`)
 - clothing colors may look wonky, low priority
-- UI gets wonky on weird resolutions (standard aspects 16:10, 16:9, 4:3 all work, to fix, migration to imgui is probably needed)
-
+- UI gets wonky on weird resolutions (standard aspects like 16:10, 16:9, 4:3 all work, to fix, migration to imgui is probably needed)
+- Holding a global JsonVALUE just crashes the game during script load sometimes (maybe just load the file when needed?)
 # Thanks to:
 [WolfireGames](https://github.com/WolfireGames) - for being awesome developers (source code helped me a lot)
 

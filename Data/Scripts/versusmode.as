@@ -494,18 +494,6 @@ string IntToSpecies(int speciesNr) {
     return speciesMap[speciesNr].Name;
 }
 
-/// This code is just stolen from arena_level.as
-Object@ SpawnObjectAtSpawnPoint(Object@ spawn, string &in path) {
-    int obj_id = CreateObject(path, true);
-    spawned_object_ids.push_back(obj_id);
-    Object @new_obj = ReadObjectFromID(obj_id);
-    new_obj.SetTranslation(spawn.GetTranslation());
-    vec4 rot_vec4 = spawn.GetRotationVec4();
-    quaternion q(rot_vec4.x, rot_vec4.y, rot_vec4.z, rot_vec4.a);
-    new_obj.SetRotation(q);
-    return new_obj;
-}
-
 void DeleteObjectsInList(array<int> &inout ids) {
     int num_ids = ids.length();
     for(int i=0; i<num_ids; ++i){
