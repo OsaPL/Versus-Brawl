@@ -25,11 +25,11 @@
     <NeedsRestart>false</NeedsRestart>
 
     <Campaign title="Versus Brawl" thumbnail="Images/versus-brawl/placeholder.png" menu_script="arena_campaign_menu.as" main_script="linear_campaign.as">
-        <Level title="Blocks DM" thumbnail="Images/versus-brawl/blocks.jpg">versus-brawl/blocks_map.xml</Level>
-		<Level title="Balance LBS" thumbnail="Images/versus-brawl/planks.jpg">versus-brawl/plank_map.xml</Level>
-        <Level title="Cave DM" thumbnail="Images/versus-brawl/cave.jpg">versus-brawl/cave_map.xml</Level>
-        <Level title="(Beta)Sewer DM" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/sewer_map.xml</Level>
-        <Level title="(Beta)Floating2 TAG" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/sewer_map.xml</Level>
-        <Level title="(WIP)Branches RACE" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/branches_map.xml</Level>
+        <Level title="Elder Blocks DM" thumbnail="Images/versus-brawl/blocks.jpg">versus-brawl/blocks_map.xml</Level>
+		<Level title="Elder Balance LBS" thumbnail="Images/versus-brawl/planks.jpg">versus-brawl/plank_map.xml</Level>
+        <Level title="Dank Caves DM" thumbnail="Images/versus-brawl/cave.jpg">versus-brawl/cave_map.xml</Level>
+        <Level title="(Beta)Imperial Sewers DM" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/sewer_map.xml</Level>
+        <Level title="(Beta)Gods Exile TAG" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/floating2_map.xml</Level>
+        <Level title="(WIP)Tree Climb RACE" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/branches_map.xml</Level>
     </Campaign>
 </Mod>

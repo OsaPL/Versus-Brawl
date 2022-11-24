@@ -1,6 +1,8 @@
 #include "versusmode.as"
 // ^^ only this is needed
 
+// #2 is killfeed stuff, probably I need to seperate setText into setMainText(mainText,mainColor) and setSubText(subText,subColor)
+
 // Configurables
 int pointsToWin = 10;
 float pointsTextShowTime = 7.2f;
@@ -24,7 +26,7 @@ void Init(string msg){
 
     Log(error, "Adding oneKilledByTwo handler");
     levelTimer.Add(LevelEventJob("oneKilledByTwo", function(_params){
-        if(currentState>=2){
+        if(currentState>=2 && currentState<100){
             Log(error, "Player "+_params[1]+" was killed by player "+_params[2]);
             for (uint k = 0; k < versusPlayers.size(); k++)
             {
@@ -32,6 +34,21 @@ void Init(string msg){
                 if(player.objId == parseInt(_params[2])){
                     killsCount[player.playerNr]++;
                     updateScores = true;
+                    // TODO! Clean this up somehow to create a killfeed UI #2
+                    // for (uint j = 0; j < versusPlayers.size(); j++)
+                    // {
+                    //     VersusPlayer@ playerVictim = GetPlayerByNr(j);
+                    //     Log(error, "search for victim: " + _params[1] +" .objId: "+ playerVictim.objId + " .playerNr: " + playerVictim.playerNr + " ");
+                    //     if(playerVictim.objId == parseInt(_params[1])) {
+                    //         string killText = "" + IntToColorName(player.playerNr) + " x " + IntToColorName(playerVictim.playerNr);
+                    //         Log(error, "FOUND! " + killText);
+                    //        
+                    //         versusAHGUI.SetText(killText, GetTeamUIColor(player.playerNr));
+                    //         break;
+                    //     }
+                    // }
+                    
+                    break;
                 }
             }
         }
@@ -73,7 +90,8 @@ void Update(){
             versusAHGUI.SetText("Playing to: "+pointsToWin+" kills!");
         }
         else{
-            if(pointsTextShowTimer>pointsTextShowTime){
+            // TODO! the commented stuff is ugly #2
+            if(pointsTextShowTimer>pointsTextShowTime){ //&& versusAHGUI.text == "Playing to: "+pointsToWin+" kills!"){
                 versusAHGUI.SetText("");
             }
             else{

@@ -21,20 +21,17 @@ array<string> insults = {
     "Oooh! That's gonna leave a mark!"
 };
 
-// TODO! We can extend both in gamemode Init() with gamemode specific hints
 // TODO! Add cases when which should be used (only use first two if `blockSpeciesChange==false` etc.)
 array<string> warmupHints = {
     "Hold @drop@ and @item@ to activate character change...",
-    "... then just press @attack@ to cycle through them.",
+    "...then just press @attack@ to cycle through them.",
     "If your character wont change right now, it will on next respawn.",
     "Weapons will respawn after not being picked back up.",
     "Violet powerup is ninja mode, infinite throwing knife, just hold @item@.",
     "Blue powerup makes you sturdy as a rock.",
-    "Green powerup will heall all your wounds.",
-    "Orange powerup enchances your next blunt hit. Slap!"
+    "Green powerup will heall all your wounds."
 };
 
-// TODO! Show them randomly during the match? if the text is empty
 array<string> randomHints = {
     "Horizontal mobility is great, but cats and rats can dominate vertical spaces.",
     "Try using @jump@ as a dash, while playing cat or rat.",
@@ -46,7 +43,7 @@ array<string> randomHints = {
     "Tired of getting things thrown at you? Be a cat!",
     "Holster weapons holding @drop@.",
     "Throwing a weapon does less damage than swinging it.",
-    "You can press @block@ to catch an thrown weapon."
+    "You can time a @grab@ press to catch an thrown weapon."
 };
 
 //Configurables
@@ -68,6 +65,7 @@ bool instantSpeciesChange = false;
 bool enablePreload = true;
 bool noReloads = false;
 float maxCollateralKillTime = 5.0f;
+float hintStayTime = 4.0f;
 
 // How often we want to make all char aware TODO! Fix up this?
 float set_omniscientTimeSpan = 3.0f;
@@ -90,6 +88,17 @@ float placeholderTimer = 1;
 bool preload = true;
 
 string placeHolderActorPath = "Data/Objects/characters/rabbot_actor.xml";
+
+// This controls whether to show keyboard and mouse keys
+// last_mouse_event_time, last_keyboard_event_time and last_controller_event_time are using some kind of weird timer, not really compatible with what we have using `time_step`
+// So we will just keep track, and if it increases, just restart our own timer
+float ignoreKbMAfter = 2.0f;
+float lastKbMInput = max(last_mouse_event_time, last_keyboard_event_time);
+float scriptlastKbMInputTimer = 0;
+// Hints system
+float hintTimer = 0;
+int currentHint = -1;
+bool hintBrake = false;
 
 VersusAHGUI versusAHGUI;
 TimedExecution levelTimer;
@@ -425,12 +434,18 @@ string InsertKeysToString( string text )
                 string first_half = text.substr(0,i);
                 string second_half = text.substr(j+1);
                 string input = text.substr(i+1,j-i-1);
-                //TODO! This can be fix to also support keyboard mappings if I use the same:
-                //bool use_keyboard = (max(last_mouse_event_time, last_keyboard_event_time) > last_controller_event_time);
-                // as in aschar.as
+                
                 string middle = GetStringDescriptionForBinding("gamepad_0", input);
+                
+                // We decide whether we should show keyboard and mouse inputs
+                Log(error,"last_mouse_event_time: " + last_mouse_event_time + " last_keyboard_event_time: " + last_keyboard_event_time);
+                string middleKb = "";
+                Log(error, "scriptlastKbMInputTimer: " + scriptlastKbMInputTimer + " ignoreKbMAfter: " + scriptlastKbMInputTimer);
+                if(ignoreKbMAfter > scriptlastKbMInputTimer){
+                    middleKb = "/" + GetStringDescriptionForBinding("key", input);
+                }
 
-                text = first_half + middle + second_half;
+                text = first_half + middle + middleKb + second_half;
                 i += middle.length();
                 break;
             }
@@ -572,6 +587,13 @@ void VersusDrawGUI(){
 }
 
 void VersusUpdate() {
+    scriptlastKbMInputTimer += time_step;
+    if(lastKbMInput < max(last_mouse_event_time, last_keyboard_event_time))
+    {
+        //Log(error, "KbM Event! resetting scriptlastKbMInputTimer! Diff: " + (last_mouse_event_time - scriptlastKbMInputTimer) );
+        scriptlastKbMInputTimer = 0;
+        lastKbMInput = max(last_mouse_event_time, last_keyboard_event_time);
+    }
     
     if(!CheckSpawnsNumber()) {
         //Warn about the incorrect number of spawns
@@ -614,6 +636,7 @@ void VersusUpdate() {
     }
     
     levelTimer.Update();
+    
     for(uint i = 0; i < versusPlayers.size(); i++)
     {
         VersusPlayer@ player = GetPlayerByNr(i);
@@ -673,6 +696,40 @@ void VersusUpdate() {
         ChangeGameState(0);
     }
 
+    // Dont count time for hints if its preloading
+    if(currentState >= 0)
+        hintTimer += time_step;
+    // Only show hits if: warmup (these are important) or: `tutorials` setting is turned on (random could hints help)
+    if(hintTimer > hintStayTime && (GetConfigValueBool("tutorials") || currentState == 0)){
+        currentHint++;
+        
+        hintTimer = 0;
+        
+        // Warmup hints cycle
+        if(currentState == 0){
+            if(currentHint > int(warmupHints.size()) - 1)
+                currentHint = 0;
+            versusAHGUI.SetText(versusAHGUI.text, warmupHints[currentHint]);
+        }
+        else{
+            // If its empty, or still displaying previous hint, take new one
+            if(versusAHGUI.extraText == "" || versusAHGUI.extraText == InsertKeysToString(randomHints[currentHint - 1])){
+
+                if(currentHint > int(randomHints.size()) - 1){
+                    currentHint = 0;
+                }
+                if(hintBrake){
+                    versusAHGUI.SetText(versusAHGUI.text, "");
+                    hintBrake = false;
+                }
+                else{
+                    versusAHGUI.SetText(versusAHGUI.text, randomHints[currentHint]);
+                    hintBrake = true;
+                }
+            }
+        }
+    }
+
     PlaySong("ambient-tense");
     versusAHGUI.Update();
 }
@@ -728,7 +785,13 @@ class VersusAHGUI : AHGUI::GUI {
     }
     
     //Use this to easily set current onscreen text
-    void SetText(string maintext, string subtext="", vec3 color = vec3(1.0f)){
+    void SetText(string maintext, vec3 color = vec3(1.0f)){
+        text = InsertKeysToString(maintext);
+        textColor = color;
+        layoutChanged = true;
+    }
+
+    void SetText(string maintext, string subtext, vec3 color = vec3(1.0f)){
         text = InsertKeysToString(maintext);
         extraText = InsertKeysToString(subtext);
         textColor = color;
@@ -750,10 +813,10 @@ class VersusAHGUI : AHGUI::GUI {
     
         // If in editor hide the text
         if(EditorModeActive()){
-            DisplayText(DDTop, header, 8, "", 90, vec4(textColor,1.0f), "", 70);
+            DisplayText(DDTop, header, 8, "", 90, vec4(textColor,1.0f), "", 55);
         }
         else{
-            DisplayText(DDTop, header, 8, text, 90, vec4(textColor,1.0f), extraText, 70);
+            DisplayText(DDTop, header, 8, text, 90, vec4(textColor,1.0f), extraText, 55);
         }
     }
     
@@ -1187,7 +1250,7 @@ void ChangeGameState(uint newState) {
             winnerNr = -1;
             PlaySound("Data/Sounds/versus/voice_start_1.wav");
             // Clear text
-            versusAHGUI.SetText("");
+            versusAHGUI.SetText("", "");
             level.SendMessage("reset");
             break;
         case 100:
