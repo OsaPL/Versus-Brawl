@@ -27,7 +27,10 @@
       "Jump - Jump Sustain Boost": 1.0,
 
       "Throw - Initial Velocity Multiplier": 5.0,
-      "Throw - Mass Multiplier": 2.0
+      "Throw - Mass Multiplier": 2.0,
+      
+      "Knockout Shield": 0,
+      "Fall Damage Multiplier": 1.0
     },
     "cat": {
       "Attack Damage" : 1.1,
@@ -42,7 +45,11 @@
       "Jump - Jump Sustain": 2.0,
       "Jump - Jump Sustain Boost": 2.0,
 
-      "Fall Damage Multiplier": 0.0
+      "Fall Damage Multiplier": 0.0,
+      
+      "Knockout Shield": 0,
+      "Throw - Initial Velocity Multiplier": 1.0,
+      "Throw - Mass Multiplier": 1.0
     },
     "rat": {
       "Attack Damage" : 0.7,
@@ -52,12 +59,16 @@
       "Movement Speed": 1.2,
       "Character Scale": 0.9,
 
-      "Jump - Initial Velocity": 3.5,
+      "Jump - Initial Velocity": 4.5,
       "Jump - Air Control": 4.0,
       "Jump - Jump Sustain": 10.0,
       "Jump - Jump Sustain Boost": 10.0,
 
-      "Knockout Shield": 1
+      "Knockout Shield": 1,
+      
+      "Fall Damage Multiplier": 1.0,
+      "Throw - Initial Velocity Multiplier": 1.0,
+      "Throw - Mass Multiplier": 1.0
     },
     "wolf": {
       "Attack Damage" : 0.15,
@@ -70,7 +81,12 @@
       "Jump - Initial Velocity": 10.0,
       "Jump - Air Control": 1.0,
       "Jump - Jump Sustain": 5.0,
-      "Jump - Jump Sustain Boost": 5.0
+      "Jump - Jump Sustain Boost": 5.0,
+
+      "Knockout Shield": 0,
+      "Fall Damage Multiplier": 1.0,
+      "Throw - Initial Velocity Multiplier": 1.0,
+      "Throw - Mass Multiplier": 1.0
     }
   }
 }
