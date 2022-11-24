@@ -11,6 +11,14 @@ array<int> checkpointReached = {0,0,0,0};
 
 //Level methods
 void Init(string msg){
+    // Race specific hints
+    //Remove first 3, cause you cant change species here
+    warmupHints.removeAt(0);
+    warmupHints.removeAt(0);
+    warmupHints.removeAt(0);
+    warmupHints.insertAt(0, "You need to get all the checkpoints, order doesnt matter.");
+    randomHints.insertAt(0, "No rules, dont feel bad for hitting people.");
+    
     //We setup the parameters before init call
     useGenericSpawns = true;
     useSingleSpawnType = false;

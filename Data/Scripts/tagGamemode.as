@@ -105,6 +105,15 @@ void ResetTag(){
 
 //Level methods
 void Init(string msg){
+    
+    // Tag specific hints
+    warmupHints.insertAt(0, "Hitting a runner, turns him into a chaser.");
+    warmupHints.insertAt(0, "If a runner dies, he wont respawn! Be careful.");
+    warmupHints.insertAt(0, "If a chaser dies, he will respawn and be freezed. Waste their time.");
+    warmupHints.insertAt(0, "Killing a runner wont convert him to a chaser, try to catch them.");
+    randomHints.insertAt(0, "Sometimes catching helps more, you may need some help.");
+    randomHints.insertAt(0, "Someones really elusive? Maybe killing him is a better idea.");
+    
     forcedSpecies = _rat;
     blockSpeciesChange = true;
     //Always need to call this first!

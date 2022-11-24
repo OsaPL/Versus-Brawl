@@ -339,7 +339,7 @@
     <Decal t0="-119.396" t1="72.9062" t2="253.522" s0="5.53899" s1="3.61376" s2="7.33375" q0="-0.218045" q1="-0.749432" q2="0.0770004" q3="0.620386" euler_x="-2.08571" euler_y="-1.11134" euler_z="1.8805" id="98" type_file="Data/Objects/Decals/hex_crete_damage.xml" color_r="0.717647" color_g="0.717647" color_b="0.717647" overbright="0">
         <parameters />
     </Decal>
-    <CameraObject t0="-174.359" t1="100.222" t2="49.9125" s0="1" s1="1" s2="1" q0="0.381025" q1="-0.564395" q2="0.328595" q3="0.654449" euler_x="1.05447" euler_y="-1.4233" euler_z="0" id="99">
+    <CameraObject t0="-180.295" t1="92.2137" t2="54.1313" s0="1" s1="1" s2="1" q0="-0.298146" q1="0.399612" q2="-0.139253" q3="-0.855586" euler_x="0.670622" euler_y="-0.873905" euler_z="0" id="99">
         <parameters />
     </CameraObject>
     <EnvObject t0="-85.5282" t1="86.4777" t2="-23.3282" s0="2.01564" s1="2.86929" s2="2.37731" q0="-0.00474894" q1="0.00257536" q2="0.0122051" q3="0.999911" euler_x="-0.00943444" euler_y="0.00526621" euler_z="0.0243863" id="104" color_r="0.27451" color_g="0.27451" color_b="0.27451" overbright="0" type_file="Data/Objects/Crete/hex_crete_tall.xml">
@@ -348,7 +348,7 @@
     <EnvObject t0="-153.416" t1="90.6021" t2="-65.9574" s0="2.01564" s1="2.86929" s2="2.37731" q0="-0.00474894" q1="0.00257536" q2="0.0122051" q3="0.999911" euler_x="-0.00943444" euler_y="0.00526621" euler_z="0.0243863" id="105" color_r="0.27451" color_g="0.27451" color_b="0.27451" overbright="0" type_file="Data/Objects/Crete/hex_crete_tall.xml">
         <parameters />
     </EnvObject>
-    <Hotspot t0="-59.497" t1="105.504" t2="-9.94595" s0="118.439" s1="2.56325" s2="87.3821" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="106" type_file="Data/Objects/Hotspots/generic_kill.xml">
+    <Hotspot t0="-183.412" t1="114.517" t2="50.6197" s0="20.58" s1="0.61" s2="21.93" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="106" type_file="Data/Objects/Hotspots/generic_kill.xml">
         <parameters>
             <parameter name="KillNPC" type="int" val="1" />
             <parameter name="KillPlayer" type="int" val="1" />
@@ -2587,19 +2587,19 @@
     <Decal t0="-190.286" t1="85.181" t2="41.9136" s0="4.52603" s1="2.37776" s2="4.70599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="862" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-192.82" t1="85.2618" t2="46.5623" s0="4.07323" s1="2.37776" s2="3.96796" q0="0.0149819" q1="0.0310718" q2="-0.038397" q3="0.998666" euler_x="0.0275963" euler_y="0.0632533" euler_z="-0.0759855" id="863" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
+    <Decal t0="-192.82" t1="85.2618" t2="46.5623" s0="4.07323" s1="2.37776" s2="3.96796" q0="0.0149819" q1="0.0310718" q2="-0.038397" q3="0.998666" euler_x="0.0275964" euler_y="0.0632534" euler_z="-0.0759854" id="863" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-194.664" t1="85.4052" t2="49.1024" s0="4.07323" s1="2.37776" s2="3.96796" q0="0.0149819" q1="0.0310718" q2="-0.038397" q3="0.998666" euler_x="0.0275963" euler_y="0.0632533" euler_z="-0.0759855" id="864" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
+    <Decal t0="-194.664" t1="85.4052" t2="49.1024" s0="4.07323" s1="2.37776" s2="3.96796" q0="0.0149819" q1="0.0310718" q2="-0.038397" q3="0.998666" euler_x="0.0275964" euler_y="0.0632534" euler_z="-0.0759854" id="864" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-192.911" t1="85.422" t2="54.7255" s0="4.52603" s1="2.37776" s2="4.70599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="865" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-190.407" t1="84.8474" t2="53.0809" s0="4.07323" s1="2.37776" s2="3.96796" q0="0.0149819" q1="0.0310718" q2="-0.038397" q3="0.998666" euler_x="0.0275963" euler_y="0.0632533" euler_z="-0.0759855" id="866" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
+    <Decal t0="-190.407" t1="84.8474" t2="53.0809" s0="4.07323" s1="2.37776" s2="3.96796" q0="0.0149819" q1="0.0310718" q2="-0.038397" q3="0.998666" euler_x="0.0275964" euler_y="0.0632534" euler_z="-0.0759854" id="866" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-184.644" t1="84.9727" t2="49.8073" s0="4.07323" s1="2.37776" s2="3.96796" q0="0.0149819" q1="0.0310718" q2="-0.038397" q3="0.998666" euler_x="0.0275963" euler_y="0.0632533" euler_z="-0.0759855" id="867" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
+    <Decal t0="-184.644" t1="84.9727" t2="49.8073" s0="4.07323" s1="2.37776" s2="3.96796" q0="0.0149819" q1="0.0310718" q2="-0.038397" q3="0.998666" euler_x="0.0275964" euler_y="0.0632534" euler_z="-0.0759854" id="867" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-183.641" t1="85.0002" t2="52.8955" s0="4.52603" s1="2.37776" s2="4.70599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="868" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
@@ -2608,7 +2608,7 @@
     <Decal t0="-186.906" t1="84.9883" t2="60.9593" s0="4.52603" s1="2.37776" s2="4.70599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="869" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-192.744" t1="85.21" t2="60.1669" s0="4.07323" s1="2.37776" s2="3.96796" q0="0.0149819" q1="0.0310718" q2="-0.038397" q3="0.998666" euler_x="0.0275963" euler_y="0.0632533" euler_z="-0.0759855" id="870" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
+    <Decal t0="-192.744" t1="85.21" t2="60.1669" s0="4.07323" s1="2.37776" s2="3.96796" q0="0.0149819" q1="0.0310718" q2="-0.038397" q3="0.998666" euler_x="0.0275964" euler_y="0.0632534" euler_z="-0.0759854" id="870" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-194.462" t1="85.4811" t2="58.0654" s0="4.52603" s1="2.37776" s2="4.70599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="871" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
@@ -2626,7 +2626,7 @@
     <Decal t0="-184.76" t1="85.1894" t2="46.4071" s0="4.52603" s1="2.37776" s2="4.70599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="875" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-185.34" t1="85.4308" t2="44.2022" s0="5.7017" s1="2.37776" s2="5.47772" q0="0" q1="-0.948879" q2="0" q3="0.31564" euler_x="3.14159" euler_y="-0.642262" euler_z="-3.14159" id="876" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
+    <Decal t0="-185.34" t1="85.4308" t2="44.2022" s0="5.7017" s1="2.37776" s2="5.47772" q0="0" q1="-0.948879" q2="0" q3="0.31564" euler_x="3.14159" euler_y="-0.642262" euler_z="3.14159" id="876" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-190.663" t1="85.2921" t2="42.1675" s0="5.13129" s1="2.37776" s2="4.61867" q0="0.041163" q1="-0.937806" q2="0.00209635" q3="0.344702" euler_x="3.10954" euler_y="-0.70325" euler_z="-3.0421" id="877" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
@@ -2673,13 +2673,13 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Decal t0="-194.331" t1="85.3981" t2="54.8306" s0="4.07323" s1="2.37776" s2="3.96796" q0="0.0149819" q1="0.0310718" q2="-0.038397" q3="0.998666" euler_x="0.0275963" euler_y="0.0632533" euler_z="-0.0759855" id="885" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
+    <Decal t0="-194.331" t1="85.3981" t2="54.8306" s0="4.07323" s1="2.37776" s2="3.96796" q0="0.0149819" q1="0.0310718" q2="-0.038397" q3="0.998666" euler_x="0.0275964" euler_y="0.0632534" euler_z="-0.0759854" id="885" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-193.101" t1="85.1634" t2="46.6577" s0="4.52603" s1="2.37776" s2="4.70599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="886" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-192.39" t1="85.4051" t2="48.1276" s0="5.7017" s1="2.37776" s2="5.47772" q0="0" q1="-0.948879" q2="0" q3="0.31564" euler_x="3.14159" euler_y="-0.642262" euler_z="-3.14159" id="887" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
+    <Decal t0="-192.39" t1="85.4051" t2="48.1276" s0="5.7017" s1="2.37776" s2="5.47772" q0="0" q1="-0.948879" q2="0" q3="0.31564" euler_x="3.14159" euler_y="-0.642262" euler_z="3.14159" id="887" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-192.097" t1="85.3697" t2="48.6075" s0="4.52603" s1="2.37776" s2="4.70599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="888" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
@@ -2688,10 +2688,10 @@
     <Decal t0="-184.553" t1="85.2124" t2="46.1436" s0="4.52603" s1="2.37776" s2="4.70599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="889" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-183.137" t1="85.1947" t2="46.5295" s0="4.07323" s1="2.37776" s2="3.96796" q0="0.0149819" q1="0.0310718" q2="-0.038397" q3="0.998666" euler_x="0.0275963" euler_y="0.0632533" euler_z="-0.0759855" id="890" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
+    <Decal t0="-183.137" t1="85.1947" t2="46.5295" s0="4.07323" s1="2.37776" s2="3.96796" q0="0.0149819" q1="0.0310718" q2="-0.038397" q3="0.998666" euler_x="0.0275964" euler_y="0.0632534" euler_z="-0.0759854" id="890" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-182.202" t1="85.1873" t2="47.5294" s0="4.07323" s1="2.37776" s2="3.96796" q0="0.0149819" q1="0.0310718" q2="-0.038397" q3="0.998666" euler_x="0.0275963" euler_y="0.0632533" euler_z="-0.0759855" id="891" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
+    <Decal t0="-182.202" t1="85.1873" t2="47.5294" s0="4.07323" s1="2.37776" s2="3.96796" q0="0.0149819" q1="0.0310718" q2="-0.038397" q3="0.998666" euler_x="0.0275964" euler_y="0.0632534" euler_z="-0.0759854" id="891" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-181.732" t1="85.2392" t2="49.2712" s0="4.52603" s1="2.37776" s2="4.70599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="892" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
@@ -2703,7 +2703,7 @@
     <Decal t0="-184.261" t1="85.033" t2="51.4465" s0="4.52603" s1="2.37776" s2="4.70599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="894" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-187.495" t1="84.8285" t2="54.2107" s0="5.7017" s1="2.37776" s2="5.47772" q0="0" q1="-0.948879" q2="0" q3="0.31564" euler_x="3.14159" euler_y="-0.642262" euler_z="-3.14159" id="895" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
+    <Decal t0="-187.495" t1="84.8285" t2="54.2107" s0="5.7017" s1="2.37776" s2="5.47772" q0="0" q1="-0.948879" q2="0" q3="0.31564" euler_x="3.14159" euler_y="-0.642262" euler_z="3.14159" id="895" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-188.519" t1="84.9342" t2="52.4375" s0="4.52603" s1="2.37776" s2="4.70599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="896" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
@@ -2715,19 +2715,19 @@
     <Decal t0="-193.73" t1="85.488" t2="56.2951" s0="4.52603" s1="2.37776" s2="4.70599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="898" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-190.884" t1="84.9632" t2="48.517" s0="4.07323" s1="2.37776" s2="3.96796" q0="0.0149819" q1="0.0310718" q2="-0.038397" q3="0.998666" euler_x="0.0275963" euler_y="0.0632533" euler_z="-0.0759855" id="899" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
+    <Decal t0="-190.884" t1="84.9632" t2="48.517" s0="4.07323" s1="2.37776" s2="3.96796" q0="0.0149819" q1="0.0310718" q2="-0.038397" q3="0.998666" euler_x="0.0275964" euler_y="0.0632534" euler_z="-0.0759854" id="899" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-184.414" t1="85.2347" t2="45.5019" s0="4.52603" s1="2.37776" s2="4.70599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="900" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-183.557" t1="85.2773" t2="43.9124" s0="5.7017" s1="2.37776" s2="5.47772" q0="0" q1="-0.948879" q2="0" q3="0.31564" euler_x="3.14159" euler_y="-0.642262" euler_z="-3.14159" id="901" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
+    <Decal t0="-183.557" t1="85.2773" t2="43.9124" s0="5.7017" s1="2.37776" s2="5.47772" q0="0" q1="-0.948879" q2="0" q3="0.31564" euler_x="3.14159" euler_y="-0.642262" euler_z="3.14159" id="901" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-184.486" t1="85.2721" t2="42.6958" s0="4.52603" s1="2.37776" s2="4.70599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="902" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-185.482" t1="85.4079" t2="43.1647" s0="4.07323" s1="2.37776" s2="3.96796" q0="0.0149819" q1="0.0310718" q2="-0.038397" q3="0.998666" euler_x="0.0275963" euler_y="0.0632533" euler_z="-0.0759855" id="903" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
+    <Decal t0="-185.482" t1="85.4079" t2="43.1647" s0="4.07323" s1="2.37776" s2="3.96796" q0="0.0149819" q1="0.0310718" q2="-0.038397" q3="0.998666" euler_x="0.0275964" euler_y="0.0632534" euler_z="-0.0759854" id="903" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-189.582" t1="85.0406" t2="47.0751" s0="4.52603" s1="2.37776" s2="4.70599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="904" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
@@ -2736,10 +2736,10 @@
     <Decal t0="-191.633" t1="85.1121" t2="46.8145" s0="4.52603" s1="2.37776" s2="4.70599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="905" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-192.176" t1="85.1302" t2="47.856" s0="5.7017" s1="2.37776" s2="5.47772" q0="0" q1="-0.825787" q2="0" q3="0.563982" euler_x="3.14159" euler_y="-1.1984" euler_z="-3.14159" id="906" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
+    <Decal t0="-192.176" t1="85.1302" t2="47.856" s0="5.7017" s1="2.37776" s2="5.47772" q0="0" q1="-0.825787" q2="0" q3="0.563982" euler_x="3.14159" euler_y="-1.1984" euler_z="3.14159" id="906" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-190.08" t1="85.044" t2="50.0946" s0="5.7017" s1="2.37776" s2="5.47772" q0="0" q1="-0.948879" q2="0" q3="0.31564" euler_x="3.14159" euler_y="-0.642262" euler_z="-3.14159" id="907" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
+    <Decal t0="-190.08" t1="85.044" t2="50.0946" s0="5.7017" s1="2.37776" s2="5.47772" q0="0" q1="-0.948879" q2="0" q3="0.31564" euler_x="3.14159" euler_y="-0.642262" euler_z="3.14159" id="907" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-189.242" t1="85.0229" t2="50.0246" s0="4.52603" s1="2.37776" s2="4.70599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="908" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
@@ -2753,47 +2753,47 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-182.725" t1="85.187" t2="49.4748" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="914" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-182.725" t1="85.187" t2="49.4748" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="914" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-187.284" t1="84.8897" t2="52.8237" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="915" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-187.284" t1="84.8897" t2="52.8237" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="915" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-184.028" t1="84.9854" t2="52.8434" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="919" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-184.028" t1="84.9854" t2="52.8434" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="919" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-191.678" t1="85.1082" t2="48.2058" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="926" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-191.678" t1="85.1082" t2="48.2058" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="926" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-183.985" t1="85.1889" t2="48.2414" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="927" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-183.985" t1="85.1889" t2="48.2414" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="927" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-188.348" t1="85.0442" t2="46.734" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305127" euler_z="-0.24051" id="931" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-188.348" t1="85.0442" t2="46.734" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305128" euler_z="-0.240511" id="931" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-193.462" t1="85.4608" t2="54.4757" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="938" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-193.462" t1="85.4608" t2="54.4757" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="938" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-191.377" t1="85.0559" t2="51.0523" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="942" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-191.377" t1="85.0559" t2="51.0523" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="942" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-193.239" t1="85.161" t2="50.1139" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="946" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-193.239" t1="85.161" t2="50.1139" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="946" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
@@ -2803,17 +2803,17 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-187.414" t1="84.9453" t2="51.636" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305127" euler_z="-0.24051" id="954" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-187.414" t1="84.9453" t2="51.636" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305128" euler_z="-0.240511" id="954" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-186.157" t1="84.9898" t2="50.4121" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="958" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-186.157" t1="84.9898" t2="50.4121" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="958" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-187.583" t1="84.9773" t2="49.9336" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="962" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-187.583" t1="84.9773" t2="49.9336" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="962" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
@@ -2823,37 +2823,37 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-184.125" t1="84.829" t2="60.7141" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="970" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-184.125" t1="84.829" t2="60.7141" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="970" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-191.964" t1="85.1201" t2="45.3142" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305127" euler_z="-0.24051" id="974" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-191.964" t1="85.1201" t2="45.3142" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305128" euler_z="-0.240511" id="974" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-179.886" t1="85.1205" t2="53.9655" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305127" euler_z="-0.24051" id="975" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-179.886" t1="85.1205" t2="53.9655" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305128" euler_z="-0.240511" id="975" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-181.373" t1="84.8903" t2="61.533" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="977" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-181.373" t1="84.8903" t2="61.533" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="977" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-179.336" t1="85.3433" t2="49.4111" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="983" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-179.336" t1="85.3433" t2="49.4111" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="983" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-179.643" t1="85.4304" t2="47.4177" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="987" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-179.643" t1="85.4304" t2="47.4177" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="987" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-181.277" t1="85.5015" t2="44.2865" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="991" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-181.277" t1="85.5015" t2="44.2865" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="991" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
@@ -2863,142 +2863,122 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-184.351" t1="85.2165" t2="46.7967" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="999" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-184.351" t1="85.2165" t2="46.7967" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="999" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-184.342" t1="85.4491" t2="44.6353" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1006" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-184.342" t1="85.4491" t2="44.6353" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1006" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-188.665" t1="85.1282" t2="43.6274" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1008" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-188.665" t1="85.1282" t2="43.6274" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1008" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-193.083" t1="85.4378" t2="49.6967" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1014" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-193.083" t1="85.4378" t2="49.6967" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1014" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-187.92" t1="85.4089" t2="43.7623" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1015" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-187.92" t1="85.4089" t2="43.7623" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1015" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-193.784" t1="85.3997" t2="45.0322" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1019" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-190.576" t1="85.3877" t2="43.6572" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1019" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-191.152" t1="85.3332" t2="44.585" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1023" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-191.152" t1="85.3332" t2="44.585" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1023" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-195.241" t1="85.5718" t2="49.682" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1027" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-195.241" t1="85.5718" t2="49.682" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1027" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-198.905" t1="85.7932" t2="51.3967" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1031" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-195.697" t1="85.7812" t2="50.0217" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1031" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-198.282" t1="85.7954" t2="53.8161" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1035" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-198.282" t1="85.7954" t2="53.8161" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1035" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-196.213" t1="85.6535" t2="52.9008" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1039" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-196.213" t1="85.6535" t2="52.9008" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1039" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-187.254" t1="85.1163" t2="44.7871" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1046" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-187.254" t1="85.1163" t2="44.7871" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1046" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-196.45" t1="85.5868" t2="47.8714" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305127" euler_z="-0.24051" id="1047" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-196.45" t1="85.5868" t2="47.8714" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305128" euler_z="-0.240511" id="1047" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-198.691" t1="85.6711" t2="46.933" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305127" euler_z="-0.24051" id="1051" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-198.691" t1="85.6711" t2="46.933" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305128" euler_z="-0.240511" id="1051" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-188.937" t1="85.0661" t2="45.6589" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1055" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-188.937" t1="85.0661" t2="45.6589" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1055" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-185.202" t1="85.2016" t2="43.8953" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1059" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-185.202" t1="85.2016" t2="43.8953" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1059" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-186.208" t1="85.0506" t2="47.633" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1066" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-186.208" t1="85.0506" t2="47.633" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1066" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-190.151" t1="85.1955" t2="60.8594" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1070" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-190.151" t1="85.1955" t2="60.8594" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1070" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-193.983" t1="85.1216" t2="57.139" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305127" euler_z="-0.24051" id="1074" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-193.983" t1="85.1216" t2="57.139" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305128" euler_z="-0.240511" id="1074" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-194.898" t1="85.4561" t2="59.7533" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305127" euler_z="-0.24051" id="1079" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-194.898" t1="85.4561" t2="59.7533" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305128" euler_z="-0.240511" id="1079" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-198.279" t1="85.5911" t2="59.6148" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1083" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-198.279" t1="85.5911" t2="59.6148" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1083" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-203.729" t1="85.7049" t2="57.9524" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1087" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-182.889" t1="85.5115" t2="41.585" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1102" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-204.086" t1="85.8106" t2="53.8747" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1091" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-195.321" t1="85.4642" t2="41.996" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305128" euler_z="-0.240511" id="1104" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-204.872" t1="85.8983" t2="50.3147" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1095" type_file="Data/Objects/Hotspots/spike.xml">
-        <parameters />
-        <Connections />
-        <ConnectionsFrom />
-    </Hotspot>
-    <Hotspot t0="-204.103" t1="85.915" t2="47.936" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1099" type_file="Data/Objects/Hotspots/spike.xml">
-        <parameters />
-        <Connections />
-        <ConnectionsFrom />
-    </Hotspot>
-    <Hotspot t0="-186.097" t1="85.5235" t2="42.96" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1102" type_file="Data/Objects/Hotspots/spike.xml">
-        <parameters />
-        <Connections />
-        <ConnectionsFrom />
-    </Hotspot>
-    <Hotspot t0="-195.321" t1="85.4642" t2="41.996" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305127" euler_z="-0.24051" id="1104" type_file="Data/Objects/Hotspots/spike.xml">
-        <parameters />
-        <Connections />
-        <ConnectionsFrom />
-    </Hotspot>
-    <Hotspot t0="-194.897" t1="81.7461" t2="36.559" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1108" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-194.897" t1="81.7461" t2="36.559" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1108" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
@@ -3013,27 +2993,27 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-191.924" t1="85.4674" t2="41.4007" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1120" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-191.924" t1="85.4674" t2="41.4007" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1120" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-182.836" t1="85.557" t2="43.3497" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1126" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-179.628" t1="85.545" t2="41.9747" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1126" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-181.012" t1="85.5212" t2="44.1393" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1130" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-181.012" t1="85.5212" t2="44.1393" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1130" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-182.183" t1="85.3971" t2="45.7246" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1134" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-182.183" t1="85.3971" t2="45.7246" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1134" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-181.395" t1="85.2187" t2="50.0403" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305127" euler_z="-0.24051" id="1138" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-181.395" t1="85.2187" t2="50.0403" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305128" euler_z="-0.240511" id="1138" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
@@ -3048,57 +3028,57 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-181.24" t1="85.0328" t2="54.6496" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1150" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-181.24" t1="85.0328" t2="54.6496" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1150" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-182.699" t1="84.9347" t2="55.3123" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1154" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-182.699" t1="84.9347" t2="55.3123" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1154" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-185.018" t1="84.8886" t2="53.7646" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1158" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-185.018" t1="84.8886" t2="53.7646" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1158" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-185.196" t1="85.0095" t2="51.0278" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1162" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-185.196" t1="85.0095" t2="51.0278" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1162" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-185.66" t1="85.0687" t2="48.5888" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1166" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-185.66" t1="85.0687" t2="48.5888" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1166" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-192.812" t1="85.1419" t2="42.9924" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1170" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-192.812" t1="85.1419" t2="42.9924" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1170" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-191.76" t1="85.0744" t2="50.2203" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1171" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-191.76" t1="85.0744" t2="50.2203" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1171" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-191.039" t1="85.1106" t2="42.9978" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1178" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-191.039" t1="85.1106" t2="42.9978" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1178" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-194.16" t1="85.5039" t2="51.7754" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1182" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-194.16" t1="85.5039" t2="51.7754" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1182" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-198.344" t1="85.6883" t2="57.2344" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1186" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-195.136" t1="85.6763" t2="55.8594" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1186" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-194.547" t1="85.5141" t2="57.1586" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1190" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-194.547" t1="85.5141" t2="57.1586" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1190" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
@@ -3108,37 +3088,37 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-181.444" t1="85.0905" t2="53.0381" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1198" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-181.444" t1="85.0905" t2="53.0381" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1198" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-190.804" t1="84.9681" t2="56.1143" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1199" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-190.804" t1="84.9681" t2="56.1143" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1199" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-188.495" t1="84.8598" t2="54.0969" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1203" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-188.495" t1="84.8598" t2="54.0969" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1203" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-184.883" t1="84.8343" t2="54.8887" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1207" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-184.883" t1="84.8343" t2="54.8887" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1207" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-182.611" t1="85.275" t2="47.7345" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1214" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-182.611" t1="85.275" t2="47.7345" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1214" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-192.902" t1="85.1558" t2="46.4383" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1218" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-192.902" t1="85.1558" t2="46.4383" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1218" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-192.878" t1="85.4348" t2="51.2426" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1222" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-192.878" t1="85.4348" t2="51.2426" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1222" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
@@ -3148,22 +3128,22 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-177.023" t1="85.3247" t2="53.2303" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1227" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-177.023" t1="85.3247" t2="53.2303" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1227" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-173.056" t1="85.6454" t2="54.8749" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1231" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-173.056" t1="85.6454" t2="54.8749" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1231" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-178.327" t1="85.3337" t2="50.8852" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1238" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-178.327" t1="85.3337" t2="50.8852" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1238" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-176.398" t1="85.6422" t2="46.305" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1242" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-176.398" t1="85.6422" t2="46.305" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1242" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
@@ -3173,12 +3153,12 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-177.449" t1="85.7661" t2="42.6438" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1250" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-177.449" t1="85.7661" t2="42.6438" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1250" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-175.207" t1="85.9125" t2="41.122" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1254" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-171.999" t1="85.9005" t2="39.747" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1254" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
@@ -3188,17 +3168,17 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-178.015" t1="84.8724" t2="64.7388" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305127" euler_z="-0.24051" id="1262" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-178.015" t1="84.8724" t2="64.7388" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305128" euler_z="-0.240511" id="1262" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-194.145" t1="85.5011" t2="52.3296" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1266" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-194.145" t1="85.5011" t2="52.3296" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1266" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-197.016" t1="85.5376" t2="44.6971" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305127" euler_z="-0.24051" id="1271" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-193.808" t1="85.5256" t2="43.3221" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305128" euler_z="-0.240511" id="1271" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
@@ -3209,10 +3189,10 @@
     <Decal t0="-188.289" t1="85.7118" t2="44.6228" s0="4.52603" s1="2.37776" s2="4.70599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1276" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-188.41" t1="85.3782" t2="55.7901" s0="4.07323" s1="2.37776" s2="3.96796" q0="0.0149819" q1="0.0310718" q2="-0.038397" q3="0.998666" euler_x="0.0275963" euler_y="0.0632533" euler_z="-0.0759855" id="1277" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
+    <Decal t0="-188.41" t1="85.3782" t2="55.7901" s0="4.07323" s1="2.37776" s2="3.96796" q0="0.0149819" q1="0.0310718" q2="-0.038397" q3="0.998666" euler_x="0.0275964" euler_y="0.0632534" euler_z="-0.0759854" id="1277" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-182.646" t1="85.5035" t2="52.5165" s0="4.07323" s1="2.37776" s2="3.96796" q0="0.0149819" q1="0.0310718" q2="-0.038397" q3="0.998666" euler_x="0.0275963" euler_y="0.0632533" euler_z="-0.0759855" id="1278" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
+    <Decal t0="-182.646" t1="85.5035" t2="52.5165" s0="4.07323" s1="2.37776" s2="3.96796" q0="0.0149819" q1="0.0310718" q2="-0.038397" q3="0.998666" euler_x="0.0275964" euler_y="0.0632534" euler_z="-0.0759854" id="1278" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-181.643" t1="85.531" t2="55.6047" s0="4.52603" s1="2.37776" s2="4.70599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1279" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
@@ -3236,10 +3216,10 @@
     <Decal t0="-182.555" t1="85.7432" t2="48.8528" s0="4.52603" s1="2.37776" s2="4.70599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1285" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-181.14" t1="85.7255" t2="49.2387" s0="4.07323" s1="2.37776" s2="3.96796" q0="0.0149819" q1="0.0310718" q2="-0.038397" q3="0.998666" euler_x="0.0275963" euler_y="0.0632533" euler_z="-0.0759855" id="1286" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
+    <Decal t0="-181.14" t1="85.7255" t2="49.2387" s0="4.07323" s1="2.37776" s2="3.96796" q0="0.0149819" q1="0.0310718" q2="-0.038397" q3="0.998666" euler_x="0.0275964" euler_y="0.0632534" euler_z="-0.0759854" id="1286" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-180.204" t1="85.7181" t2="50.2386" s0="4.07323" s1="2.37776" s2="3.96796" q0="0.0149819" q1="0.0310718" q2="-0.038397" q3="0.998666" euler_x="0.0275963" euler_y="0.0632533" euler_z="-0.0759855" id="1287" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
+    <Decal t0="-180.204" t1="85.7181" t2="50.2386" s0="4.07323" s1="2.37776" s2="3.96796" q0="0.0149819" q1="0.0310718" q2="-0.038397" q3="0.998666" euler_x="0.0275964" euler_y="0.0632534" euler_z="-0.0759854" id="1287" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-179.734" t1="85.77" t2="51.9804" s0="4.52603" s1="2.37776" s2="4.70599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1288" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
@@ -3251,19 +3231,19 @@
     <Decal t0="-182.263" t1="85.5638" t2="54.1557" s0="4.52603" s1="2.37776" s2="4.70599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1290" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-185.497" t1="85.3593" t2="56.9199" s0="5.7017" s1="2.37776" s2="5.47772" q0="0" q1="-0.948879" q2="0" q3="0.31564" euler_x="3.14159" euler_y="-0.642262" euler_z="-3.14159" id="1291" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
+    <Decal t0="-185.497" t1="85.3593" t2="56.9199" s0="5.7017" s1="2.37776" s2="5.47772" q0="0" q1="-0.948879" q2="0" q3="0.31564" euler_x="3.14159" euler_y="-0.642262" euler_z="3.14159" id="1291" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-186.521" t1="85.465" t2="55.1467" s0="4.52603" s1="2.37776" s2="4.70599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1292" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-188.886" t1="85.494" t2="51.2262" s0="4.07323" s1="2.37776" s2="3.96796" q0="0.0149819" q1="0.0310718" q2="-0.038397" q3="0.998666" euler_x="0.0275963" euler_y="0.0632533" euler_z="-0.0759855" id="1293" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
+    <Decal t0="-188.886" t1="85.494" t2="51.2262" s0="4.07323" s1="2.37776" s2="3.96796" q0="0.0149819" q1="0.0310718" q2="-0.038397" q3="0.998666" euler_x="0.0275964" euler_y="0.0632534" euler_z="-0.0759854" id="1293" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-182.417" t1="85.7655" t2="48.2111" s0="4.52603" s1="2.37776" s2="4.70599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1294" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-181.559" t1="85.8081" t2="46.6216" s0="5.7017" s1="2.37776" s2="5.47772" q0="0" q1="-0.948879" q2="0" q3="0.31564" euler_x="3.14159" euler_y="-0.642262" euler_z="-3.14159" id="1295" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
+    <Decal t0="-181.559" t1="85.8081" t2="46.6216" s0="5.7017" s1="2.37776" s2="5.47772" q0="0" q1="-0.948879" q2="0" q3="0.31564" euler_x="3.14159" euler_y="-0.642262" euler_z="3.14159" id="1295" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-182.489" t1="85.8029" t2="45.405" s0="4.52603" s1="2.37776" s2="4.70599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1296" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
@@ -3275,10 +3255,10 @@
     <Decal t0="-189.635" t1="85.6429" t2="49.5236" s0="4.52603" s1="2.37776" s2="4.70599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1298" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-190.178" t1="85.661" t2="50.5652" s0="5.7017" s1="2.37776" s2="5.47772" q0="0" q1="-0.825787" q2="0" q3="0.563982" euler_x="3.14159" euler_y="-1.1984" euler_z="-3.14159" id="1299" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
+    <Decal t0="-190.178" t1="85.661" t2="50.5652" s0="5.7017" s1="2.37776" s2="5.47772" q0="0" q1="-0.825787" q2="0" q3="0.563982" euler_x="3.14159" euler_y="-1.1984" euler_z="3.14159" id="1299" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-188.082" t1="85.5748" t2="52.8038" s0="5.7017" s1="2.37776" s2="5.47772" q0="0" q1="-0.948879" q2="0" q3="0.31564" euler_x="3.14159" euler_y="-0.642262" euler_z="-3.14159" id="1300" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
+    <Decal t0="-188.082" t1="85.5748" t2="52.8038" s0="5.7017" s1="2.37776" s2="5.47772" q0="0" q1="-0.948879" q2="0" q3="0.31564" euler_x="3.14159" euler_y="-0.642262" euler_z="3.14159" id="1300" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-187.244" t1="85.5537" t2="52.7338" s0="4.52603" s1="2.37776" s2="4.70599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1301" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
@@ -3292,42 +3272,42 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-180.728" t1="85.7178" t2="52.184" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1304" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-180.728" t1="85.7178" t2="52.184" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1304" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-185.287" t1="85.4205" t2="55.5328" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1305" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-185.287" t1="85.4205" t2="55.5328" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1305" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-182.03" t1="85.5162" t2="55.5526" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1306" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-182.03" t1="85.5162" t2="55.5526" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1306" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-189.68" t1="85.639" t2="50.9149" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1307" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-189.68" t1="85.639" t2="50.9149" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1307" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-181.987" t1="85.7197" t2="50.9506" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1308" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-181.987" t1="85.7197" t2="50.9506" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1308" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-186.351" t1="85.575" t2="49.4432" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305127" euler_z="-0.24051" id="1309" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-183.143" t1="85.563" t2="48.0682" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305128" euler_z="-0.240511" id="1309" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-189.38" t1="85.5867" t2="53.7614" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1310" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-189.38" t1="85.5867" t2="53.7614" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1310" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-191.241" t1="85.6918" t2="52.8231" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1311" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-188.033" t1="85.6798" t2="51.4481" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1311" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
@@ -3337,42 +3317,42 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-185.416" t1="85.4761" t2="54.3452" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305127" euler_z="-0.24051" id="1313" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-185.416" t1="85.4761" t2="54.3452" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305128" euler_z="-0.240511" id="1313" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-184.159" t1="85.5206" t2="53.1213" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1314" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-184.159" t1="85.5206" t2="53.1213" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1314" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-185.585" t1="85.5081" t2="52.6427" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1315" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-185.585" t1="85.5081" t2="52.6427" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1315" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-189.966" t1="85.6509" t2="48.0234" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305127" euler_z="-0.24051" id="1316" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-189.966" t1="85.6509" t2="48.0234" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305128" euler_z="-0.240511" id="1316" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-177.888" t1="85.6513" t2="56.6747" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305127" euler_z="-0.24051" id="1317" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-174.68" t1="85.6393" t2="55.2997" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305128" euler_z="-0.240511" id="1317" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-177.339" t1="85.8741" t2="52.1203" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1318" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-177.339" t1="85.8741" t2="52.1203" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1318" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-177.645" t1="85.9612" t2="50.1269" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1319" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-177.645" t1="85.9612" t2="50.1269" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1319" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-179.279" t1="86.0323" t2="46.9956" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1320" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-176.071" t1="86.0203" t2="45.6206" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1320" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
@@ -3382,122 +3362,122 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-182.353" t1="85.7473" t2="49.5059" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1322" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-179.145" t1="85.7353" t2="48.1309" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1322" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-186.667" t1="85.659" t2="46.3366" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1323" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-183.459" t1="85.647" t2="44.9616" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1323" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-185.256" t1="85.6471" t2="47.4963" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1324" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-185.256" t1="85.6471" t2="47.4963" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1324" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-186.939" t1="85.5968" t2="48.3681" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1325" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-186.939" t1="85.5968" t2="48.3681" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1325" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-183.204" t1="85.7324" t2="46.6045" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1326" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-183.204" t1="85.7324" t2="46.6045" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1326" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-184.21" t1="85.5814" t2="50.3422" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1327" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-184.21" t1="85.5814" t2="50.3422" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1327" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-191.986" t1="85.6524" t2="59.8482" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305127" euler_z="-0.24051" id="1328" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-191.986" t1="85.6524" t2="59.8482" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305128" euler_z="-0.240511" id="1328" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-180.186" t1="85.9279" t2="48.4338" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1329" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-180.186" t1="85.9279" t2="48.4338" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1329" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-179.398" t1="85.7495" t2="52.7495" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305127" euler_z="-0.24051" id="1330" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-179.398" t1="85.7495" t2="52.7495" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305128" euler_z="-0.240511" id="1330" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-179.242" t1="85.5636" t2="57.3587" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1331" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-179.242" t1="85.5636" t2="57.3587" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1331" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-180.701" t1="85.4655" t2="58.0215" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1332" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-180.701" t1="85.4655" t2="58.0215" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1332" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-183.02" t1="85.4194" t2="56.4738" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1333" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-183.02" t1="85.4194" t2="56.4738" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1333" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-183.198" t1="85.5403" t2="53.737" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1334" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-179.99" t1="85.5283" t2="52.362" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1334" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-183.663" t1="85.5995" t2="51.298" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1335" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-183.663" t1="85.5995" t2="51.298" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1335" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-190.815" t1="85.6727" t2="45.7016" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1336" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-190.815" t1="85.6727" t2="45.7016" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1336" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-189.763" t1="85.6052" t2="52.9295" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1337" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-189.763" t1="85.6052" t2="52.9295" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1337" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-189.041" t1="85.6414" t2="45.707" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1338" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-189.041" t1="85.6414" t2="45.707" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1338" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-191.704" t1="85.6754" t2="57.5692" s0="1" s1="1" s2="1" q0="-0.0753031" q1="0.0447656" q2="-0.0437673" q3="0.995194" euler_x="-0.154946" euler_y="0.0826032" euler_z="-0.0943168" id="1339" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-188.496" t1="85.6634" t2="56.1942" s0="1" s1="1" s2="1" q0="-0.0753031" q1="0.0447656" q2="-0.0437673" q3="0.995194" euler_x="-0.154946" euler_y="0.0826032" euler_z="-0.0943168" id="1339" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-179.446" t1="85.6213" t2="55.7472" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1340" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-179.446" t1="85.6213" t2="55.7472" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1340" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-188.806" t1="85.4989" t2="58.8235" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1341" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-188.806" t1="85.4989" t2="58.8235" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1341" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-186.498" t1="85.3906" t2="56.8061" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1342" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-183.29" t1="85.3786" t2="55.4311" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1342" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-182.885" t1="85.3651" t2="57.5978" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1343" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-182.885" t1="85.3651" t2="57.5978" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1343" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-180.613" t1="85.8058" t2="50.4436" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1344" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-180.613" t1="85.8058" t2="50.4436" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1344" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-190.904" t1="85.6866" t2="49.1475" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1345" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-190.904" t1="85.6866" t2="49.1475" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1345" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
@@ -3507,17 +3487,337 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-175.026" t1="85.8555" t2="55.9395" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1347" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-171.818" t1="85.8435" t2="54.5645" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1347" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-176.33" t1="85.8645" t2="53.5944" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1348" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-176.33" t1="85.8645" t2="53.5944" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1348" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-174.4" t1="86.173" t2="49.0142" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794134" euler_y="0.0524068" euler_z="-0.0152807" id="1349" type_file="Data/Objects/Hotspots/spike.xml">
+    <Hotspot t0="-174.4" t1="86.173" t2="49.0142" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1349" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-187.196" t1="85.2052" t2="50.9267" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1479" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-192.317" t1="85.5987" t2="57.2912" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1480" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-179.509" t1="85.329" t2="48.8545" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1481" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-176.248" t1="85.3625" t2="49.2442" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1482" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-191.756" t1="85.4938" t2="63.1289" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1483" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-168.619" t1="85.718" t2="47.0165" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1484" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-190.428" t1="85.3431" t2="50.5916" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305128" euler_z="-0.240511" id="1485" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-179.763" t1="85.3805" t2="55.3377" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305128" euler_z="-0.240511" id="1486" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-184.653" t1="85.4973" t2="58.7176" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1487" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-172.691" t1="85.8378" t2="52.8901" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1489" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-175.765" t1="85.5528" t2="55.4004" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1490" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-180.079" t1="85.4645" t2="52.2311" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1491" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-176.61" t1="85.3458" t2="59.6315" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1492" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-185.116" t1="85.4809" t2="63.4637" s0="1" s1="1" s2="1" q0="-0.0753031" q1="0.0447656" q2="-0.0437673" q3="0.995194" euler_x="-0.154946" euler_y="0.0826032" euler_z="-0.0943168" id="1493" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-179.91" t1="85.1961" t2="62.7006" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1494" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-186.075" t1="85.1742" t2="51.4164" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1547" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-191.196" t1="85.5677" t2="57.7809" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1548" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-178.388" t1="85.298" t2="49.3442" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1549" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-175.127" t1="85.3315" t2="49.7339" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1550" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-190.635" t1="85.4628" t2="63.6186" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1551" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-167.498" t1="85.687" t2="47.5062" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1552" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-189.307" t1="85.3121" t2="51.0813" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305128" euler_z="-0.240511" id="1553" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-178.642" t1="85.3495" t2="55.8274" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305128" euler_z="-0.240511" id="1554" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-183.532" t1="85.4663" t2="59.2073" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1555" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-171.57" t1="85.8068" t2="53.3798" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1557" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-174.644" t1="85.5218" t2="55.8901" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1558" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-178.958" t1="85.4335" t2="52.7208" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1559" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-175.489" t1="85.3148" t2="60.1212" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1560" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-183.995" t1="85.4499" t2="63.9534" s0="1" s1="1" s2="1" q0="-0.0753031" q1="0.0447656" q2="-0.0437673" q3="0.995194" euler_x="-0.154946" euler_y="0.0826032" euler_z="-0.0943168" id="1561" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-178.789" t1="85.1651" t2="63.1903" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1562" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-173.966" t1="85.9975" t2="43.4275" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1615" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-179.087" t1="86.391" t2="49.792" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1616" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-178.526" t1="86.2861" t2="55.6297" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1619" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-177.198" t1="86.1354" t2="43.0924" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305128" euler_z="-0.240511" id="1621" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-166.533" t1="86.1728" t2="47.8385" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305128" euler_z="-0.240511" id="1622" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-171.423" t1="86.2896" t2="51.2184" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1623" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-166.849" t1="86.2568" t2="44.7319" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1627" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-171.886" t1="86.2732" t2="55.9645" s0="1" s1="1" s2="1" q0="-0.0753031" q1="0.0447656" q2="-0.0437673" q3="0.995194" euler_x="-0.154946" euler_y="0.0826032" euler_z="-0.0943168" id="1629" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-166.68" t1="85.9884" t2="55.2014" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1630" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-198.775" t1="85.5172" t2="61.1658" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1683" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-191.088" t1="85.641" t2="59.0936" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1685" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-187.827" t1="85.6745" t2="59.4833" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1686" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-180.198" t1="86.03" t2="57.2556" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1688" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-202.007" t1="85.6551" t2="60.8307" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305128" euler_z="-0.240511" id="1689" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-198.122" t1="86.0549" t2="61.6936" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305128" euler_z="-0.240511" id="1690" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-184.27" t1="86.1498" t2="63.1292" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1693" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-182.639" t1="85.9843" t2="60.2834" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1694" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-191.658" t1="85.7765" t2="62.4702" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1695" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-195.515" t1="85.4479" t2="44.4302" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1751" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-200.636" t1="85.8414" t2="50.7947" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1752" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-187.828" t1="85.5717" t2="42.358" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1753" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-184.567" t1="85.6052" t2="42.7477" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1754" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-200.075" t1="85.7365" t2="56.6324" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1755" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-176.938" t1="85.9607" t2="40.52" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1756" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-188.082" t1="85.6232" t2="48.8412" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305128" euler_z="-0.240511" id="1758" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-192.972" t1="85.74" t2="52.2211" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1759" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-179.619" t1="85.6995" t2="56.0727" s0="1" s1="1" s2="1" q0="0.0762747" q1="0.00610657" q2="-0.12075" q3="0.98973" euler_x="0.150141" euler_y="0.0305128" euler_z="-0.240511" id="1760" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-181.01" t1="86.0805" t2="46.3936" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1761" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-184.084" t1="85.7955" t2="48.9039" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1762" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-188.398" t1="85.7072" t2="45.7346" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1763" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-184.929" t1="85.5885" t2="53.135" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1764" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-193.435" t1="85.7236" t2="56.9672" s0="1" s1="1" s2="1" q0="-0.0753031" q1="0.0447656" q2="-0.0437673" q3="0.995194" euler_x="-0.154946" euler_y="0.0826032" euler_z="-0.0943168" id="1765" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-188.229" t1="85.4388" t2="56.2041" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1766" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-176.757" t1="85.9037" t2="55.3375" s0="1" s1="1" s2="1" q0="-0.0394815" q1="0.0264822" q2="-0.00659159" q3="0.998848" euler_x="-0.0794135" euler_y="0.0524069" euler_z="-0.0152807" id="1767" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
@@ -3528,4 +3828,5 @@
     <SpawnerItem display_name="Blood Spatter" path="Data/Objects/Decals/bloodspatter.xml" thumbnail_path="Data/UI/spawner/thumbs/Decal/bloodspatter.png" />
     <SpawnerItem display_name="Blood Drop Splat" path="Data/Objects/Decals/blooddropsplat.xml" thumbnail_path="Data/UI/spawner/thumbs/Decal/blooddropsplat.png" />
     <SpawnerItem display_name="Spike" path="Data/Objects/Hotspots/spike.xml" thumbnail_path="Data/UI/spawner/thumbs/Interactive Objects/spike_2.png" />
+    <SpawnerItem display_name="Generic Kill Hotspot" path="Data/Objects/Hotspots/generic_kill.xml" thumbnail_path="Data/UI/spawner/thumbs/Hotspot/kill.png" />
 </RecentItems>

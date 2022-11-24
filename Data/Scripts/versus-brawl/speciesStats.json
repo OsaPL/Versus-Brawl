@@ -61,8 +61,8 @@
 
       "Jump - Initial Velocity": 4.5,
       "Jump - Air Control": 4.0,
-      "Jump - Jump Sustain": 10.0,
-      "Jump - Jump Sustain Boost": 10.0,
+      "Jump - Jump Sustain": 12.0,
+      "Jump - Jump Sustain Boost": 12.0,
 
       "Knockout Shield": 1,
       

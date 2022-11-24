@@ -36,10 +36,10 @@
     <RayToSun r0="-0.0114565" r1="0.998364" r2="0.0560155" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="0.392318" t1="8.81477" t2="4.98479" s0="1" s1="1" s2="1" q0="0.021359" q1="-0.596189" q2="0.0158699" q3="0.802403" euler_x="0.0532251" euler_y="-1.27802" euler_z="0" id="0">
+    <CameraObject t0="6.21291" t1="4.76015" t2="16.9721" s0="1" s1="1" s2="1" q0="0.00452173" q1="-0.380199" q2="0.00185877" q3="0.924892" euler_x="0.00977777" euler_y="-0.780033" euler_z="0" id="0">
         <parameters />
     </CameraObject>
-    <EnvObject t0="9.49128" t1="-3.87804" t2="-2.41337" s0="40.3102" s1="1" s2="35.1901" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+    <EnvObject t0="9.42806" t1="-3.79435" t2="-2.47793" s0="40.3102" s1="1" s2="35.1901" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-11.9667" t1="13.9019" t2="21.4494" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="5" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
@@ -72,7 +72,7 @@
     <EnvObject t0="23.2306" t1="7.55084" t2="-21.6304" s0="2.03871" s1="2.03871" s2="2.03871" q0="-0.00408036" q1="-0.102061" q2="0.00674656" q3="0.994751" euler_x="-0.00969705" euler_y="-0.204416" euler_z="0.0145588" id="14" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Cliffs/CliffTrim_01_lichen.xml">
         <parameters />
     </EnvObject>
-    <Hotspot t0="-11.1456" t1="8.2045" t2="-15.1825" s0="0.27" s1="0.27" s2="0.27" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="15" type_file="Data/Objects/powerups/rockPowerUp.xml">
+    <Hotspot t0="31.9342" t1="8.68175" t2="-7.5536" s0="0.27" s1="0.27" s2="0.27" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="15" type_file="Data/Objects/powerups/rockPowerUp.xml">
         <parameters>
             <parameter name="activeTime" type="float" val="12" />
             <parameter name="colorB" type="float" val="0.7" />
@@ -324,7 +324,7 @@
             <parameter name="BelongsTo" type="int" val="84" />
         </parameters>
     </ItemObject>
-    <Hotspot t0="-1.10905" t1="1.09638" t2="6.2017" s0="0.0752143" s1="0.0752143" s2="0.0752143" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="87" type_file="Data/Objects/Hotspots/fire_test.xml">
+    <Hotspot t0="5.23163" t1="3.73653" t2="4.14077" s0="0.0752143" s1="0.0752143" s2="0.0752143" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="87" type_file="Data/Objects/Hotspots/fire_test.xml">
         <parameters>
             <parameter name="Fire Ribbons" type="int" val="4" />
             <parameter name="FlameTaken" type="int" val="88" />
@@ -384,7 +384,7 @@
             <parameter name="BelongsTo" type="int" val="92" />
         </parameters>
     </ItemObject>
-    <Hotspot t0="41.1206" t1="1.06643" t2="7.96397" s0="0.0752143" s1="0.0752143" s2="0.0752143" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="95" type_file="Data/Objects/Hotspots/fire_test.xml">
+    <Hotspot t0="44.2607" t1="4.01397" t2="-10.3379" s0="0.0752143" s1="0.0752143" s2="0.0752143" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="95" type_file="Data/Objects/Hotspots/fire_test.xml">
         <parameters>
             <parameter name="Fire Ribbons" type="int" val="4" />
             <parameter name="FlameTaken" type="int" val="96" />
@@ -436,14 +436,6 @@
             <parameter name="RespawnDistance" type="int" val="3" />
             <parameter name="RespawnTime" type="int" val="10" />
             <parameter name="game_type" type="string" val="versusBrawl" />
-        </parameters>
-        <Connections />
-        <ConnectionsFrom />
-    </Hotspot>
-    <Hotspot t0="43.045" t1="5.92736" t2="-9.15182" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="108" type_file="Data/Objects/playerSpawn.xml">
-        <parameters>
-            <parameter name="game_type" type="string" val="versusBrawl" />
-            <parameter name="playerNr" type="int" val="-1" />
         </parameters>
         <Connections />
         <ConnectionsFrom />
@@ -524,7 +516,7 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="15.2451" t1="1.41866" t2="4.14623" s0="0.27" s1="0.27" s2="0.27" q0="0.0663835" q1="0.0944769" q2="0.0180371" q3="0.993149" euler_x="0.138087" euler_y="0.186341" euler_z="0.0492425" id="156" type_file="Data/Objects/powerups/healPowerUp.xml">
+    <Hotspot t0="-12.3336" t1="8.26572" t2="-12.9105" s0="0.27" s1="0.27" s2="0.27" q0="0.0421821" q1="0.151612" q2="-0.0517095" q3="0.986186" euler_x="0.0709186" euler_y="0.308257" euler_z="-0.0937495" id="156" type_file="Data/Objects/powerups/healPowerUp.xml">
         <parameters>
             <parameter name="activeTime" type="float" val="0.3" />
             <parameter name="colorB" type="float" val="0.1" />
@@ -878,7 +870,7 @@
     <EnvObject t0="43.2098" t1="4.65054" t2="-9.65757" s0="0.329363" s1="0.419001" s2="0.389064" q0="-0.00509632" q1="0.016122" q2="0.0136464" q3="0.999763" euler_x="-0.00975548" euler_y="0.0323811" euler_z="0.0271396" id="241" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/halloween/pumpkin.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="44.9698" t1="4.8631" t2="-8.33719" s0="0.348012" s1="0.329303" s2="0.389064" q0="-0.00509632" q1="0.016122" q2="0.0136464" q3="0.999763" euler_x="-0.00975548" euler_y="0.0323811" euler_z="0.0271396" id="242" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/halloween/pumpkin.xml">
+    <EnvObject t0="44.973" t1="4.86796" t2="-8.34031" s0="0.348012" s1="0.329303" s2="0.389064" q0="-0.00509632" q1="0.016122" q2="0.0136464" q3="0.999763" euler_x="-0.00975548" euler_y="0.0323811" euler_z="0.0271396" id="242" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/halloween/pumpkin.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="16.75" t1="0.707504" t2="4.96325" s0="1.40269" s1="1.40269" s2="1.40269" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="243" color_r="1" color_g="0.999995" color_b="0.99999" overbright="0.203" type_file="Data/Objects/Environment/camp/fire_wood_hot.xml">
@@ -1031,16 +1023,13 @@
     <Decal t0="35.454" t1="0.628934" t2="-9.99744" s0="5.5533" s1="4.91997" s2="5.76645" q0="0.0865642" q1="0.102215" q2="0.00850095" q3="0.990952" euler_x="0.17785" euler_y="0.202489" euler_z="0.0352722" id="292" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="30.0793" t1="-0.175596" t2="-6.71757" s0="8.53396" s1="7.56071" s2="8.86152" q0="-0.0221137" q1="-0.00721354" q2="0.107411" q3="0.993942" euler_x="-0.0455269" euler_y="-0.00958932" euler_z="0.215514" id="293" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
-        <parameters />
-    </Decal>
     <Decal t0="39.1401" t1="2.01514" t2="5.57958" s0="6.10239" s1="5.40644" s2="6.33661" q0="-0.0221137" q1="-0.00721354" q2="0.107411" q3="0.993942" euler_x="-0.0455269" euler_y="-0.00958932" euler_z="0.215514" id="294" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="31.1173" t1="0.912244" t2="12.1062" s0="10.054" s1="5.53485" s2="7.6002" q0="0.0154398" q1="0.23108" q2="-0.00186221" q3="0.972807" euler_x="0.0326739" euler_y="0.466373" euler_z="0.0039325" id="295" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="32.2445" t1="1.65174" t2="12.0513" s0="10.054" s1="5.53485" s2="7.6002" q0="0.0154398" q1="0.23108" q2="-0.00186221" q3="0.972807" euler_x="0.0326739" euler_y="0.466373" euler_z="0.0039325" id="295" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="27.0586" t1="0.63645" t2="-11.1675" s0="6.83873" s1="5.40644" s2="6.40535" q0="0.0781893" q1="0.128294" q2="0.000340622" q3="0.988649" euler_x="0.160609" euler_y="0.256423" euler_z="0.0214385" id="296" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="25.9136" t1="-0.124445" t2="-10.8328" s0="5.56373" s1="4.04774" s2="3.0288" q0="0.071198" q1="0.11549" q2="-0.00413322" q3="0.990745" euler_x="0.144466" euler_y="0.231493" euler_z="0.00848173" id="296" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="17.1814" t1="0.130656" t2="-14.5582" s0="6.83873" s1="5.40644" s2="6.40535" q0="0.0781893" q1="0.128294" q2="0.000340622" q3="0.988649" euler_x="0.160609" euler_y="0.256423" euler_z="0.0214385" id="297" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
@@ -1086,6 +1075,15 @@
     <DynamicLightObject t0="34.0291" t1="3.72937" t2="-0.405676" s0="5.07602" s1="5.07602" s2="5.07602" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="312" color_r="11.5" color_g="11.5" color_b="11.5" overbright="1.321">
         <parameters />
     </DynamicLightObject>
+    <EnvObject t0="27.5584" t1="0.96672" t2="13.3923" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="315" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/medium_props/egg_a.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="38.1146" t1="2.49647" t2="-11.6424" s0="1.11597" s1="1.14517" s2="0.768668" q0="-0.0882409" q1="0.00818211" q2="-0.604304" q3="-0.791761" euler_x="0.131157" euler_y="-0.119892" euler_z="1.29588" id="318" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="21.2892" t1="5.40903" t2="2.31015" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="319" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/CavePlants_FernWall2.xml">
+        <parameters />
+    </EnvObject>
     <DynamicLightObject t0="-15.1014" t1="32.1627" t2="3.21629" s0="19.9329" s1="19.9329" s2="19.9329" q0="0.0896978" q1="-0.154576" q2="0.324636" q3="0.928801" euler_x="0.0706646" euler_y="-0.352643" euler_z="0.659901" id="320" color_r="11.5" color_g="11.5" color_b="11.5" overbright="0">
         <parameters />
     </DynamicLightObject>
@@ -1175,6 +1173,9 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
+    <EnvObject t0="31.7759" t1="3.65692" t2="-8.91592" s0="1.7502" s1="0.921338" s2="1.29049" q0="-0.221166" q1="-0.205114" q2="-0.693735" q3="-0.653956" euler_x="0.611739" euler_y="-0.0385997" euler_z="1.61753" id="346" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
+        <parameters />
+    </EnvObject>
     <Hotspot t0="-9.05385" t1="0.686531" t2="15.1058" s0="0.210829" s1="0.10585" s2="0.197387" q0="0.00232702" q1="-0.0924446" q2="-0.023771" q3="0.995431" euler_x="0.00918461" euler_y="-0.184987" euler_z="-0.0486031" id="347" type_file="Data/Objects/Hotspots/fire_test.xml">
         <parameters>
             <parameter name="Fire Ribbons" type="int" val="30" />
@@ -1185,32 +1186,9 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="23.2516" t1="4.98098" t2="-5.22962" s0="0.260497" s1="0.260497" s2="0.260497" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="348" type_file="Data/Objects/powerups/yeetPowerUp.xml">
-        <parameters>
-            <parameter name="activeTime" type="float" val="10" />
-            <parameter name="colorB" type="float" val="0" />
-            <parameter name="colorG" type="float" val="1" />
-            <parameter name="colorR" type="float" val="1" />
-            <parameter name="endSoundPath" type="string" val="Data/Sounds/versus/voice_end_2.wav" />
-            <parameter name="game_type" type="string" val="versusBrawl" />
-            <parameter name="knockbackMlt" type="float" val="7" />
-            <parameter name="notReadyAlpha" type="float" val="0.5" />
-            <parameter name="notReadyIconPath" type="string" val="Data/Textures/ui/arena_mode/glyphs/10_kills_1x1.png" />
-            <parameter name="particleColorB" type="float" val="0" />
-            <parameter name="particleColorG" type="float" val="0.5" />
-            <parameter name="particleColorR" type="float" val="0.7" />
-            <parameter name="particleDelay" type="float" val="0.0001" />
-            <parameter name="particleRangeMultiply" type="float" val="0.7" />
-            <parameter name="pathToParticles" type="string" val="Data/Particles/metalspark.xml" />
-            <parameter name="readyAlpha" type="float" val="0.9" />
-            <parameter name="readyIconPath" type="string" val="Data/Textures/ui/arena_mode/glyphs/10_kos_1x1.png" />
-            <parameter name="respawnTime" type="float" val="10" />
-            <parameter name="startSoundPath" type="string" val="Data/Sounds/DirtImpact2.wav" />
-            <parameter name="stopSoundPath" type="string" val="Data/Sounds/DirtImpact1.wav" />
-        </parameters>
-        <Connections />
-        <ConnectionsFrom />
-    </Hotspot>
+    <EnvObject t0="27.8628" t1="6.04313" t2="-6.97836" s0="0.696672" s1="1.112" s2="1" q0="-0.0304996" q1="0.754196" q2="0.057454" q3="0.653422" euler_x="2.81784" euler_y="1.42316" euler_z="2.94264" id="348" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/CavePlants_FernWall1.xml">
+        <parameters />
+    </EnvObject>
     <Hotspot t0="-8.97422" t1="0.661183" t2="15.961" s0="0.210829" s1="0.10585" s2="0.197387" q0="0.00232702" q1="-0.0924446" q2="-0.023771" q3="0.995431" euler_x="0.00918461" euler_y="-0.184987" euler_z="-0.0486031" id="349" type_file="Data/Objects/Hotspots/fire_test.xml">
         <parameters>
             <parameter name="Fire Ribbons" type="int" val="30" />
@@ -1376,7 +1354,7 @@
     <Decal t0="18.3708" t1="1.31452" t2="20.078" s0="5.66088" s1="6.29593" s2="7.33454" q0="-0.0435616" q1="-0.132527" q2="-0.125312" q3="0.982267" euler_x="-0.0544306" euler_y="-0.274714" euler_z="-0.246255" id="381" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="27.2396" t1="4.31199" t2="16.1427" s0="7.62547" s1="7.03406" s2="6.79571" q0="-0.0435616" q1="-0.132527" q2="-0.125312" q3="0.982267" euler_x="-0.0544306" euler_y="-0.274714" euler_z="-0.246255" id="382" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="26.2481" t1="4.06384" t2="16.1379" s0="7.26649" s1="6.70292" s2="6.47579" q0="-0.0435616" q1="-0.132527" q2="-0.125312" q3="0.982267" euler_x="-0.0544306" euler_y="-0.274714" euler_z="-0.246255" id="382" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-1.1817" t1="0.946824" t2="1.11327" s0="8.29586" s1="4.28356" s2="7.0838" q0="0.0564183" q1="0.29938" q2="-0.151901" q3="0.940271" euler_x="0.0185946" euler_y="0.618896" euler_z="-0.314386" id="383" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
@@ -1418,7 +1396,7 @@
     <EnvObject t0="-11.3877" t1="1.57693" t2="-9.22395" s0="1.7429" s1="0.869214" s2="1.10607" q0="-0.375479" q1="-0.578274" q2="-0.519032" q3="0.505207" euler_x="1.35152" euler_y="-1.34256" euler_z="-2.73178" id="395" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
-    <Decal t0="-6.4552" t1="-0.238028" t2="-10.3774" s0="5.95592" s1="4.28356" s2="7.95645" q0="-0.000873029" q1="0.393024" q2="-0.12237" q3="0.911345" euler_x="-0.140559" euler_y="0.798266" euler_z="-0.326314" id="396" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="-6.54531" t1="-0.964777" t2="-11.4068" s0="5.95592" s1="3.76082" s2="7.87583" q0="0.0507078" q1="0.299019" q2="-0.00910388" q3="0.952852" euler_x="0.111286" euler_y="0.607438" euler_z="0.0158035" id="396" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-0.646041" t1="-1.24144" t2="-7.07643" s0="5.95592" s1="4.28356" s2="7.95645" q0="0.000614166" q1="0.371756" q2="0.0465113" q3="0.92716" euler_x="0.0493254" euler_y="0.760519" euler_z="0.119965" id="397" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
@@ -1427,7 +1405,7 @@
     <Decal t0="22.6762" t1="-0.149478" t2="-0.732673" s0="5.95592" s1="4.28356" s2="7.95645" q0="0.000614166" q1="0.371756" q2="0.0465113" q3="0.92716" euler_x="0.0493254" euler_y="0.760519" euler_z="0.119965" id="398" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="30.2775" t1="-0.611176" t2="0.9599" s0="4.7867" s1="4.28355" s2="7.83573" q0="0.000614166" q1="0.371756" q2="0.0465113" q3="0.92716" euler_x="0.0493254" euler_y="0.760519" euler_z="0.119965" id="399" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="30.2793" t1="-1.44776" t2="1.181" s0="4.7867" s1="4.28355" s2="7.83573" q0="-0.00120485" q1="0.372471" q2="-0.0149755" q3="0.927918" euler_x="-0.0185326" euler_y="0.763161" euler_z="-0.0397109" id="399" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="32.596" t1="0.631402" t2="4.5001" s0="4.7867" s1="4.28355" s2="7.83573" q0="0.000614166" q1="0.371756" q2="0.0465113" q3="0.92716" euler_x="0.0493254" euler_y="0.760519" euler_z="0.119965" id="400" type_file="Data/Objects/Decals/PeakRock.xml" color_r="1" color_g="1" color_b="1" overbright="0">
@@ -1545,7 +1523,7 @@
             <Decal t0="19.1171" t1="5.6912" t2="15.9239" s0="1" s1="1" s2="1" q0="0.179316" q1="-0.655899" q2="-0.276113" q3="-0.679113" euler_x="1.0054" euler_y="1.42842" euler_z="1.6627" id="438" type_file="Data/Objects/Decals/Scratches/scratches_02.xml" color_r="1" color_g="1" color_b="1" overbright="28.642">
                 <parameters />
             </Decal>
-            <Decal t0="19.5623" t1="6.07039" t2="15.7189" s0="1.15852" s1="1.15852" s2="1.15852" q0="0.304822" q1="-0.82402" q2="-0.284848" q3="-0.379529" euler_x="2.72898" euler_y="0.925854" euler_z="-2.63878" id="439" type_file="Data/Objects/Decals/Scratches/scratches_02.xml" color_r="1" color_g="1" color_b="1" overbright="28.642">
+            <Decal t0="19.5623" t1="6.07039" t2="15.7189" s0="1.15852" s1="1.15852" s2="1.15852" q0="0.304524" q1="-0.823214" q2="-0.28457" q3="-0.379158" euler_x="2.72766" euler_y="0.923261" euler_z="-2.63718" id="439" type_file="Data/Objects/Decals/Scratches/scratches_02.xml" color_r="1" color_g="1" color_b="1" overbright="28.642">
                 <parameters />
             </Decal>
             <Decal t0="18.4743" t1="6.24531" t2="14.2015" s0="1.45872" s1="1.22809" s2="1.40844" q0="0.24771" q1="-0.759301" q2="-0.479514" q3="-0.363266" euler_x="2.0369" euler_y="0.909534" euler_z="-3.09628" id="440" type_file="Data/Objects/Decals/Scratches/scratches_03.xml" color_r="1" color_g="0.99999" color_b="0.99999" overbright="23.179">
@@ -1626,6 +1604,9 @@
             <parameters />
         </EnvObject>
     </Group>
+    <EnvObject t0="29.5878" t1="0.847513" t2="-0.931236" s0="0.781081" s1="0.751137" s2="0.667006" q0="0.278257" q1="0.697466" q2="-0.404392" q3="0.522088" euler_x="-2.00777" euler_y="1.26407" euler_z="-3.02838" id="463" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
+        <parameters />
+    </EnvObject>
     <EnvObject t0="-13.7259" t1="7.96123" t2="-13.7223" s0="0.384131" s1="0.317678" s2="0.283506" q0="0.00863051" q1="0.0418087" q2="0.0295765" q3="0.998648" euler_x="0.0197803" euler_y="0.0830894" euler_z="0.0600378" id="464" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/halloween/pumpkin.xml">
         <parameters />
     </EnvObject>
@@ -1699,6 +1680,25 @@
             <parameters />
         </EnvObject>
     </Group>
+    <Group t0="28.8892" t1="8.48231" t2="-8.9007" s0="0.25481" s1="1.70022" s2="0.24464" q0="0.0337754" q1="0.0275075" q2="0.00120758" q3="0.99905" euler_x="0.0677067" euler_y="0.0549088" euler_z="0.00427748" id="486" version="1">
+        <parameters />
+        <Hotspot t0="28.8625" t1="9.1258" t2="-8.86852" s0="0.0316937" s1="0.0316937" s2="0.0316937" q0="0.629856" q1="0.149164" q2="-0.18969" q3="0.738275" euler_x="1.38733" euler_y="0.477098" euler_z="-0.103958" id="491" type_file="Data/Objects/Hotspots/fire_test.xml">
+            <parameters>
+                <parameter name="Fire Ribbons" type="int" val="2" />
+                <parameter name="Ignite Characters" type="int" val="1" />
+                <parameter name="Light Amplify" type="float" val="1.572" />
+                <parameter name="Light Distance" type="float" val="30.131" />
+            </parameters>
+            <Connections />
+            <ConnectionsFrom />
+        </Hotspot>
+        <EnvObject t0="28.8888" t1="9.16295" t2="-8.85462" s0="0.431435" s1="0.842364" s2="0.680585" q0="0.0738066" q1="0.0578017" q2="0.680907" q3="0.72635" euler_x="0.187048" euler_y="-0.0165431" euler_z="1.50469" id="492" color_r="0.764706" color_g="0.710727" color_b="0.710727" overbright="12.5" type_file="Data/Objects/Environment/camp/bed_roll.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="28.8938" t1="8.43932" t2="-8.9139" s0="2" s1="2" s2="2" q0="0.0337754" q1="0.0275075" q2="0.00120758" q3="0.99905" euler_x="0.0677067" euler_y="0.0549088" euler_z="0.00427748" id="497" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/torch.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
     <Group t0="4.05073" t1="3.18906" t2="25.8547" s0="0.25481" s1="1.70022" s2="0.24464" q0="-0.0710247" q1="-0.839962" q2="0.0973728" q3="0.529089" euler_x="-2.6259" euler_y="-1.06543" euler_z="2.66439" id="487" version="1">
         <parameters />
         <Hotspot t0="4.08388" t1="3.80996" t2="25.6838" s0="0.0316937" s1="0.0316937" s2="0.0316937" q0="0.406196" q1="-0.529626" q2="0.483538" q3="0.566289" euler_x="-0.446169" euler_y="-1.4496" euler_z="1.81" id="488" type_file="Data/Objects/Hotspots/fire_test.xml">
@@ -1764,7 +1764,67 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
+    <EnvObject t0="29.2436" t1="7.34729" t2="-4.13552" s0="5.50863" s1="5.83853" s2="3.64111" q0="0.0153505" q1="0.144151" q2="0.0170491" q3="0.989289" euler_x="0.036819" euler_y="0.288684" euler_z="0.0398163" id="503" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/caves/cave_pillar.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="27.2771" t1="6.11989" t2="-8.08205" s0="1.13119" s1="1.15731" s2="1" q0="0.0115033" q1="-0.786954" q2="0.00376239" q3="-0.616901" euler_x="-3.05758" euler_y="1.32879" euler_z="-3.04655" id="504" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/CavePlants_FernWall2.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="27.8868" t1="1.66296" t2="-9.40931" s0="3.08394" s1="0.834938" s2="1.77227" q0="-0.415599" q1="0.0246869" q2="0.47929" q3="0.772616" euler_x="-0.758041" euler_y="0.45174" euler_z="0.927942" id="505" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/caves/cave_pillar.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="28.9813" t1="0.599086" t2="-11.0861" s0="0.766684" s1="0.569023" s2="0.667006" q0="-0.726389" q1="0.684361" q2="0.0622854" q3="-0.0110854" euler_x="3.03977" euler_y="0.0753854" euler_z="-1.51507" id="506" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="27.6879" t1="1.83823" t2="-7.69683" s0="0.766684" s1="0.569023" s2="0.667006" q0="-0.726389" q1="0.684361" q2="0.0622854" q3="-0.0110854" euler_x="3.03977" euler_y="0.0753854" euler_z="-1.51507" id="507" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="32.4446" t1="1.23428" t2="-13.2192" s0="0.766684" s1="0.569023" s2="0.667006" q0="-0.726389" q1="0.684361" q2="0.0622854" q3="-0.0110854" euler_x="3.03977" euler_y="0.0753854" euler_z="-1.51507" id="508" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="35.0067" t1="5.53516" t2="-13.7813" s0="0.766684" s1="0.569023" s2="0.667006" q0="0.175867" q1="0.978373" q2="-0.0919216" q3="-0.0582913" euler_x="-2.93917" euler_y="-0.0818206" euler_z="2.77756" id="509" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="10.1729" t1="4.2802" t2="19.8762" s0="0.970743" s1="1.40773" s2="0.999999" q0="-0.00941777" q1="0.828089" q2="-0.00223354" q3="0.560513" euler_x="-3.10325" euler_y="1.18973" euler_z="-3.0929" id="510" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/CavePlants_FernWall1.xml">
+        <parameters />
+    </EnvObject>
     <EnvObject t0="21.9945" t1="0.331427" t2="-1.9292" s0="2.24473" s1="1.43162" s2="1.32592" q0="0.00243467" q1="0.10761" q2="-0.0126705" q3="0.994109" euler_x="0.00216385" euler_y="0.215682" euler_z="-0.0252555" id="511" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/caves/cave_pillar.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="20.8979" t1="5.74288" t2="17.1184" s0="1" s1="1" s2="1" q0="0.384512" q1="-0.248681" q2="-0.0160014" q3="0.888848" euler_x="0.872346" euler_y="-0.444243" euler_z="-0.24577" id="512" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/CavePlants_Fern2.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="31.6215" t1="4.65551" t2="7.51948" s0="1" s1="1" s2="1" q0="0.104665" q1="0.215847" q2="-0.0127677" q3="0.970718" euler_x="0.219791" euler_y="0.435349" euler_z="0.0224958" id="513" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/CavePlants_FernWall2.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="34.5684" t1="3.88192" t2="11.3652" s0="1" s1="1" s2="1" q0="-0.0437639" q1="-0.774757" q2="-0.042115" q3="0.629339" euler_x="3.09185" euler_y="-1.36479" euler_z="3.06917" id="514" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/CavePlants_FernWall2.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="36.6978" t1="2.87053" t2="-7.80342" s0="1" s1="1" s2="1" q0="0.223752" q1="-0.862941" q2="-0.0812483" q3="0.445733" euler_x="2.6188" euler_y="-0.822609" euler_z="-2.40188" id="515" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/CavePlants_Fern2.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="44.6931" t1="3.4858" t2="-7.21879" s0="1" s1="1" s2="1" q0="-0.0865034" q1="-0.958148" q2="-0.00960347" q3="0.27269" euler_x="-3.1078" euler_y="-0.551794" euler_z="2.95194" id="516" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/CavePlants_FernWall2.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="31.6922" t1="6.37073" t2="-5.43673" s0="0.974253" s1="1.19484" s2="1" q0="0.00229815" q1="-0.860904" q2="0.0589248" q3="0.505319" euler_x="-2.93888" euler_y="-1.05588" euler_z="3.02845" id="517" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/CavePlants_FernWall2.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="32.8719" t1="6.29666" t2="-5.91804" s0="0.956634" s1="1.15036" s2="0.948987" q0="-0.0320631" q1="-0.964143" q2="0.00172749" q3="0.263432" euler_x="-3.11811" euler_y="-0.532701" euler_z="3.0687" id="518" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/CavePlants_FernWall1.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="33.5647" t1="5.80851" t2="-6.82075" s0="0.885553" s1="1.57881" s2="0.960501" q0="-0.0557677" q1="-0.898798" q2="0.0830276" q3="0.426805" euler_x="-2.83503" euler_y="-0.860183" euler_z="2.87616" id="519" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/CavePlants_FernWall2.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="30.9334" t1="7.35148" t2="-10.6869" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="520" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/CavePlants_Fern2.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-6.73059" t1="1.34375" t2="-11.5308" s0="1.20242" s1="1.20242" s2="1.20242" q0="-0.00178536" q1="0.99881" q2="0.0400295" q3="-0.0277371" euler_x="3.06132" euler_y="-0.0552934" euler_z="-3.1358" id="521" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/CavePlants_Fern2.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="6.43137" t1="1.60616" t2="27.3444" s0="0.211334" s1="0.211334" s2="0.211334" q0="-0.00107002" q1="0.996927" q2="0.00820017" q3="0.0779293" euler_x="3.12521" euler_y="0.156029" euler_z="-3.14073" id="523" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Statues/RobedStatue.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="7.81675" t1="1.59878" t2="27.1325" s0="0.445445" s1="0.445445" s2="0.445445" q0="0" q1="-0.998086" q2="0" q3="0.0618475" euler_x="3.14159" euler_y="-0.123774" euler_z="-3.14159" id="524" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Lugaru/RockyHallBanner.xml">
         <parameters />
     </EnvObject>
 </ActorObjects>

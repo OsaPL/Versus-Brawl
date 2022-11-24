@@ -351,9 +351,35 @@
     <Decal t0="-119.396" t1="72.9062" t2="253.522" s0="5.53899" s1="3.61376" s2="7.33375" q0="-0.218045" q1="-0.749432" q2="0.0770004" q3="0.620386" euler_x="-2.08571" euler_y="-1.11134" euler_z="1.8805" id="98" type_file="Data/Objects/Decals/hex_crete_damage.xml" color_r="0.717647" color_g="0.717647" color_b="0.717647" overbright="0">
         <parameters />
     </Decal>
-    <CameraObject t0="-176.572" t1="130.35" t2="46.4176" s0="1" s1="1" s2="1" q0="0.139726" q1="-0.524327" q2="0.0876988" q3="0.835384" euler_x="0.331452" euler_y="-1.121" euler_z="0" id="99">
+    <CameraObject t0="-185.515" t1="125.288" t2="65.1721" s0="1" s1="1" s2="1" q0="0.0358648" q1="0.960836" q2="-0.230603" q3="0.149435" euler_x="-2.6705" euler_y="0.30858" euler_z="3.14159" id="99">
         <parameters />
     </CameraObject>
+    <Hotspot t0="-185.451" t1="124.337" t2="69.1984" s0="0.27" s1="0.27" s2="0.27" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="100" type_file="Data/Objects/powerups/yeetPowerUp.xml">
+        <parameters>
+            <parameter name="activeTime" type="float" val="10" />
+            <parameter name="colorB" type="float" val="0" />
+            <parameter name="colorG" type="float" val="1" />
+            <parameter name="colorR" type="float" val="1" />
+            <parameter name="endSoundPath" type="string" val="Data/Sounds/versus/voice_end_2.wav" />
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="knockbackMlt" type="float" val="7" />
+            <parameter name="notReadyAlpha" type="float" val="0.5" />
+            <parameter name="notReadyIconPath" type="string" val="Data/Textures/ui/arena_mode/glyphs/10_kills_1x1.png" />
+            <parameter name="particleColorB" type="float" val="0" />
+            <parameter name="particleColorG" type="float" val="0.5" />
+            <parameter name="particleColorR" type="float" val="0.7" />
+            <parameter name="particleDelay" type="float" val="0.0001" />
+            <parameter name="particleRangeMultiply" type="float" val="0.7" />
+            <parameter name="pathToParticles" type="string" val="Data/Particles/metalspark.xml" />
+            <parameter name="readyAlpha" type="float" val="0.9" />
+            <parameter name="readyIconPath" type="string" val="Data/Textures/ui/arena_mode/glyphs/10_kos_1x1.png" />
+            <parameter name="respawnTime" type="float" val="10" />
+            <parameter name="startSoundPath" type="string" val="Data/Sounds/DirtImpact2.wav" />
+            <parameter name="stopSoundPath" type="string" val="Data/Sounds/DirtImpact1.wav" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
     <Hotspot t0="-175.231" t1="126.363" t2="54.6584" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="101" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
@@ -2674,39 +2700,12 @@
     <EnvObject t0="-169.181" t1="124.964" t2="41.8624" s0="0.80096" s1="1.33269" s2="0.8054" q0="-0.392038" q1="0.81612" q2="0.353627" q3="0.234951" euler_x="2.59056" euler_y="0.72184" euler_z="-2.45857" id="865" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/plain_rock_small.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-183.584" t1="123.163" t2="64.6213" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="866" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/lichen_rock_c.xml">
+    <EnvObject t0="-184.816" t1="123.224" t2="67.0789" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="866" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/lichen_rock_c.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-185.011" t1="123.202" t2="63.9223" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="867" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/lichen_rock_e.xml">
+    <EnvObject t0="-185.909" t1="123.13" t2="67.1359" s0="1" s1="1" s2="1" q0="-0.0671228" q1="0.00947089" q2="0.154956" q3="0.985594" euler_x="-0.129842" euler_y="0.0394813" euler_z="0.309322" id="867" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/lichen_rock_e.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-185.834" t1="123.088" t2="65.1464" s0="1" s1="1" s2="1" q0="-0.0447679" q1="0.0890002" q2="-0.3397" q3="0.935243" euler_x="-0.146077" euler_y="0.136482" euler_z="-0.706811" id="868" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/lichen_rock_c.xml">
-        <parameters />
-    </EnvObject>
-    <Hotspot t0="-184.658" t1="124.321" t2="64.9034" s0="0.27" s1="0.27" s2="0.27" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="869" type_file="Data/Objects/powerups/ninjaPowerUp.xml">
-        <parameters>
-            <parameter name="activeTime" type="float" val="3" />
-            <parameter name="colorB" type="float" val="1" />
-            <parameter name="colorG" type="float" val="0" />
-            <parameter name="colorR" type="float" val="1" />
-            <parameter name="endSoundPath" type="string" val="Data/Sounds/versus/voice_end_2.wav" />
-            <parameter name="game_type" type="string" val="versusBrawl" />
-            <parameter name="notReadyAlpha" type="float" val="0.5" />
-            <parameter name="notReadyIconPath" type="string" val="Data/Textures/ui/arena_mode/glyphs/10_kills_1x1.png" />
-            <parameter name="particleColorB" type="float" val="0.1" />
-            <parameter name="particleColorG" type="float" val="0.1" />
-            <parameter name="particleColorR" type="float" val="0.1" />
-            <parameter name="particleDelay" type="float" val="0.02" />
-            <parameter name="particleRangeMultiply" type="float" val="0.9" />
-            <parameter name="pathToParticles" type="string" val="Data/Particles/ninja_smoke.xml" />
-            <parameter name="readyAlpha" type="float" val="0.9" />
-            <parameter name="readyIconPath" type="string" val="Data/Textures/ui/arena_mode/glyphs/10_kos_1x1.png" />
-            <parameter name="respawnTime" type="float" val="6" />
-            <parameter name="startSoundPath" type="string" val="Data/Sounds/versus/voice_end_1.wav" />
-        </parameters>
-        <Connections />
-        <ConnectionsFrom />
-    </Hotspot>
     <NavmeshConnectionObject t0="-183.251" t1="124.656" t2="28.737" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="870" type_file="">
         <parameters />
         <NavMeshConnections>
@@ -2856,6 +2855,9 @@
             <NavMeshConnection other_object_id="885" offmesh_connection_id="1032" poly_area="8" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
+    <EnvObject t0="-185.446" t1="123.34" t2="68.4459" s0="1.10981" s1="1.4845" s2="1" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="888" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
+        <parameters />
+    </EnvObject>
     <Decal t0="-184.845" t1="125.254" t2="48.7925" s0="3.18275" s1="2.29539" s2="3.96537" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="891" type_file="Data/Objects/Decals/dark_rubble.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
@@ -2917,4 +2919,5 @@
     <SpawnerItem display_name="Dark Rubble" path="Data/Objects/Decals/dark_rubble.xml" thumbnail_path="Data/UI/spawner/thumbs/Decal/dark_rubble.png" />
     <SpawnerItem display_name="playerSpawn.xml" path="Data/Objects/playerSpawn.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="weaponSpawn.xml" path="Data/Objects/weaponSpawn.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="yeetPowerUp.xml" path="Data/Objects/powerups/yeetPowerUp.xml" thumbnail_path="empty_placeholder.png" />
 </RecentItems>

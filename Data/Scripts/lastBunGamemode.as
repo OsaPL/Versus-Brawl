@@ -32,6 +32,10 @@ int players_number;
 
 //Level methods
 void Init(string msg){
+    // LBS specific hints
+    warmupHints.insertAt(0, "Survivor gets the point, thats it.");
+    randomHints.insertAt(0, "Watching the fights unfold, is a way for sure.");
+    
     forcedSpecies = -1;
     
     //Always need to call this first!

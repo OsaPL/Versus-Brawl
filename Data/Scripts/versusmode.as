@@ -18,7 +18,24 @@ array<string> insults = {
     "You should try turning on `Baby Mode`.",
     "vidja gams are hart",
     "Are you guys still playing?",
-    "Oooh! That's gonna leave a mark!"
+    "Oooh! That's gonna leave a mark!",
+    "You play like my frickin grandma, y'know that?"
+};
+
+// This is my fun corner
+array<string> funnies = {
+    "Do you ever dream about cheese?",
+    "There are no bunkers, but still its frickin great.",
+    "Have you heard of the high cats?",
+    "HELP! They took me hostage to keep me writing these!",
+    "I liked the part where you just fell down.",
+    "This is a test hint, no need to panic.",
+    "Play Skatebird, the most wholesome game.",
+    "This is more fun than picking up bullets from ground.",
+    "I like my hints, like my girls, rare. Wait, no.",
+    "My favorite class is the rat.",
+    "Imagine having turned off `Tutorials`, and not seeing this.",
+    "You are looking beautiful today :)"
 };
 
 // TODO! Add cases when which should be used (only use first two if `blockSpeciesChange==false` etc.)
@@ -29,16 +46,17 @@ array<string> warmupHints = {
     "Weapons will respawn after not being picked back up.",
     "Violet powerup is ninja mode, infinite throwing knife, just hold @item@.",
     "Blue powerup makes you sturdy as a rock.",
-    "Green powerup will heall all your wounds.",
-    "You can enable hints during game by turning on `Tutorials` option in settings"
+    "Green powerup will heal all your wounds.",
+    "You can enable hints during game by turning on `Tutorials` option in Settings"
 };
 
+// TODO! These will be scrambled
 array<string> randomHints = {
     "Horizontal mobility is great, but cats and rats can dominate vertical spaces.",
     "Try using @jump@ as a dash, while playing cat or rat.",
     "You can disable these hints by disabling `Tutorials` option in settings.",
     "Dogs are resilient, can withstand more punishment than other races.",
-    "Wolves are great target for sharp weapons.",
+    "Wolves are a great target for sharp weapons.",
     "Wolves are slow, if they're about to attack, run.",
     "Rabbit kick is sometimes what a cheeky wolf needs.",
     "Fighting a wolf bare handed, probably not the best idea.",
@@ -100,7 +118,10 @@ float scriptlastKbMInputTimer = 0;
 // Hints system
 float hintTimer = 0;
 int currentHint = -1;
+string lastHint = "";
 bool hintBrake = false;
+int funniesChance = 2; // out of 100
+bool funniesActive = false;
 
 VersusAHGUI versusAHGUI;
 TimedExecution levelTimer;
@@ -699,12 +720,12 @@ void VersusUpdate() {
         if(currentState == 0){
             if(currentHint > int(warmupHints.size()) - 1)
                 currentHint = 0;
-            versusAHGUI.SetText(versusAHGUI.text, warmupHints[currentHint]);
+            SetHint(warmupHints[currentHint]);
         }
         else{
             // If its empty, or still displaying previous hint, take new one
-            if(versusAHGUI.extraText == "" || versusAHGUI.extraText == InsertKeysToString(randomHints[currentHint - 1])){
-
+            if(versusAHGUI.extraText == "" || versusAHGUI.extraText == lastHint || funniesActive)
+            {
                 if(currentHint > int(randomHints.size()) - 1){
                     currentHint = 0;
                 }
@@ -713,7 +734,7 @@ void VersusUpdate() {
                     hintBrake = false;
                 }
                 else{
-                    versusAHGUI.SetText(versusAHGUI.text, randomHints[currentHint]);
+                    SetHint(randomHints[currentHint]);
                     hintBrake = true;
                 }
             }
@@ -722,6 +743,22 @@ void VersusUpdate() {
 
     PlaySong("ambient-tense");
     versusAHGUI.Update();
+}
+
+void SetHint(string hint){
+    
+    Log(error, "currentHint: " + currentHint);
+    if(rand()%100 < funniesChance && !funniesActive){
+        versusAHGUI.SetText(versusAHGUI.text, funnies[rand()%funnies.size()]);
+        currentHint--;
+        funniesActive = true;
+        Log(error, "funniesActive");
+    }
+    else{
+        versusAHGUI.SetText(versusAHGUI.text, hint);
+        funniesActive = false;
+    }
+    lastHint = hint;
 }
 
 void VersusReceiveMessage(string msg){

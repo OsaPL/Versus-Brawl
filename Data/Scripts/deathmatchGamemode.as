@@ -16,6 +16,13 @@ float pointsTextShowTimer = 0;
 
 //Level methods
 void Init(string msg){
+    // DM specific hints
+    warmupHints.insertAt(0, "Kills give points, duh.");
+    warmupHints.insertAt(0, "You also get points for causing enemies clumsy deaths.");
+    randomHints.insertAt(0, "Try changing species to counter someone else.");
+    randomHints.insertAt(0, "Grabbing a weapon or a powerup could be the deciding factor.");
+    randomHints.insertAt(0, "Two's company, three's a crowd, and fourth gets kills.");
+    
     constantRespawning = true;
     forcedSpecies = -1;
     
