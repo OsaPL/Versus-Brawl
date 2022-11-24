@@ -29,12 +29,14 @@ array<string> warmupHints = {
     "Weapons will respawn after not being picked back up.",
     "Violet powerup is ninja mode, infinite throwing knife, just hold @item@.",
     "Blue powerup makes you sturdy as a rock.",
-    "Green powerup will heall all your wounds."
+    "Green powerup will heall all your wounds.",
+    "You can enable hints during game by turning on `Tutorials` option in settings"
 };
 
 array<string> randomHints = {
     "Horizontal mobility is great, but cats and rats can dominate vertical spaces.",
     "Try using @jump@ as a dash, while playing cat or rat.",
+    "You can disable these hints by disabling `Tutorials` option in settings.",
     "Dogs are resilient, can withstand more punishment than other races.",
     "Wolves are great target for sharp weapons.",
     "Wolves are slow, if they're about to attack, run.",
