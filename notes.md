@@ -4,37 +4,45 @@
 - enable/disable hints ingame by using a key combo
 - for simple arrays, I should just use `int find(const T& in)`
 
-# 0.5 update notes:
-- New gamemodes: 
-  - Tag - catch or kill, doesnt matter that much
-  - Race - first to get to all checkpoints wins
-- Coop is now much more stable, also added a `panic` button to increase compatibility.
-  - Pressing `skip_dialogue` button will return you to the player 1, and revive if needed.
-- Cooler map names 
-- Added new fully playable maps: 
-  - Gods Exile (tag only for now)
-  - Imperial Sewers (dm)
-- Reworked Dank Cave
-  - More routes for lower jumping characters
-  - The back part (around spear spawn) changed, to give an incentive for routes/fights there
-- New powerups: 
-  - Toxic cloud - inverts all controls for those affected
-  - Power slap - increases power of your next blunt hit
-  - Fire fists - your fists now ignite
-- All old powerups have received touchups to feedback and effects
-  - All of them now emit colored auras!
-  - Rock powerup now has a tiny sparkling particles, and when hit, will give rock hit sounds
-  - Ninja powerup now has a feedback sound on each dagger hit
-- A new hints system that helps to understand some more cryptic mechanisms and controls
-  - Enabling `Tutorials` in `Game` Settings will give you more hints that could be helpful.
-  - All hints will now show keyboard/mouse bindings if they're being used
-- Fixed **TONS OF BUGS**
-  - Im adding this sub point only to emphasize how many bugs were removed.
-  - Like holy hell, it was alot.
-- Made editor experience for mappers much smoother
-- Few new tools for mappers to use:
-  - waterRise/Phase hotspots, for phase based platforms or just to animate bobbing/floating objects
-  - Added a whole new configuration system for mappers (or basically anyone) to be able to modify gameplay as they please
+[h1]0.5 update notes:[/h1]
+[b]New gamemodes: [/b]
+- Tag - catch or kill, doesnt matter that much
+- Race - first to get to all checkpoints wins
+
+[b]Coop is now much more stable, also added a `panic` button to increase compatibility.[/b]
+- Pressing `skip_dialogue` button will return you to the player 1, and revive if needed.
+
+[b]Cooler map names [/b]
+[b]Added new fully playable maps: [/b]
+- Gods Exile (tag only for now)
+- Imperial Sewers (dm)
+
+[b]Reworked Dank Cave:[/b]
+- More routes for lower jumping characters
+- The back part (around spear spawn) changed, to give an incentive for routes/fights there
+
+[b]New powerups: [/b]
+- Toxic cloud - inverts all controls for those affected
+- Power slap - increases power of your next blunt hit
+- Fire fists - your fists now ignite
+
+[b]All old powerups have received touchups to feedback and effects:[/b]
+- All of them now emit colored auras!
+- Rock powerup now has a tiny sparkling particles, and when hit, will give rock hit sounds
+- Ninja powerup now has a feedback sound on each dagger hit
+
+[b]A new hints system that helps to understand some more cryptic mechanisms and controls[/b]
+- Enabling `Tutorials` in `Game` Settings will give you more hints that could be helpful.
+- All hints will now show keyboard/mouse bindings if they’re being used
+
+[b]Fixed TONS OF BUGS:[/b]
+- Im adding this sub point only to emphasize how many bugs were removed.
+- Like holy hell, it was alot.
+
+[b]Made editor experience for mappers much smoother
+Few new tools for mappers to use:[/b]
+- waterRise/Phase hotspots, for phase based platforms or just to animate bobbing/floating objects
+- Added a whole new configuration system for mappers (or basically anyone) to be able to modify gameplay as they please
 
 ### For changelogs
 `git log <hash>..HEAD --pretty=format:%s`
