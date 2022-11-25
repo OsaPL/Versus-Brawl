@@ -14,7 +14,6 @@ This award-winning mod, got you covered.
 
 # Quick disclaimer:
 There are things missing atm:
-- Respawn system is not yet completed (still a little wonky, missing a more generic spawn code)
 - No ability to team up
 - No big modifications to the default character scripts
 - Missing elements for new gamemodes implementation
@@ -24,11 +23,13 @@ Some of the functionality will come eventually, once I have laid the foundation 
 
 # Features
 - 2/3/4 player support, with UI help and gamepad support
-- Play Coop on any level (👻custom levels support missing)
+- Play Coop on any level (levels support vary, relies on map makers)
+- Respawn/teleport button for coop partners.
 - Ability to change species, with each character having different stats and a unique trait
 - Players should no longer get their Id swapped, resulting in gamepads being always correctly arranged
 - New maps that arent just a gm_flatgrass, designed for game modes (👻6 planned, atleast 1 per mode)
 - Only a single level script and few basic prefabs needed to create a map. You can have a map ready in matter of minutes.
+- Ability to modify many parameters, for characters, gamemodes and maps.
 - Warmup before the game start (with preloading for smoother gameplay)
 - Easy to extend with new gamemodes (with even more options coming)
 - Pickup wacky powerups and be able to add your own with only few lines of code (👻need to create a better template for external use and add some documentation)
@@ -51,10 +52,10 @@ Go to the `Settings -> Game -> Local Players`. If you're already on a level, you
 4. **How do I enable coop on a level?**
 
 Just set `Local Players` and launch a level.
-Not all custom levels are supported atm. Please, dont message me if its incompatible, you should let the mapper know. 
-[There is a helpful README for modders/mappers.](https://github.com/OsaPL/Versus-Brawl/blob/main/Adding%20maps%20and%20gamemodes%20README.md)
+Each coop partner can also press `skip_dialogue` button to respawn at 1st player.
 
-For already coop supported old levels, that have problems somehow, try setting `Local Players` to `1` for compatibility.
+Not all custom levels are supported. Please, dont message me if its incompatible, you should let the mapper know. 
+[There is a helpful README for modders/mappers.](https://github.com/OsaPL/Versus-Brawl/blob/main/Adding%20maps%20and%20gamemodes%20README.md)
 
 3. **What does `<action here>` key correspond to?**
 

@@ -60,7 +60,10 @@ You can also modify paremeters of characters for that map by adding `SpeciesStat
   }
 }
 ```
-(see `Scripts/versus-brawl/speciesStats.json` for available options)
+See `Scripts/versus-brawl/speciesStats.json` for available options.
+You can also change them globally temporarily vby editing that file.
+
+
 
 ## Gametype specific
 
@@ -68,14 +71,14 @@ You can also modify paremeters of characters for that map by adding `SpeciesStat
 
 To implement Last Bun Standing/Deathmatch:
 
-1. Place separate spawnHotspot for all players, change playerNr accordingly, -1 will be a free for all spawn
-2. Setup level parameters to your liking (like useGeneric, oneSpawnTypeOnly, blockRaceChange etc.)
+1. Place playerSpawnHotspots, change playerNr accordingly, -1 will be a free for all spawn
+2. Setup level json parameters to your liking (like useGeneric, oneSpawnTypeOnly, blockRaceChange etc.)
 
 ### Race
 
 To implement a race:
 
-1. Place separate spawnHotspot for all players, change playerNr accordingly (only specific ones will work)
+1. Place playerSpawnHotspots for all players, change playerNr accordingly (only specific ones will work)
 2. Place checkPointsHotspots, adjust size as needed
 3. Place separate spawnHotspot for all player for that checkpoint
 4. Connect checkpointHotSpot to each spawnHotspot. To do that select checkpointHotSpot `double click` and then hold `alt` then click on spawnHotspot.
@@ -85,7 +88,7 @@ OR
 1. Place 👻checkpointPrefab
 2. Move spawnpoints to your desired position
 
-and lastly, setup level parameters to your liking (like checkPointsNeeded, blockRaceChange, spawnTime etc.)
+and lastly, setup level json parameters to your liking (like checkPointsNeeded, blockRaceChange, spawnTime etc.)
 
 Linking checkpoint to any other objects will switch the enabled flag and send in an `switch` event message, good for opening doorway, disabling walls, spawning in weapons etc.
 
@@ -93,10 +96,12 @@ If you wish your item to be stay disabled until checkpoint first activation, add
 
 ### Coop
 
-You dont need to do anything in particular, as long as you use default `aschar.as`, and dont change the parameters of the character. 
+You dont need to do anything in particular, as long as you use default `aschar.as`, and dont change the parameters of the character.
 
 #### Custom levels support 
 👻(not tested)
+
+Make sure the place you spawn in players is always roomy enough for 4 players, and is atleast slightly off the ground.
 
 If youre using anything custom, a custom implementation will be probably needed.
 1. Set Level Parameter `characterActorPath` with your players `actor.xml` path.
@@ -118,7 +123,7 @@ for (int i = 0; i < GetNumCharacters(); i++) {
 
 You probably just need to include `coopPartners.as` script and do the same thing I've done in my `aschar.as`. 
 
-Just correctly call `CoopPartnersCheck()`.
+Just correctly call `CoopPartnersCheck()` and `CoopPanic()`.
 
 # Gamemode creation
  
@@ -175,7 +180,7 @@ throwMassMlt = params.GetFloat("Throw - Mass Multiplier");
 - Added fixes from `internal testing` branch regarding `attacker_id`
 - Added jump parameters from `internal testing` branch to change jumping behaviour
 - `bluntHit` message
-- `coopPartners.as` include, with an additional call in `Update()`
+- `coopPartners.as` include, with an additional calls in `Update()`
 - Moved color functions to `colorHelper.as`
 - `timeSinceAttackedById` tracks time since last `attacked_by_id` change (as long as its not `-1`)
 
