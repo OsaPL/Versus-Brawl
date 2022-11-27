@@ -529,7 +529,7 @@ void DeleteObjectsInList(array<int> &inout ids) {
 ///
 ///     General stuff
 ///
-
+int initPlayersNr;
 void VersusInit(string p_level_name) {
 
     // Register callback for loading JSON config
@@ -542,12 +542,12 @@ void VersusInit(string p_level_name) {
     lvlParams.AddString("game_type", "versusBrawl");
     
     // This makes sure player number is already set and not below 1
-    int playersNr = GetConfigValueInt("local_players");
-    Log(error, "local_players: " + playersNr);
-    if(playersNr < 1)
-        playersNr = 1;
+    initPlayersNr = GetConfigValueInt("local_players");
+    Log(error, "local_players: " + initPlayersNr);
+    if(initPlayersNr < 1)
+        initPlayersNr = 1;
     
-    for(int i = 0; i< playersNr; i++) {
+    for(int i = 0; i< initPlayersNr; i++) {
 
         VersusPlayer player (i);
         versusPlayers.push_back(player);
@@ -598,6 +598,12 @@ void VersusDrawGUI(){
 }
 
 void VersusUpdate() {
+    
+    if(initPlayersNr != GetConfigValueInt("local_players")){
+        //Reload if the setting changed
+        LoadLevel(GetCurrLevelRelPath());
+    }
+    
     scriptlastKbMInputTimer += time_step;
     if(lastKbMInput < max(last_mouse_event_time, last_keyboard_event_time))
     {
