@@ -15,6 +15,7 @@ float throwMassMlt;
 float throwVelocityMlt;
 bool initCoopPartners = true;
 float timeSinceAttackedById = 0;
+int localPlayers = 0;
 //
 
 enum WalkDir {
@@ -2456,6 +2457,11 @@ void Update(int num_frames) {
     if(initCoopPartners){
         CoopPartnersCheck();
         initCoopPartners = false;
+        localPlayers = GetConfigValueInt("local_players");
+    }
+    // Reload level if local_players changed
+    if(localPlayers != GetConfigValueInt("local_players")){
+        LoadLevel(GetCurrLevelRelPath());
     }
     CoopPanic();
 

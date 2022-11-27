@@ -25,6 +25,9 @@ void CoopPartnersCheck(){
         return;
     }
     
+    // We move the character slightly up, to accomodate for more players
+    charObj.SetTranslation(charObj.GetTranslation() + vec3(0, 0.5f, 0));
+    
     int missingCharacters = GetConfigValueInt("local_players");
     int num_chars = GetNumCharacters();
     // We count already available player controlled characters
