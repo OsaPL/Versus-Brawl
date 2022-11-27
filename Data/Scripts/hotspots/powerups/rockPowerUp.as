@@ -82,7 +82,7 @@ void SetParameters() {
     params.SetFloat("colorB", 0.7f);
 
     params.SetFloat("particleDelay", 0.001f);
-    params.SetString("pathToParticles", "Data/Particles/stone_sparks.xml");
+    params.SetString("pathToParticles", "Data/Particles/versus-brawl/stone_sparks.xml");
     params.SetFloat("particleRangeMultiply", 0.5f);
     params.SetFloat("particleColorR", 0.2f);
     params.SetFloat("particleColorG", 0.2f);

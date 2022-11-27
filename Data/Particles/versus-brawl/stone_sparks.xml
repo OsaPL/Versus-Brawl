@@ -2,7 +2,7 @@
 <particle>
     <textures color_map = "Data/Textures/smoke.tga" 
               normal_map = "Data/Textures/smoke_normal.tga"
-              shader = "glowsprite"
+              shader = "envobject #PARTICLE #GLOW"
               soft_shader = "envobject #PARTICLE #GLOW #NORMAL_MAP_TRANSLUCENT"/>
     <size min = "0.01" max = "0.05"/>
     <color red =   "2.7"

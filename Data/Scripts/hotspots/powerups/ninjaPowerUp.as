@@ -36,7 +36,7 @@ void SetParameters() {
     params.SetFloat("colorR", 1.0f);
 
     params.SetFloat("particleDelay", 0.02f);
-    params.SetString("pathToParticles", "Data/Particles/ninja_smoke.xml");
+    params.SetString("pathToParticles", "Data/Particles/versus-brawl/ninja_smoke.xml");
     params.SetFloat("particleColorR", 0.1f);
     params.SetFloat("particleColorG", 0.1f);
     params.SetFloat("particleColorB", 0.1f);

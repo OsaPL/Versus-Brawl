@@ -92,7 +92,7 @@ void SetParameters() {
     params.SetFloat("colorB", 0.0f);
 
     params.SetFloat("particleDelay", auraParticleDelay);
-    params.SetString("pathToParticles", "Data/Particles/fire_fists.xml");
+    params.SetString("pathToParticles", "Data/Particles/versus-brawl/fire_fists.xml");
     params.SetFloat("particleRangeMultiply", 0.5f);
     params.SetFloat("particleColorR", 1.0f);
     params.SetFloat("particleColorG", 0.3f);
@@ -121,11 +121,11 @@ void Update()
                     objParams.SetInt("objectIdToFollow", lastEnteredPlayerObjId);
         
                     objParams.SetFloat("particleDelay", fistsParticleDelay);
-                    objParams.SetString("pathToParticles", "Data/Particles/fire_fists.xml");
+                    objParams.SetString("pathToParticles", params.GetString("pathToParticles"));
                     objParams.SetFloat("particleRangeMultiply", 0.025f);
-                    objParams.SetFloat("particleColorR", 0.8f);
-                    objParams.SetFloat("particleColorG", 0.2f);
-                    objParams.SetFloat("particleColorB", 0.0f);
+                    objParams.SetFloat("particleColorR", params.GetFloat("particleColorR"));
+                    objParams.SetFloat("particleColorG", params.GetFloat("particleColorG"));
+                    objParams.SetFloat("particleColorB", params.GetFloat("particleColorB"));
                     
                     switch (i){
                         case 0: objParams.SetString("boneToFollow", "leftarm"); break;

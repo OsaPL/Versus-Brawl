@@ -1,7 +1,7 @@
 ﻿#include "powerUpBase.as"
 
 float range = 2.5f;
-float decayTime = 5.0f;
+float decayTime = 3.0f;
 string slapSoundPath = "Data/Sounds/pop1.wav";
 array<int> affectedIds = {};
 array<int> affectedEmittersIds = {};
@@ -42,7 +42,7 @@ void SetParameters() {
     params.SetFloat("colorB", 0.3f);
 
     params.SetFloat("particleDelay", 0.06f);
-    params.SetString("pathToParticles", "Data/Particles/toxic_cloud.xml");
+    params.SetString("pathToParticles", "Data/Particles/versus-brawl/toxic_cloud.xml");
     params.SetFloat("particleRangeMultiply", range * 1.1f);
     params.SetFloat("particleColorR", 0.05f);
     params.SetFloat("particleColorG", 0.4f);
