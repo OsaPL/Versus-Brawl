@@ -31,7 +31,7 @@
 
             // Wolves are problematic for coloring all channels are marked as `fur`
             if(species == "wolf"){
-                if(i==1 || i==3){
+                if(/*i==1 || */i==3){
                     foundClothChannel = true;
                     char_obj.SetPaletteColor(i, clothesColor*2);
                 }
