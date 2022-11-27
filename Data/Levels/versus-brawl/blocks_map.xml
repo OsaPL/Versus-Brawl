@@ -351,7 +351,7 @@
     <Decal t0="-119.396" t1="72.9062" t2="253.522" s0="5.53899" s1="3.61376" s2="7.33375" q0="-0.218045" q1="-0.749432" q2="0.0770004" q3="0.620386" euler_x="-2.08571" euler_y="-1.11134" euler_z="1.8805" id="98" type_file="Data/Objects/Decals/hex_crete_damage.xml" color_r="0.717647" color_g="0.717647" color_b="0.717647" overbright="0">
         <parameters />
     </Decal>
-    <CameraObject t0="-185.515" t1="125.288" t2="65.1721" s0="1" s1="1" s2="1" q0="0.0358648" q1="0.960836" q2="-0.230603" q3="0.149435" euler_x="-2.6705" euler_y="0.30858" euler_z="3.14159" id="99">
+    <CameraObject t0="-181.752" t1="125.407" t2="65.6849" s0="1" s1="1" s2="1" q0="0.0994917" q1="-0.113823" q2="0.0114569" q3="0.98844" euler_x="0.200635" euler_y="-0.229299" euler_z="0" id="99">
         <parameters />
     </CameraObject>
     <Hotspot t0="-185.451" t1="124.337" t2="69.1984" s0="0.27" s1="0.27" s2="0.27" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="100" type_file="Data/Objects/powerups/yeetPowerUp.xml">
@@ -402,7 +402,7 @@
     <EnvObject t0="-153.416" t1="90.6021" t2="-65.9574" s0="2.01564" s1="2.86929" s2="2.37731" q0="-0.00474894" q1="0.00257536" q2="0.0122051" q3="0.999911" euler_x="-0.00943444" euler_y="0.00526621" euler_z="0.0243863" id="105" color_r="0.27451" color_g="0.27451" color_b="0.27451" overbright="0" type_file="Data/Objects/Crete/hex_crete_tall.xml">
         <parameters />
     </EnvObject>
-    <Hotspot t0="-54.8732" t1="104.644" t2="9.91189" s0="118.439" s1="2.56326" s2="87.3825" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="106" type_file="Data/Objects/Hotspots/generic_kill.xml">
+    <Hotspot t0="-54.8174" t1="104.645" t2="9.93443" s0="200" s1="2.56326" s2="200" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="106" type_file="Data/Objects/Hotspots/generic_kill.xml">
         <parameters>
             <parameter name="KillNPC" type="int" val="1" />
             <parameter name="KillPlayer" type="int" val="1" />
@@ -434,7 +434,7 @@
     <EnvObject t0="-171.39" t1="98.2302" t2="40.8439" s0="1.09298" s1="2.35091" s2="1.00693" q0="-0.0361678" q1="-0.153627" q2="-0.0104287" q3="0.987412" euler_x="-0.0716747" euler_y="-0.309036" euler_z="-0.00995384" id="111" color_r="0.196078" color_g="0.196078" color_b="0.196078" overbright="0" type_file="Data/Objects/Crete/hex_crete_half_slope.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-183.979" t1="124.869" t2="33.2221" s0="3.48257" s1="1.50764" s2="0.997895" q0="-0.573609" q1="-0.57059" q2="-0.398216" q3="0.432231" euler_x="-3.0084" euler_y="-1.25354" euler_z="1.469" id="112" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
+    <EnvObject t0="-183.978" t1="124.782" t2="32.956" s0="3.19577" s1="1.47166" s2="0.997979" q0="-0.573609" q1="-0.57059" q2="-0.398216" q3="0.432231" euler_x="-3.0084" euler_y="-1.25354" euler_z="1.469" id="112" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-201.51" t1="85.3182" t2="25.2716" s0="1.71466" s1="3.68813" s2="1.57967" q0="0.0655518" q1="0.1008" q2="-0.00164134" q3="0.992743" euler_x="0.132899" euler_y="0.201717" euler_z="0.0101626" id="113" color_r="0.0941176" color_g="0.0941176" color_b="0.0941176" overbright="0" type_file="Data/Objects/Crete/hex_crete_half_slope.xml">
@@ -449,10 +449,10 @@
     <EnvObject t0="-170.332" t1="86.4818" t2="59.4546" s0="1.08213" s1="2.3376" s2="0.945112" q0="-0.062947" q1="-0.0558986" q2="0.0489617" q3="0.995247" euler_x="-0.13188" euler_y="-0.105296" euler_z="0.105272" id="116" color_r="0.498039" color_g="0.498039" color_b="0.498039" overbright="0" type_file="Data/Objects/Crete/hex_crete_tall.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-184.764" t1="124.762" t2="58.3709" s0="3.48257" s1="1.50764" s2="0.997895" q0="-0.325164" q1="-0.427935" q2="-0.648746" q3="0.538766" euler_x="0.451694" euler_y="-1.08224" euler_z="-2.02992" id="118" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
+    <EnvObject t0="-184.861" t1="124.608" t2="58.694" s0="2.99362" s1="1.46723" s2="0.997866" q0="-0.357626" q1="-0.387801" q2="-0.605415" q3="0.595957" euler_x="0.097343" euler_y="-1.10899" euler_z="-1.64681" id="118" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-193.55" t1="125.165" t2="56.1505" s0="2.67808" s1="1.44107" s2="0.938025" q0="-0.137005" q1="-0.638901" q2="-0.706414" q3="0.272056" euler_x="1.3962" euler_y="-0.571861" euler_z="-2.89004" id="119" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
+    <EnvObject t0="-193.541" t1="125.099" t2="56.1566" s0="2.67808" s1="1.44107" s2="0.938025" q0="-0.127381" q1="-0.663279" q2="-0.683576" q3="0.276693" euler_x="1.46635" euler_y="-0.571861" euler_z="-2.89004" id="119" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-196.124" t1="125.743" t2="45.7204" s0="2.67808" s1="1.44107" s2="0.938025" q0="-0.0406259" q1="-0.711796" q2="0.70053" q3="0.0308826" euler_x="-1.58741" euler_y="0.0129555" euler_z="3.04031" id="120" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
@@ -461,10 +461,10 @@
     <EnvObject t0="-183.826" t1="94.9247" t2="37.5358" s0="1.43741" s1="3.09178" s2="1.32425" q0="-0.00490252" q1="0.978752" q2="-0.203713" q3="0.022836" euler_x="-2.73078" euler_y="0.0427171" euler_z="-3.12267" id="121" color_r="0.235294" color_g="0.231373" color_b="0.231373" overbright="0" type_file="Data/Objects/Crete/hex_crete_half_slope.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-176.23" t1="125.295" t2="41.3516" s0="2.67808" s1="1.44107" s2="0.938025" q0="-0.219456" q1="-0.742343" q2="-0.63181" q3="0.0397747" euler_x="1.78314" euler_y="-0.343051" euler_z="2.84463" id="122" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
+    <EnvObject t0="-176.025" t1="125.227" t2="41.2527" s0="2.43618" s1="1.53392" s2="0.938066" q0="-0.21519" q1="-0.737332" q2="-0.639695" q3="0.0287453" euler_x="1.76171" euler_y="-0.323304" euler_z="2.84121" id="122" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-197.977" t1="124.394" t2="58.9361" s0="0.556924" s1="0.972795" s2="0.402552" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="123" color_r="0.333333" color_g="0.33333" color_b="0.33333" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+    <EnvObject t0="-197.978" t1="124.206" t2="58.9693" s0="0.558315" s1="0.720109" s2="0.413778" q0="-0.0419357" q1="-0.00306332" q2="0.075365" q3="0.996272" euler_x="-0.0841196" euler_y="0.00021716" euler_z="0.150998" id="123" color_r="0.333333" color_g="0.33333" color_b="0.33333" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-184.954" t1="127.613" t2="45.4104" s0="0.909375" s1="0.401902" s2="0.703795" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="124" color_r="0.34902" color_g="0.368627" color_b="0.407843" overbright="0" type_file="Data/Objects/Buildings/arena/arena_pillar.xml">
@@ -2670,7 +2670,7 @@
             </EnvObject>
         </Group>
     </Group>
-    <NavmeshRegionObject t0="-182.314" t1="134.629" t2="40.8061" s0="62.9752" s1="62.9752" s2="62.9752" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="856">
+    <NavmeshRegionObject t0="-182.316" t1="134.628" t2="40.8063" s0="62.9752" s1="62.9752" s2="62.9752" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="856">
         <parameters />
     </NavmeshRegionObject>
     <EnvObject t0="-184.812" t1="125.882" t2="49.0049" s0="0.638523" s1="0.851325" s2="1.04392" q0="-0.910819" q1="0.154549" q2="0.378515" q3="0.0570072" euler_x="3.12299" euler_y="0.785442" euler_z="-0.343867" id="857" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/bleached_bough.xml">
@@ -2700,10 +2700,10 @@
     <EnvObject t0="-169.181" t1="124.964" t2="41.8624" s0="0.80096" s1="1.33269" s2="0.8054" q0="-0.392038" q1="0.81612" q2="0.353627" q3="0.234951" euler_x="2.59056" euler_y="0.72184" euler_z="-2.45857" id="865" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/plain_rock_small.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-184.816" t1="123.224" t2="67.0789" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="866" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/lichen_rock_c.xml">
+    <EnvObject t0="-184.456" t1="123.173" t2="67.3218" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="866" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/lichen_rock_c.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-185.909" t1="123.13" t2="67.1359" s0="1" s1="1" s2="1" q0="-0.0671228" q1="0.00947089" q2="0.154956" q3="0.985594" euler_x="-0.129842" euler_y="0.0394813" euler_z="0.309322" id="867" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/lichen_rock_e.xml">
+    <EnvObject t0="-185.93" t1="123.125" t2="67.1366" s0="1" s1="1" s2="1" q0="-0.0671228" q1="0.00947089" q2="0.154956" q3="0.985594" euler_x="-0.129842" euler_y="0.0394813" euler_z="0.309322" id="867" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/lichen_rock_e.xml">
         <parameters />
     </EnvObject>
     <NavmeshConnectionObject t0="-183.251" t1="124.656" t2="28.737" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="870" type_file="">
