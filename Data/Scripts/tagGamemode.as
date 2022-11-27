@@ -74,34 +74,39 @@ void ResetTag(){
         if(i != uint(firstChaserNr))
             SetRunner(i);
     }
-
-    Log(error, "Registered Reset");
-    for (uint i = 0; i < versusPlayers.size(); i++) {
-        VersusPlayer@ playerToAttach = versusPlayers[i];
-        playerToAttach.charTimer.Add(CharDeathJob(playerToAttach.objId, function(char_a){
-            // This should respawn on kill
-            VersusPlayer@ player = GetPlayerByObjectId(char_a.GetID());
-            if(currentState==2){
-                // Runner death means, no respawn, but also not another catcher
-                if(!currentChasers[player.playerNr]){
-                    currentChasers[player.playerNr] = true;
-                    killedRunners[player.playerNr] = true;
-                    updateChaserRunnerLabels = true;
-                }
-                else{
-                    // First check if its not an already dead runner
-                    if(!killedRunners[player.playerNr]){
-                        // Respawn if its the catcher
-                        CallRespawn(player.playerNr, player.objId);   
-                    }
-                }
-            }
-            return true;
-        }));
-    }
     
     updateChaserRunnerLabels = true;
 }
+
+void RegisterCharDeathJob(int playerNr)
+{
+    Log(error, "RegisterCharDeathJob for playerNr");
+
+    VersusPlayer@ playerToAttach = GetPlayerByNr(playerNr);
+    playerToAttach.charTimer.Add(CharDeathJob(playerToAttach.objId, function(char_a){
+        // This should respawn on kill
+        VersusPlayer@ player = GetPlayerByObjectId(char_a.GetID());
+        if(currentState==2){
+            // Runner death means, no respawn, but also not another catcher
+            if(!currentChasers[player.playerNr]){
+                Log(error, "runner died");
+                currentChasers[player.playerNr] = true;
+                killedRunners[player.playerNr] = true;
+                updateChaserRunnerLabels = true;
+            }
+            else{
+                Log(error, "chaser died");
+                // First check if its not an already dead runner
+                if(!killedRunners[player.playerNr]){
+                    // Respawn if its the catcher
+                    CallRespawn(player.playerNr, player.objId);
+                }
+            }
+        }
+        return true;
+    }));
+}
+
 
 //Level methods
 void Init(string msg){
@@ -159,6 +164,10 @@ void Init(string msg){
         if(currentChasers[victim.playerNr] && currentState == 2 && _params[2] == "false"){
             // Freeze chaser on respawn
             Freeze(victim.playerNr);
+            RegisterCharDeathJob(victim.playerNr);
+        }
+        if(_params[2] == "true"){
+            RegisterCharDeathJob(victim.playerNr);
         }
 
         return true;
@@ -283,13 +292,20 @@ void Update(){
                 if(int(roundMaxTime) - int(timer) != lastTimer){
                     lastTimer = int(roundMaxTime) - int(timer);
                     if(lastTimer <= 15 && lastTimer%2==0){
-                        versusAHGUI.SetText("Time left: " + lastTimer, "", vec3(1.0f, 0.5f, 0.0f));
+                        versusAHGUI.SetText("Time left: " + lastTimer, vec3(1.0f, 0.5f, 0.0f));
                     }
                     else if(lastTimer <= 5) {
-                        versusAHGUI.SetText("Time left: " + lastTimer, "", vec3(1.0f, 0.0f, 0.0f));
+                        versusAHGUI.SetText("Time left: " + lastTimer, vec3(1.0f, 0.0f, 0.0f));
                     }
                     else{
-                        versusAHGUI.SetText("Time left: " + lastTimer);
+                        // Cleanups `Get Ready!`
+                        if(versusAHGUI.extraText == "Get ready!"){
+                            versusAHGUI.SetText("Time left: " + lastTimer, "");
+
+                        }
+                        else{
+                            versusAHGUI.SetText("Time left: " + lastTimer);
+                        }
                     }
                 }
             }
@@ -472,7 +488,7 @@ void Freeze(int playerNr){
     blingParams.SetInt("objectIdToFollow", victim.objId);
     blingParams.SetFloat("particleDelay", 0.05f);
     blingParams.SetFloat("particleRangeMultiply", 0.5f);
-    blingParams.SetString("pathToParticles", "Data/Particles/stone_sparks.xml");
+    blingParams.SetString("pathToParticles", "Data/Particles/versus-brawl/stone_sparks.xml");
     blingParams.SetFloat("particleColorR", 0.6f);
     blingParams.SetFloat("particleColorG", 0.6f);
     blingParams.SetFloat("particleColorB", 0.9f);

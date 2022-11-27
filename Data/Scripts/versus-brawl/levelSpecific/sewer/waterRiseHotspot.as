@@ -220,14 +220,18 @@ void Reset(){
     time = 0;
     bobbingTime = addDelay;
     phaseDirectionForward = startPhaseDirectionForward;
-    ResetObjectsPos();
     currentPhase = 0;
     previousPhase = 0;
     phaseHeight = 0;
     rising = false;
+    ResetObjectsPos();
 }
 
 void ResetObjectsPos(){
+    // If its too low, its probably been cleared
+    if(savedConnectedObjectStartPositions.size() < savedConnectedObjectIds.size())
+        return;
+        
     for (uint i = 0; i < savedConnectedObjectIds.size(); i++) {
         Object@ obj = ReadObjectFromID(savedConnectedObjectIds[i]);
         vec3 original = savedConnectedObjectStartPositions[i];

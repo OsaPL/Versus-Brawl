@@ -35,7 +35,7 @@
     <RayToSun r0="0.121363" r1="0.062051" r2="0.990667" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-5.68066" t1="1.88555" t2="-6.40217" s0="1" s1="1" s2="1" q0="-0.0327729" q1="0.657762" q2="-0.0286672" q3="-0.751966" euler_x="0.0871115" euler_y="-1.43735" euler_z="0" id="0">
+    <CameraObject t0="-1.57436" t1="9.9819" t2="-10.594" s0="1" s1="1" s2="1" q0="0.211066" q1="-0.776443" q2="0.333635" q3="0.491198" euler_x="-2.32991" euler_y="-1.12813" euler_z="-3.14159" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="-7.16227" t1="0.0203524" t2="-5.76615" s0="13.1841" s1="1" s2="11.7716" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
@@ -254,6 +254,7 @@
     </EnvObject>
     <Hotspot t0="2.29452" t1="3.25549" t2="-16.4103" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="62" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
+            <parameter name="KeepDisabled" type="string" val="" />
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="-1" />
         </parameters>
@@ -284,7 +285,7 @@
     </Hotspot>
     <Hotspot t0="-7.98918" t1="14.7463" t2="-6.66351" s0="0.27" s1="0.27" s2="0.27" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="69" type_file="Data/Objects/powerups/firePowerUp.xml">
         <parameters>
-            <parameter name="activeTime" type="float" val="15" />
+            <parameter name="activeTime" type="float" val="11" />
             <parameter name="colorB" type="float" val="0" />
             <parameter name="colorG" type="float" val="0.2" />
             <parameter name="colorR" type="float" val="1" />
@@ -295,12 +296,12 @@
             <parameter name="particleColorB" type="float" val="0" />
             <parameter name="particleColorG" type="float" val="0.3" />
             <parameter name="particleColorR" type="float" val="1" />
-            <parameter name="particleDelay" type="float" val="0.001" />
-            <parameter name="particleRangeMultiply" type="float" val="0.3" />
-            <parameter name="pathToParticles" type="string" val="Data/Particles/explosion_fire.xml" />
+            <parameter name="particleDelay" type="float" val="0.1" />
+            <parameter name="particleRangeMultiply" type="float" val="0.5" />
+            <parameter name="pathToParticles" type="string" val="Data/Particles/fire_fists.xml" />
             <parameter name="readyAlpha" type="float" val="0.9" />
             <parameter name="readyIconPath" type="string" val="Data/Textures/ui/arena_mode/glyphs/10_kos_1x1.png" />
-            <parameter name="respawnTime" type="float" val="16" />
+            <parameter name="respawnTime" type="float" val="15" />
             <parameter name="startSoundPath" type="string" val="Data/Sounds/fire/character_catch_fire.wav" />
             <parameter name="stopSoundPath" type="string" val="Data/Sounds/fire/character_catch_fire_small.wav" />
         </parameters>
@@ -329,6 +330,7 @@
     </Hotspot>
     <Hotspot t0="-17.6804" t1="3.02323" t2="3.20766" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="74" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
+            <parameter name="KeepDisabled" type="string" val="" />
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="-1" />
         </parameters>
@@ -394,7 +396,7 @@
     </Hotspot>
     <Hotspot t0="-7.90796" t1="2.35226" t2="-6.82886" s0="0.27" s1="0.27" s2="0.27" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="85" type_file="Data/Objects/powerups/toxicPowerUp.xml">
         <parameters>
-            <parameter name="activeTime" type="float" val="15" />
+            <parameter name="activeTime" type="float" val="10" />
             <parameter name="colorB" type="float" val="0.3" />
             <parameter name="colorG" type="float" val="0.4" />
             <parameter name="colorR" type="float" val="0.05" />
@@ -407,19 +409,19 @@
             <parameter name="particleColorG" type="float" val="0.4" />
             <parameter name="particleColorR" type="float" val="0.05" />
             <parameter name="particleDelay" type="float" val="0.06" />
-            <parameter name="particleRangeMultiply" type="float" val="2.5" />
+            <parameter name="particleRangeMultiply" type="float" val="2.75" />
             <parameter name="pathToParticles" type="string" val="Data/Particles/toxic_cloud.xml" />
             <parameter name="range" type="float" val="2.5" />
             <parameter name="readyAlpha" type="float" val="0.9" />
             <parameter name="readyIconPath" type="string" val="Data/Textures/ui/arena_mode/glyphs/10_kos_1x1.png" />
-            <parameter name="respawnTime" type="float" val="18" />
+            <parameter name="respawnTime" type="float" val="15" />
             <parameter name="startSoundPath" type="string" val="Data/Sounds/footstep_mud_3.wav" />
             <parameter name="stopSoundPath" type="string" val="Data/Sounds/footstep_mud_7.wav" />
         </parameters>
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-8.09807" t1="3.94411" t2="-3.99244" s0="0.230191" s1="0.230191" s2="0.230191" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="86" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="-7.976" t1="4.28508" t2="-3.71175" s0="0.230191" s1="0.230191" s2="0.230191" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="86" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="-1" />
@@ -440,7 +442,7 @@
             <Connection id="39" />
         </ConnectionsFrom>
     </Hotspot>
-    <Hotspot t0="-7.10931" t1="3.55931" t2="-10.2042" s0="0.161568" s1="0.161568" s2="0.161568" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="88" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="-7.02819" t1="3.90963" t2="-10.3907" s0="0.161568" s1="0.161568" s2="0.161568" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="88" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="-1" />

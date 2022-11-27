@@ -15,26 +15,31 @@ void SetParameters() {
 }
 
 void ReceiveMessage(string msg){
-    if(msg == "switch"){
+    if(msg == "switch") {
         Switch();
     }
 }
 
 void Reset(){
-    // Reset if switched back
-    if(switched)
+    if(!switched && params.GetInt("Phase") == 0)
+        Switch();
+    if(switched && params.GetInt("Phase") != 0)
         Switch();
 }
 
 void Update(){
-    PlaceHolderFollowerUpdate("Data/UI/spawner/thumbs/Hotspot/water.png", "Phase: ["+ params.GetInt("Phase") +"]");
+    string switchedString = "OFF";
+    if(switched)
+        switchedString = "ON";
+    
+    PlaceHolderFollowerUpdate("Data/UI/spawner/thumbs/Hotspot/water.png", "Phase: ["+ params.GetInt("Phase") +"] [" + switchedString + "]");
     
     Object@ me = ReadObjectFromID(hotspot.GetID());
     
     // Reset on entering the editor
-    if(EditorModeActive()){
-        if(switched)
-            Switch();
+    if(EditorModeActive() || init){
+        Reset();
+        init = false;
     }
 }
 
@@ -72,23 +77,37 @@ bool ConnectTo(Object@ other){
 }
 
 void Switch(){
+    switched = !switched;
+
     Object@ phaseObj = ReadObjectFromID(hotspot.GetID());
     array<int> connectedObjs = hotspot.GetConnectedObjects();
-    Log(error, "SwitchConnected phases[i]: "+ hotspot.GetID() + " phaseHotspot.GetID(): "+ hotspot.GetID() + " connectedObjs.size(): " + connectedObjs.size());
+
+    Log(error, "SetEnabledState switched: " + switched + " phases[i]: "+ hotspot.GetID() + " phaseHotspot.GetID(): "+ hotspot.GetID() + " connectedObjs.size(): " + connectedObjs.size());
 
     // TODO: This is kinda dumb, but it works
     // Switch
     for (uint j = 0; j < connectedObjs.size(); j++) {
 
-        Log(error, "switch connectedObjs[j]: "+ connectedObjs[j]);
+        Log(error, "SetEnabledState connectedObjs[j]: "+ connectedObjs[j]);
 
         Object@ obj = ReadObjectFromID(connectedObjs[j]);
         ScriptParams@ objParams = obj.GetScriptParams();
 
-        obj.SetEnabled(!obj.GetEnabled());
-        switched = !switched;
-        
+        if(objParams.HasParam("KeepDisabled")){
+            obj.SetEnabled(switched);
+        }
+        else{
+            obj.SetEnabled(!switched);
+        }
+
         // Propagate event further
         obj.ReceiveScriptMessage("switch");
     }
 }
+
+// switched    KeepDisabled    Enabled ->switched  Result
+// false       true            false   ->true      true
+// true        true            true    ->false     false
+//
+// false       false           true    ->true      false
+// true        false           false   ->false     true
