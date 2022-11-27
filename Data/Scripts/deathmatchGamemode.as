@@ -13,6 +13,10 @@ bool initUI=true;
 bool updateScores=false;
 array<int> killsCount = {0,0,0,0};
 float pointsTextShowTimer = 0;
+// For UI blinking
+bool blink = false;
+float blinkTimer = 0;
+float blinkTimeout = 0.5f;
 
 //Level methods
 void Init(string msg){
@@ -151,6 +155,12 @@ array<AHGUI::Text@> uiKillCounters={};
 
 void UpdateUI(){
     // TODO! Probably would be cooler to use Textures\ui\arena_mode icons to count deaths
+    blinkTimer += time_step;
+    if(blinkTimer > blinkTimeout){
+        blink = !blink;
+        updateScores = true;
+        blinkTimer = 0;
+    }
     
     if(initUI){
         for (uint i = 0; i < versusPlayers.size(); i++) {
@@ -158,7 +168,7 @@ void UpdateUI(){
 
             AHGUI::Element@ headerElement = versusAHGUI.root.findElement("header"+i);
             AHGUI::Divider@ div = cast<AHGUI::Divider>(headerElement);
-
+            
             AHGUI::Text textElem("Kills: "+killsCount[i], "edosz", 65, 1, 1, 1, 1 );
             textElem.setShadowed(true);
             
@@ -177,10 +187,36 @@ void UpdateUI(){
     
     if(updateScores){
         Log(error, "updateScores");
-
+        
         for (uint i = 0; i < uiKillCounters.size(); i++)
         {
             uiKillCounters[i].setText("Kills: " + killsCount[i]);
+
+            bool isHighest = true;
+            for (uint k = 0; k < versusPlayers.size(); k++)
+            {
+                if(killsCount[i] < killsCount[k]){
+                    isHighest = false;
+                    break;
+                }
+            }
+           
+            if(killsCount[i] + 1 >= pointsToWin){
+                // B link red for almost win
+                if(blink){
+                    uiKillCounters[i].setColor(1,0.3f,0,1);
+                }
+                else{
+                    uiKillCounters[i].setColor(1,0.0f,0,1);
+                }
+            }
+            else if(isHighest){
+                // Orange for winner, chicken dinner
+                uiKillCounters[i].setColor(1,0.7f,0,1);
+            }
+            else{
+                uiKillCounters[i].setColor(1,1,1,1);
+            }
         }
 
         updateScores=false;
