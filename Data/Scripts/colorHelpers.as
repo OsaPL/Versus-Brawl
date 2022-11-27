@@ -31,14 +31,21 @@
 
             // Wolves are problematic for coloring all channels are marked as `fur`
             if(species == "wolf"){
-                if(i==1 || i==4){
+                if(i==1 || i==3){
                     foundClothChannel = true;
-                    char_obj.SetPaletteColor(i, clothesColor);
+                    char_obj.SetPaletteColor(i, clothesColor*2);
                 }
             }
         } else if(channel == "cloth" ) {
-            foundClothChannel = true;
-            char_obj.SetPaletteColor(i, clothesColor);
+            if(!foundClothChannel)
+            {
+                // Lets make first channel glow a little
+                char_obj.SetPaletteColor(i, clothesColor*2);
+                foundClothChannel = true;
+            }
+            else{
+                char_obj.SetPaletteColor(i, clothesColor);
+            }
             clothesColor = mix(clothesColor, vec3(0.0), 0.9);
         }
     }
