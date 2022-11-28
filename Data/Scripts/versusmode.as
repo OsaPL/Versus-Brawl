@@ -346,6 +346,10 @@ void SpawnCharacter(Object@ spawn, Object@ char, bool isAlreadyPlayer = false, b
     if(!isAlreadyPlayer){
         char.SetPlayer(true);
     }
+
+    // This is used to reset the camera
+    MovementObject@ mo = ReadCharacterID(char.GetID());
+    mo.Execute("SetCameraFromFacing();FixDiscontinuity();");
 }
 
 // Find a suitable spawn

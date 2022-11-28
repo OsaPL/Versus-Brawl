@@ -1,4 +1,4 @@
-void PlaceHolderFollowerUpdate(string iconPath, string text, float scale = 1){
+void PlaceHolderFollowerUpdate(string iconPath, string text, float scale = 1, bool showDirection = false){
 
     if(EditorModeActive()){
         Object@ me = ReadObjectFromID(hotspot.GetID());
@@ -22,5 +22,16 @@ void PlaceHolderFollowerUpdate(string iconPath, string text, float scale = 1){
             1.0f, 
             true,
             _delete_on_update);
+        
+        if(showDirection){
+            // Just multiply by UP vector
+            vec3 direction = me.GetRotation() * vec3(0,0,1);
+            DebugDrawText(
+                me.GetTranslation() + direction,
+                "+",
+                2.0f,
+                true,
+                _delete_on_update);
+        }
     }
 }

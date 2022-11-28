@@ -193,6 +193,8 @@ throwMassMlt = params.GetFloat("Throw - Mass Multiplier");
 
 Used to simply set player spawns.
 
+Take note of the plus, it shows you the direction player will orientate themselves on spawn.
+
 The only option you can set is `playerNr`. If its `0-3`, player with that number can spawn there, if its `-1` its a generic spawn (anyone can spawn there if `useGenericSpawns==true`)
 
 ### `powerupBase`

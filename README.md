@@ -47,14 +47,14 @@ Some gamemodes only allow for next round change while game is in progress.
 
 2. **How do I select amount of players?**
 
-Go to the `Settings -> Game -> Local Players`. If you're already on a level, you'll need to go back to the main menu and load the map again (or do a full map reload `F10` where supported).
+Go to the `Settings -> Game -> Local Players`.
 
 4. **How do I enable coop on a level?**
 
-Just set `Local Players` and launch a level.
+Just set `Local Players` to desired value.
 Each coop partner can also press `skip_dialogue` button to respawn at 1st player.
 
-Not all custom levels are supported. Please, dont message me if its incompatible, you should let the mapper know. 
+Not all levels are supported. Please, dont message me if its incompatible, you should let the mapper know. 
 [There is a helpful README for modders/mappers.](https://github.com/OsaPL/Versus-Brawl/blob/main/Adding%20maps%20and%20gamemodes%20README.md)
 
 3. **What does `<action here>` key correspond to?**

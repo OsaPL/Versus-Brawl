@@ -15,7 +15,7 @@ void Update(){
     string enabled = me.GetEnabled() ? "Enabled" : "Disabled";
     int playerNr = params.GetInt("playerNr");
 
-    PlaceHolderFollowerUpdate("Data/Textures/ui/versusBrawl/placeholder_arena_spawn_"+playerNr+".png", "["+playerNr+"] [" + enabled + "]", 2.0f);
+    PlaceHolderFollowerUpdate("Data/Textures/ui/versusBrawl/placeholder_arena_spawn_"+playerNr+".png", "["+playerNr+"] [" + enabled + "]", 2.0f, true);
 }
 
 void Dispose(){
