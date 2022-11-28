@@ -35,7 +35,7 @@
     <RayToSun r0="0.121363" r1="0.062051" r2="0.990667" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="1.52524" t1="7.25135" t2="7.57442" s0="1" s1="1" s2="1" q0="0.213458" q1="-0.395665" q2="0.0950923" q3="0.888168" euler_x="0.471725" euler_y="-0.838184" euler_z="0" id="0">
+    <CameraObject t0="4.25414" t1="7.25509" t2="7.77235" s0="1" s1="1" s2="1" q0="0.212315" q1="-0.0299556" q2="0.00651158" q3="0.97672" euler_x="0.428091" euler_y="-0.0613199" euler_z="0" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="0" t1="0" t2="0" s0="6" s1="1" s2="6" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
@@ -100,7 +100,9 @@
         <ConnectionsFrom />
     </Hotspot>
     <EnvObject t0="3.12929" t1="1.56518" t2="-3.72788" s0="3.375" s1="1" s2="3.375" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="11" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/hanging_garden_arena/hanging_garden_flagstone.xml">
-        <parameters />
+        <parameters>
+            <parameter name="KeepDisabled" type="string" val="" />
+        </parameters>
     </EnvObject>
     <EnvObject t0="2.01259" t1="9.03207" t2="-2.46491" s0="3.375" s1="1" s2="3.375" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="12" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/hanging_garden_arena/hanging_garden_flagstone.xml">
         <parameters>

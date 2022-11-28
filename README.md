@@ -54,7 +54,7 @@ Go to the `Settings -> Game -> Local Players`.
 Just set `Local Players` to desired value.
 Each coop partner can also press `skip_dialogue` button to respawn at 1st player.
 
-Not all levels are supported. Please, dont message me if its incompatible, you should let the mapper know. 
+Not all levels are supported. Please, dont message me if its incompatible, you should let the mapper know. If you're a mapper and want to make your level compatible, message me and I'll help (or even add in missing stuff)
 [There is a helpful README for modders/mappers.](https://github.com/OsaPL/Versus-Brawl/blob/main/Adding%20maps%20and%20gamemodes%20README.md)
 
 3. **What does `<action here>` key correspond to?**

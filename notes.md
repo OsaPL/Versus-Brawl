@@ -44,6 +44,33 @@ Few new tools for mappers to use:[/b]
 - waterRise/Phase hotspots, for phase based platforms or just to animate bobbing/floating objects
 - Added a whole new configuration system for mappers (or basically anyone) to be able to modify gameplay as they please
 
+[h1]0.5.2:[/h1]
+[b]Blocks map changes:[/b]
+- Swapped ninja powerup to power slap.
+- Small layout changes (planks are less obstructing, powerup is now in a more fun/risky spot)
+ 
+[b]Heal powerup now uses a better particle, to make understanding the effect easier.[/b]
+
+[b]Camera now reorients itself on respawn.[/b]
+
+[b]Player spawns will now show the direction while in Editor.[/b]
+
+[b]Changing "Local Players" will now automatically reload level if needed.[/b]
+
+[b]Deathmatch:[/b]
+- Leaders have their scores now highlighted.
+- Anyone who is missing only a single point, will have its score also animated
+
+[b]Fixed some bugs:[/b]
+- Runners in TAG now should respawn more than once
+- Hints in TAG should now correctly display (less flickering)
+- Coop partners sometimes spawn under ground
+- Wolves using wrong color layers
+- Sewers having buggy spawns, that sometimes spawn you under water
+- Reworked how WaterRise/Phase hotspots handle resets
+- Spawn orientations on some maps fixed
+- Coop now supports `set_dialogue_position`, making so all characters are teleported on dialogue event
+
 ### For changelogs
 `git log <hash>..HEAD --pretty=format:%s`
 

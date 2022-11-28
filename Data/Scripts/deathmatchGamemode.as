@@ -186,7 +186,7 @@ void UpdateUI(){
     }
     
     if(updateScores){
-        Log(error, "updateScores");
+        //Log(error, "updateScores");
         
         for (uint i = 0; i < uiKillCounters.size(); i++)
         {
