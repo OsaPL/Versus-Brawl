@@ -183,6 +183,7 @@ throwMassMlt = params.GetFloat("Throw - Mass Multiplier");
 - `coopPartners.as` include, with an additional calls in `Update()`
 - Moved color functions to `colorHelper.as`
 - `timeSinceAttackedById` tracks time since last `attacked_by_id` change (as long as its not `-1`)
+- `set_dialogue_position` now calls `InvokeCoop_set_dialogue_position` to forward the new position to coop players
 
 ## `playercontrol.as`
 - `drunkMode` added, with new methods to invert controls

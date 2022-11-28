@@ -104,6 +104,8 @@ void CoopPanic(){
         
         //Also move the object itself
         MovePlayerObject(mainPlayerObj, obj, true);
+        
+        FixDiscontinuity();
     }
 }
 
@@ -146,4 +148,31 @@ int FindPlayerZero(){
         }
     }
     return -1;
+}
+
+void InvokeCoop_set_dialogue_position(){
+    if(!this_mo.is_player)
+        return;
+    
+    int obj_id = FindPlayerZero();
+    
+    int num_chars = GetNumCharacters();
+    for(int i=0; i<num_chars; ++i)
+    {
+        MovementObject@ mo = ReadCharacter(i);
+        // Only do this for coop partners
+        if(mo.is_player && mo.GetID() != obj_id){
+            // TODO: This is a copy paste :/
+            MovementObject@ mainPlayerMo = ReadCharacterID(obj_id);
+            Object @mainPlayerObj = ReadObjectFromID(obj_id);
+            Object @obj = ReadObjectFromID(mo.GetID());
+
+            mo.position = mainPlayerMo.position;
+            mo.velocity = vec3(0);
+            mo.SetRotationFromFacing(mainPlayerMo.GetFacing());
+            
+            MovePlayerObject(mainPlayerObj, obj, true);
+            FixDiscontinuity();
+        }
+    }
 }

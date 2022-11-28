@@ -6566,6 +6566,9 @@ void ReceiveMessage(string msg) {
         this_mo.position = dialogue_position;
         queue_reset_secondary_animation = 2;
         StartFootStance();
+
+        // This makes so the coop partners also change position
+        InvokeCoop_set_dialogue_position();
     } else if(token == "set_torso_target") {  // params: vec3 pos, float control
         // Get params
         vec3 pos;
