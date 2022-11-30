@@ -1,4 +1,4 @@
-﻿For more detailed and uptodate description go: https://github.com/OsaPL/Versus-Brawl/blob/de696111d947c1d26d2a45c29b07de4287a8aace/README.md
+﻿For more detailed and uptodate description go: https://github.com/OsaPL/Versus-Brawl/blob/971dc55df3134d838943d263afcada6e899077b1/README.md
 
 Mapping/modding docs available here: https://github.com/OsaPL/Versus-Brawl/blob/main/Adding%20maps%20and%20gamemodes%20README.md
 

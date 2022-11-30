@@ -33,6 +33,35 @@ bool DrunkModeInputDownCheck(int controllerId, string action){
     }
 }
 
+bool DrunkModeInputPressedCheck(int controllerId, string action){
+    if(drunkMode){
+        if(action == "item"){
+            return GetInputPressed(this_mo.controller_id, "drop");
+        }
+        else if(action == "drop"){
+            return GetInputPressed(this_mo.controller_id, "item");
+        }
+        else if(action == "grab"){
+            return GetInputPressed(this_mo.controller_id, "attack");
+        }
+        else if(action == "attack"){
+            return GetInputPressed(this_mo.controller_id, "grab");
+        }
+        else if(action == "jump"){
+            return GetInputPressed(this_mo.controller_id, "crouch");
+        }
+        else if(action == "crouch"){
+            return GetInputPressed(this_mo.controller_id, "jump");
+        }
+
+        DisplayError("DrunkModeInputPressedCheck", "Not supported action: " + action);
+        return GetInputPressed(controllerId, action);
+    }
+    else{
+        return GetInputPressed(controllerId, action);
+    }
+}
+
 float DrunkModeGetMoveYAxis(int controllerId){
     if(drunkMode){
         return GetMoveYAxis(controllerId) * -1;
@@ -239,7 +268,7 @@ bool WantsToRoll() {
         return false;
     }
 
-    return DrunkModeInputDownCheck(this_mo.controller_id, "crouch");
+    return DrunkModeInputPressedCheck(this_mo.controller_id, "crouch");
 }
 
 bool WantsToJump() {
@@ -258,7 +287,7 @@ bool WantsToAttack() {
     if(on_ground) {
         return DrunkModeInputDownCheck(this_mo.controller_id, "attack");
     } else {
-        return GetInputPressed(this_mo.controller_id, "attack");
+        return DrunkModeInputDownCheck(this_mo.controller_id, "attack");
     }
 }
 
@@ -271,7 +300,7 @@ bool WantsToRollFromRagdoll() {
         return false;
     }
 
-    return GetInputPressed(this_mo.controller_id, "crouch");
+    return DrunkModeInputDownCheck(this_mo.controller_id, "crouch");
 }
 
 void BrainSpeciesUpdate() {
@@ -307,7 +336,7 @@ bool WantsToFlip() {
         return false;
     }
 
-    return GetInputPressed(this_mo.controller_id, "crouch");
+    return DrunkModeInputDownCheck(this_mo.controller_id, "crouch");
 }
 
 bool WantsToGrabLedge() {
@@ -429,7 +458,7 @@ bool WantsToStartActiveBlock(const Timestep &in ts) {
         return false;
     }
 
-    return GetInputPressed(this_mo.controller_id, "grab");
+    return DrunkModeInputDownCheck(this_mo.controller_id, "grab");
 }
 
 bool WantsToFeint() {
@@ -453,7 +482,7 @@ bool WantsToJumpOffWall() {
         return false;
     }
 
-    return GetInputPressed(this_mo.controller_id, "jump");
+    return DrunkModeInputDownCheck(this_mo.controller_id, "jump");
 }
 
 bool WantsToFlipOffWall() {
@@ -461,7 +490,7 @@ bool WantsToFlipOffWall() {
         return false;
     }
 
-    return GetInputPressed(this_mo.controller_id, "crouch");
+    return DrunkModeInputDownCheck(this_mo.controller_id, "crouch");
 }
 
 bool WantsToAccelerateJump() {
