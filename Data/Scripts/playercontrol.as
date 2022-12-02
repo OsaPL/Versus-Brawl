@@ -287,7 +287,7 @@ bool WantsToAttack() {
     if(on_ground) {
         return DrunkModeInputDownCheck(this_mo.controller_id, "attack");
     } else {
-        return DrunkModeInputDownCheck(this_mo.controller_id, "attack");
+        return DrunkModeInputPressedCheck(this_mo.controller_id, "attack");
     }
 }
 
@@ -300,7 +300,7 @@ bool WantsToRollFromRagdoll() {
         return false;
     }
 
-    return DrunkModeInputDownCheck(this_mo.controller_id, "crouch");
+    return DrunkModeInputPressedCheck(this_mo.controller_id, "crouch");
 }
 
 void BrainSpeciesUpdate() {
@@ -336,7 +336,7 @@ bool WantsToFlip() {
         return false;
     }
 
-    return DrunkModeInputDownCheck(this_mo.controller_id, "crouch");
+    return DrunkModeInputPressedCheck(this_mo.controller_id, "crouch");
 }
 
 bool WantsToGrabLedge() {
@@ -482,7 +482,7 @@ bool WantsToJumpOffWall() {
         return false;
     }
 
-    return DrunkModeInputDownCheck(this_mo.controller_id, "jump");
+    return DrunkModeInputPressedCheck(this_mo.controller_id, "jump");
 }
 
 bool WantsToFlipOffWall() {
@@ -490,7 +490,7 @@ bool WantsToFlipOffWall() {
         return false;
     }
 
-    return DrunkModeInputDownCheck(this_mo.controller_id, "crouch");
+    return DrunkModeInputPressedCheck(this_mo.controller_id, "crouch");
 }
 
 bool WantsToAccelerateJump() {
