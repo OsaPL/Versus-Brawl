@@ -98,12 +98,12 @@ void Update(){
     if(currentState == 2){
         if(pointsTextShow){
             pointsTextShow = false;
-            versusAHGUI.SetText("Playing to: "+pointsToWin+" kills!");
+            versusAHGUI.SetMainText("Playing to: "+pointsToWin+" kills!");
         }
         else{
             // TODO! the commented stuff is ugly #2
             if(pointsTextShowTimer>pointsTextShowTime){ //&& versusAHGUI.text == "Playing to: "+pointsToWin+" kills!"){
-                versusAHGUI.SetText("");
+                versusAHGUI.SetMainText("");
             }
             else{
                 pointsTextShowTimer += time_step;

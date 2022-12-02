@@ -292,10 +292,10 @@ void Update(){
                 if(int(roundMaxTime) - int(timer) != lastTimer){
                     lastTimer = int(roundMaxTime) - int(timer);
                     if(lastTimer <= 15 && lastTimer%2==0){
-                        versusAHGUI.SetText("Time left: " + lastTimer, vec3(1.0f, 0.5f, 0.0f));
+                        versusAHGUI.SetMainText("Time left: " + lastTimer, vec3(1.0f, 0.5f, 0.0f));
                     }
                     else if(lastTimer <= 5) {
-                        versusAHGUI.SetText("Time left: " + lastTimer, vec3(1.0f, 0.0f, 0.0f));
+                        versusAHGUI.SetMainText("Time left: " + lastTimer, vec3(1.0f, 0.0f, 0.0f));
                     }
                     else{
                         // Cleanups `Get Ready!`
@@ -304,7 +304,7 @@ void Update(){
 
                         }
                         else{
-                            versusAHGUI.SetText("Time left: " + lastTimer);
+                            versusAHGUI.SetMainText("Time left: " + lastTimer);
                         }
                     }
                 }

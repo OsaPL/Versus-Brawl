@@ -19,7 +19,8 @@ array<string> insults = {
     "vidja gams are hart",
     "Are you guys still playing?",
     "Oooh! That's gonna leave a mark!",
-    "You play like my frickin grandma, y'know that?"
+    "You play like my frickin grandma, y'know that?",
+    "Quick! Blame the controls!"
 };
 
 // This is my fun corner
@@ -63,7 +64,8 @@ array<string> randomHints = {
     "Tired of getting things thrown at you? Be a cat!",
     "Holster weapons holding @drop@.",
     "Throwing a weapon does less damage than swinging it.",
-    "You can time a @grab@ press to catch an thrown weapon."
+    "You can time a @grab@ press to catch an thrown weapon.",
+    "You can pull out a weapon stuck in a wolf, for a quick kill."
 };
 
 //Configurables
@@ -720,7 +722,7 @@ void VersusUpdate() {
     // Dont count time for hints if its preloading
     if(currentState >= 0)
         hintTimer += time_step;
-    // Only show hits if: warmup (these are important) or: `tutorials` setting is turned on (random could hints help)
+    // Only show hits if: warmup (these are important) or: `tutorials` setting is turned on (random hints that can help)
     if(hintTimer > hintStayTime && (GetConfigValueBool("tutorials") || currentState == 0)){
         currentHint++;
         
@@ -734,14 +736,16 @@ void VersusUpdate() {
         }
         else{
             // If its empty, or still displaying previous hint, take new one
-            if(versusAHGUI.extraText == "" || versusAHGUI.extraText == lastHint || funniesActive)
+            //Log(error, "lastHint: " + lastHint);
+            if(versusAHGUI.extraText == "" || versusAHGUI.extraText == InsertKeysToString(lastHint))
             {
                 if(currentHint > int(randomHints.size()) - 1){
                     currentHint = 0;
                 }
                 if(hintBrake){
-                    versusAHGUI.SetText(versusAHGUI.text, "");
+                    versusAHGUI.SetExtraText("", vec3(1));
                     hintBrake = false;
+                    currentHint--;
                 }
                 else{
                     SetHint(randomHints[currentHint]);
@@ -758,17 +762,19 @@ void VersusUpdate() {
 void SetHint(string hint){
     
     Log(error, "currentHint: " + currentHint);
-    if(rand()%100 < funniesChance && !funniesActive){
-        versusAHGUI.SetText(versusAHGUI.text, funnies[rand()%funnies.size()]);
+    if(rand()%100 < funniesChance && !funniesActive && false){
+        string funni = funnies[rand()%funnies.size()];
+        versusAHGUI.SetExtraText(funni);
         currentHint--;
         funniesActive = true;
-        Log(error, "funniesActive");
+        lastHint = funni;
     }
     else{
-        versusAHGUI.SetText(versusAHGUI.text, hint);
+        versusAHGUI.SetExtraText(hint);
         funniesActive = false;
+        lastHint = hint;
     }
-    lastHint = hint;
+    
 }
 
 void VersusReceiveMessage(string msg){
@@ -801,6 +807,7 @@ class VersusAHGUI : AHGUI::GUI {
     string text="Loading...";
     string extraText="";
     vec3 textColor = vec3(1.0f);
+    vec3 extraTextColor = vec3(1.0f);
     int assignmentTextSize = 70;
     int footerTextSize = 50;
     bool showBorders = false;
@@ -822,7 +829,7 @@ class VersusAHGUI : AHGUI::GUI {
     }
     
     //Use this to easily set current onscreen text
-    void SetText(string maintext, vec3 color = vec3(1.0f)){
+    void SetMainText(string maintext, vec3 color = vec3(1.0f)){
         text = InsertKeysToString(maintext);
         textColor = color;
         layoutChanged = true;
@@ -832,6 +839,13 @@ class VersusAHGUI : AHGUI::GUI {
         text = InsertKeysToString(maintext);
         extraText = InsertKeysToString(subtext);
         textColor = color;
+        extraTextColor = color;
+        layoutChanged = true;
+    }
+
+    void SetExtraText( string subtext, vec3 color = vec3(1.0f)){
+        extraText = InsertKeysToString(subtext);
+        extraTextColor = color;
         layoutChanged = true;
     }
     
@@ -850,10 +864,10 @@ class VersusAHGUI : AHGUI::GUI {
     
         // If in editor hide the text
         if(EditorModeActive()){
-            DisplayText(DDTop, header, 8, "", 90, vec4(textColor,1.0f), "", 55);
+            DisplayText(DDTop, header, 8, "", 90, "", 55);
         }
         else{
-            DisplayText(DDTop, header, 8, text, 90, vec4(textColor,1.0f), extraText, 55);
+            DisplayText(DDTop, header, 8, text, 90, extraText, 55);
         }
     }
     
@@ -1020,12 +1034,12 @@ class VersusAHGUI : AHGUI::GUI {
     }
 
     // TODO! This is needlessly complicated
-    void DisplayText(DividerDirection dd, AHGUI::Divider@ div, int maxWords, string text, int textSize, vec4 color, string extraTextVal = "", int extraTextSize = 0) {
+    void DisplayText(DividerDirection dd, AHGUI::Divider@ div, int maxWords, string text, int textSize, string extraTextVal = "", int extraTextSize = 0) {
         //The maxWords is the amount of words per line.
         array<string> sentences;
     
         text = InsertKeysToString( text );
-    
+
         array<string> words = text.split(" ");
         string sentence;
         for(uint i = 0; i < words.size(); i++){
@@ -1036,7 +1050,7 @@ class VersusAHGUI : AHGUI::GUI {
             }
         }
         for(uint k = 0; k < sentences.size(); k++){
-            AHGUI::Text singleSentence( sentences[k], "edosz", textSize, color.x, color.y, color.z, color.a );
+            AHGUI::Text singleSentence( sentences[k], "edosz", textSize, textColor.x, textColor.y, textColor.z, 1.0f );
             singleSentence.setShadowed(true);
             //singleSentence.addUpdateBehavior( AHGUI::FadeIn( 1000, @inSine ) );
             div.addElement(singleSentence, dd);
@@ -1047,7 +1061,7 @@ class VersusAHGUI : AHGUI::GUI {
             }
         }
         if(extraTextVal != ""){
-            AHGUI::Text extraSentence(extraTextVal, "edosz", extraTextSize, color.x, color.y, color.z, color.a );
+            AHGUI::Text extraSentence(extraTextVal, "edosz", extraTextSize, extraTextColor.x, extraTextColor.y, extraTextColor.z, 1.0f );
             extraSentence.setShadowed(true);
             div.addElement(extraSentence, dd);
         }

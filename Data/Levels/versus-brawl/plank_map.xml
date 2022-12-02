@@ -339,7 +339,7 @@
     <Decal t0="-119.396" t1="72.9062" t2="253.522" s0="5.53899" s1="3.61376" s2="7.33375" q0="-0.218045" q1="-0.749432" q2="0.0770004" q3="0.620386" euler_x="-2.08571" euler_y="-1.11134" euler_z="1.8805" id="98" type_file="Data/Objects/Decals/hex_crete_damage.xml" color_r="0.717647" color_g="0.717647" color_b="0.717647" overbright="0">
         <parameters />
     </Decal>
-    <CameraObject t0="-193.14" t1="128.771" t2="43.7115" s0="1" s1="1" s2="1" q0="-0.195156" q1="-0.800519" q2="0.351519" q3="-0.444431" euler_x="-2.31406" euler_y="1.01362" euler_z="3.14159" id="99">
+    <CameraObject t0="-185.953" t1="122.428" t2="48.3376" s0="1" s1="1" s2="1" q0="0.0351452" q1="0.96403" q2="-0.164878" q3="0.205492" euler_x="-2.80281" euler_y="0.420032" euler_z="3.14159" id="99">
         <parameters />
     </CameraObject>
     <EnvObject t0="-85.5282" t1="86.4777" t2="-23.3282" s0="2.01564" s1="2.86929" s2="2.37731" q0="-0.00474894" q1="0.00257536" q2="0.0122051" q3="0.999911" euler_x="-0.00943444" euler_y="0.00526621" euler_z="0.0243863" id="104" color_r="0.27451" color_g="0.27451" color_b="0.27451" overbright="0" type_file="Data/Objects/Crete/hex_crete_tall.xml">
@@ -373,9 +373,16 @@
     <EnvObject t0="-194.606" t1="120.123" t2="42.116" s0="0.202422" s1="0.202422" s2="0.202422" q0="0" q1="-0.860091" q2="0" q3="0.510141" euler_x="3.14159" euler_y="-1.0707" euler_z="3.14159" id="111" color_r="0.211765" color_g="0.199308" color_b="0.199308" overbright="0" type_file="Data/Objects/Crete/box_quarter.xml">
         <parameters />
     </EnvObject>
-    <ItemObject t0="-184.526" t1="120.991" t2="48.0407" s0="1" s1="1" s2="1" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="112" type_file="Data/Items/staffbasic.xml" color_r="1" color_g="1" color_b="1" overbright="0">
-        <parameters />
-    </ItemObject>
+    <Hotspot t0="-184.457" t1="120.971" t2="48.194" s0="0.1" s1="0.1" s2="0.1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="112" type_file="Data/Objects/weaponSpawn.xml">
+        <parameters>
+            <parameter name="ItemPath" type="string" val="Data/Items/staffbasic.xml" />
+            <parameter name="RespawnDistance" type="int" val="3" />
+            <parameter name="RespawnTime" type="int" val="10" />
+            <parameter name="game_type" type="string" val="versusBrawl" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
     <EnvObject t0="-184.86" t1="120.792" t2="47.8089" s0="1.3413" s1="8.34295" s2="4.35158" q0="0.201693" q1="-0.171432" q2="-0.677123" q3="0.686612" euler_x="0.534596" euler_y="0.0377364" euler_z="-1.54655" id="115" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
         <parameters />
     </EnvObject>
@@ -2654,7 +2661,7 @@
     <Decal t0="-197.359" t1="85.7065" t2="50.9955" s0="4.52603" s1="2.37776" s2="4.70599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="881" type_file="Data/Objects/Decals/bloodspatter.xml" color_r="0.8" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
-    <Hotspot t0="-176.88" t1="121.787" t2="52.5225" s0="0.132619" s1="0.132619" s2="0.132619" q0="0" q1="-0.871941" q2="0" q3="0.48961" euler_x="3.14159" euler_y="-1.02328" euler_z="-3.14159" id="882" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="-176.88" t1="121.787" t2="52.5225" s0="0.132619" s1="0.132619" s2="0.132619" q0="0" q1="-0.871941" q2="0" q3="0.48961" euler_x="3.14159" euler_y="-1.02328" euler_z="3.14159" id="882" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="-1" />
@@ -3754,4 +3761,5 @@
     <SpawnerItem display_name="Blood Drop Splat" path="Data/Objects/Decals/blooddropsplat.xml" thumbnail_path="Data/UI/spawner/thumbs/Decal/blooddropsplat.png" />
     <SpawnerItem display_name="Spike" path="Data/Objects/Hotspots/spike.xml" thumbnail_path="Data/UI/spawner/thumbs/Interactive Objects/spike_2.png" />
     <SpawnerItem display_name="Generic Kill Hotspot" path="Data/Objects/Hotspots/generic_kill.xml" thumbnail_path="Data/UI/spawner/thumbs/Hotspot/kill.png" />
+    <SpawnerItem display_name="weaponSpawn.xml" path="Data/Objects/weaponSpawn.xml" thumbnail_path="empty_placeholder.png" />
 </RecentItems>
