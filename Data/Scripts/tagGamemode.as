@@ -43,6 +43,13 @@ string IntToWinnerName(int teamNr){
 
 void ResetTag(){
     whoWon = -1;
+
+    for (uint i = 0; i < isFreezed.size(); i++)
+    {
+        // Make sure everyone is unfreezed before clearing stuff out
+        if(isFreezed[i])
+            Unfreeze(i);
+    }
     
     killedRunners = {};
     currentChasers = {};
@@ -317,23 +324,7 @@ void Update(){
         for (uint i = 0; i < freezeTimers.size(); i++) 
         {
             if(freezeTimers[i]< 0 && isFreezed[i]){
-                VersusPlayer@ victim = GetPlayerByNr(i);
-                Log(error, "unfreeze: "+ victim.playerNr);
-                PlaySound("Data/Sounds/ice_foley/bf_ice_medium_3.wav");
-
-                // Remove the emitter
-                if(freezeEmmiters[i] != -1){
-                    DeleteObjectID(freezeEmmiters[i]);
-                    DeleteObjectID(blingEmmiters[i]);
-                }
-                    
-                freezeEmmiters[i] = -1;
-                blingEmmiters[i] = -1;
-                
-                addSpeciesStats(ReadObjectFromID(victim.objId));
-                isFreezed[i] = false;
-                updateChaserRunnerLabels = true;
-                
+                Unfreeze(i);
             }else if(freezeTimers[i]>= 0 && isFreezed[i]){
                 freezeTimers[i] -= time_step;
             }
@@ -441,6 +432,25 @@ void UpdateUI(){
 
         updateChaserRunnerLabels=false;
     }
+}
+
+void Unfreeze(int playerNr){
+    VersusPlayer@ victim = GetPlayerByNr(playerNr);
+    Log(error, "unfreeze: "+ victim.playerNr);
+    PlaySound("Data/Sounds/ice_foley/bf_ice_medium_3.wav");
+
+    // Remove the emitter
+    if(freezeEmmiters[playerNr] != -1){
+        DeleteObjectID(freezeEmmiters[playerNr]);
+        DeleteObjectID(blingEmmiters[playerNr]);
+    }
+
+    freezeEmmiters[playerNr] = -1;
+    blingEmmiters[playerNr] = -1;
+
+    addSpeciesStats(ReadObjectFromID(victim.objId));
+    isFreezed[playerNr] = false;
+    updateChaserRunnerLabels = true;
 }
 
 void Freeze(int playerNr){
