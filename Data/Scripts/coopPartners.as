@@ -43,13 +43,21 @@ void CoopPartnersCheck(){
     missingCharacters -= playerChars;
     for (int j = 1; j < missingCharacters+1; j++)
     {
-        string placeHolderActorPath = "Data/Objects/characters/rabbot_actor.xml";
+        string placeHolderActorPath = "";
+        int obj_id = -1;
 
         // We check for a custom actor path to use
-        if (lvlParams.HasParam("characterActorPath"))
-            placeHolderActorPath = lvlParams.GetString("characterActorPath");
+        if (lvlParams.HasParam("characterActorPath"+j)){
+            Log(warning, "Found: characterActorPath"+j);
+            placeHolderActorPath = lvlParams.GetString("characterActorPath"+j);
+            obj_id = CreateObject(placeHolderActorPath, false);
+        }
+        else{
+            // If not, just duplicate as it is
+            obj_id = DuplicateObject(charObj);
+            //ReadCharacterID(obj_id).Execute("SwitchCharacter(\"" + this_mo.char_path + "\");");
+        }
 
-        int obj_id = CreateObject(placeHolderActorPath, true);
 
         Object
         @newCharObj = ReadObjectFromID(obj_id);
@@ -57,22 +65,22 @@ void CoopPartnersCheck(){
         @newChar = ReadCharacterID(newCharObj.GetID());
         ScriptParams
         @newCharParams = newCharObj.GetScriptParams();
-
+            
         // Rewrite character
-        newChar.Execute("SwitchCharacter(\"" + this_mo.char_path + "\");");
         //newCharObj.SetScriptParams(charObj.GetScriptParams());
-        // TODO! Find a way to copy this cleanly? It looks like you cant really copy/enumerate over script params. Options are:
+        // For now `DuplicateObject()` seems to work just fine, maybe this is not really needed:
+        // TODO: Find a way to copy this cleanly? It looks like you cant really copy/enumerate over script params. Options are:
         // 1. Expose SetScriptParams() for AS in ScriptParams.cpp
         // 2. Create a "configure-character <objId>" event message for actor/map makers to use
         // 3. Make a janky list of all possible params ppl use and just do a nasty 'HasParam()` on each of them
         newCharParams.SetString("Teams", charParams.GetString("Teams"));
-        newCharParams.SetInt("LocalPlayer", 1);
+        newCharParams.SetInt("LocalPlayer", j);
         newCharObj.UpdateScriptParams();
 
         // Place into the level
         MovePlayerObject(charObj ,newCharObj);
         
-        //TEST
+        // Recolor players, for some eye candy
         RecolorCharacter(j, newCharParams.GetString("Species"), newCharObj);
         newChar.controller_id = j;
         newCharObj.SetPlayer(true);
