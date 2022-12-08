@@ -104,7 +104,16 @@ You dont need to do anything in particular, as long as you use default `aschar.a
 Make sure the place you spawn in players is always roomy enough for 4 players, and is atleast slightly off the ground.
 
 If youre using anything custom, a custom implementation will be probably needed.
-1. Set Level Parameter `characterActorPath` with your players `actor.xml` path.
+1. Set Level Parameter `characterActorPath` with your players desired `actor.xml` paths. 
+You can set those per player:
+```xml
+<!-- For player two -->
+<parameter name="characterActorPath1" type="string" val="Data/Objects/characters/cats/ouranian_hand_actor.xml" /> 
+<!-- For player three -->
+<parameter name="characterActorPath2" type="string" val="Data/Objects/IGF_Characters/IGF_WolfActor.xml" />
+<!-- For player four -->
+<parameter name="characterActorPath2" type="string" val="Data/Objects/rats/hooded_rat_actor.xml" />
+```
 2. Set any Script Parameters changes to that actor file, so the newly spawned player will also have them.
 3. If you ever use players MovementObject to do something in level/hotspot script, you should change it to smth like:
 ```angelScript
