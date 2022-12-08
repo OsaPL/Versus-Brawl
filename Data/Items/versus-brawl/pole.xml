@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" ?>
+<item>
+    <type>weapon</type>
+    <appearance obj_path = "Data/Objects/versus-brawl/Weapons/pole.xml"/>
+    <grip ik_attach = "rightarm"
+          anim = "Data/Animations/r_dogweapongrip.anm"
+          hands = "2"/>
+    <physics mass = "0 kg"/>
+    <points>
+        <wood_base x="0" y="-0.77" z="0"/>
+        <wood_tip x="0" y="0.97" z="0"/>
+    </points>
+    <lines>
+        <wood start="wood_base" end="wood_tip"/>
+    </lines>
+    <label>staff</label>
+    <anim_blend idle = "Data/Animations/r_bigdogswordmove.xml"
+                movement = "Data/Animations/r_bigdogswordmove.xml"
+                jump = "Data/Animations/r_bigdogswordmove.xml" />
+    <attack_override stationary = "Data/Attacks/versus-brawl/pole/overhand.xml"
+                     moving = "Data/Attacks/versus-brawl/pole/side.xml"
+                     moving_close = "Data/Attacks/versus-brawl/pole/sideclose.xml"
+                     stationary_close = "Data/Attacks/versus-brawl/pole/sideclose.xml"/>
+    <anim_override idle = "Data/Animations/r_weaponmovestance.xml"
+                   movement = "Data/Animations/r_weaponmovestance.xml"
+                   medrightblock = "Data/Animations/r_dogswordparryright.anm"
+                   medleftblock = "Data/Animations/r_dogswordparryleft.anm"
+                   highrightblock = "Data/Animations/r_dogswordparryright.anm"
+                   highleftblock = "Data/Animations/r_dogswordparryleft.anm"
+                   blockflinch = "Data/Animations/r_dogswordflinch.anm"/>
+    <range extend = "0.4"/>
+</item>

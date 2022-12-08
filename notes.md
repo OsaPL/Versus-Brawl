@@ -137,3 +137,5 @@ The shortnames for modes are cryptic => seperate gamemodes into folders?
 - `DebugDrawBillboard` has wrong TEXTURE_WRAP setting, which makes the texture bleed on top sometimes (`GL_CLAMP_TO_EDGE` should help?)
 - `SetEditorLabel` only works for placeholder objects
 - using `JSONValue` sometimes just crashes games (easiest way to reproduce is just to keep reloading the level script)
+- `<ModDependency>` does nothing, probably missing checks on UI part
+- You cant attach an object to a bone from as script 
