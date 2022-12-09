@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/poleFlag.obj</Model>
+	<!--<Model>Data/Models/pole.obj</Model>-->
+	<ColorMap>Data/Textures/versus-brawl/poleFlag_c.tga</ColorMap>
+	<NormalMap>Data/Textures/versus-brawl/poleFlag_n.tga</NormalMap>
+	<SharpnessMap>Data/Textures/Weapons/staff_basic_s.tga</SharpnessMap>
+	<WeightMap>Data/Textures/versus-brawl/poleFlag_w.tga</WeightMap>
+
+	<ShaderName>detailmap4</ShaderName>
+</Object>

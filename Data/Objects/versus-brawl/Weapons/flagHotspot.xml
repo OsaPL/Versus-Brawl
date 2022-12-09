@@ -1,6 +1,0 @@
-﻿<?xml version="2.0" ?>
-<Type>generic</Type>
-<Hotspot>
-<BillboardColorMap>Data/UI/spawner/thumbs/Hotspot/empty.png</BillboardColorMap>
-<Script>versus-brawl/Weapons/flag.as</Script>
-</Hotspot>
