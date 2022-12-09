@@ -18,6 +18,8 @@ bool blink = false;
 float blinkTimer = 0;
 float blinkTimeout = 0.5f;
 
+int crownId = -1;
+
 //Level methods
 void Init(string msg){
     // DM specific hints
@@ -65,6 +67,9 @@ void Init(string msg){
         }
         return true;
     }));
+    
+    // Spawn crown object
+    
 
     // And finally load JSON Params
     LoadJSONLevelParams();
@@ -94,6 +99,10 @@ void Update(){
     VersusUpdate();
 
     //UpdateParams();
+    
+    if(crownId == -1){
+        crownId = CreateObject("Data/Objects/versus-brawl/hotspots/leaderCrownHotspot.xml");
+    }
 
     if(currentState == 2){
         if(pointsTextShow){
@@ -147,7 +156,10 @@ void PreScriptReload(){
 void Reset(){
     //Always need to call this first!
     VersusReset();
-
+    if(crownId != -1){
+        DeleteObjectID(crownId);
+        crownId = -1;
+    }
 }
 
 array<AHGUI::Divider@> uiKillCountersDivs={};
@@ -187,7 +199,8 @@ void UpdateUI(){
     
     if(updateScores){
         //Log(error, "updateScores");
-        
+
+        bool noHighest = true;
         for (uint i = 0; i < uiKillCounters.size(); i++)
         {
             uiKillCounters[i].setText("Kills: " + killsCount[i]);
@@ -195,11 +208,17 @@ void UpdateUI(){
             bool isHighest = true;
             for (uint k = 0; k < versusPlayers.size(); k++)
             {
-                if(killsCount[i] < killsCount[k]){
+                // We skip ourselves
+                if(i == k)
+                    continue;
+                if(killsCount[i] <= killsCount[k]){
                     isHighest = false;
                     break;
                 }
             }
+            
+            if(isHighest)
+                noHighest = false;
            
             if(killsCount[i] + 1 >= pointsToWin){
                 // B link red for almost win
@@ -213,9 +232,20 @@ void UpdateUI(){
             else if(isHighest){
                 // Orange for winner, chicken dinner
                 uiKillCounters[i].setColor(1,0.7f,0,1);
+                Object@ crown = ReadObjectFromID(crownId);
+                ScriptParams@ crownParams = crown.GetScriptParams();
+                VersusPlayer@ player = GetPlayerByNr(i);
+                crownParams.SetInt("followObjId", player.objId);
             }
             else{
                 uiKillCounters[i].setColor(1,1,1,1);
+            }
+        }
+
+        if(noHighest){
+            if(crownId != -1){
+                DeleteObjectID(crownId);
+                crownId = -1;
             }
         }
 
