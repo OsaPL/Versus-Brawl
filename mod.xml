@@ -24,6 +24,15 @@
     <SupportedVersion>*</SupportedVersion>
     <NeedsRestart>true</NeedsRestart>
 
+    <ModDependency>
+        <Id>com-surak-timed-execution</Id>
+        <Version>*</Version>
+    </ModDependency>
+    <ModDependency>
+        <Id>const-pumpkin</Id>
+        <Version>*</Version>
+    </ModDependency>
+
     <Campaign title="Versus Brawl" thumbnail="Images/versus-brawl/placeholder.png" menu_script="arena_campaign_menu.as" main_script="linear_campaign.as">
         <Level title="Elder Blocks DM" thumbnail="Images/versus-brawl/blocks.jpg">versus-brawl/blocks_map.xml</Level>
 		<Level title="Elder Balance LBS" thumbnail="Images/versus-brawl/planks.jpg">versus-brawl/plank_map.xml</Level>

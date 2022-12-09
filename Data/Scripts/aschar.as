@@ -5299,6 +5299,14 @@ int BlockedAttack(const vec3 &in dir, const vec3 &in pos, int attacker_id) {
     string sound;
     MovementObject@ char = ReadCharacterID(attacker_id);
 
+    // We get KnockbackMultiplier and we apply it a little bit here also
+    Object@ charObj = ReadObjectFromID(char.GetID());
+    ScriptParams@ params = charObj.GetScriptParams();
+    float knockBackMlt = params.GetFloat("Attack Knockback");
+    // We increase the received knockback for wolves, since they always passive block
+    if(species == _wolf)
+        knockBackMlt *= 2;
+        
     if(attack_getter2.GetFleshUnblockable() == 0) {
         level.SendMessage("active_blocked " + this_mo.getID() + " " + attacker_id);
         sound = "Data/Sounds/hit/hit_block.xml";
@@ -5327,14 +5335,14 @@ int BlockedAttack(const vec3 &in dir, const vec3 &in pos, int attacker_id) {
         camera_shake += 0.5f;
     }
 
-    float force_mult = 1.0f;
+    float force_mult = knockBackMlt;
 
     if(char.GetIntVar("species") == _dog && (species != _dog && species != _wolf)) {
-        force_mult = 4.0f;
+        force_mult *= 4.0f;
     }
 
     if(species == _rat && char.GetIntVar("species") != _rat) {
-        force_mult = 4.0f;
+        force_mult *= 4.0f;
     }
 
     this_mo.velocity += GetAdjustedAttackDir(dir) * 2.0f * force_mult;

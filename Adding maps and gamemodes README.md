@@ -112,11 +112,11 @@ You can set those per player:
 <!-- For player three -->
 <parameter name="characterActorPath2" type="string" val="Data/Objects/IGF_Characters/IGF_WolfActor.xml" />
 <!-- For player four -->
-<parameter name="characterActorPath2" type="string" val="Data/Objects/rats/hooded_rat_actor.xml" />
+<parameter name="characterActorPath3" type="string" val="Data/Objects/rats/hooded_rat_actor.xml" />
 ```
 2. Set any Script Parameters changes to that actor file, so the newly spawned player will also have them.
 3. If you ever use players MovementObject to do something in level/hotspot script, you should change it to smth like:
-```angelScript
+```c++
 for (int i = 0; i < GetNumCharacters(); i++) {
     MovementObject@ char = ReadCharacter(i);
     
@@ -193,6 +193,7 @@ throwMassMlt = params.GetFloat("Throw - Mass Multiplier");
 - Moved color functions to `colorHelper.as`
 - `timeSinceAttackedById` tracks time since last `attacked_by_id` change (as long as its not `-1`)
 - `set_dialogue_position` now calls `InvokeCoop_set_dialogue_position` to forward the new position to coop players
+- `BlockedAttack` now takes into the account `Attack Knockback`
 
 ## `playercontrol.as`
 - `drunkMode` added, with new methods to invert controls
