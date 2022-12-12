@@ -53,7 +53,7 @@ vec3 GetBonePos(){
     return world_head.origin;
 }
 
-void PreDraw(float curr_game_time) {
+void Draw() {
     Object@ me = ReadObjectFromID(hotspot.GetID());
 
     if(params.GetInt("followObjId") == -1)
