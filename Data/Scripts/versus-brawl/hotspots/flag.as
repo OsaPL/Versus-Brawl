@@ -10,6 +10,13 @@ void Init(){
     me.SetScale(vec3(0.2f));
 }
 
+void SetParameters()
+{
+    params.AddFloatSlider("red", 1.0f, "min:0,max:3,step:0.01");
+    params.AddFloatSlider("green", 1.0f, "min:0,max:3,step:0.01");
+    params.AddFloatSlider("blue", 1.0f, "min:0,max:3,step:0.01");
+}
+
 void Reset(){
     Dispose();
 }
@@ -28,6 +35,7 @@ void ReCreateFlagItem(){
 
 void Update(){
     Object@ me = ReadObjectFromID(hotspot.GetID());
+    color = vec3(params.GetFloat("red"), params.GetFloat("green"), params.GetFloat("blue"));
     
     if(weaponId == -1){
         //spawn weapon
@@ -42,11 +50,12 @@ void Update(){
         Object@ obj = ReadObjectFromID(lightId);
 
         obj.SetScale(vec3(8));
-        obj.SetTint(color*2);
     }
-    
+
+    Object@ weapObj = ReadObjectFromID(weaponId);
     ItemObject@ weap = ReadItemID(weaponId);
-    
+    weapObj.SetTint(color);
+
     // Move the light
     if(lightId != -1){
         Object@ obj = ReadObjectFromID(lightId);
@@ -54,6 +63,7 @@ void Update(){
         mat4 rot = trans.GetRotationPart();
         obj.SetTranslation((trans*vec3())+(vec3(0,0.5f,0)));
         obj.SetRotation(QuaternionFromMat4(rot));
+        obj.SetTint(color*2);
     }
     
     if(!weap.IsHeld()){
@@ -62,8 +72,7 @@ void Update(){
             // Recreate the flag and move it (moving itemObject is scuffed) to make it upright
             mat4 trans = weap.GetPhysicsTransform();
             ReCreateFlagItem();
-            Object@ newObj = ReadObjectFromID(weaponId);
-            newObj.SetTranslation(trans * vec3());
+            weapObj.SetTranslation(trans * vec3());
         }
     }
     else{
