@@ -2,6 +2,7 @@
 bool init = false;
 float overHeadDistance = 0.5f;
 int lightId = -1;
+vec3 color = vec3(0.35f, 0.2f, 0);
 
 void Init(){
     Object@ me = ReadObjectFromID(hotspot.GetID());
@@ -19,7 +20,7 @@ void Update(){
         Object@ obj = ReadObjectFromID(lightId);
 
         obj.SetScale(vec3(8));
-        obj.SetTint(vec3(0.35f,0.2f,0));
+        obj.SetTint(color);
     }
 }
 
@@ -96,6 +97,9 @@ void Draw() {
             float z = (1-t)*lastBonePos.z + t*bonePos.z;
             pos = vec3(x,y,z);
         }
+        else{
+            params.SetInt("dampenMovement", 0);
+        }
     }
     lastBonePos = pos;
 
@@ -106,7 +110,7 @@ void Draw() {
     DebugDrawBillboard("Data/Textures/versus-brawl/crown.png",
         pos + vec3(0, overHeadDistance, 0),
     me.GetScale()[1]*5,
-        vec4(vec3(3,2,0), 1),
+        vec4(color*10 , 1),
         _delete_on_draw);
 }
 
