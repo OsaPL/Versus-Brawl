@@ -1,4 +1,4 @@
-﻿#include "powerUpBase.as"
+#include "powerUpBase.as"
 
 void Init(){
     PowerupInit();

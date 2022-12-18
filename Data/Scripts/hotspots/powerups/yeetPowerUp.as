@@ -1,4 +1,4 @@
-﻿#include "powerUpBase.as"
+#include "powerUpBase.as"
 
 float knockbackMlt = 7.0f;
 string slapSoundPath = "Data/Sounds/pop1.wav";

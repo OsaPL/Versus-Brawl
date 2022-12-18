@@ -1,4 +1,4 @@
-﻿#include "powerUpBase.as"
+#include "powerUpBase.as"
 
 float fireTime = 0.2f;
 float fireStep = 0.02f;

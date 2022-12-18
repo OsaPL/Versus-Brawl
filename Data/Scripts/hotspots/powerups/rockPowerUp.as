@@ -1,4 +1,4 @@
-﻿#include "powerUpBase.as"
+#include "powerUpBase.as"
 
 float originalDamageReduction;
 string hitSoundGroup = "Data/Sounds/rocks_foley/fs_heavy_rocks_crouchwalk.xml";

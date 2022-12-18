@@ -1,4 +1,4 @@
-﻿int lightId = -1;
+int lightId = -1;
 float time = 0;
 void Init() {
     hotspot.SetCollisionEnabled(false);

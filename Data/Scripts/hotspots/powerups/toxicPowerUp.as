@@ -1,4 +1,4 @@
-﻿#include "powerUpBase.as"
+#include "powerUpBase.as"
 
 float range = 2.5f;
 float decayTime = 3.0f;
