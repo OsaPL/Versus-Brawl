@@ -194,9 +194,12 @@ throwMassMlt = params.GetFloat("Throw - Mass Multiplier");
 - `timeSinceAttackedById` tracks time since last `attacked_by_id` change (as long as its not `-1`)
 - `set_dialogue_position` now calls `InvokeCoop_set_dialogue_position` to forward the new position to coop players
 - `BlockedAttack` now takes into the account `Attack Knockback`
+- `HandleAnimationMiscEvent` returns quicker
+- Modifications to the Unsheathe/Sheathing to allow for more weapon slots/big weapons sheathing and also more generic unsheathing (no longer you have to rely on anim events)
 
 ## `playercontrol.as`
 - `drunkMode` added, with new methods to invert controls
+- Small modifications to Unsheathe/Sheathing, also adds choosing which weapon is selected
 
 ## Generic available Hotspots
 

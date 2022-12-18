@@ -16,6 +16,56 @@ float throwVelocityMlt;
 bool initCoopPartners = true;
 float timeSinceAttackedById = 0;
 int localPlayers = 0;
+bool canSheatheBigBois = false;
+//
+
+// New methods
+bool IsHolding2HandedWeapon(){
+    return Is2HandedItemObject(weapon_slots[primary_weapon_slot]);
+}
+bool Is2HandedItemObject(int objId){
+    if(weapon_slots[primary_weapon_slot] == -1)
+        return false;
+    
+    string label = ReadItemID(weapon_slots[primary_weapon_slot]).GetLabel();
+    if(label == "big_sword" || label == "staff" || label == "spear") {
+        return true;
+    }
+    return false;
+}
+bool IsBigBlade(int objId){
+    if(weapon_slots[primary_weapon_slot] == -1)
+        return false;
+    
+    string label = ReadItemID(weapon_slots[primary_weapon_slot]).GetLabel();
+    if(label == "big_sword") {
+        return true;
+    }
+    return false;
+}
+bool IsBigStick(int objId){
+    if(weapon_slots[primary_weapon_slot] == -1)
+        return false;
+    
+    string label = ReadItemID(weapon_slots[primary_weapon_slot]).GetLabel();
+    if(label == "staff" || label == "spear") {
+        return true;
+    }
+    return false;
+}
+string WeaponSlotToString(int slot){
+    switch(slot){
+        case 0: return "_held_left";
+        case 1: return "_held_left";
+        case 2: return "_sheathed_left";
+        case 3: return "_sheathed_right";
+        case 4: return "_sheathed_left_sheathe";
+        case 5: return "_sheathed_right_sheathe";
+        case 6: return "_sheathed_left_back";
+        case 7: return "_sheathed_right_back";
+    }
+    return "NA";
+}
 //
 
 enum WalkDir {
@@ -383,11 +433,13 @@ enum WeaponSlot {
         _sheathed_right = 3,
         _sheathed_left_sheathe = 4,
         _sheathed_right_sheathe = 5,
+        _sheathed_left_back = 6,
+        _sheathed_right_back = 7
 };
 
 int primary_weapon_slot = _held_right;
 int secondary_weapon_slot = _held_left;
-const int _num_weap_slots = 6;
+const int _num_weap_slots = 8;
 array<int> weapon_slots;
 
 bool g_wearing_metal_armor = false;
@@ -1694,6 +1746,8 @@ void PrintWeaponSlotDebugText() {
     DebugText("char" + this_mo.getID() + "4", "Weapon slot \"sheathed right\": " + weapon_slots[_sheathed_right], 0.5f);
     DebugText("char" + this_mo.getID() + "5", "Weapon slot \"sheath left\"   : " + weapon_slots[_sheathed_left_sheathe], 0.5f);
     DebugText("char" + this_mo.getID() + "6", "Weapon slot \"sheath right\"  : " + weapon_slots[_sheathed_right_sheathe], 0.5f);
+    DebugText("char" + this_mo.getID() + "5", "Weapon slot \"sheath left back\"   : " + weapon_slots[_sheathed_left_back], 0.5f);
+    DebugText("char" + this_mo.getID() + "6", "Weapon slot \"sheath right back\"  : " + weapon_slots[_sheathed_right_back], 0.5f);
     DebugText("char" + this_mo.getID() + "7", "Primary weapon slot: " + primary_weapon_slot, 0.5f);
 }
 
@@ -6888,7 +6942,26 @@ void WeaponRemovedFromBody(int weapon_id, int remover_id) {
 }
 
 void Sheathe(int src, int dst) {
-    if(weapon_slots[src] != -1 && weapon_slots[dst + 2] == -1) {
+    //Log(error, "Sheathe dst: " + WeaponSlotToString(dst) + " src: " + WeaponSlotToString(src));
+    // Tells you how to move to corresponding `sheathe` slots, we move backwards for `_sheathed_right/left_back`
+    int moveIndex = 2;
+    if(weapon_slots[src] == -1)
+        return;
+    
+    ItemObject@ item = ReadItemID(weapon_slots[src]);
+    //Log(error, "Sheathe item.GetLabel(): " + item.GetLabel());
+    //TODO! Still have no idea why we even need that operation including `moveIndex`
+    if(IsBigStick(weapon_slots[src])){
+        dst = _sheathed_right_back;
+        moveIndex = 0;
+    }
+    else if(IsBigBlade(weapon_slots[src])){
+        dst = _sheathed_left_back;
+        moveIndex = 0;
+    }
+    
+    //Log(error, "Sheathe out dst: " + WeaponSlotToString(dst) + " src: " + WeaponSlotToString(src) + " [dst + moveIndex]:" + WeaponSlotToString(dst + moveIndex));
+    if(weapon_slots[src] != -1 && weapon_slots[dst + moveIndex] == -1) {
         ItemObject@ item_obj = ReadItemID(weapon_slots[src]);
         vec3 pos = item_obj.GetPhysicsPosition();
         string sound = "Data/Sounds/weapon_foley/impact/weapon_drop_light_dirt.xml";
@@ -6896,7 +6969,7 @@ void Sheathe(int src, int dst) {
 
         bool dst_right = (dst == _sheathed_right);
         this_mo.rigged_object().SheatheItem(weapon_slots[src], dst_right);
-        weapon_slots[dst + 2] = weapon_slots[dst];
+        weapon_slots[dst + moveIndex] = weapon_slots[dst];
         weapon_slots[dst] = weapon_slots[src];
         weapon_slots[src] = -1;
         UpdateItemFistGrip();
@@ -6909,6 +6982,24 @@ void Sheathe(int src, int dst) {
 }
 
 void UnSheathe(int dst, int src) {
+    //Log(error, "UnSheathe dst: " + WeaponSlotToString(dst) + " src: " + WeaponSlotToString(src));
+    // Tells you how to move to corresponding `sheathe` slots, we move backwards for `_sheathed_right/left_back`
+    int moveIndex = 2;
+    
+    // Here we check for the real item we want to UnSheathe, ignoring what anim event is saying basically
+    // TODO: This will probably be no longer needed once new animation events get implemented
+    int realSrc = -1;
+    WantsToUnSheatheItem(realSrc);
+    //Log(error, "WantsToUnSheatheItem realSrc: " + WeaponSlotToString(realSrc));
+    if(realSrc != -1){
+        src = realSrc;
+    }
+    
+    if(src == _sheathed_left_back || src == _sheathed_right_back){
+        moveIndex = -2;
+    }
+    
+    //Log(error, "UnSheathe out dst: " + WeaponSlotToString(dst) + " src: " + WeaponSlotToString(src));
     if(weapon_slots[src] != -1 && weapon_slots[dst] == -1) {
         ItemObject@ item_obj = ReadItemID(weapon_slots[src]);
         vec3 pos = item_obj.GetPhysicsPosition();
@@ -6918,14 +7009,15 @@ void UnSheathe(int dst, int src) {
         bool dst_right = (dst == _held_right);
         this_mo.rigged_object().UnSheatheItem(weapon_slots[src], dst_right);
         weapon_slots[dst] = weapon_slots[src];
-        weapon_slots[src] = weapon_slots[src + 2];
-        weapon_slots[src + 2] = -1;
+        weapon_slots[src] = weapon_slots[src + moveIndex];
+        weapon_slots[src + moveIndex] = -1;
         UpdateItemFistGrip();
         UpdatePrimaryWeapon();
     }
 }
 
 void HandleAnimationMiscEvent(const string &in event, const vec3 &in world_pos) {
+    // Added returns cause there is always a single event
     if(event == "grabitem" && (weapon_slots[primary_weapon_slot] == -1 || weapon_slots[secondary_weapon_slot] == -1) && knocked_out == _awake && tethered == _TETHERED_FREE) {
         vec3 hand_pos;
 
@@ -6960,6 +7052,7 @@ void HandleAnimationMiscEvent(const string &in event, const vec3 &in world_pos) 
             this_mo.rigged_object().anim_client().RemoveLayer(pickup_layer, 4.0f);
             pickup_layer = -1;
         }
+        return;
     }
 
     if(event == "heldweaponswap" ) {
@@ -6987,8 +7080,10 @@ void HandleAnimationMiscEvent(const string &in event, const vec3 &in world_pos) 
         PlaySoundGroup(sound, world_pos, 0.5f);
         UpdateItemFistGrip();
         UpdatePrimaryWeapon();
+        return;
     }
 
+    //Log(error, "HandleAnimationMiscEvent: " + event);
     if(event == "sheatherighthandlefthip" ) {
         Sheathe(_held_right, _sheathed_left);
     } else if(event == "sheathelefthandrighthip" ) {
@@ -10221,6 +10316,7 @@ int GetNearestThrownWeapon(vec3 point, float max_range) {
     int num_items = GetNumItems();
     int closest_id = -1;
     float closest_dist = 0.0f;
+    AnimationClient@ animClient = this_mo.rigged_object().anim_client();
 
     for(int i = 0; i < num_items; i++) {
         ItemObject@ item_obj = ReadItem(i);
@@ -10248,7 +10344,8 @@ void StartSheathing(int slot) {
     ItemObject @obj = ReadItemID(weapon_slots[slot]);
     bool prefer_same_side = obj.GetMass() < 0.55f;
     int side_a, side_b;
-
+    AnimationClient@ animClient = this_mo.rigged_object().anim_client();
+    
     if((prefer_same_side && slot == _held_right) ||
         (!prefer_same_side && slot != _held_right)) {
         side_a = _sheathed_right;
@@ -10270,7 +10367,15 @@ void StartSheathing(int slot) {
     } else if(weapon_slots[side_b] == -1) {
         dst = side_b;
     }
+    
+    if(IsBigBlade(weapon_slots[slot])){
+        dst = _sheathed_left_back;
+    }
+    else if(IsBigStick(weapon_slots[slot])){
+        dst = _sheathed_right_back;
+    }
 
+    //Log(error, "dst: " + WeaponSlotToString(dst));
     // slot = _held_left;
     // dst = _sheathed_left;
 
@@ -10280,24 +10385,40 @@ void StartSheathing(int slot) {
         if(slot == _held_left) {
             flags = _ANM_MIRRORED;
         }
+        ItemObject@ item_obj = ReadItemID(weapon_slots[slot]);
 
-        if((slot == _held_left && dst == _sheathed_right) ||
-            (slot == _held_right && dst == _sheathed_left))
+        if((slot == _held_left && (dst == _sheathed_right_back || dst == _sheathed_right)) ||
+            (slot == _held_right && (dst == _sheathed_left_back || dst == _sheathed_left)))
         {
-            ItemObject@ item_obj = ReadItemID(weapon_slots[slot]);
-
+            // Weapon and hand are on opposite sides
             if(item_obj.HasSheatheAttachment()) {
-                sheathe_layer_id = this_mo.rigged_object().anim_client().AddLayer("Data/Animations/r_knifesheathe.anm", 8.0f, flags);
-                this_mo.rigged_object().anim_client().SetLayerItemID(sheathe_layer_id, 0, weapon_slots[slot]);
+                // Additional animations for sheathing big weapons
+                if(IsBigStick(weapon_slots[slot])){
+                    sheathe_layer_id = animClient.AddLayer("Data/Animations/bow/r_arrow_sheathe.anm", 8.0f, flags);
+                }
+                else if(IsBigBlade(weapon_slots[slot])) {
+                    sheathe_layer_id = animClient.AddLayer("Data/Animations/bow/r_arrow_sheathe_sameside.anm", 8.0f, flags);
+                }
+                else{
+                    sheathe_layer_id = animClient.AddLayer("Data/Animations/r_knifesheathe.anm", 8.0f, flags);
+                }
             }
         } else {
-            ItemObject@ item_obj = ReadItemID(weapon_slots[slot]);
-
+            // Weapon and hand are on same side
             if(item_obj.HasSheatheAttachment()) {
-                sheathe_layer_id = this_mo.rigged_object().anim_client().AddLayer("Data/Animations/r_knifesheathesameside.anm", 8.0f, flags);
-                this_mo.rigged_object().anim_client().SetLayerItemID(sheathe_layer_id, 0, weapon_slots[slot]);
+                // Additional animations for sheathing big weapons
+                if(IsBigStick(weapon_slots[slot])){
+                    sheathe_layer_id = animClient.AddLayer("Data/Animations/bow/r_arrow_sheathe_sameside.anm", 8.0f, flags);
+                }
+                if(IsBigBlade(weapon_slots[slot])) {
+                    sheathe_layer_id = animClient.AddLayer("Data/Animations/bow/r_arrow_sheathe.anm", 8.0f, flags);
+                }
+                else{
+                    sheathe_layer_id = animClient.AddLayer("Data/Animations/r_knifesheathesameside.anm", 8.0f, flags);
+                }
             }
         }
+        animClient.SetLayerItemID(sheathe_layer_id, 0, weapon_slots[slot]);
     }
 }
 
@@ -10582,7 +10703,18 @@ void HandlePickUp() {
         if(sheathe_layer_id == -1) {
             int src;
 
-            if(WantsToSheatheItem() && weapon_slots[primary_weapon_slot] != -1) {
+            // Checks for the ability to sheathe big weapons
+            bool canSheath = true;
+            if(IsHolding2HandedWeapon() && params.GetInt("Can sheathe big weapons") != 0){
+                if(IsBigBlade(weapon_slots[primary_weapon_slot]) && weapon_slots[_sheathed_left_back] != -1){
+                    canSheath = false;
+                }
+                if(IsBigStick(weapon_slots[primary_weapon_slot]) && weapon_slots[_sheathed_right_back] != -1){
+                    canSheath = false;
+                }
+            }
+
+            if(WantsToSheatheItem() && weapon_slots[primary_weapon_slot] != -1 && canSheath) {
                 StartSheathing(primary_weapon_slot);
             } else if(WantsToSheatheItem() && weapon_slots[secondary_weapon_slot] != -1) {
                 StartSheathing(secondary_weapon_slot);
@@ -10594,7 +10726,18 @@ void HandlePickUp() {
                         flags = _ANM_MIRRORED;
                     }
 
-                    if((primary_weapon_slot == _held_left && src == _sheathed_right) ||
+                    //Log(error, "src: " + WeaponSlotToString(src) + " primary_weapon_slot: " + primary_weapon_slot);
+
+                    // Additional animations for unsheathing big weapons
+                    if(primary_weapon_slot == _held_right && (src == _sheathed_right_back)){
+                        //Log(error, "r_arrow_unsheathe");
+                        sheathe_layer_id = this_mo.rigged_object().anim_client().AddLayer("Data/Animations/bow/r_arrow_unsheathe.anm", 8.0f, flags);
+                    }
+                    else if(primary_weapon_slot == _held_right && (src == _sheathed_left_back)){
+                        //Log(error, "r_arrow_unsheathe_sameside");
+                        sheathe_layer_id = this_mo.rigged_object().anim_client().AddLayer("Data/Animations/bow/r_arrow_unsheathe_sameside.anm", 8.0f, flags);
+                    }
+                    else if((primary_weapon_slot == _held_left && src == _sheathed_right) ||
                         (primary_weapon_slot == _held_right && src == _sheathed_left))
                     {
                         sheathe_layer_id = this_mo.rigged_object().anim_client().AddLayer("Data/Animations/r_knifeunsheathe.anm", 8.0f, flags);
@@ -15343,4 +15486,7 @@ void SetParameters() {
     g_weapon_catch_skill = min(1.0f, max(0.0f, params.GetFloat("Weapon Catch Skill")));
 
     ApplyBoneInflation();
+    
+    // Adds parameter that controls whether should be able to sheathe big weapons
+    params.AddIntCheckbox("Can sheathe big weapons", canSheatheBigBois);
 }

@@ -204,12 +204,15 @@ void UpdateBrain(const Timestep &in ts) {
         label = ReadItemID(weapon_slots[primary_weapon_slot]).GetLabel();
     }
 
-    if(!DrunkModeInputDownCheck(this_mo.controller_id, "item") || label == "spear" || label == "big_sword" || label == "staff") {
+    if (!DrunkModeInputDownCheck(this_mo.controller_id, "item")){
         item_key_state = _iks_nothing;
     } else if (item_key_state == _iks_nothing) {
-        if(primary_weapon_id == -1 || (weapon_slots[_sheathed_left] != -1 && weapon_slots[_sheathed_right] != -1)) {
+        if (primary_weapon_id == -1 
+            || (weapon_slots[secondary_weapon_slot] == -1 && (weapon_slots[_sheathed_left] != -1 || weapon_slots[_sheathed_right] != -1) && !IsHolding2HandedWeapon())) {
+            //Log(error, "_iks_unsheathe!");
             item_key_state = _iks_unsheathe;
         } else {  // if(held_weapon != -1 && sheathed_weapon == -1) {
+            //Log(error, "_iks_sheathe!");
             item_key_state = _iks_sheathe;
         }
     }
@@ -427,13 +430,40 @@ bool WantsToUnSheatheItem(int &out src) {
         return false;
     }
 
+    // Cant unsheathe if you holding a 2 handed weapon
+    if(weapon_slots[primary_weapon_slot] != -1) {
+        if(Is2HandedItemObject(weapon_slots[primary_weapon_slot])) {
+            return false;
+        }
+    }
+
     if(item_key_state != _iks_unsheathe && throw_weapon_time < time - 0.2) {
         return false;
     }
 
     src = -1;
-
-    if(weapon_slots[_sheathed_left] != -1 && weapon_slots[_sheathed_right] != -1) {
+    
+    // More intelligent weapon selection code
+    // TODO: Extend?
+    if(GetInputDown(this_mo.controller_id, "attack") && weapon_slots[_sheathed_right_back] != -1){
+        src = _sheathed_right_back;
+    }
+    else if(GetInputDown(this_mo.controller_id, "grab") && weapon_slots[_sheathed_left] != -1){
+        src = _sheathed_left;
+    }
+    else if(GetInputDown(this_mo.controller_id, "grab") && weapon_slots[_sheathed_right] != -1){
+        src = _sheathed_right;
+    }
+    // If everything fails above, just take the biggest one
+    else if(weapon_slots[_sheathed_left_back] != -1 && weapon_slots[secondary_weapon_slot] == -1) {
+        Log(error, "_sheathed_left_back");
+        src = _sheathed_left_back;
+    }
+    else if(weapon_slots[_sheathed_right_back] != -1 && weapon_slots[secondary_weapon_slot] == -1) {
+        Log(error, "_sheathed_right_back");
+        src = _sheathed_right_back;
+    }
+    else if(weapon_slots[_sheathed_left] != -1 && weapon_slots[_sheathed_right] != -1) {
         // If we have two weapons, draw better one
         string label1 = ReadItemID(weapon_slots[_sheathed_left]).GetLabel();
         string label2 = ReadItemID(weapon_slots[_sheathed_right]).GetLabel();

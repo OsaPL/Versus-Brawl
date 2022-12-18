@@ -1,9 +1,11 @@
-# DO THOSE THINGS FIRST:
+# DO THOSE THINGS:
+- figure out why you cant unholster 2 back weapons at the same time
 - add checkmarks or something to race goal to show you've already hit them
 - extend `powerUpBase.as` to allow more than a single particle emitter
 - enable/disable hints ingame by using a key combo
 - for simple arrays, I should just use `int find(const T& in)`
-- `poleFlatItem` will animate legs moving after hitting someone
+- `poleFlagItem` will animate legs moving after hitting someone
+- create a "specific weapon select system". Holding a key and then pressing `item` will select specific weapon
 
 ### For changelogs
 `git log <hash>..HEAD --pretty=format:%s`
@@ -73,3 +75,4 @@ The shortnames for modes are cryptic => seperate gamemodes into folders?
 - using `JSONValue` sometimes just crashes games (easiest way to reproduce is just to keep reloading the level script)
 - `<ModDependency>` does nothing, probably missing checks on UI part
 - You cant attach an object to a bone from as script 
+- `vec4` cant access `w` param (`a` works tho), cant do `vec4 * float`
