@@ -1,16 +1,16 @@
 #include "hotspots/placeholderFollower.as"
 
 enum FlagState {
-    Home = 0,
-    Taken = 1,
-    Dropped = 2
+    FlagHome = 0, 
+    FlagTaken = 1, 
+    FlagDropped = 2
 };
 
 string FlagStateToString(FlagState toConvert){
     switch(toConvert){
-        case Home: return "Home";
-        case Taken: return "Taken";
-        case Dropped: return "Dropped";
+        case FlagHome: return "Home";
+        case FlagTaken: return "Taken";
+        case FlagDropped: return "Dropped";
     }
     return "NA";
 }
@@ -20,7 +20,7 @@ int lightId = -1;
 bool justReleased = false;
 vec3 color = vec3(0, 0.7f, 0);
 int teamNr = -1;
-FlagState state;
+FlagState flagState = FlagHome;
 float returnTimer = 0;
 float returnCooldown = 10;
 
@@ -43,8 +43,6 @@ void Reset(){
     Dispose();
 }
 
-bool init = false;
-
 void ReCreateFlagItem(){
     if(weaponId != -1)
         DeleteObjectID(weaponId);
@@ -57,7 +55,7 @@ void ReCreateFlagItem(){
 void Update(){
     Object@ me = ReadObjectFromID(hotspot.GetID());
 
-    PlaceHolderFollowerUpdate("Data/Textures/ui/versusBrawl/flag_icon.png", "["+teamNr+"] ["+ FlagStateToString(state) +"] [" + returnTimer + "] [" + (me.GetEnabled() ? "Enabled" : "Disabled") + "]", 2.0f, false, vec4(color, 1), vec3(0, 0.5f, 0));
+    PlaceHolderFollowerUpdate("Data/Textures/ui/versusBrawl/flag_icon.png", "["+teamNr+"] ["+ FlagStateToString(flagState) +"] [" + returnTimer + "] [" + (me.GetEnabled() ? "Enabled" : "Disabled") + "]", 2.0f, false, vec4(color, 1), vec3(0, 0.5f, 0));
     
     color = vec3(params.GetFloat("red"), params.GetFloat("green"), params.GetFloat("blue"));
     
@@ -67,7 +65,7 @@ void Update(){
         Object@ obj = ReadObjectFromID(weaponId);
         obj.SetTranslation(me.GetTranslation()+vec3(0, 0.5f, 0));
         obj.SetRotation(me.GetRotation());
-        state = Home;
+        flagState = FlagHome;
         returnTimer = 0;
     }
     if(lightId == -1){
@@ -99,16 +97,17 @@ void Update(){
             mat4 trans = weap.GetPhysicsTransform();
             ReCreateFlagItem();
             weapObj.SetTranslation(trans * vec3());
-            state = Dropped;
+            flagState = FlagDropped;
         }
-        if(state == Dropped) {
+        if(flagState == FlagDropped){//dropped) {
             // Doing a "future" check to make sure we dont show -1;
             if(returnTimer + time_step >= returnCooldown){
-                Dispose();
+                FlagDispose();
                 returnTimer = 0;
             }
             else{
                 returnTimer += time_step;
+                // TODO! Number is barely visible, add a more readable way (Big, texture based numbers? And Icon that lowers its transparency/saturation?)
                 // Draws text with cooldown when dropped
                 DebugDrawText(
                     weap.GetPhysicsTransform() * vec3(),
@@ -120,13 +119,17 @@ void Update(){
         }
     }
     else{
-        state = Taken;
+        flagState = FlagTaken;
         returnTimer = 0;
         justReleased = true;
     }
 }
 
 void Dispose(){
+    FlagDispose();
+}
+
+void FlagDispose(){
     if(weaponId != -1){
         DeleteObjectID(weaponId);
         weaponId = -1;

@@ -1,3 +1,6 @@
+// This can be used to give an object a follower particle emitter 
+// can also fill `boneToFollow` param, to follow a bone (empty will default to torso, same as `obj.GetTranslation();` I think?)
+
 int lightId = -1;
 float time = 0;
 void Init() {
@@ -27,15 +30,21 @@ void Update(){
     if(objectIdToFollow != -1){
         Object@ me = ReadObjectFromID(hotspot.GetID());
         Object@ obj = ReadObjectFromID(objectIdToFollow);
-        MovementObject@ mo = ReadCharacterID(objectIdToFollow);
+        
         vec3 pos = vec3(0);
-        string bonName = "torso";
         if(params.HasParam("boneToFollow")){
-            bonName = params.GetString("boneToFollow");
+            // if `boneToFollow` is set, follow a bone
+            MovementObject@ mo = ReadCharacterID(objectIdToFollow);
+            string bonName = params.GetString("boneToFollow");
+            if(bonName == "")
+                bonName = "torso";
+            vec3 bonePos = mo.rigged_object().GetIKTargetTransform(bonName).GetTranslationPart();
+            pos = bonePos;
         }
-
-        vec3 bonePos = mo.rigged_object().GetIKTargetTransform(bonName).GetTranslationPart();
-        pos = bonePos;
+        else{
+            // We just use default GetTranslation() if no bones set
+            pos = obj.GetTranslation();
+        }
         
         PlaceholderObject@ placeholder_object = cast<PlaceholderObject@>(obj);
         me.SetTranslation(pos);

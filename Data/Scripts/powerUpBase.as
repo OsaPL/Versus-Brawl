@@ -62,6 +62,7 @@ void PowerupHandleEvent(string event, MovementObject @mo)
                     objParams.SetFloat("particleDelay", params.GetFloat("particleDelay"));
                     objParams.SetFloat("particleRangeMultiply", params.GetFloat("particleRangeMultiply"));
                     objParams.SetString("pathToParticles", params.GetString("pathToParticles"));
+                    objParams.SetString("boneToFollow", params.GetString("boneToFollow"));
                     objParams.SetFloat("particleColorR", params.GetFloat("particleColorR"));
                     objParams.SetFloat("particleColorG", params.GetFloat("particleColorG"));
                     objParams.SetFloat("particleColorB", params.GetFloat("particleColorB"));
@@ -87,6 +88,7 @@ void PowerupSetParameters() {
     params.AddFloatSlider("particleDelay", 0.9f,"min:0,max:100,step:0.1,text_mult:1");
     params.AddFloatSlider("particleRangeMultiply", 0.9f,"min:0,max:100,step:0.1,text_mult:1");
     params.AddString("pathToParticles", "Data/Particles/ninja_smoke.xml");
+    params.AddString("boneToFollow", "");
     params.AddFloatSlider("particleColorR", 1.0f,"min:0,max:1,step:0.01,text_mult:255");
     params.AddFloatSlider("particleColorG", 1.0f,"min:0,max:1,step:0.01,text_mult:255");
     params.AddFloatSlider("particleColorB", 1.0f,"min:0,max:1,step:0.01,text_mult:255");

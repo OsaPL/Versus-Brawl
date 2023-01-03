@@ -2,6 +2,7 @@
 bool init = false;
 float overHeadDistance = 0.5f;
 int lightId = -1;
+int particleEmitterId = -1;
 vec3 color = vec3(0.35f, 0.2f, 0);
 
 void Init(){
@@ -21,6 +22,20 @@ void Update(){
 
         obj.SetScale(vec3(8));
         obj.SetTint(color);
+    }
+
+    if(particleEmitterId == -1) {
+        particleEmitterId = CreateObject("Data/Objects/powerups/objectFollowerEmitter.xml");
+        Object@ obj = ReadObjectFromID(particleEmitterId);
+        ScriptParams @objParams = obj.GetScriptParams();
+        objParams.SetInt("objectIdToFollow", hotspot.GetID());
+        objParams.SetFloat("particleDelay", 0.1f);
+        objParams.SetString("pathToParticles", "Data/Particles/versus-brawl/stone_sparks.xml");
+        objParams.SetFloat("particleRangeMultiply", 0.15f);
+        objParams.SetFloat("particleColorR", color.x*3);
+        objParams.SetFloat("particleColorG", color.y*3);
+        objParams.SetFloat("particleColorB", color.z*3);
+        obj.UpdateScriptParams();
     }
 }
 
