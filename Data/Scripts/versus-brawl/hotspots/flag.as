@@ -24,6 +24,13 @@ FlagState flagState = FlagHome;
 float returnTimer = 0;
 float returnCooldown = 10;
 
+float manualReturnBlockTimer = 0;
+float manualReturnBlockCooldown = 3;
+string billboardPath = "Data/Textures/ui/versusBrawl/flag_icon.png";
+
+string flagManualReturnSound = "Data/Sounds/sword/hard_drop_1.wav";
+string flagReturnSound = "Data/Sounds/sword/sword_wood_1.wav";
+
 string polePath = "Data/Items/versus-brawl/flagPoleItem.xml";
 
 void Init(){
@@ -43,21 +50,59 @@ void Reset(){
     Dispose();
 }
 
+void HandleEvent(string event, MovementObject @mo)
+{
+    if (event == "enter") {
+        if (mo.is_player) {
+            if(manualReturnBlockTimer >= manualReturnBlockCooldown){
+                FlagManualReturnCheck(mo.GetID());
+            }
+        }
+    }
+}
+
 void ReCreateFlagItem(){
     if(weaponId != -1)
         DeleteObjectID(weaponId);
 
     weaponId = CreateObject(polePath);
     Object@ obj = ReadObjectFromID(weaponId);
+    ScriptParams @objParams = obj.GetScriptParams();
+    objParams.SetInt("teamId", params.GetInt("teamId"));
+    obj.UpdateScriptParams();
+
     obj.SetTint(color);
+}
+
+
+void FlagReturn(){
+    FlagDispose();
+    justReleased = false;
+    returnTimer = 0;
+    manualReturnBlockTimer = 0;
+}
+
+void FlagManualReturnCheck(int objId){
+    Object@ weapObj = ReadObjectFromID(weaponId);
+    ItemObject@ weap = ReadItemID(weaponId);
+    if(objId == weap.HeldByWhom()){
+        PlaySound(flagManualReturnSound);
+        FlagReturn();
+    }
 }
 
 void Update(){
     Object@ me = ReadObjectFromID(hotspot.GetID());
 
-    PlaceHolderFollowerUpdate("Data/Textures/ui/versusBrawl/flag_icon.png", "["+teamNr+"] ["+ FlagStateToString(flagState) +"] [" + returnTimer + "] [" + (me.GetEnabled() ? "Enabled" : "Disabled") + "]", 2.0f, false, vec4(color, 1), vec3(0, 0.5f, 0));
+    PlaceHolderFollowerUpdate(billboardPath, "["+teamNr+"] ["+ FlagStateToString(flagState) +"] [" + returnTimer + "] [" + (me.GetEnabled() ? "Enabled" : "Disabled") + "]", 2.0f, false, vec4(color, 1), vec3(0, 0.5f, 0));
     
     color = vec3(params.GetFloat("red"), params.GetFloat("green"), params.GetFloat("blue"));
+
+    DebugDrawBillboard(billboardPath,
+        me.GetTranslation() + vec3(0, 0.5f, 0),
+        2.0f,
+        vec4(color,1),
+        _delete_on_update);
     
     if(weaponId == -1){
         //spawn weapon
@@ -76,7 +121,7 @@ void Update(){
         obj.SetScale(vec3(8));
     }
 
-    Object@ weapObj = ReadObjectFromID(weaponId);
+    Object@ weapObj = ReadObjectFromID(|);
     ItemObject@ weap = ReadItemID(weaponId);
     weapObj.SetTint(color);
 
@@ -102,8 +147,8 @@ void Update(){
         if(flagState == FlagDropped){//dropped) {
             // Doing a "future" check to make sure we dont show -1;
             if(returnTimer + time_step >= returnCooldown){
-                FlagDispose();
-                returnTimer = 0;
+                PlaySound(flagReturnSound);
+                FlagReturn();
             }
             else{
                 returnTimer += time_step;
@@ -121,6 +166,12 @@ void Update(){
     else{
         flagState = FlagTaken;
         returnTimer = 0;
+
+        // Guards from accidental returning when just taken
+        if(manualReturnBlockTimer < manualReturnBlockCooldown){
+            manualReturnBlockTimer += time_step;
+        }
+        
         justReleased = true;
     }
 }

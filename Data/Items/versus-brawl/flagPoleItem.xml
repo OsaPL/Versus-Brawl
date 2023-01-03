@@ -13,7 +13,7 @@
     <lines>
         <wood start="wood_base" end="wood_tip"/>
     </lines>
-    <label>staff</label>
+    <label>flag</label>
     <anim_blend idle = "Data/Animations/r_bigdogswordmove.xml"
                 movement = "Data/Animations/r_bigdogswordmove.xml"
                 jump = "Data/Animations/r_bigdogswordmove.xml" />
