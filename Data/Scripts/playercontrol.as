@@ -479,6 +479,15 @@ bool WantsToUnSheatheItem(int &out src) {
         src = _sheathed_left;
     }
 
+    // Lastly we check whether my hands are free to hold it if 2handed (if weapon choice combos are being used)
+    if(weapon_slots[primary_weapon_slot] != -1 || weapon_slots[secondary_weapon_slot] != -1){
+        if(Is2HandedItemObject(weapon_slots[src])) {
+            return false;
+        }
+    }
+
+    lastUnsheateSrc = src;
+
     return true;
 }
 

@@ -17,6 +17,7 @@ bool initCoopPartners = true;
 float timeSinceAttackedById = 0;
 int localPlayers = 0;
 bool canSheatheBigBois = false;
+int lastUnsheateSrc = -1;
 //
 
 // New methods
@@ -6999,10 +7000,10 @@ void UnSheathe(int dst, int src) {
     // Here we check for the real item we want to UnSheathe, ignoring what anim event is saying basically
     // TODO: This will probably be no longer needed once new animation events get implemented
     int realSrc = -1;
-    WantsToUnSheatheItem(realSrc);
-    //Log(error, "WantsToUnSheatheItem realSrc: " + WeaponSlotToString(realSrc));
-    if(realSrc != -1){
-        src = realSrc;
+    //Log(error, "UnSheathe realSrc: " + WeaponSlotToString(realSrc));
+    if(lastUnsheateSrc != -1){
+        src = lastUnsheateSrc;
+        lastUnsheateSrc = -1;
     }
     
     if(src == _sheathed_left_back || src == _sheathed_right_back){
