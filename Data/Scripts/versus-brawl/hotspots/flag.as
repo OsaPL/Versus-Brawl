@@ -21,6 +21,8 @@ bool justReleased = false;
 vec3 color = vec3(0, 0.7f, 0);
 int teamNr = -1;
 FlagState state;
+float returnTimer = 0;
+float returnCooldown = 10;
 
 string polePath = "Data/Items/versus-brawl/flagPoleItem.xml";
 
@@ -55,7 +57,7 @@ void ReCreateFlagItem(){
 void Update(){
     Object@ me = ReadObjectFromID(hotspot.GetID());
 
-    PlaceHolderFollowerUpdate("Data/Textures/ui/versusBrawl/flag_icon.png", "["+teamNr+"] ["+ FlagStateToString(state) +"] [" + me.GetEnabled() + "]", 2.0f, false, vec4(color, 1), vec3(0, 0.5f, 0));
+    PlaceHolderFollowerUpdate("Data/Textures/ui/versusBrawl/flag_icon.png", "["+teamNr+"] ["+ FlagStateToString(state) +"] [" + returnTimer + "] [" + (me.GetEnabled() ? "Enabled" : "Disabled") + "]", 2.0f, false, vec4(color, 1), vec3(0, 0.5f, 0));
     
     color = vec3(params.GetFloat("red"), params.GetFloat("green"), params.GetFloat("blue"));
     
@@ -66,6 +68,7 @@ void Update(){
         obj.SetTranslation(me.GetTranslation()+vec3(0, 0.5f, 0));
         obj.SetRotation(me.GetRotation());
         state = Home;
+        returnTimer = 0;
     }
     if(lightId == -1){
         //spawn light
@@ -98,9 +101,27 @@ void Update(){
             weapObj.SetTranslation(trans * vec3());
             state = Dropped;
         }
+        if(state == Dropped) {
+            // Doing a "future" check to make sure we dont show -1;
+            if(returnTimer + time_step >= returnCooldown){
+                Dispose();
+                returnTimer = 0;
+            }
+            else{
+                returnTimer += time_step;
+                // Draws text with cooldown when dropped
+                DebugDrawText(
+                    weap.GetPhysicsTransform() * vec3(),
+                    ""+ceil(returnCooldown - returnTimer),
+                    2.0f,
+                    true,
+                    _delete_on_update);
+            }
+        }
     }
     else{
         state = Taken;
+        returnTimer = 0;
         justReleased = true;
     }
 }
