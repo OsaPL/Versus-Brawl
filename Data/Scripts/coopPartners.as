@@ -14,7 +14,6 @@ void CoopPartnersCheck(){
     // If this level is `versusBrawl` ignore, no need to interfere
     if(lvlParams.HasParam("game_type"))
         if(lvlParams.GetString("game_type") == "versusBrawl"){
-            //DisplayError("CoopPartnersCheck","Ignoring cause versusBrawl");
             return;
         }
     
@@ -91,6 +90,14 @@ void CoopPanic(){
     // Dont allow first player to do this
     if(this_mo.controller_id == 0)
         return;
+    
+    ScriptParams@ lvlParams = level.GetScriptParams();
+
+    // If this level is `versusBrawl` ignore, no need to interfere
+    if(lvlParams.HasParam("game_type"))
+        if(lvlParams.GetString("game_type") == "versusBrawl"){
+            return;
+        }
     
     if(GetInputPressed(this_mo.controller_id, "skip_dialogue")){
         Log(error, "skip_dialogue pressed on: " + this_mo.controller_id + "this_mo.GetID()" + this_mo.GetID() );
