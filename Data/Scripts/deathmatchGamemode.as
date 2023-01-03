@@ -170,7 +170,19 @@ void UpdateUI(){
     blinkTimer += time_step;
     if(blinkTimer > blinkTimeout){
         blink = !blink;
-        updateScores = true;
+
+        for (uint i = 0; i < uiKillCounters.size(); i++)
+        {
+            if(killsCount[i] + 1 >= pointsToWin){
+                // B link red for almost win
+                if(blink){
+                    uiKillCounters[i].setColor(1, 0.3f, 0, 1);
+                }
+                else{
+                    uiKillCounters[i].setColor(1, 0.0f, 0, 1);
+                }
+            }
+        }
         blinkTimer = 0;
     }
     
@@ -233,11 +245,13 @@ void UpdateUI(){
                 // Orange for winner, chicken dinner
                 uiKillCounters[i].setColor(1, 0.7f, 0, 1);
                 
-                Object@ crown = ReadObjectFromID(crownId);
-                ScriptParams@ crownParams = crown.GetScriptParams();
-                VersusPlayer@ player = GetPlayerByNr(i);
-                crownParams.SetInt("followObjId", player.objId);
-                crownParams.SetInt("dampenMovement", 1);
+                if(crownId != -1){
+                    Object@ crown = ReadObjectFromID(crownId);
+                    ScriptParams@ crownParams = crown.GetScriptParams();
+                    VersusPlayer@ player = GetPlayerByNr(i);
+                    crownParams.SetInt("followObjId", player.objId);
+                    crownParams.SetInt("dampenMovement", 1);
+                }
             }
             else{
                 uiKillCounters[i].setColor(1,1,1,1);
