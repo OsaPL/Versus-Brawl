@@ -24,30 +24,31 @@ bool IsHolding2HandedWeapon(){
     return Is2HandedItemObject(weapon_slots[primary_weapon_slot]);
 }
 bool Is2HandedItemObject(int objId){
-    if(weapon_slots[primary_weapon_slot] == -1)
+    if(objId == -1)
         return false;
     
-    string label = ReadItemID(weapon_slots[primary_weapon_slot]).GetLabel();
+    string label = ReadItemID(objId).GetLabel();
     if(label == "big_sword" || label == "staff" || label == "spear") {
         return true;
     }
     return false;
 }
 bool IsBigBlade(int objId){
-    if(weapon_slots[primary_weapon_slot] == -1)
+    if(objId == -1)
         return false;
-    
-    string label = ReadItemID(weapon_slots[primary_weapon_slot]).GetLabel();
+
+    string label = ReadItemID(objId).GetLabel();
+
     if(label == "big_sword") {
         return true;
     }
     return false;
 }
 bool IsBigStick(int objId){
-    if(weapon_slots[primary_weapon_slot] == -1)
+    if(objId == -1)
         return false;
     
-    string label = ReadItemID(weapon_slots[primary_weapon_slot]).GetLabel();
+    string label = ReadItemID(objId).GetLabel();
     if(label == "staff" || label == "spear") {
         return true;
     }
@@ -56,7 +57,7 @@ bool IsBigStick(int objId){
 string WeaponSlotToString(int slot){
     switch(slot){
         case 0: return "_held_left";
-        case 1: return "_held_left";
+        case 1: return "_held_right";
         case 2: return "_sheathed_left";
         case 3: return "_sheathed_right";
         case 4: return "_sheathed_left_sheathe";
@@ -2518,6 +2519,15 @@ void Update(int num_frames) {
         LoadLevel(GetCurrLevelRelPath());
     }
     CoopPanic();
+
+    //PrintWeaponSlotDebugText();
+    // We clear back slots if dead and not empty
+    if(knocked_out == _dead){
+        if(weapon_slots[_sheathed_left_back] != -1)
+            weapon_slots[_sheathed_left_back] = -1;
+        if(weapon_slots[_sheathed_right_back] != -1)
+            weapon_slots[_sheathed_right_back] = -1;
+    }
 
     // DebugText("pos" + this_mo.GetID(), "Pos" + this_mo.GetID() + ": " + this_mo.position, 0.5);
     // DebugText("num_hit_on_ground" + this_mo.GetID(), "num_hit_on_ground" + this_mo.GetID() + ": " + num_hit_on_ground, 0.5);
@@ -10705,12 +10715,16 @@ void HandlePickUp() {
 
             // Checks for the ability to sheathe big weapons
             bool canSheath = true;
-            if(IsHolding2HandedWeapon() && params.GetInt("Can sheathe big weapons") != 0){
-                if(IsBigBlade(weapon_slots[primary_weapon_slot]) && weapon_slots[_sheathed_left_back] != -1){
-                    canSheath = false;
-                }
-                if(IsBigStick(weapon_slots[primary_weapon_slot]) && weapon_slots[_sheathed_right_back] != -1){
-                    canSheath = false;
+            if(IsHolding2HandedWeapon()){
+                canSheath = false;
+
+                if(params.GetInt("Can sheathe big weapons") != 0) {
+                    if(IsBigBlade(weapon_slots[primary_weapon_slot]) && weapon_slots[_sheathed_left_back] == -1) {
+                        canSheath = true;
+                    }
+                    if(IsBigStick(weapon_slots[primary_weapon_slot]) && weapon_slots[_sheathed_right_back] == -1) {
+                        canSheath = true;
+                    }
                 }
             }
 
