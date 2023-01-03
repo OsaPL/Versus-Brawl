@@ -94,9 +94,17 @@ Linking checkpoint to any other objects will switch the enabled flag and send in
 
 If you wish your item to be stay disabled until checkpoint first activation, add `KeepDisabled` parameter to the object (no value needed)
 
+### CTF
+
+To implement CTF:
+
+1. You just have to place `flag` hotspot (remember to set `teamId` accordingly).
+2. Additionally, you can place some `flagReturn` hotspots, connect those `flagReturn` to `flag` hotspots, for a quicker way to return flags for defenders.
+3. 👻 Setup level json parameters to your liking
+
 ### Coop
 
-You dont need to do anything in particular, as long as you use default `aschar.as`, and dont change the parameters of the character.
+You dont need to do anything in particular, as long as you use default `aschar.as`.
 
 #### Custom levels support 
 👻(not tested)
@@ -182,7 +190,7 @@ Sent when a character is being spawned or respawned (if current game state is no
 ## `aschar.as`
 
 - 👻(not working yet fully) new values controlling item throws:
-```angelScript
+```c++
 throwVelocityMlt = params.GetFloat("Throw - Initial Velocity Multiplier");
 throwMassMlt = params.GetFloat("Throw - Mass Multiplier");
 ```
@@ -196,6 +204,7 @@ throwMassMlt = params.GetFloat("Throw - Mass Multiplier");
 - `BlockedAttack` now takes into the account `Attack Knockback`
 - `HandleAnimationMiscEvent` returns quicker
 - Modifications to the Unsheathe/Sheathing to allow for more weapon slots/big weapons sheathing and also more generic unsheathing (no longer you have to rely on anim events)
+.You can now set `Can sheathe big weapons` param on a character to enable that.
 
 ## `playercontrol.as`
 - `drunkMode` added, with new methods to invert controls
@@ -216,6 +225,12 @@ The only option you can set is `playerNr`. If its `0-3`, player with that number
 Simple pickup that executes a function on the character. Disables on death or round reset.
 
 👻TODO: write up on all parameters (most are self-explanatory still)
+
+### `objectFollowerEmitter`
+
+Can be used to make a particle effect emitter at objects location, also will follow the object.
+
+👻TODO: Document this better, its pretty useful.
 
 ### `weaponSpawnHotspot`
 
