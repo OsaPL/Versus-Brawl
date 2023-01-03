@@ -207,8 +207,8 @@ void UpdateBrain(const Timestep &in ts) {
     if (!DrunkModeInputDownCheck(this_mo.controller_id, "item")){
         item_key_state = _iks_nothing;
     } else if (item_key_state == _iks_nothing) {
-        if (primary_weapon_id == -1 
-            || (weapon_slots[secondary_weapon_slot] == -1 && (weapon_slots[_sheathed_left] != -1 || weapon_slots[_sheathed_right] != -1) && !IsHolding2HandedWeapon())) {
+        if (primary_weapon_id == -1
+            || (primary_weapon_id == -1 && weapon_slots[secondary_weapon_slot] == -1 && (weapon_slots[_sheathed_left] != -1 || weapon_slots[_sheathed_right] != -1) && !IsHolding2HandedWeapon())) {
             //Log(error, "_iks_unsheathe!");
             item_key_state = _iks_unsheathe;
         } else {  // if(held_weapon != -1 && sheathed_weapon == -1) {
@@ -456,11 +456,11 @@ bool WantsToUnSheatheItem(int &out src) {
     }
     // If everything fails above, just take the biggest one
     else if(weapon_slots[_sheathed_left_back] != -1 && weapon_slots[secondary_weapon_slot] == -1) {
-        Log(error, "_sheathed_left_back");
+        //Log(error, "_sheathed_left_back");
         src = _sheathed_left_back;
     }
     else if(weapon_slots[_sheathed_right_back] != -1 && weapon_slots[secondary_weapon_slot] == -1) {
-        Log(error, "_sheathed_right_back");
+        //Log(error, "_sheathed_right_back");
         src = _sheathed_right_back;
     }
     else if(weapon_slots[_sheathed_left] != -1 && weapon_slots[_sheathed_right] != -1) {
