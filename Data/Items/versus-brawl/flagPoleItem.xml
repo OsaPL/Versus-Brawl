@@ -21,12 +21,7 @@
                      moving = "Data/Attacks/versus-brawl/pole/side.xml"
                      moving_close = "Data/Attacks/versus-brawl/pole/sideclose.xml"
                      stationary_close = "Data/Attacks/versus-brawl/pole/sideclose.xml"/>
-    <anim_override idle = "Data/Animations/r_weaponmovestance.xml"
-                   movement = "Data/Animations/r_weaponmovestance.xml"
-                   medrightblock = "Data/Animations/r_dogswordparryright.anm"
-                   medleftblock = "Data/Animations/r_dogswordparryleft.anm"
-                   highrightblock = "Data/Animations/r_dogswordparryright.anm"
-                   highleftblock = "Data/Animations/r_dogswordparryleft.anm"
-                   blockflinch = "Data/Animations/r_dogswordflinch.anm"/>
+    <anim_override idle = "Data/Animations/r_weaponidlestance.xml"
+                   movement = "Data/Animations/r_weaponmovestance.xml"/>
     <range extend = "0.4"/>
 </item>

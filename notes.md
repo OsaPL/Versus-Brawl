@@ -1,5 +1,4 @@
 # DO THOSE THINGS:
-- flagReturn should be able to be connected to flag hotspot to derive params and also able to send `returnFlag <teamId>` events
 - get rid of that stupid limitation of: `respawnTime cant be smaller than activeTime` on powerupBase
 - make winner/crown logic generic (move it to the versusBase) and support multiple winners (for teams update)
 - NIDHOGG gamemode!
