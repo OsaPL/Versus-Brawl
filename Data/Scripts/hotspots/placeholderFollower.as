@@ -4,13 +4,13 @@ void PlaceHolderFollowerUpdate(string iconPath, string text, float scale = 1, bo
         Object@ me = ReadObjectFromID(hotspot.GetID());
         vec4 tempColor = color;
         if(!me.GetEnabled()){
-            tempColor = vec4(tempColor.x, tempColor.y, tempColor.z, tempColor.a * 0.2f);
+            tempColor = vec4(tempColor.x, tempColor.y, tempColor.z, tempColor.a * 0.5f);
         }
         
         DebugDrawBillboard(iconPath,
             me.GetTranslation() + offset,
             scale,
-            color,
+            tempColor,
             _delete_on_update);
         
         DebugDrawText(

@@ -228,7 +228,8 @@ Simple pickup that executes a function on the character. Disables on death or ro
 
 ### `objectFollowerEmitter`
 
-Can be used to make a particle effect emitter at objects location, also will follow the object.
+Can be used to make a particle effect emitter at its location.
+Will follow the object if connected to it, or `objectIdToFollow` is filled with an object ID.
 
 👻TODO: Document this better, its pretty useful.
 

@@ -3,8 +3,16 @@
 
 int lightId = -1;
 float time = 0;
+vec3 originalScale = vec3(1);
+vec3 desiredScale = vec3(0.0513f);
 void Init() {
     hotspot.SetCollisionEnabled(false);
+    Object@ me = ReadObjectFromID(hotspot.GetID());
+    originalScale = me.GetScale();
+    params.SetString("originalScale", ""+ originalScale);
+
+    // Makes sure that the scale is kept low, to make all those bounding boxes smaller
+    me.SetScale(desiredScale);
 }
 
 void SetParameters() {
@@ -20,6 +28,14 @@ void SetParameters() {
 }
 
 void Update(){
+    Object@ me = ReadObjectFromID(hotspot.GetID());
+
+    if(me.GetScale() != originalScale && me.GetScale() != desiredScale){
+        originalScale = me.GetScale();
+        params.SetString("originalScale", ""+ originalScale);
+    }
+    me.SetScale(desiredScale);
+    
     time += time_step;
     if(!params.HasParam("objectIdToFollow"))
         return;
@@ -28,7 +44,6 @@ void Update(){
     string pathToParticles = params.GetString("pathToParticles");
     //Log(error, "Following:"+objectIdToFollow);
     if(objectIdToFollow != -1){
-        Object@ me = ReadObjectFromID(hotspot.GetID());
         Object@ obj = ReadObjectFromID(objectIdToFollow);
         
         vec3 pos = vec3(0);
@@ -81,7 +96,7 @@ void PreDraw(float curr_game_time) {
 
         Object@ obj = ReadObjectFromID(hotspot.GetID());
         vec3 pos = obj.GetTranslation();
-        vec3 scale = obj.GetScale();
+        vec3 scale = originalScale;
         vec4 v = obj.GetRotationVec4();
         quaternion rotation(v.x,v.y,v.z,v.a);
         delay -= delta_time;
