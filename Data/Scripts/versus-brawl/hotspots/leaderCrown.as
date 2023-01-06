@@ -119,9 +119,12 @@ void Draw() {
     }
     lastBonePos = pos;
 
-    Object@ lightObj = ReadObjectFromID(lightId);
-    lightObj.SetTranslation(pos + vec3(0, overHeadDistance, 0));
-    me.SetTranslation(pos + vec3(0, overHeadDistance, 0));
+    if(lightId != -1){
+        Object@ lightObj = ReadObjectFromID(lightId);
+        lightObj.SetTranslation(pos + vec3(0, overHeadDistance, 0));
+        me.SetTranslation(pos + vec3(0, overHeadDistance, 0));
+    }
+
     // Its really dumb we cant use SetBillboardColorMap on hotspots
     DebugDrawBillboard(billboardPath,
         pos + vec3(0, overHeadDistance, 0),
