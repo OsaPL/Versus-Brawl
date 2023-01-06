@@ -1,24 +1,12 @@
 #include "versusmode.as"
 // ^^ only this is needed
+#include "versus-brawl/pointUIBase.as"
 
 // #2 is killfeed stuff, probably I need to seperate setText into setMainText(mainText,mainColor) and setSubText(subText,subColor)
 
 // Configurables
-int pointsToWin = 10;
-float pointsTextShowTime = 7.2f;
 
 // States
-bool pointsTextShow = true;
-bool initUI=true;
-bool updateScores=false;
-array<int> killsCount = {0,0,0,0};
-float pointsTextShowTimer = 0;
-// For UI blinking
-bool blink = false;
-float blinkTimer = 0;
-float blinkTimeout = 0.5f;
-
-int crownId = -1;
 
 //Level methods
 void Init(string msg){
@@ -31,6 +19,11 @@ void Init(string msg){
     
     constantRespawning = true;
     forcedSpecies = -1;
+    
+    // pointUIBase configuration
+    pointsToWin = 10;
+    pointsTextFormat = "Kills: @points@";
+    playingToTextFormat = "Playing to: @points@ kills!";
     
     //Always need to call this first!
     VersusInit("");
@@ -45,7 +38,7 @@ void Init(string msg){
             {
                 VersusPlayer@ player = GetPlayerByNr(k);
                 if(player.objId == parseInt(_params[2])){
-                    killsCount[player.playerNr]++;
+                    pointsCount[player.playerNr]++;
                     updateScores = true;
                     // TODO! Clean this up somehow to create a killfeed UI #2
                     // for (uint j = 0; j < versusPlayers.size(); j++)
@@ -67,9 +60,11 @@ void Init(string msg){
         }
         return true;
     }));
-    
-    // Spawn crown object
-    
+
+    levelTimer.Add(LevelEventJob("reset", function(_params) {
+        ResetDM();
+        return true;
+    }));
 
     // And finally load JSON Params
     LoadJSONLevelParams();
@@ -98,28 +93,9 @@ void Update(){
     //Always need to call this first!
     VersusUpdate();
 
-    //UpdateParams();
-    
-    if(crownId == -1){
-        crownId = CreateObject("Data/Objects/versus-brawl/hotspots/leaderCrownHotspot.xml");
-    }
-
     if(currentState == 2){
-        if(pointsTextShow){
-            pointsTextShow = false;
-            versusAHGUI.SetMainText("Playing to: "+pointsToWin+" kills!");
-        }
-        else{
-            // TODO! the commented stuff is ugly #2
-            if(pointsTextShowTimer>pointsTextShowTime){ //&& versusAHGUI.text == "Playing to: "+pointsToWin+" kills!"){
-                versusAHGUI.SetMainText("");
-            }
-            else{
-                pointsTextShowTimer += time_step;
-            }
-        }
-        for (uint i = 0; i < killsCount.size(); i++) {
-            if(pointsToWin <= killsCount[i]){
+        for (uint i = 0; i < pointsCount.size(); i++) {
+            if(pointsToWin <= pointsCount[i]){
                 // 100 is win state
                 winnerNr = i;
                 ChangeGameState(100);
@@ -132,11 +108,7 @@ void Update(){
     if(currentState == 100){
         if(winStateTimer>=winStateTime){
             // Now we just need to reset few things
-            pointsTextShow = true;
-            pointsTextShowTimer = 0;
-            killsCount = {0,0,0,0};
-            updateScores = true;
-            constantRespawning = true;
+            ResetDM();
         }
     }
     
@@ -156,115 +128,13 @@ void PreScriptReload(){
 void Reset(){
     //Always need to call this first!
     VersusReset();
-    if(crownId != -1){
-        DeleteObjectID(crownId);
-        crownId = -1;
-    }
+    ResetDM();
 }
 
-array<AHGUI::Divider@> uiKillCountersDivs={};
-array<AHGUI::Text@> uiKillCounters={};
-
-void UpdateUI(){
-    // TODO! Probably would be cooler to use Textures\ui\arena_mode icons to count deaths
-    blinkTimer += time_step;
-    if(blinkTimer > blinkTimeout){
-        blink = !blink;
-
-        for (uint i = 0; i < uiKillCounters.size(); i++)
-        {
-            if(killsCount[i] + 1 >= pointsToWin){
-                // B link red for almost win
-                if(blink){
-                    uiKillCounters[i].setColor(1, 0.3f, 0, 1);
-                }
-                else{
-                    uiKillCounters[i].setColor(1, 0.0f, 0, 1);
-                }
-            }
-        }
-        blinkTimer = 0;
-    }
+void ResetDM(){
+    pointsTextShow = true;
+    pointsCount = {0,0,0,0};
+    updateScores = true;
     
-    if(initUI){
-        for (uint i = 0; i < versusPlayers.size(); i++) {
-            Log(error, "initUI");
-
-            AHGUI::Element@ headerElement = versusAHGUI.root.findElement("header"+i);
-            AHGUI::Divider@ div = cast<AHGUI::Divider>(headerElement);
-            
-            AHGUI::Text textElem("Kills: "+killsCount[i], "edosz", 65, 1, 1, 1, 1 );
-            textElem.setShadowed(true);
-            
-            uiKillCounters.push_back(textElem);
-
-            uiKillCountersDivs.push_back(@div.addDivider( DDCenter,  DOVertical, ivec2( AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE)));
-            uiKillCountersDivs[i].addElement(uiKillCounters[i],DDCenter);
-
-            uiKillCountersDivs[i].setBorderSize(4);
-            uiKillCountersDivs[i].setBorderColor(0.0, 1.0, 1.0, 1.0);
-            //uiKillCountersDivs[i].showBorder();
-        }
-        
-        initUI = false;
-    }
-    
-    if(updateScores){
-        //Log(error, "updateScores");
-
-        bool noHighest = true;
-        for (uint i = 0; i < uiKillCounters.size(); i++)
-        {
-            uiKillCounters[i].setText("Kills: " + killsCount[i]);
-
-            bool isHighest = true;
-            for (uint k = 0; k < versusPlayers.size(); k++)
-            {
-                // We skip ourselves
-                if(i == k)
-                    continue;
-                if(killsCount[i] <= killsCount[k]){
-                    isHighest = false;
-                    break;
-                }
-            }
-            
-            if(isHighest)
-                noHighest = false;
-           
-            if(killsCount[i] + 1 >= pointsToWin){
-                // B link red for almost win
-                if(blink){
-                    uiKillCounters[i].setColor(1, 0.3f, 0, 1);
-                }
-                else{
-                    uiKillCounters[i].setColor(1, 0.0f, 0, 1);
-                }
-            }
-            else if(isHighest){
-                // Orange for winner, chicken dinner
-                uiKillCounters[i].setColor(1, 0.7f, 0, 1);
-                
-                if(crownId != -1){
-                    Object@ crown = ReadObjectFromID(crownId);
-                    ScriptParams@ crownParams = crown.GetScriptParams();
-                    VersusPlayer@ player = GetPlayerByNr(i);
-                    crownParams.SetInt("followObjId", player.objId);
-                    crownParams.SetInt("dampenMovement", 1);
-                }
-            }
-            else{
-                uiKillCounters[i].setColor(1,1,1,1);
-            }
-        }
-
-        if(noHighest){
-            if(crownId != -1){
-                DeleteObjectID(crownId);
-                crownId = -1;
-            }
-        }
-
-        updateScores=false;
-    }
+    constantRespawning = true;
 }

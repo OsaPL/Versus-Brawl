@@ -10496,6 +10496,13 @@ int GetAttackTarget(float range, uint16 flags) {
 
 void HandleThrow() {
     if(tethered == _TETHERED_FREE && WantsToThrowItem() && weapon_slots[primary_weapon_slot] != -1 && throw_knife_layer_id == -1 && (on_ground || flip_info.IsFlipping())) {
+
+        // If mass is zero/negative dont bother throwing
+        ItemObject@ io = ReadItemID(weapon_slots[primary_weapon_slot]);
+        float effective_mass = io.GetMass();
+        if(effective_mass <= 0)
+            return;
+        
         int best_target = GetThrowTarget();
 
         if(best_target != -1) {

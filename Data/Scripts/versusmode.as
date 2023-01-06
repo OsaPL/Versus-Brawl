@@ -88,6 +88,19 @@ bool enablePreload = true;
 bool noReloads = false;
 float maxCollateralKillTime = 5.0f;
 float hintStayTime = 4.0f;
+bool crownEnabled = true;
+
+// Team config
+bool teamPlay = false;
+int teamsAmount = 2;
+bool allowUneven = false;
+// TODO! Add team selection
+bool allowTeamChange = true;
+bool strictColors = false;
+
+string crownObjectPath = "Data/Objects/versus-brawl/hotspots/leaderCrownHotspot.xml";
+
+array<int> crownsIds = {};
 
 // How often we want to make all char aware TODO! Fix up this?
 float set_omniscientTimeSpan = 3.0f;
@@ -108,6 +121,8 @@ uint preloadIndex = 0;
 int placeholderId = -1;
 float placeholderTimer = 1;
 bool preload = true;
+int lastWinnerNr = -1;
+int initPlayersNr;
 
 string placeHolderActorPath = "Data/Objects/characters/rabbot_actor.xml";
 
@@ -137,6 +152,7 @@ array<int> spawned_object_ids;
 class VersusPlayer{
     int playerNr;
     int objId;
+    int teamNr;
     
     TimedExecution@ charTimer;
     
@@ -149,6 +165,7 @@ class VersusPlayer{
     VersusPlayer(int newPlayerNr){
         playerNr = newPlayerNr;
         objId = -1;
+        teamNr = newPlayerNr;
 
         TimedExecution newCharTimer();
         @charTimer = @newCharTimer;
@@ -264,7 +281,7 @@ void CallRespawn(int playerNr, int objId) {
 }
 
 // This creates a pseudo random character by juggling all available parameters
-Object@ CreateCharacter(int playerNr, string species) {
+Object@ CreateCharacter(int playerNr, string species, int teamNr) {
     // Select random species character and create it
     int obj_id = CreateObject(placeHolderActorPath, true);
     string characterPath = GetSpeciesRandCharacterPath(species);
@@ -278,13 +295,23 @@ Object@ CreateCharacter(int playerNr, string species) {
     //You need to set Species param before SwitchCharacter(), otherwise `species` field wont be changed
     charParams.SetString("Species", species);
     // Reset any Teams
-    charParams.SetString("Teams", "");
+    if(teamNr != -1){
+        charParams.SetString("Teams", "VersusBrawl_" + teamNr);
+    }
+    else{
+        charParams.SetString("Teams", "");
+    }
     
     string executeCmd = "SwitchCharacter(\""+ characterPath +"\");";
     char.Execute(executeCmd);
     char.controller_id = playerNr;
     
-    RecolorCharacter(playerNr, species, char_obj);
+    if(teamNr != -1 && strictColors) {
+        RecolorCharacter(teamNr, species, char_obj);
+    }
+    else{
+        RecolorCharacter(playerNr, species, char_obj);
+    }
     
     addSpeciesStats(char_obj);
 
@@ -360,7 +387,9 @@ void SpawnCharacter(Object@ spawn, Object@ char, bool isAlreadyPlayer = false, b
 Object@ FindRandSpawnPoint(int playerNr) {
     
     //Lets do a quick copy
-    VersusPlayer@ player = GetPlayerByNr(playerNr);
+    VersusPlayer@ playerTemp = GetPlayerByNr(playerNr);
+    VersusPlayer@ player = GetPlayerByNr(playerTemp.teamNr);
+
     array<SpawnPoint@> availableSpawnPoints = player.spawnPoints;
     // This keeps start of the total list of the spawns, incase you have too many locked ones atm
     array<SpawnPoint@> startListSpawnPoints = player.spawnPoints;
@@ -467,9 +496,9 @@ string InsertKeysToString( string text )
                 string middle = GetStringDescriptionForBinding("gamepad_0", input);
                 
                 // We decide whether we should show keyboard and mouse inputs
-                Log(error,"last_mouse_event_time: " + last_mouse_event_time + " last_keyboard_event_time: " + last_keyboard_event_time);
+                //Log(error,"last_mouse_event_time: " + last_mouse_event_time + " last_keyboard_event_time: " + last_keyboard_event_time);
                 string middleKb = "";
-                Log(error, "scriptlastKbMInputTimer: " + scriptlastKbMInputTimer + " ignoreKbMAfter: " + scriptlastKbMInputTimer);
+                //Log(error, "scriptlastKbMInputTimer: " + scriptlastKbMInputTimer + " ignoreKbMAfter: " + scriptlastKbMInputTimer);
                 if(ignoreKbMAfter > scriptlastKbMInputTimer){
                     middleKb = "/" + GetStringDescriptionForBinding("key", input);
                 }
@@ -535,7 +564,6 @@ void DeleteObjectsInList(array<int> &inout ids) {
 ///
 ///     General stuff
 ///
-int initPlayersNr;
 void VersusInit(string p_level_name) {
 
     // Register callback for loading JSON config
@@ -553,9 +581,12 @@ void VersusInit(string p_level_name) {
     if(initPlayersNr < 1)
         initPlayersNr = 1;
     
+    
     for(int i = 0; i< initPlayersNr; i++) {
-
         VersusPlayer player (i);
+        // TODO! Here add scrambling of the teams, more fun
+        if(teamPlay)
+            player.teamNr = player.playerNr % teamsAmount;
         versusPlayers.push_back(player);
     }
     
@@ -567,7 +598,7 @@ void VersusInit(string p_level_name) {
         {
             Log(error, "INIT SpawnCharacter");
             VersusPlayer@ player = GetPlayerByNr(i);
-            SpawnCharacter(FindRandSpawnPoint(player.playerNr),player.SetObject(CreateCharacter(i, IntToSpecies(player.currentRace))));
+            SpawnCharacter(FindRandSpawnPoint(player.playerNr),player.SetObject(CreateCharacter(i, IntToSpecies(player.currentRace), player.teamNr)));
         }
     }
     
@@ -588,7 +619,7 @@ void VersusInit(string p_level_name) {
             player.respawnQueue = -100;
             player.respawnNeeded = false;
 
-            SpawnCharacter(FindRandSpawnPoint(player.playerNr),player.SetObject(CreateCharacter(i,IntToSpecies(player.currentRace))));
+            SpawnCharacter(FindRandSpawnPoint(player.playerNr),player.SetObject(CreateCharacter(i,IntToSpecies(player.currentRace), player.teamNr)));
         }
         return true;
     }));
@@ -659,6 +690,51 @@ void VersusUpdate() {
     }
     
     levelTimer.Update();
+
+    // Update crowns
+    if(winnerNr != lastWinnerNr && crownEnabled){
+        lastWinnerNr = winnerNr;
+        // first we clear old ones
+        for (uint i = 0; i < crownsIds.size(); i++)
+        {
+            if (crownsIds[i] != -1) {
+                DeleteObjectID(crownsIds[i]);
+            }
+        }
+        crownsIds = {};
+        
+        if(teamPlay){
+            for (uint i = 0; i < versusPlayers.size(); i++)
+            {
+                Log(error, "winnerNr: " + winnerNr + " i: " + i);
+                VersusPlayer @player = GetPlayerByNr(i);
+                if(player.teamNr != winnerNr)
+                    continue;
+                
+                int crownId = CreateObject("Data/Objects/versus-brawl/hotspots/leaderCrownHotspot.xml");
+                crownsIds.push_back(crownId);
+
+                // TODO: This is copy pasta :/
+                Object@ crown = ReadObjectFromID(crownId);
+                ScriptParams @crownParams = crown.GetScriptParams();
+                VersusPlayer @onePlayer = GetPlayerByNr(i);
+                crownParams.SetInt("followObjId", onePlayer.objId);
+                crownParams.SetInt("dampenMovement", 1);
+            }
+        }
+        else{
+            int crownId = CreateObject("Data/Objects/versus-brawl/hotspots/leaderCrownHotspot.xml");
+            crownsIds.push_back(crownId);
+
+            // TODO: This is copy pasta :/
+            Object@ crown = ReadObjectFromID(crownId);
+            ScriptParams @crownParams = crown.GetScriptParams();
+            VersusPlayer @onePlayer = GetPlayerByNr(winnerNr);
+            crownParams.SetInt("followObjId", onePlayer.objId);
+            crownParams.SetInt("dampenMovement", 1);
+        }
+    }
+
     
     for(uint i = 0; i < versusPlayers.size(); i++)
     {
@@ -669,7 +745,6 @@ void VersusUpdate() {
         }
         player.charTimer.Update();
     }
-    
 
     if(GetInputPressed(0,"f10")){
         LoadLevel(GetCurrLevelRelPath());
@@ -761,7 +836,7 @@ void VersusUpdate() {
 
 void SetHint(string hint){
     
-    Log(error, "currentHint: " + currentHint);
+    //Log(error, "currentHint: " + currentHint);
     if(rand()%100 < funniesChance && !funniesActive && false){
         string funni = funnies[rand()%funnies.size()];
         versusAHGUI.SetExtraText(funni);
@@ -1092,7 +1167,7 @@ void FindSpawnPoints(){
             if(params.GetString("game_type")=="versusBrawl"){
                 // Check for PlayerNr
                 if(params.HasParam("playerNr")) {
-                    int playerNr= params.GetInt("playerNr");
+                    int playerNr = params.GetInt("playerNr");
                     if(playerNr < -1 || playerNr > 3){
                         DisplayError("FindSpawnPoints Error", "Spawn:"+object_ids[i]+" has PlayerNr less than -1 or greater than 3");
                     }
@@ -1169,7 +1244,27 @@ void VersusBaseLoad(JSONValue settings){
 
         if(FoundMember(versusBase, "MaxCollateralKillTime"))
             maxCollateralKillTime = versusBase["MaxCollateralKillTime"].asFloat();
-        
+
+        if(FoundMember(versusBase, "HintStayTime"))
+            hintStayTime = versusBase["HintStayTime"].asFloat();
+
+        if(FoundMember(versusBase, "CrownsEnabled"))
+            crownEnabled = versusBase["CrownsEnabled"].asBool();
+
+        if(FoundMember(versusBase, "TeamPlay"))
+            teamPlay = versusBase["TeamPlay"].asBool();
+
+        if(FoundMember(versusBase, "TeamsAmount"))
+            teamsAmount = versusBase["TeamsAmount"].asInt();
+
+        if(FoundMember(versusBase, "AllowUneven"))
+            allowUneven = versusBase["AllowUneven"].asBool();
+
+        if(FoundMember(versusBase, "AllowTeamChange"))
+            allowTeamChange = versusBase["AllowTeamChange"].asBool();
+
+        if(FoundMember(versusBase, "StrictColors"))
+            strictColors = versusBase["StrictColors"].asBool();
     }
 }
 
@@ -1178,19 +1273,20 @@ bool CheckSpawnsNumber() {
     bool okPlayerSpawns = true;
     bool okGenericSpawns = true;
     
-    for(uint i = 0; i < versusPlayers.size(); i++) {
-        if(versusPlayers[i].spawnPoints.size() < 1)
+    int teamsToChecks = int(versusPlayers.size());
+    if(teamPlay){
+        teamsToChecks = teamsAmount;
+    }
+
+    for(int i = 0; i < teamsToChecks; i++) {
+        //Log(error, "Checking " + i + " teamsToChecks: " + teamsToChecks );
+        if(versusPlayers[i].spawnPoints.size() < 1){
+            //Log(error, "spawnPoints.size()<1");
             okPlayerSpawns = false;
+        }
     }
     if(genericSpawnPoints.size() < 1)
         okGenericSpawns = false;
-    
-    //DisplayError("CheckSpawnsNumber", "CheckSpawnsNumber okPlayerSpawns:"+ okPlayerSpawns +" okGenericSpawns:"+ okGenericSpawns);
-    //DisplayError("CheckSpawnsNumber", "CheckSpawnsNumber versusPlayers.size():"+ versusPlayers.size() +" genericSpawnPoints.size():"+ genericSpawnPoints.size());
-    for(uint i = 0; i < versusPlayers.size(); i++) {
-        if(versusPlayers[i].spawnPoints.size() < 1)
-            okPlayerSpawns = false;
-    }
     
     if(!useGenericSpawns){
         return okPlayerSpawns;
@@ -1207,8 +1303,36 @@ bool CheckSpawnsNumber() {
 
 void CheckPlayersState() {
     if(currentState==0){
+        bool blockStart = false;
+        // TODO! Inform players that teams are uneven
+        if(teamPlay && !allowUneven){
+            array<int> teamSizes = {0, 0, 0, 0};
+            for(uint i = 0; i< versusPlayers.size(); i++) {
+                VersusPlayer@ player = GetPlayerByNr(i);
+                teamSizes[player.teamNr]++;
+            }
+            int lastVal = teamSizes[0];
+            for(int i = 1; i< teamsAmount; i++)
+            {
+                if(lastVal != teamSizes[i]){
+                    blockStart = true;
+                    break;
+                }
+            }
+            
+            // TODO! This is kinda dumb, but should work for now.
+            Log(error, "blockStart: " + blockStart);
+
+            if(blockStart){
+                versusAHGUI.SetMainText("Teams uneven!", vec3(1,0.5f,0));
+            }
+            else{
+                versusAHGUI.SetMainText("Warmup!", vec3(1));
+            }
+        }
+        
         //Select players number
-		if(GetInputDown(0,"skip_dialogue")){
+		if(GetInputDown(0,"skip_dialogue") && !blockStart){
             ChangeGameState(2); //Start game
 		}
     }

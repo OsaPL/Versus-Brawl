@@ -12,11 +12,18 @@
     "InstantSpeciesChange": false,
     "EnablePreload": true,
     "NoReloads": false,
-    "MaxCollateralKillTime": 5.0
+    "MaxCollateralKillTime": 5.0,
+    "HintStayTime": 4.0,
+    "CrownsEnabled": true,
+    "TeamPlay": false,
+    "TeamsAmount": 2,
+    "AllowUneven": true,
+    "AllowTeamChange": true,
+    "StrictColors": true
   },
   "Deathmatch": {
     "PointsToWin": 3,
-    "PointsTextShowTime": 7.2
+    "PointsTextShowTime": 5.0
   },
   "Race": {
     "SuicideTime": 1.0,
@@ -30,5 +37,10 @@
     "ChaserSpecies": 4,
     "RunnerSpecies": 3,
     "BiggerTeamWins": false
+  },
+  "CTF": {
+    "PointsToWin": 3,
+    "PointsTextShowTime": 5.0,
+    "FlagRespawnTime" : 10
   }
 }

@@ -194,7 +194,7 @@ void Update(){
             // Recreate the flag and move it (moving itemObject is scuffed) to make it upright
             mat4 trans = weap.GetPhysicsTransform();
             ReCreateFlagItem();
-            weapObj.SetTranslation(trans * vec3());
+            weapObj.SetTranslation(trans * vec3() - vec3(0, 0.3f, 0));
             flagState = FlagDropped;
         }
         if(flagState == FlagDropped){

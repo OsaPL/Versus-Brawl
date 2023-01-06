@@ -141,6 +141,9 @@ bool StuckToNavMesh() {
     return false;
 }
 
+float timeSinceLastDropKeyPress = 0;
+float maxTimeForQuickDrop = 0.5f;
+
 void UpdateBrain(const Timestep &in ts) {
     EnterTelemetryZone("playercontrol.as UpdateBrain");
     startled = false;
@@ -149,6 +152,17 @@ void UpdateBrain(const Timestep &in ts) {
         grab_key_time += ts.step();
     } else {
         grab_key_time = 0.0f;
+    }
+
+    // Allows for easier item dropping by just tapping `drop` two times
+    if(DrunkModeInputPressedCheck(this_mo.controller_id, "drop")) {
+        if(maxTimeForQuickDrop > timeSinceLastDropKeyPress && 
+            (weapon_slots[primary_weapon_slot] != -1 || weapon_slots[secondary_weapon_slot] != -1))
+            drop_key_state = _dks_drop;
+
+        timeSinceLastDropKeyPress = 0;
+    } else {
+        timeSinceLastDropKeyPress += ts.step();
     }
 
     if(ledge_info.on_ledge && !DrunkModeInputDownCheck(this_mo.controller_id, "crouch")) {
@@ -174,8 +188,13 @@ void UpdateBrain(const Timestep &in ts) {
     }
 
     force_look_target_id = situation.GetForceLookTarget();
+    
 
     if(!DrunkModeInputDownCheck(this_mo.controller_id, "drop")) {
+        if(maxTimeForQuickDrop < timeSinceLastDropKeyPress){
+            drop_key_state = _dks_drop;
+        }
+        
         drop_key_state = _dks_nothing;
     } else if (drop_key_state == _dks_nothing) {
         if((weapon_slots[primary_weapon_slot] == -1 || (weapon_slots[secondary_weapon_slot] == -1 && duck_amount < 0.5f)) &&

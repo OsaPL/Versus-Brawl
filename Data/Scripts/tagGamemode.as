@@ -393,7 +393,6 @@ void UpdateUI(){
 
             uiLabelsDivs[i].setBorderSize(4);
             uiLabelsDivs[i].setBorderColor(0.0, 1.0, 1.0, 1.0);
-            //uiKillCountersDivs[i].showBorder();
         }
 
         initUI = false;

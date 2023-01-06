@@ -205,10 +205,12 @@ throwMassMlt = params.GetFloat("Throw - Mass Multiplier");
 - `HandleAnimationMiscEvent` returns quicker
 - Modifications to the Unsheathe/Sheathing to allow for more weapon slots/big weapons sheathing and also more generic unsheathing (no longer you have to rely on anim events)
 .You can now set `Can sheathe big weapons` param on a character to enable that.
+- Zero or negative mass weapons will no longer crash/throw errors in throw functions
 
 ## `playercontrol.as`
 - `drunkMode` added, with new methods to invert controls
-- Small modifications to Unsheathe/Sheathing, also adds choosing which weapon is selected
+- Small modifications to Unsheathe/Sheathing, also adds ability to choose which weapon is selected
+- You can now drop items by quick tapping `drop` key two times
 
 ## Generic available Hotspots
 
@@ -265,3 +267,19 @@ Options you can set for `waterRiseHotspot`:
 
 Options you can set for `waterPhaseHotspot`:
 - `Phase` decides what phase number in order it is
+
+### `flag` and `flagreturn` hotspots
+
+These two can be used to create some gameplay based on gathering/returning flag.
+
+`flaghotspot` creates a place that spawns flag and enables logic to return it back and also to capture enemy flags.
+Captured flags will send a level wide event `flagCaptured <teamNr that lost the flag> <teamNr that captured that flag>`
+
+
+Options you can set for `flaghotspot`:
+
+- `red`, `green`, `blue`: controls the flag color (together with its light and all billboards)
+- `returnCooldown`: for how long does it have to be dropped to return by itself back.
+- `teamId`: defines what team is assigned to this flag
+
+`flagreturn` hotspots once connected to a `flaghotspot` will work as a drop off point for the connected flag. You cant capture enemy flags using this point.
