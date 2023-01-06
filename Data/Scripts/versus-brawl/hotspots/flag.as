@@ -38,6 +38,8 @@ float returnTimer = 0;
 TimedExecution flagTimer;
 float manualReturnBlockTimer = 0;
 
+float timeToUnlock = 10;
+float unlockTimer = 0;
 
 string polePath = "Data/Items/versus-brawl/flagPoleItem.xml";
 
@@ -156,8 +158,15 @@ void Update(){
             _delete_on_update);
     }
 
-
     if(weaponId == -1){
+        // FOR SOME FRICKIN REASON
+        // Dropping the flag just crashes the game if done pretty close to loading the json
+        if(unlockTimer < timeToUnlock){
+            flagState = FlagTaken;
+            unlockTimer += time_step;
+            return;
+        }
+        
         //spawn weapon
         ReCreateFlagItem();
         Object@ obj = ReadObjectFromID(weaponId);
@@ -194,7 +203,7 @@ void Update(){
             // Recreate the flag and move it (moving itemObject is scuffed) to make it upright
             mat4 trans = weap.GetPhysicsTransform();
             ReCreateFlagItem();
-            weapObj.SetTranslation(trans * vec3() - vec3(0, 0.3f, 0));
+            weapObj.SetTranslation(trans * vec3() - vec3(0, 0.3f, 0 ));
             flagState = FlagDropped;
         }
         if(flagState == FlagDropped){
@@ -232,6 +241,7 @@ void Update(){
 }
 
 void Dispose(){
+    unlockTimer = 0;
     FlagDispose();
 }
 
