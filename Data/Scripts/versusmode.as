@@ -706,7 +706,6 @@ void VersusUpdate() {
         if(teamPlay){
             for (uint i = 0; i < versusPlayers.size(); i++)
             {
-                Log(error, "winnerNr: " + winnerNr + " i: " + i);
                 VersusPlayer @player = GetPlayerByNr(i);
                 if(player.teamNr != winnerNr)
                     continue;

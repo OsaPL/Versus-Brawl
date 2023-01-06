@@ -125,19 +125,12 @@ void UpdateUI(){
             else{
                 uiPointsCounters[i].setColor(1,1,1,1);
             }
-            Log(error, "updateScores pointsCount: " + pointsCount[i]);
         }
-
-        Log(error, "noHighest winnerNr: " + winnerNr);
-
-
+        
         if(noHighest){
             winnerNr = -1;
         }
-
-        Log(error, "updateScores winnerNr: " + winnerNr);
         
-
         updateScores=false;
     }
 }
