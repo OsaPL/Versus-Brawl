@@ -18,21 +18,26 @@ string FlagStateToString(FlagState toConvert){
     return "NA";
 }
 
-int weaponId = -1;
-int lightId = -1;
-bool justReleased = false;
-vec3 color = vec3(0, 0.7f, 0);
-FlagState flagState = FlagHome;
-float returnTimer = 0;
+// configurables
 float returnCooldown = 10;
-TimedExecution flagTimer;
-
-float manualReturnBlockTimer = 0;
+vec3 color = vec3(0, 0.7f, 0);
 float manualReturnBlockCooldown = 2;
+
+// TODO: Make these configurable
 string billboardPath = "Data/Textures/ui/versusBrawl/flag_icon.png";
 
 string flagManualReturnSound = "Data/Sounds/sword/hard_drop_1.wav";
 string flagReturnSound = "Data/Sounds/sword/sword_wood_1.wav";
+
+// states
+int weaponId = -1;
+int lightId = -1;
+bool justReleased = false;
+FlagState flagState = FlagHome;
+float returnTimer = 0;
+TimedExecution flagTimer;
+float manualReturnBlockTimer = 0;
+
 
 string polePath = "Data/Items/versus-brawl/flagPoleItem.xml";
 
@@ -42,7 +47,7 @@ void Init(){
 
     flagTimer.Add(LevelEventJob("flagReturn", function(_params){
         //Log(error, "flagReturn " + _params[1]);
-        FlagManualReturnCheck(parseInt(_params[1]));
+        FlagManualReturnCheck(parseInt(_params[1]), _params[2] == "true" );
         return true;
     }));
 }
@@ -70,9 +75,29 @@ void HandleEvent(string event, MovementObject @mo)
 {
     if (event == "enter") {
         if (mo.is_player) {
-            if(manualReturnBlockTimer >= manualReturnBlockCooldown){
-                int weapon = mo.GetArrayIntVar("weapon_slots",mo.GetIntVar("primary_weapon_slot"));
-                FlagManualReturnCheck(weapon);
+            int weapon = mo.GetArrayIntVar("weapon_slots",mo.GetIntVar("primary_weapon_slot"));
+            if(weapon == -1)
+                return;
+            
+            Object@ obj = ReadObjectFromID(weapon);
+            ScriptParams @objParams = obj.GetScriptParams();
+            ItemObject @item = ReadItemID(weapon);
+            string label = item.GetLabel();
+
+            if (label != "flag")
+                return;
+            
+            Log(error, "inc: " + objParams.GetInt("teamId") + " this: " + params.GetInt("teamId"));
+            if(objParams.GetInt("teamId") != params.GetInt("teamId")){
+                Object@ parentHotspotObj = ReadObjectFromID(objParams.GetInt("parentHotspotId"));
+
+                parentHotspotObj.ReceiveScriptMessage("flagReturn " + weapon + " " + false);
+
+                // Captured enemy flag event message "FlagCaptured <team whose flag got captured> <team capturing flag>
+                level.SendMessage("flagCaptured " + params.GetInt("teamId") + " " + objParams.GetInt("teamId"));
+            }
+            else if(manualReturnBlockTimer >= manualReturnBlockCooldown){
+                FlagManualReturnCheck(weapon, true);
             }
         }
     }
@@ -86,6 +111,7 @@ void ReCreateFlagItem(){
     Object@ obj = ReadObjectFromID(weaponId);
     ScriptParams @objParams = obj.GetScriptParams();
     objParams.SetInt("teamId", params.GetInt("teamId"));
+    objParams.SetInt("parentHotspotId", hotspot.GetID());
     obj.UpdateScriptParams();
 
     obj.SetTint(color);
@@ -99,11 +125,13 @@ void FlagReturn(){
     manualReturnBlockTimer = 0;
 }
 
-void FlagManualReturnCheck(int objId){
+void FlagManualReturnCheck(int objId, bool sameTeam){
     //Log(error, "FlagManualReturnCheck " + objId + " " + weaponId);
 
     if(objId == weaponId){
-        PlaySound(flagManualReturnSound);
+        if(sameTeam)
+            PlaySound(flagManualReturnSound);
+        
         FlagReturn();
     }
 }

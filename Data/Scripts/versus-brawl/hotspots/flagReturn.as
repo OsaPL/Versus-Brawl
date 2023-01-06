@@ -26,7 +26,7 @@ void HandleEvent(string event, MovementObject @mo)
 
             if (label == "flag") {
                 Object @parentObj = ReadObjectFromID(parentFlagHotspotId);
-                parentObj.ReceiveScriptMessage("flagReturn " + weapon);
+                parentObj.ReceiveScriptMessage("flagReturn " + weapon + " " + true);
                 //Log(error, "flag entered! parentFlagHotspotId: " + parentFlagHotspotId);
             }
             
