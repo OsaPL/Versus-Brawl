@@ -29,6 +29,7 @@ void SetParameters(){
     params.AddFloatSlider("blue", 1.0f, "min:0,max:3,step:0.01");
     params.AddFloatSlider("cooldown", 2.0f, "min:0,max:60,step:0.01");
     params.AddString("teleportSound", "Data/Sounds/sword/light_weapon_swoosh_1.wav");
+    params.AddIntSlider("velocityTranslator", 1, "min:-1.0,max:1.0");
 }
 
 void HandleEvent(string event, MovementObject @mo){
@@ -101,6 +102,7 @@ bool ConnectTo(Object@ other)
             params.SetFloat("blue", objParams.GetFloat("blue"));
             params.SetFloat("cooldown", objParams.GetFloat("cooldown"));
             params.SetString("teleportSound", objParams.GetString("teleportSound"));
+            params.SetInt("velocityTranslator", objParams.GetInt("velocityTranslator"));
         }
     }
     return true;
@@ -112,32 +114,92 @@ bool Disconnect(Object@ other)
     return true;
 }
 
-void Teleport(int charId){
-    if(parentId == -1)
+void Teleport(int charId)
+{
+    if (parentId == -1)
         return;
-    
-    if(timer > 0)
+
+    if (timer > 0)
         return;
 
     timer = cooldown;
 
     PlaySound(params.GetString("teleportSound"));
 
-    Object@ destination = ReadObjectFromID(parentId);
-    Object@ char = ReadObjectFromID(charId);
-    MovementObject@ mo = ReadCharacterID(charId);
+    Object
+    @me = ReadObjectFromID(hotspot.GetID());
+    Object
+    @destination = ReadObjectFromID(parentId);
+    Object
+    @char = ReadObjectFromID(charId);
+    MovementObject
+    @mo = ReadCharacterID(charId);
 
+    vec3 vel = mo.velocity;
+    bool side = CheckSide(charId, vel);
     mo.position = destination.GetTranslation();
-    mo.velocity = vec3(0);
+    mo.velocity = 0;
 
     char.SetTranslation(destination.GetTranslation());
-    vec4 rot_vec4 = destination.GetRotationVec4();
-    quaternion q(rot_vec4.x, rot_vec4.y, rot_vec4.z, rot_vec4.a);
+    vec4
+    rot_vec4 = destination.GetRotationVec4();
+    quaternion
+    q(rot_vec4.x, rot_vec4.y, rot_vec4.z, rot_vec4.a);
     char.SetRotation(q);
-    
+
     mo.Execute("SetCameraFromFacing();FixDiscontinuity();");
-    
+
     // Send `teleport` to inform destination object
     destination.ReceiveScriptMessage("teleport");
+    
+    int velTranslator = params.GetInt("velocityTranslator");
+    //-1 dont translate velocity on exit
+    // 0 use one to one (no direction change)
+    // 1 translate lenght onto direction directly, reversing if needed
+    // missing 2 translate only using snap 90 degrees angles
+    // missing 3 full galaxy brain translation of local origins
+    if (velTranslator != -1) {
+        vec3 dest;
+        switch (velTranslator) {
+            case 0:
+                dest = vel;
+                break;
+            case 1: {
+                vec3
+                inputDir = normalize(me.GetRotation() * vec3(0, 0, 1));
+                vec3
+                outputDir = normalize(destination.GetRotation() * vec3(0, 0, 1));
+                float
+                len = length(vel);
+                dest = len * outputDir;
+                Log(error, "" + me.GetID() + " side: " + side);
+                if(side)
+                    dest *= -1;
+                break;
+            }
+            case 2:
+                break;
+        }
+        mo.velocity = dest;
+    }
 }
 
+// Check on which side of the portal are you, false is opposite of the portal direction
+// velocity helps with collisions that could occur a frame late
+bool CheckSide(int charId, vec3 vel = vec3()){
+    Object@ me = ReadObjectFromID(hotspot.GetID());
+    MovementObject@ char = ReadCharacterID(charId);
+    Object@ destination = ReadObjectFromID(parentId);
+
+    vec3 offset = me.GetTranslation() - (char.position - vel);
+    float portalSide = dot(offset, normalize(me.GetRotation() * vec3(0, 0, 1)));
+
+    // DebugDrawText(
+    //     me.GetTranslation(),
+    //     "" + (portalSide > 0),
+    //     1.0f,
+    //     true,
+    //     _delete_on_update);
+    
+    return portalSide < 0;
+}

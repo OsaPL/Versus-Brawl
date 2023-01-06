@@ -24,7 +24,7 @@ void PlaceHolderFollowerUpdate(string iconPath, string text, float scale = 1, bo
             // Just multiply by UP vector
             vec3 direction = me.GetRotation() * vec3(0,0,1);
             DebugDrawText(
-                me.GetTranslation() + offset + direction,
+                me.GetTranslation() + direction,
                 "+",
                 2.0f,
                 true,
