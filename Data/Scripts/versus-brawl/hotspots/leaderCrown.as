@@ -4,6 +4,7 @@ float overHeadDistance = 0.5f;
 int lightId = -1;
 int particleEmitterId = -1;
 vec3 color = vec3(0.35f, 0.2f, 0);
+string billboardPath = "Data/Textures/versus-brawl/crown.png";
 
 void Init(){
     Object@ me = ReadObjectFromID(hotspot.GetID());
@@ -122,16 +123,21 @@ void Draw() {
     lightObj.SetTranslation(pos + vec3(0, overHeadDistance, 0));
     me.SetTranslation(pos + vec3(0, overHeadDistance, 0));
     // Its really dumb we cant use SetBillboardColorMap on hotspots
-    DebugDrawBillboard("Data/Textures/versus-brawl/crown.png",
+    DebugDrawBillboard(billboardPath,
         pos + vec3(0, overHeadDistance, 0),
     me.GetScale()[1]*5,
         vec4(color*10 , 1),
         _delete_on_draw);
 }
 
-void Dispose(){
-    if(lightId != -1){
+void Dispose()
+{
+    if (lightId != -1) {
         DeleteObjectID(lightId);
         lightId = -1;
+    }
+    if (particleEmitterId != -1) {
+        DeleteObjectID(particleEmitterId);
+        particleEmitterId = -1;
     }
 }
