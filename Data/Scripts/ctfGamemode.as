@@ -20,7 +20,7 @@ void Init(string msg){
 
     // pointUIBase configuration
     pointsToWin = 3;
-    pointsTextFormat = "Captures: @points@";
+    pointsTextFormat = "@points@";
     playingToTextFormat = "Playing to: @points@ captures!";
 
     

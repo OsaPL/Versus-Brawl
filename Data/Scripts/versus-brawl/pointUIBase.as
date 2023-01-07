@@ -26,7 +26,7 @@ array<AHGUI::Text@> uiPointsCounters={};
 array<int> pointsCount = {0, 0, 0, 0};
 uint teamsToGoThrough = 0;
 
-string AddPointsText(string text, int points){
+string AddPointsText(string text, int points, bool addPointsNeeded = false){
     string converted = text;
     for( uint i = 0; i < converted.length(); i++ ) {
         if( text[i] == '@'[0] ) {
@@ -37,6 +37,8 @@ string AddPointsText(string text, int points){
                     if(input == "points"){
                         string first_half = converted.substr(0,i);
                         string second_half = converted.substr(j+1);
+                        if(addPointsNeeded)
+                            second_half = " / " + pointsToWin + second_half;
                         converted = first_half + points + second_half;
                     }
                 }
@@ -64,7 +66,7 @@ void UpdateUI(){
             versusAHGUI.SetMainText(AddPointsText(playingToTextFormat, pointsToWin));
         } else {
             //  Log(error, "pointsTextShow false pointsTextShowTimer: " + pointsTextShowTimer);
-            if (pointsTextShowTimer > pointsTextShowTime) { 
+            if (pointsTextShowTimer > pointsTextShowTime && versusAHGUI.text == AddPointsText(playingToTextFormat, pointsToWin)) { 
                 versusAHGUI.SetMainText("");
             } else {
                 pointsTextShowTimer += time_step;
@@ -92,13 +94,13 @@ void UpdateUI(){
         blinkTimer = 0;
     }
 
-    if(updateScores){
+    if(updateScores && currentState >= 2 && currentState < 100){
         //Log(error, "updateScores");
         
         bool noHighest = true;
         for (uint i = 0; i < uiPointsCounters.size(); i++)
         {
-            uiPointsCounters[i].setText(AddPointsText(pointsTextFormat, pointsCount[i]));
+            uiPointsCounters[i].setText(AddPointsText(pointsTextFormat, pointsCount[i], true));
 
             bool isHighest = true;
             for (uint k = 0; k < uiPointsCounters.size(); k++)
@@ -143,7 +145,7 @@ void InitUI(){
         AHGUI::Element@ headerElement = versusAHGUI.root.findElement("header"+i);
         AHGUI::Divider@ div = cast<AHGUI::Divider>(headerElement);
 
-        AHGUI::Text textElem(AddPointsText(pointsTextFormat, pointsCount[i]), "edosz", 65, 1, 1, 1, 1 );
+        AHGUI::Text textElem(AddPointsText(pointsTextFormat, pointsCount[i], true), "edosz", 65, 1, 1, 1, 1 );
         textElem.setShadowed(true);
 
         uiPointsCounters.push_back(textElem);

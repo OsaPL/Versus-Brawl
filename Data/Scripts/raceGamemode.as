@@ -1,13 +1,10 @@
 #include "versusmode.as"
 // ^^ only this is needed
+#include "versus-brawl/pointUIBase.as"
 
 //Configurables
-float suicideTime = 1;
-int checkPointsNeeded = 1;
 
 //State
-array<float> suicideTimers = {0,0,0,0};
-array<int> checkpointReached = {0,0,0,0};
 
 //Level methods
 void Init(string msg){
@@ -20,27 +17,30 @@ void Init(string msg){
     randomHints.insertAt(0, "No rules, dont feel bad for hitting people.");
     
     //We setup the parameters before init call
-    useGenericSpawns = true;
-    useSingleSpawnType = false;
+    useGenericSpawns = false;
+    useSingleSpawnType = true;
     constantRespawning = true;
     blockSpeciesChange = true;
     respawnTime = 1;
+    suicideTime = 1;
+
+    // pointUIBase configuration
+    pointsToWin = 10;
+    pointsTextFormat = "@points@";
+    playingToTextFormat = "Racing to: @points@ checkpoints!";
 
     //Always need to call this first!
     VersusInit("");
 
     loadCallbacks.push_back(@RaceLoad);
-
-    //TODO! Adding some level parameters
-    ScriptParams@ lvlParams = level.GetScriptParams();
-    if(!lvlParams.HasParam("Poo"))
-        lvlParams.SetString("Poo", "Yes");
     
+    // This is used to inform any hotspots whether the game is in progress
+    ScriptParams@ lvlParams = level.GetScriptParams();
     lvlParams.SetInt("InProgress", 0);
 
     levelTimer.Add(LevelEventJob("checkpoint", function(_params){
         Log(error, "Received checkpoint "+_params[1]);
-        checkpointReached[parseInt(_params[1])]++;
+        pointsCount[parseInt(_params[1])]++;
         return true;
     }));
 
@@ -54,11 +54,11 @@ void RaceLoad(JSONValue settings){
         JSONValue race = settings["Race"];
         Log(error, "Available: " + join(race.getMemberNames(),","));
 
-        if (FoundMember(race, "suicideTime"))
-            suicideTime = race["SuicideTime"].asFloat();
-
         if (FoundMember(race, "CheckPointsNeeded"))
-            checkPointsNeeded = race["CheckPointsNeeded"].asInt();
+            pointsToWin = race["CheckPointsNeeded"].asInt();
+
+        if (FoundMember(race, "CheckPointsNeededTextShowTime"))
+            pointsTextShowTime = race["CheckPointsNeededTextShowTime"].asFloat();
     }
 }
 
@@ -75,29 +75,12 @@ void Update(){
 
         ScriptParams@ lvlParams = level.GetScriptParams();
         lvlParams.SetInt("InProgress", 1);
-        
-        // Suicide check
-        for (uint k = 0; k < versusPlayers.size(); k++)
-        {
-            VersusPlayer@ player = GetPlayerByNr(k);
-            if (GetInputDown(player.playerNr, "attack") && GetInputDown(player.playerNr, "grab")) {
-                suicideTimers[player.playerNr] += time_step;
-                if(suicideTimers[player.playerNr]>suicideTime){
-                    if(ReadCharacterID(player.objId).GetIntVar("knocked_out") == _awake)
-                        ReadCharacterID(player.objId).Execute("CutThroat();");
-                    suicideTimers[player.playerNr] = 0;
-                }
-            } else {
-                suicideTimers[player.playerNr] = 0;
-            }
-           
-        }
 
         for (uint k = 0; k < versusPlayers.size(); k++)
         {
             VersusPlayer@ player = GetPlayerByNr(k);
             //Checks for win
-            if(checkpointReached[player.playerNr]>=checkPointsNeeded){
+            if(pointsCount[player.playerNr]>=checkPointsNeeded){
                 // 3 is win state
                 winnerNr = player.playerNr;
                 ChangeGameState(100);
@@ -134,7 +117,7 @@ void Update(){
     if(currentState == 100){
         if(winStateTimer>winStateTime){
             // Now we just need to reset few things
-            checkpointReached = {0,0,0,0};
+            pointsCount = {0,0,0,0};
             constantRespawning = true;
             ScriptParams@ lvlParams = level.GetScriptParams();
             lvlParams.SetInt("InProgress", 1);

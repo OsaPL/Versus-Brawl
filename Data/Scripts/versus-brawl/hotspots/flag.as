@@ -38,7 +38,7 @@ float returnTimer = 0;
 TimedExecution flagTimer;
 float manualReturnBlockTimer = 0;
 
-float timeToUnlock = 10;
+float timeToUnlock = 5;
 float unlockTimer = 0;
 
 string polePath = "Data/Items/versus-brawl/flagPoleItem.xml";

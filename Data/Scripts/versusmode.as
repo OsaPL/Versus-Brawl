@@ -88,6 +88,7 @@ bool enablePreload = true;
 bool noReloads = false;
 float maxCollateralKillTime = 5.0f;
 float hintStayTime = 4.0f;
+float suicideTime = 5;
 bool crownEnabled = true;
 
 // Team config
@@ -114,6 +115,7 @@ string placeholderRaceIconPath = "Textures/ui/challenge_mode/quit_icon_c.tga";
 int currentState=-1;
 int winnerNr = -1;
 float winStateTimer = 0;
+array<float> suicideTimers = {0,0,0,0};
 
 // For preloading characters
 uint preloadSpeciesIndex = 0;
@@ -734,6 +736,21 @@ void VersusUpdate() {
         }
     }
 
+    // Suicide check
+    for (uint k = 0; k < versusPlayers.size(); k++)
+    {
+        VersusPlayer@ player = GetPlayerByNr(k);
+        if (GetInputDown(player.playerNr, "attack") && GetInputDown(player.playerNr, "grab")) {
+            suicideTimers[player.playerNr] += time_step;
+            if(suicideTimers[player.playerNr]>suicideTime){
+                if(ReadCharacterID(player.objId).GetIntVar("knocked_out") == _awake)
+                    ReadCharacterID(player.objId).Execute("CutThroat();");
+                suicideTimers[player.playerNr] = 0;
+            }
+        } else {
+            suicideTimers[player.playerNr] = 0;
+        }
+    }
     
     for(uint i = 0; i < versusPlayers.size(); i++)
     {
@@ -1246,6 +1263,9 @@ void VersusBaseLoad(JSONValue settings){
 
         if(FoundMember(versusBase, "HintStayTime"))
             hintStayTime = versusBase["HintStayTime"].asFloat();
+
+        if (FoundMember(versusBase, "suicideTime"))
+            suicideTime = versusBase["SuicideTime"].asFloat();
 
         if(FoundMember(versusBase, "CrownsEnabled"))
             crownEnabled = versusBase["CrownsEnabled"].asBool();
