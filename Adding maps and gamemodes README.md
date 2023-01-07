@@ -185,6 +185,8 @@ Sent when a character is killed by another (checks `attacked_by_id` on victim an
 Sent when a character is hit with a blunt weapon or hand to hand (unguarded hits, that deal dmg)
 ### `spawned <spawned obj ID> <first spawn bool>`
 Sent when a character is being spawned or respawned (if current game state is not warmup)
+### `suicideDeath <victim obj ID> <attacker obj ID>`
+Sent when a death is not counted as a kill by another player (`maxCollateralKillTime < timeSinceAttackedById`)
 
 # Changes to default scripts 
 ## `aschar.as`

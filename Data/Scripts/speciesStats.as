@@ -23,7 +23,7 @@ void SpeciesStatsLoad(JSONValue settings){
     if(FoundMember(settings, "SpeciesStats")){
         levelSpeciesStats = settings["SpeciesStats"];
 
-        Log(error, "Available: " + join(levelSpeciesStats.getMemberNames(),","));
+        //Log(error, "Available: " + join(levelSpeciesStats.getMemberNames(),","));
     }
 }
 
@@ -34,7 +34,7 @@ void BaseSpeciesStatsLoad(){
     if(FoundMember(settings, "SpeciesStats")){
         baseSpeciesStats = settings["SpeciesStats"];
 
-        Log(error, "Available: " + join(baseSpeciesStats.getMemberNames(),","));
+        //Log(error, "Available: " + join(baseSpeciesStats.getMemberNames(),","));
     }
 }
 

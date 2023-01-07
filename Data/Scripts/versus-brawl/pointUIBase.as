@@ -113,7 +113,6 @@ void UpdateUI(){
                     break;
                 }
             }
-            Log(error, "i: " + i + "isHighest: " + isHighest);
             
             if(isHighest)
                 noHighest = false;

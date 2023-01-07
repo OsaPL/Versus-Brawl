@@ -7,6 +7,7 @@ void Init() {
 void SetParameters() {
     params.AddIntSlider("playerNr", -1, "min:-1.0,max:3.0");
     params.AddString("game_type", "versusBrawl");
+    params.AddString("type", "playerSpawnHotspot");
 }
 
 void Update(){

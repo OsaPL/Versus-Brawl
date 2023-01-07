@@ -189,8 +189,7 @@ void Teleport(int charId)
 bool CheckSide(int charId, vec3 vel = vec3()){
     Object@ me = ReadObjectFromID(hotspot.GetID());
     MovementObject@ char = ReadCharacterID(charId);
-    Object@ destination = ReadObjectFromID(parentId);
-
+    
     vec3 offset = me.GetTranslation() - (char.position - vel);
     float portalSide = dot(offset, normalize(me.GetRotation() * vec3(0, 0, 1)));
 

@@ -1206,6 +1206,7 @@ void HitByItem(string material, vec3 point, int id, int type) {
     
     //Borrowed from github
     attacked_by_id = io.last_held_char_id_;
+    timeSinceAttackedById = 0;
 
     if(this_mo.controlled) {
         if(tutorial == "stealth") {
