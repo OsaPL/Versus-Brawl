@@ -337,7 +337,7 @@ void AttachTimers(int obj_id){
     player.charTimer.Add(CharDeathJob(obj_id, function(char_a){
         if(currentState < 100){
             MovementObject@ char = ReadCharacterID(char_a.GetID());
-            Log(error, "Death of:"+ char_a.GetID() +" attacked_by_id:"+char.GetIntVar("attacked_by_id"));
+            Log(error, "Death of:"+ char_a.GetID() +" attacked_by_id:" + char.GetIntVar("attacked_by_id"));
             for (uint k = 0; k < spawned_object_ids.size(); k++)
             {
                 if(char.GetIntVar("attacked_by_id") == spawned_object_ids[k] && maxCollateralKillTime > char.GetFloatVar("timeSinceAttackedById")){
@@ -345,6 +345,8 @@ void AttachTimers(int obj_id){
                     return false;
                 }
             }
+
+            level.SendMessage("suicideDeath " + char_a.GetID() + char.GetIntVar("attacked_by_id"));
         }
 
         return false;
@@ -1340,7 +1342,7 @@ void CheckPlayersState() {
             }
             
             // TODO! This is kinda dumb, but should work for now.
-            Log(error, "blockStart: " + blockStart);
+            //Log(error, "blockStart: " + blockStart);
 
             if(blockStart){
                 versusAHGUI.SetMainText("Teams uneven!", vec3(1,0.5f,0));
