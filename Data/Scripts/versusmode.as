@@ -346,7 +346,7 @@ void AttachTimers(int obj_id){
                 }
             }
 
-            level.SendMessage("suicideDeath " + char_a.GetID() + char.GetIntVar("attacked_by_id"));
+            level.SendMessage("suicideDeath " + char_a.GetID() + " " + char.GetIntVar("attacked_by_id"));
         }
 
         return false;
