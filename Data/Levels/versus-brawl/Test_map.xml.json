@@ -42,6 +42,7 @@
   "CTF": {
     "PointsToWin": 3,
     "PointsTextShowTime": 5.0,
-    "FlagRespawnTime" : 10
+    "FlagRespawnTime" : 10,
+    "CarrierDebuffMlt": 0.8
   }
 }

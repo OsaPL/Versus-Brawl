@@ -41,6 +41,8 @@ float manualReturnBlockTimer = 0;
 float timeToUnlock = 5;
 float unlockTimer = 0;
 
+int holder_id = -1;
+
 string polePath = "Data/Items/versus-brawl/flagPoleItem.xml";
 
 void Init(){
@@ -60,6 +62,7 @@ void SetParameters()
     params.AddFloatSlider("red", 1.0f, "min:0,max:3,step:0.01");
     params.AddFloatSlider("green", 1.0f, "min:0,max:3,step:0.01");
     params.AddFloatSlider("blue", 1.0f, "min:0,max:3,step:0.01");
+    params.AddFloatSlider("debuffCarrier", 1.0f, "min:0.0,max:1.0,step:0.01");
     params.AddIntSlider("teamId", -1, "min:-1.0,max:3.0");
 }
 
@@ -202,9 +205,11 @@ void Update(){
             justReleased = false;
             // Recreate the flag and move it (moving itemObject is scuffed) to make it upright
             mat4 trans = weap.GetPhysicsTransform();
-            ReCreateFlagItem();
+            //ReCreateFlagItem();
             weapObj.SetTranslation(trans * vec3() - vec3(0, 0.3f, 0 ));
             flagState = FlagDropped;
+
+            debuffed = true;
         }
         if(flagState == FlagDropped){
             // Doing a "future" check to make sure we dont show -1;
@@ -225,8 +230,11 @@ void Update(){
             }
         }
     }
-    else{
+    else {
         flagState = FlagTaken;
+
+        debuffed = false;
+        
         returnTimer = 0;
 
         // Guards from accidental returning when just taken
@@ -238,11 +246,52 @@ void Update(){
     }
 
     params.SetInt("flagState", int(flagState));
+    DebuffCheck();
 }
 
 void Dispose(){
     unlockTimer = 0;
     FlagDispose();
+}
+bool debuffed = false;
+void DebuffCheck(){
+    if(weaponId == -1)
+        return;
+    
+    ItemObject@ weap = ReadItemID(weaponId);
+    if(params.HasParam("debuffCarrier")){
+        float debuffMlt = params.GetFloat("debuffCarrier");
+        if(debuffMlt < 1 && holder_id == -1 && !debuffed){
+            holder_id = weap.HeldByWhom();
+            if(holder_id == -1)
+                return;
+            
+            MovementObject@ char = ReadCharacterID(holder_id);
+            Object@ charObj = ReadObjectFromID(char.GetID());
+            ScriptParams@ params = charObj.GetScriptParams();
+
+            params.SetFloat("Movement Speed", params.GetFloat("Movement Speed") * debuffMlt);
+            params.SetFloat("Jump - Initial Velocity", params.GetFloat("Jump - Initial Velocity") * debuffMlt);
+
+            charObj.UpdateScriptParams();
+            Log(error, "Enabled debuff: " + debuffMlt + " for: " + holder_id);
+        }
+        else if(debuffMlt < 1 && debuffed){
+            if(holder_id == -1)
+                return;
+            
+            MovementObject@ char = ReadCharacterID(holder_id);
+            Object@ charObj = ReadObjectFromID(char.GetID());
+            ScriptParams@ params = charObj.GetScriptParams();
+
+            params.SetFloat("Movement Speed", params.GetFloat("Movement Speed") * (1/debuffMlt));
+            params.SetFloat("Jump - Initial Velocity", params.GetFloat("Jump - Initial Velocity") * (1/debuffMlt));
+
+            charObj.UpdateScriptParams();
+            Log(error, "Disabled debuff: " + debuffMlt + " for: " + holder_id);
+            holder_id = -1;
+        }
+    }
 }
 
 void FlagDispose(){

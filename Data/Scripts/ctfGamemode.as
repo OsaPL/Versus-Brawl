@@ -4,6 +4,7 @@
 
 // configurables
 float flagRespawnTime = 10;
+float debuffMlt = 0.8f;
 
 // states
 bool init = true;
@@ -22,7 +23,6 @@ void Init(string msg){
     pointsToWin = 3;
     pointsTextFormat = "@points@";
     playingToTextFormat = "Playing to: @points@ captures!";
-
     
     //Always need to call this first!
     VersusInit("");
@@ -56,7 +56,7 @@ void Init(string msg){
         ResetCTF();
         return true;
     }));
-
+    
     // And finally load JSON Params
     LoadJSONLevelParams();
 }
@@ -75,6 +75,10 @@ void CTFLoad(JSONValue settings) {
 
         if (FoundMember(ctf, "FlagRespawnTime"))
             flagRespawnTime = ctf["FlagRespawnTime"].asFloat();
+
+        if (FoundMember(ctf, "CarrierDebuffMlt"))
+            debuffMlt = ctf["CarrierDebuffMlt"].asFloat();
+        
     }
 }
 
@@ -140,7 +144,8 @@ void GetFlagHotspotsIds(){
                     flagIds.push_back(hotspots[i]);
 
                     objParams.SetFloat("returnCooldown", flagRespawnTime);
-                    
+                    objParams.SetFloat("debuffCarrier", debuffMlt);
+
                     // Optionally we recolor flags
                     if(strictColors){
                         vec3 color = GetTeamUIColor(teamId);
