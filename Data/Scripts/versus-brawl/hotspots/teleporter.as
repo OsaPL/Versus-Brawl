@@ -56,7 +56,8 @@ void Update(){
             timer -= time_step;
             billboardPath = notReadyIconPath;
             // We use some gradation for transparency
-            trans = abs((timer - cooldown) / cooldown);
+            if(!EditorModeActive())
+                trans = abs((timer - cooldown) / cooldown);
         }
         else{
             timer = 0;

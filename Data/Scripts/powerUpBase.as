@@ -2,6 +2,8 @@
 #include "timed_execution/char_death_job.as"
 #include "timed_execution/level_event_job.as"
 
+#include "hotspots/placeholderFollower.as"
+
 float respawnPickupTimer = 0;
 int lastEnteredPlayerObjId = -1;
 bool readyForPickup = true;
@@ -112,7 +114,36 @@ void PowerupPreScriptReload()
 }
 
 void PowerupUpdate(){
+    Object@ me = ReadObjectFromID(hotspot.GetID());
+    
     powerupTimer.Update();
+    vec3 color = vec3(params.GetFloat("colorR"), params.GetFloat("colorG"), params.GetFloat("colorB"));
+    
+    if(!readyForPickup){
+        if(EditorModeActive()){
+            PlaceHolderFollowerUpdate(params.GetString("notReadyIconPath"), "", 2.0f, false, vec4(color, 1));
+        }
+        else{
+            DebugDrawBillboard(params.GetString("notReadyIconPath"),
+                me.GetTranslation(),
+                me.GetScale()[1]*5.0,
+                vec4(color, params.GetFloat("notReadyAlpha")),
+                _delete_on_update);
+        }
+    }
+    else{
+        if(EditorModeActive()){
+            PlaceHolderFollowerUpdate(params.GetString("readyIconPath"), "", 2.0f, false, vec4(color, 1));
+        }
+        else {
+            DebugDrawBillboard(params.GetString("readyIconPath"),
+                me.GetTranslation(),
+                me.GetScale()[1] * 6.0,
+                vec4(color, params.GetFloat("readyAlpha")),
+                _delete_on_update);
+        }
+    }
+    
     // Show error and ignore updating this
     if(params.GetFloat("respawnTime") < params.GetFloat("activeTime") && !_error){
         DisplayError("PowerupsError", "respawnTime cant be smaller than activeTime! ID:"+hotspot.GetID());
@@ -127,9 +158,6 @@ void PowerupUpdate(){
             return;
         }
     }
-
-    // Get hotspot
-    Object@ me = ReadObjectFromID(hotspot.GetID());
 
     // TODO! We'll need to check whether he is still close enough to be considered for pickup
     // Get lastEnteredPlayerObjId and check its translation, if its close enough to activate
@@ -166,23 +194,7 @@ void DeleteObjectsInList(array<int> &inout ids) {
 }
 
 void PowerupDraw(){
-    // Get hotspot
-    Object@ me = ReadObjectFromID(hotspot.GetID());
-    // Its really dumb we cant use SetBillboardColorMap on hotspots
-    if(!readyForPickup){
-        DebugDrawBillboard(params.GetString("notReadyIconPath"),
-            me.GetTranslation(),
-            me.GetScale()[1]*5.0,
-            vec4(vec3(params.GetFloat("colorR"),params.GetFloat("colorG"),params.GetFloat("colorB")), params.GetFloat("notReadyAlpha")),
-            _delete_on_draw);
-    }
-    else{
-        DebugDrawBillboard(params.GetString("readyIconPath"),
-            me.GetTranslation(),
-            me.GetScale()[1]*6.0,
-            vec4(vec3(params.GetFloat("colorR"),params.GetFloat("colorG"),params.GetFloat("colorB")), params.GetFloat("readyAlpha")),
-            _delete_on_draw);
-    }
+    
 }
 
 void PowerupReset(){
