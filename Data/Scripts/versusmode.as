@@ -906,8 +906,10 @@ class VersusAHGUI : AHGUI::GUI {
     vec3 extraTextColor = vec3(1.0f);
     int assignmentTextSize = 70;
     int footerTextSize = 50;
-    bool showBorders = false;
     bool initUI = true;
+
+    // DebugStuff
+    bool showBorders = false;
     
     array<string> currentIcon =  {"","","",""};
     array<bool> currentGlow =  {false,false,false,false};
@@ -1035,10 +1037,22 @@ class VersusAHGUI : AHGUI::GUI {
             header.setName("header");
             header.setVeritcalAlignment(BACenter);
             header.setHorizontalAlignment(BACenter);
-            if (true) {
-                header.setBorderSize(3);
+            if (showBorders) {
+                header.setBorderSize(4);
                 header.setBorderColor(0.0, 1.0, 1.0, 1.0);
                 header.showBorder();
+            }
+
+            //Orange
+            AHGUI::Divider
+            @extraHeader = container.addDivider(DDBottomRight, DOHorizontal, ivec2(50, AH_UNDEFINEDSIZE));
+            extraHeader.setName("extraHeader");
+            extraHeader.setVeritcalAlignment(BACenter);
+            extraHeader.setHorizontalAlignment(BACenter);
+            if (showBorders) {
+                extraHeader.setBorderSize(4);
+                extraHeader.setBorderColor(1.0, 0.5, 0.0, 1.0);
+                extraHeader .showBorder();
             }
 
             AHGUI::Divider
@@ -1047,18 +1061,7 @@ class VersusAHGUI : AHGUI::GUI {
             @containerTop = root.addDivider(DDBottom, DOHorizontal, ivec2(AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE));
 
             int playerNr = versusPlayers.size();
-
-            AHGUI::Divider
-            @extraHeader = container.addDivider(DDBottomRight, DOHorizontal, ivec2(50, AH_UNDEFINEDSIZE));
-            extraHeader.setName("extraHeader");
-            extraHeader.setVeritcalAlignment(BACenter);
-            extraHeader.setHorizontalAlignment(BACenter);
-            if (true) {
-                extraHeader.setBorderSize(3);
-                extraHeader.setBorderColor(1.0, 0.5, 0.0, 1.0);
-                extraHeader .showBorder();
-            }
-
+            
             //Yellow
             AHGUI::Divider
             @header3 = containerBottom.addDivider(DDRight, DOHorizontal, ivec2(AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE));
@@ -1066,7 +1069,7 @@ class VersusAHGUI : AHGUI::GUI {
             header3.setVeritcalAlignment(BALeft);
             header3.setHorizontalAlignment(BABottom);
             if (showBorders) {
-                header3.setBorderSize(3);
+                header3.setBorderSize(4);
                 header3.setBorderColor(1.0, 1.0, 0.0, 1.0);
                 header3.showBorder();
             }
@@ -1087,7 +1090,7 @@ class VersusAHGUI : AHGUI::GUI {
             header2.setVeritcalAlignment(BALeft);
             header2.setHorizontalAlignment(BABottom);
             if (showBorders) {
-                header2.setBorderSize(3);
+                header2.setBorderSize(4);
                 header2.setBorderColor(0.0, 0.0, 1.0, 1.0);
                 header2.showBorder();
             }
@@ -1108,7 +1111,7 @@ class VersusAHGUI : AHGUI::GUI {
             header1.setVeritcalAlignment(BALeft);
             header1.setHorizontalAlignment(BABottom);
             if (showBorders) {
-                header1.setBorderSize(3);
+                header1.setBorderSize(4);
                 header1.setBorderColor(1.0, 0.0, 0.0, 1.0);
                 header1.showBorder();
             }
@@ -1130,7 +1133,7 @@ class VersusAHGUI : AHGUI::GUI {
             header0.setVeritcalAlignment(BALeft);
             header0.setHorizontalAlignment(BABottom);
             if (showBorders) {
-                header0.setBorderSize(3);
+                header0.setBorderSize(4);
                 header0.setBorderColor(0.0, 1.0, 0.0, 1.0);
                 header0.showBorder();
             }
@@ -1181,8 +1184,7 @@ class VersusAHGUI : AHGUI::GUI {
         array<vec3> colors = {};
         int lastPartEnd = 0;
     
-        int foundAt = text.findFirst("@", lastPartEnd); 
-        // Log(error, "start foundAt: " + foundAt);
+        int foundAt = text.findFirst("@", lastPartEnd);
         while(foundAt >= 0){
             if(lastPartEnd != foundAt){
                 string lastPart = text.substr(lastPartEnd, foundAt - lastPartEnd);
@@ -1200,7 +1202,6 @@ class VersusAHGUI : AHGUI::GUI {
                     int foundClosingAt = text.findFirst("@", foundClosingBrace);
                     string vec3Str = text.substr(foundVec3,foundClosingBrace - foundVec3+1);
                     vec3 color = parseVec3(vec3Str);
-                    //Log(error, "color: " + color);
                    
                     if(foundClosingAt > 0) {
                         string input = text.substr(foundClosingBrace + 1, foundClosingAt - foundClosingBrace-1);
@@ -1213,27 +1214,23 @@ class VersusAHGUI : AHGUI::GUI {
             }
 
             foundAt = text.findFirst("@", lastPartEnd);
-
-            // Log(error, "End foundAt: " + foundAt);
         }
-    
 
-        string partsText = "Parts: ";
+        // Add all not colored text between back
         if(uint(lastPartEnd) < text.length()-1){
             parts.push_back(text.substr(lastPartEnd, text.length() - lastPartEnd));
             colors.push_back(defaultColor);
         }
-        for(uint i = 0; i < parts.size(); i++) {
-            partsText +=  parts[i] + " | ";
-        }
     
-        string colorsText = "Colors: ";
-        for(uint i = 0; i < colors.size(); i++) {
-            colorsText += colors[i] + " | ";
-        }
-
-        // Log(error, partsText);
-        // Log(error, colorsText);
+        // string partsText = "Parts: ";
+        // for(uint i = 0; i < parts.size(); i++) {
+        //     partsText +=  parts[i] + " | ";
+        // }
+        //
+        // string colorsText = "Colors: ";
+        // for(uint i = 0; i < colors.size(); i++) {
+        //     colorsText += colors[i] + " | ";
+        // }
 
         for(uint i = 0; i < parts.size(); i++) {
             AHGUI::Text singleSentence(parts[i], "edosz", textSize, colors[i].x, colors[i].y, colors[i].z, 1.0f );
@@ -1243,7 +1240,7 @@ class VersusAHGUI : AHGUI::GUI {
             div.addElement(singleSentence, dd);
             if(showBorders){
                 singleSentence.setBorderSize(1);
-                singleSentence.setBorderColor(1.0, 1.0, 1.0, 1.0);
+                singleSentence.setBorderColor(colors[i].x, colors[i].y, colors[i].z, 1.0);
                 singleSentence.showBorder();
             }
         }
@@ -1257,21 +1254,17 @@ class VersusAHGUI : AHGUI::GUI {
 }
 
 vec3 parseVec3(string text){
-    // DisplayError("parseVec3", "Parsing: " + text);
     int findVec3 = text.findFirst("vec3(");
     if(findVec3 >= 0) {
-        // DisplayError("parseVec3", "Found: vec3( at:" + findVec3);
+        
         int findFirstComa = text.findFirst(",", findVec3);
         if(findFirstComa >= 0) {
-            // DisplayError("parseVec3", "Found first , at: " + findFirstComa);
 
             int findSecondComa = text.findFirst(",", findFirstComa+1);
             if(findSecondComa >= 0) {
-                // DisplayError("parseVec3", "Found second , at: " + findSecondComa);
 
                 int findClosing = text.findFirst(")", findSecondComa);
                 if(findClosing >= 0) {
-                    // DisplayError("parseVec3", "Found closing brace at: " + findClosing);
 
                     int x1 = findVec3+5;
                     int x2 = findFirstComa;
@@ -1292,13 +1285,6 @@ vec3 parseVec3(string text){
                     float x = parseFloat(inputX);
                     float y = parseFloat(inputY);
                     float z = parseFloat(inputZ);
-                    //
-                    // DisplayError("parseVec3", "x1: " + x1 + " x2: " + x2 + " xc: " + xc);
-                    // DisplayError("parseVec3", "y1: " + y1 + " y2: " + y2 + " yc: " + yc);
-                    // DisplayError("parseVec3", "z1: " + z1 + " z2: " + z2 + " zc: " + zc);
-                    //
-                    //DisplayError("parseVec3", "x: " + inputX + " y: " + inputY + " z: " + inputZ);
-                    //DisplayError("parseVec3", "parseFloat x: " + x + " y: " + y + " z: " + z);
 
                     return vec3(x,y,z);
                 }
