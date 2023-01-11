@@ -25,13 +25,13 @@ array<string> insults = {
 
 // This is my fun corner
 array<string> funnies = {
-    "Do you ever dream about cheese?",
+    "Do you ever dream about @vec3(1,0.5,0)cheese?@",
     "There are no bunkers, but still its frickin great.",
     "Have you heard of the high cats?",
-    "HELP! They took me hostage to keep me writing these!",
+    "@vec3(1,0,0)HELP!@ They took me hostage to keep me writing these!",
     "I liked the part where you just fell down.",
-    "This is a test hint, no need to panic.",
-    "Play Skatebird, the most wholesome game.",
+    "@vec3(0,0.5,1)This is a test hint, no need to panic.@",
+    "Play @vec3(1,0.8,0)Skatebird@, the most wholesome game.",
     "This is more fun than picking up bullets from ground.",
     "I like my hints, like my girls, rare. Wait, no.",
     "My favorite class is the rat.",
@@ -41,30 +41,30 @@ array<string> funnies = {
 
 // TODO! Add cases when which should be used (only use first two if `blockSpeciesChange==false` etc.)
 array<string> warmupHints = {
-    "Hold @drop@ and @item@ to activate character change...",
-    "...then just press @attack@ to cycle through them.",
+    "Hold @vec3(1,0.5,0)@drop@@ and @vec3(1,0.5,0)@item@@ to activate character change...",
+    "...then just press @vec3(1,0.5,0)@attack@@ to cycle through them.",
     "If your character wont change right now, it will on next respawn.",
     "Weapons will respawn after not being picked back up.",
-    "Violet powerup is ninja mode, infinite throwing knife, just hold @item@.",
+    "Violet powerup is ninja mode, infinite throwing knife, just hold @vec3(1,0.5,0)@item@@.",
     "Blue powerup makes you sturdy as a rock.",
     "Green powerup will heal all your wounds.",
-    "You can enable hints during game by turning on `Tutorials` option in Settings"
+    "You can enable hints during game by turning on @vec3(0.6,0.6,0.6)Tutorials@ option in Settings"
 };
 
 // TODO! These will be scrambled
 array<string> randomHints = {
     "Horizontal mobility is great, but cats and rats can dominate vertical spaces.",
-    "Try using @jump@ as a dash, while playing cat or rat.",
-    "You can disable these hints by disabling `Tutorials` option in settings.",
+    "Try using @vec3(1,0.5,0)@jump@@ as a dash, while playing cat or rat.",
+    "You can disable these hints by disabling @vec3(0.6,0.6,0.6)Tutorials@ option in settings.",
     "Dogs are resilient, can withstand more punishment than other races.",
     "Wolves are a great target for sharp weapons.",
     "Wolves are slow, if they're about to attack, run.",
     "Rabbit kick is sometimes what a cheeky wolf needs.",
     "Fighting a wolf bare handed, probably not the best idea.",
     "Tired of getting things thrown at you? Be a cat!",
-    "Holster weapons holding @drop@.",
+    "Holster weapons holding @vec3(1,0.5,0)@drop@@.",
     "Throwing a weapon does less damage than swinging it.",
-    "You can time a @grab@ press to catch an thrown weapon.",
+    "You can time a @vec3(1,0.5,0)@grab@@ press to catch an thrown weapon.",
     "You can pull out a weapon stuck in a wolf, for a quick kill."
 };
 
@@ -496,19 +496,22 @@ string InsertKeysToString( string text )
                 string first_half = text.substr(0,i);
                 string second_half = text.substr(j+1);
                 string input = text.substr(i+1,j-i-1);
-                
+               
                 string middle = GetStringDescriptionForBinding("gamepad_0", input);
-                
-                // We decide whether we should show keyboard and mouse inputs
-                //Log(error,"last_mouse_event_time: " + last_mouse_event_time + " last_keyboard_event_time: " + last_keyboard_event_time);
-                string middleKb = "";
-                //Log(error, "scriptlastKbMInputTimer: " + scriptlastKbMInputTimer + " ignoreKbMAfter: " + scriptlastKbMInputTimer);
-                if(ignoreKbMAfter > scriptlastKbMInputTimer){
-                    middleKb = "/" + GetStringDescriptionForBinding("key", input);
+
+                // We only change them if we need to
+                // TODO: `GetStringDescriptionForBinding` returns the same string if it cant find binding? Kinda weird
+                if(middle != input){
+                    // We decide whether we should show keyboard and mouse inputs
+                    string middleKb = "";
+                    if(ignoreKbMAfter > scriptlastKbMInputTimer){
+                        middleKb = "/" + GetStringDescriptionForBinding("key", input);
+                    }
+
+                    text = first_half + middle + middleKb + second_half;
+                    i += middle.length();
                 }
 
-                text = first_half + middle + middleKb + second_half;
-                i += middle.length();
                 break;
             }
         }
@@ -943,24 +946,36 @@ class VersusAHGUI : AHGUI::GUI {
     }
     
     void UpdateText(){
+    
         AHGUI::Element@ headerElement = root.findElement("header");
-        if( headerElement is null  ) {
+        if(headerElement is null) {
             DisplayError("GUI Error", "Unable to find header");
             // Just reload the level on this error
             LoadLevel(GetCurrLevelRelPath());
         }
+
+        AHGUI::Element@ extraHeaderElement = root.findElement("extraHeader");
+        if(extraHeaderElement is null) {
+            DisplayError("GUI Error", "Unable to find extraHeader");
+            // Just reload the level on this error
+            LoadLevel(GetCurrLevelRelPath());
+        }
         AHGUI::Divider@ header = cast<AHGUI::Divider>(headerElement);
+        AHGUI::Divider@ extraHeader = cast<AHGUI::Divider>(extraHeaderElement);
         // Get rid of the old contents
         header.clear();
         header.clearUpdateBehaviors();
         header.setDisplacement();
+        extraHeader.clear();
+        extraHeader.clearUpdateBehaviors();
+        extraHeader.setDisplacement();
     
         // If in editor hide the text
         if(EditorModeActive()){
-            DisplayText(DDTop, header, 8, "", 90, "", 55);
+            DisplayText(DDTop, header, extraHeader, 100, "", 90, "", 55);
         }
         else{
-            DisplayText(DDTop, header, 8, text, 90, extraText, 55);
+            DisplayText(DDTop, header, extraHeader, 100, text, 90, extraText, 55);
         }
     }
     
@@ -1016,11 +1031,11 @@ class VersusAHGUI : AHGUI::GUI {
 
             //Cyan For Text
             AHGUI::Divider
-            @header = container.addDivider(DDTopLeft, DOVertical, ivec2(AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE));
+            @header = container.addDivider(DDTopLeft, DOHorizontal, ivec2(50, AH_UNDEFINEDSIZE));
             header.setName("header");
-            header.setVeritcalAlignment(BARight);
-            header.setHorizontalAlignment(BABottom);
-            if (showBorders) {
+            header.setVeritcalAlignment(BACenter);
+            header.setHorizontalAlignment(BACenter);
+            if (true) {
                 header.setBorderSize(3);
                 header.setBorderColor(0.0, 1.0, 1.0, 1.0);
                 header.showBorder();
@@ -1032,6 +1047,17 @@ class VersusAHGUI : AHGUI::GUI {
             @containerTop = root.addDivider(DDBottom, DOHorizontal, ivec2(AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE));
 
             int playerNr = versusPlayers.size();
+
+            AHGUI::Divider
+            @extraHeader = container.addDivider(DDBottomRight, DOHorizontal, ivec2(50, AH_UNDEFINEDSIZE));
+            extraHeader.setName("extraHeader");
+            extraHeader.setVeritcalAlignment(BACenter);
+            extraHeader.setHorizontalAlignment(BACenter);
+            if (true) {
+                extraHeader.setBorderSize(3);
+                extraHeader.setBorderColor(1.0, 0.5, 0.0, 1.0);
+                extraHeader .showBorder();
+            }
 
             //Yellow
             AHGUI::Divider
@@ -1127,11 +1153,9 @@ class VersusAHGUI : AHGUI::GUI {
     }
 
     // TODO! This is needlessly complicated
-    void DisplayText(DividerDirection dd, AHGUI::Divider@ div, int maxWords, string text, int textSize, string extraTextVal = "", int extraTextSize = 0) {
+    void DisplayText(DividerDirection dd, AHGUI::Divider@ div, AHGUI::Divider@ extraDiv, int maxWords, string text, int textSize, string extraTextVal = "", int extraTextSize = 0) {
         //The maxWords is the amount of words per line.
         array<string> sentences;
-    
-        text = InsertKeysToString( text );
 
         array<string> words = text.split(" ");
         string sentence;
@@ -1143,9 +1167,79 @@ class VersusAHGUI : AHGUI::GUI {
             }
         }
         for(uint k = 0; k < sentences.size(); k++){
-            AHGUI::Text singleSentence( sentences[k], "edosz", textSize, textColor.x, textColor.y, textColor.z, 1.0f );
+            BuildColoredTextBox(dd, div, text, textSize, textColor);
+        }
+        if(extraTextVal != ""){
+            BuildColoredTextBox(dd, extraDiv, extraTextVal, extraTextSize, extraTextColor);
+        }
+    }
+
+    // TODO! Clean this up
+    void BuildColoredTextBox(DividerDirection dd, AHGUI::Divider@ div, string text, int textSize, vec3 defaultColor) {
+
+        array<string> parts = {};
+        array<vec3> colors = {};
+        int lastPartEnd = 0;
+    
+        int foundAt = text.findFirst("@", lastPartEnd); 
+        // Log(error, "start foundAt: " + foundAt);
+        while(foundAt >= 0){
+            if(lastPartEnd != foundAt){
+                string lastPart = text.substr(lastPartEnd, foundAt - lastPartEnd);
+                parts.push_back(lastPart);
+                colors.push_back(defaultColor);
+                lastPartEnd = foundAt;
+            }
+
+            int foundVec3 = text.findFirst("vec3(", foundAt + 1);
+
+            if(foundVec3 >= 0) {
+                int foundClosingBrace = text.findFirst(")", foundVec3 + 1);
+               
+                if(foundClosingBrace >= 0) {
+                    int foundClosingAt = text.findFirst("@", foundClosingBrace);
+                    string vec3Str = text.substr(foundVec3,foundClosingBrace - foundVec3+1);
+                    vec3 color = parseVec3(vec3Str);
+                    //Log(error, "color: " + color);
+                   
+                    if(foundClosingAt > 0) {
+                        string input = text.substr(foundClosingBrace + 1, foundClosingAt - foundClosingBrace-1);
+
+                        parts.push_back(input);
+                        colors.push_back(color);
+                        lastPartEnd = foundClosingAt + 1;
+                    }
+                }
+            }
+
+            foundAt = text.findFirst("@", lastPartEnd);
+
+            // Log(error, "End foundAt: " + foundAt);
+        }
+    
+
+        string partsText = "Parts: ";
+        if(uint(lastPartEnd) < text.length()-1){
+            parts.push_back(text.substr(lastPartEnd, text.length() - lastPartEnd));
+            colors.push_back(defaultColor);
+        }
+        for(uint i = 0; i < parts.size(); i++) {
+            partsText +=  parts[i] + " | ";
+        }
+    
+        string colorsText = "Colors: ";
+        for(uint i = 0; i < colors.size(); i++) {
+            colorsText += colors[i] + " | ";
+        }
+
+        // Log(error, partsText);
+        // Log(error, colorsText);
+
+        for(uint i = 0; i < parts.size(); i++) {
+            AHGUI::Text singleSentence(parts[i], "edosz", textSize, colors[i].x, colors[i].y, colors[i].z, 1.0f );
             singleSentence.setShadowed(true);
-            //singleSentence.addUpdateBehavior( AHGUI::FadeIn( 1000, @inSine ) );
+            singleSentence.setVeritcalAlignment(BACenter);
+            singleSentence.setHorizontalAlignment(BACenter);
             div.addElement(singleSentence, dd);
             if(showBorders){
                 singleSentence.setBorderSize(1);
@@ -1153,17 +1247,66 @@ class VersusAHGUI : AHGUI::GUI {
                 singleSentence.showBorder();
             }
         }
-        if(extraTextVal != ""){
-            AHGUI::Text extraSentence(extraTextVal, "edosz", extraTextSize, extraTextColor.x, extraTextColor.y, extraTextColor.z, 1.0f );
-            extraSentence.setShadowed(true);
-            div.addElement(extraSentence, dd);
-        }
+        
     }
     
     void Update(){
         CheckForUIChange();
         AHGUI::GUI::update();
     }
+}
+
+vec3 parseVec3(string text){
+    // DisplayError("parseVec3", "Parsing: " + text);
+    int findVec3 = text.findFirst("vec3(");
+    if(findVec3 >= 0) {
+        // DisplayError("parseVec3", "Found: vec3( at:" + findVec3);
+        int findFirstComa = text.findFirst(",", findVec3);
+        if(findFirstComa >= 0) {
+            // DisplayError("parseVec3", "Found first , at: " + findFirstComa);
+
+            int findSecondComa = text.findFirst(",", findFirstComa+1);
+            if(findSecondComa >= 0) {
+                // DisplayError("parseVec3", "Found second , at: " + findSecondComa);
+
+                int findClosing = text.findFirst(")", findSecondComa);
+                if(findClosing >= 0) {
+                    // DisplayError("parseVec3", "Found closing brace at: " + findClosing);
+
+                    int x1 = findVec3+5;
+                    int x2 = findFirstComa;
+                    int xc = x2 - x1;
+
+                    int y1 = findFirstComa+1;
+                    int y2 = findSecondComa;
+                    int yc = y2 - y1;
+
+                    int z1 = findSecondComa+1;
+                    int z2 = findClosing;
+                    int zc = z2 - z1;
+
+                    string inputX = text.substr(x1,xc);
+                    string inputY = text.substr(y1,yc);
+                    string inputZ = text.substr(z1,zc);
+
+                    float x = parseFloat(inputX);
+                    float y = parseFloat(inputY);
+                    float z = parseFloat(inputZ);
+                    //
+                    // DisplayError("parseVec3", "x1: " + x1 + " x2: " + x2 + " xc: " + xc);
+                    // DisplayError("parseVec3", "y1: " + y1 + " y2: " + y2 + " yc: " + yc);
+                    // DisplayError("parseVec3", "z1: " + z1 + " z2: " + z2 + " zc: " + zc);
+                    //
+                    //DisplayError("parseVec3", "x: " + inputX + " y: " + inputY + " z: " + inputZ);
+                    //DisplayError("parseVec3", "parseFloat x: " + x + " y: " + y + " z: " + z);
+
+                    return vec3(x,y,z);
+                }
+            }
+        }
+    }
+    DisplayError("parseVec3", "Couldnt parseVec3: " + text);
+    return vec3();
 }
 
 // Inspired, again, by how its done in arena_level.as 
@@ -1433,7 +1576,7 @@ void ChangeGameState(uint newState) {
         case 0: 
             //Warmup, select player number
             versusAHGUI.SetText("Warmup!",
-                "Press @skip_dialogue@ button to begin.");
+                "Press @vec3(1,0.5,0)@skip_dialogue@@ button to begin.");
             break;
         case 1: 
             //Failsafe, not enough spawns, waiting for acknowledgment
