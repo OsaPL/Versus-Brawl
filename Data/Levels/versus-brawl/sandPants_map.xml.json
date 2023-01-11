@@ -1,0 +1,19 @@
+{
+  "SpeciesStats": {
+    "rabbit": {
+      "Fall Damage Multiplier": 2.5
+    },
+    "cat": {
+      "Fall Damage Multiplier": 1.0
+    },
+    "dog": {
+      "Fall Damage Multiplier": 1.0
+    },
+    "rat": {
+      "Fall Damage Multiplier": 2.5
+    },
+    "wolf": {
+      "Fall Damage Multiplier": 1.0
+    }
+  }
+}

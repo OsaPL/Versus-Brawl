@@ -1,14 +1,15 @@
 # DO THOSE THINGS:
+- create a generic thing for managing and "switching" objects (gut out what is already done in `waterRiseHotspot`?)
 - get rid of that stupid limitation of: `respawnTime cant be smaller than activeTime` on powerupBase
-- make winner/crown logic generic (move it to the versusBase) and support multiple winners (for teams update)
-- NIDHOGG gamemode!
 - add checkmarks or something to race goal to show you've already hit them
-- extend `powerUpBase.as` to allow more than a single particle emitter
-- `poleFlagItem` will animate legs moving after hitting someone
 
 # Maybe, Maybees, Maybies?
 - for simple arrays, I should just use `int find(const T& in)`
 - enable/disable hints ingame by using a key combo
+- extend `powerUpBase.as` to allow more than a single particle emitter
+
+# Attribute!
+- Worm model: https://sketchfab.com/3d-models/worm-a3c6bc4cddd9449783d399a2a4c1dec2#download
 
 ### For changelogs
 `git log <hash>..HEAD --pretty=format:%s`

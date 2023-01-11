@@ -41,4 +41,41 @@
         <Level title="(Alpha)Imperial Sewers DM" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/sewer_map.xml</Level>
         <Level title="(WIP)Tree Climb RACE" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/branches_map.xml</Level>
     </Campaign>
+
+<!--    <MenuItem title="My Campaign" thumbnail="Textures/example_simple_campaign/campaign_thumbnails/Clearing.jpg" category="play">Data/Scripts/custom_campaign/my_campaign_menu.as</MenuItem>-->
+<!--    <MenuItem title="Modding" category="main">Data/Scripts/mod_handler/mod_handler_menu.as</MenuItem>-->
+<!--    <MenuItem title="Mod Handler" category="sub">Data/Scripts/mod_handler/mod_handler_menu.as</MenuItem>-->
+
+    <!-- TODO! Extend these-->
+    <!-- Static Object-->
+    <Item category="VersusBrawl"
+          title="[o] Worm"
+          path="Data/Objects/worm.xml"
+          thumbnail="Data/UI/spawner/thumbs/Hotspot/empty.png" />
+    
+    <!-- Hotspots-->
+    <Item category="VersusBrawl"
+          title="[h] charCatapultHotspot.xml"
+          path="Data/Objects/versus-brawl/hotspots/charCatapultHotspot.xml"
+          thumbnail="Data/Textures/ui/versusBrawl/platform_icon.png" />
+    <Item category="VersusBrawl"
+          title="[h] flagHotspot"
+          path="Data/Objects/versus-brawl/hotspots/flagHotspot.xml"
+          thumbnail="Data/Textures/ui/versusBrawl/flag_icon.png" />
+    <Item category="VersusBrawl"
+          title="[h] flagReturnHotspot"
+          path="Data/Objects/versus-brawl/hotspots/flagReturnHotspot.xml"
+          thumbnail="Data/Textures/ui/versusBrawl/return_icon.png" />
+    <Item category="VersusBrawl"
+          title="[h] leaderCrownHotspot"
+          path="Data/Objects/versus-brawl/hotspots/leaderCrownHotspot.xml"
+          thumbnail="Data/Textures/versus-brawl/crown.png" />
+    <Item category="VersusBrawl"
+          title="[h] nidhoggPhaseHotspot"
+          path="Data/Objects/versus-brawl/hotspots/nidhoggPhaseHotspot.xml"
+          thumbnail="Data/Textures/ui/versusBrawl/phase_icon.png" />
+    <Item category="VersusBrawl"
+          title="[h] teleporterHotspot"
+          path="Data/Objects/versus-brawl/hotspots/teleporterHotspot.xml"
+          thumbnail="Data/Textures/ui/versusBrawl/teleporterOk.png" />
 </Mod>
