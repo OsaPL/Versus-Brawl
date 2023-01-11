@@ -1,0 +1,404 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<Name>testNidhogg</Name>
+<Description></Description>
+<Shader>post</Shader>
+<Shadows>true</Shadows>
+<LoadingScreen>
+    <Image></Image>
+</LoadingScreen>
+<OutOfDate NavMesh="true" NavMeshParamHash="-1674835251" />
+<AmbientSounds />
+<Script>nidhoggGamemode.as</Script>
+<LevelScriptParameters>
+    <parameter name="Achievements" type="string" val="flawless, no_injuries, no_kills" />
+    <parameter name="AllOpen" type="int" val="1" />
+    <parameter name="Attacking" type="int" val="2" />
+    <parameter name="CurrentPhase" type="int" val="0" />
+    <parameter name="Custom Shader" type="string" val="" />
+    <parameter name="Fog amount" type="float" val="1" />
+    <parameter name="GPU Particle Field" type="string" val="" />
+    <parameter name="HDR Black point" type="float" val="0.005" />
+    <parameter name="HDR Bloom multiplier" type="float" val="1" />
+    <parameter name="HDR White point" type="float" val="0.971" />
+    <parameter name="Level Boundaries" type="int" val="1" />
+    <parameter name="Load Tip" type="string" val="" />
+    <parameter name="Objectives" type="string" val="destroy_all" />
+    <parameter name="OpenPhase" type="int" val="0" />
+    <parameter name="Saturation" type="float" val="1" />
+    <parameter name="Sky Brightness" type="float" val="1" />
+    <parameter name="Sky Rotation" type="float" val="0" />
+    <parameter name="Sky Tint" type="string" val="255, 255, 255" />
+    <parameter name="game_type" type="string" val="versusBrawl" />
+</LevelScriptParameters>
+<NavMeshParameters generate="true" cell_size="0.3" cell_height="0.2" agent_height="1.7" agent_radius="0.4" agent_max_climb="1.5" agent_max_slope="60" />
+<Sky>
+    <DomeTexture>Data/Textures/skies/CloudySunset.tga</DomeTexture>
+    <SunAngularRad>0.153056</SunAngularRad>
+    <SunColorAngle>353.589</SunColorAngle>
+    <RayToSun r0="-0.317867" r1="0.936497" r2="-0.148104" />
+</Sky>
+<ActorObjects>
+    <CameraObject t0="-6.5235" t1="8.68186" t2="6.62151" s0="1" s1="1" s2="1" q0="0.355933" q1="-0.614511" q2="0.362332" q3="0.603658" euler_x="-2.07607" euler_y="-1.55298" euler_z="3.14159" id="0">
+        <parameters />
+    </CameraObject>
+    <EnvObject t0="-1.59368" t1="-0.106562" t2="6.79311" s0="13.0913" s1="1" s2="13.8743" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="-6.6031" t1="1.5517" t2="13.9716" s0="0.197531" s1="0.197531" s2="0.197531" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="4" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom>
+            <Connection id="10" />
+        </ConnectionsFrom>
+    </Hotspot>
+    <Hotspot t0="-6.61774" t1="1.79765" t2="19.5906" s0="2.02" s1="0.425544" s2="0.4" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="5" type_file="Data/Objects/versus-brawl/hotspots/nidhoggPhaseHotspot.xml">
+        <parameters>
+            <parameter name="phase" type="int" val="-3" />
+            <parameter name="teamId" type="int" val="-1" />
+            <parameter name="type" type="string" val="nidhoggPhaseHotspot" />
+        </parameters>
+        <Connections>
+            <Connection id="22" />
+            <Connection id="23" />
+            <Connection id="42" />
+        </Connections>
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject t0="-6.48411" t1="2.0603" t2="16.3122" s0="0.482695" s1="0.79183" s2="0.056282" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
+        <parameters />
+    </EnvObject>
+    <Group t0="-6.21671" t1="-14.4678" t2="52.0854" s0="14.0253" s1="46.0503" s2="66.9071" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7" version="1">
+        <parameters />
+        <EnvObject t0="-6.65022" t1="-14.4678" t2="52.0854" s0="1.5" s1="1.5" s2="1.5" q0="0.612372" q1="0.612372" q2="-0.353553" q3="0.353553" euler_x="3.14159" euler_y="1.04719" euler_z="1.57079" id="49" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/worm.xml">
+            <parameters />
+        </EnvObject>
+        <Decal t0="-6.21671" t1="-3.20363" t2="32.9053" s0="14.0153" s1="14.0153" s2="14.0153" q0="0.258819" q1="0" q2="0" q3="0.965926" euler_x="0.523599" euler_y="0" euler_z="0" id="50" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0" color_g="0" color_b="0" overbright="0">
+            <parameters />
+        </Decal>
+    </Group>
+    <Group t0="-6.58074" t1="-13.8959" t2="-37.4875" s0="14.0253" s1="14.0253" s2="69.839" q0="0" q1="0.965926" q2="-0.258819" q3="0" euler_x="-2.61799" euler_y="0" euler_z="3.14159" id="8" version="1">
+        <parameters />
+        <EnvObject t0="-6.14903" t1="-14.0393" t2="-37.4047" s0="1.5" s1="1.5" s2="1.5" q0="-0.353553" q1="0.353553" q2="-0.612372" q3="-0.612372" euler_x="0" euler_y="-1.04719" euler_z="1.57079" id="9" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/worm.xml">
+            <parameters />
+        </EnvObject>
+        <Decal t0="-6.58074" t1="-2.77346" t2="-18.2229" s0="14.0153" s1="14.0153" s2="14.0153" q0="0" q1="0.965926" q2="-0.258819" q3="0" euler_x="-2.61799" euler_y="0" euler_z="3.14159" id="47" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0" color_g="0" color_b="0" overbright="0">
+            <parameters />
+        </Decal>
+    </Group>
+    <Hotspot t0="-6.76794" t1="1.81923" t2="15.4447" s0="2.14974" s1="0.430934" s2="0.4" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="10" type_file="Data/Objects/versus-brawl/hotspots/nidhoggPhaseHotspot.xml">
+        <parameters>
+            <parameter name="phase" type="int" val="-2" />
+            <parameter name="teamId" type="int" val="-1" />
+            <parameter name="type" type="string" val="nidhoggPhaseHotspot" />
+        </parameters>
+        <Connections>
+            <Connection id="4" />
+            <Connection id="6" />
+            <Connection id="33" />
+        </Connections>
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject t0="-0.835629" t1="2.03862" t2="7.03672" s0="1.44122" s1="1" s2="0.748624" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="11" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="-6.31737" t1="1.79933" t2="-5.39272" s0="1.94609" s1="0.455864" s2="0.13531" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="12" type_file="Data/Objects/versus-brawl/hotspots/charCatapultHotspot.xml">
+        <parameters>
+            <parameter name="reuseCharactersVelocity" type="int" val="0" />
+            <parameter name="trampolineBoost" type="float" val="10" />
+            <parameter name="trampolineMinimalVelocityY" type="float" val="0.2" />
+            <parameter name="trampolineMode" type="int" val="0" />
+            <parameter name="type" type="string" val="flagReturnHotspot" />
+            <parameter name="upwardsBoostScale" type="float" val="0.2" />
+            <parameter name="velocity" type="float" val="15" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="3.10271" t1="1.17898" t2="7.9181" s0="0.477354" s1="0.424449" s2="0.0517304" q0="0.707107" q1="0" q2="0" q3="-0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="13" type_file="Data/Objects/versus-brawl/hotspots/charCatapultHotspot.xml">
+        <parameters>
+            <parameter name="reuseCharactersVelocity" type="int" val="1" />
+            <parameter name="trampolineBoost" type="float" val="10" />
+            <parameter name="trampolineMinimalVelocityY" type="float" val="0.2" />
+            <parameter name="trampolineMode" type="int" val="1" />
+            <parameter name="type" type="string" val="flagReturnHotspot" />
+            <parameter name="upwardsBoostScale" type="float" val="0" />
+            <parameter name="velocity" type="float" val="0" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-6.30984" t1="2.08453" t2="8.62151" s0="0.197531" s1="0.197531" s2="0.197531" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="14" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom>
+            <Connection id="18" />
+        </ConnectionsFrom>
+    </Hotspot>
+    <EnvObject t0="3.0856" t1="0.93495" t2="7.90441" s0="0.216455" s1="0.0818901" s2="0.218563" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="15" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/rabbit_village/rabbit_hut_roof.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="-6.69628" t1="1.73615" t2="-6.04931" s0="2.09471" s1="0.377516" s2="0.4" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="16" type_file="Data/Objects/versus-brawl/hotspots/nidhoggPhaseHotspot.xml">
+        <parameters>
+            <parameter name="phase" type="int" val="3" />
+            <parameter name="teamId" type="int" val="0" />
+            <parameter name="type" type="string" val="nidhoggPhaseHotspot" />
+        </parameters>
+        <Connections>
+            <Connection id="29" />
+            <Connection id="32" />
+            <Connection id="40" />
+        </Connections>
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject t0="-6.00184" t1="2.27911" t2="10.4737" s0="0.482695" s1="0.79183" s2="0.056282" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="17" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="-6.57631" t1="2.00268" t2="10.1309" s0="2.01095" s1="0.449818" s2="0.4" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="18" type_file="Data/Objects/versus-brawl/hotspots/nidhoggPhaseHotspot.xml">
+        <parameters>
+            <parameter name="phase" type="int" val="-1" />
+            <parameter name="teamId" type="int" val="-1" />
+            <parameter name="type" type="string" val="nidhoggPhaseHotspot" />
+        </parameters>
+        <Connections>
+            <Connection id="14" />
+            <Connection id="17" />
+            <Connection id="24" />
+        </Connections>
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-6.90504" t1="1.48133" t2="6.937" s0="0.185894" s1="0.185894" s2="0.185894" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="19" type_file="Data/Objects/versus-brawl/hotspots/nidhoggPhaseHotspot.xml">
+        <parameters>
+            <parameter name="phase" type="int" val="0" />
+            <parameter name="teamId" type="int" val="-1" />
+            <parameter name="type" type="string" val="nidhoggPhaseHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-6.64577" t1="2.06185" t2="3.80587" s0="1.98679" s1="0.420568" s2="0.4" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="20" type_file="Data/Objects/versus-brawl/hotspots/nidhoggPhaseHotspot.xml">
+        <parameters>
+            <parameter name="phase" type="int" val="1" />
+            <parameter name="teamId" type="int" val="0" />
+            <parameter name="type" type="string" val="nidhoggPhaseHotspot" />
+        </parameters>
+        <Connections>
+            <Connection id="26" />
+            <Connection id="27" />
+            <Connection id="28" />
+        </Connections>
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-6.59259" t1="1.82621" t2="-1.99029" s0="1.99249" s1="0.417256" s2="0.4" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="21" type_file="Data/Objects/versus-brawl/hotspots/nidhoggPhaseHotspot.xml">
+        <parameters>
+            <parameter name="phase" type="int" val="2" />
+            <parameter name="teamId" type="int" val="0" />
+            <parameter name="type" type="string" val="nidhoggPhaseHotspot" />
+        </parameters>
+        <Connections>
+            <Connection id="25" />
+            <Connection id="30" />
+            <Connection id="31" />
+        </Connections>
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-6.84296" t1="1.48669" t2="17.7876" s0="0.197531" s1="0.197531" s2="0.197531" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="22" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom>
+            <Connection id="5" />
+        </ConnectionsFrom>
+    </Hotspot>
+    <EnvObject t0="-6.73349" t1="2.17729" t2="20.421" s0="0.482695" s1="0.79183" s2="0.056282" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="23" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="-6.71559" t1="1.53513" t2="11.9284" s0="0.197531" s1="0.197531" s2="0.197531" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="24" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="0" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom>
+            <Connection id="18" />
+        </ConnectionsFrom>
+    </Hotspot>
+    <Hotspot t0="-7.30135" t1="1.74479" t2="-0.452775" s0="0.197531" s1="0.197531" s2="0.197531" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="25" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="0" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom>
+            <Connection id="21" />
+        </ConnectionsFrom>
+    </Hotspot>
+    <Hotspot t0="-6.91596" t1="1.68237" t2="5.16869" s0="0.197531" s1="0.197531" s2="0.197531" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="26" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="0" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom>
+            <Connection id="20" />
+        </ConnectionsFrom>
+    </Hotspot>
+    <Hotspot t0="-7.45274" t1="1.39108" t2="2.31707" s0="0.197531" s1="0.197531" s2="0.197531" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="27" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom>
+            <Connection id="20" />
+        </ConnectionsFrom>
+    </Hotspot>
+    <EnvObject t0="-7.07162" t1="2.24333" t2="4.3731" s0="0.482695" s1="0.79183" s2="0.056282" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="28" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="-7.43734" t1="1.38534" t2="-4.30144" s0="0.197531" s1="0.197531" s2="0.197531" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="29" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="0" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom>
+            <Connection id="16" />
+        </ConnectionsFrom>
+    </Hotspot>
+    <Hotspot t0="-7.72014" t1="1.13475" t2="-3.07775" s0="0.197531" s1="0.197531" s2="0.197531" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="30" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom>
+            <Connection id="21" />
+        </ConnectionsFrom>
+    </Hotspot>
+    <EnvObject t0="-6.50596" t1="2.1196" t2="-1.28253" s0="0.482695" s1="0.79183" s2="0.056282" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="31" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-6.86281" t1="2.13543" t2="-5.29979" s0="0.482695" s1="0.79183" s2="0.056282" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="32" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="-7.00699" t1="1.46785" t2="16.7597" s0="0.197531" s1="0.197531" s2="0.197531" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="33" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="0" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom>
+            <Connection id="10" />
+        </ConnectionsFrom>
+    </Hotspot>
+    <EnvObject t0="-12.3802" t1="1.97618" t2="6.74708" s0="1.44122" s1="1" s2="0.748624" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="35" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="-6.95692" t1="2.74695" t2="-7.33773" s0="0.197531" s1="0.197531" s2="0.197531" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="40" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom>
+            <Connection id="16" />
+        </ConnectionsFrom>
+    </Hotspot>
+    <Hotspot t0="-6.61491" t1="1.79163" t2="18.8566" s0="1.94609" s1="0.455864" s2="0.13531" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="41" type_file="Data/Objects/versus-brawl/hotspots/charCatapultHotspot.xml">
+        <parameters>
+            <parameter name="reuseCharactersVelocity" type="int" val="0" />
+            <parameter name="trampolineBoost" type="float" val="10" />
+            <parameter name="trampolineMinimalVelocityY" type="float" val="0.2" />
+            <parameter name="trampolineMode" type="int" val="0" />
+            <parameter name="type" type="string" val="flagReturnHotspot" />
+            <parameter name="upwardsBoostScale" type="float" val="0.2" />
+            <parameter name="velocity" type="float" val="15" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-6.63791" t1="3.15734" t2="21.138" s0="0.197531" s1="0.197531" s2="0.197531" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="42" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="0" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom>
+            <Connection id="5" />
+        </ConnectionsFrom>
+    </Hotspot>
+    <Hotspot t0="-7.27319" t1="2.04173" t2="-6.7761" s0="2.34057" s1="1" s2="0.693464" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="43" type_file="Data/Objects/Hotspots/generic_kill.xml">
+        <parameters>
+            <parameter name="KillNPC" type="int" val="1" />
+            <parameter name="KillPlayer" type="int" val="1" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-7.11194" t1="1.784" t2="20.5939" s0="2.24571" s1="0.959473" s2="0.66536" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="44" type_file="Data/Objects/Hotspots/generic_kill.xml">
+        <parameters>
+            <parameter name="KillNPC" type="int" val="1" />
+            <parameter name="KillPlayer" type="int" val="1" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-5.37857" t1="-4.82883" t2="35.0632" s0="2.26503" s1="1.76263" s2="1.87918" q0="-0.5" q1="0" q2="0" q3="0.866025" euler_x="-1.0472" euler_y="0" euler_z="0" id="54" type_file="Data/Objects/Hotspots/wet_cube.xml">
+        <parameters>
+            <parameter name="Water Fog" type="float" val="1" />
+            <parameter name="Wave Density" type="float" val="0.25" />
+            <parameter name="Wave Height" type="float" val="0.5" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-7.08499" t1="-3.92113" t2="-19.8807" s0="2.26503" s1="1.76263" s2="1.87918" q0="0.5" q1="0" q2="0" q3="0.866026" euler_x="1.0472" euler_y="0" euler_z="0" id="63" type_file="Data/Objects/Hotspots/wet_cube.xml">
+        <parameters>
+            <parameter name="Water Fog" type="float" val="1" />
+            <parameter name="Wave Density" type="float" val="0.25" />
+            <parameter name="Wave Height" type="float" val="0.5" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+</ActorObjects>
+<RecentItems>
+    <SpawnerItem display_name="leaderCrownHotspot.xml" path="Data/Objects/versus-brawl/hotspots/leaderCrownHotspot.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Staff" path="Data/Items/staffbasic.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Dog Knife" path="Data/Items/DogWeapons/DogKnife.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/wknife.png" />
+    <SpawnerItem display_name="Dog Sword" path="Data/Items/DogWeapons/DogSword.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/wsword.png" />
+    <SpawnerItem display_name="Dog Broad Sword" path="Data/Items/DogWeapons/DogBroadSword.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/wsword1.png" />
+    <SpawnerItem display_name="Dog Spear" path="Data/Items/DogWeapons/DogSpear.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/wspear.png" />
+    <SpawnerItem display_name="teleporterHotspot.xml" path="Data/Objects/versus-brawl/hotspots/teleporterHotspot.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="flagHotspot.xml" path="Data/Objects/versus-brawl/hotspots/flagHotspot.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="flagReturnHotspot.xml" path="Data/Objects/versus-brawl/hotspots/flagReturnHotspot.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="nidhoggPhaseHotspot.xml" path="Data/Objects/versus-brawl/hotspots/nidhoggPhaseHotspot.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="playerSpawn.xml" path="Data/Objects/playerSpawn.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Generic Kill Hotspot" path="Data/Objects/Hotspots/generic_kill.xml" thumbnail_path="Data/UI/spawner/thumbs/Hotspot/kill.png" />
+    <SpawnerItem display_name="objectFollowerEmitter.xml" path="Data/Objects/powerups/objectFollowerEmitter.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="charCatapultHotspot.xml" path="Data/Objects/versus-brawl/hotspots/charCatapultHotspot.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Lava Kill Hotspot" path="Data/Objects/Hotspots/lava_kill.xml" thumbnail_path="Data/UI/spawner/thumbs/Hotspot/kill.png" />
+    <SpawnerItem display_name="worm.xml" path="Data/Objects/worm.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Water Hotspot" path="Data/Objects/Hotspots/wet_cube.xml" thumbnail_path="Data/UI/spawner/thumbs/Hotspot/water.png" />
+</RecentItems>
