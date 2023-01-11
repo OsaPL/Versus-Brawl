@@ -15,9 +15,9 @@ void SetParameters()
     params.AddFloatSlider("upwardsBoostScale", 0.0f,"min:0,max:1,step:0.01");
     params.AddIntCheckbox("reuseCharactersVelocity", false);
     params.AddIntCheckbox("trampolineMode", false);
-    // Applied when space is held
-    params.AddFloatSlider("trampolineMinimalVelocityY", 0.2f, "min:0,max:2,step:0.001");
     // Under this velocity the trampoline will ignore player
+    params.AddFloatSlider("trampolineMinimalVelocityY", 0.2f, "min:0,max:2,step:0.001");
+    // Applied when space is held
     params.AddFloatSlider("trampolineBoost", 10, "min:0,max:50,step:0.01");
 }
 

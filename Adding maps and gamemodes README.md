@@ -163,7 +163,6 @@ You can create your own gamemodes pretty easily! Start with `versusGameplayTempl
 
 `maxCollateralKillTime` how long does a death count as kill for the last attacker
 
-
 ## UI 
 You can use `versusAHGUI` class to have some basic UI.
 
@@ -171,7 +170,22 @@ Like setting onscreen text using :
 ```c++
 versusAHGUI.SetText("big text","small text", /*text color:*/ vec4(1.0f,0.0f,0.0f,1.0f));
 ```
-or adding an element to players bar
+You can also make text multicolored, like this:
+```c++
+versusAHGUI.SetMainText("white @vec3(1,0,0)RED TEXT@ whiteAgain @ @vec3(0,0,1)BLUE TEXT@", vec4(1.0f,0.0f,0.0f,1.0f));
+```
+`vec3(R,G,B)` defines colors.
+
+Result:
+**white** <span style="color:red">RED TEXT</span> **whiteAgain** <span style="color:blue">BLUE TEXT</span>
+
+You can also include control binding in the text:
+```c++
+versusAHGUI.SetMainText("Press @grab@ to block attacks!", vec4(1.0f,0.0f,0.0f,1.0f));
+```
+Result: **Press left trigger/left mouse button to block attacks!**
+
+Adding an element to players bar
 ```c++
 AHGUI::Element@ headerElement = versusAHGUI.root.findElement("header"+playerNr);
 headerElement.addElement(@AHGUI::Text("Kills: "+killsCount[playerNr], "OpenSans-Regular", 50, 1, 1, 1, 1 ),DDTop);
@@ -285,3 +299,31 @@ Options you can set for `flaghotspot`:
 - `teamId`: defines what team is assigned to this flag
 
 `flagreturn` hotspots once connected to a `flaghotspot` will work as a drop off point for the connected flag. You cant capture enemy flags using this point.
+
+### `teleporterHotspot`
+
+Used to create portals. 
+
+If you want to create a single way portal just connect it to an placeholder/object you wish it to teleport to.
+If you want a two way portal, attach them both to each other.
+
+Options you can set for `teleporterHotspot`:
+- `red`, `green`, `blue`: controls the teleporterHotspot icon color
+- `cooldown`: how long till it can be used again (dont set it to a really low or zero value for 2 way teleports)
+- `teleportSound`: path to teleport sound file
+- `velocityTranslator`: allows you to choose how should velocity be translated after teleport:
+  - `-1`: dont translate velocity, it will be reset
+  - `0`: just transfer it
+  - `1` translate velocity onto direction of the portal, and reverse it if entered on the other side of the portal
+
+### `charCatapultHotspot`
+
+Used to create jump pads, catapults and trampolines for players.
+
+Options you can set for `charCatapultHotspot`:
+- `velocity`: the velocity value to set
+- `upwardsBoostScale`: adds percentage of the velocity to the UP direction, allows to more curved launches
+- `reuseCharactersVelocity`: if true will add the `velocity` to the actual character velocity, otherwise will override it
+- `trampolineMode`: Transforms it into a trampoline, can hold `jump` for a additional boost (options below will only work if true)
+- `trampolineMinimalVelocityY`: what velocity is understood as to low to be bouncing off
+- `trampolineBoost`: velocity boost, given to you a if `jump` is held during landing
