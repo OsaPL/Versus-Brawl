@@ -1,4 +1,4 @@
-﻿#include "hotspots/placeholderFollower.as"
+#include "hotspots/placeholderFollower.as"
 
 string billboardPath = "Data/Textures/ui/versusBrawl/phase_icon.png";
 bool switched = true;
