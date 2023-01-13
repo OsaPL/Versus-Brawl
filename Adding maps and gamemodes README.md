@@ -102,6 +102,19 @@ To implement CTF:
 2. Additionally, you can place some `flagReturn` hotspots, connect those `flagReturn` to `flag` hotspots, for a quicker way to return flags for defenders.
 3. 👻 Setup level json parameters to your liking
 
+### Nidhogg
+
+This gamemode is a little complicated to implement, but it still only needs you to place hotspots, and connect the required things.
+
+1. Place desired amount of `nidhoggPhase` hotspots, and set `phase` parameter accordingly (you can ignore phase `0`)
+2. Add 2 spawns per phase and connect them to the hotspot (make sure there is at least one for each team, `0` and `1`)
+3. Orientate the `nidhoggPhase` so the plus is directed towards phase with lower number (for example: `+[-2] +[-1] +[1] +[2]`)
+4. If you want to seperate phases/stages, you can also connect more stuff to the `nidhoggPhase`, like kill hotspots or any static objects to create walls.
+All connected objects will be enabled/disabled if the phase is currently open or active.
+5. Setup level json parameters to your liking  
+
+👻**Point *3.* will become optional/automatic at a later date**
+
 ### Coop
 
 You dont need to do anything in particular, as long as you use default `aschar.as`.

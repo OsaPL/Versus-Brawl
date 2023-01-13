@@ -97,7 +97,7 @@ int teamsAmount = 2;
 bool allowUneven = false;
 // TODO! Add team selection
 bool allowTeamChange = true;
-bool strictColors = false;
+bool strictTeamColors = false;
 
 string crownObjectPath = "Data/Objects/versus-brawl/hotspots/leaderCrownHotspot.xml";
 
@@ -308,7 +308,7 @@ Object@ CreateCharacter(int playerNr, string species, int teamNr) {
     char.Execute(executeCmd);
     char.controller_id = playerNr;
     
-    if(teamNr != -1 && strictColors) {
+    if(teamNr != -1 && strictTeamColors) {
         RecolorCharacter(teamNr, species, char_obj);
     }
     else{
@@ -1413,8 +1413,8 @@ void VersusBaseLoad(JSONValue settings){
         if(FoundMember(versusBase, "AllowTeamChange"))
             allowTeamChange = versusBase["AllowTeamChange"].asBool();
 
-        if(FoundMember(versusBase, "StrictColors"))
-            strictColors = versusBase["StrictColors"].asBool();
+        if(FoundMember(versusBase, "StrictTeamColors"))
+            strictTeamColors = versusBase["StrictTeamColors"].asBool();
     }
 }
 

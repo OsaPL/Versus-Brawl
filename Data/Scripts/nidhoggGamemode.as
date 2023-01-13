@@ -44,6 +44,7 @@ void Init(string msg){
     //Always need to call this first!
     VersusInit("");
 
+    loadCallbacks.push_back(@NidhoggLoad);
 
     levelTimer.Add(LevelEventJob("reset", function(_params){
         ResetNidhogg();
@@ -127,6 +128,20 @@ void Init(string msg){
 
     // And finally load JSON Params
     LoadJSONLevelParams();
+}
+
+void NidhoggLoad(JSONValue settings) {
+    Log(error, "NidhoggLoad:");
+    if(FoundMember(settings, "Nidhogg")) {
+        JSONValue nidhogg = settings["Nidhogg"];
+        Log(error, "Available: " + join(nidhogg.getMemberNames(),","));
+
+        if (FoundMember(nidhogg, "PhasesToWin")){
+            pointsToWin = nidhogg["PhasesToWin"].asInt() - 1;
+            Log(error, "PhasesToWin: " + pointsToWin);
+        }
+            
+    }
 }
 
 bool CheckSide(int charId, int objId){

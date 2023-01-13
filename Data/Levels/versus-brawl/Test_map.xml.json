@@ -20,7 +20,7 @@
     "TeamsAmount": 2,
     "AllowUneven": true,
     "AllowTeamChange": true,
-    "StrictColors": true
+    "StrictTeamColors": true
   },
   "Deathmatch": {
     "PointsToWin": 3,
@@ -44,5 +44,8 @@
     "PointsTextShowTime": 5.0,
     "FlagRespawnTime" : 10,
     "CarrierDebuffMlt": 0.8
+  },
+  "Nidhogg": {
+    "PhasesToWin": 3
   }
 }

@@ -4,5 +4,8 @@
       "Attack Damage": 30.0,
       "Movement Speed": 0.5
     }
+  },
+  "Nidhogg": {
+    "PhasesToWin": 3
   }
 }
