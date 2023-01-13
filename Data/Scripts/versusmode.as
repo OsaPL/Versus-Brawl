@@ -34,9 +34,9 @@ array<string> funnies = {
     "Play @vec3(1,0.8,0)Skatebird@, the most wholesome game.",
     "This is more fun than picking up bullets from ground.",
     "I like my hints, like my girls, @vec3(1,0.5,0.5)rare@. Wait, no.",
-    "My favorite class is the rat.",
+    "My favorite class is the @vec3(1,0.5,0)rat@. Thanks, and have fun!",
     "Imagine having turned off @vec3(0.6,0.6,0.6)Tutorials@, and not seeing this.",
-    "You are looking @vec3(1,0.2,0.8)beautiful@ today :)"
+    "You are looking @vec3(1,0.2,0.8)beautiful@ today @vec3(0,0,0):)@"
 };
 
 // TODO! Add cases when which should be used (only use first two if `blockSpeciesChange==false` etc.)
@@ -139,7 +139,7 @@ float hintTimer = 0;
 int currentHint = -1;
 string lastHint = "";
 bool hintBrake = false;
-int funniesChance = 2; // out of 100
+int funniesChance = 5; // out of 100
 bool funniesActive = false;
 
 VersusAHGUI versusAHGUI;
