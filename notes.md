@@ -1,4 +1,6 @@
 # DO THOSE THINGS:
+- all places that have paths to resources should use `FileExistsWithType`
+- organise all scripts/objects better
 - create a generic thing for managing and "switching" objects (gut out what is already done in `waterRiseHotspot`?)
 - get rid of that stupid limitation of: `respawnTime cant be smaller than activeTime` on powerupBase
 - add checkmarks or something to race goal to show you've already hit them

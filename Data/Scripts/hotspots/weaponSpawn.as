@@ -1,4 +1,5 @@
 #include "hotspots/placeholderFollower.as"
+#include "versus-brawl/utilityStuff/fileChecks.as"
 
 vec3 oldPos;
 quaternion oldRot;
@@ -28,12 +29,21 @@ void Update(){
     
     // Get hotspot and placeholder, and then setup
     Object@ me = ReadObjectFromID(hotspot.GetID());
-    
-    string path = params.GetString("ItemPath");
-    if(path.substr(path.length()-4,4) != ".xml"){
-        // Path isnt an xml, just abort for now
+
+    if (oldPath != params.GetString("ItemPath")) {
+        Log(error, "ItemPath changed, removing");
+        DisposeWeapon();
+        string path = params.GetString("ItemPath");
+        if(!FileExistsWithType(path, ".xml")){
+            // Path isnt an xml, just abort for now
+            return;
+        }
+        spawnTimer = params.GetInt("RespawnTime");
+        oldPath = params.GetString("ItemPath");
+        justReleased = false;
         return;
     }
+
     
     if(weaponId == -1){
         Log(error, "weaponId missing, spawning");
@@ -45,15 +55,7 @@ void Update(){
         justReleased = false;
     }
 
-    if (oldPath != params.GetString("ItemPath")) {
-        Log(error, "ItemPath changed, removing");
-        DeleteObjectID(weaponId);
-        weaponId = -1;
-        spawnTimer = params.GetInt("RespawnTime");
-        oldPath = params.GetString("ItemPath");
-        justReleased = false;
-        return;
-    }
+
 
     Object@ obj = ReadObjectFromID(weaponId);
     ItemObject@ itemObj = ReadItemID(weaponId);
@@ -78,8 +80,7 @@ void Update(){
             spawnTimer -= time_step;
             if(spawnTimer<0){
                 Log(error, "removing: "+weaponId+" distance:"+length(distVec));
-                DeleteObjectID(weaponId);
-                weaponId = -1;
+                DisposeWeapon();
                 spawnTimer = 0;
                 justReleased = false;
             }
@@ -95,13 +96,14 @@ void Update(){
 }
 
 void Dispose(){
-    if(weaponId != -1){
-        DeleteObjectID(weaponId);
-        weaponId = -1;
-    }
+    DisposeWeapon();
 }
 
 void Reset(){
+    DisposeWeapon();
+}
+
+void DisposeWeapon(){
     if(weaponId != -1){
         DeleteObjectID(weaponId);
         weaponId = -1;
