@@ -1451,6 +1451,49 @@ bool CheckSpawnsNumber() {
     return true;
 }
 
+// TODO: This is unused for now
+vec3 AnimateRainbowEffect(int time, int delay = 256){
+
+    int ceillingTime = time%(delay*6);
+    float temp = float(delay);
+    
+    // Log(error, "AnimateRainbowEffect: " + time);
+    // Log(error, "ceillingTime%delay: " + ceillingTime%delay);
+    // Log(error, "ceillingTime%delay/temp: " + ceillingTime%delay/temp);
+    
+    int colorStage = ceillingTime/delay;
+    vec3 color; 
+    if(colorStage < 1){
+        // G+
+        color = vec3(1,ceillingTime%delay/temp,0);
+    }
+    else if(colorStage < 2){
+        // R-
+        color = vec3(1-ceillingTime%delay/temp,1,0);
+    }
+    else if(colorStage < 3){
+        // B+
+        color = vec3(0,1,ceillingTime%delay/temp);
+    }
+    else if(colorStage < 4){
+        // G-
+        color = vec3(0,1-ceillingTime%delay/temp,1);
+    }
+    else if(colorStage < 5){
+        // R+
+        color = vec3(ceillingTime%delay/temp,0,1);
+    }
+    else if(colorStage < 6){
+        // B-
+        color = vec3(1,0,1-ceillingTime%delay/temp);
+    }
+    // Log(error, "Color: " + color);
+
+    return color;
+}
+
+float time = 0;
+
 void CheckPlayersState() {
     if(currentState==0){
         bool blockStart = false;
@@ -1477,7 +1520,8 @@ void CheckPlayersState() {
                 versusAHGUI.SetMainText("Teams uneven!", vec3(1,0.5f,0));
             }
             else{
-                versusAHGUI.SetMainText("!@vec3(1,0.5f,0)Warmup@!", vec3(1));
+                time += time_step;
+                versusAHGUI.SetMainText("Warmup!", AnimateRainbowEffect(int(time*600)));
             }
         }
         

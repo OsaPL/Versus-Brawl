@@ -29,6 +29,11 @@ void Update(){
     // Get hotspot and placeholder, and then setup
     Object@ me = ReadObjectFromID(hotspot.GetID());
     
+    string path = params.GetString("ItemPath");
+    if(path.substr(path.length()-4,4) != ".xml"){
+        // Path isnt an xml, just abort for now
+        return;
+    }
     
     if(weaponId == -1){
         Log(error, "weaponId missing, spawning");
