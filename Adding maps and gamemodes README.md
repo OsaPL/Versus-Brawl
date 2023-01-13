@@ -177,7 +177,7 @@ versusAHGUI.SetMainText("white @vec3(1,0,0)RED TEXT@ whiteAgain @ @vec3(0,0,1)BL
 `vec3(R,G,B)` defines colors.
 
 Result:
-**white** <span style="color:red">RED TEXT</span> **whiteAgain** <span style="color:blue">BLUE TEXT</span>
+**white** 🔴<span style="color:red">RED TEXT</span> **whiteAgain** 🔵<span style="color:blue">BLUE TEXT</span>
 
 You can also include control binding in the text:
 ```c++
