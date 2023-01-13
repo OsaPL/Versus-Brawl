@@ -15,7 +15,7 @@ array<string> insults = {
     "For sure not thanks to always hogging all the weapons...",
     "ez, gg no re",
     "Maybe you should try Tai Chi instead.",
-    "You should try turning on `Baby Mode`.",
+    "You should try turning on @vec3(1,0.2,0.8)Baby Mode@.",
     "vidja gams are hart",
     "Are you guys still playing?",
     "Oooh! That's gonna leave a mark!",
@@ -25,18 +25,18 @@ array<string> insults = {
 
 // This is my fun corner
 array<string> funnies = {
-    "Do you ever dream about @vec3(1,0.5,0)cheese?@",
+    "Do you ever dream about @vec3(1,0.7,0)cheese@?",
     "There are no bunkers, but still its frickin great.",
-    "Have you heard of the high cats?",
+    "Have you heard of the @vec3(0.2,0.8,0.2)high@ cats? @vec3(0.2,0.8,0.2)Catnip@ maaan.",
     "@vec3(1,0,0)HELP!@ They took me hostage to keep me writing these!",
     "I liked the part where you just fell down.",
     "@vec3(0,0.5,1)This is a test hint, no need to panic.@",
     "Play @vec3(1,0.8,0)Skatebird@, the most wholesome game.",
     "This is more fun than picking up bullets from ground.",
-    "I like my hints, like my girls, rare. Wait, no.",
+    "I like my hints, like my girls, @vec3(1,0.5,0.5)rare@. Wait, no.",
     "My favorite class is the rat.",
-    "Imagine having turned off `Tutorials`, and not seeing this.",
-    "You are looking beautiful today :)"
+    "Imagine having turned off @vec3(0.6,0.6,0.6)Tutorials@, and not seeing this.",
+    "You are looking @vec3(1,0.2,0.8)beautiful@ today :)"
 };
 
 // TODO! Add cases when which should be used (only use first two if `blockSpeciesChange==false` etc.)
@@ -858,7 +858,7 @@ void VersusUpdate() {
 void SetHint(string hint){
     
     //Log(error, "currentHint: " + currentHint);
-    if(rand()%100 < funniesChance && !funniesActive && false){
+    if(rand()%100 < funniesChance && !funniesActive){
         string funni = funnies[rand()%funnies.size()];
         versusAHGUI.SetExtraText(funni);
         currentHint--;
@@ -1217,7 +1217,7 @@ class VersusAHGUI : AHGUI::GUI {
         }
 
         // Add all not colored text between back
-        if(uint(lastPartEnd) < text.length()-1){
+        if(uint(lastPartEnd) <= text.length()-1){
             parts.push_back(text.substr(lastPartEnd, text.length() - lastPartEnd));
             colors.push_back(defaultColor);
         }
@@ -1477,7 +1477,7 @@ void CheckPlayersState() {
                 versusAHGUI.SetMainText("Teams uneven!", vec3(1,0.5f,0));
             }
             else{
-                versusAHGUI.SetMainText("Warmup!", vec3(1));
+                versusAHGUI.SetMainText("!@vec3(1,0.5f,0)Warmup@!", vec3(1));
             }
         }
         
