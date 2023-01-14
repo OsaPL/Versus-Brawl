@@ -1,3 +1,4 @@
+#include "versus-brawl/utilityStuff/fileChecks.as"
 // This can be used to give an object a follower particle emitter 
 // can also fill `boneToFollow` param, to follow a bone (empty will default to torso, same as `obj.GetTranslation();` I think?)
 
@@ -37,11 +38,16 @@ void Update(){
     me.SetScale(desiredScale);
     
     time += time_step;
+
+    string pathToParticles = params.GetString("pathToParticles");
     if(!params.HasParam("objectIdToFollow"))
         return;
+
+    if(!FileExistsWithType(pathToParticles, ".xml")){
+        return;
+    }
     
     int objectIdToFollow = params.GetInt("objectIdToFollow");
-    string pathToParticles = params.GetString("pathToParticles");
     //Log(error, "Following:"+objectIdToFollow);
     if(objectIdToFollow != -1){
         Object@ obj = ReadObjectFromID(objectIdToFollow);

@@ -1,6 +1,9 @@
+#include "versus-brawl/utilityStuff/fileChecks.as"
+
 void PlaceHolderFollowerUpdate(string iconPath, string text, float scale = 1, bool showDirection = false, vec4 color = vec4(1), vec3 offset = vec3()){
 
-    if(!FileExistsWithType(iconPath, ".png") || !FileExistsWithType(iconPath, ".tga")){
+    //TODO: Is .dds supported?
+    if(!FileExistsWithType(iconPath, ".png") && !FileExistsWithType(iconPath, ".tga")){
         return;
     }
     

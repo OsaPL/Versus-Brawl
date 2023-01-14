@@ -14,6 +14,7 @@ void SetParameters()
     params.AddFloatSlider("velocity", 15.0f,"min:0,max:100,step:0.01");
     params.AddFloatSlider("upwardsBoostScale", 0.0f,"min:0,max:1,step:0.01");
     params.AddIntCheckbox("reuseCharactersVelocity", false);
+    params.AddIntCheckbox("ragdoll", false);
     params.AddIntCheckbox("trampolineMode", false);
     // Under this velocity the trampoline will ignore player
     params.AddFloatSlider("trampolineMinimalVelocityY", 0.2f, "min:0,max:2,step:0.001");
@@ -52,13 +53,28 @@ void Boost(){
     }
 
     mo.velocity = newVel * outputDir;
+
+    if(params.GetInt("ragdoll") != 0){
+        ragdollNextFrame = true;
+    }
 }
+
+bool ragdollNextFrame = false;
 
 void Update(){
     Object@ me = ReadObjectFromID(hotspot.GetID());
 
     vec3 direction = me.GetRotation() * vec3(0,0,1) *0.2f;
     PlaceHolderFollowerUpdate(billboardPath, "", 2.0f, true, vec4(color, 1), direction);
+    
+    if(ragdollNextFrame && lastCharObjId != -1){
+        MovementObject@ mo = ReadCharacterID(lastCharObjId);
+
+        ragdollNextFrame = false;
+        lastCharObjId = -1;
+        
+        mo.Execute("Ragdoll(_RGDL_LIMP);");
+    }
 
     // if(!EditorModeActive())
     //     DebugDrawBillboard(billboardPath,
