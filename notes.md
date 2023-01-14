@@ -1,4 +1,5 @@
 # DO THOSE THINGS:
+- big weapons that support sheathing should be seperated into Versus brawl probably, instead of overwriting the stock weapons
 - all places that have paths to resources should use `FileExistsWithType`
 - organise all scripts/objects better
 - create a generic thing for managing and "switching" objects (gut out what is already done in `waterRiseHotspot`?)
@@ -10,6 +11,17 @@
 - enable/disable hints ingame by using a key combo
 - extend `powerUpBase.as` to allow more than a single particle emitter
 
+# Sheathed weapons:
+Big blades:
+- `DogBroadSword`: not great, rotate 90 degrees around itself and move it higher `"Data/Animations/bow/r_arrow_sheathed.anm"`
+- `DogHammer`: meh, rotate 90 degrees around itself and move closer to the body, also added `<label>staff</label>`, ALSO added new attacks to make it usable `"Data/Animations/bow/r_bow_sheathed.anm"`, and moved the model slightly higher
+
+Big sticks:
+- `staffbasic`: acceptable? would be cool to rotate like 30-45 degrees `"Data/Animations/bow/r_arrow_sheathed.anm"`
+- `DogGlaive`: alright, maybe move it slightly higher, so it doesnt go through you ankles `"Data/Animations/bow/r_arrow_sheathed.anm"`
+- `DogSpear`: basically perfect `"Data/Animations/bow/r_arrow_sheathed.anm"`
+- `RabbitCatcher`: alright `"Data/Animations/bow/r_bow_sheathed.anm"`
+    
 # Attribute!
 - Worm model: https://sketchfab.com/3d-models/worm-a3c6bc4cddd9449783d399a2a4c1dec2#download
 

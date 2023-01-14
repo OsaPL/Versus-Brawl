@@ -139,7 +139,7 @@ float hintTimer = 0;
 int currentHint = -1;
 string lastHint = "";
 bool hintBrake = false;
-int funniesChance = 5; // out of 100
+int funniesChance = 2; // out of 100
 bool funniesActive = false;
 
 VersusAHGUI versusAHGUI;
@@ -328,6 +328,8 @@ void AttachTimers(int obj_id){
     player.charTimer.Add(CharDeathJob(obj_id, function(char_a){
         // This should respawn on kill
         VersusPlayer@ player = GetPlayerByObjectId(char_a.GetID());
+        Log(error, "Death: " + player.playerNr);
+
         if(currentState==0 || constantRespawning){
             CallRespawn(player.playerNr, player.objId);
         }
@@ -747,7 +749,7 @@ void VersusUpdate() {
         VersusPlayer@ player = GetPlayerByNr(k);
         if (GetInputDown(player.playerNr, "attack") && GetInputDown(player.playerNr, "grab")) {
             suicideTimers[player.playerNr] += time_step;
-            if(suicideTimers[player.playerNr]>suicideTime){
+            if(suicideTimers[player.playerNr]>suicideTime && player.respawnQueue<-respawnBlockTime){
                 if(ReadCharacterID(player.objId).GetIntVar("knocked_out") == _awake)
                     ReadCharacterID(player.objId).Execute("CutThroat();");
                 suicideTimers[player.playerNr] = 0;

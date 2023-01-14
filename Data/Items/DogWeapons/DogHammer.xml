@@ -30,6 +30,6 @@
                    highrightblock = "Data/Animations/r_dogswordparryright.anm"
                    highleftblock = "Data/Animations/r_dogswordparryleft.anm"
                    blockflinch = "Data/Animations/r_dogswordflinch.anm"/>
-    <range extend = "0.5"/>
+    <range extend = "0.7"/>
     <label>big_sword</label>
 </item>

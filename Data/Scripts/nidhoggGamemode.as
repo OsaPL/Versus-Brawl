@@ -12,12 +12,20 @@ int teamAttacking = 2;
 int currentPhase = 0;
 // 0 means none are open to go through
 int openPhase = 0;
-// TODO! Add a rotation queue of weapons
-// dual daggers, spear, big sword, rapier, staff?
-array<string> weaponQueuePath = {""};
+bool init = true;
+// sword, spear, dual daggers, big sword, rapier, staff, hammer?
+array<string> weaponQueuePaths = { "Data/Items/DogWeapons/DogSword.xml", "Data/Items/DogWeapons/DogGlaive.xml", "2x Data/Items/MainGauche.xml", "Data/Items/DogWeapons/DogBroadSword.xml", "Data/Items/Rapier.xml", "Data/Items/staffbasic.xml", "Data/Items/DogWeapons/DogHammer.xml" };
+array<string> weaponQueueNames = { "Shortsword", "Glaive", "Daggers", "Two-handed machete", "Rapier", "Staff", "Hammer" };
 array<int> currentWeaponQueuesIndexes = {0, 0, 0, 0};
+array<array<int>> currentWeaponsIds = {{}, {}, {}, {}};
+bool queueClearWeapons = false;
+bool clearAllWeapons = false;
+array<int> giveWeaponQueue = {};
+
 bool updatePhases = false;
 int allOpen = 1;
+
+array<AHGUI::Text@> uiNextWeaponTextElem = {};
 
 // DEBUG stuff
 bool enableDebugKeys = false;
@@ -120,6 +128,21 @@ void Init(string msg){
         return true;
     }));
 
+    levelTimer.Add(LevelEventJob("spawned", function(_params){
+        if(currentState < 2 || currentState > 100)
+            return true;
+
+        Log(error, "received spawned " + _params[1] + " " +  _params[2]);
+        VersusPlayer@ respawnedPlayer = GetPlayerByObjectId(parseInt(_params[1]));
+        if(_params[2] == "false"){
+            currentWeaponQueuesIndexes[respawnedPlayer.playerNr] += 1;
+            currentWeaponQueuesIndexes[respawnedPlayer.playerNr] = currentWeaponQueuesIndexes[respawnedPlayer.playerNr] % weaponQueuePaths.size();
+        }
+        giveWeaponQueue.push_back(respawnedPlayer.playerNr);
+        Log(error, "currentWeaponQueuesIndexes[respawnedPlayer.playerNr]: " + currentWeaponQueuesIndexes[respawnedPlayer.playerNr]);
+        return true;
+    }));
+
     ScriptParams@ lvlParams = level.GetScriptParams();
     lvlParams.SetInt("CurrentPhase", currentPhase);
     lvlParams.SetInt("Attacking", teamAttacking);
@@ -141,6 +164,79 @@ void NidhoggLoad(JSONValue settings) {
             Log(error, "PhasesToWin: " + pointsToWin);
         }
             
+    }
+}
+
+void GiveWeapon(int playerNr){
+    VersusPlayer@ player = GetPlayerByNr(playerNr);
+
+    string species = IntToSpecies(player.currentRace);
+
+    // If its "wolf" dont give a weapon
+    if(species == "wolf")
+    {
+        return;
+    }
+    
+    string weaponPath = weaponQueuePaths[currentWeaponQueuesIndexes[playerNr]];
+    if(weaponPath.substr(0,3) == "2x "){
+        // if we have 2x, just repeat this
+        weaponPath = weaponPath.substr(3,weaponPath.length()-3);
+        // TODO! Copy pasta
+        int weaponId = CreateObject(weaponPath);
+        if(weaponId == -1)
+            return;
+
+        currentWeaponsIds[playerNr].push_back(weaponId);
+
+        MovementObject@ playerMo = ReadCharacterID(player.objId);
+        playerMo.Execute("AttachWeapon(" + weaponId + ");");
+    }
+    
+    int weaponId = CreateObject(weaponPath);
+    if(weaponId == -1)
+        return;
+
+    Log(error, "Adding: " + weaponPath + " id: " + weaponId);
+    currentWeaponsIds[playerNr].push_back(weaponId);
+    
+    MovementObject@ playerMo = ReadCharacterID(player.objId);
+    playerMo.Execute("AttachWeapon(" + weaponId + ");");
+}
+
+void ClearWeapons(bool ignoreHeld = false){
+    
+    for (uint i = 0; i < currentWeaponsIds.size(); i++) {
+        array<int> toRemove = {};
+        for (uint j = 0; j < currentWeaponsIds[i].size(); j++) {
+            Log(error, "currentWeaponsIds["+i+"]["+j+"]: " + currentWeaponsIds[i][j]);
+            // Sometimes the weapon wont be initialised completely but still will be in the array, we delay its removal till next check
+            if(ObjectExists(currentWeaponsIds[i][j])) {
+                ItemObject@ itemObj = ReadItemID(currentWeaponsIds[i][j]);
+
+                if (!itemObj.IsHeld() || ignoreHeld) {
+                    Log(error, "Removing: " + currentWeaponsIds[i][j]);
+                    toRemove.push_back(j);
+                    QueueDeleteObjectID(currentWeaponsIds[i][j]);
+                }
+            }
+        }
+
+        Log(error, "toRemove.size(): " + toRemove.size());
+        for (int k = int(toRemove.size()) - 1; k >= 0; k--)
+        {
+            Log(error, "toRemove["+k+"]: ");
+            // Log(error, "toRemove["+i+"]["+k+"]: " + toRemove[k]);
+            // Log(error, "toRemove currentWeaponsIds["+i+"]["+k+"]: " + currentWeaponsIds[i][k]);
+            currentWeaponsIds[i].removeAt(toRemove[k]);
+        }
+    }
+
+    for (uint i = 0; i < currentWeaponsIds.size(); i++) {
+        for (uint j = 0; j < currentWeaponsIds[i].size(); j++)
+        {
+            Log(error, "Affter remove: currentWeaponsIds[" + i + "][" + j + "]: " + currentWeaponsIds[i][j]);
+        }
     }
 }
 
@@ -177,11 +273,14 @@ bool CheckSide(int charId, int objId){
 }
 
 void ResetNidhogg(){
+    clearAllWeapons = true;
     allOpen = 1;
     teamAttacking = 2;
     currentPhase = 0;
     openPhase = 0;
     pointsCount = {0, 0, 0, 0};
+    giveWeaponQueue = {};
+    currentWeaponQueuesIndexes = {0, 0, 0, 0};
     updatePhases = true;
     updateScores = true;
 }
@@ -209,6 +308,7 @@ void NextNihoggPhase(){
     }
     updatePhases = true;
     updateScores = true;
+    queueClearWeapons = true;
 }
 
 void ChangeAttacker(int newAttacker){
@@ -241,6 +341,29 @@ void ChangeAttacker(int newAttacker){
 void Update(){
     //Always need to call this first!
     VersusUpdate();
+
+    if(init){
+        // We create the label with next weapon value
+        for (uint k = 0; k < versusPlayers.size(); k++)
+        {
+            VersusPlayer@ player = GetPlayerByNr(k);
+            AHGUI::Element @headerElement = versusAHGUI.root.findElement("header" + player.playerNr);
+            AHGUI::Divider @div = cast < AHGUI::Divider > (headerElement);
+            AHGUI::Text textElem("Next Weapon here", "edosz", 65, 1, 1, 1, 1);
+            textElem.setShadowed(true);
+            
+            if(player.playerNr == 0 || player.playerNr == 2){
+                div.addElement(textElem, DDLeft);
+                div.addSpacer( 20, DDLeft );
+            }
+            else{
+                div.addElement(textElem, DDRight);
+                div.addSpacer( 20, DDRight );
+            }
+            uiNextWeaponTextElem.push_back(textElem);
+        }
+        init = false;
+    }
 
     // TODO! Clean this mess up
     if(currentState >= 2 && currentState < 100){
@@ -335,8 +458,25 @@ void Update(){
             versusAHGUI.SetMainText(map, color);
             updatePhases = false;
         }
+        // Updates next weapon label
+        for (uint k = 0; k < versusPlayers.size(); k++)
+        {
+            VersusPlayer@ player = GetPlayerByNr(k);
+            
+            if(player.respawnNeeded){
+                // Color label if respawn in progress
+                uiNextWeaponTextElem[player.playerNr].setColor(vec4(0.3f, 0.3f, 0.3f, 1));
+            }
+            else{
+                uiNextWeaponTextElem[player.playerNr].setColor(vec4(1));
+            }
+
+            uiNextWeaponTextElem[player.playerNr].setText(weaponQueueNames[(currentWeaponQueuesIndexes[player.playerNr] + 1) % weaponQueueNames.size()]);
+        }
+
 
         if(pointsCount[0] > pointsToWin ){
+            // green wins
             constantRespawning = false;
             allOpen = 1;
             winnerNr = 0;
@@ -350,6 +490,7 @@ void Update(){
             ResetNidhogg();
         }
         else if(pointsCount[1] > pointsToWin){
+            // red wins
             constantRespawning = false;
             allOpen = 1;
             winnerNr = 1;
@@ -365,6 +506,19 @@ void Update(){
 
         if(showDebugPhases)
             versusAHGUI.SetExtraText("currentPhase: " + currentPhase + " openPhase: " + openPhase, vec3(0.9f));
+
+        if(queueClearWeapons || clearAllWeapons){
+            // This makes sure the weapon is fully created before we try to clean it up
+            queueClearWeapons = false;
+            clearAllWeapons = false;
+            ClearWeapons(clearAllWeapons);
+        }
+        
+        // Give weapons
+        for (uint i = 0; i < giveWeaponQueue.size(); i++) {
+            GiveWeapon(giveWeaponQueue[i]);
+        }
+        giveWeaponQueue = {};
     }
 
     ScriptParams@ lvlParams = level.GetScriptParams();
@@ -379,9 +533,10 @@ void Update(){
 void IgniteNotWinners(){
     for (uint i = 0; i < versusPlayers.size(); i++) {
         VersusPlayer@ playerToKill = GetPlayerByNr(i);
-        if(playerToKill.teamNr != winnerNr && winnerNr != -1){
-            MovementObject@ char = ReadCharacterID(playerToKill.objId);
-            char.Execute("TakeBloodDamage(1.0f);Ragdoll(_RGDL_FALL);zone_killed=1;SetOnFire(true);");
+        MovementObject@ char = ReadCharacterID(playerToKill.objId);
+        char.Execute("TakeBloodDamage(2.0f);Ragdoll(_RGDL_FALL);zone_killed=1;");
+        if(playerToKill.teamNr != winnerNr && winnerNr != -1){  
+            char.Execute("SetOnFire(true);");
         }
     }
 }
