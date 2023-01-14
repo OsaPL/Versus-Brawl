@@ -1,4 +1,4 @@
-﻿#include "hotspots/placeholderFollower.as"
+#include "hotspots/placeholderFollower.as"
 
 vec3 color = vec3(1, 0.5f, 0.2f);
 string billboardPath = "Data/Textures/ui/versusBrawl/platform_icon.png";
