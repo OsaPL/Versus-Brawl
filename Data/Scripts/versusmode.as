@@ -1424,7 +1424,7 @@ bool CheckSpawnsNumber() {
     bool okGenericSpawns = true;
     
     int teamsToChecks = int(versusPlayers.size());
-    if(teamPlay){
+    if(teamPlay && teamsToChecks > teamsAmount){
         teamsToChecks = teamsAmount;
     }
 

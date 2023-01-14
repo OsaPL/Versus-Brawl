@@ -147,7 +147,7 @@ void GetFlagHotspotsIds(){
                     objParams.SetFloat("debuffCarrier", debuffMlt);
 
                     // Optionally we recolor flags
-                    if(strictColors){
+                    if(strictTeamColors){
                         vec3 color = GetTeamUIColor(teamId);
                         objParams.SetFloat("red", color.x);
                         objParams.SetFloat("green", color.y);
