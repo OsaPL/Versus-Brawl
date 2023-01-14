@@ -340,3 +340,23 @@ Options you can set for `charCatapultHotspot`:
 - `trampolineMode`: Transforms it into a trampoline, can hold `jump` for a additional boost (options below will only work if true)
 - `trampolineMinimalVelocityY`: what velocity is understood as to low to be bouncing off
 - `trampolineBoost`: velocity boost, given to you a if `jump` is held during landing
+
+# Items specific
+
+## Sheathing big weapons on the back
+
+To make your weapon sheathe-able you need to add to your item xml:
+1. Add a label describing what kind of weapon it is:
+```xml
+<label>spear</label> <!--or--> <label>big_sword</label>
+```
+2. Add a attachment section with desired attachment animation (where the weapon will be mounted), and select a desired `ik_attach` bone (for most situation, just leave it as `torso`)
+```xml
+<sheathe ik_attach = "torso" anim = "Data/Animations/bow/r_arrow_sheathed.anm"/>
+```
+
+Some already available anims for weapons on your back you can try are:
+```
+"Data/Animations/bow/r_arrow_sheathed.anm"
+"Data/Animations/bow/r_bow_sheathed.anm"
+```

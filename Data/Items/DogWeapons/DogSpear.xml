@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<item>
+    <type>weapon</type>
+    <appearance obj_path = "Data/Objects/Weapons/DogWeapons/DogSpear.xml"/>
+    <grip ik_attach = "rightarm"
+          anim = "Data/Animations/r_dogweapongrip.anm"
+		  hands = "2"/>
+	<sheathe ik_attach = "torso"
+		     anim = "Data/Animations/bow/r_arrow_sheathed.anm"/>
+    <points>
+        <wood_base x="0" y="-0.7" z="0"/>
+        <blade_base x="0" y="0.6" z="0"/>
+        <blade_tip x="0" y="0.9" z="0"/>
+    </points>
+    <lines>
+        <wood start="wood_base" end="blade_base"/>
+        <metal start="blade_base" end="blade_tip"/>
+    </lines>
+    <anim_blend idle = "Data/Animations/r_spearidle.xml"
+				movement = "Data/Animations/r_spearmove.xml"/>
+    <anim_override idle = "Data/Animations/r_weaponidlestance.xml"
+                   movement = "Data/Animations/r_spearmovestance.xml"
+                   blockflinch = "Data/Animations/r_spearblockflinch.anm"
+                   medleftblock = "Data/Animations/r_spearblockleft.anm"
+                   medrightblock = "Data/Animations/r_spearblockright.anm"
+                   highleftblock = "Data/Animations/r_spearblockhighleft.anm"
+                   highrightblock = "Data/Animations/r_spearblockhighright.anm"
+                   lowleftblock = "Data/Animations/r_spearblocklowleft.anm"
+                   lowrightblock = "Data/Animations/r_spearblocklowright.anm"/>
+    <attack_override stationary = "Data/Attacks/spearstabfar.xml"
+                     moving = "Data/Attacks/spearslash.xml"
+                     moving_close = "Data/Attacks/spearslashclose.xml"
+                     stationary_close = "Data/Attacks/spearstab.xml"
+                     low = "Data/Attacks/spearsweep.xml"/>
+    <reaction_override>
+        <reaction old = "Data/Attacks/reaction_highleft.xml"
+                  new = "Data/Attacks/reaction_highleftspear.xml"/>
+        <reaction old = "Data/Attacks/reaction_highright.xml"
+                  new = "Data/Attacks/reaction_highrightspear.xml"/>
+        <reaction old = "Data/Attacks/reaction_medfront.xml"
+                  new = "Data/Attacks/reaction_medfrontspear.xml"/>
+    </reaction_override>
+    <physics mass = "2 kg"/>
+    <range extend = "1.0"/>
+    <label>spear</label>
+</item>

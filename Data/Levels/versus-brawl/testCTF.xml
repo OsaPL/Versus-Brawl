@@ -35,7 +35,7 @@
     <RayToSun r0="0.121363" r1="0.062051" r2="0.990667" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="12.1817" t1="5.90097" t2="-13.2573" s0="1" s1="1" s2="1" q0="-0.165261" q1="0.784605" q2="-0.236232" q3="-0.548888" euler_x="-2.55669" euler_y="-1.22088" euler_z="3.14159" id="0">
+    <CameraObject t0="-1.0552" t1="6.03068" t2="-10.7564" s0="1" s1="1" s2="1" q0="0.0494931" q1="-0.940687" q2="0.296709" q3="0.156913" euler_x="-2.53051" euler_y="-0.33057" euler_z="-3.14159" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="0.115045" t1="-0.111715" t2="1.05166" s0="20" s1="1" s2="20" q0="-0.000415206" q1="0.000877857" q2="5.46552e-005" q3="1" euler_x="-0.000830317" euler_y="0.00175576" euler_z="0.000108582" id="1" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
@@ -137,6 +137,18 @@
         </Connections>
         <ConnectionsFrom />
     </Hotspot>
+    <ItemObject t0="-1.67511" t1="2.17104" t2="-4.85981" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="23" type_file="Data/Items/DogWeapons/RabbitCatcher.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="-0.772531" t1="1.9302" t2="-5.42511" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="24" type_file="Data/Items/DogWeapons/DogHammer.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="-1.38508" t1="2.25861" t2="-6.04287" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="25" type_file="Data/Items/DogWeapons/DogGlaive.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="-2.81238" t1="1.19968" t2="-5.34514" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="26" type_file="Data/Items/Bastard.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
     <Hotspot t0="6.82542" t1="4.13566" t2="-3.7566" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="29" type_file="Data/Objects/versus-brawl/hotspots/teleporterHotspot.xml">
         <parameters>
             <parameter name="blue" type="float" val="0" />
@@ -177,7 +189,7 @@
     <EnvObject t0="7.96067" t1="0.884453" t2="-5.88015" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="32" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Groundcover/wildflowers/blue_wildflower.xml">
         <parameters />
     </EnvObject>
-    <Hotspot t0="8.06777" t1="1.4778" t2="-10.4634" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="0" euler_y="-1.57045" euler_z="0" id="33" type_file="Data/Objects/versus-brawl/hotspots/teleporterHotspot.xml">
+    <Hotspot t0="8.06777" t1="1.4778" t2="-10.4634" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="33" type_file="Data/Objects/versus-brawl/hotspots/teleporterHotspot.xml">
         <parameters>
             <parameter name="blue" type="float" val="1" />
             <parameter name="cooldown" type="float" val="8" />
