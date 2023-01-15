@@ -234,6 +234,7 @@ throwMassMlt = params.GetFloat("Throw - Mass Multiplier");
 - `HandleAnimationMiscEvent` returns quicker
 - Modifications to the Unsheathe/Sheathing to allow for more weapon slots/big weapons sheathing and also more generic unsheathing (no longer you have to rely on anim events)
 .You can now set `Can sheathe big weapons` param on a character to enable that.
+- New animation events to use for `sheathed_left_back` and `sheathed_right_back` slots
 - Zero or negative mass weapons will no longer crash/throw errors in throw functions
 
 ## `playercontrol.as`
@@ -346,10 +347,14 @@ Options you can set for `charCatapultHotspot`:
 ## Sheathing big weapons on the back
 
 To make your weapon sheathe-able you need to add to your item xml:
-1. Add a label describing what kind of weapon it is:
+1. Add a label describing what kind of weapon it is: 
 ```xml
 <label>spear</label> <!--or--> <label>big_sword</label>
-```
+``` 
+- `_sheathed_left_back` slot will be used for `big_sword` labeled weapons (`IsBigBlade(weapId)` check)
+- `_sheathed_right_back` slot will be used for `spear` labeled weapon (`IsBigStick(weapId)` check)
+
+👻 This will be not needed once step 3. will be a required one.
 2. Add a attachment section with desired attachment animation (where the weapon will be mounted), and select a desired `ik_attach` bone (for most situation, just leave it as `torso`)
 ```xml
 <sheathe ik_attach = "torso" anim = "Data/Animations/bow/r_arrow_sheathed.anm"/>
@@ -360,3 +365,14 @@ Some already available anims for weapons on your back you can try are:
 "Data/Animations/bow/r_arrow_sheathed.anm"
 "Data/Animations/bow/r_bow_sheathed.anm"
 ```
+
+3. 👻 (step not needed atm, should already work, but havent tested it yet) Use these animation events, in your .anm to control sheathing:
+- `sheatherighthandrightback`: right hand -> right back
+- `sheatherighthandleftback`: right hand -> left back
+- `sheathelefthandrightback`: left hand -> right back
+- `sheathelefthandleftback`: left hand -> left back
+- 
+- `unsheatherighthandrightback`: right hand <- right back
+- `unsheatherighthandleftback`: right hand <- left back
+- `unsheathelefthandrightback`: left hand <- right back
+- `unsheathelefthandleftback`: left hand <- left back

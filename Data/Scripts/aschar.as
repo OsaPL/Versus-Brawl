@@ -7104,9 +7104,7 @@ void HandleAnimationMiscEvent(const string &in event, const vec3 &in world_pos) 
         Sheathe(_held_left, _sheathed_left);
     } else if(event == "sheatherighthandrighthip" ) {
         Sheathe(_held_right, _sheathed_right);
-    }
-
-    if(event == "unsheatherighthandlefthip" ) {
+    } else if(event == "unsheatherighthandlefthip" ) {
         UnSheathe(_held_right, _sheathed_left);
     } else if(event == "unsheathelefthandrighthip" ) {
         UnSheathe(_held_left, _sheathed_right);
@@ -7114,6 +7112,22 @@ void HandleAnimationMiscEvent(const string &in event, const vec3 &in world_pos) 
         UnSheathe(_held_left, _sheathed_left);
     } else if(event == "unsheatherighthandrighthi" ) {
         UnSheathe(_held_right, _sheathed_right);
+    } else if(event == "sheatherighthandrightback" ) {
+        Sheathe(_held_right, _sheathed_right_back);
+    } else if(event == "sheatherighthandleftback" ) {
+        Sheathe(_held_right, _sheathed_left_back);
+    } else if(event == "sheathelefthandrightback" ) {
+        Sheathe(_held_left, _sheathed_right_back);
+    } else if(event == "sheathelefthandleftback" ) {
+        Sheathe(_held_left, _sheathed_left_back);
+    } else if(event == "unsheathelefthandleftback" ) {
+        UnSheathe(_held_left, _sheathed_left_back);
+    } else if(event == "unsheathelefthandleftback" ) {
+        UnSheathe(_held_left, _sheathed_left_back);
+    } else if(event == "unsheathelefthandleftback" ) {
+        UnSheathe(_held_left, _sheathed_left_back);
+    } else if(event == "unsheathelefthandleftback" ) {
+        UnSheathe(_held_left, _sheathed_left_back);
     }
 }
 
