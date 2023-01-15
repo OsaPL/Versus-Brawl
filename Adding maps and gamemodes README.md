@@ -371,7 +371,7 @@ Some already available anims for weapons on your back you can try are:
 - `sheatherighthandleftback`: right hand -> left back
 - `sheathelefthandrightback`: left hand -> right back
 - `sheathelefthandleftback`: left hand -> left back
-- 
+
 - `unsheatherighthandrightback`: right hand <- right back
 - `unsheatherighthandleftback`: right hand <- left back
 - `unsheathelefthandrightback`: left hand <- right back
