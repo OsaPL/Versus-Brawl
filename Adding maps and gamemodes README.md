@@ -354,7 +354,8 @@ To make your weapon sheathe-able you need to add to your item xml:
 - `_sheathed_left_back` slot will be used for `big_sword` labeled weapons (`IsBigBlade(weapId)` check)
 - `_sheathed_right_back` slot will be used for `spear` labeled weapon (`IsBigStick(weapId)` check)
 
-👻 This will be not needed once step 3. will be a required one.
+👻 Step 1. will be not needed once step 3. will be a required one.
+
 2. Add a attachment section with desired attachment animation (where the weapon will be mounted), and select a desired `ik_attach` bone (for most situation, just leave it as `torso`)
 ```xml
 <sheathe ik_attach = "torso" anim = "Data/Animations/bow/r_arrow_sheathed.anm"/>
@@ -367,11 +368,15 @@ Some already available anims for weapons on your back you can try are:
 ```
 
 3. 👻 (step not needed atm, should already work, but havent tested it yet) Use these animation events, in your .anm to control sheathing:
+
+**Sheathing**
 - `sheatherighthandrightback`: right hand -> right back
 - `sheatherighthandleftback`: right hand -> left back
 - `sheathelefthandrightback`: left hand -> right back
 - `sheathelefthandleftback`: left hand -> left back
 
+
+**Unsheathing**
 - `unsheatherighthandrightback`: right hand <- right back
 - `unsheatherighthandleftback`: right hand <- left back
 - `unsheathelefthandrightback`: left hand <- right back
