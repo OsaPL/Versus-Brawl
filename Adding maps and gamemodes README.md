@@ -4,7 +4,7 @@
 1. [Mapping](#mapping)
    1. [.json config file](#jsonconfig)
    2. [Gametypes specific](#gametype)
-      1. [Last Bun Standing/Deathmatch](#lbsDm)
+      1. [Last Bun Standing/Deathmatch](#lbsdm)
       2. [Race](#race)
       3. [CTF](#ctf)
       4. [Nidhogg](#nidhogg)
@@ -100,7 +100,7 @@ You can also change them globally temporarily vby editing that file.
 
 ## Gametypes specific <a name="gametype"/>
 
-### Last Bun Standing/Deathmatch <a name="lbsDm"/>
+### Last Bun Standing/Deathmatch <a name="lbsdm"/>
 
 To implement Last Bun Standing/Deathmatch:
 
