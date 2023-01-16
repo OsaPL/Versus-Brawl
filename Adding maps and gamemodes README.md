@@ -379,7 +379,7 @@ Options you can set for `charCatapultHotspot`:
 
 This is a hotspot that allows you to create animated objects from static objects.
 
-**If you want to animate with objects you already have, skip to section `B`.**
+**If you want to animate with objects you already have, skip to [Animating and `anim.json`](#animating).**
 
 ### A. Importing your own animation <a name="animationimport"/>
 If you want to export the animation from your blender model, you can use `extractAnim` scripts:
@@ -389,7 +389,7 @@ If you want to export the animation from your blender model, you can use `extrac
 ```powershell 
 . ./extractAnim.ps1
 ```
-4. Execute the script with the desired parameters:
+4. Execute the script with the desired parameters (this could take a while):
 ```powershell 
 # with interactive prompts
 Export-Anims
@@ -404,7 +404,7 @@ There should be a `anim.json` file in `<objects output dir>`
 
 ### B. Animating and `anim.json` <a name="animating"/>
 
-You can use `anim.json` files to create your own animations.
+You can use `anim.json` files to create your own animations. The game can be unresponsive depending on the amount of object frame needed to load.
 Example file:
 ```json
 {
