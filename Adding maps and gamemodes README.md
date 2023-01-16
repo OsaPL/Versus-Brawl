@@ -22,7 +22,7 @@
    3. [`objectfolloweremitter`](#objectfolloweremitter)
    4. [`weaponspawnhotspot`](#weaponspawnhotspot)
    5. [`waterrisehotspot` and `waterPhaseHotspot`](#waterrisehotspot)
-   6. [`flaghotspot`` and `flagReturnHotspot`](#flaghotspot)
+   6. [`flaghotspot` and `flagReturnHotspot`](#flaghotspot)
    7. [`teleporterhotspot`](#teleporterhotspot)
    8. [`charcatapulthotspot`](#charcatapulthotspot)
    9. [`staticobjectanimatorhotspot`](#staticobjectanimatorhotspot)
