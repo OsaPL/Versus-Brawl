@@ -383,13 +383,14 @@ This is a hotspot that allows you to create animated objects from static objects
 
 ### A. Importing your own animation <a name="animationimport"/>
 If you want to export the animation from your blender model, you can use `extractAnim` scripts:
-1. Make sure you have blender in your `PATH`, so that `blender` command is available
-2. Open up powershell console in scripts location.
-3. Import the needed script:
+1. Configure paths to textures and everything else you will need inside `templateObj.xml` file
+2. Make sure you have blender in your `PATH`, so that `blender` command is available
+3. Open up powershell console in scripts location.
+4. Import the needed script:
 ```powershell 
 . ./extractAnim.ps1
 ```
-4. Execute the script with the desired parameters (this could take a while):
+5. Execute the script with the desired parameters (this could take a while):
 ```powershell 
 # with interactive prompts
 Export-Anims
@@ -398,7 +399,7 @@ Export-Anims
 Export-Anims <.blend file> <start frame> <end frame> <mesh name> <models output dir> <objects output dir>
 #EXAMPLE: Export-Anims test.blend 1 20 Parasit test out
 ```
-5. Insert `<models output dir>` into desired `Data/Models/` folder and `<objects output dir>` into `Data/Objects/`
+6. Insert `<models output dir>` into desired `Data/Models/` folder and `<objects output dir>` into `Data/Objects/`
 
 There should be a `anim.json` file in `<objects output dir>`
 
