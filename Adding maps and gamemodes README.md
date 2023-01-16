@@ -439,6 +439,9 @@ Example file:
     }
   ]
 }
+
+Cool idea to steal: you can also use this system to create animated textures.
+
 ```
 
 Quick descriptions:
@@ -459,7 +462,11 @@ Options you can set for `staticObjectAnimatorHotSpot`:
 - `currentAnim`: animation to use from  `anim.json` file
 - `paused`: will pause animation playback
 - `forceRepeat`: will force looping, even if animation has `repeat` set to `false`
+- `forceNoRepeat`: will disable looping, even if animation has `repeat` on animation set to `true` and `forceRepeat` is `true`
+- `playNextAnim`: enables playing next animation in the list after this one finished
+- `nextAnimIsRandom`: when a next animation is gonna be played, it selects a random one, `playNextAnim` must be `true`
 - `speed`: controls the playback speed (👻 atm not working for single render frame animation frames)
+- 
 
 # Items specific <a name="items"/>
 

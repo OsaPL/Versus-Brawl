@@ -173,11 +173,28 @@ void Animate(){
     // Reset to the first frame
     
     if(currentFrame  >= int(anim.animFrames.size())){
-        if(anim.repeat || params.GetInt("forceRepeat") != 0){
+        if((anim.repeat || params.GetInt("forceRepeat") != 0) && params.GetInt("forceNoRepeat") == 0){
             currentFrame = 0;
         }
         else{
-            Log(error, "Skipping frame");
+            // We can go to next animation
+            if(params.GetInt("playNextAnim") != 0) {
+                Cleanup();
+                PrepareObjects();
+                if(params.GetInt("nextAnimIsRandom") != 0) {
+                    // Select a random one
+                    params.SetString("currentAnim", cfg.animations[rand()%cfg.animations.size()].animName);
+                }
+                else{
+                    if(animId+1 >= int(cfg.animations.size())){
+                        // if were at at last get first
+                        params.SetString("currentAnim", cfg.animations[0].animName);
+                    }
+                    else{
+                        params.SetString("currentAnim", cfg.animations[animId+1].animName);
+                    }
+                }
+            }
             return;
         }
     }
@@ -205,7 +222,7 @@ void Animate(){
         justStarted = false;
     }
     else if(currentAnimFrame.frameTime <= timeSinceLastFrame){
-        Log(error, "nextFrameId: " + nextFrameId + " currentFrame: " + currentFrame);
+        //Log(error, "nextFrameId: " + nextFrameId + " currentFrame: " + currentFrame);
         timeSinceLastFrame = 0;
 
         int lastObjId = -1;
@@ -235,8 +252,11 @@ void Init(){
 void SetParameters(){
     params.AddString("configPath", "");
     params.AddString("currentAnim", "");
+    params.AddIntCheckbox("playNextAnim", false);
+    params.AddIntCheckbox("nextAnimIsRandom", false);
     params.AddIntCheckbox("paused", true);
     params.AddIntCheckbox("forceRepeat", false);
+    params.AddIntCheckbox("forceNoRepeat", false);
     params.AddFloatSlider("speed", 1.0,"min:0,max:2,step:0.1,text_mult:1");
 }
 
