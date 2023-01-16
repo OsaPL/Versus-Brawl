@@ -1,4 +1,5 @@
 # DO THOSE THINGS:
+- `speed` on staticAnimator should also work for frames (in integer form only for > 1), 2x is "skip a frame", 0.5x is "render frame two times" etc
 - big weapons that support sheathing should be seperated into Versus brawl probably, instead of overwriting the stock weapons
 - all places that have paths to resources should use `FileExistsWithType`
 - organise all scripts/objects better

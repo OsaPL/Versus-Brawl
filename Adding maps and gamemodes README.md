@@ -2,10 +2,37 @@
 
 ### Table of contents
 1. [Mapping](#mapping)
-2. [Hotspots](#hotspots)
-3. [Another paragraph](#paragraph2)
+   1. [`.json` config file](#jsonConfig)
+   2. [Gametypes specific](#gametype)
+      1. [Last Bun Standing/Deathmatch](#lbsDm)
+      2. [Race](#race)
+      3. [CTF](#ctf)
+      4. [Nidhogg](#nidhogg)
+      5. [Coop](#coop)
+3. [Gamemode creation](#gamemodeCreate)
+   1. [Global variables](#globalVars)
+   2. [UI](#ui)
+   3. [Special events/messages](#events)
+4. [Changes to default scripts](#scriptChanges)
+  1. [`aschar.as`](#aschar)
+  2. [`playercontrol.as`](#playercontrol)
+5. [Hotspots](#hotspots)
+   1. [playerSpawnHotspot](#playerSpawnHotspot)
+   2. [powerupBase](#powerupBase)
+   3. [objectFollowerEmitter](#objectFollowerEmitter)
+   4. [weaponSpawnHotspot](#weaponSpawnHotspot)
+   5. [`waterRiseHotspot` and `waterPhaseHotspot`](#waterRiseHotspot)
+   6. [`flagHotspot` and `flagReturnHotspot`](#flagHotspot)
+   7. [teleporterHotspot](#teleporterHotspot)
+   8. [charCatapultHotspot](#charCatapultHotspot)
+   9. [staticObjectAnimatorHotspot](#staticObjectAnimatorHotspot)
+      1. [Importing your own animation](#animationImport)
+      2. [Animating and `anim.json`](#animating)
+      3. [Using `anim.json` files and hotspot itself](#hotspotItself)
+6. [Items specific](#items)
+   1. [Sheathing big weapons on the back](#sheatingOnBack)
 
-# Mapping <a name="mapping"></a>
+# Mapping <a name="mapping"/>
 These are general guidelines, tips, explanations that will make your map/gamemode more enjoyable and less janky, for this mod.
 If you have any questions, suggestions or requests, feel free to DM me.
 
@@ -28,7 +55,7 @@ Instead create for example, a row of columns, allowing rabbits to shine, but oth
 5. ... dont put them right next to each other tho
 6. Spruce the level with some small obstacles, killzones, spikes, lava pits, whatever can be used to "accidentally" trip into (with or without help of your enemies)
 
-### `.json` config file
+## `.json` config file <a name="jsonConfig"/>
 
 You can also add a `<map_name>.xml.json` file (see example file: `Levels\Test_map.xml.json`)
 
@@ -71,16 +98,16 @@ You can also change them globally temporarily vby editing that file.
 
 
 
-## Gametype specific
+## Gametypes specific <a name="gametype"/>
 
-### Last Bun Standing/Deathmatch
+### Last Bun Standing/Deathmatch <a name="lbsDm"/>
 
 To implement Last Bun Standing/Deathmatch:
 
 1. Place playerSpawnHotspots, change playerNr accordingly, -1 will be a free for all spawn
 2. Setup level json parameters to your liking (like useGeneric, oneSpawnTypeOnly, blockRaceChange etc.)
 
-### Race
+### Race <a name="race"/>
 
 To implement a race:
 
@@ -100,7 +127,7 @@ Linking checkpoint to any other objects will switch the enabled flag and send in
 
 If you wish your item to be stay disabled until checkpoint first activation, add `KeepDisabled` parameter to the object (no value needed)
 
-### CTF
+### CTF <a name="ctf"/>
 
 To implement CTF:
 
@@ -108,7 +135,7 @@ To implement CTF:
 2. Additionally, you can place some `flagReturn` hotspots, connect those `flagReturn` to `flag` hotspots, for a quicker way to return flags for defenders.
 3. 👻 Setup level json parameters to your liking
 
-### Nidhogg
+### Nidhogg <a name="nidhogg"/>
 
 This gamemode is a little complicated to implement, but it still only needs you to place hotspots, and connect the required things.
 
@@ -121,12 +148,12 @@ All connected objects will be enabled/disabled if the phase is currently open or
 
 👻**Point *3.* will become optional/automatic at a later date**
 
-### Coop
+### Coop <a name="coop"/>
 
 You dont need to do anything in particular, as long as you use default `aschar.as`.
 
 #### Custom levels support 
-👻(not tested)
+👻(not widely tested)
 
 Make sure the place you spawn in players is always roomy enough for 4 players, and is atleast slightly off the ground.
 
@@ -161,11 +188,11 @@ You probably just need to include `coopPartners.as` script and do the same thing
 
 Just correctly call `CoopPartnersCheck()` and `CoopPanic()`.
 
-# Gamemode creation
+# Gamemode creation <a name="gamemodeCreate"/>
  
 You can create your own gamemodes pretty easily! Start with `versusGameplayTemplate`.
-
-### Global variables available
+ 
+## Global variables <a name="globalVars"/>
  `currentState` contains current game state, template already has: `warmup=0`, `map unsupported/missing components=1`, `gamestart>=2` `gameend>=100`, but you are free to implement more and use the `ChangeGameState(value)` call to switch.
 
 **👻Document all params**
@@ -182,7 +209,7 @@ You can create your own gamemodes pretty easily! Start with `versusGameplayTempl
 
 `maxCollateralKillTime` how long does a death count as kill for the last attacker
 
-## UI 
+## UI <a name="ui"/>
 You can use `versusAHGUI` class to have some basic UI.
 
 Like setting onscreen text using :
@@ -210,7 +237,7 @@ AHGUI::Element@ headerElement = versusAHGUI.root.findElement("header"+playerNr);
 headerElement.addElement(@AHGUI::Text("Kills: "+killsCount[playerNr], "OpenSans-Regular", 50, 1, 1, 1, 1 ),DDTop);
 ```
 
-## Special events/messages
+## Special events/messages <a name="events"/>
 
 ### `oneKilledByTwo <victim obj ID> <attacker obj ID>`
 Sent when a character is killed by another (checks `attacked_by_id` on victim and takes into account `maxCollateralKillTime`) 
@@ -221,8 +248,8 @@ Sent when a character is being spawned or respawned (if current game state is no
 ### `suicideDeath <victim obj ID> <attacker obj ID>`
 Sent when a death is not counted as a kill by another player (`maxCollateralKillTime < timeSinceAttackedById`)
 
-# Changes to default scripts 
-## `aschar.as`
+# Changes to default scripts <a name="scriptChanges"/>
+## `aschar.as` <a name="`aschar"/>
 
 - 👻(not working yet fully) new values controlling item throws:
 ```c++
@@ -243,14 +270,14 @@ throwMassMlt = params.GetFloat("Throw - Mass Multiplier");
 - New animation events to use for `sheathed_left_back` and `sheathed_right_back` slots
 - Zero or negative mass weapons will no longer crash/throw errors in throw functions
 
-## `playercontrol.as`
+## `playercontrol.as` <a name="`playercontrol"/>
 - `drunkMode` added, with new methods to invert controls
 - Small modifications to Unsheathe/Sheathing, also adds ability to choose which weapon is selected
 - You can now drop items by quick tapping `drop` key two times
 
 # Hotspots <a name="hotspots"></a>
 
-## `playerSpawn` 
+## `playerSpawnHotspot` <a name="playerSpawnHotspot"/>
 
 Used to simply set player spawns.
 
@@ -258,20 +285,20 @@ Take note of the plus, it shows you the direction player will orientate themselv
 
 The only option you can set is `playerNr`. If its `0-3`, player with that number can spawn there, if its `-1` its a generic spawn (anyone can spawn there if `useGenericSpawns==true`)
 
-## `powerupBase`
+## `powerupBase` <a name="powerupBase"></a>
 
 Simple pickup that executes a function on the character. Disables on death or round reset.
 
 👻TODO: write up on all parameters (most are self-explanatory still)
 
-## `objectFollowerEmitter`
+## `objectFollowerEmitter` <a name="objectFollowerEmitter"/>
 
 Can be used to make a particle effect emitter at its location.
 Will follow the object if connected to it, or `objectIdToFollow` is filled with an object ID.
 
 👻TODO: Document this better, its pretty useful.
 
-## `weaponSpawnHotspot`
+## `weaponSpawnHotspot` <a name="weaponSpawnHotspot"></a>
 
 This allows you to create a dynamically spawned weapon. 
 
@@ -283,7 +310,7 @@ Options:
 - `RespawnTime` how long will it stay, if its not being held/attached to a character, before respawning
 - `RespawnDistance` how far from spawn point qualifies as too far, and to start `RespawnTime` timer
 
-## `waterRiseHotspot` and `waterPhaseHotspot`
+## `waterRiseHotspot` and `waterPhaseHotspot` <a name="waterRiseHotspot"/>
 
 These two hotspots can be used together to create a phase based object up and down movement (see sewer_map for example)
 
@@ -304,7 +331,7 @@ Options you can set for `waterRiseHotspot`:
 Options you can set for `waterPhaseHotspot`:
 - `Phase` decides what phase number in order it is
 
-## `flag` and `flagreturn` hotspots
+## `flagHotspot` and `flagReturnHotspot` <a name="flagHotspot"/>
 
 These two can be used to create some gameplay based on gathering/returning flag.
 
@@ -320,7 +347,7 @@ Options you can set for `flaghotspot`:
 
 `flagreturn` hotspots once connected to a `flaghotspot` will work as a drop off point for the connected flag. You cant capture enemy flags using this point.
 
-## `teleporterHotspot`
+## `teleporterHotspot` <a name="teleporterHotspot"/>
 
 Used to create portals. 
 
@@ -336,7 +363,7 @@ Options you can set for `teleporterHotspot`:
   - `0`: just transfer it
   - `1` translate velocity onto direction of the portal, and reverse it if entered on the other side of the portal
 
-## `charCatapultHotspot`
+## `charCatapultHotspot` <a name="charCatapultHotspot"></a>
 
 Used to create jump pads, catapults and trampolines for players.
 
@@ -348,13 +375,13 @@ Options you can set for `charCatapultHotspot`:
 - `trampolineMinimalVelocityY`: what velocity is understood as to low to be bouncing off
 - `trampolineBoost`: velocity boost, given to you a if `jump` is held during landing
 
-## `staticObjectAnimatorHotSpot`
+## `staticObjectAnimatorHotspot` <a name="staticObjectAnimatorHotspot"/>
 
 This is a hotspot that allows you to create animated objects from static objects.
 
 **If you want to animate with objects you already have, skip to section `B`.**
 
-### A. Importing your own animation
+### A. Importing your own animation <a name="animationImport"/>
 If you want to export the animation from your blender model, you can use `extractAnim` scripts:
 1. Make sure you have blender in your `PATH`, so that `blender` command is available
 2. Open up powershell console in scripts location.
@@ -375,7 +402,7 @@ Export-Anims <.blend file> <start frame> <end frame> <mesh name> <models output 
 
 There should be a `anim.json` file in `<objects output dir>`
 
-### B. Animating and `anim.json`
+### B. Animating and `anim.json` <a name="animating"/>
 
 You can use `anim.json` files to create your own animations.
 Example file:
@@ -422,7 +449,7 @@ Quick descriptions:
     - `frameTime`: minimum time a frame needs to stay on screen (`0` means only single frame)
     - `objectIndex`: object index to use, from `objectPaths`
 
-### C. Using `anim.json` files and hotspot itself
+### C. Using `anim.json` files and hotspot itself <a name="hotspotItself"/>
 
 Finally, you can load that `anim.json` into a hotspot and see it alive!
 
@@ -433,9 +460,9 @@ Options you can set for `staticObjectAnimatorHotSpot`:
 - `forceRepeat`: will force looping, even if animation has `repeat` set to `false`
 - `speed`: controls the playback speed (👻 atm not working for single render frame animation frames)
 
-# Items specific
+# Items specific <a name="items"/>
 
-## Sheathing big weapons on the back
+## Sheathing big weapons on the back <a name="sheatingOnBack"/>
 
 To make your weapon sheathe-able you need to add to your item xml:
 1. Add a label describing what kind of weapon it is: 
