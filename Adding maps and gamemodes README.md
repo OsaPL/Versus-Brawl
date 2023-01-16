@@ -2,7 +2,7 @@
 
 ### Table of contents
 1. [Mapping](#mapping)
-   1. [`.json` config file](#jsonconfig)
+   1. [Map `.json` config file](#jsonconfig)
    2. [Gametypes specific](#gametype)
       1. [Last Bun Standing/Deathmatch](#lbsdm)
       2. [Race](#race)
@@ -55,7 +55,7 @@ Instead create for example, a row of columns, allowing rabbits to shine, but oth
 5. ... dont put them right next to each other tho
 6. Spruce the level with some small obstacles, killzones, spikes, lava pits, whatever can be used to "accidentally" trip into (with or without help of your enemies)
 
-## `.json` config file <a name="jsonconfig"/>
+## Map `.json` config file <a name="jsonconfig"/>
 
 You can also add a `<map_name>.xml.json` file (see example file: `Levels\Test_map.xml.json`)
 
