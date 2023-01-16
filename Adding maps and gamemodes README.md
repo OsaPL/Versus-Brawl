@@ -1,5 +1,11 @@
 ﻿Reminder: **Anything marked by 👻 is missing atm.**
-# Mapping
+
+### Table of contents
+1. [Mapping](#mapping)
+2. [Hotspots](#hotspots)
+3. [Another paragraph](#paragraph2)
+
+# Mapping <a name="mapping"></a>
 These are general guidelines, tips, explanations that will make your map/gamemode more enjoyable and less janky, for this mod.
 If you have any questions, suggestions or requests, feel free to DM me.
 
@@ -242,9 +248,9 @@ throwMassMlt = params.GetFloat("Throw - Mass Multiplier");
 - Small modifications to Unsheathe/Sheathing, also adds ability to choose which weapon is selected
 - You can now drop items by quick tapping `drop` key two times
 
-## Generic available Hotspots
+# Hotspots <a name="hotspots"></a>
 
-### `playerSpawn` 
+## `playerSpawn` 
 
 Used to simply set player spawns.
 
@@ -252,20 +258,20 @@ Take note of the plus, it shows you the direction player will orientate themselv
 
 The only option you can set is `playerNr`. If its `0-3`, player with that number can spawn there, if its `-1` its a generic spawn (anyone can spawn there if `useGenericSpawns==true`)
 
-### `powerupBase`
+## `powerupBase`
 
 Simple pickup that executes a function on the character. Disables on death or round reset.
 
 👻TODO: write up on all parameters (most are self-explanatory still)
 
-### `objectFollowerEmitter`
+## `objectFollowerEmitter`
 
 Can be used to make a particle effect emitter at its location.
 Will follow the object if connected to it, or `objectIdToFollow` is filled with an object ID.
 
 👻TODO: Document this better, its pretty useful.
 
-### `weaponSpawnHotspot`
+## `weaponSpawnHotspot`
 
 This allows you to create a dynamically spawned weapon. 
 
@@ -277,7 +283,7 @@ Options:
 - `RespawnTime` how long will it stay, if its not being held/attached to a character, before respawning
 - `RespawnDistance` how far from spawn point qualifies as too far, and to start `RespawnTime` timer
 
-### `waterRiseHotspot` and `waterPhaseHotspot`
+## `waterRiseHotspot` and `waterPhaseHotspot`
 
 These two hotspots can be used together to create a phase based object up and down movement (see sewer_map for example)
 
@@ -298,7 +304,7 @@ Options you can set for `waterRiseHotspot`:
 Options you can set for `waterPhaseHotspot`:
 - `Phase` decides what phase number in order it is
 
-### `flag` and `flagreturn` hotspots
+## `flag` and `flagreturn` hotspots
 
 These two can be used to create some gameplay based on gathering/returning flag.
 
@@ -314,7 +320,7 @@ Options you can set for `flaghotspot`:
 
 `flagreturn` hotspots once connected to a `flaghotspot` will work as a drop off point for the connected flag. You cant capture enemy flags using this point.
 
-### `teleporterHotspot`
+## `teleporterHotspot`
 
 Used to create portals. 
 
@@ -330,7 +336,7 @@ Options you can set for `teleporterHotspot`:
   - `0`: just transfer it
   - `1` translate velocity onto direction of the portal, and reverse it if entered on the other side of the portal
 
-### `charCatapultHotspot`
+## `charCatapultHotspot`
 
 Used to create jump pads, catapults and trampolines for players.
 
@@ -341,6 +347,91 @@ Options you can set for `charCatapultHotspot`:
 - `trampolineMode`: Transforms it into a trampoline, can hold `jump` for a additional boost (options below will only work if true)
 - `trampolineMinimalVelocityY`: what velocity is understood as to low to be bouncing off
 - `trampolineBoost`: velocity boost, given to you a if `jump` is held during landing
+
+## `staticObjectAnimatorHotSpot`
+
+This is a hotspot that allows you to create animated objects from static objects.
+
+**If you want to animate with objects you already have, skip to section `B`.**
+
+### A. Importing your own animation
+If you want to export the animation from your blender model, you can use `extractAnim` scripts:
+1. Make sure you have blender in your `PATH`, so that `blender` command is available
+2. Open up powershell console in scripts location.
+3. Import the needed script:
+```powershell 
+. ./extractAnim.ps1
+```
+4. Execute the script with the desired parameters:
+```powershell 
+# with interactive prompts
+Export-Anims
+
+# or you can use:
+Export-Anims <.blend file> <start frame> <end frame> <mesh name> <models output dir> <objects output dir>
+#EXAMPLE: Export-Anims test.blend 1 20 Parasit test out
+```
+5. Insert `<models output dir>` into desired `Data/Models/` folder and `<objects output dir>` into `Data/Objects/`
+
+There should be a `anim.json` file in `<objects output dir>`
+
+### B. Animating and `anim.json`
+
+You can use `anim.json` files to create your own animations.
+Example file:
+```json
+{
+  "objectPaths": [
+    "Data/Objects/0.xml",
+    "Data/Objects/1.xml",
+    "Data/Objects/2.xml"
+  ],
+  "animations": [
+    {
+      "animName": "Default",
+      "repeat": true,
+      "animFrames": [
+        {
+          "frameTime": 0.2
+          "objectIndex": 0
+        },
+        {
+          "frameTime": 0,
+          "objectIndex": 1
+        },
+        {
+          "frameTime": 0,
+          "objectIndex": 2
+        },
+        {
+          "frameTime": 0,
+          "objectIndex": 1
+        }
+      ]
+    }
+  ]
+}
+```
+
+Quick descriptions:
+- `objectPaths`: list of available objects
+- `animations`: list of available animations
+  - `animName`: animation name
+  - `repeat`: it will loop
+  - `animFrames`: list of animation frames
+    - `frameTime`: minimum time a frame needs to stay on screen (`0` means only single frame)
+    - `objectIndex`: object index to use, from `objectPaths`
+
+### C. Using `anim.json` files and hotspot itself
+
+Finally, you can load that `anim.json` into a hotspot and see it alive!
+
+Options you can set for `staticObjectAnimatorHotSpot`:
+- `configPath`: the path to the `anim.json` file
+- `currentAnim`: animation to use from  `anim.json` file
+- `paused`: will pause animation playback
+- `forceRepeat`: will force looping, even if animation has `repeat` set to `false`
+- `speed`: controls the playback speed (👻 atm not working for single render frame animation frames)
 
 # Items specific
 
