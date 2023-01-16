@@ -9,28 +9,28 @@
       3. [CTF](#ctf)
       4. [Nidhogg](#nidhogg)
       5. [Coop](#coop)
-3. [Gamemode creation](#gamemodeCreate)
-   1. [Global variables](#globalVars)
+3. [Gamemode creation](#gamemodecreate)
+   1. [Global variables](#globalvars)
    2. [UI](#ui)
    3. [Special events/messages](#events)
-4. [Changes to default scripts](#scriptChanges)
+4. [Changes to default scripts](#scriptchanges)
    1. [aschar.as](#aschar)
    2. [playercontrol.as](#playercontrol)
 5. [Hotspots](#hotspots)
-   1. [playerSpawnHotspot](#playerSpawnHotspot)
-   2. [powerupBase](#powerupBase)
-   3. [objectFollowerEmitter](#objectFollowerEmitter)
-   4. [weaponSpawnHotspot](#weaponSpawnHotspot)
-   5. [waterRiseHotspot and waterPhaseHotspot](#waterRiseHotspot)
-   6. [flagHotspot` and flagReturnHotspot](#flagHotspot)
-   7. [teleporterHotspot](#teleporterHotspot)
-   8. [charCatapultHotspot](#charCatapultHotspot)
-   9. [staticObjectAnimatorHotspot](#staticObjectAnimatorHotspot)
-      1. [Importing your own animation](#animationImport)
+   1. [playerspawnhotspot](#playerspawnhotspot)
+   2. [powerupbase](#powerupbase)
+   3. [objectfolloweremitter](#objectfolloweremitter)
+   4. [weaponspawnhotspot](#weaponspawnhotspot)
+   5. [waterrisehotspot and waterPhaseHotspot](#waterrisehotspot)
+   6. [flaghotspot` and flagReturnHotspot](#flaghotspot)
+   7. [teleporterhotspot](#teleporterhotspot)
+   8. [charcatapulthotspot](#charcatapulthotspot)
+   9. [staticobjectanimatorhotspot](#staticobjectanimatorhotspot)
+      1. [Importing your own animation](#animationimport)
       2. [Animating and anim.json](#animating)
-      3. [Using anim.json` files and hotspot itself](#hotspotItself)
+      3. [Using anim.json` files and hotspot itself](#hotspotitself)
 6. [Items specific](#items)
-   1. [Sheathing big weapons on the back](#sheatingOnBack)
+   1. [Sheathing big weapons on the back](#sheatingonback)
 
 # Mapping <a name="mapping"/>
 These are general guidelines, tips, explanations that will make your map/gamemode more enjoyable and less janky, for this mod.
@@ -188,11 +188,11 @@ You probably just need to include `coopPartners.as` script and do the same thing
 
 Just correctly call `CoopPartnersCheck()` and `CoopPanic()`.
 
-# Gamemode creation <a name="gamemodeCreate"/>
+# Gamemode creation <a name="gamemodecreate"/>
  
 You can create your own gamemodes pretty easily! Start with `versusGameplayTemplate`.
  
-## Global variables <a name="globalVars"/>
+## Global variables <a name="globalvars"/>
  `currentState` contains current game state, template already has: `warmup=0`, `map unsupported/missing components=1`, `gamestart>=2` `gameend>=100`, but you are free to implement more and use the `ChangeGameState(value)` call to switch.
 
 **👻Document all params**
@@ -248,7 +248,7 @@ Sent when a character is being spawned or respawned (if current game state is no
 ### `suicideDeath <victim obj ID> <attacker obj ID>`
 Sent when a death is not counted as a kill by another player (`maxCollateralKillTime < timeSinceAttackedById`)
 
-# Changes to default scripts <a name="scriptChanges"/>
+# Changes to default scripts <a name="scriptchanges"/>
 ## `aschar.as` <a name="`aschar"/>
 
 - 👻(not working yet fully) new values controlling item throws:
@@ -277,7 +277,7 @@ throwMassMlt = params.GetFloat("Throw - Mass Multiplier");
 
 # Hotspots <a name="hotspots"></a>
 
-## `playerSpawnHotspot` <a name="playerSpawnHotspot"/>
+## `playerspawnhotspot` <a name="playerspawnhotspot"/>
 
 Used to simply set player spawns.
 
@@ -285,20 +285,20 @@ Take note of the plus, it shows you the direction player will orientate themselv
 
 The only option you can set is `playerNr`. If its `0-3`, player with that number can spawn there, if its `-1` its a generic spawn (anyone can spawn there if `useGenericSpawns==true`)
 
-## `powerupBase` <a name="powerupBase"></a>
+## `powerupBase` <a name="powerupbase"></a>
 
 Simple pickup that executes a function on the character. Disables on death or round reset.
 
 👻TODO: write up on all parameters (most are self-explanatory still)
 
-## `objectFollowerEmitter` <a name="objectFollowerEmitter"/>
+## `objectFollowerEmitter` <a name="objectfolloweremitter"/>
 
 Can be used to make a particle effect emitter at its location.
 Will follow the object if connected to it, or `objectIdToFollow` is filled with an object ID.
 
 👻TODO: Document this better, its pretty useful.
 
-## `weaponSpawnHotspot` <a name="weaponSpawnHotspot"></a>
+## `weaponSpawnHotspot` <a name="weaponspawnhotspot"></a>
 
 This allows you to create a dynamically spawned weapon. 
 
@@ -310,7 +310,7 @@ Options:
 - `RespawnTime` how long will it stay, if its not being held/attached to a character, before respawning
 - `RespawnDistance` how far from spawn point qualifies as too far, and to start `RespawnTime` timer
 
-## `waterRiseHotspot` and `waterPhaseHotspot` <a name="waterRiseHotspot"/>
+## `waterRiseHotspot` and `waterPhaseHotspot` <a name="waterrisehotspot"/>
 
 These two hotspots can be used together to create a phase based object up and down movement (see sewer_map for example)
 
@@ -331,7 +331,7 @@ Options you can set for `waterRiseHotspot`:
 Options you can set for `waterPhaseHotspot`:
 - `Phase` decides what phase number in order it is
 
-## `flagHotspot` and `flagReturnHotspot` <a name="flagHotspot"/>
+## `flagHotspot` and `flagReturnHotspot` <a name="flaghotspot"/>
 
 These two can be used to create some gameplay based on gathering/returning flag.
 
@@ -347,7 +347,7 @@ Options you can set for `flaghotspot`:
 
 `flagreturn` hotspots once connected to a `flaghotspot` will work as a drop off point for the connected flag. You cant capture enemy flags using this point.
 
-## `teleporterHotspot` <a name="teleporterHotspot"/>
+## `teleporterHotspot` <a name="teleporterhotspot"/>
 
 Used to create portals. 
 
@@ -363,7 +363,7 @@ Options you can set for `teleporterHotspot`:
   - `0`: just transfer it
   - `1` translate velocity onto direction of the portal, and reverse it if entered on the other side of the portal
 
-## `charCatapultHotspot` <a name="charCatapultHotspot"></a>
+## `charCatapultHotspot` <a name="charcatapulthotspot"></a>
 
 Used to create jump pads, catapults and trampolines for players.
 
@@ -375,13 +375,13 @@ Options you can set for `charCatapultHotspot`:
 - `trampolineMinimalVelocityY`: what velocity is understood as to low to be bouncing off
 - `trampolineBoost`: velocity boost, given to you a if `jump` is held during landing
 
-## `staticObjectAnimatorHotspot` <a name="staticObjectAnimatorHotspot"/>
+## `staticObjectAnimatorHotspot` <a name="staticobjectanimatorhotspot"/>
 
 This is a hotspot that allows you to create animated objects from static objects.
 
 **If you want to animate with objects you already have, skip to section `B`.**
 
-### A. Importing your own animation <a name="animationImport"/>
+### A. Importing your own animation <a name="animationimport"/>
 If you want to export the animation from your blender model, you can use `extractAnim` scripts:
 1. Make sure you have blender in your `PATH`, so that `blender` command is available
 2. Open up powershell console in scripts location.
@@ -449,7 +449,7 @@ Quick descriptions:
     - `frameTime`: minimum time a frame needs to stay on screen (`0` means only single frame)
     - `objectIndex`: object index to use, from `objectPaths`
 
-### C. Using `anim.json` files and hotspot itself <a name="hotspotItself"/>
+### C. Using `anim.json` files and hotspot itself <a name="hotspotitself"/>
 
 Finally, you can load that `anim.json` into a hotspot and see it alive!
 
@@ -462,7 +462,7 @@ Options you can set for `staticObjectAnimatorHotSpot`:
 
 # Items specific <a name="items"/>
 
-## Sheathing big weapons on the back <a name="sheatingOnBack"/>
+## Sheathing big weapons on the back <a name="sheatingonback"/>
 
 To make your weapon sheathe-able you need to add to your item xml:
 1. Add a label describing what kind of weapon it is: 
