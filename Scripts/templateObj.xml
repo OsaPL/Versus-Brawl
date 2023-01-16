@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/@dir@/@obj@.obj</Model>
+	<ColorMap>Data/Textures/worm/textures/parasit_low_default_AlbedoTransparency.png</ColorMap>
+	<NormalMap>Data/Textures/worm/textures/parasit_low_default_Normal.png</NormalMap>
+	<ShaderName>envobject #TANGENT</ShaderName>
+</Object>
