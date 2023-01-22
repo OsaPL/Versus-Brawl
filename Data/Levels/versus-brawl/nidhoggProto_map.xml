@@ -39,7 +39,7 @@
     <RayToSun r0="-0.0787175" r1="0.838399" r2="0.539343" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-17.6868" t1="14.3047" t2="22.2573" s0="1" s1="1" s2="1" q0="-0.0330036" q1="0.423616" q2="0.0154466" q3="0.905109" euler_x="-0.072895" euler_y="0.875489" euler_z="0" id="0">
+    <CameraObject t0="8.40427" t1="7.394" t2="-106.18" s0="1" s1="1" s2="1" q0="-0.0361828" q1="-0.124712" q2="-0.00455104" q3="0.991522" euler_x="-0.0729519" euler_y="-0.250243" euler_z="0" id="0">
         <parameters />
     </CameraObject>
     <Group t0="3.67737" t1="-5.23992" t2="119.36" s0="10.798" s1="32.0293" s2="225.975" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2" version="1">
@@ -406,13 +406,13 @@
                 <parameter name="trampolineMinimalVelocityY" type="float" val="2" />
                 <parameter name="trampolineMode" type="int" val="1" />
                 <parameter name="type" type="string" val="charCatapultHotspot" />
-                <parameter name="upwardsBoostScale" type="float" val="0" />
+                <parameter name="upwardsBoostScale" type="float" val="0.15" />
                 <parameter name="velocity" type="float" val="12" />
             </parameters>
             <Connections />
             <ConnectionsFrom />
         </Hotspot>
-        <Hotspot t0="3.11071" t1="4.34875" t2="80.6328" s0="0.307721" s1="0.296296" s2="0.106192" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="57" type_file="Data/Objects/versus-brawl/hotspots/charCatapultHotspot.xml">
+        <Hotspot t0="3.11071" t1="4.34875" t2="80.6328" s0="0.307721" s1="0.296296" s2="0.106192" q0="0" q1="0.707107" q2="0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="-3.14159" id="57" type_file="Data/Objects/versus-brawl/hotspots/charCatapultHotspot.xml">
             <parameters>
                 <parameter name="ragdoll" type="int" val="0" />
                 <parameter name="reuseCharactersVelocity" type="int" val="0" />
@@ -420,7 +420,7 @@
                 <parameter name="trampolineMinimalVelocityY" type="float" val="2" />
                 <parameter name="trampolineMode" type="int" val="1" />
                 <parameter name="type" type="string" val="charCatapultHotspot" />
-                <parameter name="upwardsBoostScale" type="float" val="0" />
+                <parameter name="upwardsBoostScale" type="float" val="0.15" />
                 <parameter name="velocity" type="float" val="12" />
             </parameters>
             <Connections />
@@ -443,7 +443,7 @@
             <ConnectionsFrom />
         </Hotspot>
     </Group>
-    <Group t0="1.67027" t1="-5.4403" t2="-128.748" s0="10.7989" s1="32.032" s2="225.999" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7" version="1">
+    <Group t0="1.67027" t1="-5.44031" t2="-128.748" s0="10.7989" s1="32.032" s2="225.999" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7" version="1">
         <parameters />
         <EnvObject t0="1.67027" t1="-6.78835" t2="-219.091" s0="1.0001" s1="1.0001" s2="1.0001" q0="-0.20052" q1="-0.683082" q2="0.131439" q3="0.689867" euler_x="-1.60064" euler_y="-1.09682" euler_z="1.50009" id="33" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/worm.xml">
             <parameters />
@@ -496,7 +496,7 @@
         <EnvObject t0="2.86278" t1="1.42803" t2="-126.05" s0="1.41064" s1="1.0001" s2="5.96083" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="73" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/basics/soft_cube.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="2.88241" t1="-0.412792" t2="-137.921" s0="1.41064" s1="1.0001" s2="5.96083" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="74" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/basics/soft_cube.xml">
+        <EnvObject t0="2.88241" t1="-0.412376" t2="-137.921" s0="1.41064" s1="1.0001" s2="5.96083" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="74" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/basics/soft_cube.xml">
             <parameters />
         </EnvObject>
         <Hotspot t0="2.42613" t1="3.31541" t2="-137.454" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="75" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
@@ -514,7 +514,7 @@
             </Connections>
             <ConnectionsFrom />
         </Hotspot>
-        <EnvObject t0="2.64747" t1="1.15403" t2="-153.903" s0="2.27912" s1="1.0001" s2="5.99132" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="76" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/basics/soft_cube.xml">
+        <EnvObject t0="2.64747" t1="1.13212" t2="-153.903" s0="2.27912" s1="1.0001" s2="5.99132" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="76" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/basics/soft_cube.xml">
             <parameters />
         </EnvObject>
         <Hotspot t0="2.73864" t1="3.45352" t2="-153.9" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="77" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
@@ -612,7 +612,7 @@
             </Connections>
             <ConnectionsFrom />
         </Hotspot>
-        <EnvObject t0="2.61385" t1="1.24339" t2="-174.097" s0="0.927069" s1="0.940884" s2="1.09391" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="88" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/basics/soft_cube.xml">
+        <EnvObject t0="2.61385" t1="1.2436" t2="-174.097" s0="0.927069" s1="0.940884" s2="1.09391" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="88" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/basics/soft_cube.xml">
             <parameters />
         </EnvObject>
         <Hotspot t0="2.42793" t1="2.93033" t2="-174.299" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="89" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
@@ -630,7 +630,7 @@
             </Connections>
             <ConnectionsFrom />
         </Hotspot>
-        <EnvObject t0="2.54335" t1="1.06835" t2="-179.48" s0="0.927069" s1="0.940884" s2="1.09391" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="90" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/basics/soft_cube.xml">
+        <EnvObject t0="2.54335" t1="1.0574" t2="-179.48" s0="0.927069" s1="0.940884" s2="1.09391" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="90" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/basics/soft_cube.xml">
             <parameters />
         </EnvObject>
         <Hotspot t0="2.6511" t1="2.83242" t2="-179.471" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="91" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
@@ -803,13 +803,13 @@
                 <parameter name="trampolineMinimalVelocityY" type="float" val="2" />
                 <parameter name="trampolineMode" type="int" val="1" />
                 <parameter name="type" type="string" val="charCatapultHotspot" />
-                <parameter name="upwardsBoostScale" type="float" val="0" />
+                <parameter name="upwardsBoostScale" type="float" val="0.15" />
                 <parameter name="velocity" type="float" val="12" />
             </parameters>
             <Connections />
             <ConnectionsFrom />
         </Hotspot>
-        <Hotspot t0="2.23698" t1="4.14959" t2="-90.0169" s0="0.307721" s1="0.296296" s2="0.106192" q0="0" q1="-0.707107" q2="-0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="-3.14159" id="107" type_file="Data/Objects/versus-brawl/hotspots/charCatapultHotspot.xml">
+        <Hotspot t0="2.23698" t1="4.14959" t2="-90.0169" s0="0.307721" s1="0.296296" s2="0.106192" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="107" type_file="Data/Objects/versus-brawl/hotspots/charCatapultHotspot.xml">
             <parameters>
                 <parameter name="ragdoll" type="int" val="0" />
                 <parameter name="reuseCharactersVelocity" type="int" val="0" />
@@ -817,7 +817,7 @@
                 <parameter name="trampolineMinimalVelocityY" type="float" val="2" />
                 <parameter name="trampolineMode" type="int" val="1" />
                 <parameter name="type" type="string" val="charCatapultHotspot" />
-                <parameter name="upwardsBoostScale" type="float" val="0" />
+                <parameter name="upwardsBoostScale" type="float" val="0.15" />
                 <parameter name="velocity" type="float" val="12" />
             </parameters>
             <Connections />
@@ -868,7 +868,7 @@
     <EnvObject t0="3.4645" t1="5.30494" t2="186.195" s0="2.2794" s1="3.35395" s2="0.668584" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="118" color_r="1" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/Buildings/basics/soft_cube.xml">
         <parameters />
     </EnvObject>
-    <ReflectionCaptureObject t0="3.32295" t1="0.552289" t2="-5.22317" s0="0.48742" s1="0.48742" s2="0.48742" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="125" gicoeff00="0.412903" gicoeff01="0.290344" gicoeff02="0.573975" gicoeff03="0.422485" gicoeff04="0.297791" gicoeff05="0.578735" gicoeff06="0.242645" gicoeff07="0.141846" gicoeff08="0.437805" gicoeff09="0.631958" gicoeff10="0.465332" gicoeff11="0.761719" gicoeff12="0.431091" gicoeff13="0.304443" gicoeff14="0.61084" gicoeff15="0.420959" gicoeff16="0.296021" gicoeff17="0.56543">
+    <ReflectionCaptureObject t0="3.32295" t1="0.552289" t2="-5.22317" s0="0.48742" s1="0.48742" s2="0.48742" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="125" gicoeff00="0.422913" gicoeff01="0.2948" gicoeff02="0.584106" gicoeff03="0.427307" gicoeff04="0.299744" gicoeff05="0.583862" gicoeff06="0.246307" gicoeff07="0.143829" gicoeff08="0.440735" gicoeff09="0.634888" gicoeff10="0.466064" gicoeff11="0.764771" gicoeff12="0.436768" gicoeff13="0.305298" gicoeff14="0.615234" gicoeff15="0.426758" gicoeff16="0.300415" gicoeff17="0.571167">
         <parameters>
             <parameter name="Global" type="string" val="1" />
         </parameters>

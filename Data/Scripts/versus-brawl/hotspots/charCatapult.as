@@ -4,6 +4,7 @@ vec3 color = vec3(1, 0.5f, 0.2f);
 string billboardPath = "Data/Textures/ui/versusBrawl/platform_icon.png";
 string boingPath = "Data/Sounds/versus-brawl/boing-2-44164.wav";
 int lastCharObjId = -1;
+int lastBoostedCharObjId = -1;
 
 void Init(){
 }
@@ -27,7 +28,18 @@ void HandleEvent(string event, MovementObject @mo)
     if (event == "enter") {
         if (mo.is_player) {
             lastCharObjId = mo.GetID();
+            lastBoostedCharObjId = -1;
             Boost();
+        }
+    }
+    if (event == "exit") {
+        if (mo.is_player) {
+            if(lastBoostedCharObjId == -1){
+                Boost();
+            }
+            else{
+                lastBoostedCharObjId = -1;
+            }
         }
     }
 }
@@ -43,7 +55,7 @@ void Boost(){
     }
     if(params.GetInt("trampolineMode") != 0){
         
-        if(abs(mo.velocity.y) < params.GetFloat("trampolineMinimalVelocityY"))
+        if(abs(mo.velocity.y) < params.GetFloat("trampolineMinimalVelocityY") && !GetInputDown(mo.controller_id, "jump"))
             return;
         if(GetInputDown(mo.controller_id, "jump") && newVel < params.GetFloat("trampolineBoost")){
             newVel = params.GetFloat("trampolineBoost");
@@ -53,6 +65,7 @@ void Boost(){
     }
 
     mo.velocity = newVel * outputDir;
+    lastBoostedCharObjId = lastCharObjId;
 
     if(params.GetInt("ragdoll") != 0){
         ragdollNextFrame = true;
@@ -72,8 +85,10 @@ void Update(){
 
         ragdollNextFrame = false;
         lastCharObjId = -1;
-        
-        mo.Execute("Ragdoll(_RGDL_LIMP);");
+
+        // mo.Execute("vec3 impulse = vec3(" + 1000.0f + ", " + 1000.0f + ", " + 1000.0f + ");" +
+        // "HandleRagdollImpactImpulse(impulse, this_mo.rigged_object().GetAvgIKChainPos(\"torso\"), 5.0f);");
+        mo.Execute("Ragdoll(_RGDL_FALL);ragdoll_limp_stun = 10.0f;recovery_time = 10.0f;injured_ragdoll_time = 10.0f;roll_recovery_time = 10.0f;ragdoll_time = 10.0f");
     }
 
     // if(!EditorModeActive())
