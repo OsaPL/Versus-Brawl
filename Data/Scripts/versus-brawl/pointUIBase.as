@@ -134,6 +134,13 @@ void UpdateUI(){
         
         updateScores=false;
     }
+
+    if(updateScores && currentState >= 100) {
+        for (uint i = 0; i < uiPointsCounters.size(); i++)
+        {
+            uiPointsCounters[i].setText(AddPointsText("", pointsCount[i], true));
+        }
+    }
 }
 
 void InitUI(){

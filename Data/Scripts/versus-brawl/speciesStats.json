@@ -32,8 +32,8 @@
       "Jump - Jump Sustain": 3.0,
       "Jump - Jump Sustain Boost": 1.0,
 
-      "Throw - Initial Velocity Multiplier": 5.0,
-      "Throw - Mass Multiplier": 2.0,
+      "Throw - Initial Velocity Multiplier": 1.0,
+      "Throw - Mass Multiplier": 1.0,
       "Can sheathe big weapons": 1,
       
       "Knockout Shield": 0,

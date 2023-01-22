@@ -22,9 +22,57 @@ Big sticks:
 - `DogGlaive`: alright, maybe move it slightly higher, so it doesnt go through you ankles `"Data/Animations/bow/r_arrow_sheathed.anm"`
 - `DogSpear`: basically perfect `"Data/Animations/bow/r_arrow_sheathed.anm"`
 - `RabbitCatcher`: alright `"Data/Animations/bow/r_bow_sheathed.anm"`
-    
-# Attribute!
-- Worm model: https://sketchfab.com/3d-models/worm-a3c6bc4cddd9449783d399a2a4c1dec2#download
+
+
+[h1]0.5.9:[/h1]
+[b]Added Nidhogg gamemode prototype:[/b]
+- Entry to the Jan 2023 Map Jam
+- Themes: Faith & Versus
+- Map name: Purple Waters
+
+[b]DogHammer is now a unique two handed weapon.[/b]
+
+[b]KnockbackMlt is now also applied on blocked hits.[/b]
+
+[b]Leaders are now granted a shiny crown.[/b]
+
+[b]Dogs can now sheathe big weapons on their back. (other characters can also use the new "Can sheathe big weapons" parameter)[/b]
+- Supported big sword slot weapons are: DogBroadSword, DogHammer
+- Supported big stick slot weapons are: staffbasic, DogGlaive, DogSpear, RabbitCatcher
+
+[b]Added new hotspots to use for mappers:[/b]
+- charCatapultHotspot: Used to create jump pads, catapults and trampolines for players.
+- teleporterHotspot: Used to create portals.
+- flagHotspot and flagReturnHotspot: These two can be used to create some gameplay based on gathering/returning flag. (comes with a flag item)
+- staticObjectAnimatorHotspot: allows you to animate static objects. (additionally you can use scripts for extracting animation frames from blender included here: https://github.com/OsaPL/Versus-Brawl/tree/main/Scripts/extractAnim)
+
+[b]On screen text can now be separately colored.[/b]
+
+[b]Some small changes for mappers/modders:[/b]
+- Added some test maps for experimentation with hotspots/scripts
+- Hotspots now highlight when selected
+- ...and also get more transparent when disabled
+- Suicide now available for all gamemodes
+- Not counted kills will now trigger SuicideDeath event
+- Leader crown now also available for all gamemodes
+- Most hotspots are now available in the object collection category 'VersusBrawl'
+- Points UI is now generic and you can use it in any gamemode or even extend it
+
+[b]Fixes:[/b]
+- Hotspots should now check the paths before trying to load a file.
+- Coop panic now doesnt work on "gamemode == versusBrawl" tagged maps
+- Coop now uses Duplicate object to more accurately recreate coop players
+- Reduced number of logs.
+- Reverted the throw change on dog for the time being
+- Fixed funnies not triggering
+- You now cant suicide during you respawn invincibility
+- Point counters not disappearing on round end
+
+[b]Mapping and modding docs update.[/b]
+Docs have been extended and a lot more things are now documented. With this update I've tried to document everything new.
+Any feedback will be appreciated.
+
+Note: This is more of a 'pre-release' update for 0.6, which will contain both CTF and Nidhogg gamemodes, and a brand new map. Please report any problems.
 
 ### For changelogs
 `git log <hash>..HEAD --pretty=format:%s`
@@ -40,6 +88,8 @@ wolf is weak vs weapons
 cat is glass cannon, good vs lower hp rabbit and rat
 
 rat is great for pushing opponents
+
+rabbit should be only faster than dog and wolf on horizontal spaces
 
 ### Playtesting sessions notes:
 

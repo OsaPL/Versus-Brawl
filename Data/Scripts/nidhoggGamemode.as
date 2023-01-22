@@ -15,7 +15,7 @@ int openPhase = 0;
 bool init = true;
 // sword, spear, dual daggers, big sword, rapier, staff, hammer?
 array<string> weaponQueuePaths = { "Data/Items/DogWeapons/DogSword.xml", "Data/Items/DogWeapons/DogGlaive.xml", "2x Data/Items/MainGauche.xml", "Data/Items/DogWeapons/DogBroadSword.xml", "Data/Items/Rapier.xml", "Data/Items/staffbasic.xml", "Data/Items/DogWeapons/DogHammer.xml" };
-array<string> weaponQueueNames = { "Shortsword", "Glaive", "Daggers", "Two-handed machete", "Rapier", "Staff", "Hammer" };
+array<string> weaponQueueNames = { "Shortsword", "Glaive", "Daggers", "Broadsword", "Rapier", "Staff", "Hammer" };
 array<int> currentWeaponQueuesIndexes = {0, 0, 0, 0};
 array<array<int>> currentWeaponsIds = {{}, {}, {}, {}};
 bool queueClearWeapons = false;
@@ -42,6 +42,7 @@ void Init(string msg){
     allowUneven = false;
     suicideTime = 1;
     respawnTime = 1;
+    forcedSpecies = -1;
 
     // pointUIBase configuration
     diffToCloseBlinking = 0;
@@ -349,7 +350,7 @@ void Update(){
             VersusPlayer@ player = GetPlayerByNr(k);
             AHGUI::Element @headerElement = versusAHGUI.root.findElement("header" + player.playerNr);
             AHGUI::Divider @div = cast < AHGUI::Divider > (headerElement);
-            AHGUI::Text textElem("Next Weapon here", "edosz", 65, 1, 1, 1, 1);
+            AHGUI::Text textElem("Next Weapon", "edosz", 65, 1, 1, 1, 1);
             textElem.setShadowed(true);
             
             if(player.playerNr == 0 || player.playerNr == 2){

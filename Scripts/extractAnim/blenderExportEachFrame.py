@@ -19,11 +19,14 @@ print(meshName)
 exportfilepath = argv[argv.index("--export-file-path") + 1]
 print(exportfilepath)
 
+# TODO! This doesnt work if .blend is not currently in object mode
+# Try: bpy.ops.object.mode_set(mode = 'OBJECT')?
+
 # Select the mesh first
-ob = bpy.context.scene.objects[meshName] # Get the object
-bpy.ops.object.select_all(action='DESELECT') # Deselect all objects
-bpy.context.view_layer.objects.active = ob # Make the mesh the active object 
-ob.select_set(True)
+# ob = bpy.context.scene.objects[meshName] # Get the object
+# bpy.ops.object.select_all(action='DESELECT') # Deselect all objects
+# bpy.context.view_layer.objects.active = ob # Make the mesh the active object 
+# ob.select_set(True)
 
 # Go through frame range
 for f in range(frame_start, frame_end + 1):

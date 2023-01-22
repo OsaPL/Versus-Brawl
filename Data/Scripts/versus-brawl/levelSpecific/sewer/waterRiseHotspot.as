@@ -60,7 +60,7 @@ void Update(){
     Object@ me = ReadObjectFromID(hotspot.GetID());
     string enabled = me.GetEnabled() ? "Enabled" : "Disabled";
     
-    PlaceHolderFollowerUpdate("Data/UI/spawner/thumbs/Hotspot/water.png", "[WaterRise] CurrentPhase: [" +  currentPhase+ "] phaseHeight:[" + phaseHeight + "] [" + enabled + "]");
+    PlaceHolderFollowerUpdate("Data/Textures/ui/versusBrawl/waterRise.png", "[WaterRise] CurrentPhase: [" +  currentPhase+ "] phaseHeight:[" + phaseHeight + "] [" + enabled + "]");
     
     UpdateParameters();
     

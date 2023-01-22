@@ -25,7 +25,7 @@ int score_leftDown = 0;
 int score_rightDown = 0;
 
 //Versus values
-float time = 0.0f;
+float timeLBS = 0.0f;
 float reset_timer = 2.0f;
 float end_game_delay = 0.0f;
 int players_number;
@@ -51,7 +51,7 @@ void Init(string msg){
         return true;
     }));
     levelTimer.Add(LevelEventJob("reset", function(_params){
-        time = 0.0f;
+        timeLBS = 0.0f;
         reset_timer = 2.0f;
         return true;
     }));
@@ -68,7 +68,7 @@ void Update(){
     //Always need to call this first!
     VersusUpdate();
     
-    time += time_step;
+    timeLBS += time_step;
     if(currentState==2)
         VictoryCheckVersus();
     versus_gui.Update();

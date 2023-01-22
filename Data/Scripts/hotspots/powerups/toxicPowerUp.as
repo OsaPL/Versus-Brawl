@@ -115,6 +115,7 @@ void Update()
                         Object@ obj = ReadObjectFromID(emitterId);
                         ScriptParams@ objParams = obj.GetScriptParams();
                         objParams.SetInt("objectIdToFollow", mo.GetID());
+                        objParams.SetString("boneToFollow", "");
                         objParams.SetFloat("particleDelay", params.GetFloat("particleDelay") * 12.0f);
                         objParams.SetFloat("particleRangeMultiply", params.GetFloat("particleRangeMultiply") * 0.15f);
                         objParams.SetString("pathToParticles", params.GetString("pathToParticles"));

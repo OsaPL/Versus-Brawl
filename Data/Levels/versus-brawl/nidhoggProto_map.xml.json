@@ -1,0 +1,9 @@
+{
+  "Nidhogg": {
+    "PhasesToWin": 5  
+  },
+  "SpeciesStats": {
+    "wolf": {
+      "Attack Speed": 0.5
+    }
+}

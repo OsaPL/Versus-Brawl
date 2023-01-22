@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <Mod>
-    <Id>versus-braw</Id>
+    <Id>versus-brawl</Id>
     <Name>Versus Brawl - local play overhaul</Name>
 
     <Category>VersusBrawl</Category>
@@ -39,6 +39,7 @@
         <Level title="Dank Caves DM" thumbnail="Images/versus-brawl/cave.jpg">versus-brawl/cave_map.xml</Level>
         <Level title="(Beta)Gods Exile TAG" thumbnail="Images/versus-brawl/floating2.jpg">versus-brawl/floating2_map.xml</Level>
         <Level title="(Alpha)Imperial Sewers DM" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/sewer_map.xml</Level>
+        <Level title="(Alpha)Purple Waters NIDHOGG" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/nidhoggProto_map.xml</Level>
         <Level title="(WIP)Tree Climb RACE" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/branches_map.xml</Level>
     </Campaign>
 
@@ -55,27 +56,81 @@
     
     <!-- Hotspots-->
     <Item category="VersusBrawl"
+          title="[h] playerSpawn"
+          path="Data/Objects/versus-brawl/playerSpawnHotspot.xml"
+          thumbnail="Data/Textures/ui/versusBrawl/placeholder_arena_spawn_-1.png" />
+    
+    <Item category="VersusBrawl"
           title="[h] charCatapultHotspot.xml"
           path="Data/Objects/versus-brawl/hotspots/charCatapultHotspot.xml"
           thumbnail="Data/Textures/ui/versusBrawl/platform_icon.png" />
+    
     <Item category="VersusBrawl"
           title="[h] flagHotspot"
           path="Data/Objects/versus-brawl/hotspots/flagHotspot.xml"
           thumbnail="Data/Textures/ui/versusBrawl/flag_icon.png" />
+    
     <Item category="VersusBrawl"
           title="[h] flagReturnHotspot"
           path="Data/Objects/versus-brawl/hotspots/flagReturnHotspot.xml"
           thumbnail="Data/Textures/ui/versusBrawl/return_icon.png" />
+    
     <Item category="VersusBrawl"
           title="[h] leaderCrownHotspot"
           path="Data/Objects/versus-brawl/hotspots/leaderCrownHotspot.xml"
           thumbnail="Data/Textures/versus-brawl/crown.png" />
+    
     <Item category="VersusBrawl"
           title="[h] nidhoggPhaseHotspot"
           path="Data/Objects/versus-brawl/hotspots/nidhoggPhaseHotspot.xml"
           thumbnail="Data/Textures/ui/versusBrawl/phase_icon.png" />
+    
     <Item category="VersusBrawl"
           title="[h] teleporterHotspot"
           path="Data/Objects/versus-brawl/hotspots/teleporterHotspot.xml"
           thumbnail="Data/Textures/ui/versusBrawl/teleporterOk.png" />
+    
+    <Item category="VersusBrawl"
+          title="[h] raceGoalHotspot"
+          path=" Data/Objects/raceGoal.xml"
+          thumbnail="Data/UI/spawner/thumbs/Hotspot/race_icon.png" />
+    
+    <Item category="VersusBrawl"
+          title="[h] waterRiseHotspot"
+          path="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml"
+          thumbnail="Data/Textures/ui/versusBrawl/waterRise.png" />
+    <Item category="VersusBrawl"
+          title="[h] waterPhaseHotspot"
+          path="Data/Objects/versus-brawl/levelSpecific/sewer/waterPhaseHotSpot.xml"
+          thumbnail="Data/UI/spawner/thumbs/Hotspot/water.png" />
+    
+    <Item category="VersusBrawl"
+          title="[h] objectFollowerEmitter"
+          path="Data/Objects/powerups/objectFollowerEmitter.xml"
+          thumbnail="Data/UI/spawner/thumbs/Hotspot/empty.png" />
+    
+    <Item category="VersusBrawl"
+          title="[h] firePowerUp"
+          path="Data/Objects/powerups/firePowerUp.xml"
+          thumbnail="Data/Textures/ui/arena_mode/glyphs/10_kos_1x1.png" />
+    <Item category="VersusBrawl"
+          title="[h] healPowerUp"
+          path="Data/Objects/powerups/healPowerUp.xml"
+          thumbnail="Data/Textures/ui/arena_mode/glyphs/10_kos_1x1.png" />
+    <Item category="VersusBrawl"
+          title="[h] ninjaPowerUp"
+          path="Data/Objects/powerups/ninjaPowerUp.xml"
+          thumbnail="Data/Textures/ui/arena_mode/glyphs/10_kos_1x1.png" />
+    <Item category="VersusBrawl"
+          title="[h] rockPowerUp"
+          path="Data/Objects/powerups/rockPowerUp.xml"
+          thumbnail="Data/Textures/ui/arena_mode/glyphs/10_kos_1x1.png" />
+    <Item category="VersusBrawl"
+          title="[h] toxicPowerUp"
+          path="Data/Objects/powerups/toxicPowerUp.xml"
+          thumbnail="Data/Textures/ui/arena_mode/glyphs/10_kos_1x1.png" />
+    <Item category="VersusBrawl"
+          title="[h] yeetPowerUp"
+          path="Data/Objects/powerups/yeetPowerUp.xml"
+          thumbnail="Data/Textures/ui/arena_mode/glyphs/10_kos_1x1.png" />
 </Mod>
