@@ -35,6 +35,7 @@ Some of the functionality will come eventually, once I have laid the foundation 
 - Pickup wacky powerups and be able to add your own with only few lines of code (👻need to create a better template for external use and add some documentation)
 - SuperEasy<sup>TM</sup> to extend with new races (👻mostly true, but there are still few hardcoded places)
 - Randomized character apperance (👻almost completely done, missing some variants, colors look whack sometimes)
+- Custom weapons and ability to carry big weapons on your back
 - 👻NPC opponents support (this will rely on map maker to implement detailed paths)
 
 # FAQ
@@ -105,11 +106,15 @@ Play through campaign with friendsos.
 
 Catchers needs to catch everyone
 
+- Nidhogg (👻moslty done, needs maps and balancing)
+
+Fight and run to be the one who can become the best fighter/food.
+
 - 👻Sacrifice
   
 Each enemy body thrown to your abbys, gives a point, your body in your abbys takes back two.
 
-- 👻Capture the fur 
+- Capture the fur (👻mostly done, map in works)
   
 Just CTF
 
