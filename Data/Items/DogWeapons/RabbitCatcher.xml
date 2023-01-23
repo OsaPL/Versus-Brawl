@@ -16,6 +16,31 @@
         <wood start="pommel" end="guard"/>
         <metal start="guard" end="tip"/>
     </lines>
+    <anim_blend idle = "Data/Animations/r_spearidle.xml"
+                movement = "Data/Animations/r_spearmove.xml"/>
+    <anim_override idle = "Data/Animations/r_weaponidlestance.xml"
+                   movement = "Data/Animations/r_spearmovestance.xml"
+                   blockflinch = "Data/Animations/r_spearblockflinch.anm"
+                   medleftblock = "Data/Animations/r_spearblockleft.anm"
+                   medrightblock = "Data/Animations/r_spearblockright.anm"
+                   highleftblock = "Data/Animations/r_spearblockhighleft.anm"
+                   highrightblock = "Data/Animations/r_spearblockhighright.anm"
+                   lowleftblock = "Data/Animations/r_spearblocklowleft.anm"
+                   lowrightblock = "Data/Animations/r_spearblocklowright.anm"/>
+    <attack_override stationary = "Data/Attacks/spearstabfar.xml"
+                     moving = "Data/Attacks/spearslash.xml"
+                     moving_close = "Data/Attacks/spearslashclose.xml"
+                     stationary_close = "Data/Attacks/spearstab.xml"
+                     low = "Data/Attacks/spearsweep.xml"/>
+    <reaction_override>
+        <reaction old = "Data/Attacks/reaction_highleft.xml"
+                  new = "Data/Attacks/reaction_highleftspear.xml"/>
+        <reaction old = "Data/Attacks/reaction_highright.xml"
+                  new = "Data/Attacks/reaction_highrightspear.xml"/>
+        <reaction old = "Data/Attacks/reaction_medfront.xml"
+                  new = "Data/Attacks/reaction_medfrontspear.xml"/>
+    </reaction_override>
     <physics mass = "4 kg"/>
+    <range extend = "1.0"/>
 	<label>spear</label>
 </item>
