@@ -40,7 +40,7 @@ void Init(string msg){
     teamPlay = true;
     teamsAmount = 2;
     allowUneven = false;
-    suicideTime = 1;
+    suicideTime = 0.7f;
     respawnTime = 1;
     forcedSpecies = -1;
 

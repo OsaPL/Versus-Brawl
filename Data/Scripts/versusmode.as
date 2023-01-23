@@ -1558,6 +1558,12 @@ void CheckPlayersState() {
                     // Removing player temporary resistance
                     Log(error, "Removing spawn protection for " + i);
                     char.Execute("invincible = false;");
+                    
+                    // We check whether the character is still dead, if he somehow is, lets try to respawn him again
+                    if(char.GetIntVar("knocked_out") != _awake){
+                        Log(error, "Player still dead! Trying to respawn again: " + i);
+                        CallRespawn(player.playerNr, player.objId);
+                    }
                 }
             }
         }

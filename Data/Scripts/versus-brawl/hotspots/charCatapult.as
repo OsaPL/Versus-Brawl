@@ -85,9 +85,7 @@ void Update(){
 
         ragdollNextFrame = false;
         lastCharObjId = -1;
-
-        // mo.Execute("vec3 impulse = vec3(" + 1000.0f + ", " + 1000.0f + ", " + 1000.0f + ");" +
-        // "HandleRagdollImpactImpulse(impulse, this_mo.rigged_object().GetAvgIKChainPos(\"torso\"), 5.0f);");
+        
         mo.Execute("Ragdoll(_RGDL_FALL);ragdoll_limp_stun = 10.0f;recovery_time = 10.0f;injured_ragdoll_time = 10.0f;roll_recovery_time = 10.0f;ragdoll_time = 10.0f");
     }
 
