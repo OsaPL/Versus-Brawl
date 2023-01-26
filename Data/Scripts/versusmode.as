@@ -1563,6 +1563,7 @@ void CheckPlayersState() {
                     if(char.GetIntVar("knocked_out") != _awake){
                         Log(error, "Player still dead! Trying to respawn again: " + i);
                         CallRespawn(player.playerNr, player.objId);
+                        playerToRespawn.respawnQueue = 0.1f;
                     }
                 }
             }
