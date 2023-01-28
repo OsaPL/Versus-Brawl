@@ -39,7 +39,7 @@
     <RayToSun r0="-0.0787175" r1="0.838399" r2="0.539343" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="8.40427" t1="7.394" t2="-106.18" s0="1" s1="1" s2="1" q0="-0.0361828" q1="-0.124712" q2="-0.00455104" q3="0.991522" euler_x="-0.0729519" euler_y="-0.250243" euler_z="0" id="0">
+    <CameraObject t0="-38.9397" t1="9.67868" t2="-119.876" s0="1" s1="1" s2="1" q0="-0.0117048" q1="0.606292" q2="0.00892526" q3="0.795106" euler_x="-0.02944" euler_y="1.30294" euler_z="0" id="0">
         <parameters />
     </CameraObject>
     <Group t0="3.67737" t1="-5.23992" t2="119.36" s0="10.798" s1="32.0293" s2="225.975" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2" version="1">
@@ -412,7 +412,7 @@
             <Connections />
             <ConnectionsFrom />
         </Hotspot>
-        <Hotspot t0="3.11071" t1="4.34875" t2="80.6328" s0="0.307721" s1="0.296296" s2="0.106192" q0="0" q1="0.707107" q2="0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="-3.14159" id="57" type_file="Data/Objects/versus-brawl/hotspots/charCatapultHotspot.xml">
+        <Hotspot t0="3.11071" t1="4.34875" t2="80.6328" s0="0.307721" s1="0.296296" s2="0.106192" q0="0" q1="0.707107" q2="0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="3.14159" id="57" type_file="Data/Objects/versus-brawl/hotspots/charCatapultHotspot.xml">
             <parameters>
                 <parameter name="ragdoll" type="int" val="0" />
                 <parameter name="reuseCharactersVelocity" type="int" val="0" />
@@ -496,7 +496,7 @@
         <EnvObject t0="2.86278" t1="1.42803" t2="-126.05" s0="1.41064" s1="1.0001" s2="5.96083" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="73" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/basics/soft_cube.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="2.88241" t1="-0.412376" t2="-137.921" s0="1.41064" s1="1.0001" s2="5.96083" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="74" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/basics/soft_cube.xml">
+        <EnvObject t0="2.88241" t1="-0.23" t2="-137.921" s0="1.41064" s1="1.0001" s2="5.96083" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="74" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/basics/soft_cube.xml">
             <parameters />
         </EnvObject>
         <Hotspot t0="2.42613" t1="3.31541" t2="-137.454" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="75" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
@@ -514,7 +514,7 @@
             </Connections>
             <ConnectionsFrom />
         </Hotspot>
-        <EnvObject t0="2.64747" t1="1.13212" t2="-153.903" s0="2.27912" s1="1.0001" s2="5.99132" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="76" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/basics/soft_cube.xml">
+        <EnvObject t0="2.64747" t1="1.532" t2="-153.903" s0="2.27912" s1="1.0001" s2="5.99132" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="76" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/basics/soft_cube.xml">
             <parameters />
         </EnvObject>
         <Hotspot t0="2.73864" t1="3.45352" t2="-153.9" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="77" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
@@ -630,7 +630,7 @@
             </Connections>
             <ConnectionsFrom />
         </Hotspot>
-        <EnvObject t0="2.54335" t1="1.0574" t2="-179.48" s0="0.927069" s1="0.940884" s2="1.09391" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="90" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/basics/soft_cube.xml">
+        <EnvObject t0="2.54335" t1="1.05521" t2="-179.48" s0="0.927069" s1="0.940884" s2="1.09391" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="90" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/basics/soft_cube.xml">
             <parameters />
         </EnvObject>
         <Hotspot t0="2.6511" t1="2.83242" t2="-179.471" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="91" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">

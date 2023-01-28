@@ -34,6 +34,17 @@ bool showDebugPhases = false;
 
 //Level methods
 void Init(string msg){
+    // NIDHOGG specific hints
+    warmupHints.insertAt(0, "Hold @vec3(1,0.5,0)@attack@@ and @vec3(1,0.5,0)@grab@@ to quickly suicide and respawn.");
+    warmupHints.insertAt(0, "Attackers suicide will reset the @vec3(0.0,0.0,1.0)initiative@.");
+    warmupHints.insertAt(0, "Killing the enemy will give you the @vec3(0.0,0.0,1.0)initiative@.");
+    warmupHints.insertAt(0, "If you have the @vec3(0.0,0.0,1.0)initiative@, you can push through.");
+    warmupHints.insertAt(0, "Who holds the @vec3(0.0,0.0,1.0)initiative@ is represented by the color of the @vec3(0.0,0.0,1.0)V@.");
+    warmupHints.insertAt(0, "You goal is to sacrifice yourself to the @vec3(1,0.5,0.5)Nidhogg@!");
+    
+    randomHints.insertAt(0, "You dont have to kill if you have the @vec3(0.0,0.0,1.0)initiative@, just run!");
+    randomHints.insertAt(0, "Your next weapon will be shown on the bottom.");
+    
     useGenericSpawns = false;
     useSingleSpawnType = true;
     constantRespawning = true;
@@ -284,6 +295,7 @@ void ResetNidhogg(){
     currentWeaponQueuesIndexes = {0, 0, 0, 0};
     updatePhases = true;
     updateScores = true;
+    constantRespawning = true;
 }
 
 void DrawGUI() {
@@ -413,7 +425,7 @@ void Update(){
         }
 
         // UI
-        if(updatePhases) {
+        if(updatePhases && pointsTextShowTimer > pointsTextShowTime) {
             //TODO! Build a prettier UI for the progress thingy
             vec3 color;
 
