@@ -16,6 +16,11 @@ void Reset(){
 }
 
 void Update(){
+    color.x = params.GetFloat("red");
+    color.y = params.GetFloat("green");
+    color.z = params.GetFloat("blue");
+    billboardPath = params.GetString("billboardPath");
+    
     if(lightId == -1){
         //spawn light
         lightId = CreateObject("Data/Objects/lights/dynamic_light.xml");
@@ -45,6 +50,10 @@ void SetParameters(){
     params.AddInt("followObjId", -1);
     params.AddInt("bonePosGetter", 0); // 0 is the newer method, 1 is the old stuttercity method
     params.AddInt("dampenMovement", 0);
+    params.AddFloatSlider("red", color.x, "min:0,max:1.0,step:0.001");
+    params.AddFloatSlider("green", color.y, "min:0,max:1.0,step:0.001");
+    params.AddFloatSlider("blue", color.z, "min:0,max:1.0,step:0.001");
+    params.AddString("billboardPath", billboardPath);
 }
 
 vec3 GetBonePos(){

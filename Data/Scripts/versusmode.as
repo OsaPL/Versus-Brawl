@@ -719,7 +719,7 @@ void VersusUpdate() {
                 if(player.teamNr != winnerNr)
                     continue;
                 
-                int crownId = CreateObject("Data/Objects/versus-brawl/hotspots/leaderCrownHotspot.xml");
+                int crownId = CreateObject(crownObjectPath);
                 crownsIds.push_back(crownId);
 
                 // TODO: This is copy pasta :/
@@ -731,7 +731,7 @@ void VersusUpdate() {
             }
         }
         else{
-            int crownId = CreateObject("Data/Objects/versus-brawl/hotspots/leaderCrownHotspot.xml");
+            int crownId = CreateObject(crownObjectPath);
             crownsIds.push_back(crownId);
 
             // TODO: This is copy pasta :/

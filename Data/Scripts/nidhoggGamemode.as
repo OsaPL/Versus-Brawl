@@ -5,7 +5,7 @@
 string phaseChangeSound = "Data/Sounds/lugaru/consolesuccess.ogg";
 string attackerChangeSound = "Data/Sounds/versus/fight_win2_2.wav";
 string noAttackerChangeSound = "Data/Sounds/versus/fight_lose1_2.wav";
-
+string attacketIconPath = "Data/Textures/versus-brawl/point_icon.png";
 // 2 means stalemate
 int teamAttacking = 2;
 // Phase zero means start location
@@ -60,6 +60,7 @@ void Init(string msg){
     pointsToWin = 2;
     pointsTextFormat = "@points@";
     playingToTextFormat = "Last phase: @points@!";
+    decideWinner = false;
     
     //Always need to call this first!
     VersusInit("");
@@ -108,8 +109,16 @@ void Init(string msg){
                 Log(error, "phase: " + objParams.GetInt("phase") + " is killing: " + playerToKill.playerNr );
                 MovementObject@ char = ReadCharacterID(playerToKill.objId);
                 
-                if(char.GetIntVar("knocked_out") == _awake)
-                    char.Execute("CutThroat();Ragdoll(_RGDL_FALL);zone_killed=1;");
+                if(char.GetIntVar("knocked_out") == _awake){
+                    if(playerToKill.teamNr == teamAttacking) {
+                        // Dont kill, just respawn if its the attacking team
+                        CallRespawn(playerToKill.playerNr, playerToKill.objId);
+                        playerToKill.respawnQueue = 0.1f;
+                    }
+                    else {
+                        char.Execute("CutThroat();Ragdoll(_RGDL_FALL);zone_killed=1;");
+                    }
+                }
             }
         }
         return true;
@@ -335,16 +344,20 @@ void ChangeAttacker(int newAttacker){
         }
     }
         
+    
 
     teamAttacking = newAttacker;
     if(teamAttacking == 0){
         openPhase = CalculateChangePhase(currentPhase, -1);
+        winnerNr = 0;
     }
     else if(teamAttacking == 1){
         openPhase = CalculateChangePhase(currentPhase, 1);
+        winnerNr = 1;
     }
     else{
         openPhase = 0;
+        winnerNr = -1;
     }
 
     updatePhases = true;
@@ -525,6 +538,18 @@ void Update(){
             queueClearWeapons = false;
             clearAllWeapons = false;
             ClearWeapons(clearAllWeapons);
+        }
+
+        if(teamAttacking != 2){
+            for (uint i = 0; i < crownsIds.size(); i++) {
+                Object@ crown = ReadObjectFromID(crownsIds[i]);
+                ScriptParams @crownParams = crown.GetScriptParams();
+                vec3 color = GetTeamUIColor(teamAttacking);
+                crownParams.SetFloat("red", color.x);
+                crownParams.SetFloat("greeb", color.y);
+                crownParams.SetFloat("blue", color.z);
+                crownParams.SetString("billboardPath", attacketIconPath);
+            }
         }
         
         // Give weapons

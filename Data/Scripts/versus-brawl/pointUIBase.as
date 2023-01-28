@@ -9,6 +9,8 @@ string playingToTextFormat = "Playing to: @points@ points!";
 float blinkTimeout = 1;
 float pointsTextShowTime = 5;
 int pointsToWin = 3;
+// This controls whether to automatically decide the winner based on the points
+bool decideWinner = true;
 
 // TODO: These probably should be their own methods instead of setting them by hand
 bool pointsTextShow = true;
@@ -121,7 +123,8 @@ void UpdateUI(){
                 // Orange for winner, chicken dinner
                 uiPointsCounters[i].setColor(1, 0.7f, 0, 1);
 
-                winnerNr = i;
+                if(decideWinner)
+                    winnerNr = i;
             }
             else{
                 uiPointsCounters[i].setColor(1,1,1,1);
@@ -129,7 +132,8 @@ void UpdateUI(){
         }
         
         if(noHighest){
-            winnerNr = -1;
+            if(decideWinner)
+                winnerNr = -1;
         }
         
         updateScores=false;
