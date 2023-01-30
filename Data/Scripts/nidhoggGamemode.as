@@ -394,7 +394,7 @@ void Update(){
     // TODO! Clean this mess up
     if(currentState >= 2 && currentState < 100){
         allOpen = 0;
-    
+
         // To debug the gamemode without playing it
         if(enableDebugKeys) {
             if (GetInputPressed(0, "grab")) {
@@ -407,7 +407,7 @@ void Update(){
                 ChangeAttacker(2);
             }
         }
-        
+
         // Shows "possible" stranglers to kill ("possible" cause it can change next frame)
         if(showPossibleStraglers){
             array<int> hotspots = GetObjectIDsType(_hotspot_object);
@@ -428,7 +428,7 @@ void Update(){
                             for (uint k = 0; k < versusPlayers.size(); k++)
                             {
                                 VersusPlayer@ player = GetPlayerByNr(k);
-                                
+
                                 CheckSide(player.objId, hotspots[i]);
                             }
                         }
@@ -446,10 +446,10 @@ void Update(){
             int phase = currentPhase;
             if(currentPhase * openPhase < 0)
                 phase = 0;
-            
+
             pointsCount[0] = -1*currentPhase;
             pointsCount[1] = currentPhase;
-            
+
             if(teamAttacking == 0 )
                 map += "";
 
@@ -461,7 +461,7 @@ void Update(){
                 else if(i > phase) {
                     color = GetTeamUIColor(0);
                 }
-                
+
                 if (i == phase) {
                     if(teamAttacking == 0){
                         color = GetTeamUIColor(0);
@@ -473,14 +473,14 @@ void Update(){
                         color = GetTeamUIColor(2);
                     }
                     map += "@" + color + "v@";
-                    
+
                 } else {
                     map += "@" + color + "_@";
                 }
             }
             if(teamAttacking == 1)
                 map += "";
-            
+
             versusAHGUI.SetMainText(map, color);
             updatePhases = false;
         }
@@ -488,7 +488,7 @@ void Update(){
         for (uint k = 0; k < versusPlayers.size(); k++)
         {
             VersusPlayer@ player = GetPlayerByNr(k);
-            
+
             if(player.respawnNeeded){
                 // Color label if respawn in progress
                 uiNextWeaponTextElem[player.playerNr].setColor(vec4(0.3f, 0.3f, 0.3f, 1));
@@ -508,7 +508,7 @@ void Update(){
             winnerNr = 0;
             currentPhase = -pointsToWin+1;
             openPhase = 0;
-            
+
             ChangeGameState(100);
             PlaySound("Data/Sounds/versus/fight_end.wav");
             IgniteNotWinners();
@@ -522,7 +522,7 @@ void Update(){
             winnerNr = 1;
             currentPhase = pointsToWin-1;
             openPhase = 0;
-            
+
             ChangeGameState(100);
             PlaySound("Data/Sounds/versus/fight_end.wav");
             IgniteNotWinners();
@@ -551,7 +551,7 @@ void Update(){
                 crownParams.SetString("billboardPath", attacketIconPath);
             }
         }
-        
+
         // Give weapons
         for (uint i = 0; i < giveWeaponQueue.size(); i++) {
             GiveWeapon(giveWeaponQueue[i]);
