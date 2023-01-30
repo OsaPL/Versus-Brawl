@@ -6,6 +6,7 @@ int lightId = -1;
 float time = 0;
 vec3 originalScale = vec3(1);
 vec3 desiredScale = vec3(0.0513f);
+string lastPath = "";
 void Init() {
     hotspot.SetCollisionEnabled(false);
     Object@ me = ReadObjectFromID(hotspot.GetID());
@@ -43,9 +44,13 @@ void Update(){
     if(!params.HasParam("objectIdToFollow"))
         return;
 
-    if(!FileExistsWithType(pathToParticles, ".xml")){
-        return;
+    if(lastPath != pathToParticles){
+        lastPath = pathToParticles
+        if(!FileExistsWithType(pathToParticles, ".xml")){
+            return;
+        }
     }
+
     
     int objectIdToFollow = params.GetInt("objectIdToFollow");
     //Log(error, "Following:"+objectIdToFollow);

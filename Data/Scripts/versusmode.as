@@ -85,7 +85,7 @@ bool blockSpeciesChange = false;
 // This allows instant race change even during game (state>=2)
 bool instantSpeciesChange = false;
 bool enablePreload = true;
-bool noReloads = false;
+bool noReloads = true;
 float maxCollateralKillTime = 5.0f;
 float hintStayTime = 4.0f;
 float suicideTime = 5;
@@ -124,7 +124,7 @@ int placeholderId = -1;
 float placeholderTimer = 1;
 bool preload = true;
 int lastWinnerNr = -1;
-int initPlayersNr;
+int initPlayersNr = 1;
 
 string placeHolderActorPath = "Data/Objects/characters/rabbot_actor.xml";
 
@@ -585,6 +585,7 @@ void VersusInit(string p_level_name) {
     lvlParams.AddString("game_type", "versusBrawl");
     
     // This makes sure player number is already set and not below 1
+    // If `local_players` is not set, it will return 0
     initPlayersNr = GetConfigValueInt("local_players");
     Log(error, "local_players: " + initPlayersNr);
     if(initPlayersNr < 1)
@@ -645,7 +646,12 @@ void VersusDrawGUI(){
 
 void VersusUpdate() {
     
-    if(initPlayersNr != GetConfigValueInt("local_players")){
+    // If `local_players` is not set, it will return 0
+    int cfgPlayers = GetConfigValueInt("local_players");
+    if(cfgPlayers < 1)
+        cfgPlayers = 1;
+    
+    if(initPlayersNr != cfgPlayers){
         //Reload if the setting changed
         LoadLevel(GetCurrLevelRelPath());
     }
