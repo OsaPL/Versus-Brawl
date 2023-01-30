@@ -45,7 +45,7 @@ void Update(){
         return;
 
     if(lastPath != pathToParticles){
-        lastPath = pathToParticles
+        lastPath = pathToParticles;
         if(!FileExistsWithType(pathToParticles, ".xml")){
             return;
         }
