@@ -4,6 +4,8 @@
   },
   "SpeciesStats": {
     "wolf": {
-      "Attack Speed": 0.5
+      "Attack Speed": 0.65,
+      
     }
+  }
 }

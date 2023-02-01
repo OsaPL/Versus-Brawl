@@ -211,61 +211,6 @@ class SpawnPoint{
     }
 }
 
-class Species{
-    string Name;
-    string RaceIcon;
-    array<string> CharacterPaths;
-    Species(string newName, string newRaceIcon, array<string> newCharacterPaths){
-        Name = newName;
-        CharacterPaths = newCharacterPaths;
-        RaceIcon = newRaceIcon;
-    }
-}
-// This can be extended with new races
-enum SpeciesInt {
-    _rabbit = 0,
-    _wolf = 1,
-    _dog = 2,
-    _rat = 3,
-    _cat = 4
-};
-
-array<Species@> speciesMap={
-    Species("rabbit", "Textures/ui/arena_mode/glyphs/rabbit_foot_1x1.png",
-    {
-            "Data/Characters/male_rabbit_1.xml",
-            "Data/Characters/male_rabbit_2.xml",
-            "Data/Characters/male_rabbit_3.xml",
-            "Data/Characters/female_rabbit_1.xml",
-            "Data/Characters/female_rabbit_2.xml",
-            "Data/Characters/female_rabbit_3.xml",
-            "Data/Characters/pale_rabbit_civ.xml"
-    }),
-    Species("wolf", "Textures/ui/arena_mode/glyphs/skull.png",
-        {
-            "Data/Characters/male_wolf.xml"
-        }),
-    Species("dog", "Textures/ui/arena_mode/glyphs/fighter_swords.png",
-        {
-            "Data/Characters/lt_dog_big.xml",
-            "Data/Characters/lt_dog_female.xml",
-            "Data/Characters/lt_dog_male_1.xml",
-            "Data/Characters/lt_dog_male_2.xml"
-        }),
-    Species("rat", "Textures/ui/arena_mode/glyphs/slave_shackles.png",
-        {
-            "Data/Characters/hooded_rat.xml",
-            "Data/Characters/female_rat.xml",
-            "Data/Characters/rat.xml"
-        }),
-    Species("cat", "Textures/ui/arena_mode/glyphs/contender_crown.png",
-        {
-            "Data/Characters/fancy_striped_cat.xml",
-            "Data/Characters/female_cat.xml",
-            "Data/Characters/male_cat.xml",
-            "Data/Characters/striped_cat.xml"
-        })
-};
 
 ///
 ///     This section contains the gamemode interface methods
@@ -769,8 +714,7 @@ void VersusUpdate() {
     {
         VersusPlayer@ player = GetPlayerByNr(i);
         if(player is null){
-            DisplayError("","player is null");
-            LoadLevel(GetCurrLevelRelPath());
+            DisplayError("versusBrawl","Player" + i + " is null!");
         }
         player.charTimer.Update();
     }
