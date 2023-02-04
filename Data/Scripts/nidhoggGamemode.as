@@ -50,7 +50,7 @@ void Init(string msg){
     constantRespawning = true;
     teamPlay = true;
     teamsAmount = 2;
-    allowUneven = false;
+    allowUneven = true;
     suicideTime = 0.7f;
     respawnTime = 1;
     forcedSpecies = -1;
