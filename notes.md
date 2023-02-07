@@ -24,29 +24,42 @@ Big sticks:
 - `RabbitCatcher`: alright `"Data/Animations/bow/r_bow_sheathed.anm"`
 
 
-[h1]0.5.9:[/h1]
+[h1]0.6:[/h1]
+Some of these were already included in 0.5.9 pre-release
+[b]Added CTF gamemode, with new map: Border Sands[/b]
+
 [b]Added Nidhogg gamemode prototype:[/b]
 - Entry to the Jan 2023 Map Jam
 - Themes: Faith & Versus
 - Map name: Purple Waters
 
-[b]DogHammer is now a unique two handed weapon.[/b]
+[b]Added new playable maps:[/b]
+- Conquerors of the Desert, CTF
+- Purple Waters, Nidhogg (ALPHA)
+
+[b]Weapons additions:[/b]
+- DogHammer is now a unique two handed weapon, for smashing through a sturdy opponent.
+- RabbitCatcher now acts as a spear.
+- You can now also quick drop a weapon by tapping "drop" two times quickly
+- Added ability to select which weapon to unsheathe by holding a key, and then pressing "item" key:
+  - hold "grab" to unsheathe hip weapons (hold "item" to unsheathe both, pres for a single one)
+  - hold "attack" to unsheathe big sword weapon slot
+
+[b]Dogs can now sheathe big weapons on their back. (other characters can also use the new "Can sheathe big weapons" parameter)[/b]
+- Supported big sword slot weapons are: DogBroadSword, DogHammer
+- Supported big stick slot weapons are: staffbasic, DogGlaive, DogSpear, RabbitCatcher
 
 [b]KnockbackMlt is now also applied on blocked hits.[/b]
 
 [b]Leaders are now granted a shiny crown.[/b]
 
-[b]Dogs can now sheathe big weapons on their back. (other characters can also use the new "Can sheathe big weapons" parameter)[/b]
-- Supported big sword slot weapons are: DogBroadSword, DogHammer
-- Supported big stick slot weapons are: staffbasic, DogGlaive, DogSpear, RabbitCatcher
+[b]On screen text can now be separately colored.[/b]
 
 [b]Added new hotspots to use for mappers:[/b]
 - charCatapultHotspot: Used to create jump pads, catapults and trampolines for players.
 - teleporterHotspot: Used to create portals.
 - flagHotspot and flagReturnHotspot: These two can be used to create some gameplay based on gathering/returning flag. (comes with a flag item)
 - staticObjectAnimatorHotspot: allows you to animate static objects. (additionally you can use scripts for extracting animation frames from blender included here: https://github.com/OsaPL/Versus-Brawl/tree/main/Scripts/extractAnim)
-
-[b]On screen text can now be separately colored.[/b]
 
 [b]Some small changes for mappers/modders:[/b]
 - Added some test maps for experimentation with hotspots/scripts
@@ -132,6 +145,18 @@ No instructions on how to do lots of things. => add warmup hints (important), an
 
 The shortnames for modes are cryptic => seperate gamemodes into folders?
 
+- session #4 (2 players, nidhogg prototype/purple waters)
+
+two ppl die in water == softlocked spawning => no idea why, added a `awake` check on removing the invincibility, if still dead, we try to respawn him again
+
+wolf still awful?
+
+suicide timer lower tiny bit => now is 0.7f
+
+annoying that ppl spawn in front of you and kill you?
+
+particles/billboards not visible sometimes? => hopefully fixed? (looks like it only happens sometimes, and not for all cameras)
+
 ### Scuffed things (that are probably bugs in OG) that need to get reported:
 - Level params are unusable for other values than string (float are getting converted to ints, sliders crash the game etc.)
 - You can spawn an object in code with `CreateObject("object.xml", /* save object: */ false);` and still connect stuff to it in editor.
@@ -141,8 +166,9 @@ The shortnames for modes are cryptic => seperate gamemodes into folders?
 - `Load Item...` menu entry sometimes occupies the same place as `Load` making clicking on `Load` also click on `Load Item...`. (just include Gyrth Object Menu mod cowards)
 - `DebugDrawBillboard` has wrong TEXTURE_WRAP setting, which makes the texture bleed on top sometimes (`GL_CLAMP_TO_EDGE` should help?)
 - `SetEditorLabel` only works for placeholder objects
-- using `JSONValue` sometimes just crashes games (easiest way to reproduce is just to keep reloading the level script)
+- holding a `JSONValue` var sometimes just crashes games (easiest way to reproduce is just to keep reloading the level script)
 - `<ModDependency>` does nothing, probably missing checks on UI part
-- You cant attach an object to a bone from as script 
+- You cant attach an object to a bone from as script (you can but its hella complicated to do atm)
 - `vec4` cant access `w` param (`a` works tho), cant do `vec4 * float`
 - Setting, then comparing global custom enums, crashes the game?
+- 2nd player camera sometimes wont render billboards and/or effects
