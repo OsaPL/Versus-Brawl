@@ -205,7 +205,6 @@ Just CTF
 - maps stutter after load (preloading is done after level load since `AssetManager` is not available in `as_context`)
 - clothing colors may look wonky, low priority
 - UI gets wonky on weird resolutions (standard aspects like 16:10, 16:9, 4:3 all work, to fix, migration to imgui is probably needed)
-- Holding a global JsonVALUE just crashes the game during script load sometimes (maybe just load the file when needed?)
 - Switching character while unsheathing a weapon, cancels the animation (and the animation event), thus locking player ability to unsheathe into that slot (OG aschar.as bug, probably fixable)
 
 # Thanks to:
