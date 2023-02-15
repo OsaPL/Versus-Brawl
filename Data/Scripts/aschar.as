@@ -7022,6 +7022,11 @@ void UnSheathe(int dst, int src) {
     
     //Log(error, "UnSheathe out dst: " + WeaponSlotToString(dst) + " src: " + WeaponSlotToString(src));
     if(weapon_slots[src] != -1 && weapon_slots[dst] == -1) {
+        // If for some reason weapon disappeared, just clear slot and go on.
+        if(!ObjectExists(weapon_slots[src])){
+            weapon_slots[src] = -1;
+            return;
+        }
         
         ItemObject@ item_obj = ReadItemID(weapon_slots[src]);
         vec3 pos = item_obj.GetPhysicsPosition();
@@ -10377,6 +10382,12 @@ int GetNearestThrownWeapon(vec3 point, float max_range) {
 }
 
 void StartSheathing(int slot) {
+
+    // If for some reason weapon disappeared, just clear slot and go on.
+    if(!ObjectExists(weapon_slots[slot])){
+        weapon_slots[slot] = -1;
+        return;
+    }
     
     ItemObject @obj = ReadItemID(weapon_slots[slot]);
     bool prefer_same_side = obj.GetMass() < 0.55f;

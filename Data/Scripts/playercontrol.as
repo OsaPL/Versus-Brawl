@@ -484,8 +484,18 @@ bool WantsToUnSheatheItem(int &out src) {
     }
     else if(weapon_slots[_sheathed_left] != -1 && weapon_slots[_sheathed_right] != -1) {
         // If we have two weapons, draw better one
-        string label1 = ReadItemID(weapon_slots[_sheathed_left]).GetLabel();
         
+        // If for some reason weapon disappeared, just clear slot and go on.
+        if(!ObjectExists(weapon_slots[_sheathed_left])){
+            weapon_slots[_sheathed_left] = -1;
+            return false;
+        }
+        string label1 = ReadItemID(weapon_slots[_sheathed_left]).GetLabel();
+
+        if(!ObjectExists(weapon_slots[_sheathed_right])){
+            weapon_slots[_sheathed_right] = -1;
+            return false;
+        }
         string label2 = ReadItemID(weapon_slots[_sheathed_right]).GetLabel();
 
         if((label1 == "sword" || label1 == "rapier") && label2 == "knife") {
