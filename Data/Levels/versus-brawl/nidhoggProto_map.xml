@@ -39,7 +39,7 @@
     <RayToSun r0="-0.0787175" r1="0.838399" r2="0.539343" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-38.9397" t1="9.67868" t2="-119.876" s0="1" s1="1" s2="1" q0="-0.0117048" q1="0.606292" q2="0.00892526" q3="0.795106" euler_x="-0.02944" euler_y="1.30294" euler_z="0" id="0">
+    <CameraObject t0="1.02691" t1="2.51804" t2="-9.83178" s0="1" s1="1" s2="1" q0="0.017119" q1="0.974274" q2="-0.0793288" q3="0.210246" euler_x="-2.9791" euler_y="0.425076" euler_z="3.14159" id="0">
         <parameters />
     </CameraObject>
     <Group t0="3.67737" t1="-5.23992" t2="119.36" s0="10.798" s1="32.0293" s2="225.975" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2" version="1">
@@ -206,8 +206,8 @@
                 <parameter name="type" type="string" val="nidhoggPhaseHotspot" />
             </parameters>
             <Connections>
-                <Connection id="35" />
                 <Connection id="27" />
+                <Connection id="35" />
                 <Connection id="0" />
                 <Connection id="41" />
             </Connections>
@@ -334,9 +334,9 @@
                 <parameter name="type" type="string" val="nidhoggPhaseHotspot" />
             </parameters>
             <Connections>
+                <Connection id="15" />
                 <Connection id="42" />
                 <Connection id="43" />
-                <Connection id="15" />
             </Connections>
             <ConnectionsFrom />
         </Hotspot>
@@ -346,9 +346,9 @@
                 <parameter name="type" type="string" val="nidhoggPhaseHotspot" />
             </parameters>
             <Connections>
+                <Connection id="14" />
                 <Connection id="44" />
                 <Connection id="45" />
-                <Connection id="14" />
             </Connections>
             <ConnectionsFrom />
         </Hotspot>
@@ -358,9 +358,9 @@
                 <parameter name="type" type="string" val="nidhoggPhaseHotspot" />
             </parameters>
             <Connections>
+                <Connection id="13" />
                 <Connection id="46" />
                 <Connection id="47" />
-                <Connection id="13" />
             </Connections>
             <ConnectionsFrom />
         </Hotspot>
@@ -435,9 +435,9 @@
                 <parameter name="type" type="string" val="nidhoggPhaseHotspot" />
             </parameters>
             <Connections>
+                <Connection id="118" />
                 <Connection id="28" />
                 <Connection id="30" />
-                <Connection id="118" />
                 <Connection id="0" />
             </Connections>
             <ConnectionsFrom />
@@ -605,8 +605,8 @@
                 <parameter name="type" type="string" val="nidhoggPhaseHotspot" />
             </parameters>
             <Connections>
-                <Connection id="86" />
                 <Connection id="80" />
+                <Connection id="86" />
                 <Connection id="0" />
                 <Connection id="92" />
             </Connections>
@@ -731,9 +731,9 @@
                 <parameter name="type" type="string" val="nidhoggPhaseHotspot" />
             </parameters>
             <Connections>
+                <Connection id="68" />
                 <Connection id="93" />
                 <Connection id="94" />
-                <Connection id="68" />
             </Connections>
             <ConnectionsFrom />
         </Hotspot>
@@ -743,9 +743,9 @@
                 <parameter name="type" type="string" val="nidhoggPhaseHotspot" />
             </parameters>
             <Connections>
+                <Connection id="67" />
                 <Connection id="95" />
                 <Connection id="96" />
-                <Connection id="67" />
             </Connections>
             <ConnectionsFrom />
         </Hotspot>
@@ -755,9 +755,9 @@
                 <parameter name="type" type="string" val="nidhoggPhaseHotspot" />
             </parameters>
             <Connections>
+                <Connection id="66" />
                 <Connection id="97" />
                 <Connection id="98" />
-                <Connection id="66" />
             </Connections>
             <ConnectionsFrom />
         </Hotspot>
@@ -832,9 +832,9 @@
                 <parameter name="type" type="string" val="nidhoggPhaseHotspot" />
             </parameters>
             <Connections>
+                <Connection id="117" />
                 <Connection id="81" />
                 <Connection id="83" />
-                <Connection id="117" />
                 <Connection id="0" />
             </Connections>
             <ConnectionsFrom />
@@ -868,11 +868,6 @@
     <EnvObject t0="3.4645" t1="5.30494" t2="186.195" s0="2.2794" s1="3.35395" s2="0.668584" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="118" color_r="1" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/Buildings/basics/soft_cube.xml">
         <parameters />
     </EnvObject>
-    <ReflectionCaptureObject t0="3.32295" t1="0.552289" t2="-5.22317" s0="0.48742" s1="0.48742" s2="0.48742" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="125" gicoeff00="0.422913" gicoeff01="0.2948" gicoeff02="0.584106" gicoeff03="0.427307" gicoeff04="0.299744" gicoeff05="0.583862" gicoeff06="0.246307" gicoeff07="0.143829" gicoeff08="0.440735" gicoeff09="0.634888" gicoeff10="0.466064" gicoeff11="0.764771" gicoeff12="0.436768" gicoeff13="0.305298" gicoeff14="0.615234" gicoeff15="0.426758" gicoeff16="0.300415" gicoeff17="0.571167">
-        <parameters>
-            <parameter name="Global" type="string" val="1" />
-        </parameters>
-    </ReflectionCaptureObject>
     <Hotspot t0="2.84536" t1="1.11586" t2="-4.75289" s0="0.27" s1="0.27" s2="0.27" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="130" type_file="Data/Objects/powerups/toxicPowerUp.xml">
         <parameters>
             <parameter name="activeTime" type="float" val="10" />

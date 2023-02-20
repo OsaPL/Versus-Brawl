@@ -171,4 +171,4 @@ particles/billboards not visible sometimes? => hopefully fixed? (looks like it o
 - You cant attach an object to a bone from as script (you can but its hella complicated to do atm)
 - `vec4` cant access `w` param (`a` works tho), cant do `vec4 * float`
 - Setting, then comparing global custom enums, crashes the game?
-- 2nd player camera sometimes wont render billboards and/or effects
+- 2nd player camera (ONLY 2nd is affected. 1st, 3rd and 4th work just fine) will stop rendering billboards if there is a global reflection probe present (to fix needs a full game restart, after removal of the probe)

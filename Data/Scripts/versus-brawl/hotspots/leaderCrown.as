@@ -139,7 +139,7 @@ void Draw() {
         pos + vec3(0, overHeadDistance, 0),
     me.GetScale()[1]*5,
         vec4(color*10 , 1),
-        _delete_on_update);
+        _delete_on_draw);
 }
 
 void Dispose()

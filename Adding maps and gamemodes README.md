@@ -55,6 +55,9 @@ Instead create for example, a row of columns, allowing rabbits to shine, but oth
 5. ... dont put them right next to each other tho
 6. Spruce the level with some small obstacles, killzones, spikes, lava pits, whatever can be used to "accidentally" trip into (with or without help of your enemies)
 
+### Workarounds
+1. For the time being **DO NOT USE GLOBAL REFLECTION PROBES**, they are bugged atm and will make 2nd player camera not render some things.
+
 ## Map `.json` config file <a name="jsonconfig"/>
 
 You can also add a `<map_name>.xml.json` file (see example file: `Levels\Test_map.xml.json`)
