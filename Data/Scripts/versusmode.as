@@ -26,7 +26,7 @@ array<string> insults = {
 // This is my fun corner
 array<string> funnies = {
     "Do you ever dream about @vec3(1,0.7,0)cheese@?",
-    "There are no bunkers, but still its frickin great.",
+    "There are no bunkers, but still, its frickin great.",
     "Have you heard of the @vec3(0.2,0.8,0.2)high@ cats? @vec3(0.2,0.8,0.2)Catnip@ maaan.",
     "@vec3(1,0,0)HELP!@ They took me hostage to keep me writing these!",
     "I liked the part where you just fell down.",
@@ -45,9 +45,6 @@ array<string> warmupHints = {
     "...then just press @vec3(1,0.5,0)@attack@@ to cycle through them.",
     "If your character wont change right now, it will on next respawn.",
     "Weapons will respawn after not being picked back up.",
-    "Violet powerup is ninja mode, infinite throwing knife, just hold @vec3(1,0.5,0)@item@@.",
-    "Blue powerup makes you sturdy as a rock.",
-    "Green powerup will heal all your wounds.",
     "You can enable hints during game by turning on @vec3(0.6,0.6,0.6)Tutorials@ option in Settings"
 };
 

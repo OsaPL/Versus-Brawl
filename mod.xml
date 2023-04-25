@@ -39,7 +39,7 @@
 		<Level title="Elder Balance LBS" thumbnail="Images/versus-brawl/planks.jpg">versus-brawl/plank_map.xml</Level>
         <Level title="Dank Caves DM" thumbnail="Images/versus-brawl/cave.jpg">versus-brawl/cave_map.xml</Level>
         <Level title="(Beta)Gods Exile TAG" thumbnail="Images/versus-brawl/floating2.jpg">versus-brawl/floating2_map.xml</Level>
-        <Level title="(Alpha)Imperial Sewers DM" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/sewer_map.xml</Level>
+        <Level title="(Beta)Imperial Sewers DM" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/sewer_map.xml</Level>
         <Level title="(Alpha)Purple Waters NIDHOGG" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/nidhoggProto_map.xml</Level>
         <Level title="(WIP)Tree Climb RACE" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/branches_map.xml</Level>
     </Campaign>
@@ -109,7 +109,8 @@
           title="[h] objectFollowerEmitter"
           path="Data/Objects/powerups/objectFollowerEmitter.xml"
           thumbnail="Data/UI/spawner/thumbs/Hotspot/empty.png" />
-    
+
+    <!-- Powerups -->
     <Item category="VersusBrawl"
           title="[h] firePowerUp"
           path="Data/Objects/powerups/firePowerUp.xml"
