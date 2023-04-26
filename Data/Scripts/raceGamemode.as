@@ -80,7 +80,7 @@ void Update(){
         {
             VersusPlayer@ player = GetPlayerByNr(k);
             //Checks for win
-            if(pointsCount[player.playerNr]>=checkPointsNeeded){
+            if(pointsCount[player.playerNr]>=pointsToWin){
                 // 3 is win state
                 winnerNr = player.playerNr;
                 ChangeGameState(100);
