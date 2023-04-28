@@ -20,9 +20,9 @@ float step;
 float time = 0;
 float bobbingTime = 0;
 bool invertBobbing = false;
-// Uses `SetTranslationRotationFast` to reduce the load, by not recalculating physics
+// Uses `SetTranslationRotationFast` to reduce the load, by not recalculating physics ever (this basically means `reduceMoveRateBy = inf`)
 bool ignoreRecalculation = true;
-// This wil reduce move rate
+// This wil reduce move rate, and recalculate physics only each X frame, This only works if `ignoreRecalculation` is not already true!
 int reduceMoveRateBy = 0;
 // After this distance from nearest character, it will be disabled
 float minDistanceToActivate = 30.0f;
@@ -62,7 +62,7 @@ void SetParameters() {
 
 void UpdateParameters(){
     defaultStep = params.GetFloat("Rise Speed");
-    bobbingMlt = params.GetFloat("Bobbing Multiplier") / (reduceMoveRateBy+1);
+    bobbingMlt = params.GetFloat("Bobbing Multiplier");
     invertBobbing = params.GetInt("Bobbing Direction Inverted") != 0;
     phaseChangeTime = params.GetFloat("Phase Change Time");
     loop = params.GetInt("Loop Phases") != 0;
@@ -131,13 +131,16 @@ void Update(){
 
     //Animate water and objects to bob around a little
     bobbingTime += time_step;
-    if(lastBob >= reduceMoveRateBy){
-        AnimateBobbing();
+    bool ignoreRecalcutatingPhysics = ignoreRecalculation;
+    if(lastBob >= reduceMoveRateBy && !ignoreRecalculation){
+        ignoreRecalcutatingPhysics = false;
         lastBob = 0;
     }
     else{
+        ignoreRecalcutatingPhysics = true;
         lastBob ++;
     }
+    AnimateBobbing(ignoreRecalcutatingPhysics);
     
     // There is something wrong with the setup, dont bother
     if(phases[previousPhase] == -1 || phases[currentPhase] == -1 )
@@ -264,27 +267,18 @@ void ResetObjectsPos(){
     }
 }
 
-void AnimateBobbing(){
+void AnimateBobbing(bool ignoreRecalcutatingPhysics){
     //Log(error, "AnimateBobbing: " + hotspot.GetID());
     for (uint i = 0; i < objectsToMove.size(); i++) {
         Object@ obj = ReadObjectFromID(objectsToMove[i]);
         vec3 original = obj.GetTranslation();
         //Log(error, "sin(bobbingTime): "+ sin(bobbingTime)/bobbingMlt);
-        if(invertBobbing){
-            if(ignoreRecalculation){
-                obj.SetTranslationRotationFast(vec3(original.x, original.y-sin(bobbingTime)/bobbingMlt, original.z), obj.GetRotation());
-            }
-            else{
-                obj.SetTranslation(vec3(original.x, original.y-sin(bobbingTime)/bobbingMlt, original.z));
-            }
+        int sign = invertBobbing ? -1 : 1;
+        if(ignoreRecalcutatingPhysics){
+            obj.SetTranslationRotationFast(vec3(original.x, original.y+sin(bobbingTime)/bobbingMlt*sign, original.z), obj.GetRotation());
         }
         else{
-            if(ignoreRecalculation){
-                obj.SetTranslationRotationFast(vec3(original.x, original.y+sin(bobbingTime)/bobbingMlt, original.z), obj.GetRotation());
-            }
-            else{
-                obj.SetTranslation(vec3(original.x, original.y+sin(bobbingTime)/bobbingMlt, original.z));
-            }
+            obj.SetTranslation(vec3(original.x, original.y+sin(bobbingTime)/bobbingMlt*sign, original.z));
         }
     }
 }
