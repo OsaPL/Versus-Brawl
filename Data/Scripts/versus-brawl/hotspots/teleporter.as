@@ -11,10 +11,10 @@ int parentId = -1;
 float cooldown = 2;
 float timer = cooldown;
 TimedExecution teleportTimer;
+bool retainScale = true;
 
 void Init(){
     Object@ me = ReadObjectFromID(hotspot.GetID());
-    me.SetScale(vec3(0.3f));
 
     teleportTimer.Add(LevelEventJob("teleport", function(_params){
         timer = cooldown;
@@ -41,9 +41,13 @@ void HandleEvent(string event, MovementObject @mo){
 }
 
 void Update(){
+    Object@ me = ReadObjectFromID(hotspot.GetID());
+
+    if(me.GetScale() != vec3(0.3f) && me.GetScale() == vec3(1))
+        me.SetScale(vec3(0.3f));
+
     teleportTimer.Update();
     cooldown = params.GetFloat("cooldown");
-    Object@ me = ReadObjectFromID(hotspot.GetID());
     string billboardPath = okIconPath;
     float trans = 1;
     

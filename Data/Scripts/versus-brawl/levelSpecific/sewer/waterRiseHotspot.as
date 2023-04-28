@@ -1,4 +1,5 @@
 #include "hotspots/placeholderFollower.as"
+#include "versus-brawl/proximityChecker.as"
 
 // TODO! Add support for Reset!
 
@@ -18,6 +19,14 @@ bool rising = false;
 float step;
 float time = 0;
 float bobbingTime = 0;
+bool invertBobbing = false;
+// Uses `SetTranslationRotationFast` to reduce the load, by not recalculating physics
+bool ignoreRecalculation = true;
+// This wil reduce move rate
+int reduceMoveRateBy = 0;
+// After this distance from nearest character, it will be disabled
+float minDistanceToActivate = 30.0f;
+
 float soundTimer=0;
 float phaseHeight;
 float startingPhaseHeight;
@@ -40,22 +49,31 @@ void Init() {
 void SetParameters() {
     params.AddFloatSlider("Rise Speed", 0.005f, "min:0.0,max:3.0,step:0.01");
     params.AddFloatSlider("Bobbing Multiplier", 800, "min:200.0,max:1800.0");
+    params.AddIntCheckbox("Bobbing Direction Inverted", false);
     params.AddFloatSlider("Phase Change Time", 2.0f, "min:0.0,max:360.0,step:0.1");
     params.AddIntCheckbox("Loop Phases", true);
     params.AddIntCheckbox("Phase Starting Direction Forward", true);
     params.AddFloatSlider("Delay Time", 0.0f, "min:0.0,max:9.8696,step:0.01"); // 2x PI is ~9.8696
+    params.AddIntCheckbox("Fast Mode - No Collision Refresh", true);
+    params.AddIntSlider("Fast Mode - Reduce Rate Mltp", 0, "min:0.0,max:20.0");
+    params.AddFloatSlider("Min Distance To Activate", 30, "min:0.0,max:1000.0");
     params.AddString("game_type", "versusBrawl");
 }
 
 void UpdateParameters(){
     defaultStep = params.GetFloat("Rise Speed");
-    bobbingMlt = params.GetFloat("Bobbing Multiplier");
+    bobbingMlt = params.GetFloat("Bobbing Multiplier") / (reduceMoveRateBy+1);
+    invertBobbing = params.GetInt("Bobbing Direction Inverted") != 0;
     phaseChangeTime = params.GetFloat("Phase Change Time");
     loop = params.GetInt("Loop Phases") != 0;
     startPhaseDirectionForward = params.GetInt("Phase Starting Direction Forward") != 0;
     addDelay = params.GetFloat("Delay Time");
+    ignoreRecalculation = params.GetInt("Fast Mode - No Collision Refresh") != 0;
+    reduceMoveRateBy = params.GetInt("Fast Mode - Reduce Rate Mltp");
+    minDistanceToActivate = params.GetFloat("Min Distance To Activate");
 }
 
+int lastBob = 0;
 void Update(){
     Object@ me = ReadObjectFromID(hotspot.GetID());
     string enabled = me.GetEnabled() ? "Enabled" : "Disabled";
@@ -69,27 +87,9 @@ void Update(){
         phaseDirectionForward = startPhaseDirectionForward;
         init = false;
     }
-    
-    objectsToMove = {};
-    // TODO: Limiting to ten is not really necessary
-    phases = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
-    
-    // Get all WaterPhasesHotspots
-    for (uint i = 0; i < savedConnectedObjectIds.size(); i++) {
-        Object@ obj = ReadObjectFromID(savedConnectedObjectIds[i]);
-        // Check if its a phase
-        if(IsWaterPhase(obj)){
-            ScriptParams@ objParams = obj.GetScriptParams();
-            //Log(error, "Found" + obj.GetID() + "phase:" + objParams.GetInt("Phase"));
-            phases[objParams.GetInt("Phase")] = obj.GetID();
-        }
-        else{
-            objectsToMove.push_back(obj.GetID());
-        }
-    }
-    
-    // This helps mapping, since it stops and resets everything if disabled or in editor
-    if(!me.GetEnabled() || EditorModeActive()){
+
+    // This helps mapping, since it stops and resets everything if disabled or in editor, also we disable if the player is far away
+    if(!me.GetEnabled() || EditorModeActive() || !PlayerProximityCheck(minDistanceToActivate)){
         if(!exitedEditorMode){
             Reset();
             exitedEditorMode = true;
@@ -98,6 +98,26 @@ void Update(){
         // Clearing savedConnectedObjectStartPositions helps with making changes to object placements
         savedConnectedObjectStartPositions = {};
         return;
+    }
+    
+    objectsToMove = {};
+    // TODO: Limiting to ten is not really necessary
+    phases = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
+    
+    // Get all WaterPhasesHotspots
+    for (uint i = 0; i < savedConnectedObjectIds.size(); i++) {
+
+        Object@ obj = ReadObjectFromID(savedConnectedObjectIds[i]);
+        // Check if its a phase
+        if(IsWaterPhase(obj)){
+            ScriptParams@ objParams = obj.GetScriptParams();
+            //Log(error, "Found" + obj.GetID() + "phase:" + objParams.GetInt("Phase"));
+            phases[objParams.GetInt("Phase")] = obj.GetID();
+
+        }
+        else{
+            objectsToMove.push_back(obj.GetID());
+        }
     }
 
     // If we exited editormode, fill again savedConnectedObjectStartPositions
@@ -109,9 +129,15 @@ void Update(){
         exitedEditorMode = false;
     }
 
-    // Animate water and objects to bob around a little
+    //Animate water and objects to bob around a little
     bobbingTime += time_step;
-    AnimateBobbing();
+    if(lastBob >= reduceMoveRateBy){
+        AnimateBobbing();
+        lastBob = 0;
+    }
+    else{
+        lastBob ++;
+    }
     
     // There is something wrong with the setup, dont bother
     if(phases[previousPhase] == -1 || phases[currentPhase] == -1 )
@@ -124,7 +150,6 @@ void Update(){
         rising = true;
         
         // If rising up, just enable next one right away
-        
         time = 0;
         soundTimer = 1;
 
@@ -240,12 +265,27 @@ void ResetObjectsPos(){
 }
 
 void AnimateBobbing(){
-    //Log(error, "AnimateBobbing");
+    //Log(error, "AnimateBobbing: " + hotspot.GetID());
     for (uint i = 0; i < objectsToMove.size(); i++) {
         Object@ obj = ReadObjectFromID(objectsToMove[i]);
         vec3 original = obj.GetTranslation();
         //Log(error, "sin(bobbingTime): "+ sin(bobbingTime)/bobbingMlt);
-        obj.SetTranslation(vec3(original.x, original.y+sin(bobbingTime)/bobbingMlt, original.z));
+        if(invertBobbing){
+            if(ignoreRecalculation){
+                obj.SetTranslationRotationFast(vec3(original.x, original.y-sin(bobbingTime)/bobbingMlt, original.z), obj.GetRotation());
+            }
+            else{
+                obj.SetTranslation(vec3(original.x, original.y-sin(bobbingTime)/bobbingMlt, original.z));
+            }
+        }
+        else{
+            if(ignoreRecalculation){
+                obj.SetTranslationRotationFast(vec3(original.x, original.y+sin(bobbingTime)/bobbingMlt, original.z), obj.GetRotation());
+            }
+            else{
+                obj.SetTranslation(vec3(original.x, original.y+sin(bobbingTime)/bobbingMlt, original.z));
+            }
+        }
     }
 }
 
