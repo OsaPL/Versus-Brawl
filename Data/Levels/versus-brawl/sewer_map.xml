@@ -24,7 +24,7 @@
     <parameter name="Saturation" type="float" val="0.58896" />
     <parameter name="Sky Brightness" type="float" val="3.15951" />
     <parameter name="Sky Rotation" type="float" val="-91" />
-    <parameter name="Sky Tint" type="string" val="35, 42, 35" />
+    <parameter name="Sky Tint" type="string" val="117, 114, 114" />
     <parameter name="game_type" type="string" val="versusBrawl" />
 </LevelScriptParameters>
 <NavMeshParameters generate="true" cell_size="0.3" cell_height="0.2" agent_height="1.7" agent_radius="0.4" agent_max_climb="1.5" agent_max_slope="60" />
@@ -35,10 +35,10 @@
     <RayToSun r0="-0.0316601" r1="0.953" r2="0.30131" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-17.4759" t1="17.1391" t2="-15.3078" s0="1" s1="1" s2="1" q0="-0.000543389" q1="-0.999369" q2="-0.0175956" q3="0.0308636" euler_x="3.10638" euler_y="-0.0617465" euler_z="-3.14159" id="0">
+    <CameraObject t0="-0.146004" t1="18.779" t2="-9.69759" s0="1" s1="1" s2="1" q0="0.311153" q1="-0.310867" q2="0.108499" q3="0.8915" euler_x="0.671606" euler_y="-0.671034" euler_z="0" id="0">
         <parameters />
     </CameraObject>
-    <Hotspot t0="-7.93878" t1="-10.9988" t2="-4.89986" s0="8.93827" s1="6.23008" s2="9.32521" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6" type_file="Data/Objects/Hotspots/wet_cube.xml">
+    <Hotspot t0="-7.98306" t1="-6.94692" t2="-5.04601" s0="8.96041" s1="4.20414" s2="9.39828" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6" type_file="Data/Objects/Hotspots/wet_cube.xml">
         <parameters>
             <parameter name="Water Fog" type="float" val="1" />
             <parameter name="Wave Density" type="float" val="0.157" />
@@ -49,7 +49,7 @@
             <Connection id="23" />
         </ConnectionsFrom>
     </Hotspot>
-    <EnvObject t0="2.61566" t1="5.59216" t2="-3.12521" s0="1" s1="1" s2="1.83625" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="11" color_r="0.870588" color_g="0.958893" color_b="1" overbright="6" type_file="Data/Objects/Buildings/terraces/cat_stairs.xml">
+    <EnvObject t0="2.61566" t1="5.72577" t2="-3.18509" s0="1" s1="1.02759" s2="1.82578" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="11" color_r="0.870588" color_g="0.958893" color_b="1" overbright="6" type_file="Data/Objects/Buildings/terraces/cat_stairs.xml">
         <parameters />
     </EnvObject>
     <Hotspot t0="-8.10716" t1="-9.58983" t2="-5.23994" s0="9.40338" s1="3.93354" s2="10.5482" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13" type_file="Data/Objects/Hotspots/generic_kill.xml">
@@ -197,10 +197,10 @@
         <EnvObject t0="-7.49339" t1="7.39555" t2="7.40444" s0="0.99995" s1="0.779473" s2="0.870783" q0="0" q1="-0.999998" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="213" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_RailingShort1.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="-7.43039" t1="12.9369" t2="7.43344" s0="0.99995" s1="0.724536" s2="0.870783" q0="0" q1="-0.999998" q2="0" q3="-2.97129e-05" euler_x="-3.14159" euler_y="5.94257e-05" euler_z="-3.14159" id="214" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_RailingShort2.xml">
+        <EnvObject t0="-7.43039" t1="12.9369" t2="7.43344" s0="0.99995" s1="0.724536" s2="0.870783" q0="0" q1="-0.999998" q2="0" q3="-2.97129e-005" euler_x="-3.14159" euler_y="5.94257e-005" euler_z="-3.14159" id="214" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_RailingShort2.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="-16.0844" t1="10.1293" t2="7.43294" s0="0.99995" s1="0.724536" s2="0.870783" q0="0" q1="-0.999998" q2="0" q3="-2.97129e-05" euler_x="-3.14159" euler_y="5.94257e-05" euler_z="-3.14159" id="215" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_RailingShort2.xml">
+        <EnvObject t0="-16.0844" t1="10.1293" t2="7.43294" s0="0.99995" s1="0.724536" s2="0.870783" q0="0" q1="-0.999998" q2="0" q3="-2.97129e-005" euler_x="-3.14159" euler_y="5.94257e-005" euler_z="-3.14159" id="215" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_RailingShort2.xml">
             <parameters />
         </EnvObject>
         <EnvObject t0="-16.5194" t1="15.7603" t2="7.40444" s0="0.99995" s1="0.779473" s2="0.870783" q0="0" q1="-0.999998" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="216" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_RailingShort1.xml">
@@ -494,6 +494,7 @@
     </EnvObject>
     <Hotspot t0="-17.8963" t1="17.1651" t2="-16.2527" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="84" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
+            <parameter name="KeepDisabled" type="string" val="" />
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="-1" />
             <parameter name="type" type="string" val="playerSpawnHotspot" />
@@ -544,6 +545,7 @@
     </Hotspot>
     <Hotspot t0="-0.873944" t1="17.2616" t2="-19.8557" s0="1" s1="1" s2="1" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="87" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
+            <parameter name="KeepDisabled" type="string" val="" />
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="-1" />
             <parameter name="type" type="string" val="playerSpawnHotspot" />
@@ -575,6 +577,7 @@
     </Group>
     <Hotspot t0="3.17532" t1="16.7583" t2="3.70712" s0="1" s1="1" s2="1" q0="0" q1="-0.965926" q2="0" q3="0.258819" euler_x="3.14159" euler_y="-0.523599" euler_z="3.14159" id="90" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
+            <parameter name="KeepDisabled" type="string" val="" />
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="-1" />
             <parameter name="type" type="string" val="playerSpawnHotspot" />
@@ -589,6 +592,7 @@
     </EnvObject>
     <Hotspot t0="-14.9768" t1="16.9517" t2="7.58432" s0="1" s1="1" s2="1" q0="0" q1="-0.965926" q2="0" q3="-0.258819" euler_x="-3.14159" euler_y="0.523599" euler_z="-3.14159" id="92" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
+            <parameter name="KeepDisabled" type="string" val="" />
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="-1" />
             <parameter name="type" type="string" val="playerSpawnHotspot" />
@@ -916,7 +920,7 @@
     <EnvObject t0="-8.7197" t1="15.0276" t2="5.04751" s0="0.985727" s1="3.33222" s2="1.17075" q0="0.569478" q1="-0.41916" q2="0.41916" q3="0.569478" euler_x="1.5708" euler_y="-1.26902" euler_z="0" id="218" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-6.52773" t1="15.3771" t2="-17.0065" s0="0.969253" s1="3.23074" s2="1.0136" q0="0.586786" q1="-0.394565" q2="0.394565" q3="0.586787" euler_x="1.57079" euler_y="-1.18394" euler_z="2.13283e-06" id="219" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
+    <EnvObject t0="-6.52773" t1="15.3771" t2="-17.0065" s0="0.969253" s1="3.23074" s2="1.0136" q0="0.586786" q1="-0.394565" q2="0.394565" q3="0.586787" euler_x="1.57079" euler_y="-1.18394" euler_z="2.13283e-006" id="219" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-3.65553" t1="14.8395" t2="-17.9646" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="220" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_squared.xml">
@@ -1099,10 +1103,10 @@
     <Decal t0="-10.6858" t1="11.3659" t2="-18.0933" s0="1.8557" s1="1.8557" s2="1.8557" q0="0.00583311" q1="0.706998" q2="0.693651" q3="0.137726" euler_x="1.57055" euler_y="0.187753" euler_z="2.93729" id="280" type_file="Data/Objects/Decals/signs/icon_rabbit.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-2.54186" t1="11.2131" t2="6.29014" s0="3.29154" s1="3.29154" s2="3.29154" q0="-0.706036" q1="-7.1466e-05" q2="-0.0279064" q3="0.707635" euler_x="-1.56777" euler_y="-0.0395173" euler_z="-0.0394352" id="281" type_file="Data/Objects/Decals/signs/icon_pot.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="-2.54186" t1="11.2131" t2="6.29014" s0="3.29154" s1="3.29154" s2="3.29154" q0="-0.706036" q1="-7.1466e-005" q2="-0.0279064" q3="0.707635" euler_x="-1.56777" euler_y="-0.0395173" euler_z="-0.0394352" id="281" type_file="Data/Objects/Decals/signs/icon_pot.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <ReflectionCaptureObject t0="-7.74692" t1="33.4809" t2="-5.65807" s0="0.48742" s1="0.48742" s2="0.48742" q0="-0.359954" q1="-0.281819" q2="0.250436" q3="-0.853401" euler_x="0.682649" euler_y="0.722551" euler_z="-0.304028" id="282" gicoeff00="0.175354" gicoeff01="0.153961" gicoeff02="0.126907" gicoeff03="0.188202" gicoeff04="0.16626" gicoeff05="0.137238" gicoeff06="0.14447" gicoeff07="0.117935" gicoeff08="0.0844421" gicoeff09="0.211945" gicoeff10="0.193634" gicoeff11="0.16803" gicoeff12="0.177887" gicoeff13="0.154205" gicoeff14="0.125504" gicoeff15="0.183411" gicoeff16="0.162842" gicoeff17="0.13588">
+    <ReflectionCaptureObject t0="-7.74692" t1="33.4809" t2="-5.65807" s0="0.48742" s1="0.48742" s2="0.48742" q0="-0.359954" q1="-0.281819" q2="0.250436" q3="-0.853401" euler_x="0.682649" euler_y="0.722551" euler_z="-0.304028" id="282" gicoeff00="0.234497" gicoeff01="0.200623" gicoeff02="0.170013" gicoeff03="0.256866" gicoeff04="0.218292" gicoeff05="0.182861" gicoeff06="0.186127" gicoeff07="0.146118" gicoeff08="0.107361" gicoeff09="0.289673" gicoeff10="0.261169" gicoeff11="0.233734" gicoeff12="0.247009" gicoeff13="0.206055" gicoeff14="0.170563" gicoeff15="0.242615" gicoeff16="0.210938" gicoeff17="0.181152">
         <parameters>
             <parameter name="Global" type="string" val="1" />
         </parameters>
@@ -1164,9 +1168,6 @@
     <EnvObject t0="-2.50654" t1="2.07802" t2="4.302" s0="0.449294" s1="0.449294" s2="0.449294" q0="-0.027737" q1="-0.073682" q2="0.170576" q3="0.982192" euler_x="-0.0804483" euler_y="-0.135693" euler_z="0.349375" id="309" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/CavePlants_Fern1.xml">
         <parameters />
     </EnvObject>
-    <Decal t0="-10.2898" t1="1.38705" t2="-7.28196" s0="2.89742" s1="1.92645" s2="3.25635" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="310" type_file="Data/Objects/Decals/water_froth.xml" color_r="1" color_g="1" color_b="1" overbright="0">
-        <parameters />
-    </Decal>
     <Decal t0="-22.5391" t1="13.4813" t2="0.893354" s0="5.72125" s1="5.72125" s2="5.72125" q0="-0.121821" q1="-0.174807" q2="-0.686027" q3="0.695682" euler_x="0.0772185" euler_y="-0.422854" euler_z="-1.57341" id="311" type_file="Data/Objects/Decals/FadedWhiteRocks.xml" color_r="0.137255" color_g="0.117789" color_b="0.0801999" overbright="0">
         <parameters />
     </Decal>
@@ -1192,12 +1193,6 @@
         <parameters />
     </Decal>
     <Decal t0="1.69977" t1="11.1017" t2="7.0129" s0="3.08985" s1="2.85526" s2="3.57977" q0="-0.531835" q1="-0.432313" q2="0.446122" q3="0.575527" euler_x="-1.51023" euler_y="-0.0230911" euler_z="1.34054" id="319" type_file="Data/Objects/Decals/FadedWhiteRocks.xml" color_r="0.137255" color_g="0.117789" color_b="0.0801999" overbright="0">
-        <parameters />
-    </Decal>
-    <Decal t0="-19.1008" t1="16.945" t2="7.94225" s0="0.41723" s1="0.41723" s2="0.41723" q0="-0.553801" q1="-0.6699" q2="0.272669" q3="0.412529" euler_x="-2.12679" euler_y="-0.2534" euler_z="1.61857" id="320" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
-        <parameters />
-    </Decal>
-    <Decal t0="4.15436" t1="17.2195" t2="-20.3523" s0="0.373425" s1="0.373425" s2="0.373425" q0="0.513893" q1="-0.763018" q2="-0.366634" q3="0.13886" euler_x="2.34928" euler_y="0.165674" euler_z="-2.02557" id="321" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <Group t0="-17.2475" t1="16.2325" t2="-14.7884" s0="0.442964" s1="1.98173" s2="0.426538" q0="0.0422885" q1="-0.222206" q2="0.0222866" q3="0.973825" euler_x="0.0805439" euler_y="-0.449666" euler_z="0.0273332" id="324" version="1">
@@ -1282,9 +1277,6 @@
             <parameters />
         </EnvObject>
     </Group>
-    <Decal t0="-6.72423" t1="1.26783" t2="-1.91276" s0="2.84594" s1="1.89222" s2="3.19849" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="339" type_file="Data/Objects/Decals/water_froth.xml" color_r="1" color_g="1" color_b="1" overbright="0">
-        <parameters />
-    </Decal>
     <Group t0="-3.5106" t1="10.3763" t2="-17.2337" s0="0.442964" s1="1.98173" s2="0.426538" q0="0.0422885" q1="-0.222206" q2="0.0222866" q3="0.973825" euler_x="0.0805439" euler_y="-0.449666" euler_z="0.0273332" id="340" version="1">
         <parameters />
         <Hotspot t0="-3.54523" t1="10.9305" t2="-17.1934" s0="0.108241" s1="0.104494" s2="0.104134" q0="0.0422885" q1="-0.222206" q2="0.0222866" q3="0.973825" euler_x="0.0805439" euler_y="-0.449666" euler_z="0.0273332" id="341" type_file="Data/Objects/Hotspots/fire_test.xml">
@@ -1304,9 +1296,6 @@
             <parameters />
         </EnvObject>
     </Group>
-    <Decal t0="-3.51738" t1="11.2739" t2="-17.1007" s0="0.373425" s1="0.373425" s2="0.373425" q0="-0.0817338" q1="-0.144866" q2="-0.0659026" q3="-0.983856" euler_x="0.188207" euler_y="0.277842" euler_z="0.160158" id="344" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
-        <parameters />
-    </Decal>
     <Group t0="-11.8114" t1="10.4039" t2="5.34929" s0="0.442964" s1="1.98173" s2="0.426538" q0="-0.0926226" q1="-0.406673" q2="-0.048133" q3="0.907587" euler_x="-0.195274" euler_y="-0.843687" euler_z="-0.0181075" id="345" version="1">
         <parameters />
         <Hotspot t0="-11.7208" t1="10.9485" t2="5.27748" s0="0.108241" s1="0.104494" s2="0.104134" q0="-0.0926222" q1="-0.406671" q2="-0.0481328" q3="0.907583" euler_x="-0.195272" euler_y="-0.843676" euler_z="-0.0181073" id="346" type_file="Data/Objects/Hotspots/fire_test.xml">
@@ -1326,9 +1315,6 @@
             <parameters />
         </EnvObject>
     </Group>
-    <Decal t0="-12.8015" t1="11.1865" t2="-13.2661" s0="0.373425" s1="0.373425" s2="0.373425" q0="-0.0817338" q1="-0.144866" q2="-0.0659026" q3="-0.983856" euler_x="0.188207" euler_y="0.277842" euler_z="0.160158" id="349" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
-        <parameters />
-    </Decal>
     <Group t0="-12.9637" t1="10.3102" t2="-13.1403" s0="0.442964" s1="1.98173" s2="0.426538" q0="-0.0662162" q1="-0.298272" q2="-0.03" q3="0.951705" euler_x="-0.13219" euler_y="-0.608585" euler_z="-0.0214549" id="350" version="1">
         <parameters />
         <Hotspot t0="-12.9099" t1="10.8611" t2="-13.2005" s0="0.108241" s1="0.104494" s2="0.104134" q0="-0.0662156" q1="-0.298268" q2="-0.0299996" q3="0.951694" euler_x="-0.132186" euler_y="-0.608567" euler_z="-0.0214541" id="351" type_file="Data/Objects/Hotspots/fire_test.xml">
@@ -1348,9 +1334,6 @@
             <parameters />
         </EnvObject>
     </Group>
-    <Decal t0="-11.6932" t1="11.2927" t2="5.13177" s0="0.373425" s1="0.373425" s2="0.373425" q0="-0.0817338" q1="-0.144866" q2="-0.0659026" q3="-0.983856" euler_x="0.188207" euler_y="0.277842" euler_z="0.160158" id="354" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
-        <parameters />
-    </Decal>
     <Group t0="-1.60697" t1="10.2413" t2="0.900867" s0="0.442964" s1="1.98173" s2="0.426538" q0="0.0174808" q1="-0.120146" q2="-0.00474195" q3="0.992591" euler_x="0.036914" euler_y="-0.240662" euler_z="-0.0140186" id="355" version="1">
         <parameters />
         <Hotspot t0="-1.60407" t1="10.7977" t2="0.920821" s0="0.108241" s1="0.104494" s2="0.104134" q0="0.0174804" q1="-0.120143" q2="-0.00474187" q3="0.992573" euler_x="0.0369124" euler_y="-0.240652" euler_z="-0.014018" id="356" type_file="Data/Objects/Hotspots/fire_test.xml">
@@ -1438,10 +1421,10 @@
         <EnvObject t0="-7.97227" t1="7.74259" t2="-19.6231" s0="0.99995" s1="0.779473" s2="0.870783" q0="0" q1="0" q2="0" q3="-0.999998" euler_x="0" euler_y="0" euler_z="0" id="960" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_RailingShort1.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="-8.03527" t1="13.2839" t2="-19.6521" s0="0.99995" s1="0.724536" s2="0.870783" q0="0" q1="2.98321e-05" q2="0" q3="-0.999998" euler_x="0" euler_y="-5.96641e-05" euler_z="0" id="961" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_RailingShort2.xml">
+        <EnvObject t0="-8.03527" t1="13.2839" t2="-19.6521" s0="0.99995" s1="0.724536" s2="0.870783" q0="0" q1="2.98321e-005" q2="0" q3="-0.999998" euler_x="0" euler_y="-5.96641e-005" euler_z="0" id="961" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_RailingShort2.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="0.618736" t1="10.4763" t2="-19.6516" s0="0.99995" s1="0.724536" s2="0.870783" q0="0" q1="2.98321e-05" q2="0" q3="-0.999998" euler_x="0" euler_y="-5.96641e-05" euler_z="0" id="962" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_RailingShort2.xml">
+        <EnvObject t0="0.618736" t1="10.4763" t2="-19.6516" s0="0.99995" s1="0.724536" s2="0.870783" q0="0" q1="2.98321e-005" q2="0" q3="-0.999998" euler_x="0" euler_y="-5.96641e-005" euler_z="0" id="962" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_RailingShort2.xml">
             <parameters />
         </EnvObject>
         <EnvObject t0="1.05373" t1="16.1073" t2="-19.6231" s0="0.99995" s1="0.779473" s2="0.870783" q0="0" q1="0" q2="0" q3="-0.999998" euler_x="0" euler_y="0" euler_z="0" id="963" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_RailingShort1.xml">
