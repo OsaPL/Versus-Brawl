@@ -5,7 +5,7 @@
 <Shader>post</Shader>
 <Shadows>true</Shadows>
 <LoadingScreen>
-    <Image></Image>
+    <Image>Data/Images/versus-brawl/planks.jpg</Image>
 </LoadingScreen>
 <Terrain>
     <Heightmap>Data/Textures/Terrain/grass_beach/grass_beach_hm.png</Heightmap>
@@ -33,16 +33,16 @@
 <Script>lastBunGamemode.as</Script>
 <LevelScriptParameters>
     <parameter name="Achievements" type="string" val="flawless, no_injuries, no_kills" />
-    <parameter name="Fog amount" type="string" val="1" />
-    <parameter name="HDR Black point" type="string" val="0.019" />
-    <parameter name="HDR Bloom multiplier" type="string" val="0.194" />
-    <parameter name="HDR White point" type="string" val="0.751" />
-    <parameter name="Level Boundaries" type="string" val="1" />
+    <parameter name="Fog amount" type="float" val="1" />
+    <parameter name="HDR Black point" type="float" val="0.019" />
+    <parameter name="HDR Bloom multiplier" type="float" val="0.194" />
+    <parameter name="HDR White point" type="float" val="0.751" />
+    <parameter name="Level Boundaries" type="int" val="1" />
     <parameter name="MainPlayerId" type="int" val="103" />
     <parameter name="Objectives" type="string" val="destroy_all" />
     <parameter name="Saturation" type="float" val="1" />
-    <parameter name="Sky Brightness" type="string" val="0.8300000000000001" />
-    <parameter name="Sky Rotation" type="string" val="0" />
+    <parameter name="Sky Brightness" type="float" val="0.83" />
+    <parameter name="Sky Rotation" type="float" val="0" />
     <parameter name="Sky Tint" type="string" val="255, 255, 255" />
     <parameter name="game_type" type="string" val="versusBrawl" />
 </LevelScriptParameters>
@@ -339,7 +339,7 @@
     <Decal t0="-119.396" t1="72.9062" t2="253.522" s0="5.53899" s1="3.61376" s2="7.33375" q0="-0.218045" q1="-0.749432" q2="0.0770004" q3="0.620386" euler_x="-2.08571" euler_y="-1.11134" euler_z="1.8805" id="98" type_file="Data/Objects/Decals/hex_crete_damage.xml" color_r="0.717647" color_g="0.717647" color_b="0.717647" overbright="0">
         <parameters />
     </Decal>
-    <CameraObject t0="-185.953" t1="122.428" t2="48.3376" s0="1" s1="1" s2="1" q0="0.0351452" q1="0.96403" q2="-0.164878" q3="0.205492" euler_x="-2.80281" euler_y="0.420032" euler_z="3.14159" id="99">
+    <CameraObject t0="-185.956" t1="122.431" t2="48.3298" s0="1" s1="1" s2="1" q0="0.0342644" q1="0.964727" q2="-0.160746" q3="0.205641" euler_x="-2.81138" euler_y="0.420032" euler_z="-3.14159" id="99">
         <parameters />
     </CameraObject>
     <EnvObject t0="-85.5282" t1="86.4777" t2="-23.3282" s0="2.01564" s1="2.86929" s2="2.37731" q0="-0.00474894" q1="0.00257536" q2="0.0122051" q3="0.999911" euler_x="-0.00943444" euler_y="0.00526621" euler_z="0.0243863" id="104" color_r="0.27451" color_g="0.27451" color_b="0.27451" overbright="0" type_file="Data/Objects/Crete/hex_crete_tall.xml">
@@ -365,7 +365,7 @@
     <EnvObject t0="-175.184" t1="120.151" t2="53.5413" s0="0.202422" s1="0.202422" s2="0.202422" q0="0" q1="0.607255" q2="0" q3="0.794507" euler_x="0" euler_y="1.3052" euler_z="0" id="109" color_r="0.443137" color_g="0.436186" color_b="0.436186" overbright="0" type_file="Data/Objects/Crete/box_quarter.xml">
         <parameters />
     </EnvObject>
-    <ReflectionCaptureObject t0="-193.972" t1="89.8998" t2="34.8437" s0="0.48742" s1="0.48742" s2="0.48742" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="110" gicoeff00="0.149353" gicoeff01="0.211548" gicoeff02="0.231018" gicoeff03="0.161194" gicoeff04="0.215118" gicoeff05="0.238586" gicoeff06="0.181274" gicoeff07="0.294067" gicoeff08="0.382996" gicoeff09="0.127029" gicoeff10="0.138184" gicoeff11="0.102051" gicoeff12="0.149719" gicoeff13="0.192352" gicoeff14="0.206482" gicoeff15="0.16507" gicoeff16="0.238281" gicoeff17="0.267578">
+    <ReflectionCaptureObject t0="-193.972" t1="89.8998" t2="34.8437" s0="0.48742" s1="0.48742" s2="0.48742" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="110" gicoeff00="0.139526" gicoeff01="0.194122" gicoeff02="0.206512" gicoeff03="0.177948" gicoeff04="0.237" gicoeff05="0.26062" gicoeff06="0.184357" gicoeff07="0.286804" gicoeff08="0.364136" gicoeff09="0.134644" gicoeff10="0.153015" gicoeff11="0.117691" gicoeff12="0.157257" gicoeff13="0.199646" gicoeff14="0.212891" gicoeff15="0.17041" gicoeff16="0.244873" gicoeff17="0.269287">
         <parameters>
             <parameter name="Global" type="string" val="1" />
         </parameters>
@@ -2643,6 +2643,7 @@
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
         </parameters>
         <Connections />
         <ConnectionsFrom />
@@ -2654,6 +2655,7 @@
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
         </parameters>
         <Connections />
         <ConnectionsFrom />
@@ -2665,6 +2667,7 @@
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
         </parameters>
         <Connections />
         <ConnectionsFrom />
@@ -2676,6 +2679,7 @@
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
         </parameters>
         <Connections />
         <ConnectionsFrom />

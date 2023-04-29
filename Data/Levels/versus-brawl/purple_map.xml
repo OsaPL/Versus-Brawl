@@ -1,11 +1,11 @@
 <?xml version="2.0" ?>
 <Type>saved</Type>
-<Name>nidhoggProto_map</Name>
+<Name>purple_map</Name>
 <Description></Description>
 <Shader>post</Shader>
 <Shadows>true</Shadows>
 <LoadingScreen>
-    <Image></Image>
+    <Image>Data/Images/versus-brawl/purple.jpg</Image>
 </LoadingScreen>
 <OutOfDate NavMesh="true" NavMeshParamHash="-1674835251" />
 <AmbientSounds />
@@ -39,7 +39,7 @@
     <RayToSun r0="-0.0787175" r1="0.838399" r2="0.539343" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="6.38733" t1="6.61305" t2="66.816" s0="1" s1="1" s2="1" q0="0.0324402" q1="-0.263775" q2="0.00887653" q3="0.963998" euler_x="0.0672781" euler_y="-0.534176" euler_z="0" id="0">
+    <CameraObject t0="6.3919" t1="6.61366" t2="66.8237" s0="1" s1="1" s2="1" q0="0.0324402" q1="-0.263775" q2="0.00887653" q3="0.963998" euler_x="0.0672781" euler_y="-0.534177" euler_z="0" id="0">
         <parameters />
     </CameraObject>
     <Decal t0="13.0069" t1="0.252573" t2="-184.949" s0="3.29258" s1="1.80282" s2="4.61783" q0="0.0121985" q1="-0.66597" q2="0.0162318" q3="-0.745706" euler_x="-0.339662" euler_y="1.45106" euler_z="-0.345376" id="8" type_file="Data/Objects/Decals/water_froth.xml" color_r="1" color_g="1" color_b="1" overbright="0">
@@ -102,9 +102,9 @@
     <EnvObject t0="-0.802179" t1="0.929598" t2="-108.414" s0="0.400828" s1="0.400828" s2="0.400828" q0="0.063786" q1="-0.992232" q2="-0.082336" q3="0.0681043" euler_x="2.96728" euler_y="-0.124972" euler_z="-3.00227" id="48" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/hex_crete_corner.xml">
         <parameters />
     </EnvObject>
-    <Group t0="3.88411" t1="-12.2852" t2="-116.807" s0="53.5424" s1="64.5272" s2="277.026" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="49" version="1">
+    <Group t0="3.88411" t1="-12.2852" t2="-116.807" s0="53.5424" s1="64.5271" s2="277.026" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="49" version="1">
         <parameters />
-        <Group t0="2.31053" t1="-12.2853" t2="-210.418" s0="50.3853" s1="64.5172" s2="89.7948" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="12" version="1">
+        <Group t0="2.31053" t1="-12.2852" t2="-210.418" s0="50.3853" s1="64.5171" s2="89.7947" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="12" version="1">
             <parameters />
             <EnvObject t0="5.87855" t1="5" t2="-175.904" s0="0.999893" s1="0.999893" s2="0.999893" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="50" color_r="1" color_g="1" color_b="1" overbright="1.5" type_file="Data/Objects/Buildings/spires/spire_top.xml">
                 <parameters />
@@ -507,7 +507,7 @@
             <EnvObject t0="12.4586" t1="7.27631" t2="-187.075" s0="0.999893" s1="0.999893" s2="0.999893" q0="-0.0132517" q1="0.0784219" q2="0.00931482" q3="0.996788" euler_x="-0.0252717" euler_y="0.157234" euler_z="0.0166981" id="615" color_r="1" color_g="1" color_b="1" overbright="1.5" type_file="Data/Objects/Buildings/spires/spire_center.xml">
                 <parameters />
             </EnvObject>
-            <Group t0="1.69826" t1="-15.4375" t2="-233.029" s0="13.7431" s1="58.2027" s2="44.562" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7" version="1">
+            <Group t0="1.69826" t1="-15.4375" t2="-233.029" s0="13.743" s1="58.2025" s2="44.5618" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7" version="1">
                 <parameters />
                 <EnvObject t0="1.69284" t1="-15.4375" t2="-233.029" s0="1.32757" s1="1.32744" s2="1.32771" q0="-0.370864" q1="-0.636381" q2="0.292528" q3="0.609842" euler_x="-1.67356" euler_y="-0.593429" euler_z="1.548" id="33" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/worm.xml">
                     <parameters />
@@ -545,7 +545,7 @@
                     <parameters />
                 </EnvObject>
             </Group>
-            <Group t0="3.07508" t1="0.998547" t2="-169.424" s0="5.37756" s1="2.28253" s2="7.79728" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="104" version="1">
+            <Group t0="3.07508" t1="0.998546" t2="-169.424" s0="5.37756" s1="2.28253" s2="7.79728" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="104" version="1">
                 <parameters />
                 <EnvObject t0="4.30847" t1="1.11591" t2="-171.991" s0="1.20737" s1="1.64103" s2="1.96288" q0="0.707107" q1="-0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-1.5708" id="105" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/spires/spire_base_b.xml">
                     <parameters />
@@ -897,7 +897,7 @@
                     <parameter name="Circle Zone" type="int" val="1" />
                     <parameter name="Min Distance To Activate" type="float" val="40" />
                     <parameter name="game_type" type="string" val="versusBrawl" />
-                    <parameter name="originalScale" type="string" val="vec3(0.885255, 0.301479, 0.779506)" />
+                    <parameter name="originalScale" type="string" val="vec3(0.885256, 0.30148, 0.779506)" />
                     <parameter name="particleColorB" type="float" val="1.56863" />
                     <parameter name="particleColorG" type="float" val="1.56863" />
                     <parameter name="particleColorR" type="float" val="1.56863" />
@@ -913,7 +913,7 @@
                     <parameter name="Circle Zone" type="int" val="1" />
                     <parameter name="Min Distance To Activate" type="float" val="40" />
                     <parameter name="game_type" type="string" val="versusBrawl" />
-                    <parameter name="originalScale" type="string" val="vec3(0.885726, 0.301653, 0.779932)" />
+                    <parameter name="originalScale" type="string" val="vec3(0.885725, 0.301653, 0.779932)" />
                     <parameter name="particleColorB" type="float" val="1.56863" />
                     <parameter name="particleColorG" type="float" val="1.56863" />
                     <parameter name="particleColorR" type="float" val="1.56863" />
@@ -929,7 +929,7 @@
                     <parameter name="Circle Zone" type="int" val="1" />
                     <parameter name="Min Distance To Activate" type="float" val="40" />
                     <parameter name="game_type" type="string" val="versusBrawl" />
-                    <parameter name="originalScale" type="string" val="vec3(0.886187, 0.30181, 0.780345)" />
+                    <parameter name="originalScale" type="string" val="vec3(0.886185, 0.301809, 0.780343)" />
                     <parameter name="particleColorB" type="float" val="1.56863" />
                     <parameter name="particleColorG" type="float" val="1.56863" />
                     <parameter name="particleColorR" type="float" val="1.56863" />
@@ -945,7 +945,7 @@
                     <parameter name="Circle Zone" type="int" val="1" />
                     <parameter name="Min Distance To Activate" type="float" val="40" />
                     <parameter name="game_type" type="string" val="versusBrawl" />
-                    <parameter name="originalScale" type="string" val="vec3(0.885133, 0.301453, 0.779456)" />
+                    <parameter name="originalScale" type="string" val="vec3(0.885134, 0.301454, 0.779457)" />
                     <parameter name="particleColorB" type="float" val="1.56863" />
                     <parameter name="particleColorG" type="float" val="1.56863" />
                     <parameter name="particleColorR" type="float" val="1.56863" />
@@ -961,7 +961,7 @@
                     <parameter name="Circle Zone" type="int" val="1" />
                     <parameter name="Min Distance To Activate" type="float" val="40" />
                     <parameter name="game_type" type="string" val="versusBrawl" />
-                    <parameter name="originalScale" type="string" val="vec3(0.885575, 0.301607, 0.779828)" />
+                    <parameter name="originalScale" type="string" val="vec3(0.885576, 0.301607, 0.779828)" />
                     <parameter name="particleColorB" type="float" val="1.56863" />
                     <parameter name="particleColorG" type="float" val="1.56863" />
                     <parameter name="particleColorR" type="float" val="1.56863" />
@@ -1329,7 +1329,7 @@
                         <parameter name="Circle Zone" type="int" val="1" />
                         <parameter name="Min Distance To Activate" type="float" val="40" />
                         <parameter name="game_type" type="string" val="versusBrawl" />
-                        <parameter name="originalScale" type="string" val="vec3(0.886437, 0.258988, 0.774818)" />
+                        <parameter name="originalScale" type="string" val="vec3(0.886434, 0.258988, 0.774816)" />
                         <parameter name="particleColorB" type="float" val="1.56863" />
                         <parameter name="particleColorG" type="float" val="1.56863" />
                         <parameter name="particleColorR" type="float" val="1.56863" />
@@ -1361,7 +1361,7 @@
                         <parameter name="Circle Zone" type="int" val="1" />
                         <parameter name="Min Distance To Activate" type="float" val="40" />
                         <parameter name="game_type" type="string" val="versusBrawl" />
-                        <parameter name="originalScale" type="string" val="vec3(0.885082, 0.330082, 0.779397)" />
+                        <parameter name="originalScale" type="string" val="vec3(0.885082, 0.330083, 0.779397)" />
                         <parameter name="particleColorB" type="float" val="1.56863" />
                         <parameter name="particleColorG" type="float" val="1.56863" />
                         <parameter name="particleColorR" type="float" val="1.56863" />
@@ -1377,7 +1377,7 @@
                         <parameter name="Circle Zone" type="int" val="1" />
                         <parameter name="Min Distance To Activate" type="float" val="40" />
                         <parameter name="game_type" type="string" val="versusBrawl" />
-                        <parameter name="originalScale" type="string" val="vec3(0.884603, 0.329919, 0.778963)" />
+                        <parameter name="originalScale" type="string" val="vec3(0.884607, 0.32992, 0.778966)" />
                         <parameter name="particleColorB" type="float" val="1.56863" />
                         <parameter name="particleColorG" type="float" val="1.56863" />
                         <parameter name="particleColorR" type="float" val="1.56863" />
@@ -1418,7 +1418,7 @@
                         <parameter name="Circle Zone" type="int" val="0" />
                         <parameter name="Min Distance To Activate" type="float" val="40" />
                         <parameter name="game_type" type="string" val="versusBrawl" />
-                        <parameter name="originalScale" type="string" val="vec3(0.0513, 0.0513001, 0.0513001)" />
+                        <parameter name="originalScale" type="string" val="vec3(0.0513, 0.0513, 0.0513)" />
                         <parameter name="particleColorB" type="float" val="1" />
                         <parameter name="particleColorG" type="float" val="1" />
                         <parameter name="particleColorR" type="float" val="1" />
@@ -1434,7 +1434,7 @@
                         <parameter name="Circle Zone" type="int" val="0" />
                         <parameter name="Min Distance To Activate" type="float" val="40" />
                         <parameter name="game_type" type="string" val="versusBrawl" />
-                        <parameter name="originalScale" type="string" val="vec3(0.0513, 0.0513001, 0.0513001)" />
+                        <parameter name="originalScale" type="string" val="vec3(0.0513, 0.0513, 0.0513)" />
                         <parameter name="particleColorB" type="float" val="1" />
                         <parameter name="particleColorG" type="float" val="1" />
                         <parameter name="particleColorR" type="float" val="1" />
@@ -2097,7 +2097,7 @@
                     <parameters />
                 </EnvObject>
             </Group>
-            <Group t0="7.1054" t1="2.19888" t2="-158.463" s0="5.07827" s1="1.2512" s2="5.81824" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="172" version="1">
+            <Group t0="7.10541" t1="2.19888" t2="-158.463" s0="5.07827" s1="1.2512" s2="5.81824" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="172" version="1">
                 <parameters />
                 <EnvObject t0="7.13504" t1="2.65777" t2="-158.48" s0="0.397762" s1="0.999891" s2="0.679596" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="173" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/OG/ShortGrass_Square.xml">
                     <parameters />
@@ -2202,7 +2202,7 @@
                     <parameters />
                 </EnvObject>
             </Group>
-            <Group t0="-0.310886" t1="1.98245" t2="-140.939" s0="3.04011" s1="1.25119" s2="5.08884" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="324" version="1">
+            <Group t0="-0.310884" t1="1.98245" t2="-140.939" s0="3.04011" s1="1.25119" s2="5.08884" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="324" version="1">
                 <parameters />
                 <EnvObject t0="-0.269658" t1="2.44134" t2="-140.956" s0="0.399297" s1="0.999893" s2="0.681095" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="325" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/OG/ShortGrass_Square.xml">
                     <parameters />

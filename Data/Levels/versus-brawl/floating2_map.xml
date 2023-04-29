@@ -5,7 +5,7 @@
 <Shader>post</Shader>
 <Shadows>true</Shadows>
 <LoadingScreen>
-    <Image></Image>
+    <Image>Data/Images/versus-brawl/floating2.jpg</Image>
 </LoadingScreen>
 <OutOfDate NavMesh="true" NavMeshParamHash="-1674835251" />
 <AmbientSounds />
@@ -36,7 +36,7 @@
     <RayToSun r0="0.30044" r1="0.8" r2="0.519361" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-3.23338" t1="38.7137" t2="-18.9153" s0="1" s1="1" s2="1" q0="-0.0615301" q1="0.78542" q2="-0.0791214" q3="-0.610794" euler_x="-2.94079" euler_y="-1.32195" euler_z="3.14159" id="0">
+    <CameraObject t0="-3.23338" t1="38.7137" t2="-18.9153" s0="1" s1="1" s2="1" q0="0.0615301" q1="-0.78542" q2="0.0791214" q3="0.610794" euler_x="-2.9408" euler_y="-1.32195" euler_z="-3.14159" id="0">
         <parameters />
     </CameraObject>
     <Group t0="15.6279" t1="-11.7599" t2="6.70087" s0="502.79" s1="221.469" s2="513.924" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="661" version="1">

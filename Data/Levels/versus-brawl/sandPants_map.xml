@@ -5,7 +5,7 @@
 <Shader>post</Shader>
 <Shadows>true</Shadows>
 <LoadingScreen>
-    <Image>Data/LevelLoading/LugaruStory/Raider_sentries.xml_loading.jpg</Image>
+    <Image>Data/Images/versus-brawl/sand.jpg</Image>
 </LoadingScreen>
 <Terrain>
     <Heightmap>Data/Prototypes/Lugaru/Desert/RaiderSentries_Height.png</Heightmap>
@@ -180,7 +180,7 @@
         <EnvObject t0="-146.584" t1="30.2069" t2="89.8631" s0="0.604084" s1="0.604084" s2="0.604084" q0="0.0567937" q1="0.236312" q2="0.0548559" q3="0.968464" euler_x="0.152938" euler_y="0.468433" euler_z="0.149721" id="9" color_r="0.501961" color_g="0.307451" color_b="0.181961" overbright="0" type_file="Data/Objects/plants/trees/temperate/winter_bush.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="-164.3" t1="28.5046" t2="67.6862" s0="16.3637" s1="16.3637" s2="16.3637" q0="-0.0138263" q1="-0.906348" q2="0.0281015" q3="0.421366" euler_x="-3.0446" euler_y="-0.867989" euler_z="3.06611" id="10" color_r="0.467512" color_g="0.482646" color_b="0.596078" overbright="0" type_file="Data/Objects/Buildings/arena/arena_statue_standing.xml">
+        <EnvObject t0="-164.3" t1="28.5046" t2="67.6862" s0="16.3637" s1="16.3637" s2="16.3637" q0="-0.0138263" q1="-0.906348" q2="0.0281015" q3="0.421366" euler_x="-3.0446" euler_y="-0.86799" euler_z="3.06611" id="10" color_r="0.467512" color_g="0.482646" color_b="0.596078" overbright="0" type_file="Data/Objects/Buildings/arena/arena_statue_standing.xml">
             <parameters />
         </EnvObject>
         <Decal t0="-164.497" t1="28.7241" t2="50.3236" s0="10.6886" s1="9.24256" s2="10.2583" q0="0" q1="-0.139937" q2="0" q3="0.99016" euler_x="0" euler_y="-0.280795" euler_z="0" id="252" type_file="Data/Objects/Decals/crete_stains/pooled_stain.xml" color_r="1" color_g="1" color_b="1" overbright="0">
@@ -1795,23 +1795,23 @@
     </EnvObject>
     <Group t0="-35.2952" t1="24.8632" t2="463.355" s0="32.5985" s1="31.2489" s2="40.8746" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="527" version="1">
         <parameters />
-        <EnvObject t0="-35.2952" t1="16.2034" t2="463.355" s0="0.6243" s1="0.6243" s2="0.6243" q0="-0.0137174" q1="-0.295462" q2="0.00764853" q3="0.955226" euler_x="-0.0372253" euler_y="-0.599531" euler_z="0.0275205" id="509" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/dogship.xml">
+        <EnvObject t0="-35.2952" t1="16.2034" t2="463.355" s0="0.6243" s1="0.6243" s2="0.6243" q0="-0.0137174" q1="-0.295462" q2="0.00764853" q3="0.955226" euler_x="-0.0372253" euler_y="-0.599532" euler_z="0.0275205" id="509" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/dogship.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="-35.7868" t1="28.0477" t2="464.688" s0="0.6243" s1="0.6243" s2="0.6243" q0="-0.0137174" q1="-0.295462" q2="0.00764853" q3="0.955226" euler_x="-0.0372253" euler_y="-0.599531" euler_z="0.0275205" id="511" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/OG/ShipSails.xml">
+        <EnvObject t0="-35.7868" t1="28.0477" t2="464.688" s0="0.6243" s1="0.6243" s2="0.6243" q0="-0.0137174" q1="-0.295462" q2="0.00764853" q3="0.955226" euler_x="-0.0372253" euler_y="-0.599532" euler_z="0.0275205" id="511" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/OG/ShipSails.xml">
             <parameters />
         </EnvObject>
     </Group>
-    <Group t0="-76.4027" t1="23.68" t2="167.383" s0="10.9494" s1="30.2267" s2="41.5773" q0="-0.0135787" q1="-0.312471" q2="0.00789228" q3="0.949798" euler_x="-0.0381812" euler_y="-0.63522" euler_z="0.0291715" id="528" version="1">
+    <Group t0="-76.4027" t1="23.68" t2="167.383" s0="10.9494" s1="30.2267" s2="41.5773" q0="-0.0135787" q1="-0.312471" q2="0.00789228" q3="0.949798" euler_x="-0.0381813" euler_y="-0.63522" euler_z="0.0291715" id="528" version="1">
         <parameters />
-        <EnvObject t0="-76.3459" t1="14.9619" t2="167.651" s0="0.6243" s1="0.6243" s2="0.6243" q0="-0.0135787" q1="-0.312471" q2="0.00789237" q3="0.949798" euler_x="-0.0381814" euler_y="-0.63522" euler_z="0.0291718" id="529" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/dogship.xml">
+        <EnvObject t0="-76.3459" t1="14.9619" t2="167.651" s0="0.6243" s1="0.6243" s2="0.6243" q0="-0.0135787" q1="-0.312471" q2="0.00789237" q3="0.949798" euler_x="-0.0381814" euler_y="-0.63522" euler_z="0.0291717" id="529" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/dogship.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="-76.8978" t1="26.8053" t2="168.968" s0="0.6243" s1="0.6243" s2="0.6243" q0="-0.0135787" q1="-0.312471" q2="0.00789237" q3="0.949798" euler_x="-0.0381814" euler_y="-0.63522" euler_z="0.0291718" id="530" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/OG/ShipSails.xml">
+        <EnvObject t0="-76.8978" t1="26.8053" t2="168.968" s0="0.6243" s1="0.6243" s2="0.6243" q0="-0.0135787" q1="-0.312471" q2="0.00789237" q3="0.949798" euler_x="-0.0381814" euler_y="-0.63522" euler_z="0.0291717" id="530" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/OG/ShipSails.xml">
             <parameters />
         </EnvObject>
     </Group>
-    <CameraObject t0="-176.338" t1="55.5075" t2="32.7481" s0="1" s1="1" s2="1" q0="-0.0690859" q1="-0.929221" q2="0.284122" q3="-0.225946" euler_x="-2.54812" euler_y="0.477054" euler_z="-3.14159" id="731">
+    <CameraObject t0="-176.341" t1="55.5125" t2="32.7414" s0="1" s1="1" s2="1" q0="0.0681173" q1="0.930429" q2="-0.280138" q3="0.22624" euler_x="-2.55669" euler_y="0.477055" euler_z="3.14159" id="731">
         <parameters />
     </CameraObject>
 </ActorObjects>

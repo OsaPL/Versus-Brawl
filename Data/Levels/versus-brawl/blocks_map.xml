@@ -5,7 +5,7 @@
 <Shader>post</Shader>
 <Shadows>true</Shadows>
 <LoadingScreen>
-    <Image></Image>
+    <Image>Data/Images/versus-brawl/blocks.jpg</Image>
 </LoadingScreen>
 <Terrain>
     <Heightmap>Data/Textures/Terrain/grass_beach/grass_beach_hm.png</Heightmap>
@@ -353,7 +353,7 @@
     <Decal t0="-119.396" t1="72.9062" t2="253.522" s0="5.53899" s1="3.61376" s2="7.33375" q0="-0.218045" q1="-0.749432" q2="0.0770004" q3="0.620386" euler_x="-2.08571" euler_y="-1.11134" euler_z="1.8805" id="98" type_file="Data/Objects/Decals/hex_crete_damage.xml" color_r="0.717647" color_g="0.717647" color_b="0.717647" overbright="0">
         <parameters />
     </Decal>
-    <CameraObject t0="-166.859" t1="142.257" t2="46.902" s0="1" s1="1" s2="1" q0="0.197533" q1="-0.637099" q2="0.173701" q3="0.724509" euler_x="0.532349" euler_y="-1.44258" euler_z="0" id="99">
+    <CameraObject t0="-166.851" t1="142.262" t2="46.903" s0="1" s1="1" s2="1" q0="0.197533" q1="-0.637099" q2="0.173701" q3="0.724509" euler_x="0.53235" euler_y="-1.44258" euler_z="-2.33075e-06" id="99">
         <parameters />
     </CameraObject>
     <Hotspot t0="-185.451" t1="124.337" t2="69.1984" s0="0.27" s1="0.27" s2="0.27" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="100" type_file="Data/Objects/powerups/yeetPowerUp.xml">

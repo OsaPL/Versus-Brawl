@@ -5,7 +5,7 @@
 <Shader>post</Shader>
 <Shadows>true</Shadows>
 <LoadingScreen>
-    <Image></Image>
+    <Image>Data/Images/versus-brawl/sewer.jpg</Image>
 </LoadingScreen>
 <OutOfDate NavMesh="true" NavMeshParamHash="-1674835251" />
 <AmbientSounds />
@@ -35,7 +35,7 @@
     <RayToSun r0="-0.0316601" r1="0.953" r2="0.30131" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-7.05048" t1="20.2656" t2="-3.37009" s0="1" s1="1" s2="1" q0="-0.00987729" q1="-0.945192" q2="0.028717" q3="-0.325101" euler_x="-3.08085" euler_y="0.662554" euler_z="3.14159" id="0">
+    <CameraObject t0="-7.05601" t1="20.2661" t2="-3.37717" s0="1" s1="1" s2="1" q0="0.00987726" q1="0.945192" q2="-0.028717" q3="0.325101" euler_x="-3.08085" euler_y="0.662554" euler_z="-3.14159" id="0">
         <parameters />
     </CameraObject>
     <Hotspot t0="-7.98306" t1="-6.94692" t2="-5.04601" s0="8.96041" s1="4.20414" s2="9.39828" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6" type_file="Data/Objects/Hotspots/wet_cube.xml">
@@ -1147,7 +1147,7 @@
     <EnvObject t0="-13.1589" t1="1.67943" t2="-13.8394" s0="2.56943" s1="2.56943" s2="2.56943" q0="0.0138093" q1="0.813212" q2="0.0261652" q3="0.581219" euler_x="2.9621" euler_y="1.23633" euler_z="2.97982" id="294" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Gear/RatJunk/RatJunkBirdSkull.xml">
         <parameters />
     </EnvObject>
-    <Decal t0="-11.6389" t1="11.2761" t2="5.14753" s0="0.373425" s1="0.373425" s2="0.373425" q0="-0.061997" q1="-0.715825" q2="0.4947" q3="-0.488887" euler_x="-1.62093" euler_y="0.865246" euler_z="-2.48668" id="299" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="-11.6389" t1="11.2761" t2="5.14753" s0="0.373425" s1="0.373425" s2="0.373425" q0="-0.061997" q1="-0.715825" q2="0.4947" q3="-0.488887" euler_x="-1.62094" euler_y="0.865246" euler_z="-2.48668" id="299" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <EnvObject t0="-21.29" t1="7.45521" t2="4.81166" s0="3.00894" s1="3.00894" s2="3.00894" q0="0.0111928" q1="0.735466" q2="-0.677431" q3="0.00770891" euler_x="-1.65299" euler_y="0.0265071" euler_z="3.13557" id="300" color_r="0.999997" color_g="1" color_b="0.99999" overbright="2.083" type_file="Data/Objects/Buildings/Curb1.xml">
@@ -1236,7 +1236,7 @@
             <parameters />
         </EnvObject>
     </Group>
-    <Decal t0="-17.2604" t1="17.1522" t2="-14.7458" s0="0.373425" s1="0.373425" s2="0.373425" q0="0.176705" q1="0.00457442" q2="0.32476" q3="-0.929121" euler_x="-0.334069" euler_y="-0.123588" euler_z="-0.651645" id="329" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="-17.2604" t1="17.1522" t2="-14.7458" s0="0.373425" s1="0.373425" s2="0.373425" q0="0.176705" q1="0.00457442" q2="0.32476" q3="-0.929121" euler_x="-0.33407" euler_y="-0.123588" euler_z="-0.651644" id="329" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <Group t0="1.75275" t1="15.8539" t2="2.94953" s0="0.442964" s1="1.98173" s2="0.426538" q0="-0.0240775" q1="0.858025" q2="0.0194399" q3="0.512715" euler_x="3.12329" euler_y="1.07751" euler_z="-3.09643" id="330" version="1">
@@ -1356,7 +1356,7 @@
             <parameters />
         </EnvObject>
     </Group>
-    <Decal t0="-1.56636" t1="11.1186" t2="1.02944" s0="0.373425" s1="0.373425" s2="0.373425" q0="-0.372728" q1="-0.31302" q2="-0.213023" q3="-0.847173" euler_x="0.968222" euler_y="0.380694" euler_z="0.694637" id="359" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="-1.56636" t1="11.1186" t2="1.02944" s0="0.373425" s1="0.373425" s2="0.373425" q0="-0.372728" q1="-0.31302" q2="-0.213023" q3="-0.847173" euler_x="0.968223" euler_y="0.380694" euler_z="0.694637" id="359" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-10.1518" t1="1.42833" t2="-7.01797" s0="2.84594" s1="1.89222" s2="3.19849" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="363" type_file="Data/Objects/Decals/water_froth.xml" color_r="1" color_g="1" color_b="1" overbright="0">
@@ -1455,16 +1455,16 @@
     <EnvObject t0="2.56802" t1="15.0339" t2="4.66659" s0="0.0425142" s1="0.0425142" s2="0.0425142" q0="0.00114179" q1="-0.563385" q2="-0.452467" q3="-0.691282" euler_x="0.947741" euler_y="0.894584" euler_z="1.64157" id="394" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/applebit_rotten.xml">
         <parameters />
     </EnvObject>
-    <Decal t0="-19.0703" t1="17.0176" t2="7.97566" s0="0.373425" s1="0.373425" s2="0.373425" q0="-0.061997" q1="-0.715825" q2="0.4947" q3="-0.488887" euler_x="-1.62093" euler_y="0.865246" euler_z="-2.48668" id="396" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="-19.0703" t1="17.0176" t2="7.97566" s0="0.373425" s1="0.373425" s2="0.373425" q0="-0.061997" q1="-0.715825" q2="0.4947" q3="-0.488887" euler_x="-1.62094" euler_y="0.865246" euler_z="-2.48668" id="396" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="4.04191" t1="17.2952" t2="-20.3076" s0="0.373425" s1="0.373425" s2="0.373425" q0="0.297333" q1="-0.84114" q2="-0.356352" q3="-0.277623" euler_x="2.50844" euler_y="0.746331" euler_z="-2.71715" id="397" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="4.04191" t1="17.2952" t2="-20.3076" s0="0.373425" s1="0.373425" s2="0.373425" q0="0.297333" q1="-0.84114" q2="-0.356352" q3="-0.277623" euler_x="2.50844" euler_y="0.746332" euler_z="-2.71715" id="397" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-3.59792" t1="11.286" t2="-17.0996" s0="0.373425" s1="0.373425" s2="0.373425" q0="-0.0518394" q1="-0.645367" q2="-0.397717" q3="-0.65009" euler_x="1.29935" euler_y="0.923734" euler_z="1.82117" id="398" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-12.8452" t1="11.2006" t2="-13.3136" s0="0.373425" s1="0.373425" s2="0.373425" q0="0.262731" q1="-0.382495" q2="0.208488" q3="-0.860921" euler_x="-0.82139" euler_y="0.581219" euler_z="-0.734197" id="399" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="-12.8452" t1="11.2006" t2="-13.3136" s0="0.373425" s1="0.373425" s2="0.373425" q0="0.262731" q1="-0.382495" q2="0.208488" q3="-0.860921" euler_x="-0.82139" euler_y="0.581219" euler_z="-0.734198" id="399" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <Group t0="-3.62926" t1="9.55711" t2="-19.7766" s0="3.63407" s1="14.4355" s2="10.1135" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="-3.14159" euler_y="1.5708" euler_z="-3.14159" id="964" version="1">
