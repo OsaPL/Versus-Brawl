@@ -51,7 +51,7 @@
     <EnvObject t0="145.556" t1="-50.7192" t2="141.165" s0="1.00017" s1="1.00017" s2="1.00017" q0="-0.0874215" q1="0.0790997" q2="0.160577" q3="0.979957" euler_x="-0.148996" euler_y="0.184143" euler_z="0.311053" id="1" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/dark_rubble.xml">
         <parameters />
     </EnvObject>
-    <Hotspot t0="-81.5055" t1="16.9148" t2="-20.5538" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="-82.4099" t1="23.4844" t2="-19.8939" s0="1" s1="1" s2="1" q0="0" q1="0.0632251" q2="0" q3="0.997999" euler_x="0" euler_y="0.126535" euler_z="0" id="2" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="-1" />
@@ -126,13 +126,13 @@
     <EnvObject t0="-97.3297" t1="-24.0835" t2="31.1508" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.445208" q1="0.315052" q2="-0.805623" q3="0.231309" euler_x="-0.640122" euler_y="1.04135" euler_z="-2.95807" id="20" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1a_volcanic.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-100.704" t1="-44.6882" t2="-75.7097" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.24586" q1="-0.802858" q2="0.541526" q3="0.0414903" euler_x="-2.02068" euler_y="-0.339378" euler_z="-2.7615" id="21" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1a_volcanic.xml">
+    <EnvObject t0="-100.628" t1="-44.6202" t2="-75.5908" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.270633" q1="-0.790491" q2="0.547784" q3="0.0426005" euler_x="-2.01019" euler_y="-0.372395" euler_z="-2.71997" id="21" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1a_volcanic.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="68.5059" t1="-53.9466" t2="-202.541" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.266367" q1="-0.140328" q2="0.95028" q3="0.0795269" euler_x="-0.267445" euler_y="-0.556911" euler_z="3.05149" id="22" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1a_volcanic.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-80.2834" t1="-38.5565" t2="-80.3702" s0="1.00017" s1="1.00017" s2="1.00017" q0="-0.215775" q1="-0.322562" q2="-0.905168" q3="0.173395" euler_x="0.629644" euler_y="-0.526472" euler_z="-2.93813" id="23" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1a_volcanic.xml">
+    <EnvObject t0="-79.8188" t1="-38.3549" t2="-80.6274" s0="1.00017" s1="1.00017" s2="1.00017" q0="-0.215775" q1="-0.322562" q2="-0.905168" q3="0.173395" euler_x="0.629644" euler_y="-0.526472" euler_z="-2.93813" id="23" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1a_volcanic.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-237.846" t1="-39.018" t2="-24.3094" s0="1.00017" s1="1.00017" s2="1.00017" q0="-0.467055" q1="-0.437157" q2="0.0974859" q3="0.762397" euler_x="-1.34699" euler_y="-0.61323" euler_z="0.749263" id="24" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1a_volcanic.xml">
@@ -144,7 +144,7 @@
     <EnvObject t0="-1.73046" t1="-34.9268" t2="-77.904" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.772703" q1="-0.0203157" q2="0.425113" q3="0.470953" euler_x="1.8386" euler_y="-0.742467" euler_z="0.524569" id="26" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1a_volcanic.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-70.6301" t1="-21.9354" t2="-54.6301" s0="1.00017" s1="1.00017" s2="1.00017" q0="-0.0120203" q1="-0.510402" q2="-0.808926" q3="0.29152" euler_x="1.04173" euler_y="-0.322598" euler_z="-2.63597" id="27" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1a_volcanic.xml">
+    <EnvObject t0="-70.2127" t1="-21.7445" t2="-54.8779" s0="1.00017" s1="1.00017" s2="1.00017" q0="-0.0120203" q1="-0.510402" q2="-0.808926" q3="0.29152" euler_x="1.04173" euler_y="-0.322598" euler_z="-2.63597" id="27" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1a_volcanic.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-29.3059" t1="-15.3049" t2="-60.8065" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.169711" q1="-0.905938" q2="0.300291" q3="0.24556" euler_x="-2.55885" euler_y="-0.578597" euler_z="-2.94928" id="28" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1a_volcanic.xml">
@@ -241,7 +241,7 @@
     <EnvObject t0="-2.53063" t1="-35.4435" t2="34.6887" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.263099" q1="-0.354207" q2="0.821732" q3="0.360656" euler_x="-0.571106" euler_y="-0.758575" euler_z="2.5474" id="57" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1a_volcanic.xml">
         <parameters />
     </EnvObject>
-    <PathPointObject t0="-158.18" t1="-61.3191" t2="-153.426" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="58" type_file="">
+    <PathPointObject t0="-158.151" t1="-61.2617" t2="-153.298" s0="1.00017" s1="1.00017" s2="1.00017" q0="-0.0109662" q1="0.0132809" q2="0.0225878" q3="0.999596" euler_x="-0.021333" euler_y="0.0270498" euler_z="0.0448976" id="58" type_file="">
         <parameters>
             <parameter name="Type" type="string" val="Stand" />
             <parameter name="Wait" type="float" val="0" />
@@ -287,7 +287,7 @@
     <EnvObject t0="184.912" t1="-34.4135" t2="-113.948" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.769604" q1="0" q2="0" q3="0.638521" euler_x="1.75644" euler_y="0" euler_z="0" id="70" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1b_volcanic.xml">
         <parameters />
     </EnvObject>
-    <PathPointObject t0="-135.083" t1="-64.4476" t2="-123.985" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="71" type_file="">
+    <PathPointObject t0="-135.007" t1="-64.3796" t2="-123.866" s0="1.00017" s1="1.00017" s2="1.00017" q0="-0.0109662" q1="0.0132809" q2="0.0225878" q3="0.999596" euler_x="-0.021333" euler_y="0.0270498" euler_z="0.0448976" id="71" type_file="">
         <parameters>
             <parameter name="Type" type="string" val="Stand" />
             <parameter name="Wait" type="float" val="0" />
@@ -297,7 +297,7 @@
             <Connection id="58" />
         </Connections>
     </PathPointObject>
-    <PathPointObject t0="-148.407" t1="-63.4867" t2="-116.676" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="72" type_file="">
+    <PathPointObject t0="-148.378" t1="-63.4293" t2="-116.548" s0="1.00017" s1="1.00017" s2="1.00017" q0="-0.0109662" q1="0.0132809" q2="0.0225878" q3="0.999596" euler_x="-0.021333" euler_y="0.0270498" euler_z="0.0448976" id="72" type_file="">
         <parameters>
             <parameter name="Type" type="string" val="Stand" />
             <parameter name="Wait" type="float" val="0" />
@@ -360,7 +360,7 @@
             <Connection id="78" />
         </Connections>
     </PathPointObject>
-    <AmbientSoundObject t0="-72.8028" t1="-21.9668" t2="-56.6022" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="80" type_file="Data/Objects/Sounds/deadvolcanorocks.xml">
+    <AmbientSoundObject t0="-72.3382" t1="-21.7652" t2="-56.8594" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="80" type_file="Data/Objects/Sounds/deadvolcanorocks.xml">
         <parameters />
     </AmbientSoundObject>
     <AmbientSoundObject t0="-31.2971" t1="-15.56" t2="-62.1824" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="81" type_file="Data/Objects/Sounds/deadvolcanorocks.xml">
@@ -465,7 +465,7 @@
     <EnvObject t0="80.4713" t1="-64.9233" t2="-98.7825" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="-0.122042" q3="0.992525" euler_x="0" euler_y="0" euler_z="-0.244694" id="105" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/dark_dirty_cube.xml">
         <parameters />
     </EnvObject>
-    <CameraObject t0="-70.4845" t1="40.6859" t2="-19.0394" s0="1" s1="1" s2="1" q0="0.372551" q1="-0.625762" q2="0.454678" q3="0.512733" euler_x="-1.88488" euler_y="-1.37289" euler_z="3.14159" id="106">
+    <CameraObject t0="-79.5483" t1="26.3179" t2="-4.73541" s0="1" s1="1" s2="1" q0="0.300468" q1="-0.637485" q2="0.297368" q3="0.644131" euler_x="0.872932" euler_y="-1.56042" euler_z="0" id="106">
         <parameters />
     </CameraObject>
     <AmbientSoundObject t0="106.999" t1="-64.84" t2="-89.0136" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="109" type_file="Data/Objects/Sounds/deadvolcanorocks.xml">
@@ -489,13 +489,13 @@
     <AmbientSoundObject t0="12.1768" t1="-59.7225" t2="-186.969" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="116" type_file="Data/Objects/Sounds/deadvolcanorocks.xml">
         <parameters />
     </AmbientSoundObject>
-    <AmbientSoundObject t0="-49.907" t1="-70.4695" t2="-172.762" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="117" type_file="Data/Objects/Sounds/deadvolcanorocks.xml">
+    <AmbientSoundObject t0="-49.4897" t1="-70.2786" t2="-173.01" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="117" type_file="Data/Objects/Sounds/deadvolcanorocks.xml">
         <parameters />
     </AmbientSoundObject>
-    <AmbientSoundObject t0="-154.01" t1="-63.9441" t2="-134.637" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="118" type_file="Data/Objects/Sounds/deadvolcanorocks.xml">
+    <AmbientSoundObject t0="-153.981" t1="-63.8867" t2="-134.509" s0="1.00017" s1="1.00017" s2="1.00017" q0="-0.0109662" q1="0.0132809" q2="0.0225878" q3="0.999596" euler_x="-0.021333" euler_y="0.0270498" euler_z="0.0448976" id="118" type_file="Data/Objects/Sounds/deadvolcanorocks.xml">
         <parameters />
     </AmbientSoundObject>
-    <AmbientSoundObject t0="-84.8441" t1="-38.4869" t2="-79.1936" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="119" type_file="Data/Objects/Sounds/deadvolcanorocks.xml">
+    <AmbientSoundObject t0="-84.3795" t1="-38.2853" t2="-79.4508" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="119" type_file="Data/Objects/Sounds/deadvolcanorocks.xml">
         <parameters />
     </AmbientSoundObject>
     <AmbientSoundObject t0="-11.3617" t1="-10.2098" t2="-42.7841" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="120" type_file="Data/Objects/Sounds/deadvolcanorocks.xml">
@@ -519,33 +519,33 @@
             <parameters />
         </EnvObject>
     </Group>
-    <Group t0="-158.192" t1="-61.0384" t2="-137.193" s0="11.8752" s1="64.9049" s2="22.8323" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="123" version="1">
+    <Group t0="-158.163" t1="-60.981" t2="-137.065" s0="11.8752" s1="64.9049" s2="22.8323" q0="-0.0109662" q1="0.0132809" q2="0.0225878" q3="0.999596" euler_x="-0.021333" euler_y="0.0270498" euler_z="0.0448976" id="123" version="1">
         <parameters />
-        <EnvObject t0="-160.898" t1="-82.6104" t2="-144.668" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.0928483" q1="0.0828243" q2="-0.992148" q3="0.0127164" euler_x="-0.165631" euler_y="0.187441" euler_z="-3.13156" id="338" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/large_dark_cube.xml">
+        <EnvObject t0="-160.08" t1="-82.8156" t2="-144.002" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.077624" q1="0.0741768" q2="-0.993602" q3="0.0350399" euler_x="-0.144305" euler_y="0.160137" euler_z="-3.08269" id="338" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/large_dark_cube.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="-158.158" t1="-69.2459" t2="-139.974" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.0555987" q1="-0.25449" q2="0.0173567" q3="0.96532" euler_x="0.113485" euler_y="-0.515832" euler_z="0.0059904" id="339" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/large_dark_cube.xml">
+        <EnvObject t0="-157.828" t1="-69.2393" t2="-139.67" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.0509694" q1="-0.240121" q2="0.0412066" q3="0.968528" euler_x="0.0895185" euler_y="-0.48853" euler_z="0.0627142" id="339" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/large_dark_cube.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="-157.28" t1="-63.1766" t2="-137.941" s0="1.00017" s1="1.00017" s2="1.00017" q0="-0.0307741" q1="0.949815" q2="0.0450328" q3="0.30802" euler_x="3.05918" euler_y="0.628455" euler_z="-3.10361" id="340" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/large_dark_cube.xml">
+        <EnvObject t0="-157.174" t1="-63.0925" t2="-137.791" s0="1.00017" s1="1.00017" s2="1.00017" q0="-0.0549957" q1="0.953321" q2="0.041965" q3="0.293927" euler_x="3.08377" euler_y="0.600469" euler_z="-3.04425" id="340" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/large_dark_cube.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="-159.254" t1="-75.801" t2="-142.189" s0="1.00017" s1="1.00017" s2="1.00017" q0="-0.0159443" q1="0.980849" q2="0.0718021" q3="0.180348" euler_x="2.9965" euler_y="0.364067" euler_z="-3.13584" id="341" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/large_dark_cube.xml">
+        <EnvObject t0="-158.683" t1="-75.8852" t2="-141.714" s0="1.00017" s1="1.00017" s2="1.00017" q0="-0.0391172" q1="0.983276" q2="0.0653024" q3="0.165452" euler_x="3.01893" euler_y="0.336811" euler_z="-3.08295" id="341" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/large_dark_cube.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="-156.728" t1="-57.7355" t2="-136.066" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.350674" q1="0.0316969" q2="-0.935183" q3="0.0381555" euler_x="-0.0432211" euler_y="0.718568" euler_z="-3.07627" id="342" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/large_dark_cube.xml">
+        <EnvObject t0="-156.822" t1="-57.5912" t2="-136.048" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.336978" q1="0.0298564" q2="-0.938949" q3="0.0626884" euler_x="-0.0179178" euler_y="0.690021" euler_z="-3.0147" id="342" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/large_dark_cube.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="-156.893" t1="-39.635" t2="-130.512" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.5238" q1="-0.0369589" q2="-0.845861" q3="0.0937373" euler_x="0.344076" euler_y="1.07417" euler_z="-2.71466" id="343" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/large_dark_cube.xml">
+        <EnvObject t0="-157.664" t1="-39.3959" t2="-130.879" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.512162" q1="-0.0331434" q2="-0.849954" q3="0.119041" euler_x="0.360314" euler_y="1.04066" euler_z="-2.65532" id="343" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/large_dark_cube.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="-156.486" t1="-47.7474" t2="-132.707" s0="1.00017" s1="1.00017" s2="1.00017" q0="-0.0761575" q1="0.896278" q2="-0.0175716" q3="0.436551" euler_x="-2.9844" euler_y="0.894451" euler_z="-2.89654" id="344" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/large_dark_cube.xml">
+        <EnvObject t0="-156.946" t1="-47.5292" t2="-132.911" s0="1.00017" s1="1.00017" s2="1.00017" q0="-0.101392" q1="0.899801" q2="-0.0165211" q3="0.424033" euler_x="-2.96267" euler_y="0.862914" euler_z="-2.83463" id="344" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/large_dark_cube.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="-156.565" t1="-43.4228" t2="-131.545" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.869321" q1="0.0909249" q2="0.485018" q3="0.0277709" euler_x="2.88862" euler_y="-0.994016" euler_z="0.346162" id="345" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/large_dark_cube.xml">
+        <EnvObject t0="-157.192" t1="-43.1874" t2="-131.84" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.873053" q1="0.116212" q2="0.472907" q3="0.0251298" euler_x="2.86961" euler_y="-0.961245" euler_z="0.407113" id="345" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/large_dark_cube.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="-156.525" t1="-52.5826" t2="-134.077" s0="1.00017" s1="1.00017" s2="1.00017" q0="-0.0552452" q1="0.928624" q2="0.002011" q3="0.366881" euler_x="-3.09128" euler_y="0.749962" euler_z="-3.00294" id="346" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/large_dark_cube.xml">
+        <EnvObject t0="-156.801" t1="-52.3909" t2="-134.176" s0="1.00017" s1="1.00017" s2="1.00017" q0="-0.080195" q1="0.931896" q2="0.000847505" q3="0.353749" euler_x="-3.06815" euler_y="0.720088" euler_z="-2.94225" id="346" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/large_dark_cube.xml">
             <parameters />
         </EnvObject>
     </Group>
@@ -714,7 +714,7 @@
     <EnvObject t0="-81.5754" t1="15.8632" t2="-20.3589" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="134" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-81.5418" t1="16.6422" t2="-2.28758" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="135" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+    <EnvObject t0="-78.7696" t1="16.6556" t2="-3.00616" s0="2.29585" s1="0.122338" s2="0.321432" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="135" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
     <Hotspot t0="-66.8387" t1="0.626161" t2="-16.7594" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="136" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
@@ -737,10 +737,16 @@
             <Connection id="140" />
             <Connection id="170" />
             <Connection id="182" />
+            <Connection id="643" />
+            <Connection id="641" />
+            <Connection id="610" />
+            <Connection id="585" />
+            <Connection id="612" />
+            <Connection id="611" />
         </Connections>
         <ConnectionsFrom />
     </Hotspot>
-    <EnvObject t0="-81.6155" t1="15.8165" t2="-16.1718" s0="0.314221" s1="0.122338" s2="1.19096" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="137" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+    <EnvObject t0="-81.5078" t1="15.8165" t2="-18.1319" s0="0.314221" s1="0.122338" s2="1.19096" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="137" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
     <Hotspot t0="-64.2053" t1="-4.40237" t2="-5.18907" s0="1" s1="0.1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="138" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterPhaseHotspot.xml">
@@ -753,7 +759,7 @@
             <Connection id="136" />
         </ConnectionsFrom>
     </Hotspot>
-    <EnvObject t0="-81.7398" t1="16.622" t2="-6.51978" s0="0.314221" s1="0.122338" s2="1.19096" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="139" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+    <EnvObject t0="-81.5959" t1="16.622" t2="-3.94199" s0="0.314221" s1="0.122338" s2="1.19096" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="139" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
     <Hotspot t0="-61.8374" t1="49.023" t2="-5.35591" s0="1" s1="0.1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="140" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterPhaseHotspot.xml">
@@ -766,13 +772,16 @@
             <Connection id="136" />
         </ConnectionsFrom>
     </Hotspot>
-    <EnvObject t0="-84.3909" t1="16.3165" t2="-12.3573" s0="0.541215" s1="11.7028" s2="6.05683" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="142" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+    <EnvObject t0="-62.859" t1="17.6952" t2="-3.37081" s0="1.75763" s1="0.122338" s2="0.303708" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="141" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-59.49" t1="17.5487" t2="-12.7753" s0="0.541215" s1="11.7028" s2="6.05683" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="143" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+    <EnvObject t0="-84.3899" t1="16.3161" t2="-12.3577" s0="0.541215" s1="11.7028" s2="6.05683" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="142" color_r="0.174394" color_g="0.211765" color_b="0.207612" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-71.3337" t1="16.4614" t2="-23.2267" s0="0.541215" s1="11.7028" s2="6.05683" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="144" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+    <EnvObject t0="-59.49" t1="17.5487" t2="-12.7753" s0="0.541215" s1="11.7028" s2="6.05683" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="143" color_r="0.174394" color_g="0.211765" color_b="0.207612" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-71.3337" t1="16.4614" t2="-23.2267" s0="0.541215" s1="11.7028" s2="6.05683" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="144" color_r="0.174394" color_g="0.211765" color_b="0.207612" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-164.606" t1="-50.2786" t2="-20.3007" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.154261" q1="0.0649307" q2="0.284755" q3="0.943876" euler_x="0.334591" euler_y="0.0347269" euler_z="0.591872" id="145" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/dark_rubble.xml">
@@ -784,7 +793,7 @@
     <EnvObject t0="-165.222" t1="-52.9558" t2="-16.2305" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.200822" q1="0.0789551" q2="0.281189" q3="0.935077" euler_x="0.433692" euler_y="0.0347273" euler_z="0.591871" id="147" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/dark_rubble.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-71.6021" t1="16.3995" t2="-1.95554" s0="0.541124" s1="11.7008" s2="6.0558" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="148" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+    <EnvObject t0="-71.6021" t1="16.3995" t2="-1.95554" s0="0.541124" s1="11.7008" s2="6.0558" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="148" color_r="0.174394" color_g="0.211765" color_b="0.207612" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-120.605" t1="-27.8311" t2="13.1782" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.234779" q1="0.103945" q2="0.0578911" q3="0.96474" euler_x="0.491771" euler_y="0.174257" euler_z="0.163706" id="149" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/dark_rubble.xml">
@@ -817,16 +826,16 @@
     <EnvObject t0="87.8175" t1="-69.1117" t2="16.0677" s0="1.00017" s1="1.00017" s2="1.00017" q0="-0.04168" q1="-0.703113" q2="0.00130907" q3="0.709854" euler_x="-1.44381" euler_y="-1.50924" euler_z="1.38669" id="158" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/dark_rubble.xml">
         <parameters />
     </EnvObject>
-    <Decal t0="-69.2483" t1="-19.265" t2="-56.2129" s0="3.25589" s1="3.25589" s2="3.25589" q0="-0.099717" q1="0.677351" q2="-0.608335" q3="0.401473" euler_x="-1.50178" euler_y="0.436261" euler_z="-2.38288" id="159" type_file="Data/Objects/Decals/signs/glyph_rabbit.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="-68.8309" t1="-19.0741" t2="-56.4606" s0="3.25589" s1="3.25589" s2="3.25589" q0="-0.099717" q1="0.677351" q2="-0.608335" q3="0.401473" euler_x="-1.50178" euler_y="0.436261" euler_z="-2.38288" id="159" type_file="Data/Objects/Decals/signs/glyph_rabbit.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <EnvObject t0="175.872" t1="-38.8564" t2="-109.578" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.266367" q1="-0.140328" q2="0.95028" q3="0.0795269" euler_x="-0.267445" euler_y="-0.556911" euler_z="3.05149" id="160" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1a_volcanic.xml">
         <parameters />
     </EnvObject>
-    <DynamicLightObject t0="-69.5464" t1="-19.0317" t2="-56.75" s0="10.7142" s1="10.7142" s2="10.7142" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="161" color_r="0" color_g="21.1" color_b="2.15137" overbright="1">
+    <DynamicLightObject t0="-69.1291" t1="-18.8408" t2="-56.9977" s0="10.7142" s1="10.7142" s2="10.7142" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="161" color_r="0" color_g="21.1" color_b="2.15137" overbright="1">
         <parameters />
     </DynamicLightObject>
-    <Hotspot t0="-69.4489" t1="-19.9557" t2="-54.8597" s0="0.608219" s1="0.608219" s2="0.608219" q0="0.0042178" q1="0.627614" q2="0.299206" q3="0.71872" euler_x="1.0634" euler_y="1.11893" euler_z="1.4948" id="162" type_file="Data/Objects/Hotspots/loadlevel.xml">
+    <Hotspot t0="-69.0315" t1="-19.7648" t2="-55.1075" s0="0.608219" s1="0.608219" s2="0.608219" q0="0.0042178" q1="0.627614" q2="0.299206" q3="0.71872" euler_x="1.0634" euler_y="1.11893" euler_z="1.4948" id="162" type_file="Data/Objects/Hotspots/loadlevel.xml">
         <parameters>
             <parameter name="Level to load" type="string" val="Data/Levels/Project60/4_red_hills.xml" />
         </parameters>
@@ -858,10 +867,10 @@
     <EnvObject t0="166.846" t1="-10.5003" t2="-248.267" s0="1.00017" s1="1.00017" s2="1.00017" q0="-0.737586" q1="-0.220588" q2="-0.505825" q3="0.389164" euler_x="-2.0568" euler_y="-1.16268" euler_z="-0.172932" id="169" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1a_volcanic.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-71.7915" t1="-7.93204" t2="-12.1616" s0="0.902765" s1="1.34423" s2="0.677419" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="170" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/MagmaArena/MagmaFloor.xml">
+    <EnvObject t0="-71.7911" t1="-7.93213" t2="-12.1612" s0="0.902765" s1="1.34423" s2="0.677419" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="170" color_r="0.999992" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Prototypes/MagmaArena/MagmaFloor.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-78.1058" t1="2.5792" t2="-4.1549" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="171" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+    <EnvObject t0="-78.1052" t1="2.57919" t2="-4.15436" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="171" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="161.377" t1="-20.7614" t2="-244.513" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.702417" q1="0" q2="0" q3="0.711766" euler_x="1.55758" euler_y="0" euler_z="0" id="172" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1b_volcanic.xml">
@@ -879,26 +888,35 @@
     <EnvObject t0="-73.5799" t1="14.9463" t2="-20.4735" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="176" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-81.9926" t1="3.31402" t2="-9.93476" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="179" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+    <EnvObject t0="-67.5237" t1="19.2952" t2="-5.93912" s0="0.848618" s1="0.136883" s2="3.49057" q0="0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="177" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-72.0406" t1="0.978876" t2="-4.56039" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="181" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+    <EnvObject t0="-69.0878" t1="21.4046" t2="-4.58015" s0="0.868062" s1="0.144359" s2="2.71617" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="178" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
-    <Hotspot t0="-71.9416" t1="-9.07826" t2="-12.4962" s0="5.81684" s1="1" s2="4.93997" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="182" type_file="Data/Objects/Hotspots/lava_kill.xml">
+    <EnvObject t0="-81.9919" t1="3.31381" t2="-9.93445" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="179" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-61.824" t1="22.7289" t2="-16.3104" s0="0.88381" s1="0.122338" s2="0.632954" q0="-0.5" q1="0.5" q2="-0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="180" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-72.0401" t1="0.978866" t2="-4.55996" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="181" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="-71.2274" t1="-9.42067" t2="-12.4086" s0="5.81684" s1="1" s2="4.93997" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="182" type_file="Data/Objects/Hotspots/lava_kill.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom>
             <Connection id="136" />
         </ConnectionsFrom>
     </Hotspot>
-    <EnvObject t0="-77.4652" t1="19.4417" t2="-20.1961" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="183" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+    <EnvObject t0="-77.4179" t1="19.4524" t2="-20.2056" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="183" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-77.35" t1="14.7911" t2="-20.0247" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="184" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-81.9715" t1="5.06847" t2="-16.0521" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="185" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+    <EnvObject t0="-81.9708" t1="5.06826" t2="-16.0518" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="185" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-74.7039" t1="6.75552" t2="-20.6245" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="186" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
@@ -956,6 +974,9 @@
         <parameters />
     </EnvObject>
     <EnvObject t0="-69.218" t1="15.6107" t2="-20.3568" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="204" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-68.735" t1="21.74" t2="-20.799" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="205" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="45.5485" t1="-68.448" t2="-113.645" s0="1.00017" s1="1.00017" s2="1.00017" q0="-0.0854232" q1="-0.0590467" q2="0.482517" q3="0.869709" euler_x="-0.207088" euler_y="-0.020272" euler_z="1.01515" id="206" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/dark_dirty_cube.xml">
@@ -1039,7 +1060,7 @@
     <EnvObject t0="18.7594" t1="-58.8675" t2="-125.227" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.116256" q1="-0.280762" q2="0.385419" q3="0.871269" euler_x="-0.0169753" euler_y="-0.617321" euler_z="0.838386" id="233" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/large_dark_cube.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-86.5107" t1="-38.9721" t2="-77.3115" s0="1.00017" s1="1.00017" s2="1.00017" q0="-0.571188" q1="0.156218" q2="0.165654" q3="0.788606" euler_x="-1.23256" euler_y="0.450736" euler_z="0.0921304" id="234" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1a_volcanic.xml">
+    <EnvObject t0="-86.0461" t1="-38.7705" t2="-77.5687" s0="1.00017" s1="1.00017" s2="1.00017" q0="-0.571188" q1="0.156218" q2="0.165654" q3="0.788606" euler_x="-1.23256" euler_y="0.450736" euler_z="0.0921304" id="234" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1a_volcanic.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-14.7478" t1="-10.2899" t2="-42.658" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.0968741" q1="0.34906" q2="0.881402" q3="0.303155" euler_x="0.740455" euler_y="0.0408799" euler_z="2.49492" id="235" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1a_volcanic.xml">
@@ -1090,6 +1111,14 @@
     <EnvObject t0="91.0405" t1="-47.6518" t2="83.6821" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.14535" q1="-0.234843" q2="0.161084" q3="0.947509" euler_x="0.231519" euler_y="-0.514223" euler_z="0.275667" id="262" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/large_dark_cube.xml">
         <parameters />
     </EnvObject>
+    <EnvObject t0="-75.9766" t1="21.4732" t2="-20.2559" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="263" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="-76.5111" t1="22.3253" t2="-21.8058" s0="1" s1="0.340746" s2="0.663632" q0="0.236057" q1="0.378378" q2="-0.404722" q3="0.798319" euler_x="0.116737" euler_y="0.91935" euler_z="-0.880582" id="264" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
     <EnvObject t0="137.868" t1="-64.0523" t2="-36.8475" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="0.368316" q3="0.929701" euler_x="0" euler_y="0" euler_z="0.754394" id="266" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/dark_dirty_cube.xml">
         <parameters />
     </EnvObject>
@@ -1360,7 +1389,7 @@
     <EnvObject t0="-226.055" t1="-24.5002" t2="-40.0152" s0="1.00017" s1="1.00017" s2="1.00017" q0="-0.318165" q1="0.562869" q2="0.151077" q3="0.747747" euler_x="-1.07871" euler_y="1.21653" euler_z="-0.391085" id="408" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/large_dark_cube_broken_ended.xml">
         <parameters />
     </EnvObject>
-    <Decal t0="-73.6543" t1="-25.5557" t2="-56.1183" s0="10.0017" s1="10.0017" s2="10.0017" q0="-0.155134" q1="0.959492" q2="-0.232581" q3="0.0348506" euler_x="-2.66682" euler_y="-0.00528473" euler_z="-2.82228" id="409" type_file="Data/Objects/Decals/dark_rubble.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="-73.2369" t1="-25.3648" t2="-56.3661" s0="10.0017" s1="10.0017" s2="10.0017" q0="-0.155134" q1="0.959492" q2="-0.232581" q3="0.0348506" euler_x="-2.66682" euler_y="-0.00528473" euler_z="-2.82228" id="409" type_file="Data/Objects/Decals/dark_rubble.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-216.375" t1="-35.7487" t2="21.4288" s0="10.0017" s1="10.0017" s2="10.0017" q0="-0.249044" q1="-0.94837" q2="0.118677" q3="0.156484" euler_x="-2.82431" euler_y="-0.239995" euler_z="2.58941" id="410" type_file="Data/Objects/Decals/dark_rubble.xml" color_r="1" color_g="1" color_b="1" overbright="0">
@@ -1375,7 +1404,7 @@
     <Decal t0="-122.196" t1="-34.6372" t2="-20.48" s0="10.0017" s1="10.0017" s2="10.0017" q0="0.3255" q1="-0.940618" q2="0.0761744" q3="0.0590346" euler_x="-3.03514" euler_y="-0.161347" euler_z="-2.48391" id="413" type_file="Data/Objects/Decals/dark_rubble.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-63.6697" t1="-26.7086" t2="-76.4041" s0="10.0017" s1="10.0017" s2="10.0017" q0="0.187097" q1="-0.949033" q2="0.249109" q3="0.047705" euler_x="-2.66038" euler_y="-0.184813" euler_z="-2.79776" id="414" type_file="Data/Objects/Decals/dark_rubble.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="-63.2523" t1="-26.5177" t2="-76.6518" s0="10.0017" s1="10.0017" s2="10.0017" q0="0.187097" q1="-0.949033" q2="0.249109" q3="0.047705" euler_x="-2.66038" euler_y="-0.184813" euler_z="-2.79776" id="414" type_file="Data/Objects/Decals/dark_rubble.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-120.163" t1="-37.0696" t2="25.2801" s0="10.0017" s1="10.0017" s2="10.0017" q0="0.292608" q1="-0.937477" q2="-0.10758" q3="0.154739" euler_x="2.83679" euler_y="-0.229172" euler_z="-2.50116" id="415" type_file="Data/Objects/Decals/dark_rubble.xml" color_r="1" color_g="1" color_b="1" overbright="0">
@@ -1426,7 +1455,7 @@
     <Decal t0="-107.916" t1="-28.1812" t2="-35.3768" s0="10.0017" s1="10.0017" s2="10.0017" q0="0.182383" q1="-0.956285" q2="0.222621" q3="0.0519165" euler_x="-2.71515" euler_y="-0.181493" euler_z="-2.80408" id="430" type_file="Data/Objects/Decals/dark_rubble.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-102.919" t1="-46.8688" t2="-80.8499" s0="10.0017" s1="10.0017" s2="10.0017" q0="0.212495" q1="-0.945981" q2="0.238722" q3="0.0545669" euler_x="-2.68852" euler_y="-0.20615" euler_z="-2.74735" id="431" type_file="Data/Objects/Decals/dark_rubble.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="-102.843" t1="-46.8008" t2="-80.731" s0="10.0017" s1="10.0017" s2="10.0017" q0="0.236349" q1="-0.937457" q2="0.24741" q3="0.0640464" euler_x="-2.67895" euler_y="-0.239309" euler_z="-2.70427" id="431" type_file="Data/Objects/Decals/dark_rubble.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="114.842" t1="-40.1327" t2="-170.862" s0="10.0017" s1="10.0017" s2="10.0017" q0="-0.102879" q1="0.989581" q2="0.10072" q3="0.000913491" euler_x="2.94105" euler_y="0.0225338" euler_z="-2.93668" id="432" type_file="Data/Objects/Decals/dark_rubble.xml" color_r="1" color_g="1" color_b="1" overbright="0">
@@ -1765,13 +1794,13 @@
     <Decal t0="12.3272" t1="-66.398" t2="-138.782" s0="10.0017" s1="10.0017" s2="10.0017" q0="-0.01726" q1="0.0228147" q2="-0.0714744" q3="0.997032" euler_x="-0.0377228" euler_y="0.04304" euler_z="-0.143941" id="544" type_file="Data/Objects/Decals/white_dust.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-48.3457" t1="-68.9214" t2="-166.513" s0="10.0017" s1="10.0017" s2="10.0017" q0="0.0823136" q1="0.0254538" q2="-0.0437218" q3="0.995322" euler_x="0.162618" euler_y="0.0578996" euler_z="-0.0830787" id="545" type_file="Data/Objects/Decals/white_dust.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="-47.9283" t1="-68.7305" t2="-166.761" s0="10.0017" s1="10.0017" s2="10.0017" q0="0.0823136" q1="0.0254538" q2="-0.0437218" q3="0.995322" euler_x="0.162618" euler_y="0.0578996" euler_z="-0.0830787" id="545" type_file="Data/Objects/Decals/white_dust.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-46.1986" t1="-70.2133" t2="-169.267" s0="10.0017" s1="10.0017" s2="10.0017" q0="0.0840648" q1="0.0253516" q2="-0.0490636" q3="0.994929" euler_x="0.165833" euler_y="0.0587289" euler_z="-0.0936654" id="546" type_file="Data/Objects/Decals/white_dust.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="-45.7812" t1="-70.0224" t2="-169.515" s0="10.0017" s1="10.0017" s2="10.0017" q0="0.0840648" q1="0.0253516" q2="-0.0490636" q3="0.994929" euler_x="0.165833" euler_y="0.0587289" euler_z="-0.0936654" id="546" type_file="Data/Objects/Decals/white_dust.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-160.089" t1="-64.359" t2="-133.514" s0="10.0017" s1="10.0017" s2="10.0017" q0="0.10225" q1="0.244368" q2="0.0781439" q3="0.961105" euler_x="0.266561" euler_y="0.470965" euler_z="0.226572" id="547" type_file="Data/Objects/Decals/white_dust.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="-160.06" t1="-64.3016" t2="-133.386" s0="10.0017" s1="10.0017" s2="10.0017" q0="0.0871871" q1="0.2602" q2="0.0957839" q3="0.956828" euler_x="0.249787" euler_y="0.502059" euler_z="0.263915" id="547" type_file="Data/Objects/Decals/white_dust.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-133.337" t1="-39.8516" t2="-38.2651" s0="10.0017" s1="10.0017" s2="10.0017" q0="0.013209" q1="0.011588" q2="0.0975271" q3="0.995078" euler_x="0.0285581" euler_y="0.0204869" euler_z="0.195688" id="548" type_file="Data/Objects/Decals/white_dust.xml" color_r="1" color_g="1" color_b="1" overbright="0">
@@ -1855,10 +1884,10 @@
     <Decal t0="135.436" t1="-64.0525" t2="35.9943" s0="9.26587" s1="9.89586" s2="6.94042" q0="-0.0773223" q1="0.783105" q2="-0.11197" q3="0.60682" euler_x="-2.29571" euler_y="1.20292" euler_z="-2.34555" id="574" type_file="Data/Objects/Decals/white_dust.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-159.034" t1="-64.3072" t2="-135.542" s0="10.0017" s1="10.0017" s2="10.0017" q0="0.120295" q1="0" q2="0.0951258" q3="0.98817" euler_x="0.240107" euler_y="-0.0228883" euler_z="0.189177" id="575" type_file="Data/Objects/Decals/white_dust.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="-159.005" t1="-64.2498" t2="-135.414" s0="10.0017" s1="10.0017" s2="10.0017" q0="0.110673" q1="0.0168841" q2="0.11581" q3="0.986942" euler_x="0.224248" euler_y="0.00769325" euler_z="0.234482" id="575" type_file="Data/Objects/Decals/white_dust.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-154.208" t1="-63.8546" t2="-141.123" s0="10.0017" s1="10.0017" s2="10.0017" q0="-0.123509" q1="0.0621489" q2="-0.253992" q3="0.957273" euler_x="-0.271793" euler_y="0.056276" euler_z="-0.526403" id="576" type_file="Data/Objects/Decals/white_dust.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="-154.179" t1="-63.7972" t2="-140.995" s0="10.0017" s1="10.0017" s2="10.0017" q0="-0.138734" q1="0.0692621" q2="-0.231308" q3="0.960444" euler_x="-0.303901" euler_y="0.0689187" euler_z="-0.483225" id="576" type_file="Data/Objects/Decals/white_dust.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-190.001" t1="-59.3334" t2="-60.7261" s0="10.0017" s1="10.0017" s2="10.0017" q0="-0.00655189" q1="-0.031832" q2="-0.108485" q3="0.993567" euler_x="-0.00612576" euler_y="-0.0647212" euler_z="-0.217315" id="577" type_file="Data/Objects/Decals/white_dust.xml" color_r="1" color_g="1" color_b="1" overbright="0">
@@ -1882,6 +1911,402 @@
     <Decal t0="11.1363" t1="-50.0911" t2="-212.552" s0="10.0017" s1="10.0017" s2="10.0017" q0="0.150769" q1="-0.146406" q2="0.0143308" q3="0.977563" euler_x="0.308551" euler_y="-0.294816" euler_z="-0.0168565" id="583" type_file="Data/Objects/Decals/white_dust.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
+    <DynamicLightObject t0="-63.2985" t1="-6.86503" t2="-6.07856" s0="19.2835" s1="19.2835" s2="19.2835" q0="0.00983179" q1="-0.023762" q2="-0.0162475" q3="0.999537" euler_x="0.0204508" euler_y="-0.0472" euler_z="-0.0329899" id="585" color_r="1" color_g="0.0689656" color_b="0" overbright="50">
+        <parameters />
+    </DynamicLightObject>
+    <Hotspot t0="-76.5822" t1="22.099" t2="-20.517" s0="1" s1="0.340746" s2="0.663632" q0="0.236057" q1="0.378378" q2="-0.404722" q3="0.798319" euler_x="0.116737" euler_y="0.91935" euler_z="-0.880582" id="586" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-76.5291" t1="22.099" t2="-19.3337" s0="1" s1="0.340746" s2="0.663632" q0="0.236057" q1="0.378378" q2="-0.404722" q3="0.798319" euler_x="0.116737" euler_y="0.91935" euler_z="-0.880582" id="590" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-76.9744" t1="22.099" t2="-21.0747" s0="1" s1="0.340746" s2="0.663632" q0="0.236057" q1="0.378378" q2="-0.404722" q3="0.798319" euler_x="0.116737" euler_y="0.91935" euler_z="-0.880582" id="594" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-77.0441" t1="22.099" t2="-19.6581" s0="1" s1="0.340746" s2="0.663632" q0="0.236057" q1="0.378378" q2="-0.404722" q3="0.798319" euler_x="0.116737" euler_y="0.91935" euler_z="-0.880582" id="598" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-76.9866" t1="22.099" t2="-18.7377" s0="1" s1="0.340746" s2="0.663632" q0="0.236057" q1="0.378378" q2="-0.404722" q3="0.798319" euler_x="0.116737" euler_y="0.91935" euler_z="-0.880582" id="602" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-76.2814" t1="22.099" t2="-21.1599" s0="1" s1="0.340746" s2="0.663632" q0="0.236057" q1="0.378378" q2="-0.404722" q3="0.798319" euler_x="0.116737" euler_y="0.91935" euler_z="-0.880582" id="606" type_file="Data/Objects/Hotspots/spike.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <DynamicLightObject t0="-65.2706" t1="-6.25958" t2="-17.6435" s0="19.2835" s1="19.2835" s2="19.2835" q0="0.00983179" q1="-0.023762" q2="-0.0162475" q3="0.999537" euler_x="0.0204508" euler_y="-0.0472" euler_z="-0.0329899" id="610" color_r="1" color_g="0.0689656" color_b="0" overbright="50">
+        <parameters />
+    </DynamicLightObject>
+    <DynamicLightObject t0="-78.521" t1="-6.87437" t2="-17.8889" s0="19.2835" s1="19.2835" s2="19.2835" q0="0.00983179" q1="-0.023762" q2="-0.0162475" q3="0.999537" euler_x="0.0204508" euler_y="-0.0472" euler_z="-0.0329899" id="611" color_r="1" color_g="0.0689656" color_b="0" overbright="50">
+        <parameters />
+    </DynamicLightObject>
+    <DynamicLightObject t0="-79.2374" t1="-6.79269" t2="-7.63653" s0="19.2835" s1="19.2835" s2="19.2835" q0="0.00949264" q1="-0.0231156" q2="-0.017101" q3="0.999541" euler_x="0.0197893" euler_y="-0.0459014" euler_z="-0.0346686" id="612" color_r="1" color_g="0.0689656" color_b="0" overbright="50">
+        <parameters />
+    </DynamicLightObject>
+    <EnvObject t0="-82.339" t1="21.4836" t2="-20.1655" s0="0.532061" s1="0.0960873" s2="1.08535" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="616" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-80.6593" t1="22.6785" t2="-8.59919" s0="1.41102" s1="0.122337" s2="2.97491" q0="0.00196004" q1="0.00135446" q2="0.999997" q3="-0.000222586" euler_x="0.00270806" euler_y="-0.00392068" euler_z="-3.14115" id="617" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-77.6426" t1="24.9202" t2="-8.60138" s0="1.37542" s1="0.11035" s2="2.95625" q0="0" q1="0" q2="0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="629" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="-68.8456" t1="-7.87427" t2="-15.3152" s0="3.97566" s1="0.383267" s2="7.0732" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="641" type_file="Data/Objects/Hotspots/fire_test.xml">
+        <parameters>
+            <parameter name="Fire Ribbons" type="int" val="80" />
+            <parameter name="Ignite Characters" type="int" val="1" />
+            <parameter name="Light Amplify" type="float" val="20" />
+            <parameter name="Light Distance" type="float" val="100" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom>
+            <Connection id="136" />
+        </ConnectionsFrom>
+    </Hotspot>
+    <Hotspot t0="-75.2179" t1="-8.21471" t2="-12.2194" s0="4.06323" s1="0.383267" s2="8.72891" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="643" type_file="Data/Objects/Hotspots/fire_test.xml">
+        <parameters>
+            <parameter name="Fire Ribbons" type="int" val="80" />
+            <parameter name="Ignite Characters" type="int" val="1" />
+            <parameter name="Light Amplify" type="float" val="20" />
+            <parameter name="Light Distance" type="float" val="100" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom>
+            <Connection id="136" />
+        </ConnectionsFrom>
+    </Hotspot>
+    <Hotspot t0="-75.5483" t1="23.6044" t2="-10.9057" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="649" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
+        <parameters>
+            <parameter name="Bobbing Direction Inverted" type="int" val="1" />
+            <parameter name="Bobbing Multiplier" type="int" val="80" />
+            <parameter name="Delay Time" type="float" val="0" />
+            <parameter name="Fast Mode - No Collision Refresh" type="int" val="0" />
+            <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
+            <parameter name="Loop Phases" type="int" val="1" />
+            <parameter name="Min Distance To Activate" type="float" val="30" />
+            <parameter name="Phase Change Time" type="float" val="2" />
+            <parameter name="Phase Starting Direction Forward" type="int" val="1" />
+            <parameter name="Rise Speed" type="float" val="0.005" />
+            <parameter name="game_type" type="string" val="versusBrawl" />
+        </parameters>
+        <Connections>
+            <Connection id="644" />
+            <Connection id="638" />
+            <Connection id="621" />
+            <Connection id="630" />
+            <Connection id="615" />
+            <Connection id="625" />
+            <Connection id="106" />
+            <Connection id="634" />
+            <Connection id="651" />
+            <Connection id="652" />
+            <Connection id="653" />
+            <Connection id="654" />
+            <Connection id="655" />
+            <Connection id="656" />
+            <Connection id="676" />
+            <Connection id="677" />
+            <Connection id="678" />
+            <Connection id="679" />
+            <Connection id="680" />
+            <Connection id="681" />
+            <Connection id="701" />
+            <Connection id="702" />
+            <Connection id="703" />
+            <Connection id="704" />
+            <Connection id="705" />
+            <Connection id="706" />
+            <Connection id="726" />
+            <Connection id="727" />
+            <Connection id="728" />
+            <Connection id="729" />
+            <Connection id="730" />
+            <Connection id="731" />
+        </Connections>
+        <ConnectionsFrom />
+    </Hotspot>
+    <Group t0="-80.3889" t1="23.9209" t2="-11.2069" s0="7.8785" s1="2.42502" s2="4.3483" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="650" version="1">
+        <parameters />
+        <Hotspot t0="-78.4637" t1="23.9203" t2="-11.179" s0="1" s1="0.553055" s2="0.995226" q0="-0.00319461" q1="0.999743" q2="0.0224499" q3="0.000575676" euler_x="3.09669" euler_y="0.00129449" euler_z="-3.13523" id="651" type_file="Data/Objects/Hotspots/spike.xml">
+            <parameters />
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="649" />
+            </ConnectionsFrom>
+        </Hotspot>
+        <Hotspot t0="-79.1283" t1="23.9203" t2="-11.0784" s0="1" s1="0.553055" s2="0.995226" q0="-0.00319461" q1="0.999743" q2="0.0224499" q3="0.000575676" euler_x="3.09669" euler_y="0.00129449" euler_z="-3.13523" id="652" type_file="Data/Objects/Hotspots/spike.xml">
+            <parameters />
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="649" />
+            </ConnectionsFrom>
+        </Hotspot>
+        <Hotspot t0="-79.9642" t1="23.9209" t2="-11.2881" s0="1" s1="0.553055" s2="0.995226" q0="-0.00319461" q1="0.999743" q2="0.0224499" q3="0.000575676" euler_x="3.09669" euler_y="0.00129449" euler_z="-3.13523" id="653" type_file="Data/Objects/Hotspots/spike.xml">
+            <parameters />
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="649" />
+            </ConnectionsFrom>
+        </Hotspot>
+        <Hotspot t0="-80.7397" t1="23.9209" t2="-11.211" s0="1" s1="0.553055" s2="0.995226" q0="-0.00319461" q1="0.999743" q2="0.0224499" q3="0.000575676" euler_x="3.09669" euler_y="0.00129449" euler_z="-3.13523" id="654" type_file="Data/Objects/Hotspots/spike.xml">
+            <parameters />
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="649" />
+            </ConnectionsFrom>
+        </Hotspot>
+        <Hotspot t0="-81.5195" t1="23.9213" t2="-11.3354" s0="1" s1="0.553055" s2="0.995226" q0="-0.00319461" q1="0.999743" q2="0.0224499" q3="0.000575676" euler_x="3.09669" euler_y="0.00129449" euler_z="-3.13523" id="655" type_file="Data/Objects/Hotspots/spike.xml">
+            <parameters />
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="649" />
+            </ConnectionsFrom>
+        </Hotspot>
+        <Hotspot t0="-82.3141" t1="23.9214" t2="-11.2467" s0="1" s1="0.553055" s2="0.995226" q0="-0.00319461" q1="0.999743" q2="0.0224499" q3="0.000575676" euler_x="3.09669" euler_y="0.00129449" euler_z="-3.13523" id="656" type_file="Data/Objects/Hotspots/spike.xml">
+            <parameters />
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="649" />
+            </ConnectionsFrom>
+        </Hotspot>
+    </Group>
+    <Group t0="-80.5466" t1="23.9264" t2="-8.60865" s0="7.8785" s1="2.42481" s2="4.34788" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="675" version="1">
+        <parameters />
+        <Hotspot t0="-78.6214" t1="23.9258" t2="-8.58078" s0="1" s1="0.553055" s2="0.995226" q0="-0.00319461" q1="0.999743" q2="0.0224499" q3="0.000575676" euler_x="3.09669" euler_y="0.00129449" euler_z="-3.13523" id="676" type_file="Data/Objects/Hotspots/spike.xml">
+            <parameters />
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="649" />
+            </ConnectionsFrom>
+        </Hotspot>
+        <Hotspot t0="-79.286" t1="23.9258" t2="-8.48019" s0="1" s1="0.553055" s2="0.995226" q0="-0.00319461" q1="0.999743" q2="0.0224499" q3="0.000575676" euler_x="3.09669" euler_y="0.00129449" euler_z="-3.13523" id="677" type_file="Data/Objects/Hotspots/spike.xml">
+            <parameters />
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="649" />
+            </ConnectionsFrom>
+        </Hotspot>
+        <Hotspot t0="-80.1219" t1="23.9264" t2="-8.68984" s0="1" s1="0.553055" s2="0.995226" q0="-0.00319461" q1="0.999743" q2="0.0224499" q3="0.000575676" euler_x="3.09669" euler_y="0.00129449" euler_z="-3.13523" id="678" type_file="Data/Objects/Hotspots/spike.xml">
+            <parameters />
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="649" />
+            </ConnectionsFrom>
+        </Hotspot>
+        <Hotspot t0="-80.8974" t1="23.9264" t2="-8.61277" s0="1" s1="0.553055" s2="0.995226" q0="-0.00319461" q1="0.999743" q2="0.0224499" q3="0.000575676" euler_x="3.09669" euler_y="0.00129449" euler_z="-3.13523" id="679" type_file="Data/Objects/Hotspots/spike.xml">
+            <parameters />
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="649" />
+            </ConnectionsFrom>
+        </Hotspot>
+        <Hotspot t0="-81.6772" t1="23.9268" t2="-8.73711" s0="1" s1="0.553055" s2="0.995226" q0="-0.00319461" q1="0.999743" q2="0.0224499" q3="0.000575676" euler_x="3.09669" euler_y="0.00129449" euler_z="-3.13523" id="680" type_file="Data/Objects/Hotspots/spike.xml">
+            <parameters />
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="649" />
+            </ConnectionsFrom>
+        </Hotspot>
+        <Hotspot t0="-82.4718" t1="23.9269" t2="-8.64847" s0="1" s1="0.553055" s2="0.995226" q0="-0.00319461" q1="0.999743" q2="0.0224499" q3="0.000575676" euler_x="3.09669" euler_y="0.00129449" euler_z="-3.13523" id="681" type_file="Data/Objects/Hotspots/spike.xml">
+            <parameters />
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="649" />
+            </ConnectionsFrom>
+        </Hotspot>
+    </Group>
+    <Group t0="-80.4752" t1="23.9377" t2="-5.98661" s0="7.87739" s1="2.42457" s2="4.34633" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="700" version="1">
+        <parameters />
+        <Hotspot t0="-82.4004" t1="23.9372" t2="-6.01448" s0="0.999723" s1="0.552917" s2="0.994747" q0="-0.0224499" q1="-0.000575735" q2="-0.00319457" q3="0.999743" euler_x="-0.0448997" euler_y="-0.00129461" euler_z="-0.0063617" id="701" type_file="Data/Objects/Hotspots/spike.xml">
+            <parameters />
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="649" />
+            </ConnectionsFrom>
+        </Hotspot>
+        <Hotspot t0="-81.7358" t1="23.9372" t2="-6.11506" s0="0.999723" s1="0.552917" s2="0.994747" q0="-0.0224499" q1="-0.000575735" q2="-0.00319457" q3="0.999743" euler_x="-0.0448997" euler_y="-0.00129461" euler_z="-0.0063617" id="702" type_file="Data/Objects/Hotspots/spike.xml">
+            <parameters />
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="649" />
+            </ConnectionsFrom>
+        </Hotspot>
+        <Hotspot t0="-80.8999" t1="23.9377" t2="-5.90542" s0="0.999723" s1="0.552917" s2="0.994747" q0="-0.0224499" q1="-0.000575735" q2="-0.00319457" q3="0.999743" euler_x="-0.0448997" euler_y="-0.00129461" euler_z="-0.0063617" id="703" type_file="Data/Objects/Hotspots/spike.xml">
+            <parameters />
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="649" />
+            </ConnectionsFrom>
+        </Hotspot>
+        <Hotspot t0="-80.1244" t1="23.9378" t2="-5.98249" s0="0.999723" s1="0.552917" s2="0.994747" q0="-0.0224499" q1="-0.000575735" q2="-0.00319457" q3="0.999743" euler_x="-0.0448997" euler_y="-0.00129461" euler_z="-0.0063617" id="704" type_file="Data/Objects/Hotspots/spike.xml">
+            <parameters />
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="649" />
+            </ConnectionsFrom>
+        </Hotspot>
+        <Hotspot t0="-79.3446" t1="23.9382" t2="-5.85815" s0="0.999723" s1="0.552917" s2="0.994747" q0="-0.0224499" q1="-0.000575735" q2="-0.00319457" q3="0.999743" euler_x="-0.0448997" euler_y="-0.00129461" euler_z="-0.0063617" id="705" type_file="Data/Objects/Hotspots/spike.xml">
+            <parameters />
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="649" />
+            </ConnectionsFrom>
+        </Hotspot>
+        <Hotspot t0="-78.55" t1="23.9383" t2="-5.94679" s0="0.999723" s1="0.552917" s2="0.994747" q0="-0.0224499" q1="-0.000575735" q2="-0.00319457" q3="0.999743" euler_x="-0.0448997" euler_y="-0.00129461" euler_z="-0.0063617" id="706" type_file="Data/Objects/Hotspots/spike.xml">
+            <parameters />
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="649" />
+            </ConnectionsFrom>
+        </Hotspot>
+    </Group>
+    <Group t0="-80.5716" t1="23.9375" t2="-3.44389" s0="7.87838" s1="2.42491" s2="4.34782" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="725" version="1">
+        <parameters />
+        <Hotspot t0="-78.6464" t1="23.9369" t2="-3.41601" s0="0.999963" s1="0.552999" s2="0.995115" q0="0.00319453" q1="-0.999743" q2="-0.0224499" q3="-0.000575735" euler_x="3.09669" euler_y="0.00129461" euler_z="-3.13523" id="726" type_file="Data/Objects/Hotspots/spike.xml">
+            <parameters />
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="649" />
+            </ConnectionsFrom>
+        </Hotspot>
+        <Hotspot t0="-79.311" t1="23.9369" t2="-3.31543" s0="0.999963" s1="0.552999" s2="0.995115" q0="0.00319453" q1="-0.999743" q2="-0.0224499" q3="-0.000575735" euler_x="3.09669" euler_y="0.00129461" euler_z="-3.13523" id="727" type_file="Data/Objects/Hotspots/spike.xml">
+            <parameters />
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="649" />
+            </ConnectionsFrom>
+        </Hotspot>
+        <Hotspot t0="-80.1469" t1="23.9375" t2="-3.52507" s0="0.999963" s1="0.552999" s2="0.995115" q0="0.00319453" q1="-0.999743" q2="-0.0224499" q3="-0.000575735" euler_x="3.09669" euler_y="0.00129461" euler_z="-3.13523" id="728" type_file="Data/Objects/Hotspots/spike.xml">
+            <parameters />
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="649" />
+            </ConnectionsFrom>
+        </Hotspot>
+        <Hotspot t0="-80.9224" t1="23.9375" t2="-3.448" s0="0.999963" s1="0.552999" s2="0.995115" q0="0.00319453" q1="-0.999743" q2="-0.0224499" q3="-0.000575735" euler_x="3.09669" euler_y="0.00129461" euler_z="-3.13523" id="729" type_file="Data/Objects/Hotspots/spike.xml">
+            <parameters />
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="649" />
+            </ConnectionsFrom>
+        </Hotspot>
+        <Hotspot t0="-81.7022" t1="23.9379" t2="-3.57234" s0="0.999963" s1="0.552999" s2="0.995115" q0="0.00319453" q1="-0.999743" q2="-0.0224499" q3="-0.000575735" euler_x="3.09669" euler_y="0.00129461" euler_z="-3.13523" id="730" type_file="Data/Objects/Hotspots/spike.xml">
+            <parameters />
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="649" />
+            </ConnectionsFrom>
+        </Hotspot>
+        <Hotspot t0="-82.4968" t1="23.938" t2="-3.4837" s0="0.999963" s1="0.552999" s2="0.995115" q0="0.00319453" q1="-0.999743" q2="-0.0224499" q3="-0.000575735" euler_x="3.09669" euler_y="0.00129461" euler_z="-3.13523" id="731" type_file="Data/Objects/Hotspots/spike.xml">
+            <parameters />
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="649" />
+            </ConnectionsFrom>
+        </Hotspot>
+    </Group>
+    <Group t0="-80.5328" t1="23.9099" t2="-13.6549" s0="8.65222" s1="2.43513" s2="4.51081" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="750" version="1">
+        <parameters />
+        <Hotspot t0="-78.2206" t1="23.911" t2="-13.4445" s0="0.999926" s1="0.553078" s2="0.994894" q0="-0.0224499" q1="-0.000575691" q2="-0.00319461" q3="0.999743" euler_x="-0.0448997" euler_y="-0.00129452" euler_z="-0.00636178" id="644" type_file="Data/Objects/Hotspots/spike.xml">
+            <parameters />
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="649" />
+            </ConnectionsFrom>
+        </Hotspot>
+        <Group t0="-80.9148" t1="23.9099" t2="-13.7313" s0="7.87822" s1="2.42513" s2="4.34804" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="648" version="1">
+            <parameters />
+            <Hotspot t0="-82.84" t1="23.9094" t2="-13.7592" s0="1" s1="0.553055" s2="0.995226" q0="-0.0224499" q1="-0.000575691" q2="-0.00319461" q3="0.999743" euler_x="-0.0448997" euler_y="-0.00129452" euler_z="-0.00636178" id="615" type_file="Data/Objects/Hotspots/spike.xml">
+                <parameters />
+                <Connections />
+                <ConnectionsFrom>
+                    <Connection id="649" />
+                </ConnectionsFrom>
+            </Hotspot>
+            <Hotspot t0="-82.1754" t1="23.9094" t2="-13.8597" s0="1" s1="0.553055" s2="0.995226" q0="-0.0224499" q1="-0.000575691" q2="-0.00319461" q3="0.999743" euler_x="-0.0448997" euler_y="-0.00129452" euler_z="-0.00636178" id="621" type_file="Data/Objects/Hotspots/spike.xml">
+                <parameters />
+                <Connections />
+                <ConnectionsFrom>
+                    <Connection id="649" />
+                </ConnectionsFrom>
+            </Hotspot>
+            <Hotspot t0="-81.3395" t1="23.9099" t2="-13.6501" s0="1" s1="0.553055" s2="0.995226" q0="-0.0224499" q1="-0.000575691" q2="-0.00319461" q3="0.999743" euler_x="-0.0448997" euler_y="-0.00129452" euler_z="-0.00636178" id="625" type_file="Data/Objects/Hotspots/spike.xml">
+                <parameters />
+                <Connections />
+                <ConnectionsFrom>
+                    <Connection id="649" />
+                </ConnectionsFrom>
+            </Hotspot>
+            <Hotspot t0="-80.564" t1="23.91" t2="-13.7271" s0="1" s1="0.553055" s2="0.995226" q0="-0.0224499" q1="-0.000575691" q2="-0.00319461" q3="0.999743" euler_x="-0.0448997" euler_y="-0.00129452" euler_z="-0.00636178" id="630" type_file="Data/Objects/Hotspots/spike.xml">
+                <parameters />
+                <Connections />
+                <ConnectionsFrom>
+                    <Connection id="649" />
+                </ConnectionsFrom>
+            </Hotspot>
+            <Hotspot t0="-79.7842" t1="23.9104" t2="-13.6028" s0="1" s1="0.553055" s2="0.995226" q0="-0.0224499" q1="-0.000575691" q2="-0.00319461" q3="0.999743" euler_x="-0.0448997" euler_y="-0.00129452" euler_z="-0.00636178" id="634" type_file="Data/Objects/Hotspots/spike.xml">
+                <parameters />
+                <Connections />
+                <ConnectionsFrom>
+                    <Connection id="649" />
+                </ConnectionsFrom>
+            </Hotspot>
+            <Hotspot t0="-78.9896" t1="23.9105" t2="-13.6914" s0="1" s1="0.553055" s2="0.995226" q0="-0.0224499" q1="-0.000575691" q2="-0.00319461" q3="0.999743" euler_x="-0.0448997" euler_y="-0.00129452" euler_z="-0.00636178" id="638" type_file="Data/Objects/Hotspots/spike.xml">
+                <parameters />
+                <Connections />
+                <ConnectionsFrom>
+                    <Connection id="649" />
+                </ConnectionsFrom>
+            </Hotspot>
+        </Group>
+    </Group>
+    <Decal t0="-80.6796" t1="22.7174" t2="-13.5542" s0="5.87224" s1="1.60437" s2="0.757399" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="751" type_file="Data/Objects/Decals/blob_shadow.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </Decal>
+    <EnvObject t0="-77.6617" t1="29.1745" t2="-7.60083" s0="0.807489" s1="0.11035" s2="2.32546" q0="0" q1="0" q2="0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="753" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <Decal t0="-80.5783" t1="22.6161" t2="-11.204" s0="6.50671" s1="1.60437" s2="0.775864" q0="0" q1="-0.00437128" q2="0" q3="0.99999" euler_x="0" euler_y="-0.00874258" euler_z="0" id="754" type_file="Data/Objects/Decals/blob_shadow.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </Decal>
+    <Decal t0="-80.5743" t1="22.8089" t2="-8.62094" s0="5.87224" s1="1.60437" s2="0.757399" q0="0" q1="-0.039802" q2="0" q3="0.999207" euler_x="0" euler_y="-0.0796251" euler_z="0" id="755" type_file="Data/Objects/Decals/blob_shadow.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </Decal>
+    <Decal t0="-80.6707" t1="22.6585" t2="-5.95248" s0="6.61657" s1="1.60437" s2="0.821573" q0="0" q1="-0.0245927" q2="0" q3="0.999698" euler_x="0" euler_y="-0.0491904" euler_z="0" id="756" type_file="Data/Objects/Decals/blob_shadow.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </Decal>
+    <Decal t0="-80.2785" t1="22.708" t2="-3.50684" s0="6.16854" s1="1.60437" s2="0.812414" q0="0" q1="-0.0316962" q2="0" q3="0.999498" euler_x="0" euler_y="-0.063403" euler_z="0" id="757" type_file="Data/Objects/Decals/blob_shadow.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </Decal>
+    <EnvObject t0="-80.5802" t1="26.4867" t2="-6.25757" s0="1.37785" s1="0.128372" s2="0.367024" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="758" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-80.5683" t1="28.8299" t2="-14.2577" s0="1.6586" s1="0.163367" s2="0.723993" q0="0" q1="0.707107" q2="0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="3.14159" id="759" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-80.549" t1="28.2292" t2="-14.0253" s0="1.81093" s1="0.163367" s2="0.249433" q0="0" q1="0.707107" q2="0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="3.14159" id="760" color_r="1" color_g="1" color_b="1" overbright="10" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-80.3728" t1="30.4961" t2="-8.89089" s0="1.49219" s1="0.11035" s2="3.03261" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="761" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-79.3061" t1="29.1217" t2="-11.9245" s0="0.96396" s1="0.122338" s2="0.781652" q0="0" q1="-0.707107" q2="0.707107" q3="0" euler_x="-1.5708" euler_y="0" euler_z="3.14159" id="762" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-76.0937" t1="27.3058" t2="-13.0938" s0="0.979635" s1="0.120715" s2="0.767805" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="763" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
 </ActorObjects>
 <RecentItems>
     <SpawnerItem display_name="Magma Floor" path="Data/Prototypes/MagmaArena/MagmaFloor.xml" thumbnail_path="" />
@@ -1890,4 +2315,10 @@
     <SpawnerItem display_name="waterPhaseHotspot.xml" path="Data/Objects/versus-brawl/levelSpecific/sewer/waterPhaseHotspot.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Lava Kill Hotspot" path="Data/Objects/Hotspots/lava_kill.xml" thumbnail_path="Data/UI/spawner/thumbs/Hotspot/kill.png" />
     <SpawnerItem display_name="playerSpawn.xml" path="Data/Objects/playerSpawn.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Tree Spikey Tree 1" path="Data/Prototypes/CaveArena/SpikeyTree_1.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Dynamic Light" path="Data/Objects/default_light.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Nav Region" path="Data/Objects/navmesh/navmesh_region.xml" thumbnail_path="Data/UI/spawner/thumbs/Utility/empty_placeholder.png" />
+    <SpawnerItem display_name="Alpha Male Wolf" path="Data/Objects/IGF_Characters/IGF_WolfActor.xml" thumbnail_path="Data/UI/spawner/thumbs/Character/IGF_wolfActor.png" />
+    <SpawnerItem display_name="Spike" path="Data/Objects/Hotspots/spike.xml" thumbnail_path="Data/UI/spawner/thumbs/Interactive Objects/spike_2.png" />
+    <SpawnerItem display_name="[h] waterRiseHotspot" path="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml" thumbnail_path="Data/Textures/ui/versusBrawl/waterRise.png" />
 </RecentItems>

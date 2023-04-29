@@ -9,7 +9,7 @@
 </LoadingScreen>
 <OutOfDate NavMesh="true" NavMeshParamHash="-1674835251" />
 <AmbientSounds />
-<Script>tagGamemode.as</Script>
+<Script>deathmatchGamemode.as</Script>
 <LevelScriptParameters>
     <parameter name="Achievements" type="string" val="flawless, no_injuries, no_kills" />
     <parameter name="Custom Shader" type="string" val="" />
@@ -36,7 +36,7 @@
     <RayToSun r0="0.30044" r1="0.8" r2="0.519361" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-8.7757" t1="54.8903" t2="29.6361" s0="1" s1="1" s2="1" q0="0.268788" q1="0.135933" q2="-0.0383478" q3="0.952788" euler_x="0.549924" euler_y="0.283425" euler_z="0" id="0">
+    <CameraObject t0="-3.23338" t1="38.7137" t2="-18.9153" s0="1" s1="1" s2="1" q0="-0.0615301" q1="0.78542" q2="-0.0791214" q3="-0.610794" euler_x="-2.94079" euler_y="-1.32195" euler_z="3.14159" id="0">
         <parameters />
     </CameraObject>
     <Group t0="15.6279" t1="-11.7599" t2="6.70087" s0="502.79" s1="221.469" s2="513.924" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="661" version="1">
@@ -72,9 +72,13 @@
         </EnvObject>
         <Hotspot t0="-18.4024" t1="36.0212" t2="-7.78794" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="12" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
             <parameters>
+                <parameter name="Bobbing Direction Inverted" type="int" val="0" />
                 <parameter name="Bobbing Multiplier" type="int" val="872" />
                 <parameter name="Delay Time" type="float" val="7.007" />
+                <parameter name="Fast Mode - No Collision Refresh" type="int" val="0" />
+                <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
                 <parameter name="Loop Phases" type="int" val="1" />
+                <parameter name="Min Distance To Activate" type="float" val="30" />
                 <parameter name="Phase Change Time" type="float" val="2" />
                 <parameter name="Phase Starting Direction Forward" type="int" val="1" />
                 <parameter name="Rise Speed" type="float" val="0.005" />
@@ -96,14 +100,19 @@
                 <Connection id="627" />
                 <Connection id="635" />
                 <Connection id="632" />
+                <Connection id="665" />
             </Connections>
             <ConnectionsFrom />
         </Hotspot>
         <Hotspot t0="-11.0878" t1="36.472" t2="-9.95554" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
             <parameters>
+                <parameter name="Bobbing Direction Inverted" type="int" val="0" />
                 <parameter name="Bobbing Multiplier" type="int" val="701" />
                 <parameter name="Delay Time" type="float" val="5.198" />
+                <parameter name="Fast Mode - No Collision Refresh" type="int" val="0" />
+                <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
                 <parameter name="Loop Phases" type="int" val="1" />
+                <parameter name="Min Distance To Activate" type="float" val="30" />
                 <parameter name="Phase Change Time" type="float" val="2" />
                 <parameter name="Phase Starting Direction Forward" type="int" val="1" />
                 <parameter name="Rise Speed" type="float" val="0.005" />
@@ -125,9 +134,13 @@
         </Hotspot>
         <Hotspot t0="-5.18184" t1="38.7305" t2="-10.2288" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
             <parameters>
+                <parameter name="Bobbing Direction Inverted" type="int" val="0" />
                 <parameter name="Bobbing Multiplier" type="int" val="921" />
                 <parameter name="Delay Time" type="float" val="2.336" />
+                <parameter name="Fast Mode - No Collision Refresh" type="int" val="0" />
+                <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
                 <parameter name="Loop Phases" type="int" val="1" />
+                <parameter name="Min Distance To Activate" type="float" val="30" />
                 <parameter name="Phase Change Time" type="float" val="2" />
                 <parameter name="Phase Starting Direction Forward" type="int" val="1" />
                 <parameter name="Rise Speed" type="float" val="0.005" />
@@ -186,9 +199,13 @@
         </Hotspot>
         <Hotspot t0="-17.129" t1="35.6697" t2="-24.4555" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="15" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
             <parameters>
+                <parameter name="Bobbing Direction Inverted" type="int" val="0" />
                 <parameter name="Bobbing Multiplier" type="int" val="676" />
                 <parameter name="Delay Time" type="float" val="0.829" />
+                <parameter name="Fast Mode - No Collision Refresh" type="int" val="0" />
+                <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
                 <parameter name="Loop Phases" type="int" val="1" />
+                <parameter name="Min Distance To Activate" type="float" val="30" />
                 <parameter name="Phase Change Time" type="float" val="2" />
                 <parameter name="Phase Starting Direction Forward" type="int" val="1" />
                 <parameter name="Rise Speed" type="float" val="0.005" />
@@ -216,7 +233,7 @@
         <EnvObject t0="5.05612" t1="26.0042" t2="-45.5304" s0="1.07115" s1="0.555124" s2="1.18126" q0="0.00295887" q1="-0.527011" q2="0.0133838" q3="0.849748" euler_x="-0.0204206" euler_y="-1.11008" euler_z="0.0441602" id="16" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge1.xml">
             <parameters />
         </EnvObject>
-        <Hotspot t0="20.3929" t1="37.9257" t2="-42.3069" s0="0.27" s1="0.27" s2="0.27" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="17" type_file="Data/Objects/powerups/yeetPowerUp.xml">
+        <Hotspot t0="19.5483" t1="37.3945" t2="-41.5057" s0="0.27" s1="0.27" s2="0.27" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="17" type_file="Data/Objects/powerups/yeetPowerUp.xml">
             <parameters>
                 <parameter name="activeTime" type="float" val="10" />
                 <parameter name="boneToFollow" type="string" val="" />
@@ -260,7 +277,7 @@
         <EnvObject t0="-25.594" t1="30.159" t2="-13.6512" s0="0.70374" s1="0.662013" s2="0.913638" q0="0.0338527" q1="-0.686936" q2="-0.0258304" q3="0.725469" euler_x="1.00318" euler_y="-1.47028" euler_z="-0.991819" id="30" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge4.xml">
             <parameters />
         </EnvObject>
-        <Hotspot t0="16.3122" t1="35.7773" t2="15.141" s0="0.27" s1="0.27" s2="0.27" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="133" type_file="Data/Objects/powerups/toxicPowerUp.xml">
+        <Hotspot t0="16.3669" t1="34.403" t2="14.3482" s0="0.27" s1="0.27" s2="0.27" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="133" type_file="Data/Objects/powerups/toxicPowerUp.xml">
             <parameters>
                 <parameter name="activeTime" type="float" val="10" />
                 <parameter name="boneToFollow" type="string" val="" />
@@ -290,10 +307,10 @@
                 <Connection id="14" />
             </ConnectionsFrom>
         </Hotspot>
-        <EnvObject t0="-27.1594" t1="29.4667" t2="-33.6353" s0="0.677627" s1="0.986325" s2="1.14972" q0="0" q1="-0.884896" q2="0" q3="0.465788" euler_x="3.14159" euler_y="-0.969049" euler_z="3.14159" id="134" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge3.xml">
+        <EnvObject t0="-27.1594" t1="29.4669" t2="-33.6364" s0="0.677627" s1="0.986325" s2="1.14972" q0="0" q1="-0.884896" q2="0" q3="0.465788" euler_x="3.14159" euler_y="-0.969049" euler_z="3.14159" id="134" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge3.xml">
             <parameters />
         </EnvObject>
-        <Hotspot t0="-26.8645" t1="39.4484" t2="-34.2361" s0="0.27" s1="0.27" s2="0.27" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="141" type_file="Data/Objects/powerups/firePowerUp.xml">
+        <Hotspot t0="-26.6799" t1="39.1656" t2="-33.4092" s0="0.27" s1="0.27" s2="0.27" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="141" type_file="Data/Objects/powerups/firePowerUp.xml">
             <parameters>
                 <parameter name="activeTime" type="float" val="11" />
                 <parameter name="boneToFollow" type="string" val="" />
@@ -851,7 +868,7 @@
                     <parameters />
                 </EnvObject>
             </Group>
-            <Group t0="107.127" t1="76.5127" t2="-1.44801" s0="54.9726" s1="19.6792" s2="59.0806" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="560" version="1">
+            <Group t0="107.127" t1="76.5128" t2="-1.44801" s0="54.9726" s1="19.6792" s2="59.0806" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="560" version="1">
                 <parameters />
                 <EnvObject t0="130.432" t1="79.5478" t2="-26.5167" s0="0.997406" s1="1.35427" s2="1.37638" q0="-0.304582" q1="-0.404508" q2="0.801448" q3="0.318082" euler_x="-1.04631" euler_y="0.232982" euler_z="2.25106" id="561" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRockSmall_Block.xml">
                     <parameters />
@@ -1536,7 +1553,7 @@
                     <parameters />
                 </EnvObject>
             </Group>
-            <Group t0="-1.72843" t1="-57.8409" t2="-117.776" s0="59.327" s1="22.9266" s2="28.2483" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="227" version="1">
+            <Group t0="-1.72843" t1="-57.8408" t2="-117.776" s0="59.327" s1="22.9266" s2="28.2483" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="227" version="1">
                 <parameters />
                 <EnvObject t0="-27.2936" t1="-54.4258" t2="-119.685" s0="0.748825" s1="1.67667" s2="1.09743" q0="-0.517025" q1="-0.19755" q2="-0.599966" q3="-0.577594" euler_x="1.13616" euler_y="-0.403008" euler_z="1.34935" id="228" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRockSmall_Block.xml">
                     <parameters />
@@ -2270,6 +2287,9 @@
             </Group>
         </Group>
     </Group>
+    <Decal t0="-29.5299" t1="38.1053" t2="-35.4132" s0="1.1884" s1="1" s2="1.27969" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="665" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </Decal>
 </ActorObjects>
 <RecentItems>
     <SpawnerItem display_name="waterRiseHotSpot.xml" path="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml" thumbnail_path="empty_placeholder.png" />
@@ -2283,4 +2303,5 @@
     <SpawnerItem display_name="Generic Kill Hotspot" path="Data/Objects/Hotspots/generic_kill.xml" thumbnail_path="Data/UI/spawner/thumbs/Hotspot/kill.png" />
     <SpawnerItem display_name="weaponSpawn.xml" path="Data/Objects/weaponSpawn.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="playerSpawn.xml" path="Data/Objects/playerSpawn.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Flame Base" path="Data/Objects/Decals/flame_base.xml" thumbnail_path="" />
 </RecentItems>

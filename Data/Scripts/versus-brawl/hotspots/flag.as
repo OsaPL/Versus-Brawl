@@ -213,6 +213,9 @@ void Update(){
         }
         if(flagState == FlagDropped){
             // Doing a "future" check to make sure we dont show -1;
+            if(params.HasParam("returnCooldown"))
+                returnCooldown = params.GetFloat("returnCooldown");
+            
             if(returnTimer + time_step >= returnCooldown){
                 PlaySound(flagReturnSound);
                 FlagReturn();

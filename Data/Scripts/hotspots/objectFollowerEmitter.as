@@ -9,6 +9,7 @@ float time = 0;
 vec3 originalScale = vec3(1);
 vec3 desiredScale = vec3(0.0513f);
 string lastPath = "";
+bool lastPathOk = false;
 
 void Init() {
     hotspot.SetCollisionEnabled(false);
@@ -57,16 +58,21 @@ void Update(){
     time += time_step;
 
     string pathToParticles = params.GetString("pathToParticles");
-    if(!params.HasParam("objectIdToFollow"))
-        return;
+    //Log(error, "pathToParticles: "+pathToParticles);
 
     if(lastPath != pathToParticles){
         lastPath = pathToParticles;
         if(!FileExistsWithType(pathToParticles, ".xml")){
+            //Log(error, "Cant find:"+pathToParticles);
+            lastPathOk = false;
             return;
         }
+        lastPathOk = true;
+        //Log(error, "Found:"+pathToParticles);
     }
 
+    if(!params.HasParam("objectIdToFollow"))
+        return;
     
     int objectIdToFollow = params.GetInt("objectIdToFollow");
     //Log(error, "Following:"+objectIdToFollow);
@@ -135,9 +141,8 @@ float delay = 0.0;
 float last_game_time = 0.0;
 void PreDraw(float curr_game_time) {
     EnterTelemetryZone("Emitter Update");
-    string pathToParticles = params.GetString("pathToParticles");
     
-    if(ReadObjectFromID(hotspot.GetID()).GetEnabled()){
+    if(ReadObjectFromID(hotspot.GetID()).GetEnabled() && lastPathOk){
         
         float delta_time = curr_game_time - last_game_time;
 
@@ -166,7 +171,7 @@ void PreDraw(float curr_game_time) {
                     offset.z += RangedRandomFloat(-scale.z*rangeMlt,scale.z*rangeMlt);
                 }
 
-                uint32 id = MakeParticle(pathToParticles, pos + Mult(rotation, offset), vec3(0.0f), color);
+                uint32 id = MakeParticle(lastPath, pos + Mult(rotation, offset), vec3(0.0f), color);
             }
             delay += params.GetFloat("particleDelay");
         }

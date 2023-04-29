@@ -1,4 +1,10 @@
 {
+  "CTF": {
+    "PointsToWin": 3,
+    "PointsTextShowTime": 5.0,
+    "FlagRespawnTime" : 30,
+    "CarrierDebuffMlt": 0.9
+  },
   "SpeciesStats": {
     "rabbit": {
       "Fall Damage Multiplier": 2.5

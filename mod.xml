@@ -37,11 +37,12 @@
     <Campaign title="Versus Brawl" thumbnail="Images/versus-brawl/placeholder.png" menu_script="arena_campaign_menu.as" main_script="linear_campaign.as">
         <Level title="Elder Blocks DM" thumbnail="Images/versus-brawl/blocks.jpg">versus-brawl/blocks_map.xml</Level>
 		<Level title="Elder Balance LBS" thumbnail="Images/versus-brawl/planks.jpg">versus-brawl/plank_map.xml</Level>
-        <Level title="Dank Caves DM" thumbnail="Images/versus-brawl/cave.jpg">versus-brawl/cave_map.xml</Level>
-        <Level title="(Beta)Gods Exile TAG" thumbnail="Images/versus-brawl/floating2.jpg">versus-brawl/floating2_map.xml</Level>
-        <Level title="(Beta)Imperial Sewers DM" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/sewer_map.xml</Level>
-        <Level title="(Alpha)Purple Waters NIDHOGG" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/nidhoggProto_map.xml</Level>
-        <Level title="(WIP)Tree Climb RACE" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/branches_map.xml</Level>
+        <Level title="Dank Caves TAG" thumbnail="Images/versus-brawl/cave.jpg">versus-brawl/cave_map.xml</Level>
+        <Level title="(Beta2)Gods Exile DM" thumbnail="Images/versus-brawl/floating2.jpg">versus-brawl/floating2_map.xml</Level>
+        <Level title="(RC)Imperial Sewers DM" thumbnail="Images/versus-brawl/sewer.jpg">versus-brawl/sewer_map.xml</Level>
+        <Level title="(RC)Purple Dreams NIDHOGG" thumbnail="Images/versus-brawl/purple.jpg">versus-brawl/purple_map .xml</Level>
+        <Level title="(Beta2)Fortress of Sand CTF" thumbnail="Images/versus-brawl/sand.jpg">versus-brawl/sandPants_map.xml</Level>
+        <Level title="(WIP)Lava Tower RACE" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/lavaTower.xml</Level>
     </Campaign>
 
 <!--    <MenuItem title="My Campaign" thumbnail="Textures/example_simple_campaign/campaign_thumbnails/Clearing.jpg" category="play">Data/Scripts/custom_campaign/my_campaign_menu.as</MenuItem>-->

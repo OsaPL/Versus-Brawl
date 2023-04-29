@@ -583,7 +583,8 @@ void VersusReset(){
 }
 
 void VersusDrawGUI(){
-    versusAHGUI.Render();
+    if(!EditorModeActive())
+        versusAHGUI.Render();
 }
 
 void VersusUpdate() {
