@@ -299,6 +299,8 @@ Simple pickup that executes a function on the character. Disables on death or ro
 Can be used to make a particle effect emitter at its location.
 Will follow the object if connected to it, or `objectIdToFollow` is filled with an object ID.
 
+- `Min Distance To Activate` distance to nearest player after which it will turn itself off, also helps with fps
+
 👻TODO: Document this better, its pretty useful.
 
 ## `weaponSpawnHotspot` <a name="weaponspawnhotspot"></a>
@@ -327,9 +329,13 @@ Options you can set for `waterRiseHotspot`:
 - `Loop Phases` decides whether always start from end/beginning if `true` or just reverse the order if `false`
 - `Rise Speed` movement step per frame (higher means everything moves faster)
 - `Phase Change Time` how often does phases advance
+- `Bobbing Direction Inverted` inverts bobbing into opposite direction
 - `Bobbing Multiplier` defines the strength of objects bobbing, lower values increase the bobbing, (default: `800`)
 - `Delay Time` add delay, allows for bobbing not in sync
 - `Phase Starting Direction Forward` in which direction should be consider phases at the start
+- `Fast Mode - No Collision Refresh` this disables all physics calculation for movement, helps with fps in bigger levels
+- `Fast Mode - Reduce Rate Mltp` will interpolate physics only every X frame, helps with fps if you need collisions on objects (`No Collision Refresh` has to be off to take effect)
+- `Min Distance To Activate` distance to nearest player after which it will turn itself off, also helps with fps
 
 Options you can set for `waterPhaseHotspot`:
 - `Phase` decides what phase number in order it is
