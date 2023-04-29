@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Prototypes/Lugaru/Models/BlockRuins_Camp1.obj</Model>
+	<ColorMap>Data/Textures/versus-brawl/BlockRuins_Sandy_Color_Blue.tga</ColorMap>
+	<NormalMap>Data/Prototypes/Lugaru/Textures/BlockRuins_Norm.tga</NormalMap>
+	<WeightMap>Data/Prototypes/Lugaru/Textures/BlockRuins_Sandy_Weights.tga</WeightMap>
+	<DetailMaps>
+		<DetailMap colorpath="Data/Prototypes/DetailTextures/RuinStoneRough_Color.tga" normalpath="Data/Prototypes/DetailTextures/RuinStoneRough_Norm.tga" materialpath="Data/Materials/default.xml" />
+		<DetailMap colorpath="Data/Prototypes/DetailTextures/RuinStoneSmooth_Color.tga" normalpath="Data/Prototypes/DetailTextures/RuinStoneSmooth_Norm.tga" materialpath="Data/Materials/default.xml" />
+		<DetailMap colorpath="Data/Textures/Terrain/DetailTextures/pebbly_sand.tga" normalpath="Data/Textures/Terrain/DetailTextures/pebbly_sand_normal.tga" materialpath="Data/Materials/default.xml" />
+		<DetailMap colorpath="Data/Textures/Terrain/DetailTextures/dirt_grass.tga" normalpath="Data/Textures/Terrain/DetailTextures/dirt_grass_normal.tga" materialpath="Data/Materials/default.xml" />
+	</DetailMaps>
+	<ShaderName>envobject #DETAILMAP4 #TANGENT #KEEP_SPEC #BASE_TANGENT</ShaderName>
+</Object>
