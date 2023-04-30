@@ -119,10 +119,17 @@ void RegisterCharDeathJob(int playerNr)
 void Init(string msg){
     
     // Tag specific hints
-    warmupHints.insertAt(0, "Hitting a runner, turns him into a chaser.");
-    warmupHints.insertAt(0, "If a runner dies, he wont respawn! Be careful.");
-    warmupHints.insertAt(0, "If a chaser dies, he will respawn and be freezed. Waste their time.");
-    warmupHints.insertAt(0, "Killing a runner wont convert him to a chaser, try to catch them.");
+    // This removes hints about changing races
+    warmupHints.removeAt(0);
+    warmupHints.removeAt(0);
+    warmupHints.removeAt(0);
+    warmupHints.removeAt(0);
+    
+    warmupHints.insertAt(0, "If a @vec3(0.0,0.8,0.0)runner@ dies, he wont respawn! Be careful.");
+    warmupHints.insertAt(0, "If a @vec3(0.8,0.0,0.0)chaser@. dies, he will respawn and be @vec3(0.1,0.1,0.8)freezed@. Waste their time.");
+    warmupHints.insertAt(0, "Killing a @vec3(0.0,0.8,0.0)runner@ @vec3(0.9,0.9,0.1)will not@ convert him to a @vec3(0.8,0.0,0.0)chaser@, try to catch them.");
+    warmupHints.insertAt(0, "Hitting a @vec3(0.0,0.8,0.0)runner@, turns him into a @vec3(0.8,0.0,0.0)chaser@.");
+    
     randomHints.insertAt(0, "Sometimes catching helps more, you may need some help.");
     randomHints.insertAt(0, "Someones really elusive? Maybe killing him is a better idea.");
     
@@ -292,7 +299,7 @@ void Update(){
                     timer = 0;
                 }    
                 else{
-                    versusAHGUI.SetText("Time left: " + lastTimer, "Hide or run now!", vec3(0.0f, 0.0f, 1.0f));
+                    versusAHGUI.SetText("Time left: " + lastTimer, "Run and hide now!", vec3(0.0f, 0.0f, 1.0f));
                 }
             }
             else{

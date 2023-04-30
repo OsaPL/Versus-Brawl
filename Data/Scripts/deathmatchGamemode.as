@@ -11,11 +11,12 @@
 //Level methods
 void Init(string msg){
     // DM specific hints
-    warmupHints.insertAt(0, "Kills give points, duh.");
-    warmupHints.insertAt(0, "You also get points for causing enemies clumsy deaths.");
+    warmupHints.insertAt(0, "You also get points for causing enemies @vec3(1,0.8,0)clumsy@ deaths.");
+    warmupHints.insertAt(0, "Kills give points, @vec3(0.6,0.6,0.6)duh@.");
+    
     randomHints.insertAt(0, "Try changing species to counter someone else.");
     randomHints.insertAt(0, "Grabbing a weapon or a powerup could be the deciding factor.");
-    randomHints.insertAt(0, "Two's company, three's a crowd, and fourth gets kills.");
+    randomHints.insertAt(0, "Two's company, three's a crowd, and @vec3(1,0.8,0)fourth@ gets kills.");
     
     constantRespawning = true;
     forcedSpecies = -1;

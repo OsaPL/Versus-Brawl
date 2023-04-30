@@ -1,5 +1,4 @@
-#include "versus-brawl/utilityStuff/fileChecks.as"
-#include "versus-brawl/proximityChecker.as"
+#include "hotspots/placeholderFollower.as"
 
 // This can be used to give an object a follower particle emitter 
 // can also fill `boneToFollow` param, to follow a bone (empty will default to torso, same as `obj.GetTranslation();` I think?)
@@ -39,6 +38,10 @@ void SetParameters() {
 void Update(){
     Object@ me = ReadObjectFromID(hotspot.GetID());
 
+    int objectIdToFollow = -1;
+    if(params.HasParam("objectIdToFollow"))
+        objectIdToFollow = params.GetInt("objectIdToFollow");
+
     // Find closest player
     float minDistanceToActivate = params.GetFloat("Min Distance To Activate");
 
@@ -60,6 +63,11 @@ void Update(){
     string pathToParticles = params.GetString("pathToParticles");
     //Log(error, "pathToParticles: "+pathToParticles);
 
+    string enabled = me.GetEnabled() ? "Enabled" : "Disabled";
+    vec3 color = vec3(params.GetFloat("particleColorR"), params.GetFloat("particleColorG"), params.GetFloat("particleColorB"));
+    
+    PlaceHolderFollowerUpdate("Data/Textures/ui/versusBrawl/particle.png", "[FollowerEmitter] Path: [" +  lastPath + "] Follows: [" + objectIdToFollow + "] [" + enabled + "]", 1, false, vec4(color, 0.8f));
+
     if(lastPath != pathToParticles){
         lastPath = pathToParticles;
         if(!FileExistsWithType(pathToParticles, ".xml")){
@@ -70,11 +78,8 @@ void Update(){
         lastPathOk = true;
         //Log(error, "Found:"+pathToParticles);
     }
-
-    if(!params.HasParam("objectIdToFollow"))
-        return;
     
-    int objectIdToFollow = params.GetInt("objectIdToFollow");
+    // Here is the follow logic
     //Log(error, "Following:"+objectIdToFollow);
     if(objectIdToFollow != -1){
         Object@ obj = ReadObjectFromID(objectIdToFollow);
@@ -104,7 +109,6 @@ void Update(){
             Log(error, "Created lightId: " + lightId);
             Object@ lightObj = ReadObjectFromID(lightId);
             lightObj.SetScale(vec3(1));
-            vec3 color = vec3(params.GetFloat("particleColorR"), params.GetFloat("particleColorG"), params.GetFloat("particleColorB"));
             lightObj.SetTint(color);
         }
 

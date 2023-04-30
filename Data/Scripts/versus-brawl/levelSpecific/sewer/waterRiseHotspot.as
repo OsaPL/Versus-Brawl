@@ -1,5 +1,4 @@
 #include "hotspots/placeholderFollower.as"
-#include "versus-brawl/proximityChecker.as"
 
 // TODO! Add support for Reset!
 

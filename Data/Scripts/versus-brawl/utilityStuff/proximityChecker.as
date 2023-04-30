@@ -26,3 +26,18 @@ bool PlayerProximityCheck(float minDistanceToActivate){
     
     return false;
 }
+
+bool EditorCameraProximityCheck(float minDistanceToActivate){
+    if(minDistanceToActivate>0){
+        Object@ hotspotObj = ReadObjectFromID(hotspot.GetID());
+        vec3 pos = hotspotObj.GetTranslation();
+
+        vec3 charPos = camera.GetPos();
+        float newDistance = distance(pos, charPos);
+
+        if(newDistance<minDistanceToActivate)
+            return true;
+    }
+
+    return false;
+}

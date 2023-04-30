@@ -24,18 +24,19 @@ Big sticks:
 - `RabbitCatcher`: alright `"Data/Animations/bow/r_bow_sheathed.anm"`
 
 
-[h1]0.6:[/h1]
-Some of these were already included in 0.5.9 pre-release
-[b]Added CTF gamemode, with new map: Border Sands[/b]
+[h1]0.7:[/h1]
 
-[b]Added Nidhogg gamemode prototype:[/b]
-- Entry to the Jan 2023 Map Jam
-- Themes: Faith & Versus
-- Map name: Purple Waters
+Some of these were already included in 0.5.9 pre-release
+[b]Added Nidhogg, CTF, Race gamemodes![/b]
 
 [b]Added new playable maps:[/b]
 - Conquerors of the Desert, CTF
-- Purple Waters, Nidhogg (ALPHA)
+- Purple Dreams, Nidhogg
+
+[b]Maps reworked:[/b]
+- Imperial sewers, is now finished
+- Dank cave, now a TAG map, with some visual touchups
+- Gods Exile, touched up and converted into a DM map
 
 [b]Weapons additions:[/b]
 - DogHammer is now a unique two handed weapon, for smashing through a sturdy opponent.
@@ -61,7 +62,7 @@ Some of these were already included in 0.5.9 pre-release
 - flagHotspot and flagReturnHotspot: These two can be used to create some gameplay based on gathering/returning flag. (comes with a flag item)
 - staticObjectAnimatorHotspot: allows you to animate static objects. (additionally you can use scripts for extracting animation frames from blender included here: https://github.com/OsaPL/Versus-Brawl/tree/main/Scripts/extractAnim)
 
-[b]Some small changes for mappers/modders:[/b]
+[b]Big changes for mappers/modders:[/b]
 - Added some test maps for experimentation with hotspots/scripts
 - Hotspots now highlight when selected
 - ...and also get more transparent when disabled
@@ -70,7 +71,11 @@ Some of these were already included in 0.5.9 pre-release
 - Leader crown now also available for all gamemodes
 - Most hotspots are now available in the object collection category 'VersusBrawl'
 - Points UI is now generic and you can use it in any gamemode or even extend it
-
+- Versus-Brawl UI no longer displays while in editor mode
+- More options for fps optimization added to objectFollowerEmmiter and waterRiseHotspot (see modding docs)
+- objectFollowerEmmiter now also has a editor mode placeholder to help with visibility
+- All hotspot placeholder texts now only showup within a distance of the camera
+ 
 [b]Fixes:[/b]
 - Hotspots should now check the paths before trying to load a file.
 - Coop panic now doesnt work on "gamemode == versusBrawl" tagged maps
@@ -80,12 +85,13 @@ Some of these were already included in 0.5.9 pre-release
 - Fixed funnies not triggering
 - You now cant suicide during you respawn invincibility
 - Point counters not disappearing on round end
+- Some hints have been removed, and some have been reworded
 
 [b]Mapping and modding docs update.[/b]
 Docs have been extended and a lot more things are now documented. With this update I've tried to document everything new.
 Any feedback will be appreciated.
 
-Note: This is more of a 'pre-release' update for 0.6, which will contain both CTF and Nidhogg gamemodes, and a brand new map. Please report any problems.
+Please report any problems.
 
 ### For changelogs
 `git log <hash>..HEAD --pretty=format:%s`
@@ -147,7 +153,7 @@ The shortnames for modes are cryptic => seperate gamemodes into folders?
 
 - session #4 (2 players, nidhogg prototype/purple waters)
 
-two ppl die in water == softlocked spawning => no idea why, added a `awake` check on removing the invincibility, if still dead, we try to respawn him again
+two ppl die in water == softlocked spawning => no idea why, added a `awake` check on removing the invincibility, if still dead, we try to respawn him again => was a bug in respawning logic after new round starts
 
 wolf still awful?
 
@@ -155,7 +161,23 @@ suicide timer lower tiny bit => now is 0.7f
 
 annoying that ppl spawn in front of you and kill you?
 
-particles/billboards not visible sometimes? => hopefully fixed? (looks like it only happens sometimes, and not for all cameras)
+particles/billboards not visible sometimes? => hopefully fixed? (looks like it only happens sometimes, and not for all cameras) => caused by a reflection probed, and only for 2nd player
+
+- session #5-8 (2,3,4 players, nidhogg prototype/purple waters, some DM on blocks/planks)
+
+last part is a fun idea, but is too short to do anything in it, platforms to small => will make them much bigger, and part longer
+
+lots of waiting for another person to jump => add more options for on ground passing, less single way gaps
+
+blocks is still the most fun DM map :)
+
+- session #9 (2 players, purple dreams)
+
+garden part pretty, but not that interesting gameplay wise
+
+teleports and branching routes are highly appreciated and apparently a fun addition
+
+the boards under the cloudy part, equally annoying and funny? I'll keep them for time being
 
 ### Scuffed things (that are probably bugs in OG) that need to get reported:
 - Level params are unusable for other values than string (float are getting converted to ints, sliders crash the game etc.)
@@ -166,9 +188,10 @@ particles/billboards not visible sometimes? => hopefully fixed? (looks like it o
 - `Load Item...` menu entry sometimes occupies the same place as `Load` making clicking on `Load` also click on `Load Item...`. (just include Gyrth Object Menu mod cowards)
 - `DebugDrawBillboard` has wrong TEXTURE_WRAP setting, which makes the texture bleed on top sometimes (`GL_CLAMP_TO_EDGE` should help?)
 - `SetEditorLabel` only works for placeholder objects
-- holding a `JSONValue` var sometimes just crashes games (easiest way to reproduce is just to keep reloading the level script)
+- holding a `JSONValue` as a global var sometimes just crashes games (easiest way to reproduce is just to keep reloading the level script)
 - `<ModDependency>` does nothing, probably missing checks on UI part
 - You cant attach an object to a bone from as script (you can but its hella complicated to do atm)
 - `vec4` cant access `w` param (`a` works tho), cant do `vec4 * float`
 - Setting, then comparing global custom enums, crashes the game?
 - 2nd player camera (ONLY 2nd is affected. 1st, 3rd and 4th work just fine) will stop rendering billboards if there is a global reflection probe present (to fix needs a full game restart, after removal of the probe)
+- `SetTranslation` is more costly to call, the more envObjects you have in the level (cause it recalculates physics everytime, apparently better on internal_testing?)

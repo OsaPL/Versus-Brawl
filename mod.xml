@@ -109,7 +109,7 @@
     <Item category="VersusBrawl"
           title="[h] objectFollowerEmitter"
           path="Data/Objects/powerups/objectFollowerEmitter.xml"
-          thumbnail="Data/UI/spawner/thumbs/Hotspot/empty.png" />
+          thumbnail="Data/Textures/ui/versusBrawl/particle.png" />
 
     <!-- Powerups -->
     <Item category="VersusBrawl"

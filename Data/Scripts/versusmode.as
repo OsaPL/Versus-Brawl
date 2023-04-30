@@ -20,7 +20,8 @@ array<string> insults = {
     "Are you guys still playing?",
     "Oooh! That's gonna leave a mark!",
     "You play like my frickin grandma, y'know that?",
-    "Quick! Blame the controls!"
+    "Quick! Blame the controls!",
+    "@vec3(1,0.8,0)Gold star@ for trying though!"
 };
 
 // This is my fun corner
@@ -35,8 +36,9 @@ array<string> funnies = {
     "This is more fun than picking up bullets from ground.",
     "I like my hints, like my girls, @vec3(1,0.5,0.5)rare@. Wait, no.",
     "My favorite class is the @vec3(1,0.5,0)rat@. Thanks, and have fun!",
-    "Imagine having turned off @vec3(0.6,0.6,0.6)Tutorials@, and not seeing this.",
-    "You are looking @vec3(1,0.2,0.8)beautiful@ today @vec3(0,0,0):)@"
+    "Imagine having turned off @vec3(0.6,0.6,0.6)Tutorials@, and not seeing @vec3(6.9,6.9,6.9)this@.",
+    "You are looking @vec3(1,0.2,0.8)beautiful@ today @vec3(0,0,0):)@",
+    "@vec3(6.9,6.9,6.9)~-~-~-~-~-~-~ Party time! ~-~-~-~-~-~-~@",
 };
 
 // TODO! Add cases when which should be used (only use first two if `blockSpeciesChange==false` etc.)
@@ -45,7 +47,8 @@ array<string> warmupHints = {
     "...then just press @vec3(1,0.5,0)@attack@@ to cycle through them.",
     "If your character wont change right now, it will on next respawn.",
     "Weapons will respawn after not being picked back up.",
-    "You can enable hints during game by turning on @vec3(0.6,0.6,0.6)Tutorials@ option in Settings"
+    "You can enable hints during game by turning on @vec3(0.6,0.6,0.6)Tutorials@ option in Settings",
+    "Press @vec3(1,0.5,0)@skip_dialogue@@ button to begin."
 };
 
 // TODO! These will be scrambled
@@ -58,13 +61,13 @@ array<string> randomHints = {
     "Wolves are slow, if they're about to attack, run.",
     "Rabbit kick is sometimes what a cheeky wolf needs.",
     "Fighting a wolf bare handed, probably not the best idea.",
-    "Tired of getting things thrown at you? Be a cat!",
+    "Tired of getting things thrown at you? Cats catch thrown weapons automatically.",
     "Holster weapons holding @vec3(1,0.5,0)@drop@@.",
     "Throwing a weapon does less damage than swinging it.",
-    "You can time a @vec3(1,0.5,0)@grab@@ press to catch an thrown weapon.",
-    "You can pull out a weapon stuck in a wolf, for a quick kill."
+    "You can time a @vec3(1,0.5,0)@grab@@ press to catch an thrown weapon mid-air.",
+    "You can pull out a weapon stuck in a player, for a quick kill.",
+    "Quickly drop a weapon by pressing @vec3(1,0.5,0)@drop@@ two times."
 };
-
 //Configurables
 float respawnTime = 2.0f;
 // This will block any stupid respawns calls from hotspots that kill on the way to spawn, higher values could help on bigger "trips"
@@ -588,6 +591,7 @@ void VersusDrawGUI(){
 }
 
 void VersusUpdate() {
+    time += time_step;
     
     // If `local_players` is not set, it will return 0
     int cfgPlayers = GetConfigValueInt("local_players");
@@ -1152,6 +1156,9 @@ class VersusAHGUI : AHGUI::GUI {
                     int foundClosingAt = text.findFirst("@", foundClosingBrace);
                     string vec3Str = text.substr(foundVec3,foundClosingBrace - foundVec3+1);
                     vec3 color = parseVec3(vec3Str);
+                    
+                    if(color == vec3(6.9,6.9,6.9))
+                        color = AnimateRainbowEffect(int(time*1000));
                    
                     if(foundClosingAt > 0) {
                         string input = text.substr(foundClosingBrace + 1, foundClosingAt - foundClosingBrace-1);
