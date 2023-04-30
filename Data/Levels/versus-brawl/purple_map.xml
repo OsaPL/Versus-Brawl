@@ -39,7 +39,7 @@
     <RayToSun r0="-0.0787175" r1="0.838399" r2="0.539343" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="6.3919" t1="6.61366" t2="66.8237" s0="1" s1="1" s2="1" q0="0.0324402" q1="-0.263775" q2="0.00887653" q3="0.963998" euler_x="0.0672781" euler_y="-0.534177" euler_z="0" id="0">
+    <CameraObject t0="2.27118" t1="10.3817" t2="192.771" s0="1" s1="1" s2="1" q0="-0.235733" q1="-0.314399" q2="0.0809117" q3="-0.915989" euler_x="0.503775" euler_y="0.661269" euler_z="0" id="0">
         <parameters />
     </CameraObject>
     <Decal t0="13.0069" t1="0.252573" t2="-184.949" s0="3.29258" s1="1.80282" s2="4.61783" q0="0.0121985" q1="-0.66597" q2="0.0162318" q3="-0.745706" euler_x="-0.339662" euler_y="1.45106" euler_z="-0.345376" id="8" type_file="Data/Objects/Decals/water_froth.xml" color_r="1" color_g="1" color_b="1" overbright="0">
@@ -102,9 +102,9 @@
     <EnvObject t0="-0.802179" t1="0.929598" t2="-108.414" s0="0.400828" s1="0.400828" s2="0.400828" q0="0.063786" q1="-0.992232" q2="-0.082336" q3="0.0681043" euler_x="2.96728" euler_y="-0.124972" euler_z="-3.00227" id="48" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/hex_crete_corner.xml">
         <parameters />
     </EnvObject>
-    <Group t0="3.88411" t1="-12.2852" t2="-116.807" s0="53.5424" s1="64.5271" s2="277.026" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="49" version="1">
+    <Group t0="3.88411" t1="-12.2852" t2="-116.807" s0="53.5424" s1="64.5273" s2="277.026" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="49" version="1">
         <parameters />
-        <Group t0="2.31053" t1="-12.2852" t2="-210.418" s0="50.3853" s1="64.5171" s2="89.7947" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="12" version="1">
+        <Group t0="2.31054" t1="-12.2853" t2="-210.418" s0="50.3853" s1="64.5173" s2="89.7948" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="12" version="1">
             <parameters />
             <EnvObject t0="5.87855" t1="5" t2="-175.904" s0="0.999893" s1="0.999893" s2="0.999893" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="50" color_r="1" color_g="1" color_b="1" overbright="1.5" type_file="Data/Objects/Buildings/spires/spire_top.xml">
                 <parameters />
@@ -426,23 +426,9 @@
                 <EnvObject t0="2.49971" t1="9.66028" t2="-212.325" s0="0.122434" s1="0.1395" s2="0.142971" q0="-0.0519075" q1="-0.735898" q2="-0.334838" q3="0.586209" euler_x="1.77284" euler_y="-1.11416" euler_z="-2.342" id="137" color_r="0.999994" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/arena/subterranean_arena/streight_chain.xml">
                     <parameters />
                 </EnvObject>
-                <Hotspot t0="2.6273" t1="12.3632" t2="-212.629" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="138" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
-                    <parameters>
-                        <parameter name="Bobbing Direction Inverted" type="int" val="0" />
-                        <parameter name="Bobbing Multiplier" type="int" val="1800" />
-                        <parameter name="Delay Time" type="float" val="0" />
-                        <parameter name="Fast Mode - No Collision Refresh" type="int" val="1" />
-                        <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
-                        <parameter name="Loop Phases" type="int" val="1" />
-                        <parameter name="Min Distance To Activate" type="float" val="30" />
-                        <parameter name="Phase Change Time" type="float" val="2" />
-                        <parameter name="Phase Starting Direction Forward" type="int" val="1" />
-                        <parameter name="Rise Speed" type="float" val="0.005" />
-                        <parameter name="game_type" type="string" val="versusBrawl" />
-                    </parameters>
-                    <Connections />
-                    <ConnectionsFrom />
-                </Hotspot>
+                <EnvObject t0="2.33323" t1="16.5266" t2="-212.484" s0="20.9991" s1="3.43674" s2="0.433275" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="175" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
+                    <parameters />
+                </EnvObject>
                 <EnvObject name="1" t0="4.20973" t1="9.96251" t2="-212.031" s0="0.222796" s1="0.222796" s2="0.222796" q0="-0.0152586" q1="0" q2="0" q3="0.999884" euler_x="-0.0305184" euler_y="0" euler_z="0" id="139" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/Banner_Hanging2Green.xml">
                     <parameters />
                 </EnvObject>
@@ -456,9 +442,6 @@
                     <parameters />
                 </EnvObject>
                 <EnvObject t0="-9.32464" t1="9.61628" t2="-212.577" s0="9.52985" s1="3.49222" s2="0.401509" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="174" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
-                    <parameters />
-                </EnvObject>
-                <EnvObject t0="2.33323" t1="16.5266" t2="-212.484" s0="20.9991" s1="3.43674" s2="0.433275" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="175" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
                     <parameters />
                 </EnvObject>
             </Group>
@@ -507,7 +490,7 @@
             <EnvObject t0="12.4586" t1="7.27631" t2="-187.075" s0="0.999893" s1="0.999893" s2="0.999893" q0="-0.0132517" q1="0.0784219" q2="0.00931482" q3="0.996788" euler_x="-0.0252717" euler_y="0.157234" euler_z="0.0166981" id="615" color_r="1" color_g="1" color_b="1" overbright="1.5" type_file="Data/Objects/Buildings/spires/spire_center.xml">
                 <parameters />
             </EnvObject>
-            <Group t0="1.69826" t1="-15.4375" t2="-233.029" s0="13.743" s1="58.2025" s2="44.5618" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7" version="1">
+            <Group t0="1.69826" t1="-15.4375" t2="-233.029" s0="13.7431" s1="58.2029" s2="44.5621" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7" version="1">
                 <parameters />
                 <EnvObject t0="1.69284" t1="-15.4375" t2="-233.029" s0="1.32757" s1="1.32744" s2="1.32771" q0="-0.370864" q1="-0.636381" q2="0.292528" q3="0.609842" euler_x="-1.67356" euler_y="-0.593429" euler_z="1.548" id="33" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/worm.xml">
                     <parameters />
@@ -545,7 +528,7 @@
                     <parameters />
                 </EnvObject>
             </Group>
-            <Group t0="3.07508" t1="0.998546" t2="-169.424" s0="5.37756" s1="2.28253" s2="7.79728" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="104" version="1">
+            <Group t0="3.07508" t1="0.998547" t2="-169.424" s0="5.37756" s1="2.28253" s2="7.79728" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="104" version="1">
                 <parameters />
                 <EnvObject t0="4.30847" t1="1.11591" t2="-171.991" s0="1.20737" s1="1.64103" s2="1.96288" q0="0.707107" q1="-0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-1.5708" id="105" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/spires/spire_base_b.xml">
                     <parameters />
@@ -676,23 +659,9 @@
             <EnvObject t0="3.53627" t1="3.76744" t2="-164.414" s0="0.122434" s1="0.1395" s2="0.142971" q0="-0.0519075" q1="-0.735898" q2="-0.334838" q3="0.586209" euler_x="1.77284" euler_y="-1.11416" euler_z="-2.342" id="431" color_r="0.999994" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/arena/subterranean_arena/streight_chain.xml">
                 <parameters />
             </EnvObject>
-            <Hotspot t0="3.66387" t1="5.71713" t2="-164.718" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="432" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
-                <parameters>
-                    <parameter name="Bobbing Direction Inverted" type="int" val="0" />
-                    <parameter name="Bobbing Multiplier" type="int" val="1800" />
-                    <parameter name="Delay Time" type="float" val="0" />
-                    <parameter name="Fast Mode - No Collision Refresh" type="int" val="1" />
-                    <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
-                    <parameter name="Loop Phases" type="int" val="1" />
-                    <parameter name="Min Distance To Activate" type="float" val="30" />
-                    <parameter name="Phase Change Time" type="float" val="2" />
-                    <parameter name="Phase Starting Direction Forward" type="int" val="1" />
-                    <parameter name="Rise Speed" type="float" val="0.005" />
-                    <parameter name="game_type" type="string" val="versusBrawl" />
-                </parameters>
-                <Connections />
-                <ConnectionsFrom />
-            </Hotspot>
+            <EnvObject t0="3.36977" t1="9.88121" t2="-164.573" s0="21.0019" s1="3.43719" s2="0.433331" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="438" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
+                <parameters />
+            </EnvObject>
             <EnvObject t0="5.24647" t1="4.06973" t2="-164.12" s0="0.222796" s1="0.222796" s2="0.222796" q0="-0.0152586" q1="0" q2="0" q3="0.999884" euler_x="-0.0305184" euler_y="0" euler_z="0" id="433" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/Banner_Hanging2Green.xml">
                 <parameters />
             </EnvObject>
@@ -706,9 +675,6 @@
                 <parameters />
             </EnvObject>
             <EnvObject t0="-8.2896" t1="2.96995" t2="-164.666" s0="9.53109" s1="3.49267" s2="0.401561" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="437" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
-                <parameters />
-            </EnvObject>
-            <EnvObject t0="3.36977" t1="9.88121" t2="-164.573" s0="21.0019" s1="3.43719" s2="0.433331" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="438" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
                 <parameters />
             </EnvObject>
         </Group>
@@ -897,7 +863,7 @@
                     <parameter name="Circle Zone" type="int" val="1" />
                     <parameter name="Min Distance To Activate" type="float" val="40" />
                     <parameter name="game_type" type="string" val="versusBrawl" />
-                    <parameter name="originalScale" type="string" val="vec3(0.885256, 0.30148, 0.779506)" />
+                    <parameter name="originalScale" type="string" val="vec3(0.885255, 0.301479, 0.779506)" />
                     <parameter name="particleColorB" type="float" val="1.56863" />
                     <parameter name="particleColorG" type="float" val="1.56863" />
                     <parameter name="particleColorR" type="float" val="1.56863" />
@@ -913,7 +879,7 @@
                     <parameter name="Circle Zone" type="int" val="1" />
                     <parameter name="Min Distance To Activate" type="float" val="40" />
                     <parameter name="game_type" type="string" val="versusBrawl" />
-                    <parameter name="originalScale" type="string" val="vec3(0.885725, 0.301653, 0.779932)" />
+                    <parameter name="originalScale" type="string" val="vec3(0.885726, 0.301653, 0.779931)" />
                     <parameter name="particleColorB" type="float" val="1.56863" />
                     <parameter name="particleColorG" type="float" val="1.56863" />
                     <parameter name="particleColorR" type="float" val="1.56863" />
@@ -929,7 +895,7 @@
                     <parameter name="Circle Zone" type="int" val="1" />
                     <parameter name="Min Distance To Activate" type="float" val="40" />
                     <parameter name="game_type" type="string" val="versusBrawl" />
-                    <parameter name="originalScale" type="string" val="vec3(0.886185, 0.301809, 0.780343)" />
+                    <parameter name="originalScale" type="string" val="vec3(0.886187, 0.30181, 0.780346)" />
                     <parameter name="particleColorB" type="float" val="1.56863" />
                     <parameter name="particleColorG" type="float" val="1.56863" />
                     <parameter name="particleColorR" type="float" val="1.56863" />
@@ -945,7 +911,7 @@
                     <parameter name="Circle Zone" type="int" val="1" />
                     <parameter name="Min Distance To Activate" type="float" val="40" />
                     <parameter name="game_type" type="string" val="versusBrawl" />
-                    <parameter name="originalScale" type="string" val="vec3(0.885134, 0.301454, 0.779457)" />
+                    <parameter name="originalScale" type="string" val="vec3(0.885133, 0.301453, 0.779456)" />
                     <parameter name="particleColorB" type="float" val="1.56863" />
                     <parameter name="particleColorG" type="float" val="1.56863" />
                     <parameter name="particleColorR" type="float" val="1.56863" />
@@ -961,7 +927,7 @@
                     <parameter name="Circle Zone" type="int" val="1" />
                     <parameter name="Min Distance To Activate" type="float" val="40" />
                     <parameter name="game_type" type="string" val="versusBrawl" />
-                    <parameter name="originalScale" type="string" val="vec3(0.885576, 0.301607, 0.779828)" />
+                    <parameter name="originalScale" type="string" val="vec3(0.885575, 0.301607, 0.779828)" />
                     <parameter name="particleColorB" type="float" val="1.56863" />
                     <parameter name="particleColorG" type="float" val="1.56863" />
                     <parameter name="particleColorR" type="float" val="1.56863" />
@@ -1060,23 +1026,9 @@
                 <EnvObject t0="3.3127" t1="5.69411" t2="-57.7759" s0="0.122434" s1="0.1395" s2="0.142971" q0="-0.0519075" q1="-0.735898" q2="-0.334838" q3="0.586209" euler_x="1.77284" euler_y="-1.11416" euler_z="-2.342" id="297" color_r="0.999994" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/arena/subterranean_arena/streight_chain.xml">
                     <parameters />
                 </EnvObject>
-                <Hotspot t0="3.4403" t1="8.39736" t2="-58.0799" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="298" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
-                    <parameters>
-                        <parameter name="Bobbing Direction Inverted" type="int" val="0" />
-                        <parameter name="Bobbing Multiplier" type="int" val="1800" />
-                        <parameter name="Delay Time" type="float" val="0" />
-                        <parameter name="Fast Mode - No Collision Refresh" type="int" val="1" />
-                        <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
-                        <parameter name="Loop Phases" type="int" val="1" />
-                        <parameter name="Min Distance To Activate" type="float" val="30" />
-                        <parameter name="Phase Change Time" type="float" val="2" />
-                        <parameter name="Phase Starting Direction Forward" type="int" val="1" />
-                        <parameter name="Rise Speed" type="float" val="0.005" />
-                        <parameter name="game_type" type="string" val="versusBrawl" />
-                    </parameters>
-                    <Connections />
-                    <ConnectionsFrom />
-                </Hotspot>
+                <EnvObject t0="3.14619" t1="12.5616" t2="-57.9349" s0="21.0026" s1="3.4373" s2="0.433345" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="304" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
+                    <parameters />
+                </EnvObject>
                 <EnvObject t0="5.023" t1="5.9964" t2="-57.4819" s0="0.222796" s1="0.222796" s2="0.222796" q0="-0.0152586" q1="0" q2="0" q3="0.999884" euler_x="-0.0305184" euler_y="0" euler_z="0" id="299" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/Banner_Hanging2Green.xml">
                     <parameters />
                 </EnvObject>
@@ -1090,9 +1042,6 @@
                     <parameters />
                 </EnvObject>
                 <EnvObject t0="-8.51354" t1="5.65007" t2="-58.0279" s0="9.53139" s1="3.49278" s2="0.401574" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="303" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
-                    <parameters />
-                </EnvObject>
-                <EnvObject t0="3.14619" t1="12.5616" t2="-57.9349" s0="21.0026" s1="3.4373" s2="0.433345" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="304" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
                     <parameters />
                 </EnvObject>
             </Group>
@@ -1246,7 +1195,7 @@
                         <parameter name="Circle Zone" type="int" val="1" />
                         <parameter name="Min Distance To Activate" type="float" val="40" />
                         <parameter name="game_type" type="string" val="versusBrawl" />
-                        <parameter name="originalScale" type="string" val="vec3(1.65325, 0.330499, 0.77844)" />
+                        <parameter name="originalScale" type="string" val="vec3(1.65325, 0.330499, 0.778442)" />
                         <parameter name="particleColorB" type="float" val="1.56863" />
                         <parameter name="particleColorG" type="float" val="1.56863" />
                         <parameter name="particleColorR" type="float" val="1.56863" />
@@ -1278,7 +1227,7 @@
                         <parameter name="Circle Zone" type="int" val="1" />
                         <parameter name="Min Distance To Activate" type="float" val="40" />
                         <parameter name="game_type" type="string" val="versusBrawl" />
-                        <parameter name="originalScale" type="string" val="vec3(1.6545, 0.330717, 0.779098)" />
+                        <parameter name="originalScale" type="string" val="vec3(1.6545, 0.330718, 0.779098)" />
                         <parameter name="particleColorB" type="float" val="1.56863" />
                         <parameter name="particleColorG" type="float" val="1.56863" />
                         <parameter name="particleColorR" type="float" val="1.56863" />
@@ -1294,7 +1243,7 @@
                         <parameter name="Circle Zone" type="int" val="1" />
                         <parameter name="Min Distance To Activate" type="float" val="40" />
                         <parameter name="game_type" type="string" val="versusBrawl" />
-                        <parameter name="originalScale" type="string" val="vec3(1.65266, 0.330382, 0.778235)" />
+                        <parameter name="originalScale" type="string" val="vec3(1.65266, 0.330382, 0.778236)" />
                         <parameter name="particleColorB" type="float" val="1.56863" />
                         <parameter name="particleColorG" type="float" val="1.56863" />
                         <parameter name="particleColorR" type="float" val="1.56863" />
@@ -1329,7 +1278,7 @@
                         <parameter name="Circle Zone" type="int" val="1" />
                         <parameter name="Min Distance To Activate" type="float" val="40" />
                         <parameter name="game_type" type="string" val="versusBrawl" />
-                        <parameter name="originalScale" type="string" val="vec3(0.886434, 0.258988, 0.774816)" />
+                        <parameter name="originalScale" type="string" val="vec3(0.886438, 0.258988, 0.774819)" />
                         <parameter name="particleColorB" type="float" val="1.56863" />
                         <parameter name="particleColorG" type="float" val="1.56863" />
                         <parameter name="particleColorR" type="float" val="1.56863" />
@@ -1361,7 +1310,7 @@
                         <parameter name="Circle Zone" type="int" val="1" />
                         <parameter name="Min Distance To Activate" type="float" val="40" />
                         <parameter name="game_type" type="string" val="versusBrawl" />
-                        <parameter name="originalScale" type="string" val="vec3(0.885082, 0.330083, 0.779397)" />
+                        <parameter name="originalScale" type="string" val="vec3(0.885082, 0.330082, 0.779397)" />
                         <parameter name="particleColorB" type="float" val="1.56863" />
                         <parameter name="particleColorG" type="float" val="1.56863" />
                         <parameter name="particleColorR" type="float" val="1.56863" />
@@ -1377,7 +1326,7 @@
                         <parameter name="Circle Zone" type="int" val="1" />
                         <parameter name="Min Distance To Activate" type="float" val="40" />
                         <parameter name="game_type" type="string" val="versusBrawl" />
-                        <parameter name="originalScale" type="string" val="vec3(0.884607, 0.32992, 0.778966)" />
+                        <parameter name="originalScale" type="string" val="vec3(0.884603, 0.329918, 0.778962)" />
                         <parameter name="particleColorB" type="float" val="1.56863" />
                         <parameter name="particleColorG" type="float" val="1.56863" />
                         <parameter name="particleColorR" type="float" val="1.56863" />
@@ -1418,7 +1367,7 @@
                         <parameter name="Circle Zone" type="int" val="0" />
                         <parameter name="Min Distance To Activate" type="float" val="40" />
                         <parameter name="game_type" type="string" val="versusBrawl" />
-                        <parameter name="originalScale" type="string" val="vec3(0.0513, 0.0513, 0.0513)" />
+                        <parameter name="originalScale" type="string" val="vec3(0.0513, 0.0513001, 0.0513001)" />
                         <parameter name="particleColorB" type="float" val="1" />
                         <parameter name="particleColorG" type="float" val="1" />
                         <parameter name="particleColorR" type="float" val="1" />
@@ -1434,7 +1383,7 @@
                         <parameter name="Circle Zone" type="int" val="0" />
                         <parameter name="Min Distance To Activate" type="float" val="40" />
                         <parameter name="game_type" type="string" val="versusBrawl" />
-                        <parameter name="originalScale" type="string" val="vec3(0.0513, 0.0513, 0.0513)" />
+                        <parameter name="originalScale" type="string" val="vec3(0.0513, 0.0513001, 0.0513001)" />
                         <parameter name="particleColorB" type="float" val="1" />
                         <parameter name="particleColorG" type="float" val="1" />
                         <parameter name="particleColorR" type="float" val="1" />
@@ -1496,23 +1445,9 @@
                 <EnvObject t0="8.06204" t1="6.13539" t2="-7.65881" s0="0.122434" s1="0.1395" s2="0.142971" q0="-0.0520761" q1="-0.735944" q2="-0.334787" q3="0.586165" euler_x="1.77333" euler_y="-1.11438" euler_z="-2.34265" id="26" color_r="0.999994" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/arena/subterranean_arena/streight_chain.xml">
                     <parameters />
                 </EnvObject>
-                <Hotspot t0="8.19081" t1="7.52727" t2="-7.96178" s0="0.500006" s1="0.5" s2="0.5" q0="-0.000154376" q1="0" q2="-0.00010617" q3="1" euler_x="-0.000308752" euler_y="0" euler_z="-0.00021234" id="27" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
-                    <parameters>
-                        <parameter name="Bobbing Direction Inverted" type="int" val="0" />
-                        <parameter name="Bobbing Multiplier" type="int" val="1800" />
-                        <parameter name="Delay Time" type="float" val="0" />
-                        <parameter name="Fast Mode - No Collision Refresh" type="int" val="1" />
-                        <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
-                        <parameter name="Loop Phases" type="int" val="1" />
-                        <parameter name="Min Distance To Activate" type="float" val="30" />
-                        <parameter name="Phase Change Time" type="float" val="2" />
-                        <parameter name="Phase Starting Direction Forward" type="int" val="1" />
-                        <parameter name="Rise Speed" type="float" val="0.005" />
-                        <parameter name="game_type" type="string" val="versusBrawl" />
-                    </parameters>
-                    <Connections />
-                    <ConnectionsFrom />
-                </Hotspot>
+                <EnvObject t0="7.89759" t1="11.6914" t2="-7.81806" s0="21.0014" s1="3.43711" s2="0.433321" q0="-0.000154376" q1="0" q2="-0.00010617" q3="1" euler_x="-0.000308752" euler_y="0" euler_z="-0.00021234" id="35" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
+                    <parameters />
+                </EnvObject>
                 <EnvObject t0="9.77303" t1="6.43706" t2="-7.36326" s0="0.222796" s1="0.222796" s2="0.222796" q0="-0.015413" q1="1.60933e-06" q2="-0.000106168" q3="0.999882" euler_x="-0.0308272" euler_y="0" euler_z="-0.000212361" id="28" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/Banner_Hanging2Green.xml">
                     <parameters />
                 </EnvObject>
@@ -1526,9 +1461,6 @@
                     <parameters />
                 </EnvObject>
                 <EnvObject t0="-3.76296" t1="4.78271" t2="-7.90893" s0="9.53087" s1="3.49259" s2="0.401552" q0="-0.000154376" q1="0" q2="-0.00010617" q3="1" euler_x="-0.000308752" euler_y="0" euler_z="-0.00021234" id="32" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
-                    <parameters />
-                </EnvObject>
-                <EnvObject t0="7.89759" t1="11.6914" t2="-7.81806" s0="21.0014" s1="3.43711" s2="0.433321" q0="-0.000154376" q1="0" q2="-0.00010617" q3="1" euler_x="-0.000308752" euler_y="0" euler_z="-0.00021234" id="35" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
                     <parameters />
                 </EnvObject>
             </Group>
@@ -2097,7 +2029,7 @@
                     <parameters />
                 </EnvObject>
             </Group>
-            <Group t0="7.10541" t1="2.19888" t2="-158.463" s0="5.07827" s1="1.2512" s2="5.81824" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="172" version="1">
+            <Group t0="7.1054" t1="2.19888" t2="-158.463" s0="5.07827" s1="1.2512" s2="5.81824" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="172" version="1">
                 <parameters />
                 <EnvObject t0="7.13504" t1="2.65777" t2="-158.48" s0="0.397762" s1="0.999891" s2="0.679596" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="173" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/OG/ShortGrass_Square.xml">
                     <parameters />
@@ -2202,7 +2134,7 @@
                     <parameters />
                 </EnvObject>
             </Group>
-            <Group t0="-0.310884" t1="1.98245" t2="-140.939" s0="3.04011" s1="1.25119" s2="5.08884" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="324" version="1">
+            <Group t0="-0.310886" t1="1.98245" t2="-140.939" s0="3.04011" s1="1.25119" s2="5.08884" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="324" version="1">
                 <parameters />
                 <EnvObject t0="-0.269658" t1="2.44134" t2="-140.956" s0="0.399297" s1="0.999893" s2="0.681095" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="325" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/OG/ShortGrass_Square.xml">
                     <parameters />
@@ -2442,23 +2374,9 @@
         <EnvObject t0="2.30143" t1="5.30758" t2="-118.569" s0="0.122434" s1="0.1395" s2="0.142971" q0="-0.0519075" q1="-0.735898" q2="-0.334838" q3="0.586209" euler_x="1.77284" euler_y="-1.11416" euler_z="-2.342" id="284" color_r="0.999994" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/arena/subterranean_arena/streight_chain.xml">
             <parameters />
         </EnvObject>
-        <Hotspot t0="2.42903" t1="8.01065" t2="-118.873" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="285" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
-            <parameters>
-                <parameter name="Bobbing Direction Inverted" type="int" val="0" />
-                <parameter name="Bobbing Multiplier" type="int" val="1800" />
-                <parameter name="Delay Time" type="float" val="0" />
-                <parameter name="Fast Mode - No Collision Refresh" type="int" val="1" />
-                <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
-                <parameter name="Loop Phases" type="int" val="1" />
-                <parameter name="Min Distance To Activate" type="float" val="30" />
-                <parameter name="Phase Change Time" type="float" val="2" />
-                <parameter name="Phase Starting Direction Forward" type="int" val="1" />
-                <parameter name="Rise Speed" type="float" val="0.005" />
-                <parameter name="game_type" type="string" val="versusBrawl" />
-            </parameters>
-            <Connections />
-            <ConnectionsFrom />
-        </Hotspot>
+        <EnvObject t0="2.13493" t1="12.1746" t2="-118.728" s0="21.0014" s1="3.43711" s2="0.433321" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="291" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
+            <parameters />
+        </EnvObject>
         <EnvObject t0="4.01163" t1="5.60986" t2="-118.275" s0="0.222796" s1="0.222796" s2="0.222796" q0="-0.0152586" q1="0" q2="0" q3="0.999884" euler_x="-0.0305184" euler_y="0" euler_z="0" id="286" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/Banner_Hanging2Green.xml">
             <parameters />
         </EnvObject>
@@ -2472,9 +2390,6 @@
             <parameters />
         </EnvObject>
         <EnvObject t0="-9.52417" t1="5.26354" t2="-118.821" s0="9.53087" s1="3.49259" s2="0.401552" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="290" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="2.13493" t1="12.1746" t2="-118.728" s0="21.0014" s1="3.43711" s2="0.433321" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="291" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
             <parameters />
         </EnvObject>
     </Group>
@@ -2985,23 +2900,9 @@
                 <EnvObject t0="10.6133" t1="9.6632" t2="228.777" s0="0.122434" s1="0.1395" s2="0.142971" q0="0.334838" q1="-0.586209" q2="-0.0519074" q3="-0.735898" euler_x="-1.36874" euler_y="1.11416" euler_z="-0.799581" id="677" color_r="0.999994" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/arena/subterranean_arena/streight_chain.xml">
                     <parameters />
                 </EnvObject>
-                <Hotspot t0="10.4857" t1="12.3661" t2="229.081" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="678" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
-                    <parameters>
-                        <parameter name="Bobbing Direction Inverted" type="int" val="0" />
-                        <parameter name="Bobbing Multiplier" type="int" val="1800" />
-                        <parameter name="Delay Time" type="float" val="0" />
-                        <parameter name="Fast Mode - No Collision Refresh" type="int" val="1" />
-                        <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
-                        <parameter name="Loop Phases" type="int" val="1" />
-                        <parameter name="Min Distance To Activate" type="float" val="30" />
-                        <parameter name="Phase Change Time" type="float" val="2" />
-                        <parameter name="Phase Starting Direction Forward" type="int" val="1" />
-                        <parameter name="Rise Speed" type="float" val="0.005" />
-                        <parameter name="game_type" type="string" val="versusBrawl" />
-                    </parameters>
-                    <Connections />
-                    <ConnectionsFrom />
-                </Hotspot>
+                <EnvObject t0="10.7798" t1="16.5295" t2="228.936" s0="20.9991" s1="3.43674" s2="0.433275" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="684" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
+                    <parameters />
+                </EnvObject>
                 <EnvObject name="1" t0="8.90331" t1="9.96543" t2="228.483" s0="0.222796" s1="0.222796" s2="0.222796" q0="0" q1="-0.999884" q2="-0.0152587" q3="0" euler_x="3.11107" euler_y="0" euler_z="-3.14159" id="679" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/Banner_Hanging2Red.xml">
                     <parameters />
                 </EnvObject>
@@ -3015,9 +2916,6 @@
                     <parameters />
                 </EnvObject>
                 <EnvObject t0="22.4376" t1="9.6192" t2="229.029" s0="9.52985" s1="3.49222" s2="0.401509" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="683" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
-                    <parameters />
-                </EnvObject>
-                <EnvObject t0="10.7798" t1="16.5295" t2="228.936" s0="20.9991" s1="3.43674" s2="0.433275" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="684" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
                     <parameters />
                 </EnvObject>
             </Group>
@@ -3241,23 +3139,9 @@
             <EnvObject t0="9.57716" t1="3.76996" t2="180.862" s0="0.122434" s1="0.1395" s2="0.142971" q0="0.334838" q1="-0.586209" q2="-0.0519074" q3="-0.735898" euler_x="-1.36874" euler_y="1.11416" euler_z="-0.799581" id="704" color_r="0.999994" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/arena/subterranean_arena/streight_chain.xml">
                 <parameters />
             </EnvObject>
-            <Hotspot t0="9.44956" t1="5.71966" t2="181.166" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="705" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
-                <parameters>
-                    <parameter name="Bobbing Direction Inverted" type="int" val="0" />
-                    <parameter name="Bobbing Multiplier" type="int" val="1800" />
-                    <parameter name="Delay Time" type="float" val="0" />
-                    <parameter name="Fast Mode - No Collision Refresh" type="int" val="1" />
-                    <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
-                    <parameter name="Loop Phases" type="int" val="1" />
-                    <parameter name="Min Distance To Activate" type="float" val="30" />
-                    <parameter name="Phase Change Time" type="float" val="2" />
-                    <parameter name="Phase Starting Direction Forward" type="int" val="1" />
-                    <parameter name="Rise Speed" type="float" val="0.005" />
-                    <parameter name="game_type" type="string" val="versusBrawl" />
-                </parameters>
-                <Connections />
-                <ConnectionsFrom />
-            </Hotspot>
+            <EnvObject t0="9.74366" t1="9.88374" t2="181.021" s0="21.0019" s1="3.43719" s2="0.433331" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="711" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
+                <parameters />
+            </EnvObject>
             <EnvObject t0="7.86696" t1="4.07225" t2="180.568" s0="0.222796" s1="0.222796" s2="0.222796" q0="0" q1="-0.999884" q2="-0.0152587" q3="0" euler_x="3.11107" euler_y="0" euler_z="-3.14159" id="706" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/Banner_Hanging2Red.xml">
                 <parameters />
             </EnvObject>
@@ -3271,9 +3155,6 @@
                 <parameters />
             </EnvObject>
             <EnvObject t0="21.403" t1="2.97247" t2="181.114" s0="9.53109" s1="3.49267" s2="0.401561" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="710" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
-                <parameters />
-            </EnvObject>
-            <EnvObject t0="9.74366" t1="9.88374" t2="181.021" s0="21.0019" s1="3.43719" s2="0.433331" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="711" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
                 <parameters />
             </EnvObject>
         </Group>
@@ -3625,23 +3506,9 @@
                 <EnvObject t0="9.80121" t1="5.6895" t2="74.2166" s0="0.122434" s1="0.1395" s2="0.142971" q0="0.334838" q1="-0.586209" q2="-0.0519074" q3="-0.735898" euler_x="-1.36874" euler_y="1.11416" euler_z="-0.799581" id="773" color_r="0.999994" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/arena/subterranean_arena/streight_chain.xml">
                     <parameters />
                 </EnvObject>
-                <Hotspot t0="9.67361" t1="8.39275" t2="74.5207" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="774" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
-                    <parameters>
-                        <parameter name="Bobbing Direction Inverted" type="int" val="0" />
-                        <parameter name="Bobbing Multiplier" type="int" val="1800" />
-                        <parameter name="Delay Time" type="float" val="0" />
-                        <parameter name="Fast Mode - No Collision Refresh" type="int" val="1" />
-                        <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
-                        <parameter name="Loop Phases" type="int" val="1" />
-                        <parameter name="Min Distance To Activate" type="float" val="30" />
-                        <parameter name="Phase Change Time" type="float" val="2" />
-                        <parameter name="Phase Starting Direction Forward" type="int" val="1" />
-                        <parameter name="Rise Speed" type="float" val="0.005" />
-                        <parameter name="game_type" type="string" val="versusBrawl" />
-                    </parameters>
-                    <Connections />
-                    <ConnectionsFrom />
-                </Hotspot>
+                <EnvObject t0="9.96772" t1="12.557" t2="74.3756" s0="21.0026" s1="3.4373" s2="0.433345" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="780" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
+                    <parameters />
+                </EnvObject>
                 <EnvObject t0="8.09091" t1="5.99179" t2="73.9227" s0="0.222796" s1="0.222796" s2="0.222796" q0="0" q1="-0.999884" q2="-0.0152587" q3="0" euler_x="3.11107" euler_y="0" euler_z="-3.14159" id="775" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/Banner_Hanging2Red.xml">
                     <parameters />
                 </EnvObject>
@@ -3655,9 +3522,6 @@
                     <parameters />
                 </EnvObject>
                 <EnvObject t0="21.6274" t1="5.64546" t2="74.4686" s0="9.53139" s1="3.49278" s2="0.401574" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="779" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
-                    <parameters />
-                </EnvObject>
-                <EnvObject t0="9.96772" t1="12.557" t2="74.3756" s0="21.0026" s1="3.4373" s2="0.433345" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="780" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
                     <parameters />
                 </EnvObject>
             </Group>
@@ -3983,7 +3847,7 @@
                         <parameter name="Circle Zone" type="int" val="0" />
                         <parameter name="Min Distance To Activate" type="float" val="40" />
                         <parameter name="game_type" type="string" val="versusBrawl" />
-                        <parameter name="originalScale" type="string" val="vec3(0.0513, 0.0513, 0.0513001)" />
+                        <parameter name="originalScale" type="string" val="vec3(0.0513001, 0.0513, 0.0513001)" />
                         <parameter name="particleColorB" type="float" val="1" />
                         <parameter name="particleColorG" type="float" val="1" />
                         <parameter name="particleColorR" type="float" val="1" />
@@ -3999,7 +3863,7 @@
                         <parameter name="Circle Zone" type="int" val="0" />
                         <parameter name="Min Distance To Activate" type="float" val="40" />
                         <parameter name="game_type" type="string" val="versusBrawl" />
-                        <parameter name="originalScale" type="string" val="vec3(0.0513, 0.0513, 0.0513001)" />
+                        <parameter name="originalScale" type="string" val="vec3(0.0513001, 0.0513, 0.0513001)" />
                         <parameter name="particleColorB" type="float" val="1" />
                         <parameter name="particleColorG" type="float" val="1" />
                         <parameter name="particleColorR" type="float" val="1" />
@@ -4061,23 +3925,9 @@
                 <EnvObject t0="5.05067" t1="6.13756" t2="24.1048" s0="0.122434" s1="0.1395" s2="0.142971" q0="0.334787" q1="-0.586165" q2="-0.052076" q3="-0.735944" euler_x="-1.36826" euler_y="1.11438" euler_z="-0.798929" id="844" color_r="0.999994" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/arena/subterranean_arena/streight_chain.xml">
                     <parameters />
                 </EnvObject>
-                <Hotspot t0="4.92263" t1="7.52979" t2="24.4094" s0="0.500001" s1="0.5" s2="0.5" q0="0.000106172" q1="-1" q2="-0.000154376" q3="0" euler_x="3.14128" euler_y="0" euler_z="-3.14138" id="845" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
-                    <parameters>
-                        <parameter name="Bobbing Direction Inverted" type="int" val="0" />
-                        <parameter name="Bobbing Multiplier" type="int" val="1800" />
-                        <parameter name="Delay Time" type="float" val="0" />
-                        <parameter name="Fast Mode - No Collision Refresh" type="int" val="1" />
-                        <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
-                        <parameter name="Loop Phases" type="int" val="1" />
-                        <parameter name="Min Distance To Activate" type="float" val="30" />
-                        <parameter name="Phase Change Time" type="float" val="2" />
-                        <parameter name="Phase Starting Direction Forward" type="int" val="1" />
-                        <parameter name="Rise Speed" type="float" val="0.005" />
-                        <parameter name="game_type" type="string" val="versusBrawl" />
-                    </parameters>
-                    <Connections />
-                    <ConnectionsFrom />
-                </Hotspot>
+                <EnvObject t0="5.21585" t1="11.6939" t2="24.2657" s0="21.0014" s1="3.43711" s2="0.433321" q0="0.000106172" q1="-1" q2="-0.000154376" q3="0" euler_x="3.14128" euler_y="0" euler_z="-3.14138" id="851" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
+                    <parameters />
+                </EnvObject>
                 <EnvObject t0="3.34041" t1="6.43958" t2="23.8109" s0="0.222796" s1="0.222796" s2="0.222796" q0="0.000106113" q1="-0.999882" q2="-0.015413" q3="1.5972e-06" euler_x="3.11077" euler_y="0" euler_z="-3.14138" id="846" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/Banner_Hanging2Red.xml">
                     <parameters />
                 </EnvObject>
@@ -4091,9 +3941,6 @@
                     <parameters />
                 </EnvObject>
                 <EnvObject t0="16.8763" t1="4.78524" t2="24.3566" s0="9.53087" s1="3.49259" s2="0.401552" q0="0.000106172" q1="-1" q2="-0.000154376" q3="0" euler_x="3.14128" euler_y="0" euler_z="-3.14138" id="850" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
-                    <parameters />
-                </EnvObject>
-                <EnvObject t0="5.21585" t1="11.6939" t2="24.2657" s0="21.0014" s1="3.43711" s2="0.433321" q0="0.000106172" q1="-1" q2="-0.000154376" q3="0" euler_x="3.14128" euler_y="0" euler_z="-3.14138" id="851" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
                     <parameters />
                 </EnvObject>
             </Group>
@@ -5081,23 +4928,9 @@
         <EnvObject t0="10.0764" t1="5.30755" t2="134.985" s0="0.122434" s1="0.1395" s2="0.142971" q0="-0.0519075" q1="-0.735898" q2="-0.334838" q3="0.586209" euler_x="1.77284" euler_y="-1.11416" euler_z="-2.342" id="1101" color_r="0.999994" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/arena/subterranean_arena/streight_chain.xml">
             <parameters />
         </EnvObject>
-        <Hotspot t0="10.204" t1="8.01062" t2="134.681" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1102" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
-            <parameters>
-                <parameter name="Bobbing Direction Inverted" type="int" val="0" />
-                <parameter name="Bobbing Multiplier" type="int" val="1800" />
-                <parameter name="Delay Time" type="float" val="0" />
-                <parameter name="Fast Mode - No Collision Refresh" type="int" val="1" />
-                <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
-                <parameter name="Loop Phases" type="int" val="1" />
-                <parameter name="Min Distance To Activate" type="float" val="30" />
-                <parameter name="Phase Change Time" type="float" val="2" />
-                <parameter name="Phase Starting Direction Forward" type="int" val="1" />
-                <parameter name="Rise Speed" type="float" val="0.005" />
-                <parameter name="game_type" type="string" val="versusBrawl" />
-            </parameters>
-            <Connections />
-            <ConnectionsFrom />
-        </Hotspot>
+        <EnvObject t0="9.90993" t1="12.1746" t2="134.826" s0="21.0014" s1="3.43711" s2="0.433321" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1108" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
+            <parameters />
+        </EnvObject>
         <EnvObject t0="11.7866" t1="5.60983" t2="135.279" s0="0.222796" s1="0.222796" s2="0.222796" q0="-0.0152586" q1="0" q2="0" q3="0.999884" euler_x="-0.0305184" euler_y="0" euler_z="0" id="1103" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/Banner_Hanging2Red.xml">
             <parameters />
         </EnvObject>
@@ -5111,9 +4944,6 @@
             <parameters />
         </EnvObject>
         <EnvObject t0="-1.74917" t1="5.26351" t2="134.733" s0="9.53087" s1="3.49259" s2="0.401552" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1107" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="9.90993" t1="12.1746" t2="134.826" s0="21.0014" s1="3.43711" s2="0.433321" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1108" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
             <parameters />
         </EnvObject>
     </Group>

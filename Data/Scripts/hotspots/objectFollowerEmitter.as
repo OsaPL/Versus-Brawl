@@ -177,6 +177,10 @@ void PreDraw(float curr_game_time) {
 
                 uint32 id = MakeParticle(lastPath, pos + Mult(rotation, offset), vec3(0.0f), color);
             }
+            // If `particle_field` disabled, we halve the rate for more fps
+            if(!GetConfigValueBool("particle_field"))
+                delay += params.GetFloat("particleDelay");
+            
             delay += params.GetFloat("particleDelay");
         }
         if(delay < -1.0){

@@ -30,7 +30,7 @@ Some of these were already included in 0.5.9 pre-release
 [b]Added Nidhogg, CTF, Race gamemodes![/b]
 
 [b]Added new playable maps:[/b]
-- Conquerors of the Desert, CTF
+- Sand Fortress, CTF
 - Purple Dreams, Nidhogg
 
 [b]Maps reworked:[/b]
