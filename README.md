@@ -27,7 +27,7 @@ Some of the functionality will come eventually, once I have laid the foundation 
 - Respawn/teleport button for coop partners.
 - Ability to change species, with each character having different stats and a unique trait
 - Players should no longer get their Id swapped, resulting in gamepads being always correctly arranged
-- New maps that arent just a gm_flatgrass, designed for game modes (👻6 planned, atleast 1 per mode)
+- New maps that arent just a gm_flatgrass, designed for game modes (👻8 planned, atleast 1 per mode)
 - Only a single level script and few basic prefabs needed to create a map. You can have a map ready in matter of minutes.
 - Ability to modify many parameters, for characters, gamemodes and maps.
 - Warmup before the game start (with preloading for smoother gameplay)
@@ -102,19 +102,15 @@ Play through campaign with friendsos.
   
 *self explanatory*
 
-- Tag (👻done, needs maps)
+- Tag
 
 Catchers needs to catch everyone
 
-- Nidhogg (👻moslty done, needs maps and balancing)
+- Nidhogg
 
 Fight and run to be the one who can become the best fighter/food.
 
-- 👻Sacrifice
-  
-Each enemy body thrown to your abbys, gives a point, your body in your abbys takes back two.
-
-- Capture the fur (👻mostly done, map in works)
+- Capture the fur
   
 Just CTF
 
@@ -145,7 +141,7 @@ Just CTF
 - Jumps: Pretty high, but not far
 - Size: 5/10 (no change)
 
-**Trait**: Now you catch! - throws weapons much harder
+**Trait**: Good boi - Can hoster long and heavy weapons on his back
 
 ### Cats:
 - Att dmg:5/10 (no change)
@@ -156,7 +152,7 @@ Just CTF
 - Jumps: Pretty low, but far and fast
 - Size: 5/10 (no change)
 
-**Trait**: Always lands on its feet - No dmg from falls, catches weapons automatically
+**Trait**: Always lands on its feet - Catches weapons automatically
 
 ### Rats:
 - Att dmg:3.5/10 (5/10)

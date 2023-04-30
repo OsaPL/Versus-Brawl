@@ -52,7 +52,7 @@
       "Jump - Jump Sustain": 2.0,
       "Jump - Jump Sustain Boost": 2.0,
 
-      "Fall Damage Multiplier": 0.0,
+      "Fall Damage Multiplier": 1.0,
       
       "Knockout Shield": 0,
       "Throw - Initial Velocity Multiplier": 1.0,
