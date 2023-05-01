@@ -257,7 +257,7 @@ Object@ CreateCharacter(int playerNr, string species, int teamNr) {
         RecolorCharacter(teamNr, species, char_obj);
     }
     else{
-        RecolorCharacter(playerNr, species, char_obj);
+        RecolorCharacter(playerNr, species, char_obj, teamNr);
     }
     
     addSpeciesStats(char_obj);
@@ -405,8 +405,15 @@ void RerollCharacter(int playerNr, Object@ char) {
     string executeCmd = "SwitchCharacter(\""+ newCharPath +"\");";
     Log(error, species+" "+newCharPath+" "+executeCmd);
     ReadCharacterID(player.objId).Execute(executeCmd);
+
+    if(player.teamNr != -1 && strictTeamColors) {
+        RecolorCharacter(player.teamNr, species, char);
+    }
+    else{
+        RecolorCharacter(playerNr, species, char, player.teamNr);
+    }
     
-    RecolorCharacter(playerNr, species, char);
+    
     
     // This will add species specific stats
     addSpeciesStats(obj);
@@ -493,7 +500,7 @@ string IntToColorName(int playerNr) {
         case 2:return "Blue";
         case 3:return "Yellow";
     }
-    return "Youre not supposed to see this!";
+    return "Nobody";
 }
 
 string IntToSpecies(int speciesNr) {

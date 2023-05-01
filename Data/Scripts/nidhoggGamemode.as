@@ -54,6 +54,7 @@ void Init(string msg){
     suicideTime = 0.7f;
     respawnTime = 1;
     forcedSpecies = -1;
+    strictTeamColors = false;
 
     // pointUIBase configuration
     diffToCloseBlinking = 0;

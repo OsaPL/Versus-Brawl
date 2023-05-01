@@ -3,8 +3,13 @@
 #include "versus-brawl/pointUIBase.as"
 
 //Configurables
+bool onlyOneLife = false;
+bool highestPointsWin = false;
 
 //State
+bool raceInit = true;
+array<bool> dead = {false, false, false, false};
+float loadedWinStateTime = 10;
 
 //Level methods
 void Init(string msg){
@@ -52,6 +57,8 @@ void Init(string msg){
 
     // And finally load JSON Params
     LoadJSONLevelParams();
+
+    loadedWinStateTime = winStateTime;
 }
 
 void RaceLoad(JSONValue settings){
@@ -65,6 +72,16 @@ void RaceLoad(JSONValue settings){
 
         if (FoundMember(race, "CheckPointsNeededTextShowTime"))
             pointsTextShowTime = race["CheckPointsNeededTextShowTime"].asFloat();
+
+        if (FoundMember(race, "OnlyOneLife")) {
+            onlyOneLife = race["OnlyOneLife"].asBool();
+            if(onlyOneLife)
+                constantRespawning = false;
+        }
+
+        if (FoundMember(race, "HighestPointsWin")) {
+            highestPointsWin = race["HighestPointsWin"].asBool();
+        }
     }
 }
 
@@ -82,13 +99,48 @@ void Update(){
         ScriptParams@ lvlParams = level.GetScriptParams();
         lvlParams.SetInt("InProgress", 1);
 
+        bool allDead = true;
+        
+        // Register the event, that will be used to check if everyones dead
+        if(onlyOneLife) {
+            if (raceInit) {
+                for (uint k = 0; k < versusPlayers.size(); k++)
+                {
+                    VersusPlayer@ player = GetPlayerByNr(k);
+
+                    player.charTimer.Add(CharDeathJob(player.objId, function(char_a) {
+                        if(currentState >= 2 && currentState < 100){
+                            VersusPlayer@ deadPlayer = GetPlayerByObjectId(char_a.GetID());
+                            if(!dead[deadPlayer.playerNr])
+                                dead[deadPlayer.playerNr] = true;
+                        }
+                        
+                        return true;
+                    }));
+                }
+                raceInit = false;
+            }
+
+            // Everyone dead?
+            for (uint i = 0; i < versusPlayers.size(); i++)
+            {
+                if (!dead[i]){
+                    allDead = false;
+                    break;
+                }
+            }
+        }
+
         for (uint k = 0; k < versusPlayers.size(); k++)
         {
             VersusPlayer@ player = GetPlayerByNr(k);
+            
             //Checks for win
             if(pointsCount[player.playerNr]>=pointsToWin){
                 // 3 is win state
                 winnerNr = player.playerNr;
+                // We make sure we dont use the shortened timer
+                winStateTime = loadedWinStateTime;
                 ChangeGameState(100);
                 
                 constantRespawning = false;
@@ -116,6 +168,43 @@ void Update(){
                     objTemp.UpdateScriptParams();
                 }
                 break;
+            }
+
+            if(onlyOneLife){
+                if(allDead){
+                    Log(error, "All probably dead");
+                    
+                    if(highestPointsWin){
+                        int highestId = -1;
+                        int highestPts = 0;
+                        for (uint l = 0; l < versusPlayers.size(); l++)
+                        {
+                            VersusPlayer@ player = GetPlayerByNr(l);
+                        
+                            //Checks for win
+                            if(pointsCount[player.playerNr]>highestPts) {
+                                highestPts = pointsCount[player.playerNr];
+                                highestId = player.playerNr;
+                            }
+                            else if(pointsCount[player.playerNr] == highestPts){
+                                highestId = -1;
+                            }
+                        }
+                        
+                        winnerNr = highestId;
+                    }
+                    else{
+                        winnerNr = -1;
+                    }
+
+                    // We make sure we dont use the shortened timer
+                    if(winnerNr != -1)
+                        winStateTime = loadedWinStateTime;
+                    
+                    PlaySound("Data/Sounds/voice/animal3/voice_rat_death_2.wav");
+                    ChangeGameState(100);
+                    break;
+                }
             }
         }
     }
@@ -163,10 +252,14 @@ void Reset(){
 
 void ResetRace(){
     Log(error, "ResetRace");
+    raceInit = true;
     pointsTextShow = true;
+    dead = {false, false, false, false};
+    // We set the timer lower, for those `Nobody wins` cases
+    winStateTime = loadedWinStateTime / 3;
     
     pointsCount = {0,0,0,0};
     updateScores = true;
-
-    constantRespawning = true;
+    if(!onlyOneLife)
+        constantRespawning = true;
 }

@@ -3,7 +3,9 @@
     "ForcedSpecies": 0
   },
   "Race": {
-    "CheckPointsNeeded": 3
+    "CheckPointsNeeded": 3,
+    "OnlyOneLife": true,
+    "HighestPointsWin": true
   },
   "SpeciesStats": {
     "rabbit": {

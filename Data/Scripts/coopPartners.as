@@ -80,7 +80,7 @@ void CoopPartnersCheck(){
         MovePlayerObject(charObj ,newCharObj);
         
         // Recolor players, for some eye candy
-        RecolorCharacter(j, newCharParams.GetString("Species"), newCharObj);
+        RecolorCharacter(j, newCharParams.GetString("Species"), newCharObj, j);
         newChar.controller_id = j;
         newCharObj.SetPlayer(true);
     }

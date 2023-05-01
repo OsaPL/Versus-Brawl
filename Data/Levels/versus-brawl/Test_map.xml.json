@@ -28,7 +28,9 @@
   },
   "Race": {
     "CheckPointsNeeded": 2,
-    "CheckPointsNeededTextShowTime": 5.0
+    "CheckPointsNeededTextShowTime": 5.0,
+    "OnlyOneLife": true,
+    "HighestPointsWin": true
   },
   "Tag": {
     "RoundMaxTime": 20.0,

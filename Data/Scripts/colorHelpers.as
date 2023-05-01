@@ -1,4 +1,5 @@
-﻿void RecolorCharacter(int playerNr, string species, Object@ char_obj) {
+﻿void RecolorCharacter(int playerNr, string species, Object@ char_obj, int teamNr = -1) {
+    
     // Setup
     MovementObject@ mo = ReadCharacterID(char_obj.GetID());
     character_getter.Load(mo.char_path);
@@ -31,9 +32,12 @@
 
             // Wolves are problematic for coloring all channels are marked as `fur`
             if(species == "wolf"){
-                if(/*i==1 || */i==3){
+                if(i==3){
                     foundClothChannel = true;
                     char_obj.SetPaletteColor(i, clothesColor*2);
+                }
+                if(i==1 && playerNr != teamNr && teamNr != -1){
+                    char_obj.SetPaletteColor(i, mix(RandReasonableTeamColor(teamNr), vec3(0.0), 0.7)*2);
                 }
             }
         } else if(channel == "cloth" ) {
@@ -44,6 +48,9 @@
                 foundClothChannel = true;
             }
             else{
+                if(playerNr != teamNr && teamNr != -1){
+                    clothesColor = mix(RandReasonableTeamColor(teamNr), vec3(0.0), 0.6);
+                }
                 char_obj.SetPaletteColor(i, clothesColor);
             }
             clothesColor = mix(clothesColor, vec3(0.0), 0.9);

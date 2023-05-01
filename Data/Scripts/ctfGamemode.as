@@ -18,6 +18,7 @@ void Init(string msg){
     teamPlay = true;
     teamsAmount = 2;
     allowUneven = true;
+    strictTeamColors = true;
 
     // pointUIBase configuration
     pointsToWin = 3;
@@ -149,9 +150,9 @@ void GetFlagHotspotsIds(){
                     // Optionally we recolor flags
                     if(strictTeamColors){
                         vec3 color = GetTeamUIColor(teamId);
-                        objParams.SetFloat("red", color.x);
-                        objParams.SetFloat("green", color.y);
-                        objParams.SetFloat("blue", color.z);
+                        objParams.SetFloat("red", color.x * 0.4f);
+                        objParams.SetFloat("green", color.y * 0.4f);
+                        objParams.SetFloat("blue", color.z * 0.4f);
                     }
                 }
                 else{
