@@ -13,8 +13,8 @@ void Init(string msg){
     warmupHints.removeAt(0);
     warmupHints.removeAt(0);
     warmupHints.removeAt(0);
+    warmupHints.insertAt(0, "@vec3(0.8,0.2,0.2)No rules@, dont feel bad for hitting people.");
     warmupHints.insertAt(0, "You need to get all the checkpoints, order doesnt matter.");
-    randomHints.insertAt(0, "No rules, dont feel bad for hitting people.");
     
     //We setup the parameters before init call
     useGenericSpawns = false;
@@ -41,6 +41,12 @@ void Init(string msg){
     levelTimer.Add(LevelEventJob("checkpoint", function(_params){
         Log(error, "Received checkpoint "+_params[1]);
         pointsCount[parseInt(_params[1])]++;
+        updateScores = true;
+        return true;
+    }));
+
+    levelTimer.Add(LevelEventJob("reset", function(_params) {
+        ResetRace();
         return true;
     }));
 
@@ -71,7 +77,7 @@ void Update(){
     //Always need to call this first!
     VersusUpdate();
 
-    if(currentState == 2){
+    if(currentState >= 2 && currentState < 100){
 
         ScriptParams@ lvlParams = level.GetScriptParams();
         lvlParams.SetInt("InProgress", 1);
@@ -114,11 +120,10 @@ void Update(){
         }
     }
     
-    if(currentState == 100){
-        if(winStateTimer>winStateTime){
+    if(currentState >= 100){
+        if(winStateTimer>=winStateTime){
             // Now we just need to reset few things
-            pointsCount = {0,0,0,0};
-            constantRespawning = true;
+            ResetRace();
             ScriptParams@ lvlParams = level.GetScriptParams();
             lvlParams.SetInt("InProgress", 1);
 
@@ -136,6 +141,8 @@ void Update(){
             }
         }
     }
+
+    UpdateUI();
 }
 
 void ReceiveMessage(string msg){
@@ -151,4 +158,15 @@ void PreScriptReload(){
 void Reset(){
     //Always need to call this first!
     VersusReset();
+    ResetRace();
 }   
+
+void ResetRace(){
+    Log(error, "ResetRace");
+    pointsTextShow = true;
+    
+    pointsCount = {0,0,0,0};
+    updateScores = true;
+
+    constantRespawning = true;
+}

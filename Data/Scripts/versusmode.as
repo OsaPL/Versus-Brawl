@@ -684,7 +684,8 @@ void VersusUpdate() {
                 Object@ crown = ReadObjectFromID(crownId);
                 ScriptParams @crownParams = crown.GetScriptParams();
                 VersusPlayer @onePlayer = GetPlayerByNr(i);
-                crownParams.SetInt("followObjId", onePlayer.objId);
+                if(!(player is null))
+                    crownParams.SetInt("followObjId", player.objId);
                 crownParams.SetInt("dampenMovement", 1);
             }
         }
@@ -696,7 +697,8 @@ void VersusUpdate() {
             Object@ crown = ReadObjectFromID(crownId);
             ScriptParams @crownParams = crown.GetScriptParams();
             VersusPlayer @onePlayer = GetPlayerByNr(winnerNr);
-            crownParams.SetInt("followObjId", onePlayer.objId);
+            if(!(onePlayer is null))
+                crownParams.SetInt("followObjId", onePlayer.objId);
             crownParams.SetInt("dampenMovement", 1);
         }
     }

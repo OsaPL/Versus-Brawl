@@ -150,7 +150,7 @@ void UpdateUI(){
 void InitUI(){
 
     for (uint i = 0; i < teamsToGoThrough; i++) {
-        Log(error, "initUI");
+        Log(error, "initUI"+i);
 
         AHGUI::Element@ headerElement = versusAHGUI.root.findElement("header"+i);
         AHGUI::Divider@ div = cast<AHGUI::Divider>(headerElement);
