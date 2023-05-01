@@ -87,7 +87,7 @@ void Update(){
 
 void Reset(){
     
-    for (int i = 0; i < playersMax; i++) {
+    for (uint i = 0; i < playersMax; i++) {
         params.SetInt("player"+i+"Reached", 0);
     }
 
