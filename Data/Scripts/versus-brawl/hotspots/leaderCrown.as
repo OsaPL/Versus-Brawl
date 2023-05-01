@@ -1,4 +1,4 @@
-﻿vec3 lastBonePos;
+vec3 lastBonePos;
 bool init = false;
 float overHeadDistance = 0.5f;
 int lightId = -1;

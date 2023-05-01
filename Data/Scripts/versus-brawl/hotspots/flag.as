@@ -146,20 +146,15 @@ void Update(){
     
     Object@ me = ReadObjectFromID(hotspot.GetID());
 
-    PlaceHolderFollowerUpdate(billboardPath, "["+params.GetFloat("teamId")+"] ["+ FlagStateToString(flagState) +"] [" + returnTimer + "] [" + (me.GetEnabled() ? "Enabled" : "Disabled") + "]", 2.0f, false, vec4(color, 1), vec3(0, 0.5f, 0));
-    
-    color = vec3(params.GetFloat("red"), params.GetFloat("green"), params.GetFloat("blue"));
-
+    float trans = 0;
     if(flagState != FlagHome){
-        float trans = 1;
         if(manualReturnBlockTimer > 0)
             trans = manualReturnBlockTimer / manualReturnBlockCooldown;
-        DebugDrawBillboard(billboardPath,
-            me.GetTranslation() + vec3(0, 0.5f, 0),
-            2.0f,
-            vec4(color, trans),
-            _delete_on_update);
     }
+
+    PlaceHolderFollowerUpdate(billboardPath, EditorModeActive() ? "["+params.GetFloat("teamId")+"] ["+ FlagStateToString(flagState) +"] [" + returnTimer + "] [" + (me.GetEnabled() ? "Enabled" : "Disabled") + "]" : "", 2.0f, false, vec4(color, trans), vec3(0, 0.5f, 0));
+    
+    color = vec3(params.GetFloat("red"), params.GetFloat("green"), params.GetFloat("blue"));
 
     if(weaponId == -1){
         // FOR SOME FRICKIN REASON

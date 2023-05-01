@@ -19,7 +19,7 @@ void PlaceHolderFollowerUpdate(string iconPath, string text, float scale = 1, bo
     }
 
     
-    if(EditorModeActive() && iconPathOk){
+    if(iconPathOk){
         Object@ me = ReadObjectFromID(hotspot.GetID());
         vec4 tempColor = color;
         if(!me.GetEnabled()){

@@ -94,7 +94,7 @@
     
     <Item category="VersusBrawl"
           title="[h] raceGoalHotspot"
-          path=" Data/Objects/raceGoal.xml"
+          path="Data/Objects/raceGoal.xml"
           thumbnail="Data/UI/spawner/thumbs/Hotspot/race_icon.png" />
     
     <Item category="VersusBrawl"

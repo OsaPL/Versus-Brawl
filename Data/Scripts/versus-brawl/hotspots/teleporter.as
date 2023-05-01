@@ -70,14 +70,7 @@ void Update(){
 
     color = vec3(params.GetFloat("red"), params.GetFloat("green"), params.GetFloat("blue"));
 
-    if(!EditorModeActive())
-        DebugDrawBillboard(billboardPath,
-            me.GetTranslation() + vec3(0, 0.5f, 0),
-        2.0f,
-            vec4(color,trans),
-            _delete_on_update);
-
-    PlaceHolderFollowerUpdate(billboardPath, "[" + (parentId != -1 ? "Connected" : "Not Connected") + "] [" + timer + "]", 2.0f, true, vec4(color, trans), vec3(0, 0.5f, 0));
+    PlaceHolderFollowerUpdate(billboardPath, EditorModeActive() ? "[" + (parentId != -1 ? "Connected" : "Not Connected") + "] [" + timer + "]" : "", 2.0f, EditorModeActive(), vec4(color, trans), vec3(0, 0.5f, 0));
 }
 
 void ReceiveMessage(string msg)

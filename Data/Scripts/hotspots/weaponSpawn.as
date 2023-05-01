@@ -25,8 +25,9 @@ void SetParameters() {
 }
 
 void Update(){
-    PlaceHolderFollowerUpdate("Data/Textures/ui/versusBrawl/placeholder_weapon_spawn.png", "["+oldPath+"]");
-    
+    if(EditorModeActive()) {
+        PlaceHolderFollowerUpdate("Data/Textures/ui/versusBrawl/placeholder_weapon_spawn.png", "[" + oldPath + "]");
+    }
     // Get hotspot and placeholder, and then setup
     Object@ me = ReadObjectFromID(hotspot.GetID());
 

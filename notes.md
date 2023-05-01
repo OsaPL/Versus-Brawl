@@ -25,7 +25,7 @@ Big sticks:
 
 
 [h1]0.7:[/h1]
-
+This is a big one, with focus on actually getting new content polished, and making mapping a lot better.
 Some of these were already included in 0.5.9 pre-release
 [b]Added Nidhogg, CTF, Race gamemodes![/b]
 
@@ -86,6 +86,7 @@ Some of these were already included in 0.5.9 pre-release
 - You now cant suicide during you respawn invincibility
 - Point counters not disappearing on round end
 - Some hints have been removed, and some have been reworded
+- Preloading should be faster, will now spawn a static dummy to preload everything on, instead of a real character
 
 [b]Mapping and modding docs update.[/b]
 Docs have been extended and a lot more things are now documented. With this update I've tried to document everything new.

@@ -2,8 +2,12 @@
 #include "timed_execution/char_death_job.as"
 #include "timed_execution/level_event_job.as"
 
+#include "hotspots/placeholderFollower.as"
+
 array<int> connected_object_ids;
 array<LinkedObjectState@> atLoadState;
+
+uint playersMax = 4;
 
 class LinkedObjectState{
     int id;
@@ -23,8 +27,8 @@ void Init() {
 }
 
 void SetParameters() {
-    for (int i = 0; i < 4; i++) {
-        params.AddIntSlider("player"+i+"Reached", -1, "min:-1.0,max:0.0");
+    for (uint i = 0; i < playersMax; i++) {
+        params.AddIntCheckbox("player"+i+"Reached", false);
     }
     params.AddString("gameMode", "Race");
     params.AddString("game_type", "versusBrawl");
@@ -46,12 +50,45 @@ void Update(){
         }
         init = false;
     }
+
+    Object@ me = ReadObjectFromID(hotspot.GetID());
+    
+    string playersReached = "[Reached]";
+    vec3 meScale = me.GetScale();
+    float avgScale = (meScale.x + meScale.y) / 2;
+    
+
+    for (uint j = 0; j < playersMax; j++)
+    {
+        string playerString = " ";
+        string reached = params.GetInt("player" + j + "Reached") == 1 ? "yes" : "no";
+        playerString += j + ":" + reached;
+        playersReached += playerString;
+        vec3 teamColor = GetTeamUIColor(j);
+
+        float xDir = (j == 3 || j == 1) ? -1 : 1;
+        float yDir = (j == 1 || j == 0) ? -1 : 1;
+        vec3 direction = me.GetRotation() * vec3(xDir, yDir , 0);
+        vec3 teamOffset = vec3(meScale.x / 2, meScale.y / 2, meScale.z) * 2.0f * direction;
+
+        //Log(error, "j: "+ j + " xDir: " + xDir + " yDir: " + yDir);
+        
+        if(params.GetInt("player" + j + "Reached") == 1)
+            PlaceHolderFollowerUpdate("Data/Textures/ui/challenge_mode/checkmark_icon.png", "", avgScale, false, vec4(teamColor, 0.4f), teamOffset);
+    }
+    string enabled = me.GetEnabled() ? "Enabled" : "Disabled";
+    if(EditorModeActive()){
+        PlaceHolderFollowerUpdate("Data/Textures/ui/versusBrawl/flag_icon.png", "[RaceGoal] " + playersReached + " [" + enabled + "]", avgScale, true);
+    }
+    else{
+        PlaceHolderFollowerUpdate("Data/Textures/ui/versusBrawl/flag_icon.png", "", avgScale, false);
+    }
 }
 
 void Reset(){
     
-    for (int i = 0; i < 4; i++) {
-        params.SetInt("player"+i+"Reached", -1);
+    for (int i = 0; i < playersMax; i++) {
+        params.SetInt("player"+i+"Reached", 0);
     }
 
     //Switch all nonspawns back
@@ -131,12 +168,12 @@ void HandleEvent(string event, MovementObject @mo){
     if(event == "enter"){
         if(mo.is_player){
             // Check if this is already taken by that playerNr
-            if(params.GetInt("player"+mo.controller_id+"Reached") == 0){
+            if(params.GetInt("player"+mo.controller_id+"Reached") == 1){
                 Log(error, "reached already by:"+mo.controller_id);
                 return;
             }
 
-            params.SetInt("player"+mo.controller_id+"Reached", 0);
+            params.SetInt("player"+mo.controller_id+"Reached", 1);
             level.SendMessage("checkpoint "+mo.controller_id);  
             
             PlaySoundGroup("Data/Sounds/versus/fight_win1.xml");
@@ -185,4 +222,26 @@ void HandleEvent(string event, MovementObject @mo){
             
         }
     }
+}
+
+// TODO: this is already in colorHelper
+vec3 GetTeamUIColor(int playerNr){
+    switch (playerNr) {
+        case 0:
+            //Green
+            return vec3(0.0f,0.8f,0.0f);
+        case 1:
+            //Red
+            return vec3(0.8f,0.0f,0.0f);
+        case 2:
+            //Blue
+            return vec3(0.1f,0.1f,0.8f);
+        case 3:
+            //Yellow
+            return vec3(0.9f,0.9f,0.1f);
+        default: //DisplayError("RandReasonableTeamColor", "Unsuported RandReasonableTeamColor value of: " + playerNr);
+            //Purple guy?
+            return vec3(1.0f,0.0f,1.0f);
+    }
+    return vec3(1.0f);
 }

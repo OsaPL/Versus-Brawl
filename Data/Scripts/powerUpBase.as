@@ -120,28 +120,10 @@ void PowerupUpdate(){
     vec3 color = vec3(params.GetFloat("colorR"), params.GetFloat("colorG"), params.GetFloat("colorB"));
     
     if(!readyForPickup){
-        if(EditorModeActive()){
-            PlaceHolderFollowerUpdate(params.GetString("notReadyIconPath"), "", 2.0f, false, vec4(color, 1));
-        }
-        else{
-            DebugDrawBillboard(params.GetString("notReadyIconPath"),
-                me.GetTranslation(),
-                me.GetScale()[1]*5.0,
-                vec4(color, params.GetFloat("notReadyAlpha")),
-                _delete_on_update);
-        }
+        PlaceHolderFollowerUpdate(params.GetString("notReadyIconPath"), "", 2.0f, false, vec4(color, params.GetFloat("notReadyAlpha")));
     }
     else{
-        if(EditorModeActive()){
-            PlaceHolderFollowerUpdate(params.GetString("readyIconPath"), "", 2.0f, false, vec4(color, 1));
-        }
-        else {
-            DebugDrawBillboard(params.GetString("readyIconPath"),
-                me.GetTranslation(),
-                me.GetScale()[1] * 6.0,
-                vec4(color, params.GetFloat("readyAlpha")),
-                _delete_on_update);
-        }
+        PlaceHolderFollowerUpdate(params.GetString("readyIconPath"), "", 2.0f, false, vec4(color, params.GetFloat("readyAlpha")));
     }
     
     // Show error and ignore updating this

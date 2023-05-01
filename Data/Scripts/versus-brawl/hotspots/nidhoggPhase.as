@@ -76,7 +76,7 @@ void Update(){
     if(phase == 0){
         label = "";
     }
-    PlaceHolderFollowerUpdate(billboardPath, label , 2.0f, true, vec4(color, 1));
+    PlaceHolderFollowerUpdate(billboardPath, EditorModeActive() ? label : "", 2.0f, EditorModeActive(), vec4(color, 1));
 
     if(!EditorModeActive())
         DebugDrawBillboard(

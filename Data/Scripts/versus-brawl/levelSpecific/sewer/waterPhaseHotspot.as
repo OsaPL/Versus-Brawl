@@ -32,7 +32,8 @@ void Update(){
     if(switched)
         switchedString = "ON";
     
-    PlaceHolderFollowerUpdate("Data/UI/spawner/thumbs/Hotspot/water.png", "Phase: ["+ params.GetInt("Phase") +"] [" + switchedString + "]");
+    if(EditorModeActive())
+        PlaceHolderFollowerUpdate("Data/UI/spawner/thumbs/Hotspot/water.png", "Phase: ["+ params.GetInt("Phase") +"] [" + switchedString + "]");
     
     Object@ me = ReadObjectFromID(hotspot.GetID());
     

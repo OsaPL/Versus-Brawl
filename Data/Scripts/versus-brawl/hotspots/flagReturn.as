@@ -48,14 +48,7 @@ void Update(){
         color = vec3();
     }
 
-    PlaceHolderFollowerUpdate(billboardPath, "[" + (parentFlagHotspotId != -1 ? "Connected" : "Not Connected") + "]", 2.0f, false, vec4(color, 1), vec3(0, 0.5f, 0));
-
-    if(!EditorModeActive())
-        DebugDrawBillboard(billboardPath,
-            me.GetTranslation() + vec3(0, 0.5f, 0),
-        2.0f,
-            vec4(color,1),
-            _delete_on_update);
+    PlaceHolderFollowerUpdate(billboardPath, EditorModeActive() ? "[" + (parentFlagHotspotId != -1 ? "Connected" : "Not Connected") + "]" : "", 2.0f, false, vec4(color, 1), vec3(0, 0.5f, 0));
 }
 
 bool AcceptConnectionsFrom(Object@ other) {

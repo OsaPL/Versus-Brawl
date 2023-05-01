@@ -1,0 +1,13 @@
+{
+  "VersusBase": {
+    "ForcedSpecies": 0
+  },
+  "Race": {
+    "CheckPointsNeeded": 3
+  },
+  "SpeciesStats": {
+    "rabbit": {
+      "Attack Speed": 1.5
+    }
+  }
+}

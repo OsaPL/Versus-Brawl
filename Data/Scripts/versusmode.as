@@ -629,6 +629,11 @@ void VersusUpdate() {
         
         // This will load all character models, avoids hitching on first swaps
         Object@ char_obj = ReadObjectFromID(placeholderId);
+        
+        // Setting `static` to disable most of the code not really needed for preloading, makes it much smoother
+        ScriptParams@ preloadCharParams = char_obj.GetScriptParams();
+        preloadCharParams.SetInt("Static", 1); 
+        
         if(preloadSpeciesIndex< speciesMap.size()){
             if(preloadIndex< speciesMap[preloadSpeciesIndex].CharacterPaths.size()) {
                 string executeCmd = "SwitchCharacter(\""+ speciesMap[preloadSpeciesIndex].CharacterPaths[preloadIndex] +"\");";

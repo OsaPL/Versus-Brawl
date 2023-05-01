@@ -66,7 +66,8 @@ void Update(){
     string enabled = me.GetEnabled() ? "Enabled" : "Disabled";
     vec3 color = vec3(params.GetFloat("particleColorR"), params.GetFloat("particleColorG"), params.GetFloat("particleColorB"));
     
-    PlaceHolderFollowerUpdate("Data/Textures/ui/versusBrawl/particle.png", "[FollowerEmitter] Path: [" +  lastPath + "] Follows: [" + objectIdToFollow + "] [" + enabled + "]", 1, false, vec4(color, 0.8f));
+    if(EditorModeActive())
+        PlaceHolderFollowerUpdate("Data/Textures/ui/versusBrawl/particle.png", "[FollowerEmitter] Path: [" +  lastPath + "] Follows: [" + objectIdToFollow + "] [" + enabled + "]", 1, false, vec4(color, 0.8f));
 
     if(lastPath != pathToParticles){
         lastPath = pathToParticles;
