@@ -78,7 +78,13 @@ void Update(){
     Object@ me = ReadObjectFromID(hotspot.GetID());
 
     vec3 direction = me.GetRotation() * vec3(0,0,1) *0.2f;
-    PlaceHolderFollowerUpdate(billboardPath, "", 2.0f, true, vec4(color, 1), direction);
+    
+    if(EditorModeActive()){
+        PlaceHolderFollowerUpdate(billboardPath, "", 2.0f, true, vec4(color, 1), direction);
+    }
+    else{
+        PlaceHolderFollowerUpdate(billboardPath, "", 2.0f, false, vec4(color, 0.5f), direction);
+    }
     
     if(ragdollNextFrame && lastCharObjId != -1){
         MovementObject@ mo = ReadCharacterID(lastCharObjId);

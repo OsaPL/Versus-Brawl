@@ -76,15 +76,7 @@ void Update(){
     if(phase == 0){
         label = "";
     }
-    PlaceHolderFollowerUpdate(billboardPath, EditorModeActive() ? label : "", 2.0f, EditorModeActive(), vec4(color, 1));
-
-    if(!EditorModeActive())
-        DebugDrawBillboard(
-            billboardPath,
-            me.GetTranslation(),
-            2.0f,
-            vec4(color,1),
-            _delete_on_update);
+    PlaceHolderFollowerUpdate(billboardPath, EditorModeActive() ? label : "", 2.0f, EditorModeActive(), vec4(color, EditorModeActive() ? 1.0f : 0.3f));
 
     if(phase != 0){
         if(phase == openPhase && emitterId == -1){
