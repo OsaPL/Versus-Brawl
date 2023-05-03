@@ -36,12 +36,28 @@
     <RayToSun r0="0.30044" r1="0.8" r2="0.519361" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-3.23338" t1="38.7137" t2="-18.9153" s0="1" s1="1" s2="1" q0="0.0615301" q1="-0.78542" q2="0.0791214" q3="0.610794" euler_x="-2.9408" euler_y="-1.32195" euler_z="-3.14159" id="0">
+    <CameraObject t0="-56.9662" t1="78.429" t2="-11.7853" s0="1" s1="1" s2="1" q0="-0.211353" q1="-0.782938" q2="0.356919" q3="-0.463624" euler_x="-2.28614" euler_y="1.06927" euler_z="-3.14159" id="0">
         <parameters />
     </CameraObject>
+    <Hotspot t0="9.07054" t1="27.4661" t2="-21.085" s0="21.9397" s1="0.643314" s2="21.8119" q0="0" q1="-0.00643474" q2="0" q3="0.999979" euler_x="0" euler_y="-0.0128696" euler_z="0" id="657" type_file="Data/Objects/powerups/objectFollowerEmitter.xml">
+        <parameters>
+            <parameter name="Circle Zone" type="int" val="0" />
+            <parameter name="Min Distance To Activate" type="int" val="1000" />
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="originalScale" type="string" val="vec3(21.9397, 0.643314, 21.8119)" />
+            <parameter name="particleColorB" type="float" val="1" />
+            <parameter name="particleColorG" type="float" val="1" />
+            <parameter name="particleColorR" type="float" val="1" />
+            <parameter name="particleDelay" type="float" val="0.04" />
+            <parameter name="particleRangeMultiply" type="float" val="1.5" />
+            <parameter name="pathToParticles" type="string" val="Data/Particles/versus-brawl/cloud.xml" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
     <Group t0="15.6279" t1="-11.7599" t2="6.70087" s0="502.79" s1="221.469" s2="513.924" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="661" version="1">
         <parameters />
-        <Hotspot t0="-12.7528" t1="35.1265" t2="-52.3958" s0="0.756619" s1="0.756616" s2="0.756616" q0="0" q1="0.163957" q2="0" q3="0.986467" euler_x="0" euler_y="0.329401" euler_z="0" id="1" type_file="Data/Objects/playerSpawn.xml">
+        <Hotspot t0="-12.7528" t1="35.1265" t2="-52.3958" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0.163957" q2="0" q3="0.986467" euler_x="0" euler_y="0.329401" euler_z="0" id="1" type_file="Data/Objects/playerSpawn.xml">
             <parameters>
                 <parameter name="game_type" type="string" val="versusBrawl" />
                 <parameter name="playerNr" type="int" val="-1" />
@@ -78,13 +94,14 @@
                 <parameter name="Fast Mode - No Collision Refresh" type="int" val="0" />
                 <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
                 <parameter name="Loop Phases" type="int" val="1" />
-                <parameter name="Min Distance To Activate" type="float" val="30" />
+                <parameter name="Min Distance To Activate" type="int" val="1000" />
                 <parameter name="Phase Change Time" type="float" val="2" />
                 <parameter name="Phase Starting Direction Forward" type="int" val="1" />
                 <parameter name="Rise Speed" type="float" val="0.005" />
                 <parameter name="game_type" type="string" val="versusBrawl" />
             </parameters>
             <Connections>
+                <Connection id="665" />
                 <Connection id="6" />
                 <Connection id="29" />
                 <Connection id="0" />
@@ -100,7 +117,6 @@
                 <Connection id="627" />
                 <Connection id="635" />
                 <Connection id="632" />
-                <Connection id="665" />
             </Connections>
             <ConnectionsFrom />
         </Hotspot>
@@ -112,7 +128,7 @@
                 <parameter name="Fast Mode - No Collision Refresh" type="int" val="0" />
                 <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
                 <parameter name="Loop Phases" type="int" val="1" />
-                <parameter name="Min Distance To Activate" type="float" val="30" />
+                <parameter name="Min Distance To Activate" type="int" val="1000" />
                 <parameter name="Phase Change Time" type="float" val="2" />
                 <parameter name="Phase Starting Direction Forward" type="int" val="1" />
                 <parameter name="Rise Speed" type="float" val="0.005" />
@@ -140,7 +156,7 @@
                 <parameter name="Fast Mode - No Collision Refresh" type="int" val="0" />
                 <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
                 <parameter name="Loop Phases" type="int" val="1" />
-                <parameter name="Min Distance To Activate" type="float" val="30" />
+                <parameter name="Min Distance To Activate" type="int" val="1000" />
                 <parameter name="Phase Change Time" type="float" val="2" />
                 <parameter name="Phase Starting Direction Forward" type="int" val="1" />
                 <parameter name="Rise Speed" type="float" val="0.005" />
@@ -205,7 +221,7 @@
                 <parameter name="Fast Mode - No Collision Refresh" type="int" val="0" />
                 <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
                 <parameter name="Loop Phases" type="int" val="1" />
-                <parameter name="Min Distance To Activate" type="float" val="30" />
+                <parameter name="Min Distance To Activate" type="int" val="1000" />
                 <parameter name="Phase Change Time" type="float" val="2" />
                 <parameter name="Phase Starting Direction Forward" type="int" val="1" />
                 <parameter name="Rise Speed" type="float" val="0.005" />
@@ -470,7 +486,7 @@
         <EnvObject t0="-29.6353" t1="38.9695" t2="-35.5103" s0="3.94412" s1="2.26968" s2="3.38743" q0="-0.000179827" q1="0.0363846" q2="0.0305146" q3="0.998872" euler_x="0.00186621" euler_y="0.0727623" euler_z="0.0611471" id="624" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/camp/cook_tripod.xml">
             <parameters />
         </EnvObject>
-        <Hotspot t0="4.68649" t1="33.354" t2="-47.4164" s0="0.756617" s1="0.756617" s2="0.756617" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="625" type_file="Data/Objects/playerSpawn.xml">
+        <Hotspot t0="4.68649" t1="33.354" t2="-47.4164" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="625" type_file="Data/Objects/playerSpawn.xml">
             <parameters>
                 <parameter name="game_type" type="string" val="versusBrawl" />
                 <parameter name="playerNr" type="int" val="-1" />
@@ -481,7 +497,7 @@
                 <Connection id="15" />
             </ConnectionsFrom>
         </Hotspot>
-        <Hotspot t0="-28.2946" t1="36.3037" t2="-15.496" s0="0.756618" s1="0.756616" s2="0.756617" q0="0" q1="0.740228" q2="0" q3="0.672356" euler_x="3.14159" euler_y="1.47477" euler_z="3.14159" id="626" type_file="Data/Objects/playerSpawn.xml">
+        <Hotspot t0="-28.2946" t1="36.3037" t2="-15.496" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0.740228" q2="0" q3="0.672356" euler_x="3.14159" euler_y="1.47477" euler_z="3.14159" id="626" type_file="Data/Objects/playerSpawn.xml">
             <parameters>
                 <parameter name="game_type" type="string" val="versusBrawl" />
                 <parameter name="playerNr" type="int" val="-1" />
@@ -525,7 +541,7 @@
                 <Connection id="13" />
             </ConnectionsFrom>
         </Hotspot>
-        <Hotspot t0="-10.3078" t1="34.0735" t2="6.70134" s0="0.756616" s1="0.756617" s2="0.756612" q0="0" q1="0.955866" q2="0" q3="0.293803" euler_x="3.14159" euler_y="0.596406" euler_z="3.14159" id="632" type_file="Data/Objects/playerSpawn.xml">
+        <Hotspot t0="-10.3078" t1="34.0735" t2="6.70134" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0.955866" q2="0" q3="0.293803" euler_x="3.14159" euler_y="0.596406" euler_z="3.14159" id="632" type_file="Data/Objects/playerSpawn.xml">
             <parameters>
                 <parameter name="game_type" type="string" val="versusBrawl" />
                 <parameter name="playerNr" type="int" val="-1" />
@@ -554,7 +570,7 @@
                 <Connection id="12" />
             </ConnectionsFrom>
         </Hotspot>
-        <Hotspot t0="28.9793" t1="31.8497" t2="-2.28746" s0="0.756618" s1="0.756617" s2="0.756616" q0="0" q1="-0.787934" q2="0" q3="0.615759" euler_x="3.14159" euler_y="-1.32669" euler_z="3.14159" id="636" type_file="Data/Objects/playerSpawn.xml">
+        <Hotspot t0="28.9793" t1="31.8497" t2="-2.28746" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.787934" q2="0" q3="0.615759" euler_x="3.14159" euler_y="-1.32669" euler_z="3.14159" id="636" type_file="Data/Objects/playerSpawn.xml">
             <parameters>
                 <parameter name="game_type" type="string" val="versusBrawl" />
                 <parameter name="playerNr" type="int" val="-1" />
@@ -943,7 +959,7 @@
             <Connections />
             <ConnectionsFrom />
         </Hotspot>
-        <Hotspot t0="37.1275" t1="34.7943" t2="-29.5952" s0="0.756621" s1="0.756617" s2="0.756619" q0="0" q1="-0.653206" q2="0" q3="0.75718" euler_x="0" euler_y="-1.42362" euler_z="0" id="652" type_file="Data/Objects/playerSpawn.xml">
+        <Hotspot t0="37.1275" t1="34.7943" t2="-29.5952" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.653206" q2="0" q3="0.75718" euler_x="0" euler_y="-1.42362" euler_z="0" id="652" type_file="Data/Objects/playerSpawn.xml">
             <parameters>
                 <parameter name="game_type" type="string" val="versusBrawl" />
                 <parameter name="playerNr" type="int" val="-1" />
@@ -2304,4 +2320,5 @@
     <SpawnerItem display_name="weaponSpawn.xml" path="Data/Objects/weaponSpawn.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="playerSpawn.xml" path="Data/Objects/playerSpawn.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Flame Base" path="Data/Objects/Decals/flame_base.xml" thumbnail_path="" />
+    <SpawnerItem display_name="[h] objectFollowerEmitter" path="Data/Objects/powerups/objectFollowerEmitter.xml" thumbnail_path="Data/Textures/ui/versusBrawl/particle.png" />
 </RecentItems>
