@@ -1,5 +1,11 @@
 {
   "Tag": {
-    "RoundMaxTime": 60.0
+    "RoundMaxTime": {
+      "Value": 60.0,
+      "Configurable": {
+        "Min": 15.0,
+        "Max": 300.0
+      }
+    }
   }
 }

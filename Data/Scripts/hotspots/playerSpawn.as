@@ -12,6 +12,7 @@ void SetParameters() {
 
 void Update(){
     Object@ me = ReadObjectFromID(  hotspot.GetID());
+    me.SetScale(vec3(0.2));
 
     string enabled = me.GetEnabled() ? "Enabled" : "Disabled";
     int playerNr = params.GetInt("playerNr");

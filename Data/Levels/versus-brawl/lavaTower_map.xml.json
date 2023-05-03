@@ -1,23 +1,23 @@
 {
   "VersusBase": {
     "ForcedSpecies": {
-      "Value": 0
+      "Value": 4
     }
   },
   "Race": {
     "CheckPointsNeeded": {
-      "Value": 3
+      "Value": 4,
+      "Configurable": {
+        "Min": 1,
+        "Max": 4
+      }
     },
     "OnlyOneLife": {
       "Value": true
     },
     "HighestPointsWin": {
-      "Value": true
-    }
-  },
-  "SpeciesStats": {
-    "rabbit": {
-      "Attack Speed": 1.5
+      "Value": true,
+      "Configurable": {}
     }
   }
 }

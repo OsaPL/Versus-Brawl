@@ -1,11 +1,20 @@
 {
-  "Nidhogg": {
-    "PhasesToWin": 5  
+  "VersusBase": {
+    "RespawnTime": {
+      "Value": 1.0,
+      "Configurable": {
+        "Min": 0.5,
+        "Max": 15.0
+      }
+    }
   },
-  "SpeciesStats": {
-    "wolf": {
-      "Attack Speed": 0.65,
-      
+  "Nidhogg": {
+    "PhasesToWin": {
+      "Value": 5,
+      "Configurable": {
+        "Min": 1,
+        "Max": 5
+      }
     }
   }
 }

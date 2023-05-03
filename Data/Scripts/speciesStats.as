@@ -25,13 +25,7 @@ class Param{
 }
 
 // This can be extended with new races
-enum SpeciesInt {
-    _rabbit = 0,
-        _wolf = 1,
-        _dog = 2,
-        _rat = 3,
-        _cat = 4
-};
+// TODO! This should have the ability to be filled with json files
 
 array<Species@> speciesMap={
     Species("rabbit", "Textures/ui/arena_mode/glyphs/rabbit_foot_1x1.png",
@@ -87,12 +81,12 @@ void addSpeciesStats(Object@ char){
 }
 
 void SpeciesStatsLoad(JSONValue settings){
-    Log(error, "LevelSpeciesStats:");
+    //Log(error, "LevelSpeciesStats:");
     // TODO! AAAAAAAH copy pasta!
     if(FoundMember(settings, "SpeciesStats")){
         JSONValue levelSpeciesStatsJson = settings["SpeciesStats"];
         array<string> speciesMembers = levelSpeciesStatsJson.getMemberNames();
-        Log(error, "Available: " + join(levelSpeciesStatsJson.getMemberNames(),","));
+        //Log(error, "Available: " + join(levelSpeciesStatsJson.getMemberNames(),","));
         for (uint i = 0; i < speciesMembers.size(); i++)
         {
             for (uint k = 0; k < speciesMap.size(); k++)
@@ -100,7 +94,7 @@ void SpeciesStatsLoad(JSONValue settings){
                 // Find the same name
                 if(speciesMap[k].Name == speciesMembers[i]){
                     speciesMap[k].LevelParams = {};
-                    Log(error, "speciesMap[k].Name: " + speciesMap[k].Name + " speciesMembers[i]: " + speciesMembers[i]);
+                    //Log(error, "speciesMap[k].Name: " + speciesMap[k].Name + " speciesMembers[i]: " + speciesMembers[i]);
 
                     JSONValue speciesEntry = levelSpeciesStatsJson[speciesMembers[i]];
                     array<string> paramMembers = speciesEntry.getMemberNames();
@@ -112,23 +106,23 @@ void SpeciesStatsLoad(JSONValue settings){
                         string paramValue = speciesEntry[paramMembers[j]].asString();
 
                         speciesMap[k].LevelParams.push_back(Param(paramName, paramValue, jsonType));
-                        Log(error, "LevelSpeciesStats " + speciesMap[k].Name + " " + paramName + " " + paramValue + " " + jsonType);
+                        //Log(error, "LevelSpeciesStats " + speciesMap[k].Name + " " + paramName + " " + paramValue + " " + jsonType);
                     }
                 }
             }
         }
-        Log(error, "Available: " + join(levelSpeciesStatsJson.getMemberNames(),","));
+        //Log(error, "Available: " + join(levelSpeciesStatsJson.getMemberNames(),","));
     }
 }
 
 void BaseSpeciesStatsLoad(){
     string cfgPath = "Data/Scripts/versus-brawl/speciesStats.json";
     JSONValue settings = LoadJSONFile(cfgPath);
-    Log(error, "BaseSpeciesStats:");
+    //Log(error, "BaseSpeciesStats:");
     if(FoundMember(settings, "SpeciesStats")){
         JSONValue baseSpeciesStatsJson = settings["SpeciesStats"];
         array<string> speciesMembers = baseSpeciesStatsJson.getMemberNames();
-        Log(error, "Available: " + join(baseSpeciesStatsJson.getMemberNames(),","));
+        //Log(error, "Available: " + join(baseSpeciesStatsJson.getMemberNames(),","));
         for (uint i = 0; i < speciesMembers.size(); i++)
         {
             for (uint k = 0; k < speciesMap.size(); k++)
@@ -137,7 +131,7 @@ void BaseSpeciesStatsLoad(){
                 if(speciesMap[k].Name == speciesMembers[i]){
                     // TODO! For some reason I need to cleanup `LevelParams` before proceeding with `BaseParams`?
                     speciesMap[k].LevelParams = {};
-                    Log(error, "speciesMap[k].Name: " + speciesMap[k].Name + " speciesMembers[i]: " + speciesMembers[i]);
+                    //Log(error, "speciesMap[k].Name: " + speciesMap[k].Name + " speciesMembers[i]: " + speciesMembers[i]);
 
                     JSONValue speciesEntry = baseSpeciesStatsJson[speciesMembers[i]];
                     array<string> paramMembers = speciesEntry.getMemberNames();
@@ -149,12 +143,12 @@ void BaseSpeciesStatsLoad(){
                         string paramValue = speciesEntry[paramMembers[j]].asString();
 
                         speciesMap[k].BaseParams.push_back(Param(paramName, paramValue, jsonType));
-                        Log(error, "BaseSpeciesStats " + speciesMap[k].Name + " " + paramName + " " + paramValue + " " + jsonType);
+                        //Log(error, "BaseSpeciesStats " + speciesMap[k].Name + " " + paramName + " " + paramValue + " " + jsonType);
                     }
                 }
             }
         }
-        Log(error, "Available: " + join(baseSpeciesStatsJson.getMemberNames(),","));
+        //Log(error, "Available: " + join(baseSpeciesStatsJson.getMemberNames(),","));
     }
 }
 
@@ -169,7 +163,7 @@ void SetSpeciesParams(Object@ char){
     {
         if(speciesMap[i].Name == species){
             
-            Log(error, "SetSpeciesParams speciesMap[i].Name: " + speciesMap[i].Name);
+            //Log(error, "SetSpeciesParams speciesMap[i].Name: " + speciesMap[i].Name);
             array<Param@> speciesBaseParams = speciesMap[i].BaseParams;
 
             for (uint j = 0; j < speciesBaseParams.size(); j++)
@@ -178,7 +172,7 @@ void SetSpeciesParams(Object@ char){
                 string StringValue = speciesBaseParams[j].StringValue;
                 JsonValueType jsonType = speciesBaseParams[j].Type;
 
-                Log(error, "SetSpeciesParams Base " + speciesMap[i].Name + " " + Name + " " + StringValue + " " + jsonType);
+                //Log(error, "SetSpeciesParams Base " + speciesMap[i].Name + " " + Name + " " + StringValue + " " + jsonType);
 
                 // Now we just convert the value and call correct params method
                 if (jsonType == JSONintValue) {
@@ -201,7 +195,7 @@ void SetSpeciesParams(Object@ char){
                 string StringValue1 = speciesLevelParams[k].StringValue;
                 JsonValueType jsonType1 = speciesLevelParams[k].Type;
 
-                Log(error, "SetSpeciesParams Level " + speciesMap[i].Name + " " + Name1 + " " + StringValue1 + " " + jsonType1);
+                //Log(error, "SetSpeciesParams Level " + speciesMap[i].Name + " " + Name1 + " " + StringValue1 + " " + jsonType1);
 
                 // Now we just convert the value and call correct params method
                 if (jsonType1 == JSONintValue) {

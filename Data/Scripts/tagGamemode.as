@@ -11,8 +11,8 @@ bool deathsChangesToChasers = false;
 // Killing a Chaser respawns him as Runner, if `false` they just respawn
 bool killsChangesToRunners = false;
 // These two only work if `blockSpeciesChange==true`, otherwise player can just switch off to another
-int chaserSpecies = _cat;
-int runnerSpecies = _rat;
+int chaserSpecies = 4;
+int runnerSpecies = 3;
 // Bigger team wins on timeout, if `false` chasers win when there are no more runners.
 bool biggerTeamWins = false;
 
@@ -133,7 +133,6 @@ void Init(string msg){
     randomHints.insertAt(0, "Sometimes catching helps more, you may need some help.");
     randomHints.insertAt(0, "Someones really elusive? Maybe killing him is a better idea.");
     
-    forcedSpecies = _rat;
     blockSpeciesChange = true;
     //Always need to call this first!
     VersusInit("");
@@ -198,25 +197,25 @@ void TagLoad(JSONValue settings) {
         Log(error, "Available: " + join(tag.getMemberNames(),","));
 
         if (FoundMember(tag, "RoundMaxTime"))
-            roundMaxTime = tag["RoundMaxTime"].asFloat();
+            roundMaxTime = tag["RoundMaxTime"]["Value"].asFloat();
 
         if (FoundMember(tag, "FreezeTime"))
-            freezeTime = tag["FreezeTime"].asFloat();
+            freezeTime = tag["FreezeTime"]["Value"].asFloat();
 
         if (FoundMember(tag, "DeathsChangesToChasers"))
-            deathsChangesToChasers = tag["DeathsChangesToChasers"].asBool();
+            deathsChangesToChasers = tag["DeathsChangesToChasers"]["Value"].asBool();
 
         if (FoundMember(tag, "KillsChangesToRunners"))
-            killsChangesToRunners = tag["KillsChangesToRunners"].asBool();
+            killsChangesToRunners = tag["KillsChangesToRunners"]["Value"].asBool();
 
         if (FoundMember(tag, "ChaserSpecies"))
-            chaserSpecies = tag["ChaserSpecies"].asInt();
+            chaserSpecies = tag["ChaserSpecies"]["Value"].asInt();
 
         if (FoundMember(tag, "RunnerSpecies"))
-            runnerSpecies = tag["RunnerSpecies"].asInt();
+            runnerSpecies = tag["RunnerSpecies"]["Value"].asInt();
 
         if (FoundMember(tag, "BiggerTeamWins"))
-            biggerTeamWins = tag["BiggerTeamWins"].asBool();
+            biggerTeamWins = tag["BiggerTeamWins"]["Value"].asBool();
     }
 }
 

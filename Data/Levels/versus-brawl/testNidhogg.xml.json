@@ -6,6 +6,8 @@
     }
   },
   "Nidhogg": {
-    "PhasesToWin": 3
+    "PhasesToWin": {
+      "Value": 3
+    }
   }
 }

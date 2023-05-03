@@ -1,53 +1,131 @@
 {
   "VersusBase": {
-    "RespawnTime": 2.0,
-    "RespawnBlockTime": 0.5,
-    "SpawnPointBlockTime": 5.0,
-    "ConstantRespawning": true,
-    "UseGenericSpawns": true,
-    "UseSingleSpawnType": false,
-    "WinStateTime": 10.0,
-    "ForcedSpecies": 0,
-    "BlockSpeciesChange": false,
-    "InstantSpeciesChange": false,
-    "EnablePreload": true,
-    "NoReloads": false,
-    "MaxCollateralKillTime": 5.0,
-    "HintStayTime": 4.0,
-    "SuicideTime": 5.0,
-    "CrownsEnabled": true,
-    "TeamPlay": false,
-    "TeamsAmount": 2,
-    "AllowUneven": true,
-    "AllowTeamChange": true,
-    "StrictTeamColors": true
+    "RespawnTime": {
+      "Value": 2.0
+    },
+    "RespawnBlockTime": {
+      "Value": 0.5
+    },
+    "SpawnPointBlockTime": {
+      "Value": 5.0
+    },
+    "ConstantRespawning": {
+      "Value": true
+    },
+    "UseGenericSpawns": {
+      "Value": true
+    },
+    "UseSingleSpawnType": {
+      "Value": false
+    },
+    "WinStateTime": {
+      "Value": 10.0
+    },
+    "ForcedSpecies": {
+      "Value": -1
+    },
+    "BlockSpeciesChange": {
+      "Value": false
+    },
+    "InstantSpeciesChange": {
+      "Value": false
+    },
+    "EnablePreload": {
+      "Value": true
+    },
+    "NoReloads": {
+      "Value": true
+    },
+    "MaxCollateralKillTime": {
+      "Value": 5.0
+    },
+    "HintStayTime": {
+      "Value": 4.0
+    },
+    "SuicideTime": {
+      "Value": 5.0
+    },
+    "CrownsEnabled": {
+      "Value": true
+    },
+    "TeamPlay": {
+      "Value": false
+    },
+    "TeamsAmount": {
+      "Value": 2
+    },
+    "AllowUneven": {
+      "Value": true
+    },
+    "AllowTeamChange": {
+      "Value": true
+    },
+    "StrictTeamColors": {
+      "Value": false
+    }
   },
   "Deathmatch": {
-    "PointsToWin": 3,
-    "PointsTextShowTime": 5.0
+    "PointsToWin": {
+      "Value": 3
+    },
+    "PointsTextShowTime": {
+      "Value": 5.0
+    }
   },
   "Race": {
-    "CheckPointsNeeded": 2,
-    "CheckPointsNeededTextShowTime": 5.0,
-    "OnlyOneLife": true,
-    "HighestPointsWin": true
+    "CheckPointsNeeded": {
+      "Value": 2
+    },
+    "CheckPointsNeededTextShowTime": {
+      "Value": 5.0
+    },
+    "OnlyOneLife": {
+      "Value": true
+    },
+    "HighestPointsWin": {
+      "Value": true
+    }
   },
   "Tag": {
-    "RoundMaxTime": 20.0,
-    "FreezeTime": 3.0,
-    "DeathsChangesToChasers": false,
-    "KillsChangesToRunners": false,
-    "ChaserSpecies": 4,
-    "RunnerSpecies": 3,
-    "BiggerTeamWins": false
+    "RoundMaxTime": {
+      "Value": 20.0
+    },
+    "FreezeTime": {
+      "Value": 3.0
+    },
+    "DeathsChangesToChasers": {
+      "Value": false
+    },
+    "KillsChangesToRunners": {
+      "Value": false
+    },
+    "ChaserSpecies": {
+      "Value": 4
+    },
+    "RunnerSpecies": {
+      "Value": 3
+    },
+    "BiggerTeamWins": {
+      "Value": false
+    }
   },
   "CTF": {
-    "PointsToWin": 3,
-    "PointsTextShowTime": 5.0,
-    "FlagRespawnTime" : 10,
-    "CarrierDebuffMlt": 0.8
+    "PointsToWin": {
+      "Value": 3
+    },
+    "PointsTextShowTime": {
+      "Value": 5.0
+    },
+    "FlagRespawnTime" : {
+      "Value": 10.0
+    },
+    "CarrierDebuffMlt": {
+      "Value": 0.9
+    }
   },
   "Nidhogg": {
-    "PhasesToWin": 3
+    "PhasesToWin": {
+      "Value": 3
+    }
   }
 }

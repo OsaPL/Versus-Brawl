@@ -78,10 +78,10 @@ void DeathmatchLoad(JSONValue settings) {
         Log(error, "Available: " + join(deathmatch.getMemberNames(),","));
 
         if (FoundMember(deathmatch, "PointsToWin"))
-            pointsToWin = deathmatch["PointsToWin"].asInt();
+            pointsToWin = deathmatch["PointsToWin"]["Value"].asInt();
         
         if (FoundMember(deathmatch, "PointsTextShowTime"))
-            pointsTextShowTime = deathmatch["PointsTextShowTime"].asFloat();
+            pointsTextShowTime = deathmatch["PointsTextShowTime"]["Value"].asFloat();
     }
 }
 

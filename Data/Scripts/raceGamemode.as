@@ -68,19 +68,19 @@ void RaceLoad(JSONValue settings){
         Log(error, "Available: " + join(race.getMemberNames(),","));
 
         if (FoundMember(race, "CheckPointsNeeded"))
-            pointsToWin = race["CheckPointsNeeded"].asInt();
+            pointsToWin = race["CheckPointsNeeded"]["Value"].asInt();
 
         if (FoundMember(race, "CheckPointsNeededTextShowTime"))
-            pointsTextShowTime = race["CheckPointsNeededTextShowTime"].asFloat();
+            pointsTextShowTime = race["CheckPointsNeededTextShowTime"]["Value"].asFloat();
 
         if (FoundMember(race, "OnlyOneLife")) {
-            onlyOneLife = race["OnlyOneLife"].asBool();
+            onlyOneLife = race["OnlyOneLife"]["Value"].asBool();
             if(onlyOneLife)
                 constantRespawning = false;
         }
 
         if (FoundMember(race, "HighestPointsWin")) {
-            highestPointsWin = race["HighestPointsWin"].asBool();
+            highestPointsWin = race["HighestPointsWin"]["Value"].asBool();
         }
     }
 }

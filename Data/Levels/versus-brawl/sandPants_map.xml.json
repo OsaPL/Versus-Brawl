@@ -1,9 +1,29 @@
 {
   "CTF": {
-    "PointsToWin": 3,
-    "PointsTextShowTime": 5.0,
-    "FlagRespawnTime" : 30,
-    "CarrierDebuffMlt": 0.9
+    "PointsToWin": {
+      "Value": 3,
+      "Configurable": {
+        "Min": 1,
+        "Max": 20
+      }
+    },
+    "PointsTextShowTime": {
+      "Value": 5.0
+    },
+    "FlagRespawnTime" : {
+      "Value": 30.0,
+      "Configurable": {
+        "Min": 5.0,
+        "Max": 60.0
+      }
+    },
+    "CarrierDebuffMlt": {
+      "Value": 0.8,
+      "Configurable": {
+        "Min": 0.1,
+        "Max": 0.9
+      }
+    }
   },
   "SpeciesStats": {
     "rabbit": {

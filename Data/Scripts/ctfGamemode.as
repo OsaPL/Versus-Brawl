@@ -69,16 +69,16 @@ void CTFLoad(JSONValue settings) {
         Log(error, "Available: " + join(ctf.getMemberNames(),","));
 
         if (FoundMember(ctf, "PointsToWin"))
-            pointsToWin = ctf["PointsToWin"].asInt();
+            pointsToWin = ctf["PointsToWin"]["Value"].asInt();
 
         if (FoundMember(ctf, "PointsTextShowTime"))
-            pointsTextShowTime = ctf["PointsTextShowTime"].asFloat();
+            pointsTextShowTime = ctf["PointsTextShowTime"]["Value"].asFloat();
 
         if (FoundMember(ctf, "FlagRespawnTime"))
-            flagRespawnTime = ctf["FlagRespawnTime"].asFloat();
+            flagRespawnTime = ctf["FlagRespawnTime"]["Value"].asFloat();
 
         if (FoundMember(ctf, "CarrierDebuffMlt"))
-            debuffMlt = ctf["CarrierDebuffMlt"].asFloat();
+            debuffMlt = ctf["CarrierDebuffMlt"]["Value"].asFloat();
         
     }
 }

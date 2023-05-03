@@ -79,7 +79,7 @@ bool useSingleSpawnType = false;
 // Sets the lenght of victory state
 float winStateTime = 10.0f;
 // Starting species
-int forcedSpecies = _rabbit;
+int forcedSpecies = 0;
 // This blocks currentRace from being changed by player
 bool blockSpeciesChange = false;
 // This allows instant race change even during game (state>=2)
@@ -1314,78 +1314,79 @@ void VersusBaseLoad(JSONValue settings){
         Log(error, "Available: " + join(versusBase.getMemberNames(),","));
 
         if(FoundMember(versusBase, "RespawnTime"))
-            respawnTime = versusBase["RespawnTime"].asFloat();
+            respawnTime = versusBase["RespawnTime"]["Value"].asFloat();
         
         if(FoundMember(versusBase, "RespawnBlockTime"))
-            respawnBlockTime = versusBase["RespawnBlockTime"].asFloat();
+            respawnBlockTime = versusBase["RespawnBlockTime"]["Value"].asFloat();
         
         if(FoundMember(versusBase, "SpawnPointBlockTime"))
-            spawnPointBlockTime = versusBase["SpawnPointBlockTime"].asFloat();
+            spawnPointBlockTime = versusBase["SpawnPointBlockTime"]["Value"].asFloat();
         
         if(FoundMember(versusBase, "WinStateTime"))
-            winStateTime = versusBase["WinStateTime"].asFloat();
+            winStateTime = versusBase["WinStateTime"]["Value"].asFloat();
         
         if(FoundMember(versusBase, "ForcedSpecies")){
-            forcedSpecies = versusBase["ForcedSpecies"].asInt();
+            forcedSpecies = versusBase["ForcedSpecies"]["Value"].asInt();
             
             //This makes sure first spawned character are correct species
-            for(uint i = 0; i < versusPlayers.size(); i++)
-            {
-                VersusPlayer@ player = GetPlayerByNr(i);
-                player.currentRace = forcedSpecies;
-                RerollCharacter(player.playerNr, ReadObjectFromID(player.objId));
+            if(forcedSpecies != -1){
+                for(uint i = 0; i < versusPlayers.size(); i++)
+                {
+                    VersusPlayer@ player = GetPlayerByNr(i);
+                    player.currentRace = forcedSpecies;
+                    RerollCharacter(player.playerNr, ReadObjectFromID(player.objId));
+                }
             }
-            
             Log(error, "Refreshing currentRace, cause loaded new forcedSpecies: " + forcedSpecies);
         }
         
         if(FoundMember(versusBase, "ConstantRespawning"))
-            constantRespawning = versusBase["ConstantRespawning"].asBool();
+            constantRespawning = versusBase["ConstantRespawning"]["Value"].asBool();
         
         if(FoundMember(versusBase, "UseGenericSpawns"))
-            useGenericSpawns = versusBase["UseGenericSpawns"].asBool();
+            useGenericSpawns = versusBase["UseGenericSpawns"]["Value"].asBool();
 
         if(FoundMember(versusBase, "UseSingleSpawnType"))
-            useSingleSpawnType = versusBase["UseSingleSpawnType"].asBool();
+            useSingleSpawnType = versusBase["UseSingleSpawnType"]["Value"].asBool();
 
         if(FoundMember(versusBase, "BlockSpeciesChange"))
-            blockSpeciesChange = versusBase["BlockSpeciesChange"].asBool();
+            blockSpeciesChange = versusBase["BlockSpeciesChange"]["Value"].asBool();
 
         if(FoundMember(versusBase, "InstantSpeciesChange"))
-            instantSpeciesChange = versusBase["InstantSpeciesChange"].asBool();
+            instantSpeciesChange = versusBase["InstantSpeciesChange"]["Value"].asBool();
 
         if(FoundMember(versusBase, "EnablePreload"))
-            enablePreload = versusBase["EnablePreload"].asBool();
+            enablePreload = versusBase["EnablePreload"]["Value"].asBool();
 
         if(FoundMember(versusBase, "NoReloads"))
-            noReloads = versusBase["NoReloads"].asBool();
+            noReloads = versusBase["NoReloads"]["Value"].asBool();
 
         if(FoundMember(versusBase, "MaxCollateralKillTime"))
-            maxCollateralKillTime = versusBase["MaxCollateralKillTime"].asFloat();
+            maxCollateralKillTime = versusBase["MaxCollateralKillTime"]["Value"].asFloat();
 
         if(FoundMember(versusBase, "HintStayTime"))
-            hintStayTime = versusBase["HintStayTime"].asFloat();
+            hintStayTime = versusBase["HintStayTime"]["Value"].asFloat();
 
         if (FoundMember(versusBase, "suicideTime"))
-            suicideTime = versusBase["SuicideTime"].asFloat();
+            suicideTime = versusBase["SuicideTime"]["Value"].asFloat();
 
         if(FoundMember(versusBase, "CrownsEnabled"))
-            crownEnabled = versusBase["CrownsEnabled"].asBool();
+            crownEnabled = versusBase["CrownsEnabled"]["Value"].asBool();
 
         if(FoundMember(versusBase, "TeamPlay"))
-            teamPlay = versusBase["TeamPlay"].asBool();
+            teamPlay = versusBase["TeamPlay"]["Value"].asBool();
 
         if(FoundMember(versusBase, "TeamsAmount"))
-            teamsAmount = versusBase["TeamsAmount"].asInt();
+            teamsAmount = versusBase["TeamsAmount"]["Value"].asInt();
 
         if(FoundMember(versusBase, "AllowUneven"))
-            allowUneven = versusBase["AllowUneven"].asBool();
+            allowUneven = versusBase["AllowUneven"]["Value"].asBool();
 
         if(FoundMember(versusBase, "AllowTeamChange"))
-            allowTeamChange = versusBase["AllowTeamChange"].asBool();
+            allowTeamChange = versusBase["AllowTeamChange"]["Value"].asBool();
 
         if(FoundMember(versusBase, "StrictTeamColors"))
-            strictTeamColors = versusBase["StrictTeamColors"].asBool();
+            strictTeamColors = versusBase["StrictTeamColors"]["Value"].asBool();
     }
 }
 

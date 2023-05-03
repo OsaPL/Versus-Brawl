@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <Mod>
-    <Id>versus-brawl</Id>
+    <Id>versus-brawl-wip</Id>
     <Name>Versus Brawl - local play overhaul</Name>
 
     <Category>VersusBrawl</Category>
@@ -34,7 +34,18 @@
         <Version>*</Version>
     </ModDependency>
 
-    <Campaign title="Versus Brawl" thumbnail="Images/versus-brawl/placeholder.png" menu_script="arena_campaign_menu.as" main_script="linear_campaign.as">
+<!--    <Campaign title="Versus Brawl" thumbnail="Images/versus-brawl/placeholder.png" menu_script="arena_campaign_menu.as">-->
+<!--        <Level title="Elder Blocks DM" thumbnail="Images/versus-brawl/blocks.jpg">versus-brawl/blocks_map.xml</Level>-->
+<!--		<Level title="Elder Balance LBS" thumbnail="Images/versus-brawl/planks.jpg">versus-brawl/plank_map.xml</Level>-->
+<!--        <Level title="Dank Caves TAG" thumbnail="Images/versus-brawl/cave.jpg">versus-brawl/cave_map.xml</Level>-->
+<!--        <Level title="(Beta2)Gods Exile DM" thumbnail="Images/versus-brawl/floating2.jpg">versus-brawl/floating2_map.xml</Level>-->
+<!--        <Level title="(RC)Imperial Sewers DM" thumbnail="Images/versus-brawl/sewer.jpg">versus-brawl/sewer_map.xml</Level>-->
+<!--        <Level title="(RC)Purple Dreams NIDHOGG" thumbnail="Images/versus-brawl/purple.jpg">versus-brawl/purple_map.xml</Level>-->
+<!--        <Level title="(Beta2)Sand Fortress CTF" thumbnail="Images/versus-brawl/sand.jpg">versus-brawl/sandPants_map.xml</Level>-->
+<!--        <Level title="(WIP)Lava Tower RACE" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/lavaTower.xml</Level>-->
+<!--    </Campaign>-->
+
+    <Campaign title="Versus Brawl Custom" thumbnail="Images/versus-brawl/placeholder.png" menu_script="Data/Scripts/versus-brawl/menu/menu.as">
         <Level title="Elder Blocks DM" thumbnail="Images/versus-brawl/blocks.jpg">versus-brawl/blocks_map.xml</Level>
 		<Level title="Elder Balance LBS" thumbnail="Images/versus-brawl/planks.jpg">versus-brawl/plank_map.xml</Level>
         <Level title="Dank Caves TAG" thumbnail="Images/versus-brawl/cave.jpg">versus-brawl/cave_map.xml</Level>
@@ -42,12 +53,8 @@
         <Level title="(RC)Imperial Sewers DM" thumbnail="Images/versus-brawl/sewer.jpg">versus-brawl/sewer_map.xml</Level>
         <Level title="(RC)Purple Dreams NIDHOGG" thumbnail="Images/versus-brawl/purple.jpg">versus-brawl/purple_map.xml</Level>
         <Level title="(Beta2)Sand Fortress CTF" thumbnail="Images/versus-brawl/sand.jpg">versus-brawl/sandPants_map.xml</Level>
-        <Level title="(WIP)Lava Tower RACE" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/lavaTower.xml</Level>
+        <Level title="(WIP)Lava Tower RACE" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/lavaTower_map.xml</Level>
     </Campaign>
-
-<!--    <MenuItem title="My Campaign" thumbnail="Textures/example_simple_campaign/campaign_thumbnails/Clearing.jpg" category="play">Data/Scripts/custom_campaign/my_campaign_menu.as</MenuItem>-->
-<!--    <MenuItem title="Modding" category="main">Data/Scripts/mod_handler/mod_handler_menu.as</MenuItem>-->
-<!--    <MenuItem title="Mod Handler" category="sub">Data/Scripts/mod_handler/mod_handler_menu.as</MenuItem>-->
 
     <!-- TODO! Extend these-->
     <!-- Static Object-->

@@ -182,7 +182,7 @@ void NidhoggLoad(JSONValue settings) {
         Log(error, "Available: " + join(nidhogg.getMemberNames(),","));
 
         if (FoundMember(nidhogg, "PhasesToWin")){
-            pointsToWin = nidhogg["PhasesToWin"].asInt() - 1;
+            pointsToWin = nidhogg["PhasesToWin"]["Value"].asInt() - 1;
             Log(error, "PhasesToWin: " + pointsToWin);
         }
             
