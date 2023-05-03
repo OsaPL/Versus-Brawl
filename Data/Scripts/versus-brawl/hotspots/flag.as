@@ -266,10 +266,16 @@ void DebuffCheck(){
             
             MovementObject@ char = ReadCharacterID(holder_id);
             Object@ charObj = ReadObjectFromID(char.GetID());
-            ScriptParams@ params = charObj.GetScriptParams();
+            ScriptParams@ charParams = charObj.GetScriptParams();
 
-            params.SetFloat("Movement Speed", params.GetFloat("Movement Speed") * debuffMlt);
-            params.SetFloat("Jump - Initial Velocity", params.GetFloat("Jump - Initial Velocity") * debuffMlt);
+            int holderTeamNr = parseInt(charParams.GetString("Teams").substr(12));
+            if(holderTeamNr == params.GetInt("teamId")){
+                // same team, ignore debuffing
+                return;
+            }
+
+            charParams.SetFloat("Movement Speed", charParams.GetFloat("Movement Speed") * debuffMlt);
+            charParams.SetFloat("Jump - Initial Velocity", charParams.GetFloat("Jump - Initial Velocity") * debuffMlt);
 
             charObj.UpdateScriptParams();
             Log(error, "Enabled debuff: " + debuffMlt + " for: " + holder_id);
@@ -280,10 +286,16 @@ void DebuffCheck(){
             
             MovementObject@ char = ReadCharacterID(holder_id);
             Object@ charObj = ReadObjectFromID(char.GetID());
-            ScriptParams@ params = charObj.GetScriptParams();
+            ScriptParams@ charParams = charObj.GetScriptParams();
 
-            params.SetFloat("Movement Speed", params.GetFloat("Movement Speed") * (1/debuffMlt));
-            params.SetFloat("Jump - Initial Velocity", params.GetFloat("Jump - Initial Velocity") * (1/debuffMlt));
+            int holderTeamNr = parseInt(charParams.GetString("Teams").substr(12));
+            if(holderTeamNr == params.GetInt("teamId")){
+                // same team, ignore buffing back
+                return;
+            }
+
+            charParams.SetFloat("Movement Speed", charParams.GetFloat("Movement Speed") * (1/debuffMlt));
+            charParams.SetFloat("Jump - Initial Velocity", charParams.GetFloat("Jump - Initial Velocity") * (1/debuffMlt));
 
             charObj.UpdateScriptParams();
             Log(error, "Disabled debuff: " + debuffMlt + " for: " + holder_id);
