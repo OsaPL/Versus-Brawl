@@ -384,7 +384,17 @@ void DrawGUI() {
 						configBools[currectConfigParam.TypeIndex] = currectConfigParam.Default == "true";
 					}
 				} else if (currectConfigParam.Type == JSONstringValue) {
-					//TODO!
+					ImGui_Text(currectConfigParam.Name);
+					SkipColumns(2);
+
+					// Negative means fill
+					ImGui_PushItemWidth(-1);
+					ImGui_InputText(configStrings[currectConfigParam.TypeIndex], configStrings[currectConfigParam.TypeIndex], 64);
+					SkipColumns(2);
+
+					if(ImGui_Button("X##X"+uniqueId)){
+						configBools[currectConfigParam.TypeIndex] = currectConfigParam.Default == "true";
+					}
 				} else if (currectConfigParam.Type == JSONobjectValue) {
 					// We cant do anything with an object value atm, just skip it.
 				}

@@ -530,6 +530,8 @@ void VersusInit(string p_level_name) {
     // Register callback for loading JSON config
     loadCallbacks.push_back(@VersusBaseLoad);
     loadCallbacks.push_back(@SpeciesStatsLoad);
+    loadCallbacks.push_back(@LevelParamsLoad);
+    
     // Load speciesStats.json
     BaseSpeciesStatsLoad();
 
@@ -1302,6 +1304,40 @@ void FindSpawnPoints(){
                             player.spawnPoints.push_back(SpawnPoint(object_ids[i]));
                     }
                 }
+            }
+        }
+    }
+}
+
+// This handles custom level params if there are any to include
+void LevelParamsLoad(JSONValue settings){
+    Log(error, "LevelParams:");
+    if(FoundMember(settings, "LevelParams")) {
+        ScriptParams@ lvlParams = level.GetScriptParams();
+        
+        JSONValue levelParamsMembersRoot = settings["LevelParams"];
+        array<string> levelParamsMembers = levelParamsMembersRoot.getMemberNames();
+        for (uint j = 0; j < levelParamsMembers.size(); j++)
+        {
+            // Properties
+            JSONValue property = levelParamsMembersRoot[levelParamsMembers[j]];
+            
+            JSONValue paramValue = property["Value"];
+            JsonValueType jsonType1 = paramValue.type();
+            
+            string StringValue1 = paramValue.asString();
+
+            // Now we just convert the value, add to correct list, and use the index+type combo as a indirect pointer
+            if (jsonType1 == JSONintValue) {
+                lvlParams.SetInt(levelParamsMembers[j], parseInt(StringValue1));
+            } else if (jsonType1 == JSONrealValue) {
+                lvlParams.SetFloat(levelParamsMembers[j], parseFloat(StringValue1));
+            } else if (jsonType1 == JSONbooleanValue) {
+                lvlParams.SetInt(levelParamsMembers[j], StringValue1 == "true" ? 1 : 0);
+            } else if (jsonType1 == JSONstringValue) {
+                lvlParams.SetString(levelParamsMembers[j], StringValue1);
+            } else if (jsonType1 == JSONobjectValue) {
+                // We cant do anything with an object value atm, just skip it.
             }
         }
     }
