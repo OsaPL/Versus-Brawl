@@ -117,7 +117,12 @@ void Reset(){
 
 void ResetCTF(){
     pointsTextShow = true;
-    pointsCount = {0,0,0,0};
+
+    pointsCount = {};
+    for (uint j = 0; j < teamsAmount; j++)
+    {
+        pointsCount.push_back(0);
+    }
     updateScores = true;
 
     constantRespawning = true;

@@ -1,3 +1,36 @@
+# Npc players problems:
+1. Should use `.isNpc` for all Npc checks
+2. Tag: will crash if more than 4 players
+   - Problem: tables are hardcoded to have 4 elems
+3. `isNpc` should be checked inside SpawnCharacter probably!
+4. There is some logic in `pointUIBase.as` taht needs to get seperated, to some UI and Gameplay flows
+
+DM and CTF seem to work just fine, even if over 4+ players
+
+# Example `LevelParams` section (*put into docs*)
+```json
+"LevelParams": {
+  "TestString": {
+    "Value": "Test",
+    "Configurable": {}
+  },
+    "NonConfigurableTestString": {
+    "Value": "NoConfTestString"
+  },
+  "IntTest": {
+    "Value": 10,
+    "Configurable": {
+      "Min": 2,
+      "Max": 100
+    }
+  },
+  "BoolTest": {
+    "Value": false,
+    "Configurable": {}
+  }
+}
+```
+
 # DO THOSE THINGS:
 - `speed` on staticAnimator should also work for frames (in integer form only for > 1), 2x is "skip a frame", 0.5x is "render frame two times" etc
 - big weapons that support sheathing should be seperated into Versus brawl probably, instead of overwriting the stock weapons
@@ -5,7 +38,6 @@
 - organise all scripts/objects better
 - create a generic thing for managing and "switching" objects (gut out what is already done in `waterRiseHotspot`?)
 - get rid of that stupid limitation of: `respawnTime cant be smaller than activeTime` on powerupBase
-- add checkmarks or something to race goal to show you've already hit them
 
 # Maybe, Maybees, Maybies?
 - for simple arrays, I should just use `int find(const T& in)`
@@ -26,16 +58,20 @@ Big sticks:
 
 [h1]0.7:[/h1]
 This is a big one, with focus on actually getting new content polished, and making mapping a lot better.
-Some of these were already included in 0.5.9 pre-release
+Some of these changes/additions were already included in 0.5.9 pre-release, they have been fixed up and polished since.
+(skipped 0.6, since I didnt want to push another update without any new content)
 [b]Added Nidhogg, CTF, Race gamemodes![/b]
+- Some of these were already available, but were reworked/enhanced a lot
+- also, they now come with actually finished maps...
 
 [b]Added new playable maps:[/b]
 - Sand Fortress, CTF
 - Purple Dreams, Nidhogg
+- Lava Tower, Race (WIP)
 
 [b]Maps reworked:[/b]
-- Imperial sewers, is now finished
-- Dank cave, now a TAG map, with some visual touchups
+- Imperial sewers, is now a finished map
+- Dank cave, now a TAG map, with many visual touchups
 - Gods Exile, touched up and converted into a DM map
 
 [b]Weapons additions:[/b]
@@ -43,7 +79,7 @@ Some of these were already included in 0.5.9 pre-release
 - RabbitCatcher now acts as a spear.
 - You can now also quick drop a weapon by tapping "drop" two times quickly
 - Added ability to select which weapon to unsheathe by holding a key, and then pressing "item" key:
-  - hold "grab" to unsheathe hip weapons (hold "item" to unsheathe both, pres for a single one)
+  - hold "grab" to unsheathe hip weapons (hold "item" to unsheathe both, press for a single one)
   - hold "attack" to unsheathe big sword weapon slot
 
 [b]Dogs can now sheathe big weapons on their back. (other characters can also use the new "Can sheathe big weapons" parameter)[/b]
@@ -69,12 +105,12 @@ Some of these were already included in 0.5.9 pre-release
 - Suicide now available for all gamemodes
 - Not counted kills will now trigger SuicideDeath event
 - Leader crown now also available for all gamemodes
-- Most hotspots are now available in the object collection category 'VersusBrawl'
+- All hotspots are now available in the spawner category 'VersusBrawl'
 - Points UI is now generic and you can use it in any gamemode or even extend it
 - Versus-Brawl UI no longer displays while in editor mode
 - More options for fps optimization added to objectFollowerEmmiter and waterRiseHotspot (see modding docs)
 - objectFollowerEmmiter now also has a editor mode placeholder to help with visibility
-- All hotspot placeholder texts now only showup within a distance of the camera
+- All hotspot placeholder texts now only show up within a distance of the camera
  
 [b]Fixes:[/b]
 - Hotspots should now check the paths before trying to load a file.

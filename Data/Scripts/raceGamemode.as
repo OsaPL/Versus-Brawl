@@ -257,8 +257,13 @@ void ResetRace(){
     dead = {false, false, false, false};
     // We set the timer lower, for those `Nobody wins` cases
     winStateTime = loadedWinStateTime / 3;
+
+    pointsCount = {};
+    for (uint j = 0; j < versusPlayers.size(); j++)
+    {
+        pointsCount.push_back(0);
+    }
     
-    pointsCount = {0,0,0,0};
     updateScores = true;
     if(!onlyOneLife)
         constantRespawning = true;

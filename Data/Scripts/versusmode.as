@@ -68,7 +68,19 @@ array<string> randomHints = {
     "You can pull out a weapon stuck in a player, for a quick kill.",
     "Quickly drop a weapon by pressing @vec3(1,0.5,0)@drop@@ two times."
 };
+// Includes both real and npc players
+int maxSupportedPlayers = 20;
+
 //Configurables
+int npcPlayers = 0;
+// This one is configurable, up to value of maxSupportedPlayers
+int maxPlayers = 20;
+
+//TODO! Make these configurable
+float npcChanceToChangeSpecies = 50;
+bool npcKillsAlsoSlowdown = false;
+bool enableSlowdownOnKill = true;
+
 float respawnTime = 2.0f;
 // This will block any stupid respawns calls from hotspots that kill on the way to spawn, higher values could help on bigger "trips"
 float respawnBlockTime = 0.5f;
@@ -77,8 +89,8 @@ bool constantRespawning = false;
 bool useGenericSpawns = true;
 bool useSingleSpawnType = false;
 // Sets the lenght of victory state
-float winStateTime = 10.0f;
 // Starting species
+float winStateTime = 10.0f;
 int forcedSpecies = 0;
 // This blocks currentRace from being changed by player
 bool blockSpeciesChange = false;
@@ -115,7 +127,7 @@ string placeholderRaceIconPath = "Textures/ui/challenge_mode/quit_icon_c.tga";
 int currentState=-1;
 int winnerNr = -1;
 float winStateTimer = 0;
-array<float> suicideTimers = {0,0,0,0};
+array<float> suicideTimers = {};
 
 // For preloading characters
 uint preloadSpeciesIndex = 0;
@@ -163,6 +175,8 @@ class VersusPlayer{
     bool respawnNeeded;
     float respawnQueue;
     array<SpawnPoint@> spawnPoints;
+    
+    bool isNpc;
 
     VersusPlayer(int newPlayerNr){
         playerNr = newPlayerNr;
@@ -183,6 +197,8 @@ class VersusPlayer{
         respawnNeeded = false;
         respawnQueue = -100;
         spawnPoints = {};
+
+        isNpc = false;
     }
     
     // TODO! These methods dont like being inside a class remove them
@@ -223,6 +239,11 @@ void CallRespawn(int playerNr, int objId) {
     if(!player.respawnNeeded && player.respawnQueue<-respawnBlockTime){
         player.respawnNeeded = true;
         player.respawnQueue = respawnTime;
+
+        MovementObject@ char = ReadCharacterID(player.objId);
+        // We want to reroll race sometimes if npc gets killed (always if wolf atm)
+        if(!char.is_player && !blockSpeciesChange && (rand()%100 < npcChanceToChangeSpecies || player.currentRace == 1))
+            player.currentRace = rand()%speciesMap.size();
         Log(error, "Respawn requested objId:"+player.objId+" playerNr:"+player.playerNr);
     }
 }
@@ -237,6 +258,7 @@ Object@ CreateCharacter(int playerNr, string species, int teamNr) {
     spawned_object_ids.push_back(obj_id);
     Object@ char_obj = ReadObjectFromID(obj_id);
     MovementObject@ char = ReadCharacterID(char_obj.GetID());
+    
     ScriptParams@ charParams = char_obj.GetScriptParams();
 
     //You need to set Species param before SwitchCharacter(), otherwise `species` field wont be changed
@@ -289,6 +311,12 @@ void AttachTimers(int obj_id){
             {
                 if(char.GetIntVar("attacked_by_id") == spawned_object_ids[k] && maxCollateralKillTime > char.GetFloatVar("timeSinceAttackedById")){
                     level.SendMessage("oneKilledByTwo "+ char_a.GetID()+ " " + char.GetIntVar("attacked_by_id"));
+                    if(enableSlowdownOnKill){
+                        MovementObject@ attackerChar = ReadCharacterID(char.GetIntVar("attacked_by_id"));
+                        if(npcKillsAlsoSlowdown || attackerChar.is_player){
+                            TimedSlowMotion(0.1f, 0.7f, 0.05f);
+                        }
+                    }
                     return false;
                 }
             }
@@ -301,16 +329,16 @@ void AttachTimers(int obj_id){
 }
 
 // Just moves character into the position and activates him
-void SpawnCharacter(Object@ spawn, Object@ char, bool isAlreadyPlayer = false, bool isFirst = true) {
+void SpawnCharacter(Object@ spawn, Object@ char, bool isAlreadySpawned = false, bool shouldBeNpc = false, bool isFirst = false) {
     Log(error, "spawn:"+spawn.GetTranslation().x+","+spawn.GetTranslation().y+","+spawn.GetTranslation().z);
-    Log(error, "char:"+char.GetID()+" isAlreadyPlayer"+isAlreadyPlayer+" isFirst:"+isFirst);
+    Log(error, "char:" + char.GetID() + " isAlreadySpawned" + isAlreadySpawned + " shouldBeNpc:" + shouldBeNpc + " isFirst:" + isFirst);
     
     if(currentState >= 2 ){
         // If game is inprogress, send spawn event
-        level.SendMessage("spawned "+ char.GetID() +" " + isFirst);
+        level.SendMessage("spawned " + char.GetID() + " " + isFirst);
     }
     
-    if(isAlreadyPlayer){
+    if(isAlreadySpawned){
         MovementObject@ mo = ReadCharacterID(char.GetID());
         mo.position = spawn.GetTranslation();
         mo.velocity = vec3(0);
@@ -323,13 +351,28 @@ void SpawnCharacter(Object@ spawn, Object@ char, bool isAlreadyPlayer = false, b
 
     AttachTimers(char.GetID());
 
-    if(!isAlreadyPlayer){
+    if(!isAlreadySpawned && !shouldBeNpc){
         char.SetPlayer(true);
     }
 
     // This is used to reset the camera
     MovementObject@ mo = ReadCharacterID(char.GetID());
     mo.Execute("SetCameraFromFacing();FixDiscontinuity();");
+    
+    // Tell everyone to notice themselves
+    // borrowed from arena.as
+    if(shouldBeNpc){
+        int num_chars = GetNumCharacters();
+        for(int i=0; i<num_chars; ++i){
+            MovementObject@ char = ReadCharacter(i);
+            for(int j=i+1; j<num_chars; ++j){
+                MovementObject@ char2 = ReadCharacter(j);
+                Log(info, "Telling characters " + char.GetID() + " and " + char2.GetID() + " to notice each other.");
+                char.ReceiveScriptMessage("notice " + char2.GetID());
+                char2.ReceiveScriptMessage("notice " + char.GetID());
+            }
+        }
+    }
 }
 
 // Find a suitable spawn
@@ -437,6 +480,8 @@ VersusPlayer@ GetPlayerByNr(int playerNr){
             return versusPlayers[i];
         }
     }
+
+    Log(error, "GetPlayerByNr: Cant find player by nr: " + playerNr);
     return null;
 }
 
@@ -493,15 +538,6 @@ string GetSpeciesRandCharacterPath(string species)
     return "Data/Objects/characters/rabbot_actor.xml";
 }
 
-string IntToColorName(int playerNr) {
-    switch (playerNr){
-        case 0:return "Green";
-        case 1:return "Red";
-        case 2:return "Blue";
-        case 3:return "Yellow";
-    }
-    return "Nobody";
-}
 
 string IntToSpecies(int speciesNr) {
     int speciesSize = speciesMap.size();
@@ -516,7 +552,6 @@ string IntToSpecies(int speciesNr) {
 void DeleteObjectsInList(array<int> &inout ids) {
     int num_ids = ids.length();
     for(int i=0; i<num_ids; ++i){
-        Log(info, "Test");
         DeleteObjectID(ids[i]);
     }
     ids.resize(0);
@@ -545,12 +580,17 @@ void VersusInit(string p_level_name) {
     if(initPlayersNr < 1)
         initPlayersNr = 1;
     
+    //TODO! Should we allow spawning npcs here?    
+    int toSpawn = npcPlayers + initPlayersNr;
+    if(toSpawn > maxPlayers)
+        npcPlayers = maxPlayers - initPlayersNr;
     
-    for(int i = 0; i< initPlayersNr; i++) {
+    for(int i = 0; i< toSpawn; i++) {
         VersusPlayer player (i);
         // TODO! Here add scrambling of the teams, more fun
         if(teamPlay)
             player.teamNr = player.playerNr % teamsAmount;
+        player.isNpc = i >= initPlayersNr;
         versusPlayers.push_back(player);
     }
     
@@ -562,7 +602,9 @@ void VersusInit(string p_level_name) {
         {
             Log(error, "INIT SpawnCharacter");
             VersusPlayer@ player = GetPlayerByNr(i);
-            SpawnCharacter(FindRandSpawnPoint(player.playerNr),player.SetObject(CreateCharacter(i, IntToSpecies(player.currentRace), player.teamNr)));
+            SpawnCharacter(FindRandSpawnPoint(player.playerNr),
+                player.SetObject(CreateCharacter(i, IntToSpecies(player.currentRace), player.teamNr)),
+                false, player.isNpc, true);
         }
     }
     
@@ -574,16 +616,21 @@ void VersusInit(string p_level_name) {
             player.charTimer.DeleteAll();
         }
         DeleteObjectsInList(spawned_object_ids);
-        
-        for(uint i = 0; i < versusPlayers.size(); i++)
+
+        int toSpawn = npcPlayers + initPlayersNr;
+        if(toSpawn > maxPlayers)
+            npcPlayers = maxPlayers - initPlayersNr;
+        for(uint i = 0; i < toSpawn; i++)
         {
             Log(error, "RESET EVENT SpawnCharacter");
             VersusPlayer@ player = GetPlayerByNr(i);
             player.objId = -1;
             player.respawnQueue = -100;
             player.respawnNeeded = false;
-
-            SpawnCharacter(FindRandSpawnPoint(player.playerNr),player.SetObject(CreateCharacter(i,IntToSpecies(player.currentRace), player.teamNr)));
+            
+            SpawnCharacter(FindRandSpawnPoint(player.playerNr),
+                player.SetObject(CreateCharacter(i,IntToSpecies(player.currentRace), player.teamNr)),
+                false, player.isNpc);
         }
         return true;
     }));
@@ -664,11 +711,10 @@ void VersusUpdate() {
             }
         }
     }
-    
     levelTimer.Update();
 
     // Update crowns
-    if(winnerNr != lastWinnerNr && crownEnabled){
+    if(winnerNr != lastWinnerNr && crownEnabled ){
         lastWinnerNr = winnerNr;
         // first we clear old ones
         for (uint i = 0; i < crownsIds.size(); i++)
@@ -716,6 +762,22 @@ void VersusUpdate() {
     for (uint k = 0; k < versusPlayers.size(); k++)
     {
         VersusPlayer@ player = GetPlayerByNr(k);
+
+        MovementObject@ char = ReadCharacterID(player.objId);
+        if(!char.is_player)
+            continue;
+        
+        // Check if suicide timers array is too small
+        if(suicideTimers.size() < versusPlayers.size()){
+            int toAdd = versusPlayers.size() - suicideTimers.size();
+            
+            Log(error, "suicideTimers too small! Adding more: " + suicideTimers.size() + " => " + versusPlayers.size() + " ++" + toAdd);
+            for (uint j = 0; j < toAdd; j++)
+            {
+                suicideTimers.push_back(0);
+            }
+        }
+        
         if (GetInputDown(player.playerNr, "attack") && GetInputDown(player.playerNr, "grab")) {
             suicideTimers[player.playerNr] += time_step;
             if(suicideTimers[player.playerNr]>suicideTime && player.respawnQueue<-respawnBlockTime){
@@ -727,12 +789,13 @@ void VersusUpdate() {
             suicideTimers[player.playerNr] = 0;
         }
     }
-    
+
     for(uint i = 0; i < versusPlayers.size(); i++)
     {
         VersusPlayer@ player = GetPlayerByNr(i);
         if(player is null){
             DisplayError("versusBrawl","Player" + i + " is null!");
+            continue;
         }
         player.charTimer.Update();
     }
@@ -740,7 +803,6 @@ void VersusUpdate() {
     if(GetInputPressed(0,"f10")){
         LoadLevel(GetCurrLevelRelPath());
     }
-
     // Forces call `Notice` on all characters (helps with npc just standing there like morons)
 
     // TODO: Somehow this sometimes causes crashes? Maybe when the event arives during cleanup?
@@ -753,7 +815,7 @@ void VersusUpdate() {
     //         ReadObjectFromID(player.objId).ReceiveScriptMessage("set_omniscient true");
     //     }
     // }
-    
+
     // Reduce spawns block timers
     for(uint i = 0; i <genericSpawnPoints.size() ; i++) {
         if(genericSpawnPoints[i].spawnPointBlockTimer>0){
@@ -778,7 +840,7 @@ void VersusUpdate() {
             }
         }
     }
-
+    
     CheckPlayersState();
     // On first update we switch to warmup state
     if(currentState==-1 && !preload){
@@ -826,7 +888,6 @@ void VersusUpdate() {
 }
 
 void SetHint(string hint){
-    
     //Log(error, "currentHint: " + currentHint);
     if(rand()%100 < funniesChance && !funniesActive){
         string funni = funnies[rand()%funnies.size()];
@@ -848,7 +909,9 @@ void VersusReceiveMessage(string msg){
     for(uint i = 0; i < versusPlayers.size(); i++)
     {
         VersusPlayer@ player = GetPlayerByNr(i);
-        player.charTimer.AddLevelEvent(msg);
+        
+        if(!(player is null))
+            player.charTimer.AddLevelEvent(msg);
     }
 }
 
@@ -953,7 +1016,7 @@ class VersusAHGUI : AHGUI::GUI {
     
     void ChangeIcon(int playerIdx, int iconNr, bool glow)
     {
-        if(blockSpeciesChange)
+        if(blockSpeciesChange || versusPlayers[playerIdx].isNpc)
             return;
         AHGUI::Element@ headerElement = root.findElement("quitButton"+playerIdx);
         if( headerElement is null  ) {
@@ -976,13 +1039,14 @@ class VersusAHGUI : AHGUI::GUI {
         }
     
         if(currentGlow[playerIdx] != glow){
-            Log(error, "glow"+glow);
+            //Log(error, "glow"+glow);
             currentGlow[playerIdx] = glow;
             if(glow){
                 quitButton.setColor(vec4(0.7,0.7,0.7,0.8));
             }
             else{
                 quitButton.setColor(vec4(GetTeamUIColor(playerIdx), 1.0f));
+                Log(error, "playerIdx: " + playerIdx + "GetTeamUIColor(playerIdx): " + GetTeamUIColor(playerIdx) + " GetTeamColorName(playerIdx): " + GetTeamColorName(playerIdx));
             }
             quitButton.scaleToSizeX(playerIconSize);
         }
@@ -1030,7 +1094,7 @@ class VersusAHGUI : AHGUI::GUI {
             AHGUI::Divider
             @containerTop = root.addDivider(DDBottom, DOHorizontal, ivec2(AH_UNDEFINEDSIZE, AH_UNDEFINEDSIZE));
 
-            int playerNr = versusPlayers.size();
+            int playerNr = 4;
             
             //Yellow
             AHGUI::Divider
@@ -1051,6 +1115,8 @@ class VersusAHGUI : AHGUI::GUI {
             quitButton3.scaleToSizeX(playerIconSize);
             quitButton3.setName("quitButton3");
             quitButton3.setColor(vec4(GetTeamUIColor(3), 1.0f));
+            Log(error, "GetTeamUIColor(3): " + GetTeamUIColor(3) + " GetTeamColorName(3): " + GetTeamColorName(3));
+
             header3.addElement(quitButton3, DDRight);
 
             //Blue
@@ -1072,6 +1138,7 @@ class VersusAHGUI : AHGUI::GUI {
             quitButton2.scaleToSizeX(playerIconSize);
             quitButton2.setName("quitButton2");
             quitButton2.setColor(vec4(GetTeamUIColor(2), 1.0f));
+            Log(error, "GetTeamUIColor(2): " + GetTeamUIColor(2) + " GetTeamColorName(2): " + GetTeamColorName(2));
             header2.addElement(quitButton2, DDLeft);
 
             //Red
@@ -1093,6 +1160,7 @@ class VersusAHGUI : AHGUI::GUI {
             quitButton1.scaleToSizeX(playerIconSize);
             quitButton1.setName("quitButton1");
             quitButton1.setColor(vec4(GetTeamUIColor(1), 1.0f));
+            Log(error, "GetTeamUIColor(1): " + GetTeamUIColor(1) + " GetTeamColorName(1): " + GetTeamColorName(1));
             header1.addElement(quitButton1, DDRight);
 
 
@@ -1115,6 +1183,7 @@ class VersusAHGUI : AHGUI::GUI {
             quitButton0.scaleToSizeX(playerIconSize);
             quitButton0.setName("quitButton0");
             quitButton0.setColor(vec4(GetTeamUIColor(0), 1.0f));
+            Log(error, "GetTeamUIColor(0): " + GetTeamUIColor(0) + " GetTeamColorName(0): " + GetTeamColorName(0));
             header0.addElement(quitButton0, DDLeft);
         }
     
@@ -1348,6 +1417,41 @@ void VersusBaseLoad(JSONValue settings){
     if(FoundMember(settings, "VersusBase")){
         JSONValue versusBase = settings["VersusBase"];
         Log(error, "Available: " + join(versusBase.getMemberNames(),","));
+        
+        if(FoundMember(versusBase, "MaxPlayers")) {
+            maxPlayers = versusBase["MaxPlayers"]["Value"].asInt();
+            if(maxPlayers > maxSupportedPlayers)
+                maxPlayers = maxSupportedPlayers;
+        }
+
+        if(FoundMember(versusBase, "NpcPlayers")) {
+            npcPlayers = versusBase["NpcPlayers"]["Value"].asInt();
+            
+            Log(error, "npcPlayers loaded: " + npcPlayers);
+            int npcsAlreadyPresent = versusPlayers.size() - initPlayersNr;
+            Log(error, "npcsAlreadyPresent: " + npcsAlreadyPresent);
+
+            if(npcsAlreadyPresent < npcPlayers){
+                
+                int npcsToAdd = npcPlayers - npcsAlreadyPresent;
+                Log(error, "npcsToAdd: " + npcsToAdd);
+                for(int i = 0; i< npcsToAdd; i++) {
+                    int npcId = npcsAlreadyPresent + initPlayersNr + i;
+                    Log(error, "Adding: " + npcId);
+                    VersusPlayer player (npcId);
+                    player.isNpc = true;
+                    // TODO! Here add scrambling of the teams, more fun
+                    if(teamPlay)
+                        player.teamNr = player.playerNr % teamsAmount;
+                    versusPlayers.push_back(player);
+                    
+                    SpawnCharacter(FindRandSpawnPoint(player.playerNr),
+                        player.SetObject(CreateCharacter(npcId, IntToSpecies(player.currentRace), player.teamNr)),
+                        false, true, true);
+                    
+                }
+            }
+        }
 
         if(FoundMember(versusBase, "RespawnTime"))
             respawnTime = versusBase["RespawnTime"]["Value"].asFloat();
@@ -1507,9 +1611,11 @@ void CheckPlayersState() {
         bool blockStart = false;
         // TODO! Inform players that teams are uneven
         if(teamPlay && !allowUneven){
-            array<int> teamSizes = {0, 0, 0, 0};
+            array<int> teamSizes = {};
             for(uint i = 0; i< versusPlayers.size(); i++) {
+                teamSizes.push_back(0);
                 VersusPlayer@ player = GetPlayerByNr(i);
+                
                 teamSizes[player.teamNr]++;
             }
             int lastVal = teamSizes[0];
@@ -1558,7 +1664,8 @@ void CheckPlayersState() {
                     RerollCharacter(player.playerNr, char_obj);
                     
                     Log(error, "UPDATE SpawnCharacter");
-                    SpawnCharacter(FindRandSpawnPoint(player.playerNr), char_obj, true, false);
+
+                    SpawnCharacter(FindRandSpawnPoint(player.playerNr), char_obj, true, player.isNpc);
                 }
                 else if(player.respawnQueue<=-respawnBlockTime) {
                     // Removing player temporary resistance
@@ -1579,6 +1686,11 @@ void CheckPlayersState() {
     if(!blockSpeciesChange){
         for(uint i = 0; i < versusPlayers.size(); i++) {
             VersusPlayer@ player = GetPlayerByNr(i);
+
+            MovementObject@ char = ReadCharacterID(player.objId);
+            if(!char.is_player)
+                continue;
+            
             if(GetInputDown(i,"item") && GetInputDown(i,"drop")) {
                 if(GetInputPressed(i,"attack")) {
                     player.currentRace++;
@@ -1604,7 +1716,7 @@ void CheckPlayersState() {
         
         // We want this to occur atleast frame late, to allow custom win state things to occur
         if(winStateTimer-time_step>winStateTime){
-            // Now we just need to reset few things
+            // Now we just need to  few things
             winStateTimer = 0;
             
             ChangeGameState(2);
@@ -1638,7 +1750,7 @@ void ChangeGameState(uint newState) {
             level.SendMessage("reset");
             break;
         case 100:
-            versusAHGUI.SetText(""+IntToColorName(winnerNr)+" wins!",insults[rand()%insults.size()], GetTeamUIColor(winnerNr));
+            versusAHGUI.SetText(""+GetTeamColorName(winnerNr)+" wins!",insults[rand()%insults.size()], GetTeamUIColor(winnerNr));
             break;
         default:
             break;

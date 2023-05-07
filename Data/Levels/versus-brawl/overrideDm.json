@@ -1,5 +1,12 @@
 {
   "VersusBase": {
+    "NpcPlayers": {
+      "Value": 0,
+      "Configurable": {
+        "Min": 0,
+        "Max": 4
+      }
+    },
     "RespawnTime": {
       "Value": 3.0,
       "Configurable": {
@@ -17,7 +24,6 @@
     "InstantSpeciesChange": {
       "Value": false,
       "Configurable": {
-        
       }
     },
     "BlockSpeciesChange": {

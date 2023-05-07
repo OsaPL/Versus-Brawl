@@ -17,10 +17,10 @@ int runnerSpecies = 3;
 bool biggerTeamWins = false;
 
 // States
-array<bool> killedRunners = { false, false, false, false };
-array<bool> currentChasers = { false, false, false, false };
-array<float> freezeTimers = { 0, 0, 0, 0 };
-array<bool> isFreezed = { false, false, false, false };
+array<bool> killedRunners = { };
+array<bool> currentChasers = { };
+array<float> freezeTimers = { };
+array<bool> isFreezed = { };
 array<int> freezeEmmiters = { -1, -1, -1, -1 };
 array<int> blingEmmiters = { -1, -1, -1, -1 };
 
@@ -224,9 +224,14 @@ void DrawGUI() {
     VersusDrawGUI();
 }
 
+bool testReset = true;
 void Update(){
     //Always need to call this first!
     VersusUpdate();
+    if(npcPlayers > 0 && testReset){
+        ResetTag();
+        testReset = false;
+    }
     
     if(currentState == 2){
         timer += time_step;
@@ -376,6 +381,10 @@ void UpdateUI(){
 
     if(initUI){
         for (uint i = 0; i < versusPlayers.size(); i++) {
+            // Max supported local player UIs
+            if(GetPlayerByNr(i).isNpc)
+                continue;
+            
             Log(error, "initUI");
 
             AHGUI::Element@ headerElement = versusAHGUI.root.findElement("header"+i);
@@ -472,6 +481,11 @@ void Freeze(int playerNr){
     charParams.SetFloat("Jump - Air Control",         0.1f);
     charParams.SetFloat("Jump - Jump Sustain",        0.1f);
     charParams.SetFloat("Jump - Jump Sustain Boost",  0.1f);
+
+    // Changing behaviour so that npc behave correctly
+    charParams.SetInt("Fear - Always Afraid On Sight", 0);
+    charParams.SetInt("Fear - Causes Fear On Sight", 1);
+    
     charObj.UpdateScriptParams();
 
     if(freezeTimers[playerNr] != -1){
@@ -540,6 +554,10 @@ void SetRunner(int playerNr){
         Object@ charObj = ReadObjectFromID(victim.objId);
         ScriptParams@ charParams = charObj.GetScriptParams();
         charParams.SetString("Teams", "runners");
+        // Changing behaviour so that npc behave correctly
+        charParams.SetInt("Fear - Always Afraid On Sight", 1);
+        charParams.SetInt("Fear - Causes Fear On Sight", 0);
+        
         charObj.UpdateScriptParams();
 
         isFreezed[playerNr] = false;

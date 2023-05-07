@@ -107,17 +107,23 @@ void Update() {
 		}
 		else if( message.name == "run_file" )
 		{
-			//TODO! Load the new configurables and also the default file
+			string previousSelectedPath = selectedPath;
 			selectedName = message.getString(1);
 			selectedPath = message.getString(0);
-			selectedPathJustChanged = true;
-
+			
+			// Save useCustomSettings value
 			SavedLevel@ saved_level = save_file.GetSavedLevel("versus-brawl");
 			saved_level.SetValue("useCustomSettings", ""+useCustomSettings);
 			save_file.WriteInPlace();
 			
-			if(!useCustomSettings){
+			// If we click two times, it should just load
+			if(!useCustomSettings || selectedPath == previousSelectedPath){
+				SaveUserConfig();
+				
 				this_ui.SendCallback(message.getString(0));
+			}
+			else{
+				selectedPathJustChanged = true;
 			}
 		}
 		else if( message.name == "shift_menu" ){

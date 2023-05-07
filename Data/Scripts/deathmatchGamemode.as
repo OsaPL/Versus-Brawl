@@ -37,6 +37,17 @@ void Init(string msg){
             Log(error, "Player "+_params[1]+" was killed by player "+_params[2]);
             for (uint k = 0; k < versusPlayers.size(); k++)
             {
+                // Check if pointsCount array is too small
+                if(pointsCount.size() < versusPlayers.size()){
+                    int toAdd = versusPlayers.size() - pointsCount.size();
+
+                    Log(error, "pointsCount too small! Adding more: " + pointsCount.size() + " => " + versusPlayers.size() + " ++" + toAdd);
+                    for (uint j = 0; j < toAdd; j++)
+                    {
+                        pointsCount.push_back(0);
+                    }
+                }
+                
                 VersusPlayer@ player = GetPlayerByNr(k);
                 if(player.objId == parseInt(_params[2])){
                     pointsCount[player.playerNr]++;
@@ -134,7 +145,12 @@ void Reset(){
 
 void ResetDM(){
     pointsTextShow = true;
-    pointsCount = {0,0,0,0};
+    pointsCount = {};
+    for (uint j = 0; j < versusPlayers.size(); j++)
+    {
+        pointsCount.push_back(0);
+    }
+    
     updateScores = true;
     
     constantRespawning = true;

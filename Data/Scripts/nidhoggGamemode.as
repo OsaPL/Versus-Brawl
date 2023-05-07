@@ -86,7 +86,8 @@ void Init(string msg){
             for (uint i = 0; i < versusPlayers.size(); i++) {
                 VersusPlayer@ playerToRespawn = GetPlayerByNr(i);
                 MovementObject@ mo = ReadCharacterID(playerToRespawn.objId);
-                if(mo.GetIntVar("knocked_out") != _awake && !playerToRespawn.respawnNeeded){
+                // We also want npc players to always respawn on phase change
+                if((mo.GetIntVar("knocked_out") != _awake && !playerToRespawn.respawnNeeded) || i >= initPlayersNr){
                     CallRespawn(playerToRespawn.playerNr, playerToRespawn.objId);
                     playerToRespawn.respawnQueue = 0.1f;
                 }
@@ -300,7 +301,11 @@ void ResetNidhogg(){
     teamAttacking = 2;
     currentPhase = 0;
     openPhase = 0;
-    pointsCount = {0, 0, 0, 0};
+    pointsCount = {};
+    for (uint j = 0; j < versusPlayers.size(); j++)
+    {
+        pointsCount.push_back(0);
+    }
     giveWeaponQueue = {};
     currentWeaponQueuesIndexes = {0, 0, 0, 0};
     updatePhases = true;
@@ -545,9 +550,10 @@ void Update(){
             for (uint i = 0; i < crownsIds.size(); i++) {
                 Object@ crown = ReadObjectFromID(crownsIds[i]);
                 ScriptParams @crownParams = crown.GetScriptParams();
-                vec3 color = GetTeamUIColor(teamAttacking);
+                vec3 color = GetTeamUIColor(teamAttacking) * 0.4f;
+                Log(error, "GetTeamUIColor for crown" + i + ": " + color);
                 crownParams.SetFloat("red", color.x);
-                crownParams.SetFloat("greeb", color.y);
+                crownParams.SetFloat("green", color.y);
                 crownParams.SetFloat("blue", color.z);
                 crownParams.SetString("billboardPath", attacketIconPath);
             }

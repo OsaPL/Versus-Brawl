@@ -6726,7 +6726,8 @@ void CharacterDefeated() {
 
         if(zone_killed == 0) {
             if(this_mo.controlled || (IsAggro() == 1 && num_threats == 0 && distance_squared(this_mo.position, player_char.position) < kDistanceThreshold)) {
-                TimedSlowMotion(0.1f, 0.7f, 0.05f);
+                // Commented out this, to allow levelscripts to control whether we actually want slowdown
+                //TimedSlowMotion(0.1f, 0.7f, 0.05f);
             }
         }
     }
@@ -6944,7 +6945,8 @@ void WeaponRemovedFromBody(int weapon_id, int remover_id) {
             ko_shield = 0;
 
             if(remover_id != -1 && ObjectExists(remover_id) && ReadCharacterID(remover_id).controlled) {
-                TimedSlowMotion(0.1f, 0.7f, 0.05f);
+                // Commented out this, to allow levelscripts to control whether we actually want slowdown
+                //TimedSlowMotion(0.1f, 0.7f, 0.05f);
             }
         }
 

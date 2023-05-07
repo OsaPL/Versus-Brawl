@@ -25,7 +25,7 @@ float pointsTextShowTimer = 0;
 
 array<AHGUI::Divider@> uiPointsCountersDivs={};
 array<AHGUI::Text@> uiPointsCounters={};
-array<int> pointsCount = {0, 0, 0, 0};
+array<int> pointsCount = {};
 uint teamsToGoThrough = 0;
 
 string AddPointsText(string text, int points, bool addPointsNeeded = false){
@@ -59,6 +59,17 @@ void UpdateUI(){
         
         InitUI();
         initUI = false;
+    }
+    
+    // Check if suicide timers array is too small
+    if(pointsCount.size() < versusPlayers.size()){
+        int toAdd = versusPlayers.size() - pointsCount.size();
+
+        Log(error, "pointsCount too small! Adding more: " + pointsCount.size() + " => " + versusPlayers.size() + " ++" + toAdd);
+        for (uint j = 0; j < toAdd; j++)
+        {
+            pointsCount.push_back(0);
+        }
     }
 
     if(currentState >= 2 && currentState < 100) {
@@ -100,12 +111,14 @@ void UpdateUI(){
         //Log(error, "updateScores");
         
         bool noHighest = true;
-        for (uint i = 0; i < uiPointsCounters.size(); i++)
+        for (uint i = 0; i < pointsCount.size(); i++)
         {
-            uiPointsCounters[i].setText(AddPointsText(pointsTextFormat, pointsCount[i], true));
+            bool playersUI = !GetPlayerByNr(i).isNpc;
+            if(playersUI)
+                uiPointsCounters[i].setText(AddPointsText(pointsTextFormat, pointsCount[i], true));
 
             bool isHighest = true;
-            for (uint k = 0; k < uiPointsCounters.size(); k++)
+            for (uint k = 0; k < pointsCount.size(); k++)
             {
                 // We skip ourselves
                 if(i == k)
@@ -121,13 +134,15 @@ void UpdateUI(){
             
             if(isHighest){
                 // Orange for winner, chicken dinner
-                uiPointsCounters[i].setColor(1, 0.7f, 0, 1);
+                if(playersUI)
+                    uiPointsCounters[i].setColor(1, 0.7f, 0, 1);
 
                 if(decideWinner)
                     winnerNr = i;
             }
             else{
-                uiPointsCounters[i].setColor(1,1,1,1);
+                if(playersUI)
+                    uiPointsCounters[i].setColor(1,1,1,1);
             }
         }
         
@@ -140,16 +155,28 @@ void UpdateUI(){
     }
 
     if(updateScores && currentState >= 100) {
-        for (uint i = 0; i < uiPointsCounters.size(); i++)
+        for (uint i = 0; i < pointsCount.size(); i++)
         {
-            uiPointsCounters[i].setText(AddPointsText("", pointsCount[i], true));
+            bool playersUI = !GetPlayerByNr(i).isNpc;
+            if(playersUI)
+                uiPointsCounters[i].setText(AddPointsText("", pointsCount[i], true));
         }
     }
 }
 
 void InitUI(){
 
+    pointsCount = {};
+    for (uint j = 0; j < versusPlayers.size(); j++)
+    {
+        pointsCount.push_back(0);
+    }
+    
     for (uint i = 0; i < teamsToGoThrough; i++) {
+        // Max supported local player UIs
+        if(GetPlayerByNr(i).isNpc) 
+            return;
+        
         Log(error, "initUI"+i);
 
         AHGUI::Element@ headerElement = versusAHGUI.root.findElement("header"+i);
