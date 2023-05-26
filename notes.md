@@ -25,7 +25,7 @@ Big sticks:
 
 
 [h1]0.7:[/h1]
-This is a big one, with focus on actually getting new content polished, and making mapping a lot better.
+This is a big one, with focus on actually getting new content polished, performance improvements, and making mapping a lot easier and less bug infested.
 Some of these were already included in 0.5.9 pre-release
 [b]Added Nidhogg, CTF, Race gamemodes![/b]
 
@@ -43,7 +43,7 @@ Some of these were already included in 0.5.9 pre-release
 - RabbitCatcher now acts as a spear.
 - You can now also quick drop a weapon by tapping "drop" two times quickly
 - Added ability to select which weapon to unsheathe by holding a key, and then pressing "item" key:
-  - hold "grab" to unsheathe hip weapons (hold "item" to unsheathe both, pres for a single one)
+  - hold "grab" to unsheathe hip weapons (hold "item" to unsheathe both, press for a single one)
   - hold "attack" to unsheathe big sword weapon slot
 
 [b]Dogs can now sheathe big weapons on their back. (other characters can also use the new "Can sheathe big weapons" parameter)[/b]
@@ -86,6 +86,7 @@ Some of these were already included in 0.5.9 pre-release
 - You now cant suicide during you respawn invincibility
 - Point counters not disappearing on round end
 - Some hints have been removed, and some have been reworded
+- Removed some performance heavy code that runs each frame (should make frame times much lower)
 - Preloading should be faster, will now spawn a static dummy to preload everything on, instead of a real character
 
 [b]Mapping and modding docs update.[/b]
