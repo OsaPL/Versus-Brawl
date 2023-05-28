@@ -179,14 +179,14 @@ void Update(){
                         int highestPts = 0;
                         for (uint l = 0; l < versusPlayers.size(); l++)
                         {
-                            VersusPlayer@ player = GetPlayerByNr(l);
+                            VersusPlayer@ pointPlayer = GetPlayerByNr(l);
                         
                             //Checks for win
-                            if(pointsCount[player.playerNr]>highestPts) {
-                                highestPts = pointsCount[player.playerNr];
-                                highestId = player.playerNr;
+                            if(pointsCount[pointPlayer.playerNr]>highestPts) {
+                                highestPts = pointsCount[pointPlayer.playerNr];
+                                highestId = pointPlayer.playerNr;
                             }
-                            else if(pointsCount[player.playerNr] == highestPts){
+                            else if(pointsCount[pointPlayer.playerNr] == highestPts){
                                 highestId = -1;
                             }
                         }

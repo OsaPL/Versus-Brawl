@@ -188,9 +188,9 @@ void Update(){
     // Move the light
     if(lightId != -1){
         Object@ obj = ReadObjectFromID(lightId);
-        mat4 trans = weap.GetPhysicsTransform();
-        mat4 rot = trans.GetRotationPart();
-        obj.SetTranslation((trans*vec3())+(vec3(0, 0.5f, 0)));
+        mat4 transform = weap.GetPhysicsTransform();
+        mat4 rot = transform.GetRotationPart();
+        obj.SetTranslation((transform*vec3())+(vec3(0, 0.5f, 0)));
         obj.SetRotation(QuaternionFromMat4(rot));
         obj.SetTint(color/2);
     }
@@ -199,9 +199,9 @@ void Update(){
         if(justReleased){
             justReleased = false;
             // Recreate the flag and move it (moving itemObject is scuffed) to make it upright
-            mat4 trans = weap.GetPhysicsTransform();
+            mat4 transform = weap.GetPhysicsTransform();
             //ReCreateFlagItem();
-            weapObj.SetTranslation(trans * vec3() - vec3(0, 0.3f, 0 ));
+            weapObj.SetTranslation(transform * vec3() - vec3(0, 0.3f, 0 ));
             flagState = FlagDropped;
 
             debuffed = true;
