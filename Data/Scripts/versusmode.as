@@ -620,8 +620,8 @@ void VersusInit(string p_level_name) {
         }
         DeleteObjectsInList(spawned_object_ids);
 
-        int toSpawn = npcPlayers + initPlayersNr;
-        if(toSpawn > maxPlayers)
+        uint toSpawn = npcPlayers + initPlayersNr;
+        if(int(toSpawn) > maxPlayers)
             npcPlayers = maxPlayers - initPlayersNr;
         for(uint i = 0; i < toSpawn; i++)
         {
