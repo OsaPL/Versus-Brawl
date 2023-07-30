@@ -60,17 +60,14 @@ Big sticks:
 This is a big one, with focus on actually getting new content polished, performance improvements, and making mapping a lot easier and less bug infested.
 Some of these were already included in 0.5.9 pre-release
 [b]Added Nidhogg, CTF, Race gamemodes![/b]
-- Some of these were already available, but were reworked/enhanced a lot
-- also, they now come with actually finished maps...
 
 [b]Added new playable maps:[/b]
 - Sand Fortress, CTF
 - Purple Dreams, Nidhogg
-- Lava Tower, Race (WIP)
 
 [b]Maps reworked:[/b]
-- Imperial sewers, is now a finished map
-- Dank cave, now a TAG map, with many visual touchups
+- Imperial sewers, is now finished
+- Dank cave, now a TAG map, with visual touchups
 - Gods Exile, touched up and converted into a DM map
 
 [b]Weapons additions:[/b]
