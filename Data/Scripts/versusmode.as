@@ -273,7 +273,9 @@ Object@ CreateCharacter(int playerNr, string species, int teamNr) {
     
     string executeCmd = "SwitchCharacter(\""+ characterPath +"\");";
     char.Execute(executeCmd);
-    char.controller_id = playerNr;
+    // Make sure we are not setting controller_id over 4, will crash in a not Init() context, without any real error msg
+    if(playerNr < 4)
+        char.controller_id = playerNr;
     
     if(teamNr != -1 && strictTeamColors) {
         RecolorCharacter(teamNr, species, char_obj);
@@ -1019,7 +1021,7 @@ class VersusAHGUI : AHGUI::GUI {
     
     void ChangeIcon(int playerIdx, int iconNr, bool glow)
     {
-        if(blockSpeciesChange || versusPlayers[playerIdx].isNpc)
+        if(blockSpeciesChange || versusPlayers[playerIdx].isNpc || playerIdx > 4)
             return;
         AHGUI::Element@ headerElement = root.findElement("quitButton"+playerIdx);
         if( headerElement is null  ) {

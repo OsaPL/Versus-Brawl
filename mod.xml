@@ -66,8 +66,13 @@
     <!-- Hotspots-->
     <Item category="VersusBrawl"
           title="[h] playerSpawn"
-          path="Data/Objects/versus-brawl/playerSpawnHotspot.xml"
+          path="Data/Objects/playerSpawn.xml"
           thumbnail="Data/Textures/ui/versusBrawl/placeholder_arena_spawn_-1.png" />
+
+    <Item category="VersusBrawl"
+          title="[h] weaponSpawn"
+          path="Data/Objects/weaponSpawn.xml"
+          thumbnail="Data/Textures/ui/versusBrawl/placeholder_weapon_spawn.png" />
     
     <Item category="VersusBrawl"
           title="[h] charCatapultHotspot.xml"
