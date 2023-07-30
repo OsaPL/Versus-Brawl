@@ -364,12 +364,15 @@ void SpawnCharacter(Object@ spawn, Object@ char, bool isAlreadySpawned = false, 
     if(shouldBeNpc){
         int num_chars = GetNumCharacters();
         for(int i=0; i<num_chars; ++i){
-            MovementObject@ char = ReadCharacter(i);
+            MovementObject@ char1 = ReadCharacter(i);
             for(int j=i+1; j<num_chars; ++j){
                 MovementObject@ char2 = ReadCharacter(j);
-                Log(info, "Telling characters " + char.GetID() + " and " + char2.GetID() + " to notice each other.");
-                char.ReceiveScriptMessage("notice " + char2.GetID());
-                char2.ReceiveScriptMessage("notice " + char.GetID());
+                Log(info, "Telling characters " + char1.GetID() + " and " + char2.GetID() + " to notice each other.");
+                if(char1.GetID() != char2.GetID())
+                {
+                    char1.ReceiveScriptMessage("notice " + char2.GetID());
+                    char2.ReceiveScriptMessage("notice " + char1.GetID());
+                }
             }
         }
     }
@@ -769,7 +772,7 @@ void VersusUpdate() {
         
         // Check if suicide timers array is too small
         if(suicideTimers.size() < versusPlayers.size()){
-            int toAdd = versusPlayers.size() - suicideTimers.size();
+            uint toAdd = versusPlayers.size() - suicideTimers.size();
             
             Log(error, "suicideTimers too small! Adding more: " + suicideTimers.size() + " => " + versusPlayers.size() + " ++" + toAdd);
             for (uint j = 0; j < toAdd; j++)
@@ -1698,7 +1701,6 @@ void CheckPlayersState() {
                     
                     if(currentState==0 || instantSpeciesChange){
                         MovementObject@ mo = ReadCharacter(player.playerNr);
-                        Object@ char = ReadObjectFromID(mo.GetID());
                         RerollCharacter(player.playerNr,ReadObjectFromID(player.objId));
                     }
                 }

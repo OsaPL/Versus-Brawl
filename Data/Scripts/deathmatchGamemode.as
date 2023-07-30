@@ -39,7 +39,7 @@ void Init(string msg){
             {
                 // Check if pointsCount array is too small
                 if(pointsCount.size() < versusPlayers.size()){
-                    int toAdd = versusPlayers.size() - pointsCount.size();
+                    uint toAdd = versusPlayers.size() - pointsCount.size();
 
                     Log(error, "pointsCount too small! Adding more: " + pointsCount.size() + " => " + versusPlayers.size() + " ++" + toAdd);
                     for (uint j = 0; j < toAdd; j++)
