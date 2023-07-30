@@ -35,7 +35,7 @@ Some of these were already included in 0.5.9 pre-release
 
 [b]Maps reworked:[/b]
 - Imperial sewers, is now finished
-- Dank cave, now a TAG map, with some visual touchups
+- Dank cave, now a TAG map, with visual touchups
 - Gods Exile, touched up and converted into a DM map
 
 [b]Weapons additions:[/b]

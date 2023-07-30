@@ -22,7 +22,7 @@ Some of the functionality will come eventually, once I have laid the foundation 
 - Respawn/teleport button for coop partners.
 - Ability to change species, with each character having different stats and a unique trait
 - Players should no longer get their Id swapped, resulting in gamepads being always correctly arranged
-- New maps that arent just a gm_flatgrass, designed for game modes (👻8 planned, atleast 1 per mode)
+- New maps that arent just a gm_flatgrass, designed for game modes
 - Only a single level script and few basic prefabs needed to create a map. You can have a map ready in matter of minutes.
 - Ability to modify many parameters, for characters, gamemodes and maps.
 - Warmup before the game start (with preloading for smoother gameplay)
@@ -160,6 +160,7 @@ Powerful and slow. They require specific methods to kill, otherwise they can bec
 - Level specific `SpeciesStats` will not be set for the first spawn
 - for 2 players the UI still stays the same as for 3/4 players setup
 - most of the UI stuff is filled with placeholders atm
+- Some level parts with moving platforms can tank fps a little
 
 ## Not planned
 (wont be fixed for the time being)
