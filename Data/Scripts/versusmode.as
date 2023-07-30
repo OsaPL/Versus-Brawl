@@ -447,6 +447,10 @@ void RerollCharacter(int playerNr, Object@ char) {
     string species = IntToSpecies(player.currentRace);
     string newCharPath = GetSpeciesRandCharacterPath(species);
 
+    // Dont reroll if the species didnt change, this lowers the amount of loading hitches caused by `SwitchCharacter` calls 
+    if(charParams.GetString("Species") == species)
+        return;
+
     //You need to set Species param before SwitchCharacter(), otherwise `species` field wont be changed
     charParams.SetString("Species", species);
     
@@ -460,8 +464,6 @@ void RerollCharacter(int playerNr, Object@ char) {
     else{
         RecolorCharacter(playerNr, species, char, player.teamNr);
     }
-    
-    
     
     // This will add species specific stats
     addSpeciesStats(obj);
