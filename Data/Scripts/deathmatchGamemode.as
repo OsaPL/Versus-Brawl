@@ -7,6 +7,22 @@
 // Configurables
 
 // States
+//TODO! #2
+array<string> killPhrases = {
+    "off'd",
+    "killed",
+    "nuked",
+    "blew up",
+    "assasinated",
+    "steven'd",
+    "genocided",
+    "ended",
+    "pressed F on",
+    "timed out",
+    "stopped",
+    "gg'd",
+    "respawned"
+};
 
 //Level methods
 void Init(string msg){
@@ -53,18 +69,19 @@ void Init(string msg){
                     pointsCount[player.playerNr]++;
                     updateScores = true;
                     // TODO! Clean this up somehow to create a killfeed UI #2
-                    // for (uint j = 0; j < versusPlayers.size(); j++)
-                    // {
-                    //     VersusPlayer@ playerVictim = GetPlayerByNr(j);
-                    //     Log(error, "search for victim: " + _params[1] +" .objId: "+ playerVictim.objId + " .playerNr: " + playerVictim.playerNr + " ");
-                    //     if(playerVictim.objId == parseInt(_params[1])) {
-                    //         string killText = "" + IntToColorName(player.playerNr) + " x " + IntToColorName(playerVictim.playerNr);
-                    //         Log(error, "FOUND! " + killText);
-                    //        
-                    //         versusAHGUI.SetText(killText, GetTeamUIColor(player.playerNr));
-                    //         break;
-                    //     }
-                    // }
+                    for (uint j = 0; j < versusPlayers.size(); j++)
+                    {
+                        VersusPlayer@ playerVictim = GetPlayerByNr(j);
+                        Log(error, "search for victim: " + _params[1] +" .objId: "+ playerVictim.objId + " .playerNr: " + playerVictim.playerNr + " ");
+                        if(playerVictim.objId == parseInt(_params[1])) {
+                            string killText = "@" + GetTeamUIColor(player.playerNr) + GetTeamColorName(player.playerNr) + "@ " +killPhrases[rand()%insults.size()]+ " @" + GetTeamUIColor(playerVictim.playerNr) + GetTeamColorName(playerVictim.playerNr) + "@";
+                            Log(error, "FOUND! " + killText);
+                            
+                            versusAHGUI.SetExtraText(versusAHGUI.text);
+                            versusAHGUI.SetMainText(killText);
+                            break;
+                        }
+                    }
                     
                     break;
                 }
