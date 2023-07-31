@@ -66,7 +66,7 @@ array<string> randomHints = {
     "Throwing a weapon does less damage than swinging it.",
     "You can time a @vec3(1,0.5,0)@grab@@ press to catch an thrown weapon mid-air.",
     "You can pull out a weapon stuck in a player, for a quick kill.",
-    "Quickly drop a weapon by pressing @vec3(1,0.5,0)@drop@@ two times."
+    "Quickly drop a weapon by pressing @vec3(1,0.5,0)@drop@@ two times.",
 };
 // Includes both real and npc players
 int maxSupportedPlayers = 20;
@@ -363,7 +363,7 @@ void SpawnCharacter(Object@ spawn, Object@ char, bool isAlreadySpawned = false, 
     
     // Tell everyone to notice themselves
     // borrowed from arena.as
-    if(shouldBeNpc){
+    if(shouldBeNpc && !isFirst){
         int num_chars = GetNumCharacters();
         for(int i=0; i<num_chars; ++i){
             MovementObject@ char1 = ReadCharacter(i);
@@ -372,8 +372,12 @@ void SpawnCharacter(Object@ spawn, Object@ char, bool isAlreadySpawned = false, 
                 Log(info, "Telling characters " + char1.GetID() + " and " + char2.GetID() + " to notice each other.");
                 if(char1.GetID() != char2.GetID())
                 {
+                    // I want to notice all
                     char1.ReceiveScriptMessage("notice " + char2.GetID());
-                    char2.ReceiveScriptMessage("notice " + char1.GetID());
+                    // No need to use notice on player controller chars
+                    if(!mo.is_player)
+                        // All should notice me
+                        char2.ReceiveScriptMessage("notice " + char1.GetID());
                 }
             }
         }
@@ -1442,6 +1446,7 @@ void VersusBaseLoad(JSONValue settings){
                 
                 int npcsToAdd = npcPlayers - npcsAlreadyPresent;
                 Log(error, "npcsToAdd: " + npcsToAdd);
+                // Add missing npcs in
                 for(int i = 0; i< npcsToAdd; i++) {
                     int npcId = npcsAlreadyPresent + initPlayersNr + i;
                     Log(error, "Adding: " + npcId);
@@ -1455,7 +1460,16 @@ void VersusBaseLoad(JSONValue settings){
                     SpawnCharacter(FindRandSpawnPoint(player.playerNr),
                         player.SetObject(CreateCharacter(npcId, IntToSpecies(player.currentRace), player.teamNr)),
                         false, true, true);
-                    
+                }
+            }
+            else{
+                // Remove not needed npcs
+                int npcsToRemove = int(abs(npcsAlreadyPresent - npcPlayers));
+                Log(error, "npcsToRemove: " + npcsToRemove);
+                for(int i = 0; i < npcsToRemove; i++) {
+                    int npcId = versusPlayers.size()-1;
+                    Log(error, "Removing: " + npcId);
+                    RemovePlayer(npcId);
                 }
             }
         }
@@ -1535,6 +1549,12 @@ void VersusBaseLoad(JSONValue settings){
         if(FoundMember(versusBase, "StrictTeamColors"))
             strictTeamColors = versusBase["StrictTeamColors"]["Value"].asBool();
     }
+}
+
+// Use this to remove a player (local players not supported, will surely crash)
+void RemovePlayer(int playerNr){
+    QueueDeleteObjectID(GetPlayerByNr(playerNr).objId);
+    versusPlayers.removeAt(playerNr);
 }
 
 // This makes sure there is atleast a single spawn per playerNr
