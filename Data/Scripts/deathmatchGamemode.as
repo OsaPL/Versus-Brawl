@@ -19,7 +19,7 @@ array<string> killPhrases = {
     "steven'd",
     "genocided",
     "ended",
-    "pressed F on",
+    "pressed F for",
     "timed out",
     "stopped",
     "gg'd",
