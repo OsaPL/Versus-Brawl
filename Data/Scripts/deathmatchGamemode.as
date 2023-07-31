@@ -8,6 +8,8 @@
 
 // States
 //TODO! #2
+int lastKillPhrase = 0;
+int lastSuicidePhrase = 0;
 array<string> killPhrases = {
     "off'd",
     "killed",
@@ -22,6 +24,17 @@ array<string> killPhrases = {
     "stopped",
     "gg'd",
     "respawned"
+};
+array<string> suicidePhrases = {
+    "tripped.",
+    "done goofed.",
+    "slipped.",
+    "forgot about physics.",
+    "didn't stretch first.",
+    "made an oopsie.",
+    "took a break.",
+    "wanted to respawn.",
+    "visited death zone."
 };
 
 //Level methods
@@ -73,12 +86,18 @@ void Init(string msg){
                     {
                         VersusPlayer@ playerVictim = GetPlayerByNr(j);
                         Log(error, "search for victim: " + _params[1] +" .objId: "+ playerVictim.objId + " .playerNr: " + playerVictim.playerNr + " ");
+                        
+                        int newKillPhrase = rand()%killPhrases.size();
+                        while(lastKillPhrase == newKillPhrase){
+                            newKillPhrase = rand()%killPhrases.size();
+                        }
+                        lastKillPhrase = newKillPhrase;
                         if(playerVictim.objId == parseInt(_params[1])) {
                             string killText = "@" + 
                                 GetTeamUIColor(player.playerNr) + 
                                 //player.playerNr + "@ " +
                                 GetTeamColorName(player.playerNr) + "@ " + // TODO: use instead of higher line?
-                                killPhrases[rand()%insults.size()]+ " @" + 
+                                killPhrases[newKillPhrase]+ " @" + 
                                 GetTeamUIColor(playerVictim.playerNr) +
                                 //playerVictim.playerNr + "@";
                                 GetTeamColorName(playerVictim.playerNr) + "@"; // TODO: use instead of higher line?
@@ -94,6 +113,29 @@ void Init(string msg){
                 }
             }
         }
+        return true;
+    }));
+
+    levelTimer.Add(LevelEventJob("suicideDeath", function(_params){
+        if(currentState < 2 || currentState > 100 )
+            return true;
+
+        // TODO! Clean this up somehow to create a killfeed UI #2
+        VersusPlayer@ player = GetPlayerByObjectId(parseInt(_params[1]));
+        int newSuicidePhrase = rand()%suicidePhrases.size();
+        while(lastSuicidePhrase == newSuicidePhrase){
+            newSuicidePhrase = rand()%suicidePhrases.size();
+        }
+        lastSuicidePhrase = newSuicidePhrase;
+        string killText = "@" +
+            GetTeamUIColor(player.playerNr) +
+            //player.playerNr + "@ " +
+            GetTeamColorName(player.playerNr) + "@ " + // TODO: use instead of higher line?
+            suicidePhrases[rand()%suicidePhrases.size()];
+        Log(error, "FOUND! " + killText);
+
+        versusAHGUI.SetExtraText(versusAHGUI.text);
+        versusAHGUI.SetMainText(killText);
         return true;
     }));
 

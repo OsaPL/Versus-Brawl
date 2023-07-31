@@ -315,7 +315,7 @@ void AttachTimers(int obj_id){
                     level.SendMessage("oneKilledByTwo "+ char_a.GetID()+ " " + char.GetIntVar("attacked_by_id"));
                     if(enableSlowdownOnKill){
                         MovementObject@ attackerChar = ReadCharacterID(char.GetIntVar("attacked_by_id"));
-                        if(npcKillsAlsoSlowdown || attackerChar.is_player){
+                        if(npcKillsAlsoSlowdown || attackerChar.is_player || char.is_player){
                             TimedSlowMotion(0.1f, 0.7f, 0.05f);
                         }
                     }
@@ -590,11 +590,12 @@ void VersusInit(string p_level_name) {
     Log(error, "local_players: " + initPlayersNr);
     if(initPlayersNr < 1)
         initPlayersNr = 1;
-    
-    //TODO! Should we allow spawning npcs here?    
+
     int toSpawn = npcPlayers + initPlayersNr;
-    if(toSpawn > maxPlayers)
+    if(toSpawn > maxPlayers){
         npcPlayers = maxPlayers - initPlayersNr;
+        Log(error, "maxPlayers reached, reducing npcPlayers to: " + npcPlayers);
+    }
     
     for(int i = 0; i< toSpawn; i++) {
         VersusPlayer player (i);
@@ -611,7 +612,7 @@ void VersusInit(string p_level_name) {
         // Spawn players, otherwise it gets funky and spawns a player where editor camera was
         for(uint i = 0; i < versusPlayers.size(); i++)
         {
-            Log(error, "INIT SpawnCharacter");
+            Log(error, "INIT SpawnCharacter: " + i);
             VersusPlayer@ player = GetPlayerByNr(i);
             SpawnCharacter(FindRandSpawnPoint(player.playerNr),
                 player.SetObject(CreateCharacter(i, IntToSpecies(player.currentRace), player.teamNr)),
@@ -629,8 +630,10 @@ void VersusInit(string p_level_name) {
         DeleteObjectsInList(spawned_object_ids);
 
         uint toSpawn = npcPlayers + initPlayersNr;
-        if(int(toSpawn) > maxPlayers)
+        if(int(toSpawn) > maxPlayers) {
             npcPlayers = maxPlayers - initPlayersNr;
+            Log(error, "maxPlayers reached, reducing npcPlayers to: " + npcPlayers);
+        }
         for(uint i = 0; i < toSpawn; i++)
         {
             Log(error, "RESET EVENT SpawnCharacter");
@@ -716,10 +719,8 @@ void VersusUpdate() {
             }
         }
         else{
-            if(placeholderTimer<0){
-                DeleteObjectID(placeholderId);
-                preload = false; 
-            }
+            DeleteObjectID(placeholderId);
+            preload = false;
         }
     }
     levelTimer.Update();
@@ -1433,17 +1434,24 @@ void VersusBaseLoad(JSONValue settings){
             maxPlayers = versusBase["MaxPlayers"]["Value"].asInt();
             if(maxPlayers > maxSupportedPlayers)
                 maxPlayers = maxSupportedPlayers;
+            if(maxPlayers < initPlayersNr)
+                maxPlayers = initPlayersNr;
         }
 
         if(FoundMember(versusBase, "NpcPlayers")) {
             npcPlayers = versusBase["NpcPlayers"]["Value"].asInt();
+
+            uint toSpawn = npcPlayers + initPlayersNr;
+            if(int(toSpawn) > maxPlayers) {
+                npcPlayers = maxPlayers - initPlayersNr;
+                Log(error, "maxPlayers reached, reducing npcPlayers to: " + npcPlayers);
+            }
             
             Log(error, "npcPlayers loaded: " + npcPlayers);
             int npcsAlreadyPresent = versusPlayers.size() - initPlayersNr;
             Log(error, "npcsAlreadyPresent: " + npcsAlreadyPresent);
 
             if(npcsAlreadyPresent < npcPlayers){
-                
                 int npcsToAdd = npcPlayers - npcsAlreadyPresent;
                 Log(error, "npcsToAdd: " + npcsToAdd);
                 // Add missing npcs in
