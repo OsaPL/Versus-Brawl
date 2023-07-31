@@ -74,7 +74,14 @@ void Init(string msg){
                         VersusPlayer@ playerVictim = GetPlayerByNr(j);
                         Log(error, "search for victim: " + _params[1] +" .objId: "+ playerVictim.objId + " .playerNr: " + playerVictim.playerNr + " ");
                         if(playerVictim.objId == parseInt(_params[1])) {
-                            string killText = "@" + GetTeamUIColor(player.playerNr) + GetTeamColorName(player.playerNr) + "@ " +killPhrases[rand()%insults.size()]+ " @" + GetTeamUIColor(playerVictim.playerNr) + GetTeamColorName(playerVictim.playerNr) + "@";
+                            string killText = "@" + 
+                                GetTeamUIColor(player.playerNr) + 
+                                //player.playerNr + "@ " +
+                                GetTeamColorName(player.playerNr) + "@ " + // TODO: use instead of higher line?
+                                killPhrases[rand()%insults.size()]+ " @" + 
+                                GetTeamUIColor(playerVictim.playerNr) +
+                                //playerVictim.playerNr + "@";
+                                GetTeamColorName(playerVictim.playerNr) + "@"; // TODO: use instead of higher line?
                             Log(error, "FOUND! " + killText);
                             
                             versusAHGUI.SetExtraText(versusAHGUI.text);
