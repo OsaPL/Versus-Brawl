@@ -242,7 +242,7 @@ void CallRespawn(int playerNr, int objId) {
 
         MovementObject@ char = ReadCharacterID(player.objId);
         // We want to reroll race sometimes if npc gets killed (always if wolf atm)
-        if(!char.is_player && !blockSpeciesChange && (rand()%100 < npcChanceToChangeSpecies || player.currentRace == 1))
+        if(!player.isNpc && !blockSpeciesChange && (rand()%100 < npcChanceToChangeSpecies || player.currentRace == 1))
             player.currentRace = rand()%speciesMap.size();
         Log(error, "Respawn requested objId:"+player.objId+" playerNr:"+player.playerNr);
     }
@@ -369,7 +369,7 @@ void SpawnCharacter(Object@ spawn, Object@ char, bool isAlreadySpawned = false, 
             MovementObject@ char1 = ReadCharacter(i);
             for(int j=i+1; j<num_chars; ++j){
                 MovementObject@ char2 = ReadCharacter(j);
-                Log(info, "Telling characters " + char1.GetID() + " and " + char2.GetID() + " to notice each other.");
+                //Log(info, "Telling characters " + char1.GetID() + " and " + char2.GetID() + " to notice each other.");
                 if(char1.GetID() != char2.GetID())
                 {
                     // I want to notice all
@@ -776,7 +776,7 @@ void VersusUpdate() {
         VersusPlayer@ player = GetPlayerByNr(k);
 
         MovementObject@ char = ReadCharacterID(player.objId);
-        if(!char.is_player)
+        if(player.isNpc)
             continue;
         
         // Check if suicide timers array is too small
@@ -1723,7 +1723,7 @@ void CheckPlayersState() {
             VersusPlayer@ player = GetPlayerByNr(i);
 
             MovementObject@ char = ReadCharacterID(player.objId);
-            if(!char.is_player)
+            if(player.isNpc)
                 continue;
             
             if(GetInputDown(i,"item") && GetInputDown(i,"drop")) {

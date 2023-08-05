@@ -1,9 +1,10 @@
 # Npc players problems:
-1. Should use `.isNpc` for all Npc checks
-2. Tag: will crash if more than 4 players
-   - Problem: tables are hardcoded to have 4 elems
-3. `isNpc` should be checked inside SpawnCharacter probably!
-4. There is some logic in `pointUIBase.as` taht needs to get seperated, to some UI and Gameplay flows
+1. Tag: will crash if more than 4 players. Problems:
+  - Emmitter and freeze tables are hardcoded to have 4 elems at start? Why tho?
+  - Emmitter doesnt correctly follow player on freeze
+  - There is a crash on tag reset, caused by something in `weaponSpawn.as` in `Update()`, but also not? I just get random `Error,There is no object {id}` errors. Maybe its again correlated with characters being removed when they shouldnt?
+2. There is some logic in `pointUIBase.as` that needs to get seperated, to UI and Gameplay flows (see: `playersUI` variables)
+
 
 DM and CTF seem to work just fine, even if over 4+ players
 

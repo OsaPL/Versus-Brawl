@@ -44,7 +44,6 @@ void Update(){
         justReleased = false;
         return;
     }
-
     
     if(weaponId == -1){
         Log(error, "weaponId missing, spawning");
@@ -55,9 +54,7 @@ void Update(){
         spawnTimer = params.GetInt("RespawnTime");
         justReleased = false;
     }
-
-
-
+    
     Object@ obj = ReadObjectFromID(weaponId);
     ItemObject@ itemObj = ReadItemID(weaponId);
     

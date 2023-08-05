@@ -87,7 +87,7 @@ void ResetTag(){
 
 void RegisterCharDeathJob(int playerNr)
 {
-    Log(error, "RegisterCharDeathJob for playerNr");
+    Log(error, "RegisterCharDeathJob for playerNr: " + playerNr);
 
     VersusPlayer@ playerToAttach = GetPlayerByNr(playerNr);
     playerToAttach.charTimer.Add(CharDeathJob(playerToAttach.objId, function(char_a){
