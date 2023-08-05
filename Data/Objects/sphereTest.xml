@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Objects/sphereTest.obj</Model>
+	<ColorMap>Data/Objects/CubeTextx2.png</ColorMap>
+	<NormalMap>Data/Objects/CubeNormalx2.png</NormalMap>
+	<ShaderName>envobject #TANGENT</ShaderName>
+</Object>
