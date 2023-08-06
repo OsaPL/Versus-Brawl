@@ -21,8 +21,8 @@ array<bool> killedRunners = { };
 array<bool> currentChasers = { };
 array<float> freezeTimers = { };
 array<bool> isFreezed = { };
-array<int> freezeEmmiters = { -1, -1, -1, -1 };
-array<int> blingEmmiters = { -1, -1, -1, -1 };
+array<int> freezeEmmiters = { };
+array<int> blingEmmiters = { };
 
 float timer = 0;
 int lastTimer = 0;
@@ -85,33 +85,29 @@ void ResetTag(){
     updateChaserRunnerLabels = true;
 }
 
-void RegisterCharDeathJob(int playerNr)
-{
-    Log(error, "RegisterCharDeathJob for playerNr: " + playerNr);
-
-    VersusPlayer@ playerToAttach = GetPlayerByNr(playerNr);
-    playerToAttach.charTimer.Add(CharDeathJob(playerToAttach.objId, function(char_a){
-        // This should respawn on kill
-        VersusPlayer@ player = GetPlayerByObjectId(char_a.GetID());
-        if(currentState==2){
-            // Runner death means, no respawn, but also not another catcher
-            if(!currentChasers[player.playerNr]){
-                Log(error, "runner died");
-                currentChasers[player.playerNr] = true;
-                killedRunners[player.playerNr] = true;
-                updateChaserRunnerLabels = true;
-            }
-            else{
-                Log(error, "chaser died");
-                // First check if its not an already dead runner
-                if(!killedRunners[player.playerNr]){
-                    // Respawn if its the catcher
-                    CallRespawn(player.playerNr, player.objId);
-                }
+void OnKillHandler(int playerNr){
+    // This should respawn on kill
+    VersusPlayer@ player = GetPlayerByNr(playerNr);
+    if(currentState==2){
+        // Runner death means, no respawn, but also not another catcher
+        if(!currentChasers[player.playerNr]){
+            Log(error, "runner died");
+            currentChasers[player.playerNr] = true;
+            killedRunners[player.playerNr] = true;
+            updateChaserRunnerLabels = true;
+        }
+        else{
+            Log(error, "chaser died");
+            // First check if its not an already dead runner
+            if(!killedRunners[player.playerNr]){
+                // Respawn if its the catcher
+                CallRespawn(player.playerNr, player.objId);
             }
         }
-        return true;
-    }));
+    }
+    else{
+        CallRespawn(player.playerNr, player.objId);
+    }
 }
 
 
@@ -134,6 +130,7 @@ void Init(string msg){
     randomHints.insertAt(0, "Someones really elusive? Maybe killing him is a better idea.");
     
     blockSpeciesChange = true;
+    forcedSpecies = 3;
     //Always need to call this first!
     VersusInit("");
 
@@ -153,7 +150,7 @@ void Init(string msg){
         VersusPlayer@ victim = GetPlayerByObjectId(parseInt(_params[1]));
         VersusPlayer@ attacker = GetPlayerByObjectId(parseInt(_params[2]));
 
-        if(!currentChasers[victim.playerNr] && currentChasers[attacker.playerNr] && currentState == 2){
+        if(currentState == 2 && !currentChasers[victim.playerNr] && currentChasers[attacker.playerNr]){
             // Change team, if hit by 
             SetChaser(victim.playerNr);
         }
@@ -174,15 +171,23 @@ void Init(string msg){
         VersusPlayer@ victim = GetPlayerByObjectId(parseInt(_params[1]));
 
         // Ugh, angelscript doesnt have something like parseBool(string)
-        if(currentChasers[victim.playerNr] && currentState == 2 && _params[2] == "false"){
+        if(currentState == 2 && _params[2] == "false" && currentChasers[victim.playerNr]){
             // Freeze chaser on respawn
             Freeze(victim.playerNr);
-            RegisterCharDeathJob(victim.playerNr);
-        }
-        if(_params[2] == "true"){
-            RegisterCharDeathJob(victim.playerNr);
         }
 
+        return true;
+    }));
+
+    levelTimer.Add(LevelEventJob("oneKilledByTwo", function(_params){
+        VersusPlayer@ victim = GetPlayerByObjectId(parseInt(_params[1]));
+        OnKillHandler(victim.playerNr);
+        return true;
+    }));
+
+    levelTimer.Add(LevelEventJob("suicideDeath", function(_params){
+        VersusPlayer@ victim = GetPlayerByObjectId(parseInt(_params[1]));
+        OnKillHandler(victim.playerNr);
         return true;
     }));
 
@@ -224,14 +229,9 @@ void DrawGUI() {
     VersusDrawGUI();
 }
 
-bool testReset = true;
 void Update(){
     //Always need to call this first!
     VersusUpdate();
-    if(npcPlayers > 0 && testReset){
-        ResetTag();
-        testReset = false;
-    }
     
     if(currentState == 2){
         timer += time_step;
@@ -385,7 +385,7 @@ void UpdateUI(){
             if(GetPlayerByNr(i).isNpc)
                 continue;
             
-            Log(error, "initUI");
+            Log(error, "initUI Tag");
 
             AHGUI::Element@ headerElement = versusAHGUI.root.findElement("header"+i);
             AHGUI::Divider@ div = cast<AHGUI::Divider>(headerElement);
@@ -455,8 +455,8 @@ void Unfreeze(int playerNr){
 
     // Remove the emitter
     if(freezeEmmiters[playerNr] != -1){
-        DeleteObjectID(freezeEmmiters[playerNr]);
-        DeleteObjectID(blingEmmiters[playerNr]);
+        QueueDeleteObjectID(freezeEmmiters[playerNr]);
+        QueueDeleteObjectID(blingEmmiters[playerNr]);
     }
 
     freezeEmmiters[playerNr] = -1;
@@ -489,8 +489,8 @@ void Freeze(int playerNr){
     charObj.UpdateScriptParams();
 
     if(freezeTimers[playerNr] != -1){
-        DeleteObjectID(freezeEmmiters[playerNr]);
-        DeleteObjectID(blingEmmiters[playerNr]);
+        QueueDeleteObjectID(freezeEmmiters[playerNr]);
+        QueueDeleteObjectID(blingEmmiters[playerNr]);
     }
         
     freezeTimers[playerNr] = freezeTime;
@@ -503,6 +503,8 @@ void Freeze(int playerNr){
     Object@ obj = ReadObjectFromID(emitterId);
     ScriptParams@ objParams = obj.GetScriptParams();
     objParams.SetInt("objectIdToFollow", victim.objId);
+    objParams.SetString("boneToFollow", "torso");
+    
     objParams.SetFloat("particleDelay", 0.005f);
     objParams.SetFloat("particleRangeMultiply", 0.8f);
     objParams.SetString("pathToParticles", "Data/Particles/smoke.xml");
@@ -515,6 +517,8 @@ void Freeze(int playerNr){
     Object@ blingObj = ReadObjectFromID(blingEmitterId);
     ScriptParams@ blingParams = blingObj.GetScriptParams();
     blingParams.SetInt("objectIdToFollow", victim.objId);
+    objParams.SetString("boneToFollow", "torso");
+    
     blingParams.SetFloat("particleDelay", 0.05f);
     blingParams.SetFloat("particleRangeMultiply", 0.5f);
     blingParams.SetString("pathToParticles", "Data/Particles/versus-brawl/stone_sparks.xml");
@@ -530,6 +534,7 @@ void SetChaser(int playerNr){
     VersusPlayer@ victim = GetPlayerByNr(playerNr);
     
     currentChasers[playerNr] = true;
+    victim.teamNr = 1;
     
     victim.currentRace = chaserSpecies;
     RerollCharacter(victim.playerNr, ReadObjectFromID(victim.objId));
@@ -546,6 +551,7 @@ void SetRunner(int playerNr){
     currentChasers[playerNr] = false;
 
     victim.currentRace = runnerSpecies;
+    victim.teamNr = 0;
     RerollCharacter(victim.playerNr, ReadObjectFromID(victim.objId));
 
     if(currentState == 2) {
