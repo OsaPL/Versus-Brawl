@@ -6,8 +6,8 @@
           anim = "Data/Animations/r_dogweapongrip.anm"
 		  hands = "2"/>
     <physics mass = "7 kg"/>
-	<sheathe ik_attach = "torso"
-		     anim = "Data/Animations/bow/r_bow_sheathed.anm"/>
+    <sheathe ik_attach = "torso"
+             anim = "Data/Animations/versusBrawl/bigBlade-sheathe.anm"/>
     <points>
         <pommel x="0" y="-0.72" z="0"/>
         <guard x="0" y="0.275" z="0"/>

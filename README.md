@@ -174,9 +174,11 @@ Powerful and slow. They require specific methods to kill, otherwise they can bec
 
 [Surak](https://github.com/Surak) - for [Timed-Execution](https://github.com/EmpSurak/Timed-Execution) simplified A LOT of my code
 
+[Gyrth](https://github.com/Gyrth) - for showing me not documented stuff
+
 [constance](https://steamcommunity.com/sharedfiles/filedetails/?id=1525405745) - for pumpkins (cave_map)
 
-[Gyrth](https://github.com/Gyrth) - for showing me not documented stuff
+[yanwangken](https://steamcommunity.com/profiles/76561198307136622) - for helping me fix 2 handed back sheath positions
 
 Jukucz, Naxer, Dante, Emperot and DemonAngel - for playtesting this shit
 

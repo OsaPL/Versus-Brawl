@@ -7,7 +7,7 @@
           anim_base = "Data/Animations/r_dogweapongrip.anm"
 		  hands = "2"/>
 	<sheathe ik_attach = "torso"
-	   anim = "Data/Animations/bow/r_arrow_sheathed.anm"/>
+	   anim = "Data/Animations/bow/r_bow_sheathed.anm"/>
     <points>
         <wood_base x="0" y="0" z="-0.85"/>
         <wood_tip x="0" y="0" z="0.85"/>

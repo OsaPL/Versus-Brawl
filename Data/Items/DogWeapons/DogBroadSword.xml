@@ -7,7 +7,7 @@
 		  hands = "2"/>
     <physics mass = "3 kg"/>
 	<sheathe ik_attach = "torso"
-	     anim = "Data/Animations/bow/r_arrow_sheathed.anm"/>
+	     anim = "Data/Animations/versusBrawl/bigBlade-sheathe.anm"/>
     <points>
         <pommel x="0" y="-0.18" z="0"/>
         <guard x="0" y="0.15" z="0"/>
