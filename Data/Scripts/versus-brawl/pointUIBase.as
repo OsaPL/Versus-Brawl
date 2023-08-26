@@ -54,8 +54,14 @@ void UpdateUI(){
 
     if(initUI){
         teamsToGoThrough = versusPlayers.size();
-        if(teamPlay)
-            teamsToGoThrough = teamsAmount;
+        if(teamPlay) {
+            if (teamsAmount <= versusPlayers.size()) {
+                teamsToGoThrough = teamsAmount;
+            } else {
+                errorMessage = "More teams than players, wont continue!";
+                ChangeGameState(1);
+            }
+        }
         
         InitUI();
         initUI = false;
@@ -171,10 +177,12 @@ void InitUI(){
     {
         pointsCount.push_back(0);
     }
+
+    Log(error, "teamsToGoThrough"+teamsToGoThrough);
     
     for (uint i = 0; i < teamsToGoThrough; i++) {
         // Max supported local player UIs
-        if(GetPlayerByNr(i).isNpc) 
+        if(GetPlayerByNr(i).isNpc && !teamPlay) 
             return;
         
         Log(error, "initUI"+i);

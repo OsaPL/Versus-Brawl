@@ -128,6 +128,7 @@ int currentState=-1;
 int winnerNr = -1;
 float winStateTimer = 0;
 array<float> suicideTimers = {};
+string errorMessage = "";
 
 // For preloading characters
 uint preloadSpeciesIndex = 0;
@@ -683,6 +684,7 @@ void VersusUpdate() {
     
     if(!CheckSpawnsNumber()) {
         //Warn about the incorrect number of spawns
+        errorMessage = "Not enough spawns found!";
         ChangeGameState(1);
     }
     
@@ -1769,11 +1771,10 @@ void ChangeGameState(uint newState) {
             versusAHGUI.SetText("Warmup!",
                 "Press @vec3(1,0.5,0)@skip_dialogue@@ button to begin.");
             break;
-        case 1: 
-            //Failsafe, not enough spawns, waiting for acknowledgment
-            //TODO: Inform what is the amount of what type needed for the current settings
-            versusAHGUI.SetText("Warning! Not enough player spawns detected!",
-                "After adding more player spawns, please save and reload the map.");
+        case 1:
+            versusAHGUI.SetText("@vec3(1,0.5,0)Error!@",
+                errorMessage);
+            Log(error, errorMessage);
             break;
         case 2:
             //Game Start

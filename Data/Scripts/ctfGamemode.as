@@ -168,9 +168,7 @@ void GetFlagHotspotsIds(){
     }
     
     if(teamsAmount != int(flagIds.size())){
+        errorMessage = "Not enough flags detected! teamsAmount: " + teamsAmount + " flagIds.size(): " + flagIds.size();
         ChangeGameState(1);
-        Log(error, "Not enough flags detected! teamsAmount: " + teamsAmount + " flagIds.size(): " + flagIds.size());
-        versusAHGUI.SetText("Warning! Not enough flags detected!",
-            "After adding more flags, with correct teamIds, please save and reload the map.");
     }
 }
