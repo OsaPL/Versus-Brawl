@@ -35,19 +35,19 @@
     <RayToSun r0="0.121363" r1="0.062051" r2="0.990667" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-9.60268" t1="6.93314" t2="4.25858" s0="1" s1="1" s2="1" q0="-0.141735" q1="-0.46672" q2="0.0760652" q3="-0.869654" euler_x="0.323116" euler_y="0.985108" euler_z="0" id="0">
+    <CameraObject t0="-0.640481" t1="5.32218" t2="-7.41572" s0="1" s1="1" s2="1" q0="-0.0186508" q1="0.876" q2="-0.480751" q3="-0.0339845" euler_x="-2.13775" euler_y="-0.0775514" euler_z="-3.14159" id="0">
         <parameters />
     </CameraObject>
-    <EnvObject t0="0.115045" t1="-0.111715" t2="1.05166" s0="20" s1="1" s2="20" q0="-0.000415206" q1="0.000877857" q2="5.46552e-005" q3="1" euler_x="-0.000830317" euler_y="0.00175576" euler_z="0.000108582" id="1" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+    <EnvObject t0="0.115045" t1="-0.111715" t2="1.05166" s0="20" s1="1" s2="20" q0="-0.000415206" q1="0.000877857" q2="5.46552e-05" q3="1" euler_x="-0.000830317" euler_y="0.00175576" euler_z="0.000108582" id="1" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
         <parameters />
     </EnvObject>
     <Hotspot t0="-10.2678" t1="1.2307" t2="-8.83057" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3" type_file="Data/Objects/versus-brawl/hotspots/flagHotspot.xml">
         <parameters>
-            <parameter name="blue" type="float" val="0" />
+            <parameter name="blue" type="float" val="0.0392157" />
             <parameter name="debuffCarrier" type="float" val="0.8" />
             <parameter name="flagState" type="int" val="0" />
-            <parameter name="green" type="float" val="0" />
-            <parameter name="red" type="float" val="0.8" />
+            <parameter name="green" type="float" val="0.0392157" />
+            <parameter name="red" type="float" val="0.360784" />
             <parameter name="returnCooldown" type="float" val="10" />
             <parameter name="teamId" type="int" val="1" />
             <parameter name="type" type="string" val="flagHotspot" />
@@ -59,11 +59,11 @@
     </Hotspot>
     <Hotspot t0="-4.76227" t1="1.18896" t2="-9.13505" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="10" type_file="Data/Objects/versus-brawl/hotspots/flagHotspot.xml">
         <parameters>
-            <parameter name="blue" type="float" val="0" />
+            <parameter name="blue" type="float" val="0.117647" />
             <parameter name="debuffCarrier" type="float" val="0.8" />
             <parameter name="flagState" type="int" val="0" />
-            <parameter name="green" type="float" val="0.8" />
-            <parameter name="red" type="float" val="0" />
+            <parameter name="green" type="float" val="0.282353" />
+            <parameter name="red" type="float" val="0.0941176" />
             <parameter name="returnCooldown" type="float" val="10" />
             <parameter name="teamId" type="int" val="0" />
             <parameter name="type" type="string" val="flagHotspot" />
@@ -73,7 +73,7 @@
             <Connection id="22" />
         </ConnectionsFrom>
     </Hotspot>
-    <Hotspot t0="-4.97457" t1="2.44175" t2="-7.7314" s0="0.86265" s1="0.86265" s2="0.86265" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="11" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="-4.97457" t1="2.44175" t2="-7.7314" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="11" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="0" />
@@ -94,10 +94,10 @@
     <ItemObject t0="-2.74893" t1="1.09707" t2="-3.16776" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="15" type_file="Data/Items/DogWeapons/DogBroadSword.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </ItemObject>
-    <ItemObject t0="-1.32419" t1="1.09743" t2="-2.91581" s0="1" s1="1" s2="1" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="16" type_file="Data/Items/DogWeapons/DogSpear.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <ItemObject t0="-1.31724" t1="1.1466" t2="-2.86608" s0="1" s1="1" s2="1" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="16" type_file="Data/Items/DogWeapons/DogSpear.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </ItemObject>
-    <Hotspot t0="-10.3584" t1="2.46852" t2="-7.69744" s0="0.86265" s1="0.86265" s2="0.86265" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="17" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="-10.3584" t1="2.46852" t2="-7.69744" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="17" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="1" />
@@ -146,6 +146,9 @@
     <ItemObject t0="-1.38508" t1="2.25861" t2="-6.04287" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="25" type_file="Data/Items/DogWeapons/DogGlaive.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </ItemObject>
+    <ItemObject t0="-0.769589" t1="1.95812" t2="-4.37488" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="26" type_file="Data/Items/Bastard.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
     <Hotspot t0="6.82542" t1="4.13566" t2="-3.7566" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="29" type_file="Data/Objects/versus-brawl/hotspots/teleporterHotspot.xml">
         <parameters>
             <parameter name="blue" type="float" val="0" />
@@ -180,7 +183,7 @@
             <Connection id="29" />
         </ConnectionsFrom>
     </Hotspot>
-    <EnvObject t0="6.21854" t1="2.81103" t2="-2.62644" s0="6.59126" s1="2.01694" s2="0.504697" q0="-0.000415206" q1="0.000877857" q2="5.46552e-005" q3="1" euler_x="-0.000830317" euler_y="0.00175576" euler_z="0.000108582" id="31" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+    <EnvObject t0="6.21854" t1="2.81103" t2="-2.62644" s0="6.59126" s1="2.01694" s2="0.504697" q0="-0.000415206" q1="0.000877857" q2="5.46552e-05" q3="1" euler_x="-0.000830317" euler_y="0.00175576" euler_z="0.000108582" id="31" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="7.96067" t1="0.884453" t2="-5.88015" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="32" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Groundcover/wildflowers/blue_wildflower.xml">
@@ -213,4 +216,5 @@
     <SpawnerItem display_name="playerSpawn.xml" path="Data/Objects/playerSpawn.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="flagHotspot.xml" path="Data/Objects/versus-brawl/hotspots/flagHotspot.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="flagReturnHotspot.xml" path="Data/Objects/versus-brawl/hotspots/flagReturnHotspot.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Bastard Sword" path="Data/Items/Bastard.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/wsword2.png" />
 </RecentItems>

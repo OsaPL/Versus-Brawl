@@ -74,8 +74,8 @@ void Update()
 
     rotateDelay = params.GetFloat("rotateDelay")/100;
     rotatoSpeed = params.GetFloat("rotatoSpeed")/100;
-    
-    if(EditorModeActive()){
+
+    if(EditorModeActive()) {
         PlaceHolderFollowerUpdate(billboardPath, "[Rotato] LinkedId: "+ parentId, 1.0f, false, vec4(color, 1));
     }
     
@@ -101,10 +101,12 @@ void Update()
     }
 
     vec3 direction = obj.GetRotation() * vec3(0,0,1);
-    DebugDrawLine(original,
-        original+axis,
-        color,
-        _delete_on_update);
+    if(EditorModeActive()) {
+        DebugDrawLine(original,
+            original + axis,
+            color,
+            _delete_on_update);
+    }
 
     // Stop rotating if obj is selected
     if(obj.IsSelected()){
