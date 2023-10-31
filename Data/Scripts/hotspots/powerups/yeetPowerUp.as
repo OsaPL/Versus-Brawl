@@ -28,6 +28,9 @@ void Init(){
         else{
             PlaySound(params.GetString("stopSoundPath"));
         }
+        if(lastEnteredPlayerObjId == -1)
+            return true;
+        
         Object@ obj = ReadObjectFromID(lastEnteredPlayerObjId);
         ScriptParams@ objParams = obj.GetScriptParams();
         objParams.SetFloat("Attack Knockback", objParams.GetFloat("Attack Knockback")/params.GetFloat("knockbackMlt"));
@@ -103,5 +106,5 @@ void ReceiveMessage(string msg){
 
 void PreScriptReload()
 {
-    powerupTimer.DeleteAll();
+    PowerupPreScriptReload();
 }

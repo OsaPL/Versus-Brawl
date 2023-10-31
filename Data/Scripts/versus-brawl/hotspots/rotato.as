@@ -2,7 +2,7 @@
 
 int parentId = -1;
 int toSkip = 0;
-string billboardPath = "Data/Textures/ui/menus/main/icon-retry.png";
+string billboardPath = "Data/Textures/ui/versusBrawl/rotato.png";
 vec3 color = vec3(0, 0.7f, 0.8f);
 float timeSinceLastRotate = 0;
 vec3 lastAxis = vec3();
@@ -17,6 +17,7 @@ void SetParameters()
     params.AddFloatSlider("rotateDelay", 0.01f*100,"min:0,max:30,step:0.01");
     params.AddFloatSlider("rotatoSpeed", 0.0003f*100,"min:0.03,max:10,step:0.01");
     params.AddIntCheckbox("useFastRotate", true);
+    params.AddIntCheckbox("pauseWhenEditor", true);
     params.AddString("rotationAxis", "vec3(0, 1, 0)");
 }
 
@@ -78,7 +79,7 @@ void Update()
         PlaceHolderFollowerUpdate(billboardPath, "[Rotato] LinkedId: "+ parentId, 1.0f, false, vec4(color, 1));
     }
     
-    if(parentId == -1 || !me.GetEnabled())
+    if(parentId == -1 || !me.GetEnabled() || (params.GetInt("pauseWhenEditor") != 0 && EditorModeActive()))
         return;
     
     if(timeSinceLastRotate<rotateDelay) {
@@ -137,9 +138,9 @@ bool ConnectTo(Object@ other)
 
 bool Disconnect(Object@ other)
 {
-    parentId = -1;
     // Reset rotation if object disconnected
     Object@ obj = ReadObjectFromID(parentId);
+    parentId = -1;
     obj.SetRotation(quaternion());
     return true;
 }

@@ -2,5 +2,5 @@
 <Type>generic</Type>
 <Hotspot>
 	<BillboardColorMap>Data/UI/spawner/thumbs/Hotspot/empty.png</BillboardColorMap>
-	<Script>versus-brawl/rotato.as</Script>
+	<Script>hotspots/powerups/refreshPowerups.as</Script>
 </Hotspot>

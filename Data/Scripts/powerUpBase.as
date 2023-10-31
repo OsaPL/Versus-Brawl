@@ -10,6 +10,8 @@ bool readyForPickup = true;
 vec3 fixedScale = vec3(0.27,0.27,0.27);
 bool _error = false;
 bool active = false;
+bool init = false;
+bool ignoreRefreshMessages = false;
 
 int particleEmitterId = -1;
 
@@ -22,6 +24,28 @@ void PowerupInit()
     // Get hotspot
     Object@ me = ReadObjectFromID(hotspot.GetID());
     me.SetScale(fixedScale);
+
+    powerupTimer.Add(LevelEventJob("RefreshPowerup", function(char_a){
+        //Refresh powerup
+
+        RefreshPowerup();
+        return true;
+    }));
+
+    powerupTimer.Add(LevelEventJob("RefreshAllPowerups", function(_params){
+        //Refresh powerup
+
+        RefreshPowerup();
+        return true;
+    }));
+}
+
+void RefreshPowerup(){
+    if(ignoreRefreshMessages)
+        return;
+    Object@ me = ReadObjectFromID(hotspot.GetID());
+    me.ReceiveScriptMessage("deactivate");
+    readyForPickup = true;
 }
 
 void PowerupHandleEvent(string event, MovementObject @mo)
@@ -95,12 +119,18 @@ void PowerupSetParameters() {
     params.AddFloatSlider("particleColorG", 1.0f,"min:0,max:1,step:0.01,text_mult:255");
     params.AddFloatSlider("particleColorB", 1.0f,"min:0,max:1,step:0.01,text_mult:255");
 
+    params.AddIntCheckbox("oneTimeUse", false);
+
     params.AddFloatSlider("respawnTime", 6.0f,"min:0,max:100,step:0.1,text_mult:1");
     params.AddFloatSlider("activeTime", 3.0f,"min:0,max:100,step:0.1,text_mult:1");
 }
 
 void PowerupReceiveMessage(string msg)
 {
+    // if(msg.findFirst("RefreshAllPowerups") != -1)
+    //     Log(error, "RefreshAllPowerups:  " + msg);
+    // if(msg.findFirst("RefreshPowerup") != -1)
+    //     Log(error, "RefreshPowerup:  " + msg);
     // this will receive messages aimed at this object
     powerupTimer.AddLevelEvent(msg);
     
@@ -111,10 +141,19 @@ void PowerupReceiveMessage(string msg)
 void PowerupPreScriptReload()
 {
     powerupTimer.DeleteAll();
+    Object@ me = ReadObjectFromID(hotspot.GetID());
+    me.ReceiveScriptMessage("deactivate");
+    init = true;
 }
 
 void PowerupUpdate(){
     Object@ me = ReadObjectFromID(hotspot.GetID());
+    
+    // This init is called only after ScriptReload(
+    if(init){
+        Init(); 
+        init = false;
+    }
     
     powerupTimer.Update();
     vec3 color = vec3(params.GetFloat("colorR"), params.GetFloat("colorG"), params.GetFloat("colorB"));
@@ -144,7 +183,7 @@ void PowerupUpdate(){
     // TODO! We'll need to check whether he is still close enough to be considered for pickup
     // Get lastEnteredPlayerObjId and check its translation, if its close enough to activate
 
-    if(!readyForPickup && lastEnteredPlayerObjId != -1 && respawnPickupTimer>0 && active){
+    if(!readyForPickup && lastEnteredPlayerObjId != -1 && respawnPickupTimer>0 && active) {
         respawnPickupTimer -= time_step;
     }
     else{
@@ -155,7 +194,7 @@ void PowerupUpdate(){
             DeleteObjectID(particleEmitterId);
             active = false;
         }
-        if(respawnPickupTimer>params.GetFloat("respawnTime")){
+        if(respawnPickupTimer>params.GetFloat("respawnTime") && params.GetInt("oneTimeUse") == 0){
             lastEnteredPlayerObjId = -1;
             readyForPickup = true;
         }

@@ -4,12 +4,12 @@
 			  normal_map = "Data/Textures/versus-brawl/health_particle.tga"
               shader = "envobject #PARTICLE #GLOW"
               soft_shader = "envobject #PARTICLE #GLOW"/>
-    <size min = "0.4" max = "0.7"/>
+    <size min = "0.2" max = "0.5"/>
     <color red =   "1.0"
            green = "1.0"
            blue =  "1.0"
            alpha_min = "0.5" alpha_max = "1.0"/>
-    <behavior inertia="0.9" gravity="0.0" wind="1.0" size_decay_rate="0.0" opacity_decay_rate="5.5"/>
+    <behavior inertia="0.9" gravity="0.0" wind="1.0" size_decay_rate="1.0" opacity_decay_rate="5.5"/>
     <quadratic_expansion speed="1.0"/>
     <quadratic_dispersion persistence="1.0"/>
 </particle>

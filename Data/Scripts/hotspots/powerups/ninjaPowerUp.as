@@ -104,5 +104,5 @@ void ReceiveMessage(string msg){
 
 void PreScriptReload()
 {
-    powerupTimer.DeleteAll();
+    PowerupPreScriptReload();
 }
