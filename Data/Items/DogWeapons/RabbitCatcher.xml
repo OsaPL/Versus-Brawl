@@ -6,7 +6,7 @@
           anim = "Data/Animations/r_dogweapongrip.anm"
 		  hands = "2"/>.
 	<sheathe ik_attach = "torso"
-			 anim = "Data/Animations/bow/r_bow_sheathed.anm"/>
+			 anim = "Data/Animations/versusBrawl/big-sheathe.anm"/>
     <points>
         <pommel x="0" y="-0.72" z="0"/>
         <guard x="0" y="1.02" z="0"/>
