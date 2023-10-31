@@ -10444,7 +10444,7 @@ void StartSheathing(int slot) {
             if(item_obj.HasSheatheAttachment()) {
                 // Additional animations for sheathing big weapons
                 if(IsBigStick(weapon_slots[slot])){
-                    sheathe_layer_id = animClient.AddLayer("Data/Animations/bow/r_arrow_sheathe.anm", 8.0f, flags);
+                    sheathe_layer_id = animClient.AddLayer("Data/Animations/bow/r_arrow_sheathe_sameside.anm", 8.0f, flags);
                 }
                 else if(IsBigBlade(weapon_slots[slot])) {
                     sheathe_layer_id = animClient.AddLayer("Data/Animations/bow/r_arrow_sheathe_sameside.anm", 8.0f, flags);
@@ -10790,12 +10790,17 @@ void HandlePickUp() {
                     //Log(error, "src: " + WeaponSlotToString(src) + " primary_weapon_slot: " + primary_weapon_slot);
 
                     // Additional animations for unsheathing big weapons
-                    if((src == _sheathed_right_back) ||
-                        (src == _sheathed_right_back)){
-                        sheathe_layer_id = this_mo.rigged_object().anim_client().AddLayer("Data/Animations/bow/r_arrow_unsheathe.anm", 8.0f, flags);
+                    if(src == _sheathed_right_back){
+                        // Big sticks are always grabbed over left shoulder
+                        if(primary_weapon_slot != _held_left){
+                            sheathe_layer_id = this_mo.rigged_object().anim_client().AddLayer("Data/Animations/bow/r_arrow_unsheathe.anm", 8.0f, flags);
+                        }
+                        else{
+                            sheathe_layer_id = this_mo.rigged_object().anim_client().AddLayer("Data/Animations/bow/r_arrow_unsheathe_sameside.anm", 8.0f, flags);
+                        }
                     }
-                    else if((src == _sheathed_left_back) ||
-                        (src == _sheathed_left_back)){
+                    else if(src == _sheathed_left_back){
+                        // Big swords are placed in the middle, so any handness is fine
                         sheathe_layer_id = this_mo.rigged_object().anim_client().AddLayer("Data/Animations/bow/r_arrow_unsheathe_sameside.anm", 8.0f, flags);
                     }
                     else if((primary_weapon_slot == _held_left && src == _sheathed_right) ||
