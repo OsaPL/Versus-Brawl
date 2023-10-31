@@ -24,7 +24,7 @@ bool DrunkModeInputDownCheck(int controllerId, string action){
         else if(action == "crouch"){
             return GetInputDown(this_mo.controller_id, "jump");
         }
-        
+
         DisplayError("DrunkModeInputDownCheck", "Not supported action: " + action);
         return GetInputDown(controllerId, action);
     }
@@ -78,6 +78,25 @@ float DrunkModeGetMoveXAxis(int controllerId){
         return GetMoveXAxis(controllerId);
     }
 }
+
+// Already noticed characters
+array<NoticedCharacter@> alreadyNoticedIds = {};
+class NoticedCharacter {
+    int objId;
+    float lastNoticedTime;
+    NoticedCharacter(int newObjId, float newLastNoticedTime){
+        objId = newObjId;
+        lastNoticedTime = newLastNoticedTime;
+    }
+}
+// After what time, trigger notice sound again
+float noticeCooldown = 120.0f;
+// Colldown before combat sound
+float attackCooldown = 1.5f;
+float lastAttackTime = 0.0f;
+int chanceToSkip = 10;
+// Last char state
+int lastState = 0;
 ///
 
 float grab_key_time;
@@ -99,17 +118,17 @@ int IsUnaware() {
 
 enum DropKeyState {
     _dks_nothing,
-    _dks_pick_up,
-    _dks_drop,
-    _dks_throw
+        _dks_pick_up,
+        _dks_drop,
+        _dks_throw
 };
 
 DropKeyState drop_key_state = _dks_nothing;
 
 enum ItemKeyState {
     _iks_nothing,
-    _iks_sheathe,
-    _iks_unsheathe
+        _iks_sheathe,
+        _iks_unsheathe
 };
 
 ItemKeyState item_key_state = _iks_nothing;
@@ -156,7 +175,7 @@ void UpdateBrain(const Timestep &in ts) {
 
     // Allows for easier item dropping by just tapping `drop` two times
     if(DrunkModeInputPressedCheck(this_mo.controller_id, "drop")) {
-        if(maxTimeForQuickDrop > timeSinceLastDropKeyPress && 
+        if(maxTimeForQuickDrop > timeSinceLastDropKeyPress &&
             (weapon_slots[primary_weapon_slot] != -1 || weapon_slots[secondary_weapon_slot] != -1))
             drop_key_state = _dks_drop;
 
@@ -176,37 +195,128 @@ void UpdateBrain(const Timestep &in ts) {
         crouch_pressed_on_ledge = true;
     }
 
+    // Use this if you want to limit the sounds made while in combat
+    if(lastAttackTime + attackCooldown < time){
+        // Check if state changed
+        if(lastState != state){
+            lastState = state;
+            if(state == _attack_state){
+                if(rand()%100 > chanceToSkip)
+                    this_mo.PlaySoundGroupVoice("attack", 0.0f);
+                
+                lastAttackTime = time;
+            }
+            else if(state == _hit_reaction_state){
+                if(rand()%100 > chanceToSkip)
+                    this_mo.PlaySoundGroupVoice("hit", 0.0f);
+    
+                lastAttackTime = time;
+            }
+        }
+    }
+
     if(time > last_noticed_time + 0.2f) {
+        bool shouldSendSound = false;
+        bool isThisSus = false;
+
         array<int> characters;
         GetVisibleCharacters(0, characters);
 
         for(uint i = 0; i < characters.size(); ++i) {
             situation.Notice(characters[i]);
+
+            // Added
+            MovementObject @char = ReadCharacterID(characters[i]);
+
+            Log(error, "sanity check: " + char.GetID() + " shouldnt be: " + this_mo.GetID());
+
+            if (!ReadObjectFromID(char.GetID()).GetEnabled() || char.GetID() == this_mo.GetID()) {
+                continue;
+            }
+
+            bool found = false;
+            for (uint j = 0; j < alreadyNoticedIds.size(); j++)
+            {
+                Log(error, "checking: " + alreadyNoticedIds[j].objId + " if its: " + char.GetID());
+                Log(error, "time: " + time + " if its over: " + (alreadyNoticedIds[j].lastNoticedTime));
+                Log(error, "checking: " + alreadyNoticedIds[j].objId + " if its: " + char.GetID());
+                if (alreadyNoticedIds[j].objId == char.GetID()) {
+                    found = true;
+                    Log(error, "found: " + char.GetID());
+
+                    if (alreadyNoticedIds[j].lastNoticedTime + noticeCooldown < time) {
+                        alreadyNoticedIds[j].lastNoticedTime = time;
+                        shouldSendSound = true;
+                        Log(error, "should notice!");
+                    }
+                    break;
+                }
+            }
+            // Not found it, we should probably play sound
+            if (!found) {
+                Log(error, "pushing new: " + char.GetID());
+                shouldSendSound = true;
+                alreadyNoticedIds.push_back(NoticedCharacter(char.GetID(), time));
+            }
+
+            if(shouldSendSound){
+                if (this_mo.OnSameTeam(char)) {
+                    if (char.GetIntVar("knocked_out") != _awake) {
+                        isThisSus = true;
+                        shouldSendSound = true;
+                        Log(error, "isThisSus state");
+                    }
+                    else{
+                        shouldSendSound = false;
+                    }
+                }
+                else {
+                    if (char.GetIntVar("knocked_out") == _awake) {
+                        // Play engage
+                        shouldSendSound = true;
+                        Log(error, "engage state");
+                    }
+                    else{
+                        shouldSendSound = false;
+                    }
+                }
+            }
         }
 
         last_noticed_time = time;
+
+        if(shouldSendSound){
+            if(isThisSus){
+                Log(error, "suspicious play");
+                this_mo.PlaySoundGroupVoice("suspicious", 0.0f);
+            }
+            else{
+                Log(error, "engage play");
+                this_mo.PlaySoundGroupVoice("engage", 0.0f);
+            }
+        }
     }
 
     force_look_target_id = situation.GetForceLookTarget();
-    
+
 
     if(!DrunkModeInputDownCheck(this_mo.controller_id, "drop")) {
         if(maxTimeForQuickDrop < timeSinceLastDropKeyPress){
             drop_key_state = _dks_drop;
         }
-        
+
         drop_key_state = _dks_nothing;
     } else if (drop_key_state == _dks_nothing) {
         if((weapon_slots[primary_weapon_slot] == -1 || (weapon_slots[secondary_weapon_slot] == -1 && duck_amount < 0.5f)) &&
-                GetNearestPickupableWeapon(this_mo.position, _pick_up_range) != -1) {
+        GetNearestPickupableWeapon(this_mo.position, _pick_up_range) != -1) {
             drop_key_state = _dks_pick_up;
         } else {
             if(DrunkModeInputDownCheck(this_mo.controller_id, "crouch") &&
-                    duck_amount > 0.5f &&
-                    on_ground &&
-                    !flip_info.IsFlipping() &&
-                    GetThrowTarget() == -1 &&
-                    target_rotation2 < -60.0f) {
+                duck_amount > 0.5f &&
+            on_ground &&
+            !flip_info.IsFlipping() &&
+            GetThrowTarget() == -1 &&
+            target_rotation2 < -60.0f) {
                 drop_key_state = _dks_drop;
             } else if(DrunkModeInputDownCheck(this_mo.controller_id, "grab") && tethered != _TETHERED_REARCHOKE ) {
                 drop_key_state = _dks_drop;
@@ -461,7 +571,7 @@ bool WantsToUnSheatheItem(int &out src) {
     }
 
     src = -1;
-    
+
     // More intelligent weapon selection code
     // TODO: Extend?
     if(GetInputDown(this_mo.controller_id, "attack") && weapon_slots[_sheathed_right_back] != -1){
@@ -484,7 +594,7 @@ bool WantsToUnSheatheItem(int &out src) {
     }
     else if(weapon_slots[_sheathed_left] != -1 && weapon_slots[_sheathed_right] != -1) {
         // If we have two weapons, draw better one
-        
+
         // If for some reason weapon disappeared, just clear slot and go on.
         if(!ObjectExists(weapon_slots[_sheathed_left])){
             weapon_slots[_sheathed_left] = -1;
@@ -591,13 +701,13 @@ bool WantsToDodge(const Timestep &in ts) {
 
 bool WantsToCancelAnimation() {
     return GetInputDown(this_mo.controller_id, "jump") ||
-           GetInputDown(this_mo.controller_id, "crouch") ||
-           GetInputDown(this_mo.controller_id, "grab") ||
-           GetInputDown(this_mo.controller_id, "attack") ||
-           GetInputDown(this_mo.controller_id, "move_up") ||
-           GetInputDown(this_mo.controller_id, "move_left") ||
-           GetInputDown(this_mo.controller_id, "move_right") ||
-           GetInputDown(this_mo.controller_id, "move_down");
+        GetInputDown(this_mo.controller_id, "crouch") ||
+        GetInputDown(this_mo.controller_id, "grab") ||
+        GetInputDown(this_mo.controller_id, "attack") ||
+        GetInputDown(this_mo.controller_id, "move_up") ||
+        GetInputDown(this_mo.controller_id, "move_left") ||
+        GetInputDown(this_mo.controller_id, "move_right") ||
+        GetInputDown(this_mo.controller_id, "move_down");
 }
 
 // Converts the keyboard controls into a target velocity that is used for movement calculations in aschar.as and aircontrol.as.
