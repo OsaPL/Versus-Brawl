@@ -2030,7 +2030,8 @@ void UpdateVision() {
     BoneTransform transform = this_mo.rigged_object().GetFrameMatrix(ik_chain_elements[ik_chain_start_index[kHeadIK]]);
 
     if(transform != transform) {
-        DisplayError("Error", "NaN in UpdateVision()");
+        // Change to only log the error, instead of displaying it, since DisplayError() causes instability if called to many times on a single frame
+        Log(error, "NaN in UpdateVision()");
         return;
     }
 

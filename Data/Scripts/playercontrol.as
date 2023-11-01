@@ -228,7 +228,7 @@ void UpdateBrain(const Timestep &in ts) {
             // Added
             MovementObject @char = ReadCharacterID(characters[i]);
 
-            Log(error, "sanity check: " + char.GetID() + " shouldnt be: " + this_mo.GetID());
+            //Log(error, "sanity check: " + char.GetID() + " shouldnt be: " + this_mo.GetID());
 
             if (!ReadObjectFromID(char.GetID()).GetEnabled() || char.GetID() == this_mo.GetID()) {
                 continue;
@@ -237,24 +237,24 @@ void UpdateBrain(const Timestep &in ts) {
             bool found = false;
             for (uint j = 0; j < alreadyNoticedIds.size(); j++)
             {
-                Log(error, "checking: " + alreadyNoticedIds[j].objId + " if its: " + char.GetID());
-                Log(error, "time: " + time + " if its over: " + (alreadyNoticedIds[j].lastNoticedTime));
-                Log(error, "checking: " + alreadyNoticedIds[j].objId + " if its: " + char.GetID());
+                //Log(error, "checking: " + alreadyNoticedIds[j].objId + " if its: " + char.GetID());
+                //Log(error, "time: " + time + " if its over: " + (alreadyNoticedIds[j].lastNoticedTime));
+                //Log(error, "checking: " + alreadyNoticedIds[j].objId + " if its: " + char.GetID());
                 if (alreadyNoticedIds[j].objId == char.GetID()) {
                     found = true;
-                    Log(error, "found: " + char.GetID());
+                    //Log(error, "found: " + char.GetID());
 
                     if (alreadyNoticedIds[j].lastNoticedTime + noticeCooldown < time) {
                         alreadyNoticedIds[j].lastNoticedTime = time;
                         shouldSendSound = true;
-                        Log(error, "should notice!");
+                        //Log(error, "should notice!");
                     }
                     break;
                 }
             }
             // Not found it, we should probably play sound
             if (!found) {
-                Log(error, "pushing new: " + char.GetID());
+                //Log(error, "pushing new: " + char.GetID());
                 shouldSendSound = true;
                 alreadyNoticedIds.push_back(NoticedCharacter(char.GetID(), time));
             }
@@ -264,7 +264,7 @@ void UpdateBrain(const Timestep &in ts) {
                     if (char.GetIntVar("knocked_out") != _awake) {
                         isThisSus = true;
                         shouldSendSound = true;
-                        Log(error, "isThisSus state");
+                        //Log(error, "isThisSus state");
                     }
                     else{
                         shouldSendSound = false;
@@ -274,7 +274,7 @@ void UpdateBrain(const Timestep &in ts) {
                     if (char.GetIntVar("knocked_out") == _awake) {
                         // Play engage
                         shouldSendSound = true;
-                        Log(error, "engage state");
+                        //Log(error, "engage state");
                     }
                     else{
                         shouldSendSound = false;
@@ -287,11 +287,11 @@ void UpdateBrain(const Timestep &in ts) {
 
         if(shouldSendSound){
             if(isThisSus){
-                Log(error, "suspicious play");
+                //Log(error, "suspicious play");
                 this_mo.PlaySoundGroupVoice("suspicious", 0.0f);
             }
             else{
-                Log(error, "engage play");
+                //Log(error, "engage play");
                 this_mo.PlaySoundGroupVoice("engage", 0.0f);
             }
         }
@@ -338,10 +338,10 @@ void UpdateBrain(const Timestep &in ts) {
     } else if (item_key_state == _iks_nothing) {
         if (primary_weapon_id == -1
             || (primary_weapon_id == -1 && weapon_slots[secondary_weapon_slot] == -1 && (weapon_slots[_sheathed_left] != -1 || weapon_slots[_sheathed_right] != -1) && !IsHolding2HandedWeapon())) {
-            //Log(error, "_iks_unsheathe!");
+            ////Log(error, "_iks_unsheathe!");
             item_key_state = _iks_unsheathe;
         } else {  // if(held_weapon != -1 && sheathed_weapon == -1) {
-            //Log(error, "_iks_sheathe!");
+            ////Log(error, "_iks_sheathe!");
             item_key_state = _iks_sheathe;
         }
     }
@@ -585,11 +585,11 @@ bool WantsToUnSheatheItem(int &out src) {
     }
     // If everything fails above, just take the biggest one
     else if(weapon_slots[_sheathed_left_back] != -1 && weapon_slots[secondary_weapon_slot] == -1) {
-        //Log(error, "_sheathed_left_back");
+        ////Log(error, "_sheathed_left_back");
         src = _sheathed_left_back;
     }
     else if(weapon_slots[_sheathed_right_back] != -1 && weapon_slots[secondary_weapon_slot] == -1) {
-        //Log(error, "_sheathed_right_back");
+        ////Log(error, "_sheathed_right_back");
         src = _sheathed_right_back;
     }
     else if(weapon_slots[_sheathed_left] != -1 && weapon_slots[_sheathed_right] != -1) {
