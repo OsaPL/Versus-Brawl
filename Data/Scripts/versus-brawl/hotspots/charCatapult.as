@@ -26,20 +26,16 @@ void SetParameters()
 void HandleEvent(string event, MovementObject @mo)
 {
     if (event == "enter") {
-        if (mo.is_player) {
-            lastCharObjId = mo.GetID();
-            lastBoostedCharObjId = -1;
-            Boost();
-        }
+        lastCharObjId = mo.GetID();
+        lastBoostedCharObjId = -1;
+        Boost();
     }
     if (event == "exit") {
-        if (mo.is_player) {
-            if(lastBoostedCharObjId == -1){
-                Boost();
-            }
-            else{
-                lastBoostedCharObjId = -1;
-            }
+        if(lastBoostedCharObjId == -1){
+            Boost();
+        }
+        else{
+            lastBoostedCharObjId = -1;
         }
     }
 }
