@@ -31,7 +31,7 @@ Some of the functionality will come eventually, once I have laid the foundation 
 - SuperEasy<sup>TM</sup> to extend with new races (👻mostly true, but there are still few hardcoded places)
 - Randomized character apperance (👻almost completely done, missing some variants, colors look whack sometimes)
 - Custom weapons and ability to carry big weapons on your back
-- 👻NPC opponents support (this will rely on map maker to implement detailed paths)
+- NPC opponents support (this will rely on map maker to implement detailed paths)
 
 # FAQ
 
@@ -150,7 +150,7 @@ Powerful and slow. They require specific methods to kill, otherwise they can bec
 - **Yeet** (yellow dots) - Next direct hit (expires after `activeTime`) will launch enemy really hard
 - **Firefists** (red flames) - hitting an enemy with fists ignites him
 - **Virus** (aqua cloud) - being close to an enemy inverts his controls (movement inverted, attack and defend, grab and item, crouch and jump switched)
-
+- **Reset** (turquoise refresh) - resets one, few or all pickups
 # Known problems
 **Dont report these, I know :)**
 
@@ -160,7 +160,6 @@ Powerful and slow. They require specific methods to kill, otherwise they can bec
 - Level specific `SpeciesStats` will not be set for the first spawn
 - for 2 players the UI still stays the same as for 3/4 players setup
 - most of the UI stuff is filled with placeholders atm
-- Some level parts with moving platforms can tank fps a little
 
 ## Not planned
 (wont be fixed for the time being)
@@ -168,6 +167,7 @@ Powerful and slow. They require specific methods to kill, otherwise they can bec
 - maps stutter after load (preloading is done after level load since `AssetManager` is not available in `as_context`)
 - UI gets wonky on weird resolutions (standard aspects like 16:10, 16:9, 4:3 all work, to fix, migration to imgui is probably needed)
 - Switching character while unsheathing a weapon, cancels the animation (and the animation event), thus locking player ability to unsheathe into that slot (OG aschar.as bug, probably fixable)
+- Some level parts with moving platforms can tank fps a little (fixed as much as I can, hopefully it will get much better once internal fixes get merged in)
 
 # Thanks to:
 [WolfireGames](https://github.com/WolfireGames) - for being awesome developers (source code helped me a lot)

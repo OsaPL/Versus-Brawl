@@ -55,7 +55,7 @@ void UpdateUI(){
     if(initUI){
         teamsToGoThrough = versusPlayers.size();
         if(teamPlay) {
-            if (teamsAmount <= versusPlayers.size()) {
+            if (teamsAmount <= int(versusPlayers.size())) {
                 teamsToGoThrough = teamsAmount;
             } else {
                 errorMessage = "More teams than players, wont continue!";

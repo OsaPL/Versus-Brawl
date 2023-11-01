@@ -1,0 +1,116 @@
+{
+  "VersusBase": {
+    "ForcedSpecies": {
+      "Value": -1,
+      "Configurable": {
+        "Min": -1,
+        "Max": 4
+      }
+    },
+    "InstantSpeciesChange": {
+      "Value": false,
+      "Configurable": {
+      }
+    },
+    "BlockSpeciesChange": {
+      "Value": false,
+      "Configurable": {
+      }
+    }
+  },
+  "Horde": {
+    "PointsToWin": {
+      "Value": 3,
+      "Configurable": {
+        "Min": 1,
+        "Max": 3
+      }
+    },
+    "TimeBetweenWaves": {
+      "Value": 5.0,
+      "Configurable": {
+        "Min": 2.0,
+        "Max": 60.0
+      }
+    },
+    "HealAfterWave": {
+      "Value": true,
+      "Configurable": {
+      }
+    },
+    "RespawnAfterWave": {
+      "Value": true,
+      "Configurable": {
+      }
+    },
+    "ScaleWithPlayers": {
+      "Value": true,
+      "Configurable": {
+      }
+    },
+    "FriendlyAttacks": {
+      "Value": false,
+      "Configurable": {
+      }
+    },
+
+    "EnemyTemplates":{
+      "NormalBunny": {
+        "ActorPath":"Data/Objects/versus-brawl/levelSpecific/testHorde/NormalBunny.xml"
+      },
+      "ArmoredBunny": {
+        "ActorPath":"Data/Objects/versus-brawl/levelSpecific/testHorde/ArmoredBunny.xml",
+        "WeaponPath":"Data/Items/flint_knife.xml"
+      },
+      "NinjaDog": {
+        "ActorPath":"Data/Objects/versus-brawl/levelSpecific/testHorde/NinjaDog.xml",
+        "WeaponPath":"Data/Items/staffbasic.xml",
+        "BackWeaponPath":"Data/Items/Bastard.xml"
+      }
+    },
+    "Waves": [
+      {
+        "Time": 20.0,
+        "KillAll": true,
+        "Enemies": [
+          {
+            "Type":"NormalBunny",
+            "Amount": 2
+          }
+        ]
+      },
+      {
+        "Time": 180.0,
+        "KillAll": true,
+        "Enemies": [
+          {
+            "Type":"NormalBunny",
+            "Amount":1,
+            "SpawnName":"BGate"
+          },
+          {
+            "Type":"ArmoredBunny",
+            "Amount":1,
+            "SpawnName":"AGate"
+          }
+        ]
+      },
+      {
+        "Time": 240.0,
+        "KillAll": true,
+        "Enemies": [
+          {
+            "Type":"NinjaDog",
+            "Amount": 1,
+            "SpawnName":"AGate"
+          },
+          {
+            "Type":"ArmoredBunny",
+            "Amount": 1,
+            "SpawnName":"BGate"
+          }
+        ]
+      }
+    ]
+  }
+}

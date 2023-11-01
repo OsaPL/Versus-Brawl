@@ -1679,6 +1679,7 @@ void CheckPlayersState() {
         //Select players number
 		if(GetInputDown(0,"skip_dialogue") && !blockStart){
             ChangeGameState(2); //Start game
+            level.SendMessage("reset");
 		}
     }
     
@@ -1756,10 +1757,10 @@ void CheckPlayersState() {
             winStateTimer = 0;
             
             ChangeGameState(2);
+            level.SendMessage("reset");
         }
     }
 }
-
 void ChangeGameState(uint newState) {
     if(currentState != -1)
         if(newState == uint(currentState))
@@ -1782,7 +1783,6 @@ void ChangeGameState(uint newState) {
             PlaySound("Data/Sounds/versus/voice_start_1.wav");
             // Clear text
             versusAHGUI.SetText("", "");
-            level.SendMessage("reset");
             break;
         case 100:
             versusAHGUI.SetText(""+GetTeamColorName(winnerNr)+" wins!",insults[rand()%insults.size()], GetTeamUIColor(winnerNr));

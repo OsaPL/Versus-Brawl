@@ -196,9 +196,10 @@ Just correctly call `CoopPartnersCheck()` and `CoopPanic()`.
 You can create your own gamemodes pretty easily! Start with `versusGameplayTemplate`.
  
 ## Global variables <a name="globalvars"/>
- `currentState` contains current game state, template already has: `warmup=0`, `map unsupported/missing components=1`, `gamestart>=2` `gameend>=100`, but you are free to implement more and use the `ChangeGameState(value)` call to switch.
+ `currentState` contains current game state, template already has: `warmup=0`, `error=1`, `gamestart>=2` `gameend>=100`, but you are free to implement more and use the `ChangeGameState(value)` call to switch.
 
 **👻Document all params**
+`errorMessage` can be set to notify user what is the reason for making `currentState == 1` (or basically, error state)
 
 `constantRespawning` controls whether you should be automatically queued for a respawn.
 

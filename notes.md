@@ -1,12 +1,19 @@
 # Npc players problems:
-1. Tag: will crash if more than 4 players. Problems:
-  - Emmitter and freeze tables are hardcoded to have 4 elems at start? Why tho?
-  - Emmitter doesnt correctly follow player on freeze
-  - There is a crash on tag reset, caused by something in `weaponSpawn.as` in `Update()`, but also not? I just get random `Error,There is no object {id}` errors. Maybe its again correlated with characters being removed when they shouldnt?
+1. Tag: will crash sometimes. Problems:
+  - Just reloading scripts crashes
 2. There is some logic in `pointUIBase.as` that needs to get seperated, to UI and Gameplay flows (see: `playersUI` variables)
-
+3. Try adding `params.SetInt("Stick To Nav Mesh", 1);` on spawn, maybe it will help? If so make it configurable per map.
+4. Maybe add this^ as a toggleable `Baby mode` to guard ppl from dropping?
 
 DM and CTF seem to work just fine, even if over 4+ players
+
+# Horde mode:
+1. `npcSpawner` should also be usable by itself, add automatic spawning + ability to use params paths
+2. Probably one more map horde map.
+3. Finish the lava tower map, create that cave race map.
+## Horde layout file
+`RespawnAfterWave` also enables `HealAfterWave` to mitigate some suicide shenanigans
+If `SpawnName` is not defined, spawn wherever
 
 # Example `LevelParams` section (*put into docs*)
 ```json
@@ -35,7 +42,6 @@ DM and CTF seem to work just fine, even if over 4+ players
 # DO THOSE THINGS:
 - `speed` on staticAnimator should also work for frames (in integer form only for > 1), 2x is "skip a frame", 0.5x is "render frame two times" etc
 - big weapons that support sheathing should be seperated into Versus brawl probably, instead of overwriting the stock weapons
-- all places that have paths to resources should use `FileExistsWithType`
 - organise all scripts/objects better
 - create a generic thing for managing and "switching" objects (gut out what is already done in `waterRiseHotspot`?)
 - get rid of that stupid limitation of: `respawnTime cant be smaller than activeTime` on powerupBase
@@ -47,84 +53,55 @@ DM and CTF seem to work just fine, even if over 4+ players
 
 # Sheathed weapons:
 Big blades:
-- `DogBroadSword`: not great, rotate 90 degrees around itself and move it higher `"Data/Animations/bow/r_arrow_sheathed.anm"`
-- `DogHammer`: meh, rotate 90 degrees around itself and move closer to the body, also added `<label>staff</label>`, ALSO added new attacks to make it usable `"Data/Animations/bow/r_bow_sheathed.anm"`, and moved the model slightly higher
+- `DogBroadSword`
+- `DogHammer`
+- `Bastard`
 
 Big sticks:
-- `staffbasic`: acceptable? would be cool to rotate like 30-45 degrees `"Data/Animations/bow/r_arrow_sheathed.anm"`
-- `DogGlaive`: alright, maybe move it slightly higher, so it doesnt go through you ankles `"Data/Animations/bow/r_arrow_sheathed.anm"`
-- `DogSpear`: basically perfect `"Data/Animations/bow/r_arrow_sheathed.anm"`
-- `RabbitCatcher`: alright `"Data/Animations/bow/r_bow_sheathed.anm"`
+- `staffbasic`
+- `DogGlaive`
+- `DogSpear`
+- `RabbitCatcher`
 
 
-[h1]0.7:[/h1]
-This is a big one, with focus on actually getting new content polished, performance improvements, and making mapping a lot easier and less bug infested.
-Some of these were already included in 0.5.9 pre-release
-[b]Added Nidhogg, CTF, Race gamemodes![/b]
+[h1]0.8:[/h1]
+You can now play without friends! This only sounds slightly sad. Now anyone who wants to, can try this mod.
+With this update also comes ability to customize the games.
+
+[b]Added npc support![/b]
+- The support vary on a per map basis, since some layouts are more friendly for them to navigate
+- In next (smaller) update I'll add missing nav points retroactively to older maps, and tweak some values for smoother experience
+
+[b]Games can now be customized![/b]
+- You can now change tons of parameters for the levels
+- All these, can be made custom, have limits etc. for ease of map making
+
+[b]Added Horde gamemode![/b]
+- Your objective is to kill everyone
+- Lots of customisable parameters for map makers, regarding waves, enemies, spawnpoints and more
 
 [b]Added new playable maps:[/b]
-- Sand Fortress, CTF
-- Purple Dreams, Nidhogg
+- Lava Tower, Race
+- Journey of Dreams,  Race
+- Return to Stucco, Horde
 
-[b]Maps reworked:[/b]
-- Imperial sewers, is now finished
-- Dank cave, now a TAG map, with visual touchups
-- Gods Exile, touched up and converted into a DM map
+[b]2 handed weapons are now smoother and less janky:[/b]
+- Sheathing, unsheathing animations and placement on the back fixed
+- Thanks to [b]yanwangken[b] for helping with sheathe points anims!
+- More weapons now supported!
 
-[b]Weapons additions:[/b]
-- DogHammer is now a unique two handed weapon, for smashing through a sturdy opponent.
-- RabbitCatcher now acts as a spear.
-- You can now also quick drop a weapon by tapping "drop" two times quickly
-- Added ability to select which weapon to unsheathe by holding a key, and then pressing "item" key:
-  - hold "grab" to unsheathe hip weapons (hold "item" to unsheathe both, press for a single one)
-  - hold "attack" to unsheathe big sword weapon slot
+[b]Powerups can now be marked as one use only[/b]
+- They can be refreshed by sending a "RefreshPowerup" event message to hotspot by a map maker
+- or by sending a level wide "RefreshAllPowerups" event message
+- Also added a new powerup that can be setup to do both of these things
 
-[b]Dogs can now sheathe big weapons on their back. (other characters can also use the new "Can sheathe big weapons" parameter)[/b]
-- Supported big sword slot weapons are: DogBroadSword, DogHammer
-- Supported big stick slot weapons are: staffbasic, DogGlaive, DogSpear, RabbitCatcher
+[b]New quick and easy to use Rotation Hotspot[/b]
 
-[b]KnockbackMlt is now also applied on blocked hits.[/b]
+[b]Player controlled characters will now also make sounds (like on getting hit)[/b]
+- TODO! Is controlled by "Character voices" options in Audio menu
 
-[b]Leaders are now granted a shiny crown.[/b]
-
-[b]On screen text can now be separately colored.[/b]
-
-[b]Added new hotspots to use for mappers:[/b]
-- charCatapultHotspot: Used to create jump pads, catapults and trampolines for players.
-- teleporterHotspot: Used to create portals.
-- flagHotspot and flagReturnHotspot: These two can be used to create some gameplay based on gathering/returning flag. (comes with a flag item)
-- staticObjectAnimatorHotspot: allows you to animate static objects. (additionally you can use scripts for extracting animation frames from blender included here: https://github.com/OsaPL/Versus-Brawl/tree/main/Scripts/extractAnim)
-
-[b]Big changes for mappers/modders:[/b]
-- Added some test maps for experimentation with hotspots/scripts
-- Hotspots now highlight when selected
-- ...and also get more transparent when disabled
-- Suicide now available for all gamemodes
-- Not counted kills will now trigger SuicideDeath event
-- Leader crown now also available for all gamemodes
-- All hotspots are now available in the spawner category 'VersusBrawl'
-- Points UI is now generic and you can use it in any gamemode or even extend it
-- Versus-Brawl UI no longer displays while in editor mode
-- More options for fps optimization added to objectFollowerEmmiter and waterRiseHotspot (see modding docs)
-- objectFollowerEmmiter now also has a editor mode placeholder to help with visibility
-- All hotspot placeholder texts now only show up within a distance of the camera
- 
 [b]Fixes:[/b]
-- Hotspots should now check the paths before trying to load a file.
-- Coop panic now doesnt work on "gamemode == versusBrawl" tagged maps
-- Coop now uses Duplicate object to more accurately recreate coop players
-- Reduced number of logs.
-- Reverted the throw change on dog for the time being
-- Fixed funnies not triggering
-- You now cant suicide during you respawn invincibility
-- Point counters not disappearing on round end
-- Some hints have been removed, and some have been reworded
-- Removed some performance heavy code that runs each frame (should make frame times much lower)
-- Preloading should be faster, will now spawn a static dummy to preload everything on, instead of a real character
-
-[b]Mapping and modding docs update.[/b]
-Docs have been extended and a lot more things are now documented. With this update I've tried to document everything new.
-Any feedback will be appreciated.
+- <fill me>
 
 Please report any problems.
 
