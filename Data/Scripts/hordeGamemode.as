@@ -65,7 +65,6 @@ void Init(string msg){
     constantRespawning = true;
     crownEnabled = false;
     forcedSpecies = -1;
-    pointsToWin = 3;
     respawnTime = 0;
     
     // pointUIBase configuration
@@ -100,6 +99,8 @@ void Init(string msg){
             }
         }
     }
+    
+    pointsToWin = waves.size();
 }
 
 void HordeLoad(JSONValue settings) {
@@ -226,6 +227,7 @@ void Update(){
     VersusUpdate();
 
     if(currentState == 2){
+        constantRespawning = false;
         if(currentWave < 0)
             currentWave = 0;
       
@@ -356,7 +358,6 @@ void Update(){
         intermissionTimer += time_step;
         if(intermissionTimer > timeBetweenWaves){
             waveTimer = 0;
-            constantRespawning = false;
             spawnEnemies = true;
             currentWave+=1;
             ChangeGameState(2);
@@ -365,15 +366,18 @@ void Update(){
 
     // Win state, this doesnt reuse the default 100 state, cause we need a custom UI label
     if(currentState == 101){
+        winStateTime = 15.0f;
         versusAHGUI.SetText("Last wave defeated!", "You're winner !", GetTeamUIColor(0));
         ChangeGameState(110);
     }
     if(currentState == 102){
+        winStateTime = 8.0f;
         versusAHGUI.SetText("Everyone died!", "Resetting wave...", GetTeamUIColor(1));
         ChangeGameState(111);
     }
     if(currentState == 103){
-        versusAHGUI.SetText("Time run out!", "Resetting wave...", GetTeamUIColor(1));
+        winStateTime = 8.0f;
+        versusAHGUI.SetText("Time ran out!", "Resetting wave...", GetTeamUIColor(1));
         ChangeGameState(111);
     }
     
@@ -499,6 +503,7 @@ void ResetHorde(bool fullReset = true){
     pointsTextShow = true;
     intermissionTimer = 0;
     waveTimer = 0;
+    winStateTimer = 0;
     spawnEnemies = true;
     
     if(fullReset){
@@ -527,6 +532,4 @@ void ResetHorde(bool fullReset = true){
         }
     }
     updateScores = true;
-    
-    constantRespawning = false;
 }

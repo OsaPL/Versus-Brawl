@@ -25,7 +25,7 @@
 <AmbientSounds>
     <Ambient path="Data/Sounds/ambient/amb_deadvolcano_loop" />
 </AmbientSounds>
-<Script>versusmode.as</Script>
+<Script>deathmatchGamemode.as</Script>
 <LevelScriptParameters>
     <parameter name="Achievements" type="string" val="flawless, no_injuries, no_kills" />
     <parameter name="Custom Shader" type="string" val="#WATERFALL_ARENA" />
@@ -54,7 +54,7 @@
     <EnvObject t0="40.2588" t1="90.3334" t2="310.526" s0="0.871548" s1="0.871548" s2="0.871548" q0="-0.0402789" q1="0.429482" q2="0.0205455" q3="0.901943" euler_x="-0.087395" euler_y="0.88892" euler_z="0.00390895" id="2" color_r="0.709804" color_g="0.596078" color_b="0.478431" overbright="0" type_file="Data/Prototypes/Common/Wood_SquareSmall.xml">
         <parameters />
     </EnvObject>
-    <CameraObject t0="22.9949" t1="96.199" t2="293.385" s0="1" s1="1" s2="1" q0="0.00943998" q1="0.948266" q2="-0.0283215" q3="0.316071" euler_x="-3.08188" euler_y="0.643467" euler_z="3.14159" id="3">
+    <CameraObject t0="27.1641" t1="99.267" t2="312.327" s0="1" s1="1" s2="1" q0="-0.0164508" q1="0.194091" q2="-0.00325531" q3="-0.98084" euler_x="0.0335412" euler_y="-0.390718" euler_z="0" id="3">
         <parameters />
     </CameraObject>
     <EnvObject t0="48.6639" t1="85.5585" t2="281.46" s0="1.26968" s1="1.26968" s2="1.26968" q0="0" q1="0.37447" q2="0" q3="0.927239" euler_x="0" euler_y="0.76765" euler_z="0" id="4" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge1.xml">
@@ -102,7 +102,7 @@
     <EnvObject t0="15.2911" t1="85.1806" t2="295.461" s0="0.96879" s1="1.0001" s2="1.00009" q0="0" q1="0.0498239" q2="0" q3="0.998758" euler_x="0" euler_y="0.0996891" euler_z="0" id="18" color_r="0.709804" color_g="0.596078" color_b="0.478431" overbright="0" type_file="Data/Prototypes/Common/Wood_SquareSmallLegs.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="51.9802" t1="105.463" t2="267.752" s0="1" s1="1" s2="1" q0="-1.07288e-006" q1="0.660592" q2="0" q3="0.750745" euler_x="-1.26608e-005" euler_y="1.44321" euler_z="-1.11405e-005" id="19" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/CavePlants_FernWall1.xml">
+    <EnvObject t0="51.9802" t1="105.463" t2="267.752" s0="1" s1="1" s2="1" q0="-1.07288e-06" q1="0.660592" q2="0" q3="0.750745" euler_x="-1.26608e-05" euler_y="1.44321" euler_z="-1.11405e-05" id="19" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/CavePlants_FernWall1.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="24.4186" t1="93.5291" t2="322.822" s0="1.09947" s1="1.2108" s2="1.2098" q0="0" q1="0.729531" q2="0" q3="0.683948" euler_x="3.14159" euler_y="1.50633" euler_z="3.14159" id="20" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRockSmall_Block.xml">
@@ -114,10 +114,10 @@
     <EnvObject t0="51.1356" t1="99.1728" t2="271.69" s0="1" s1="1" s2="1" q0="0.00154495" q1="0.600983" q2="0.0942822" q3="0.79368" euler_x="0.395084" euler_y="1.26526" euler_z="0.527878" id="22" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/CavePlants_Fern2.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="47.9765" t1="93.4515" t2="268.023" s0="1" s1="1" s2="1" q0="-1.13249e-006" q1="0.707111" q2="0" q3="0.707103" euler_x="-3.00804" euler_y="1.5708" euler_z="-3.00804" id="23" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/CavePlants_FernWall1.xml">
+    <EnvObject t0="47.9765" t1="93.4515" t2="268.023" s0="1" s1="1" s2="1" q0="-1.13249e-06" q1="0.707111" q2="0" q3="0.707103" euler_x="-3.00804" euler_y="1.5708" euler_z="-3.00804" id="23" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/CavePlants_FernWall1.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="47.2882" t1="95.3908" t2="257.162" s0="1" s1="1" s2="1" q0="-1.13249e-006" q1="0.788363" q2="0" q3="0.61521" euler_x="-3.14159" euler_y="1.3253" euler_z="-3.14159" id="24" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/CavePlants_FernWall2.xml">
+    <EnvObject t0="47.2882" t1="95.3908" t2="257.162" s0="1" s1="1" s2="1" q0="-1.13249e-06" q1="0.788363" q2="0" q3="0.61521" euler_x="-3.14159" euler_y="1.3253" euler_z="-3.14159" id="24" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/CavePlants_FernWall2.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="60.7875" t1="105.727" t2="248.56" s0="1.23615" s1="1.23615" s2="1.23615" q0="0.0153244" q1="-0.722771" q2="0.0191681" q3="0.690652" euler_x="-2.99809" euler_y="-1.52505" euler_z="3.04689" id="25" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge2.xml">
@@ -312,7 +312,7 @@
     </Group>
     <Group t0="-5.64849" t1="83.7022" t2="256.44" s0="8.02404" s1="38.1331" s2="8.91578" q0="0" q1="-0.697878" q2="0" q3="0.716217" euler_x="0" euler_y="-1.54488" euler_z="0" id="92" version="1">
         <parameters />
-        <EnvObject t0="-5.87085" t1="83.7191" t2="255.554" s0="2.0008" s1="2.0008" s2="2.0008" q0="0" q1="0.835363" q2="-1.81794e-006" q3="0.549699" euler_x="-3.14158" euler_y="1.16401" euler_z="-3.14159" id="93" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/WaterfallTall.xml">
+        <EnvObject t0="-5.87085" t1="83.7191" t2="255.554" s0="2.0008" s1="2.0008" s2="2.0008" q0="0" q1="0.835363" q2="-1.81794e-06" q3="0.549699" euler_x="-3.14158" euler_y="1.16401" euler_z="-3.14159" id="93" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/WaterfallTall.xml">
             <parameters />
         </EnvObject>
         <EnvObject t0="-5.40662" t1="83.7014" t2="258.566" s0="2.00251" s1="2.00251" s2="2.0025" q0="0" q1="0.721866" q2="0" q3="0.692033" euler_x="3.14159" euler_y="1.52861" euler_z="3.14159" id="94" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/WaterfallTall.xml">
@@ -458,7 +458,7 @@
     <EnvObject t0="26.8476" t1="89.6718" t2="315.307" s0="1.48402" s1="0.278608" s2="1.51552" q0="0" q1="-0.964059" q2="0" q3="0.265688" euler_x="3.14159" euler_y="-0.537835" euler_z="3.14159" id="137" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Splash.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="6.38271" t1="74.4123" t2="281.346" s0="1.5389" s1="1.66158" s2="2.2298" q0="-4.72665e-005" q1="-0.970877" q2="0.000990315" q3="0.239576" euler_x="-3.13939" euler_y="-0.483858" euler_z="3.14095" id="138" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/WaterfallTall.xml">
+    <EnvObject t0="6.38271" t1="74.4123" t2="281.346" s0="1.5389" s1="1.66158" s2="2.2298" q0="-4.72665e-05" q1="-0.970877" q2="0.000990315" q3="0.239576" euler_x="-3.13939" euler_y="-0.483858" euler_z="3.14095" id="138" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/WaterfallTall.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="22.223" t1="89.7372" t2="314.983" s0="1.48402" s1="0.374679" s2="1.51552" q0="0" q1="0.987862" q2="0" q3="0.155334" euler_x="3.14159" euler_y="0.311931" euler_z="3.14159" id="139" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Splash.xml">
@@ -482,6 +482,16 @@
     <EnvObject t0="28.9766" t1="92.0769" t2="338.684" s0="1.48402" s1="0.404694" s2="1.51552" q0="0.00852874" q1="-0.94929" q2="0.0459325" q3="0.310912" euler_x="-3.03988" euler_y="-0.632391" euler_z="3.12626" id="146" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Splash.xml">
         <parameters />
     </EnvObject>
+    <Hotspot t0="24.0635" t1="96.3462" t2="322.783" s0="0.1" s1="0.1" s2="0.1" q0="-0.730814" q1="-0.0678577" q2="-0.0628997" q3="0.676277" euler_x="-1.6496" euler_y="-0.184767" euler_z="0.0143523" id="147" type_file="Data/Objects/weaponSpawn.xml">
+        <parameters>
+            <parameter name="ItemPath" type="string" val="Data/Items/DogWeapons/DogSword.xml" />
+            <parameter name="RespawnDistance" type="int" val="3" />
+            <parameter name="RespawnTime" type="int" val="10" />
+            <parameter name="game_type" type="string" val="versusBrawl" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
     <EnvObject t0="22.5469" t1="91.9866" t2="338.239" s0="1.48402" s1="0.288047" s2="1.51553" q0="-0.0126238" q1="0.98744" q2="-0.034501" q3="0.153664" euler_x="-3.06596" euler_y="0.307416" euler_z="-3.1043" id="148" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Splash.xml">
         <parameters />
     </EnvObject>
@@ -548,10 +558,10 @@
     <EnvObject t0="12.8819" t1="98.4037" t2="312.411" s0="1" s1="1" s2="1" q0="0" q1="0.754205" q2="0" q3="0.656639" euler_x="3.14159" euler_y="1.43271" euler_z="3.14159" id="169" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Characters/fans/mixed_fans.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="9.56282" t1="99.2737" t2="310.123" s0="1" s1="1" s2="1" q0="0" q1="0.732194" q2="0" q3="0.681096" euler_x="3.14159" euler_y="1.49851" euler_z="3.14159" id="170" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Characters/fans/mixed_fans.xml">
+    <EnvObject t0="9.56282" t1="99.2737" t2="310.123" s0="1" s1="1" s2="1" q0="0" q1="0.732194" q2="0" q3="0.681096" euler_x="3.14159" euler_y="1.49852" euler_z="3.14159" id="170" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Characters/fans/mixed_fans.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="10.847" t1="99.2737" t2="305.657" s0="1" s1="1" s2="1" q0="0" q1="0.732194" q2="0" q3="0.681096" euler_x="3.14159" euler_y="1.49851" euler_z="3.14159" id="171" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Characters/fans/mixed_fans.xml">
+    <EnvObject t0="10.847" t1="99.2737" t2="305.657" s0="1" s1="1" s2="1" q0="0" q1="0.732194" q2="0" q3="0.681096" euler_x="3.14159" euler_y="1.49852" euler_z="3.14159" id="171" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Characters/fans/mixed_fans.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="34.9739" t1="98.046" t2="296.449" s0="1" s1="1" s2="1" q0="0" q1="0.999968" q2="0" q3="0.00800096" euler_x="3.14159" euler_y="0.0160021" euler_z="3.14159" id="172" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_RailingLong1.xml">
@@ -626,36 +636,46 @@
     <EnvObject t0="38.8142" t1="99.0752" t2="308.976" s0="0.949604" s1="0.949604" s2="0.949604" q0="-0.121986" q1="-0.166824" q2="-0.0844606" q3="0.974759" euler_x="-0.225321" euler_y="-0.353126" euler_z="-0.132496" id="195" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_RailingLong1.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="10.7952" t1="99.1556" t2="301.655" s0="1" s1="1" s2="1" q0="0" q1="0.732194" q2="0" q3="0.681096" euler_x="3.14159" euler_y="1.49851" euler_z="3.14159" id="196" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Characters/fans/mixed_fans.xml">
+    <EnvObject t0="10.7952" t1="99.1556" t2="301.655" s0="1" s1="1" s2="1" q0="0" q1="0.732194" q2="0" q3="0.681096" euler_x="3.14159" euler_y="1.49852" euler_z="3.14159" id="196" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Characters/fans/mixed_fans.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="9.22262" t1="99.9814" t2="301.459" s0="1" s1="1" s2="1" q0="0" q1="0.732194" q2="0" q3="0.681096" euler_x="3.14159" euler_y="1.49851" euler_z="3.14159" id="197" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Characters/fans/mixed_fans.xml">
+    <EnvObject t0="9.22262" t1="99.9814" t2="301.459" s0="1" s1="1" s2="1" q0="0" q1="0.732194" q2="0" q3="0.681096" euler_x="3.14159" euler_y="1.49852" euler_z="3.14159" id="197" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Characters/fans/mixed_fans.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="15.7116" t1="92.2173" t2="298.524" s0="0.961464" s1="1.00008" s2="0.839771" q0="0.0127579" q1="-0.965459" q2="0.255746" q3="0.0481675" euler_x="-2.6237" euler_y="-0.0996981" euler_z="3.14159" id="198" color_r="0.709804" color_g="0.596078" color_b="0.478431" overbright="0" type_file="Data/Prototypes/Common/Wood_SquareSmall.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="51.2367" t1="106.212" t2="250.284" s0="1" s1="1" s2="1" q0="-1.19209e-006" q1="0.708645" q2="0" q3="0.705565" euler_x="-3.14121" euler_y="1.56636" euler_z="-3.1412" id="199" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/CavePlants_FernWall2.xml">
+    <EnvObject t0="51.2367" t1="106.212" t2="250.284" s0="1" s1="1" s2="1" q0="-1.19209e-06" q1="0.708645" q2="0" q3="0.705565" euler_x="-3.14121" euler_y="1.56636" euler_z="-3.1412" id="199" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/CavePlants_FernWall2.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="50.3579" t1="102.301" t2="281.523" s0="1" s1="1" s2="1" q0="-1.13249e-006" q1="0.496473" q2="0" q3="0.868052" euler_x="-3.87773e-006" euler_y="1.03906" euler_z="-2.21782e-006" id="200" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/CavePlants_FernWall2.xml">
+    <EnvObject t0="50.3579" t1="102.301" t2="281.523" s0="1" s1="1" s2="1" q0="-1.13249e-06" q1="0.496473" q2="0" q3="0.868052" euler_x="-3.87773e-06" euler_y="1.03906" euler_z="-2.21782e-06" id="200" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/CavePlants_FernWall2.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="9.37634" t1="99.9814" t2="304.951" s0="1" s1="1" s2="1" q0="0" q1="0.732194" q2="0" q3="0.681096" euler_x="3.14159" euler_y="1.49851" euler_z="3.14159" id="201" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Characters/fans/mixed_fans.xml">
+    <EnvObject t0="9.37634" t1="99.9814" t2="304.951" s0="1" s1="1" s2="1" q0="0" q1="0.732194" q2="0" q3="0.681096" euler_x="3.14159" euler_y="1.49852" euler_z="3.14159" id="201" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Characters/fans/mixed_fans.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="12.7002" t1="98.2989" t2="303.616" s0="1" s1="1" s2="1" q0="0" q1="0.732194" q2="0" q3="0.681096" euler_x="3.14159" euler_y="1.49851" euler_z="3.14159" id="202" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Characters/fans/mixed_fans.xml">
+    <EnvObject t0="12.7002" t1="98.2989" t2="303.616" s0="1" s1="1" s2="1" q0="0" q1="0.732194" q2="0" q3="0.681096" euler_x="3.14159" euler_y="1.49852" euler_z="3.14159" id="202" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Characters/fans/mixed_fans.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="12.8492" t1="98.2989" t2="307.847" s0="1" s1="1" s2="1" q0="0" q1="0.732194" q2="0" q3="0.681096" euler_x="3.14159" euler_y="1.49851" euler_z="3.14159" id="203" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Characters/fans/mixed_fans.xml">
+    <EnvObject t0="12.8492" t1="98.2989" t2="307.847" s0="1" s1="1" s2="1" q0="0" q1="0.732194" q2="0" q3="0.681096" euler_x="3.14159" euler_y="1.49852" euler_z="3.14159" id="203" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Characters/fans/mixed_fans.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="12.1359" t1="98.1513" t2="299.219" s0="1" s1="1" s2="1" q0="0" q1="0.732194" q2="0" q3="0.681096" euler_x="3.14159" euler_y="1.49851" euler_z="3.14159" id="205" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Characters/fans/mixed_fans.xml">
+    <EnvObject t0="12.1359" t1="98.1513" t2="299.219" s0="1" s1="1" s2="1" q0="0" q1="0.732194" q2="0" q3="0.681096" euler_x="3.14159" euler_y="1.49852" euler_z="3.14159" id="205" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Characters/fans/mixed_fans.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="10.4344" t1="99.141" t2="297.682" s0="1" s1="1" s2="1" q0="0" q1="0.732194" q2="0" q3="0.681096" euler_x="3.14159" euler_y="1.49851" euler_z="3.14159" id="206" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Characters/fans/mixed_fans.xml">
+    <EnvObject t0="10.4344" t1="99.141" t2="297.682" s0="1" s1="1" s2="1" q0="0" q1="0.732194" q2="0" q3="0.681096" euler_x="3.14159" euler_y="1.49852" euler_z="3.14159" id="206" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Characters/fans/mixed_fans.xml">
         <parameters />
     </EnvObject>
+    <Hotspot t0="23.2944" t1="93.543" t2="300.285" s0="0.1" s1="0.1" s2="0.1" q0="0.599237" q1="-0.23075" q2="0.214008" q3="0.736118" euler_x="1.35062" euler_y="-0.63876" euler_z="0.0480013" id="207" type_file="Data/Objects/weaponSpawn.xml">
+        <parameters>
+            <parameter name="ItemPath" type="string" val="Data/Items/DogWeapons/DogBroadSword.xml" />
+            <parameter name="RespawnDistance" type="int" val="3" />
+            <parameter name="RespawnTime" type="int" val="10" />
+            <parameter name="game_type" type="string" val="versusBrawl" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
     <EnvObject t0="22.3986" t1="89.6555" t2="285.879" s0="1.44632" s1="0.999866" s2="1.42661" q0="0" q1="-0.671677" q2="0" q3="0.740844" euler_x="0" euler_y="-1.47294" euler_z="0" id="208" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRockSmall_Block.xml">
         <parameters />
     </EnvObject>
@@ -716,7 +736,7 @@
     <EnvObject t0="30.7141" t1="66.2802" t2="256.698" s0="1.24167" s1="1.24167" s2="1.24167" q0="0.982546" q1="0.00902699" q2="-0.182137" q3="0.0367162" euler_x="3.06776" euler_y="0.366745" euler_z="0.00467502" id="225" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRockSmall_Misc.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="8.18381" t1="99.141" t2="294.947" s0="1" s1="1" s2="1" q0="0" q1="0.732194" q2="0" q3="0.681096" euler_x="3.14159" euler_y="1.49851" euler_z="3.14159" id="226" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Characters/fans/mixed_fans.xml">
+    <EnvObject t0="8.18381" t1="99.141" t2="294.947" s0="1" s1="1" s2="1" q0="0" q1="0.732194" q2="0" q3="0.681096" euler_x="3.14159" euler_y="1.49852" euler_z="3.14159" id="226" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Characters/fans/mixed_fans.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="9.84285" t1="88.9816" t2="283.997" s0="0.889191" s1="0.889191" s2="0.889191" q0="0.00894827" q1="0.546745" q2="-0.0258618" q3="0.836852" euler_x="-0.0330813" euler_y="1.15688" euler_z="-0.0833889" id="227" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRockSmall_Misc.xml">
@@ -764,7 +784,7 @@
     <EnvObject t0="13.6959" t1="66.5755" t2="261.782" s0="1.24167" s1="1.24167" s2="1.24167" q0="-0.0247307" q1="0.957878" q2="-0.0285762" q3="0.284678" euler_x="-3.05948" euler_y="0.575149" euler_z="-3.06567" id="241" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRockSmall_Misc.xml">
         <parameters />
     </EnvObject>
-    <ReflectionCaptureObject t0="22.7035" t1="100.139" t2="305.986" s0="0.48742" s1="0.48742" s2="0.48742" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="242" gicoeff00="0.0566559" gicoeff01="0.0856476" gicoeff02="0.102188" gicoeff03="0.0542145" gicoeff04="0.0808182" gicoeff05="0.0940552" gicoeff06="0.0681076" gicoeff07="0.106003" gicoeff08="0.129227" gicoeff09="0.0356903" gicoeff10="0.0525742" gicoeff11="0.0595551" gicoeff12="0.0289192" gicoeff13="0.0427551" gicoeff14="0.0513458" gicoeff15="0.105652" gicoeff16="0.158569" gicoeff17="0.184631">
+    <ReflectionCaptureObject t0="22.7035" t1="100.139" t2="305.986" s0="0.48742" s1="0.48742" s2="0.48742" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="242" gicoeff00="0.0244179" gicoeff01="0.0381775" gicoeff02="0.0465393" gicoeff03="0.0255356" gicoeff04="0.0398178" gicoeff05="0.0474091" gicoeff06="0.0281868" gicoeff07="0.0445099" gicoeff08="0.0551605" gicoeff09="0.0182419" gicoeff10="0.0292892" gicoeff11="0.0343323" gicoeff12="0.0157928" gicoeff13="0.0248451" gicoeff14="0.0306625" gicoeff15="0.0420074" gicoeff16="0.0647354" gicoeff17="0.0765991">
         <parameters>
             <parameter name="Global" type="string" val="1" />
         </parameters>
@@ -858,15 +878,6 @@
     <EnvObject t0="24.8219" t1="92.7744" t2="319.878" s0="1.06635" s1="1.39233" s2="1.29212" q0="0" q1="-0.637541" q2="0" q3="0.770416" euler_x="0" euler_y="-1.3826" euler_z="0" id="271" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRockSmall_Misc.xml">
         <parameters />
     </EnvObject>
-    <PlaceholderObject t0="23.82" t1="102.376" t2="313.377" s0="3" s1="3" s2="3" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="273" type_file="" special_type="0">
-        <parameters>
-            <parameter name="Battles" type="json" val='{&quot;editor&quot;:&quot;arenabattleeditor.html&quot;,&quot;data&quot;:{&quot;idCounter&quot;:79,&quot;battles&quot;:[{&quot;id&quot;:1,&quot;name&quot;:&quot;1v2knifes&quot;,&quot;attributes&quot;:{&quot;rounds&quot;:&quot;1&quot;,&quot;intro&quot;:&quot;Let the water run red!&quot;},&quot;teams&quot;:[{&quot;id&quot;:23,&quot;members&quot;:[{&quot;id&quot;:25,&quot;location&quot;:&quot;middle&quot;,&quot;type&quot;:&quot;any&quot;,&quot;weapon&quot;:&quot;knife&quot;,&quot;player&quot;:&quot;maybe&quot;}]},{&quot;id&quot;:24,&quot;members&quot;:[{&quot;id&quot;:26,&quot;location&quot;:&quot;right&quot;,&quot;type&quot;:&quot;any&quot;,&quot;weapon&quot;:&quot;knife&quot;,&quot;player&quot;:&quot;notplayer&quot;},{&quot;id&quot;:27,&quot;location&quot;:&quot;left&quot;,&quot;type&quot;:&quot;any&quot;,&quot;weapon&quot;:&quot;knife&quot;,&quot;player&quot;:&quot;notplayer&quot;}]}],&quot;items&quot;:[]},{&quot;id&quot;:9,&quot;name&quot;:&quot;1v2&quot;,&quot;attributes&quot;:{&quot;rounds&quot;:&quot;2&quot;,&quot;intro&quot;:&quot;Two versus One battle!&quot;},&quot;teams&quot;:[{&quot;id&quot;:10,&quot;members&quot;:[{&quot;id&quot;:12,&quot;location&quot;:&quot;middle far&quot;,&quot;type&quot;:&quot;any&quot;,&quot;weapon&quot;:&quot;knife&quot;,&quot;player&quot;:&quot;maybe&quot;}]},{&quot;id&quot;:11,&quot;members&quot;:[{&quot;id&quot;:13,&quot;location&quot;:&quot;left&quot;,&quot;type&quot;:&quot;any&quot;,&quot;weapon&quot;:&quot;none&quot;,&quot;player&quot;:&quot;notplayer&quot;},{&quot;id&quot;:14,&quot;location&quot;:&quot;right&quot;,&quot;type&quot;:&quot;any&quot;,&quot;weapon&quot;:&quot;none&quot;,&quot;player&quot;:&quot;notplayer&quot;}]}],&quot;items&quot;:[]},{&quot;id&quot;:15,&quot;name&quot;:&quot;1v1&quot;,&quot;attributes&quot;:{&quot;rounds&quot;:&quot;4&quot;,&quot;intro&quot;:&quot;Blunt damage!&quot;},&quot;teams&quot;:[{&quot;id&quot;:16,&quot;members&quot;:[{&quot;id&quot;:18,&quot;location&quot;:&quot;middle high right&quot;,&quot;type&quot;:&quot;any&quot;,&quot;weapon&quot;:&quot;none&quot;,&quot;player&quot;:&quot;maybe&quot;}]},{&quot;id&quot;:17,&quot;members&quot;:[{&quot;id&quot;:19,&quot;location&quot;:&quot;middle high left&quot;,&quot;type&quot;:&quot;any&quot;,&quot;weapon&quot;:&quot;none&quot;,&quot;player&quot;:&quot;maybe&quot;}]}],&quot;items&quot;:[]},{&quot;id&quot;:28,&quot;name&quot;:&quot;free4all&quot;,&quot;attributes&quot;:{&quot;rounds&quot;:&quot;2&quot;,&quot;intro&quot;:&quot;Free for all!&quot;},&quot;teams&quot;:[{&quot;id&quot;:29,&quot;members&quot;:[{&quot;id&quot;:33,&quot;location&quot;:&quot;left&quot;,&quot;type&quot;:&quot;any&quot;,&quot;weapon&quot;:&quot;none&quot;,&quot;player&quot;:&quot;maybe&quot;}]},{&quot;id&quot;:30,&quot;members&quot;:[{&quot;id&quot;:34,&quot;location&quot;:&quot;right&quot;,&quot;type&quot;:&quot;any&quot;,&quot;weapon&quot;:&quot;none&quot;,&quot;player&quot;:&quot;maybe&quot;}]},{&quot;id&quot;:31,&quot;members&quot;:[{&quot;id&quot;:35,&quot;location&quot;:&quot;middle high left&quot;,&quot;type&quot;:&quot;any&quot;,&quot;weapon&quot;:&quot;none&quot;,&quot;player&quot;:&quot;maybe&quot;}]},{&quot;id&quot;:32,&quot;members&quot;:[{&quot;id&quot;:36,&quot;location&quot;:&quot;middle high right&quot;,&quot;type&quot;:&quot;any&quot;,&quot;weapon&quot;:&quot;none&quot;,&quot;player&quot;:&quot;maybe&quot;}]}],&quot;items&quot;:[]},{&quot;id&quot;:37,&quot;name&quot;:&quot;free4allswords&quot;,&quot;attributes&quot;:{&quot;rounds&quot;:&quot;1&quot;,&quot;intro&quot;:&quot;Make them bleed!&quot;},&quot;teams&quot;:[{&quot;id&quot;:38,&quot;members&quot;:[{&quot;id&quot;:42,&quot;location&quot;:&quot;left&quot;,&quot;type&quot;:&quot;any&quot;,&quot;weapon&quot;:&quot;big_sword&quot;,&quot;player&quot;:&quot;maybe&quot;}]},{&quot;id&quot;:39,&quot;members&quot;:[{&quot;id&quot;:43,&quot;location&quot;:&quot;right&quot;,&quot;type&quot;:&quot;any&quot;,&quot;weapon&quot;:&quot;big_sword&quot;,&quot;player&quot;:&quot;maybe&quot;}]},{&quot;id&quot;:40,&quot;members&quot;:[{&quot;id&quot;:44,&quot;location&quot;:&quot;middle high left&quot;,&quot;type&quot;:&quot;any&quot;,&quot;weapon&quot;:&quot;big_sword&quot;,&quot;player&quot;:&quot;maybe&quot;}]},{&quot;id&quot;:41,&quot;members&quot;:[{&quot;id&quot;:45,&quot;location&quot;:&quot;middle high right&quot;,&quot;type&quot;:&quot;any&quot;,&quot;weapon&quot;:&quot;big_sword&quot;,&quot;player&quot;:&quot;maybe&quot;}]}],&quot;items&quot;:[]},{&quot;id&quot;:46,&quot;name&quot;:&quot;1v1 knife race&quot;,&quot;attributes&quot;:{&quot;rounds&quot;:&quot;1&quot;,&quot;intro&quot;:&quot;Get the weapon!&quot;},&quot;teams&quot;:[{&quot;id&quot;:47,&quot;members&quot;:[{&quot;id&quot;:49,&quot;location&quot;:&quot;rockright&quot;,&quot;type&quot;:&quot;any&quot;,&quot;weapon&quot;:&quot;none&quot;,&quot;player&quot;:&quot;maybe&quot;}]},{&quot;id&quot;:48,&quot;members&quot;:[{&quot;id&quot;:50,&quot;location&quot;:&quot;rockleft&quot;,&quot;type&quot;:&quot;any&quot;,&quot;weapon&quot;:&quot;none&quot;,&quot;player&quot;:&quot;maybe&quot;}]}],&quot;items&quot;:[{&quot;id&quot;:51,&quot;location&quot;:&quot;middle far&quot;,&quot;type&quot;:&quot;knife&quot;}]},{&quot;id&quot;:52,&quot;name&quot;:&quot;2v4&quot;,&quot;attributes&quot;:{&quot;rounds&quot;:&quot;1&quot;,&quot;intro&quot;:&quot;watch your back!&quot;},&quot;teams&quot;:[{&quot;id&quot;:57,&quot;members&quot;:[{&quot;id&quot;:59,&quot;location&quot;:&quot;middle high&quot;,&quot;type&quot;:&quot;any&quot;,&quot;weapon&quot;:&quot;sword&quot;,&quot;player&quot;:&quot;maybe&quot;}]},{&quot;id&quot;:58,&quot;members&quot;:[{&quot;id&quot;:61,&quot;location&quot;:&quot;middle high left&quot;,&quot;type&quot;:&quot;any&quot;,&quot;weapon&quot;:&quot;big_sword&quot;,&quot;player&quot;:&quot;notplayer&quot;},{&quot;id&quot;:62,&quot;location&quot;:&quot;middle high right&quot;,&quot;type&quot;:&quot;any&quot;,&quot;weapon&quot;:&quot;big_sword&quot;,&quot;player&quot;:&quot;notplayer&quot;},{&quot;id&quot;:63,&quot;location&quot;:&quot;tunnelL&quot;,&quot;type&quot;:&quot;any&quot;,&quot;weapon&quot;:&quot;big_sword&quot;,&quot;player&quot;:&quot;notplayer&quot;},{&quot;id&quot;:64,&quot;location&quot;:&quot;tunnelR&quot;,&quot;type&quot;:&quot;any&quot;,&quot;weapon&quot;:&quot;big_sword&quot;,&quot;player&quot;:&quot;notplayer&quot;}]}],&quot;items&quot;:[]},{&quot;id&quot;:65,&quot;name&quot;:&quot;3free4all&quot;,&quot;attributes&quot;:{&quot;rounds&quot;:&quot;2&quot;,&quot;intro&quot;:&quot;Free for all fight!&quot;},&quot;teams&quot;:[{&quot;id&quot;:66,&quot;members&quot;:[{&quot;id&quot;:69,&quot;location&quot;:&quot;middle high&quot;,&quot;type&quot;:&quot;any&quot;,&quot;weapon&quot;:&quot;any&quot;,&quot;player&quot;:&quot;maybe&quot;}]},{&quot;id&quot;:67,&quot;members&quot;:[{&quot;id&quot;:70,&quot;location&quot;:&quot;tunnelL&quot;,&quot;type&quot;:&quot;any&quot;,&quot;weapon&quot;:&quot;any&quot;,&quot;player&quot;:&quot;maybe&quot;}]},{&quot;id&quot;:68,&quot;members&quot;:[{&quot;id&quot;:71,&quot;location&quot;:&quot;tunnelR&quot;,&quot;type&quot;:&quot;any&quot;,&quot;weapon&quot;:&quot;any&quot;,&quot;player&quot;:&quot;maybe&quot;}]}],&quot;items&quot;:[]},{&quot;id&quot;:72,&quot;name&quot;:&quot;3free4allknifes&quot;,&quot;attributes&quot;:{&quot;rounds&quot;:3,&quot;intro&quot;:&quot;Get ready to fight!&quot;},&quot;teams&quot;:[{&quot;id&quot;:73,&quot;members&quot;:[{&quot;id&quot;:76,&quot;location&quot;:&quot;tunnelL&quot;,&quot;type&quot;:&quot;any&quot;,&quot;weapon&quot;:&quot;knife&quot;,&quot;player&quot;:&quot;notplayer&quot;}]},{&quot;id&quot;:74,&quot;members&quot;:[{&quot;id&quot;:77,&quot;location&quot;:&quot;tunnelR&quot;,&quot;type&quot;:&quot;any&quot;,&quot;weapon&quot;:&quot;knife&quot;,&quot;player&quot;:&quot;notplayer&quot;}]},{&quot;id&quot;:75,&quot;members&quot;:[{&quot;id&quot;:78,&quot;location&quot;:&quot;middle high&quot;,&quot;type&quot;:&quot;any&quot;,&quot;weapon&quot;:&quot;knife&quot;,&quot;player&quot;:&quot;maybe&quot;}]}],&quot;items&quot;:[]}]}}' />
-            <parameter name="Name" type="string" val="arena_battle" />
-        </parameters>
-        <Connections>
-            <Connection id="273" />
-        </Connections>
-    </PlaceholderObject>
     <Hotspot t0="25.0215" t1="90.3674" t2="315.585" s0="4.48442" s1="1.0964" s2="0.459979" q0="0.00487888" q1="0.0166135" q2="0.0152528" q3="0.999735" euler_x="0.0102678" euler_y="0.0330754" euler_z="0.0306812" id="282" type_file="Data/Objects/Hotspots/ambient_sound.xml">
         <parameters>
             <parameter name="Delay Max" type="float" val="10" />
@@ -959,7 +970,7 @@
     <Decal t0="12.1211" t1="105.355" t2="311.185" s0="4.65022" s1="3.71654" s2="3.65885" q0="-0.476695" q1="-0.449555" q2="0.54958" q3="0.51829" euler_x="-1.42876" euler_y="0.0579968" euler_z="1.57909" id="324" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.333333" color_g="0.332026" color_b="0.332026" overbright="0">
         <parameters />
     </Decal>
-    <ReflectionCaptureObject t0="53.8671" t1="116.738" t2="188.494" s0="0.48742" s1="0.48742" s2="0.48742" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="327" gicoeff00="0.161865" gicoeff01="0.277191" gicoeff02="0.359253" gicoeff03="0.219818" gicoeff04="0.342102" gicoeff05="0.419983" gicoeff06="0.233887" gicoeff07="0.420532" gicoeff08="0.57312" gicoeff09="0.103699" gicoeff10="0.146164" gicoeff11="0.161926" gicoeff12="0.128281" gicoeff13="0.221283" gicoeff14="0.296173" gicoeff15="0.273987" gicoeff16="0.417786" gicoeff17="0.497925">
+    <ReflectionCaptureObject t0="53.8671" t1="116.738" t2="188.494" s0="0.48742" s1="0.48742" s2="0.48742" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="327" gicoeff00="0.0361252" gicoeff01="0.0631027" gicoeff02="0.0846558" gicoeff03="0.0581131" gicoeff04="0.0936279" gicoeff05="0.113571" gicoeff06="0.0572586" gicoeff07="0.10231" gicoeff08="0.138153" gicoeff09="0.0301552" gicoeff10="0.0459213" gicoeff11="0.0523453" gicoeff12="0.0321655" gicoeff13="0.0548096" gicoeff14="0.072197" gicoeff15="0.0664978" gicoeff16="0.106186" gicoeff17="0.129059">
         <parameters>
             <parameter name="Global" type="string" val="1" />
         </parameters>
@@ -1042,7 +1053,7 @@
     </EnvObject>
     <Group t0="-52.1723" t1="100.67" t2="279.005" s0="94.7525" s1="3.11826" s2="46.6904" q0="0" q1="0.0746399" q2="0" q3="0.997211" euler_x="0" euler_y="0.149419" euler_z="0" id="366" version="1">
         <parameters />
-        <EnvObject t0="-52.0936" t1="100.672" t2="279.086" s0="47.1924" s1="1.5527" s2="23.2008" q0="1.72853e-006" q1="0.0746403" q2="0" q3="0.997211" euler_x="3.48626e-006" euler_y="0.14942" euler_z="0" id="396" color_r="0.2" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/water_test.xml">
+        <EnvObject t0="-52.0936" t1="100.672" t2="279.086" s0="47.1924" s1="1.5527" s2="23.2008" q0="1.72853e-06" q1="0.0746403" q2="0" q3="0.997211" euler_x="3.48626e-06" euler_y="0.14942" euler_z="0" id="396" color_r="0.2" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/water_test.xml">
             <parameters />
         </EnvObject>
     </Group>
@@ -1186,7 +1197,7 @@
     <EnvObject t0="-8.69585" t1="101.591" t2="251.667" s0="1.24167" s1="1.24167" s2="1.24167" q0="0.989125" q1="0.0183862" q2="-0.145914" q3="0.00165584" euler_x="-3.13941" euler_y="0.292885" euler_z="0.0374944" id="398" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRockSmall_Misc.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-5.72534" t1="83.7191" t2="254.474" s0="1.93081" s1="2.0008" s2="2.19694" q0="0" q1="0.804854" q2="-1.77324e-006" q3="0.593473" euler_x="-3.14158" euler_y="1.27073" euler_z="-3.14159" id="399" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/WaterfallTall.xml">
+    <EnvObject t0="-5.72534" t1="83.7191" t2="254.474" s0="1.93081" s1="2.0008" s2="2.19694" q0="0" q1="0.804854" q2="-1.77324e-06" q3="0.593473" euler_x="-3.14158" euler_y="1.27073" euler_z="-3.14159" id="399" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/WaterfallTall.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-5.38339" t1="101.967" t2="270.138" s0="1.05642" s1="1.37093" s2="0.704371" q0="-0.0760138" q1="0.00989028" q2="-0.991796" q3="0.102297" euler_x="-0.0355735" euler_y="-0.149311" euler_z="-2.93337" id="400" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRockSmall_Flat.xml">
@@ -1204,7 +1215,7 @@
     <EnvObject t0="35.7701" t1="104.367" t2="300.041" s0="1.26022" s1="1.14391" s2="6.99867" q0="-0.705133" q1="0.0527904" q2="0.0527905" q3="0.705134" euler_x="-1.5708" euler_y="0.149453" euler_z="0" id="404" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="36.5821" t1="104.648" t2="301.182" s0="1.26024" s1="1.41792" s2="6.99867" q0="-0.629862" q1="0.321363" q2="0.321363" q3="0.629861" euler_x="-1.5708" euler_y="0.943567" euler_z="-1.11714e-006" id="405" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
+    <EnvObject t0="36.5821" t1="104.648" t2="301.182" s0="1.26024" s1="1.41792" s2="6.99867" q0="-0.629862" q1="0.321363" q2="0.321363" q3="0.629861" euler_x="-1.5708" euler_y="0.943567" euler_z="-1.11714e-06" id="405" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="39.0282" t1="104.648" t2="304.188" s0="2.20263" s1="1.50377" s2="6.99867" q0="-0.372032" q1="0.601326" q2="0.601326" q3="0.37203" euler_x="1.5708" euler_y="1.10809" euler_z="-3.14159" id="406" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
@@ -1213,7 +1224,7 @@
     <EnvObject t0="11.2266" t1="94.2641" t2="328.331" s0="1.80416" s1="1.79745" s2="1.60828" q0="0" q1="0.803606" q2="0" q3="0.595162" euler_x="3.14159" euler_y="1.27494" euler_z="3.14159" id="407" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRockSmall_Block.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="14.3883" t1="88.9898" t2="328.587" s0="0.785535" s1="0.785535" s2="0.785535" q0="-0.000327289" q1="-0.998767" q2="1.63019e-005" q3="0.0496417" euler_x="-3.14153" euler_y="-0.0993242" euler_z="3.14093" id="408" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_EndLegs.xml">
+    <EnvObject t0="14.3883" t1="88.9898" t2="328.587" s0="0.785535" s1="0.785535" s2="0.785535" q0="-0.000327289" q1="-0.998767" q2="1.63019e-05" q3="0.0496417" euler_x="-3.14153" euler_y="-0.0993242" euler_z="3.14093" id="408" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_EndLegs.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="37.9581" t1="104.703" t2="307.904" s0="4.74654" s1="1.35145" s2="6.30261" q0="-0.614188" q1="0.500547" q2="0.350389" q3="0.499453" euler_x="-2.34231" euler_y="1.19553" euler_z="-0.807574" id="409" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
@@ -1222,7 +1233,7 @@
     <EnvObject t0="35.1074" t1="106.293" t2="312.657" s0="1.26023" s1="1.47175" s2="6.99867" q0="-0.350631" q1="0.61405" q2="0.61405" q3="0.350633" euler_x="1.57079" euler_y="1.03767" euler_z="3.14159" id="410" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="34.6961" t1="106.293" t2="314.856" s0="2.2979" s1="1.36551" s2="6.99867" q0="-0.502882" q1="0.497101" q2="0.497101" q3="0.502883" euler_x="-1.57075" euler_y="1.55927" euler_z="8.76361e-005" id="412" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
+    <EnvObject t0="34.6961" t1="106.293" t2="314.856" s0="2.2979" s1="1.36551" s2="6.99867" q0="-0.502882" q1="0.497101" q2="0.497101" q3="0.502883" euler_x="-1.57075" euler_y="1.55927" euler_z="8.76361e-05" id="412" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="35.6934" t1="106.293" t2="320.098" s0="3.24635" s1="2.08451" s2="6.99866" q0="-0.470048" q1="0.528257" q2="0.528257" q3="0.470047" euler_x="1.57081" euler_y="1.45431" euler_z="-3.14158" id="414" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
@@ -1237,7 +1248,7 @@
     <EnvObject t0="10.8821" t1="104.259" t2="304.364" s0="2.66826" s1="3.6048" s2="7.1039" q0="-0.706646" q1="0.0255185" q2="0.0255186" q3="0.706646" euler_x="-1.5708" euler_y="0.072193" euler_z="0" id="417" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="11.5345" t1="104.364" t2="307.58" s0="2.65094" s1="1.8373" s2="6.99867" q0="-0.699404" q1="-0.104092" q2="-0.104093" q3="0.699402" euler_x="-1.5708" euler_y="-0.295492" euler_z="-1.01246e-006" id="418" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
+    <EnvObject t0="11.5345" t1="104.364" t2="307.58" s0="2.65094" s1="1.8373" s2="6.99867" q0="-0.699404" q1="-0.104092" q2="-0.104093" q3="0.699402" euler_x="-1.5708" euler_y="-0.295492" euler_z="-1.01246e-06" id="418" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="11.0662" t1="104.364" t2="311.236" s0="2.66493" s1="1.54642" s2="6.99867" q0="-0.705189" q1="0.052042" q2="0.0520421" q3="0.705189" euler_x="-1.5708" euler_y="0.14733" euler_z="0" id="419" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
@@ -1246,17 +1257,17 @@
     <EnvObject t0="10.7169" t1="104.364" t2="314.168" s0="2.73894" s1="2.75546" s2="6.99867" q0="-0.697874" q1="-0.113891" q2="-0.113891" q3="0.697875" euler_x="-1.57079" euler_y="-0.323542" euler_z="0" id="420" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
         <parameters />
     </EnvObject>
-    <ReflectionCaptureObject t0="44.0369" t1="94.2593" t2="317.979" s0="8.57483" s1="8.57483" s2="16.0783" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="432" gicoeff00="0.0108271" gicoeff01="0.0186176" gicoeff02="0.0247841" gicoeff03="0.0222816" gicoeff04="0.032856" gicoeff05="0.0392914" gicoeff06="0.0323105" gicoeff07="0.0559692" gicoeff08="0.0752258" gicoeff09="0.00631046" gicoeff10="0.00908375" gicoeff11="0.010479" gicoeff12="0.0104961" gicoeff13="0.0176907" gicoeff14="0.0232773" gicoeff15="0.0258751" gicoeff16="0.0381584" gicoeff17="0.0456238">
+    <ReflectionCaptureObject t0="44.0369" t1="94.2593" t2="317.979" s0="8.57483" s1="8.57483" s2="16.0783" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="432" gicoeff00="0.00494957" gicoeff01="0.0085144" gicoeff02="0.0111065" gicoeff03="0.0126343" gicoeff04="0.0189762" gicoeff05="0.0223961" gicoeff06="0.0137978" gicoeff07="0.0236702" gicoeff08="0.0309181" gicoeff09="0.0039196" gicoeff10="0.00564289" gicoeff11="0.00634098" gicoeff12="0.00549126" gicoeff13="0.00934601" gicoeff14="0.0121441" gicoeff15="0.0142174" gicoeff16="0.0209732" gicoeff17="0.0243797">
         <parameters>
             <parameter name="Global" type="string" val="0" />
         </parameters>
     </ReflectionCaptureObject>
-    <ReflectionCaptureObject t0="21.9042" t1="92.9551" t2="296.436" s0="34.4952" s1="28.5308" s2="24.1148" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="433" gicoeff00="0.0591965" gicoeff01="0.096344" gicoeff02="0.120773" gicoeff03="0.0688858" gicoeff04="0.10643" gicoeff05="0.125916" gicoeff06="0.100983" gicoeff07="0.165497" gicoeff08="0.208954" gicoeff09="0.0309067" gicoeff10="0.0486145" gicoeff11="0.0569305" gicoeff12="0.028862" gicoeff13="0.0465698" gicoeff14="0.0581207" gicoeff15="0.120285" gicoeff16="0.188477" gicoeff17="0.226898">
+    <ReflectionCaptureObject t0="21.9042" t1="92.9551" t2="296.436" s0="34.4952" s1="28.5308" s2="24.1148" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="433" gicoeff00="0.026329" gicoeff01="0.0437698" gicoeff02="0.0555496" gicoeff03="0.0346527" gicoeff04="0.0549927" gicoeff05="0.0661087" gicoeff06="0.0380211" gicoeff07="0.0623932" gicoeff08="0.079361" gicoeff09="0.0205116" gicoeff10="0.0341034" gicoeff11="0.041214" gicoeff12="0.016552" gicoeff13="0.028141" gicoeff14="0.0358887" gicoeff15="0.0511703" gicoeff16="0.0801849" gicoeff17="0.0966339">
         <parameters>
             <parameter name="Global" type="string" val="0" />
         </parameters>
     </ReflectionCaptureObject>
-    <ReflectionCaptureObject t0="24.4302" t1="94.1793" t2="328.715" s0="27.8669" s1="19.9018" s2="19.4811" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="434" gicoeff00="0.0208626" gicoeff01="0.0316772" gicoeff02="0.0388031" gicoeff03="0.0147343" gicoeff04="0.024147" gicoeff05="0.0303688" gicoeff06="0.0308456" gicoeff07="0.0503845" gicoeff08="0.0648956" gicoeff09="0.00577164" gicoeff10="0.00881958" gicoeff11="0.0101433" gicoeff12="0.017458" gicoeff13="0.0280685" gicoeff14="0.0358963" gicoeff15="0.0203667" gicoeff16="0.0321541" gicoeff17="0.0392456">
+    <ReflectionCaptureObject t0="24.4302" t1="94.1793" t2="328.715" s0="27.8669" s1="19.9018" s2="19.4811" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="434" gicoeff00="0.0134907" gicoeff01="0.0218239" gicoeff02="0.0276031" gicoeff03="0.0107918" gicoeff04="0.0177441" gicoeff05="0.0221214" gicoeff06="0.018486" gicoeff07="0.0306091" gicoeff08="0.039566" gicoeff09="0.00493908" gicoeff10="0.00829506" gicoeff11="0.0100689" gicoeff12="0.0130882" gicoeff13="0.0222321" gicoeff14="0.02911" gicoeff15="0.0135937" gicoeff16="0.0213661" gicoeff17="0.025856">
         <parameters>
             <parameter name="Global" type="string" val="0" />
         </parameters>
@@ -1327,10 +1338,11 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="21.9161" t1="93.3229" t2="286.175" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="499" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="13.7681" t1="93.2097" t2="286.596" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0.402548" q2="0" q3="0.915399" euler_x="0" euler_y="0.828598" euler_z="0" id="499" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
-            <parameter name="playerNr" type="int" val="0" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
         </parameters>
         <Connections />
         <ConnectionsFrom />
@@ -1449,10 +1461,11 @@
     <Decal t0="3.69537" t1="99.8918" t2="300.391" s0="8.84161" s1="8.84161" s2="8.84161" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="668" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
-    <Hotspot t0="24.076" t1="94.5348" t2="301.474" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="669" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="28.7415" t1="90.7517" t2="283.906" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.285799" q2="0" q3="0.95829" euler_x="0" euler_y="-0.57968" euler_z="0" id="669" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
-            <parameter name="playerNr" type="int" val="2" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
         </parameters>
         <Connections />
         <ConnectionsFrom />
@@ -1469,10 +1482,11 @@
     <Decal t0="20.5217" t1="89.1193" t2="281.792" s0="34.0107" s1="4.04267" s2="6.81757" q0="0" q1="0.0656767" q2="0" q3="0.997841" euler_x="0" euler_y="0.131448" euler_z="0" id="690" type_file="Data/Objects/Decals/water_froth.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Hotspot t0="34.1844" t1="95.51" t2="326.791" s0="0.832155" s1="0.832155" s2="0.832155" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="691" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="34.5295" t1="94.767" t2="326.61" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.955592" q2="0" q3="0.294694" euler_x="3.14159" euler_y="-0.598271" euler_z="-3.14159" id="691" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
-            <parameter name="playerNr" type="int" val="1" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
         </parameters>
         <Connections />
         <ConnectionsFrom />
@@ -1480,10 +1494,11 @@
     <Decal t0="34.026" t1="91.9387" t2="336.739" s0="15.8319" s1="4.04267" s2="6.67263" q0="0" q1="0.0344789" q2="0" q3="0.999405" euler_x="0" euler_y="0.0689714" euler_z="0" id="692" type_file="Data/Objects/Decals/water_froth.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Hotspot t0="13.8615" t1="95.5516" t2="319.525" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="701" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="13.779" t1="95.0758" t2="319.369" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0.901005" q2="0" q3="0.433808" euler_x="3.14159" euler_y="0.89743" euler_z="3.14159" id="701" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
-            <parameter name="playerNr" type="int" val="3" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
         </parameters>
         <Connections />
         <ConnectionsFrom />
@@ -1590,7 +1605,7 @@
     <EnvObject t0="8.32578" t1="103.692" t2="295.768" s0="3.09797" s1="3.12825" s2="6.99867" q0="-0.692179" q1="-0.144529" q2="-0.144529" q3="0.692178" euler_x="-1.5708" euler_y="-0.411691" euler_z="0" id="889" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="41.2733" t1="104.698" t2="287.726" s0="2.61158" s1="5.78522" s2="6.99867" q0="-0.560286" q1="-0.431369" q2="-0.431369" q3="0.560287" euler_x="-1.57079" euler_y="-1.31224" euler_z="-3.38023e-006" id="890" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
+    <EnvObject t0="41.2733" t1="104.698" t2="287.726" s0="2.61158" s1="5.78522" s2="6.99867" q0="-0.560286" q1="-0.431369" q2="-0.431369" q3="0.560287" euler_x="-1.57079" euler_y="-1.31224" euler_z="-3.38023e-06" id="890" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
         <parameters />
     </EnvObject>
     <Decal t0="30.0576" t1="90.0859" t2="310.586" s0="1.32025" s1="0.955462" s2="5.57686" q0="0" q1="0.0204857" q2="0" q3="0.99979" euler_x="0" euler_y="0.0409743" euler_z="0" id="892" type_file="Data/Objects/Decals/water_froth.xml" color_r="1" color_g="1" color_b="1" overbright="0">
@@ -1656,7 +1671,7 @@
     <Decal t0="13.2488" t1="66.0506" t2="257.983" s0="15.2416" s1="4.04267" s2="7.34327" q0="0" q1="-0.66803" q2="0" q3="0.744134" euler_x="0" euler_y="-1.46311" euler_z="0" id="1143" type_file="Data/Objects/Decals/water_froth.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <EnvObject t0="14.2429" t1="91.7911" t2="319.586" s0="1.54187" s1="1.11386" s2="1.55434" q0="0" q1="0.691319" q2="0" q3="0.72255" euler_x="0" euler_y="1.52663" euler_z="0" id="1196" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRockSmall_Block.xml">
+    <EnvObject t0="14.2429" t1="91.7911" t2="319.586" s0="1.54187" s1="1.11386" s2="1.55434" q0="0" q1="0.691319" q2="0" q3="0.72255" euler_x="0" euler_y="1.52664" euler_z="0" id="1196" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRockSmall_Block.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="22.8162" t1="86.9358" t2="295.143" s0="2.13652" s1="1.15144" s2="2.68773" q0="0.019066" q1="-0.596261" q2="0.0116219" q3="0.80248" euler_x="0.0580185" euler_y="-1.27792" euler_z="-0.0141462" id="1197" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRockSmall_Block.xml">
@@ -1715,4 +1730,5 @@
     <SpawnerItem display_name="Ambient Shadow" path="Data/Objects/default_env_blob_shadow_decal.xml" thumbnail_path="Lighting/light_placeholder.png" />
     <SpawnerItem display_name="Ambient sound hotspot" path="Data/Objects/Hotspots/ambient_sound.xml" thumbnail_path="Sounds/speaker_icon.png" />
     <SpawnerItem display_name="playerSpawn.xml" path="Data/Objects/playerSpawn.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="[h] weaponSpawn" path="Data/Objects/weaponSpawn.xml" thumbnail_path="Data/Textures/ui/versusBrawl/placeholder_weapon_spawn.png" />
 </RecentItems>

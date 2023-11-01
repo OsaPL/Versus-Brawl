@@ -19,13 +19,6 @@
     }
   },
   "Horde": {
-    "PointsToWin": {
-      "Value": 3,
-      "Configurable": {
-        "Min": 1,
-        "Max": 3
-      }
-    },
     "TimeBetweenWaves": {
       "Value": 5.0,
       "Configurable": {
@@ -80,7 +73,7 @@
         ]
       },
       {
-        "Time": 180.0,
+        "Time": 40.0,
         "KillAll": true,
         "Enemies": [
           {
@@ -96,7 +89,7 @@
         ]
       },
       {
-        "Time": 240.0,
+        "Time": 60.0,
         "KillAll": true,
         "Enemies": [
           {
@@ -106,7 +99,7 @@
           },
           {
             "Type":"ArmoredBunny",
-            "Amount": 1,
+            "Amount": 2,
             "SpawnName":"BGate"
           }
         ]

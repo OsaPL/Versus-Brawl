@@ -12,7 +12,7 @@
             <parameter name="Can sheathe big weapons" type="int" val="1" />
             <parameter name="Cannot Be Disarmed" type="int" val="0" />
             <parameter name="Character Scale" type="float" val="1" />
-            <parameter name="Damage Resistance" type="float" val="1" />
+            <parameter name="Damage Resistance" type="float" val="1.3" />
             <parameter name="Ear Size" type="float" val="1" />
             <parameter name="Fall Damage Multiplier" type="float" val="1" />
             <parameter name="Fat" type="float" val="0.5" />
