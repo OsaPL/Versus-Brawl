@@ -4,7 +4,7 @@
               normal_map = "Data/Textures/smoke_normal.tga"
               shader = "envobject #PARTICLE"
               soft_shader = "envobject #PARTICLE"/>
-    <size min = "3.0" max = "5.0"/>
+    <size min = "1.0" max = "1.5"/>
     <rotation min = "-45.0" max = "45.0"/>
     <color red =   "1.0"
            green = "1.0"

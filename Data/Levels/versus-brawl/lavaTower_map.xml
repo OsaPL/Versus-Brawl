@@ -52,7 +52,7 @@
     <EnvObject t0="145.556" t1="-50.7192" t2="141.165" s0="1.00017" s1="1.00017" s2="1.00017" q0="-0.0874215" q1="0.0790997" q2="0.160577" q3="0.979957" euler_x="-0.148996" euler_y="0.184143" euler_z="0.311053" id="1" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/dark_rubble.xml">
         <parameters />
     </EnvObject>
-    <Hotspot t0="-70.9035" t1="1.89414" t2="-3.44681" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="-78.57" t1="40.7292" t2="-6.90021" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="2" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="0" />
@@ -466,7 +466,7 @@
     <EnvObject t0="80.4713" t1="-64.9233" t2="-98.7825" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="-0.122042" q3="0.992525" euler_x="0" euler_y="0" euler_z="-0.244694" id="105" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/dark_dirty_cube.xml">
         <parameters />
     </EnvObject>
-    <CameraObject t0="-79.2011" t1="34.7219" t2="-7.07495" s0="1" s1="1" s2="1" q0="0.0528048" q1="-0.357527" q2="-0.0202523" q3="-0.932189" euler_x="-0.113171" euler_y="0.732464" euler_z="0" id="106">
+    <CameraObject t0="-68.3243" t1="48.7411" t2="-5.59197" s0="1" s1="1" s2="1" q0="0.374254" q1="0.376342" q2="-0.169618" q3="0.83038" euler_x="0.846876" euler_y="0.851051" euler_z="0" id="106">
         <parameters />
     </CameraObject>
     <AmbientSoundObject t0="106.999" t1="-64.84" t2="-89.0136" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="109" type_file="Data/Objects/Sounds/deadvolcanorocks.xml">
@@ -776,10 +776,10 @@
     <EnvObject t0="-62.859" t1="17.6952" t2="-3.37081" s0="1.75763" s1="0.122338" s2="0.303708" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="141" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-84.3899" t1="16.3161" t2="-12.3577" s0="0.541215" s1="11.7028" s2="6.05683" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="142" color_r="0.174394" color_g="0.211765" color_b="0.207612" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+    <EnvObject t0="-84.3899" t1="16.3161" t2="-12.3577" s0="0.541215" s1="11.7028" s2="6.05683" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="142" color_r="0.181853" color_g="0.215686" color_b="0.211926" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-59.49" t1="17.5487" t2="-12.7753" s0="0.541215" s1="11.7028" s2="6.05683" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="143" color_r="0.174394" color_g="0.211765" color_b="0.207612" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+    <EnvObject t0="-59.4898" t1="17.5488" t2="-12.7753" s0="0.541215" s1="11.7028" s2="6.05683" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="143" color_r="0.17035" color_g="0.207843" color_b="0.203677" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-71.3337" t1="16.4614" t2="-23.2267" s0="0.541215" s1="11.7028" s2="6.05683" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="144" color_r="0.174394" color_g="0.211765" color_b="0.207612" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
@@ -889,16 +889,16 @@
     <EnvObject t0="-73.5799" t1="14.9463" t2="-20.4735" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="176" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-67.5237" t1="19.2952" t2="-5.93912" s0="0.848618" s1="0.136883" s2="3.49057" q0="0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="177" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+    <EnvObject t0="-67.5237" t1="19.2952" t2="-5.93912" s0="0.848618" s1="0.136883" s2="3.49057" q0="0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="177" color_r="0" color_g="0.305954" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-69.0878" t1="21.4046" t2="-4.58015" s0="0.868062" s1="0.144359" s2="2.71617" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="178" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+    <EnvObject t0="-69.0878" t1="21.4046" t2="-4.58015" s0="0.868062" s1="0.144359" s2="2.71617" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="178" color_r="0.181853" color_g="0.215686" color_b="0.211926" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-81.9919" t1="3.31381" t2="-9.93445" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="179" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-61.824" t1="22.7289" t2="-16.3104" s0="0.88381" s1="0.122338" s2="0.632954" q0="-0.5" q1="0.5" q2="-0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="180" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+    <EnvObject t0="-61.824" t1="22.7289" t2="-16.3104" s0="0.88381" s1="0.122338" s2="0.632954" q0="-0.5" q1="0.5" q2="-0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="180" color_r="0.181853" color_g="0.215686" color_b="0.211926" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-72.0401" t1="0.978866" t2="-4.55996" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="181" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
@@ -911,7 +911,7 @@
             <Connection id="136" />
         </ConnectionsFrom>
     </Hotspot>
-    <EnvObject t0="-77.4179" t1="19.4524" t2="-20.2056" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="183" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+    <EnvObject t0="-77.4179" t1="19.4524" t2="-20.2056" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="183" color_r="0.181853" color_g="0.215686" color_b="0.211926" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-77.35" t1="14.7911" t2="-20.0247" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="184" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
@@ -926,7 +926,7 @@
     <EnvObject t0="-70.0799" t1="11.3868" t2="-20.6834" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="187" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-71.4731" t1="13.4268" t2="-20.7056" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="188" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+    <EnvObject t0="-71.4731" t1="13.4268" t2="-20.7056" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="188" color_r="0" color_g="0.305954" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-68.3585" t1="5.64251" t2="-20.2308" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="189" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
@@ -974,7 +974,7 @@
     <EnvObject t0="-65.3391" t1="9.17781" t2="-20.4376" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="203" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-69.218" t1="15.6107" t2="-20.3568" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="204" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+    <EnvObject t0="-69.218" t1="15.6107" t2="-20.3568" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="204" color_r="0" color_g="0.305954" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-68.735" t1="21.74" t2="-20.799" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="205" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
@@ -1960,7 +1960,7 @@
     <EnvObject t0="-80.6593" t1="22.6785" t2="-8.59919" s0="1.41102" s1="0.122337" s2="2.97491" q0="0.00196004" q1="0.00135446" q2="0.999997" q3="-0.000222586" euler_x="0.00270806" euler_y="-0.00392068" euler_z="-3.14115" id="617" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-77.6426" t1="24.9202" t2="-8.60138" s0="1.37542" s1="0.11035" s2="2.95625" q0="0" q1="0" q2="0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="629" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+    <EnvObject t0="-77.6426" t1="24.9202" t2="-8.60138" s0="1.37542" s1="0.11035" s2="2.95625" q0="0" q1="0" q2="0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="629" color_r="0.181853" color_g="0.215686" color_b="0.211926" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
     <Hotspot t0="-68.8456" t1="-7.87427" t2="-15.3152" s0="3.97566" s1="0.383267" s2="7.0732" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="641" type_file="Data/Objects/Hotspots/fire_test.xml">
@@ -2217,7 +2217,7 @@
             </ConnectionsFrom>
         </Hotspot>
     </Group>
-    <Group t0="-80.5329" t1="23.91" t2="-13.6554" s0="8.65211" s1="2.43519" s2="4.50996" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="750" version="1">
+    <Group t0="-80.5329" t1="23.91" t2="-13.6554" s0="8.6521" s1="2.43519" s2="4.50996" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="750" version="1">
         <parameters />
         <Hotspot t0="-78.2206" t1="23.911" t2="-13.4445" s0="0.999874" s1="0.553098" s2="0.994444" q0="-0.0224499" q1="-0.000575691" q2="-0.00319461" q3="0.999743" euler_x="-0.0448997" euler_y="-0.00129452" euler_z="-0.00636178" id="644" type_file="Data/Objects/Hotspots/spike.xml">
             <parameters />
@@ -2226,7 +2226,7 @@
                 <Connection id="649" />
             </ConnectionsFrom>
         </Hotspot>
-        <Group t0="-80.9148" t1="23.9099" t2="-13.7313" s0="7.87825" s1="2.42519" s2="4.34816" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="648" version="1">
+        <Group t0="-80.9148" t1="23.9099" t2="-13.7313" s0="7.87823" s1="2.42512" s2="4.34807" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="648" version="1">
             <parameters />
             <Hotspot t0="-82.84" t1="23.9094" t2="-13.7592" s0="1" s1="0.553055" s2="0.995226" q0="-0.0224499" q1="-0.000575691" q2="-0.00319461" q3="0.999743" euler_x="-0.0448997" euler_y="-0.00129452" euler_z="-0.00636178" id="615" type_file="Data/Objects/Hotspots/spike.xml">
                 <parameters />
@@ -2284,7 +2284,7 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <EnvObject t0="-77.6617" t1="29.1745" t2="-7.60083" s0="0.807489" s1="0.11035" s2="2.32546" q0="0" q1="0" q2="0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="753" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+    <EnvObject t0="-77.6617" t1="29.1745" t2="-7.60083" s0="0.807489" s1="0.11035" s2="2.32546" q0="0" q1="0" q2="0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="753" color_r="0.181853" color_g="0.215686" color_b="0.211926" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
     <Decal t0="-80.5783" t1="22.6161" t2="-11.204" s0="6.50671" s1="1.60437" s2="0.775864" q0="0" q1="-0.00437128" q2="0" q3="0.99999" euler_x="0" euler_y="-0.00874258" euler_z="0" id="754" type_file="Data/Objects/Decals/blob_shadow.xml" color_r="1" color_g="1" color_b="1" overbright="0">
@@ -2302,16 +2302,16 @@
     <EnvObject t0="-80.5802" t1="26.4867" t2="-6.25757" s0="1.37785" s1="0.128372" s2="0.367024" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="758" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-80.5683" t1="28.8299" t2="-14.2577" s0="1.6586" s1="0.163367" s2="0.723993" q0="0" q1="0.707107" q2="0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="3.14159" id="759" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+    <EnvObject t0="-80.5683" t1="28.8299" t2="-14.2577" s0="1.6586" s1="0.163367" s2="0.723993" q0="0" q1="0.707107" q2="0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="3.14159" id="759" color_r="0.181853" color_g="0.215686" color_b="0.211926" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-80.549" t1="28.2292" t2="-14.0253" s0="1.81093" s1="0.163367" s2="0.249433" q0="0" q1="0.707107" q2="0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="3.14159" id="760" color_r="1" color_g="1" color_b="1" overbright="10" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+    <EnvObject t0="-80.5706" t1="28.3341" t2="-14.0253" s0="1.80014" s1="0.163367" s2="0.197" q0="0" q1="0.707107" q2="0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="3.14159" id="760" color_r="0" color_g="0.305954" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-80.3728" t1="30.4961" t2="-8.89089" s0="1.49219" s1="0.11035" s2="3.03261" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="761" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-79.3061" t1="29.1217" t2="-11.9245" s0="0.96396" s1="0.122338" s2="0.781652" q0="0" q1="-0.707107" q2="0.707107" q3="0" euler_x="-1.5708" euler_y="0" euler_z="3.14159" id="762" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+    <EnvObject t0="-79.3061" t1="29.1217" t2="-11.9245" s0="0.96396" s1="0.122338" s2="0.781652" q0="0" q1="-0.707107" q2="0.707107" q3="0" euler_x="-1.5708" euler_y="0" euler_z="3.14159" id="762" color_r="0.181853" color_g="0.215686" color_b="0.211926" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-76.0937" t1="27.3058" t2="-13.0938" s0="0.979635" s1="0.120715" s2="0.767805" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="763" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
@@ -2347,7 +2347,7 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-73.2022" t1="17.1677" t2="-20.2917" s0="0.849527" s1="0.850434" s2="0.508309" q0="0" q1="0.7064" q2="0" q3="-0.707813" euler_x="0" euler_y="-1.56881" euler_z="0" id="767" type_file="Data/Objects/raceGoal.xml">
+    <Hotspot t0="-73.2022" t1="17.1677" t2="-20.2917" s0="0.849527" s1="0.850434" s2="0.508309" q0="0" q1="0.7064" q2="0" q3="-0.707813" euler_x="0" euler_y="-1.56891" euler_z="0" id="767" type_file="Data/Objects/raceGoal.xml">
         <parameters>
             <parameter name="gameMode" type="string" val="Race" />
             <parameter name="game_type" type="string" val="versusBrawl" />
@@ -2356,7 +2356,10 @@
             <parameter name="player2Reached" type="int" val="0" />
             <parameter name="player3Reached" type="int" val="0" />
         </parameters>
-        <Connections />
+        <Connections>
+            <Connection id="778" />
+            <Connection id="787" />
+        </Connections>
         <ConnectionsFrom />
     </Hotspot>
     <Hotspot t0="-62.148" t1="23.1396" t2="-4.58004" s0="0.788437" s1="0.903856" s2="1.12281" q0="0" q1="-0.999999" q2="0" q3="0.000998795" euler_x="3.14159" euler_y="-0.00199759" euler_z="3.14159" id="768" type_file="Data/Objects/raceGoal.xml">
@@ -2371,22 +2374,10 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <EnvObject t0="-61.7995" t1="50.5646" t2="-12.0331" s0="0.88381" s1="0.122338" s2="0.632954" q0="-0.5" q1="0.5" q2="-0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="769" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+    <EnvObject t0="-71.9494" t1="43.9911" t2="-22.1316" s0="4.38606" s1="0.537909" s2="0.0962776" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="772" color_r="0" color_g="0.305954" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-61.7296" t1="50.9789" t2="-8.4904" s0="0.88381" s1="0.122338" s2="0.632954" q0="-0.5" q1="0.5" q2="-0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="770" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="-61.9252" t1="49.0541" t2="-10.3123" s0="0.88381" s1="0.122338" s2="0.632954" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="771" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="-61.7313" t1="52.3234" t2="-10.437" s0="0.88381" s1="0.122338" s2="0.632954" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="772" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="-63.0245" t1="50.9911" t2="-10.2857" s0="0.88381" s1="0.122338" s2="0.632954" q0="0.5" q1="0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="1.5708" euler_z="0" id="773" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
-        <parameters />
-    </EnvObject>
-    <Hotspot t0="-74.0919" t1="30.3381" t2="-12.9778" s0="1.15301" s1="1.15301" s2="1.15301" q0="0" q1="-0.707813" q2="0" q3="-0.7064" euler_x="-3.14159" euler_y="1.56891" euler_z="-3.14159" id="774" type_file="Data/Objects/raceGoal.xml">
+    <Hotspot t0="-75.2781" t1="29.6194" t2="-13.1608" s0="1.15301" s1="1.01031" s2="0.962896" q0="0" q1="-0.707813" q2="0" q3="-0.7064" euler_x="-3.14159" euler_y="1.56891" euler_z="-3.14159" id="774" type_file="Data/Objects/raceGoal.xml">
         <parameters>
             <parameter name="gameMode" type="string" val="Race" />
             <parameter name="game_type" type="string" val="versusBrawl" />
@@ -2395,8 +2386,76 @@
             <parameter name="player2Reached" type="int" val="0" />
             <parameter name="player3Reached" type="int" val="0" />
         </parameters>
-        <Connections />
+        <Connections>
+            <Connection id="106" />
+            <Connection id="788" />
+            <Connection id="775" />
+        </Connections>
         <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-81.6435" t1="35.65" t2="-4.78844" s0="0.1" s1="0.1" s2="0.1" q0="-0.722915" q1="-0.0397481" q2="-0.0126612" q3="0.689672" euler_x="-1.61932" euler_y="-0.0731976" euler_z="0.040123" id="775" type_file="Data/Objects/weaponSpawn.xml">
+        <parameters>
+            <parameter name="ItemPath" type="string" val="Data/Items/DogWeapons/DogHammer.xml" />
+            <parameter name="RespawnDistance" type="int" val="3" />
+            <parameter name="RespawnTime" type="int" val="10" />
+            <parameter name="game_type" type="string" val="versusBrawl" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom>
+            <Connection id="774" />
+            <Connection id="843" />
+            <Connection id="844" />
+            <Connection id="845" />
+            <Connection id="846" />
+        </ConnectionsFrom>
+    </Hotspot>
+    <Group t0="-74.3689" t1="40.9181" t2="-4.57112" s0="0.942079" s1="0.937338" s2="0.964153" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="776" version="1">
+        <parameters />
+        <Hotspot t0="-74.3828" t1="40.9297" t2="-4.59614" s0="0.226027" s1="0.226027" s2="0.226027" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="784" type_file="Data/Objects/versus-brawl/hotspots/charCatapultHotspot.xml">
+            <parameters>
+                <parameter name="ragdoll" type="int" val="0" />
+                <parameter name="reuseCharactersVelocity" type="int" val="0" />
+                <parameter name="trampolineBoost" type="float" val="10" />
+                <parameter name="trampolineMinimalVelocityY" type="float" val="0.2" />
+                <parameter name="trampolineMode" type="int" val="1" />
+                <parameter name="type" type="string" val="charCatapultHotspot" />
+                <parameter name="upwardsBoostScale" type="float" val="0" />
+                <parameter name="velocity" type="float" val="8" />
+            </parameters>
+            <Connections />
+            <ConnectionsFrom />
+        </Hotspot>
+        <Hotspot t0="-74.3552" t1="40.9068" t2="-4.54642" s0="0.226191" s1="0.226191" s2="0.226191" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="790" type_file="Data/Objects/powerups/objectFollowerEmitter.xml">
+            <parameters>
+                <parameter name="Circle Zone" type="int" val="0" />
+                <parameter name="Min Distance To Activate" type="float" val="40" />
+                <parameter name="game_type" type="string" val="versusBrawl" />
+                <parameter name="originalScale" type="string" val="vec3(0.226191, 0.226191, 0.226191)" />
+                <parameter name="particleColorB" type="float" val="1" />
+                <parameter name="particleColorG" type="float" val="1" />
+                <parameter name="particleColorR" type="float" val="1" />
+                <parameter name="particleDelay" type="float" val="1" />
+                <parameter name="particleRangeMultiply" type="float" val="1" />
+                <parameter name="pathToParticles" type="string" val="Data/Particles/versus-brawl/tinyCloud.xml" />
+            </parameters>
+            <Connections />
+            <ConnectionsFrom />
+        </Hotspot>
+    </Group>
+    <EnvObject t0="-67.7682" t1="24.2717" t2="-4.19233" s0="0.759136" s1="0.886423" s2="1.74352" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="777" color_r="0.181853" color_g="0.215686" color_b="0.211926" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="-61.7047" t1="6.18936" t2="-11.7369" s0="0.1" s1="0.1" s2="0.1" q0="0" q1="0.413804" q2="0" q3="0.910366" euler_x="0" euler_y="0.853257" euler_z="0" id="778" type_file="Data/Objects/weaponSpawn.xml">
+        <parameters>
+            <parameter name="ItemPath" type="string" val="Data/Items/Rapier.xml" />
+            <parameter name="RespawnDistance" type="int" val="3" />
+            <parameter name="RespawnTime" type="int" val="10" />
+            <parameter name="game_type" type="string" val="versusBrawl" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom>
+            <Connection id="767" />
+        </ConnectionsFrom>
     </Hotspot>
     <EnvObject t0="-72.0353" t1="28.813" t2="-13.0159" s0="0.979635" s1="0.120715" s2="0.767805" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="779" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
@@ -2413,6 +2472,498 @@
     <EnvObject t0="-81.4549" t1="33.9863" t2="-20.7399" s0="0.979635" s1="0.120715" s2="0.767805" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="783" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
         <parameters />
     </EnvObject>
+    <EnvObject t0="-78.6378" t1="37.8395" t2="-6.22713" s0="0.610199" s1="0.786537" s2="1.6651" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="785" color_r="0.181853" color_g="0.215686" color_b="0.211926" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-77.1708" t1="34.1745" t2="-20.1359" s0="0.52395" s1="0.0645635" s2="0.410654" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="786" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="-73.2161" t1="22.6027" t2="-4.5173" s0="0.27" s1="0.27" s2="0.27" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="787" type_file="Data/Objects/powerups/ninjaPowerUp.xml">
+        <parameters>
+            <parameter name="activeTime" type="float" val="9" />
+            <parameter name="boneToFollow" type="string" val="" />
+            <parameter name="colorB" type="float" val="1" />
+            <parameter name="colorG" type="float" val="0" />
+            <parameter name="colorR" type="float" val="1" />
+            <parameter name="endSoundPath" type="string" val="Data/Sounds/versus/voice_end_2.wav" />
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="notReadyAlpha" type="float" val="0.5" />
+            <parameter name="notReadyIconPath" type="string" val="Data/Textures/ui/arena_mode/glyphs/10_kills_1x1.png" />
+            <parameter name="oneTimeUse" type="int" val="1" />
+            <parameter name="particleColorB" type="float" val="0.1" />
+            <parameter name="particleColorG" type="float" val="0.1" />
+            <parameter name="particleColorR" type="float" val="0.1" />
+            <parameter name="particleDelay" type="float" val="0.02" />
+            <parameter name="particleRangeMultiply" type="float" val="0.9" />
+            <parameter name="pathToParticles" type="string" val="Data/Particles/versus-brawl/ninja_smoke.xml" />
+            <parameter name="readyAlpha" type="float" val="0.9" />
+            <parameter name="readyIconPath" type="string" val="Data/Textures/ui/arena_mode/glyphs/10_kos_1x1.png" />
+            <parameter name="respawnTime" type="float" val="30" />
+            <parameter name="startSoundPath" type="string" val="Data/Sounds/versus/voice_end_1.wav" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom>
+            <Connection id="767" />
+        </ConnectionsFrom>
+    </Hotspot>
+    <Hotspot t0="-61.6116" t1="32.5738" t2="-6.76142" s0="0.27" s1="0.27" s2="0.27" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="788" type_file="Data/Objects/powerups/toxicPowerUp.xml">
+        <parameters>
+            <parameter name="activeTime" type="float" val="10" />
+            <parameter name="boneToFollow" type="string" val="" />
+            <parameter name="colorB" type="float" val="0.3" />
+            <parameter name="colorG" type="float" val="0.4" />
+            <parameter name="colorR" type="float" val="0.05" />
+            <parameter name="decayTime" type="float" val="3" />
+            <parameter name="endSoundPath" type="string" val="Data/Sounds/versus/voice_end_2.wav" />
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="notReadyAlpha" type="float" val="0.5" />
+            <parameter name="notReadyIconPath" type="string" val="Data/Textures/ui/arena_mode/glyphs/10_kills_1x1.png" />
+            <parameter name="oneTimeUse" type="int" val="1" />
+            <parameter name="particleColorB" type="float" val="0.3" />
+            <parameter name="particleColorG" type="float" val="0.4" />
+            <parameter name="particleColorR" type="float" val="0.05" />
+            <parameter name="particleDelay" type="float" val="0.06" />
+            <parameter name="particleRangeMultiply" type="float" val="2.75" />
+            <parameter name="pathToParticles" type="string" val="Data/Particles/versus-brawl/toxic_cloud.xml" />
+            <parameter name="range" type="float" val="2.5" />
+            <parameter name="readyAlpha" type="float" val="0.9" />
+            <parameter name="readyIconPath" type="string" val="Data/Textures/ui/arena_mode/glyphs/10_kos_1x1.png" />
+            <parameter name="respawnTime" type="float" val="15" />
+            <parameter name="startSoundPath" type="string" val="Data/Sounds/footstep_mud_3.wav" />
+            <parameter name="stopSoundPath" type="string" val="Data/Sounds/footstep_mud_7.wav" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom>
+            <Connection id="774" />
+            <Connection id="843" />
+            <Connection id="844" />
+            <Connection id="845" />
+            <Connection id="846" />
+        </ConnectionsFrom>
+    </Hotspot>
+    <Hotspot t0="-73.9086" t1="33.3961" t2="-16.6852" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="789" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
+        <parameters>
+            <parameter name="Bobbing Direction Inverted" type="int" val="0" />
+            <parameter name="Bobbing Multiplier" type="int" val="100" />
+            <parameter name="Delay Time" type="float" val="0" />
+            <parameter name="Fast Mode - No Collision Refresh" type="int" val="0" />
+            <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
+            <parameter name="Loop Phases" type="int" val="1" />
+            <parameter name="Min Distance To Activate" type="float" val="30" />
+            <parameter name="Phase Change Time" type="float" val="2" />
+            <parameter name="Phase Starting Direction Forward" type="int" val="1" />
+            <parameter name="Rise Speed" type="float" val="0.005" />
+            <parameter name="game_type" type="string" val="versusBrawl" />
+        </parameters>
+        <Connections>
+            <Connection id="786" />
+            <Connection id="794" />
+        </Connections>
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject t0="-79.0397" t1="40.7007" t2="-17.9299" s0="0.610199" s1="0.090655" s2="2.00771" q0="-3.82662e-05" q1="0.595" q2="-2.06828e-05" q3="0.803111" euler_x="-0.000294834" euler_y="1.27204" euler_z="-0.000269766" id="791" color_r="0.181853" color_g="0.215686" color_b="0.211926" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <Group t0="-62.5264" t1="34.3298" t2="-11.9472" s0="0.942079" s1="0.937338" s2="0.964153" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="792" version="1">
+        <parameters />
+        <Hotspot t0="-62.5404" t1="34.3414" t2="-11.9722" s0="0.226027" s1="0.226027" s2="0.226027" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="769" type_file="Data/Objects/versus-brawl/hotspots/charCatapultHotspot.xml">
+            <parameters>
+                <parameter name="ragdoll" type="int" val="0" />
+                <parameter name="reuseCharactersVelocity" type="int" val="0" />
+                <parameter name="trampolineBoost" type="float" val="10" />
+                <parameter name="trampolineMinimalVelocityY" type="float" val="0.2" />
+                <parameter name="trampolineMode" type="int" val="1" />
+                <parameter name="type" type="string" val="charCatapultHotspot" />
+                <parameter name="upwardsBoostScale" type="float" val="0" />
+                <parameter name="velocity" type="float" val="8" />
+            </parameters>
+            <Connections />
+            <ConnectionsFrom />
+        </Hotspot>
+        <Hotspot t0="-62.5128" t1="34.3185" t2="-11.9225" s0="0.226191" s1="0.226191" s2="0.226191" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="773" type_file="Data/Objects/powerups/objectFollowerEmitter.xml">
+            <parameters>
+                <parameter name="Circle Zone" type="int" val="0" />
+                <parameter name="Min Distance To Activate" type="float" val="40" />
+                <parameter name="game_type" type="string" val="versusBrawl" />
+                <parameter name="originalScale" type="string" val="vec3(0.226191, 0.226191, 0.226191)" />
+                <parameter name="particleColorB" type="float" val="1" />
+                <parameter name="particleColorG" type="float" val="1" />
+                <parameter name="particleColorR" type="float" val="1" />
+                <parameter name="particleDelay" type="float" val="1" />
+                <parameter name="particleRangeMultiply" type="float" val="1" />
+                <parameter name="pathToParticles" type="string" val="Data/Particles/versus-brawl/tinyCloud.xml" />
+            </parameters>
+            <Connections />
+            <ConnectionsFrom />
+        </Hotspot>
+    </Group>
+    <Group t0="-61.583" t1="35.9228" t2="-7.88857" s0="0.942079" s1="0.937338" s2="0.964153" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="793" version="1">
+        <parameters />
+        <Hotspot t0="-61.597" t1="35.9344" t2="-7.91359" s0="0.226027" s1="0.226027" s2="0.226027" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="816" type_file="Data/Objects/versus-brawl/hotspots/charCatapultHotspot.xml">
+            <parameters>
+                <parameter name="ragdoll" type="int" val="0" />
+                <parameter name="reuseCharactersVelocity" type="int" val="0" />
+                <parameter name="trampolineBoost" type="float" val="10" />
+                <parameter name="trampolineMinimalVelocityY" type="float" val="0.2" />
+                <parameter name="trampolineMode" type="int" val="1" />
+                <parameter name="type" type="string" val="charCatapultHotspot" />
+                <parameter name="upwardsBoostScale" type="float" val="0" />
+                <parameter name="velocity" type="float" val="8" />
+            </parameters>
+            <Connections />
+            <ConnectionsFrom />
+        </Hotspot>
+        <Hotspot t0="-61.5694" t1="35.9115" t2="-7.86388" s0="0.226191" s1="0.226191" s2="0.226191" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="817" type_file="Data/Objects/powerups/objectFollowerEmitter.xml">
+            <parameters>
+                <parameter name="Circle Zone" type="int" val="0" />
+                <parameter name="Min Distance To Activate" type="float" val="40" />
+                <parameter name="game_type" type="string" val="versusBrawl" />
+                <parameter name="originalScale" type="string" val="vec3(0.226191, 0.226191, 0.226191)" />
+                <parameter name="particleColorB" type="float" val="1" />
+                <parameter name="particleColorG" type="float" val="1" />
+                <parameter name="particleColorR" type="float" val="1" />
+                <parameter name="particleDelay" type="float" val="1" />
+                <parameter name="particleRangeMultiply" type="float" val="1" />
+                <parameter name="pathToParticles" type="string" val="Data/Particles/versus-brawl/tinyCloud.xml" />
+            </parameters>
+            <Connections />
+            <ConnectionsFrom />
+        </Hotspot>
+    </Group>
+    <EnvObject t0="-71.2171" t1="34.3864" t2="-20.0652" s0="0.52395" s1="0.0645635" s2="0.410654" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="794" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-74.1841" t1="34.356" t2="-18.3256" s0="0.549259" s1="0.0676822" s2="0.430491" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="795" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-68.1214" t1="34.4228" t2="-17.8475" s0="0.549259" s1="0.0676822" s2="0.430491" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="796" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="-70.1722" t1="32.9873" t2="-16.7011" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="797" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
+        <parameters>
+            <parameter name="Bobbing Direction Inverted" type="int" val="1" />
+            <parameter name="Bobbing Multiplier" type="int" val="100" />
+            <parameter name="Delay Time" type="float" val="0" />
+            <parameter name="Fast Mode - No Collision Refresh" type="int" val="0" />
+            <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
+            <parameter name="Loop Phases" type="int" val="1" />
+            <parameter name="Min Distance To Activate" type="float" val="30" />
+            <parameter name="Phase Change Time" type="float" val="2" />
+            <parameter name="Phase Starting Direction Forward" type="int" val="1" />
+            <parameter name="Rise Speed" type="float" val="0.005" />
+            <parameter name="game_type" type="string" val="versusBrawl" />
+        </parameters>
+        <Connections>
+            <Connection id="795" />
+            <Connection id="796" />
+        </Connections>
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject t0="-80.384" t1="33.0977" t2="-4.4686" s0="1.52634" s1="0.814834" s2="0.936235" q0="0.00073415" q1="-0.00362569" q2="-0.00469189" q3="-0.999983" euler_x="-0.00143429" euler_y="0.00725821" euler_z="0.00937868" id="798" color_r="0" color_g="0.305954" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-78.4659" t1="33.945" t2="-11.7625" s0="0.610199" s1="1.13898" s2="1.8054" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="799" color_r="0.181853" color_g="0.215686" color_b="0.211926" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-83.86" t1="8.05941" t2="-18.0281" s0="0.326544" s1="0.687386" s2="1.97086" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="800" color_r="0" color_g="0.305954" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-79.4959" t1="8.06393" t2="-22.7565" s0="0.326544" s1="0.680295" s2="1.9163" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="801" color_r="0" color_g="0.305954" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-60.1293" t1="8.70071" t2="-20.2402" s0="0.364945" s1="0.88045" s2="0.852015" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="802" color_r="0" color_g="0.305954" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-66.6747" t1="11.2205" t2="-22.7791" s0="0.364944" s1="0.544181" s2="0.783636" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="803" color_r="0" color_g="0.305954" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-83.7387" t1="18.5014" t2="-11.2184" s0="0.326544" s1="0.562315" s2="4.1677" q0="-0.029434" q1="0" q2="0" q3="0.999567" euler_x="-0.0588765" euler_y="0" euler_z="0" id="804" color_r="0" color_g="0.305954" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-70.2178" t1="18.9033" t2="-2.52871" s0="0.280922" s1="0.472433" s2="2.68893" q0="-0.0363678" q1="0.706171" q2="0.0363678" q3="0.706171" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="805" color_r="0" color_g="0.305954" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-60.2553" t1="19.1566" t2="-3.53623" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="806" color_r="0" color_g="0.305954" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-62.1423" t1="19.677" t2="-2.70486" s0="1.0746" s1="0.122338" s2="0.799893" q0="-0.5" q1="0.5" q2="-0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="807" color_r="0" color_g="0.305954" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-60.2332" t1="22.8776" t2="-9.89836" s0="0.932445" s1="0.122338" s2="2.31035" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="808" color_r="0" color_g="0.305954" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-62.1575" t1="20.6318" t2="-6.66049" s0="0.512383" s1="0.144359" s2="0.760448" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="809" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-61.2419" t1="5.76534" t2="-11.8853" s0="0.903874" s1="0.122338" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="810" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-61.0694" t1="31.5968" t2="-6.91761" s0="0.973037" s1="0.120715" s2="0.532072" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="811" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-68.5645" t1="33.1772" t2="-2.60122" s0="0.326543" s1="0.41818" s2="3.71984" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="812" color_r="0" color_g="0.305954" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-65.7329" t1="35.1379" t2="-3.99511" s0="2.66465" s1="0.0566954" s2="0.806602" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="813" color_r="0.17035" color_g="0.207843" color_b="0.203677" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-77.4653" t1="30.9647" t2="-7.28872" s0="0.469825" s1="0.269806" s2="0.0962777" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="814" color_r="0" color_g="0.305954" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-77.4631" t1="33.3149" t2="-7.292" s0="0.486186" s1="0.101629" s2="0.0962777" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="815" color_r="0" color_g="0.305954" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <Group t0="-80.9558" t1="4.81353" t2="-5.0168" s0="5.28048" s1="3.27834" s2="6.02295" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="820" version="1">
+        <parameters />
+        <EnvObject t0="-80.4912" t1="4.81353" t2="-2.76877" s0="0.194622" s1="0.545069" s2="1.27184" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="818" color_r="0" color_g="0.305954" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-83.5426" t1="4.81711" t2="-5.36981" s0="0.194622" s1="0.539446" s2="1.23663" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="819" color_r="0" color_g="0.305954" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <EnvObject t0="-80.7218" t1="26.3987" t2="-2.77928" s0="1.68548" s1="0.136883" s2="1.25707" q0="0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="821" color_r="0" color_g="0.305954" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-83.5761" t1="28.5418" t2="-9.67964" s0="0.785969" s1="0.109359" s2="1.85573" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="822" color_r="0" color_g="0.305954" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-83.4312" t1="33.6338" t2="-12.8876" s0="1.37468" s1="0.74607" s2="0.0962776" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="823" color_r="0" color_g="0.305954" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-83.426" t1="34.7591" t2="-17.1071" s0="0.979106" s1="0.734769" s2="0.0962777" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="824" color_r="0" color_g="0.305954" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <Group t0="-64.2274" t1="36.5614" t2="-5.0925" s0="0.942079" s1="0.937338" s2="0.964153" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="825" version="1">
+        <parameters />
+        <Hotspot t0="-64.2414" t1="36.573" t2="-5.11752" s0="0.226027" s1="0.226027" s2="0.226027" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="826" type_file="Data/Objects/versus-brawl/hotspots/charCatapultHotspot.xml">
+            <parameters>
+                <parameter name="ragdoll" type="int" val="0" />
+                <parameter name="reuseCharactersVelocity" type="int" val="0" />
+                <parameter name="trampolineBoost" type="float" val="10" />
+                <parameter name="trampolineMinimalVelocityY" type="float" val="0.2" />
+                <parameter name="trampolineMode" type="int" val="1" />
+                <parameter name="type" type="string" val="charCatapultHotspot" />
+                <parameter name="upwardsBoostScale" type="float" val="0" />
+                <parameter name="velocity" type="float" val="8" />
+            </parameters>
+            <Connections />
+            <ConnectionsFrom />
+        </Hotspot>
+        <Hotspot t0="-64.2137" t1="36.5501" t2="-5.0678" s0="0.226191" s1="0.226191" s2="0.226191" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="827" type_file="Data/Objects/powerups/objectFollowerEmitter.xml">
+            <parameters>
+                <parameter name="Circle Zone" type="int" val="0" />
+                <parameter name="Min Distance To Activate" type="float" val="40" />
+                <parameter name="game_type" type="string" val="versusBrawl" />
+                <parameter name="originalScale" type="string" val="vec3(0.226191, 0.226191, 0.226191)" />
+                <parameter name="particleColorB" type="float" val="1" />
+                <parameter name="particleColorG" type="float" val="1" />
+                <parameter name="particleColorR" type="float" val="1" />
+                <parameter name="particleDelay" type="float" val="1" />
+                <parameter name="particleRangeMultiply" type="float" val="1" />
+                <parameter name="pathToParticles" type="string" val="Data/Particles/versus-brawl/tinyCloud.xml" />
+            </parameters>
+            <Connections />
+            <ConnectionsFrom />
+        </Hotspot>
+    </Group>
+    <Group t0="-67.2407" t1="38.6066" t2="-4.23425" s0="0.942079" s1="0.937338" s2="0.964153" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="828" version="1">
+        <parameters />
+        <Hotspot t0="-67.2547" t1="38.6182" t2="-4.25927" s0="0.226027" s1="0.226027" s2="0.226027" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="829" type_file="Data/Objects/versus-brawl/hotspots/charCatapultHotspot.xml">
+            <parameters>
+                <parameter name="ragdoll" type="int" val="0" />
+                <parameter name="reuseCharactersVelocity" type="int" val="0" />
+                <parameter name="trampolineBoost" type="float" val="10" />
+                <parameter name="trampolineMinimalVelocityY" type="float" val="0.2" />
+                <parameter name="trampolineMode" type="int" val="1" />
+                <parameter name="type" type="string" val="charCatapultHotspot" />
+                <parameter name="upwardsBoostScale" type="float" val="0" />
+                <parameter name="velocity" type="float" val="8" />
+            </parameters>
+            <Connections />
+            <ConnectionsFrom />
+        </Hotspot>
+        <Hotspot t0="-67.2271" t1="38.5953" t2="-4.20956" s0="0.226191" s1="0.226191" s2="0.226191" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="830" type_file="Data/Objects/powerups/objectFollowerEmitter.xml">
+            <parameters>
+                <parameter name="Circle Zone" type="int" val="0" />
+                <parameter name="Min Distance To Activate" type="float" val="40" />
+                <parameter name="game_type" type="string" val="versusBrawl" />
+                <parameter name="originalScale" type="string" val="vec3(0.226191, 0.226191, 0.226191)" />
+                <parameter name="particleColorB" type="float" val="1" />
+                <parameter name="particleColorG" type="float" val="1" />
+                <parameter name="particleColorR" type="float" val="1" />
+                <parameter name="particleDelay" type="float" val="1" />
+                <parameter name="particleRangeMultiply" type="float" val="1" />
+                <parameter name="pathToParticles" type="string" val="Data/Particles/versus-brawl/tinyCloud.xml" />
+            </parameters>
+            <Connections />
+            <ConnectionsFrom />
+        </Hotspot>
+    </Group>
+    <Group t0="-70.4709" t1="39.7466" t2="-6.17202" s0="0.942079" s1="0.937338" s2="0.964153" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="831" version="1">
+        <parameters />
+        <Hotspot t0="-70.4849" t1="39.7582" t2="-6.19704" s0="0.226027" s1="0.226027" s2="0.226027" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="832" type_file="Data/Objects/versus-brawl/hotspots/charCatapultHotspot.xml">
+            <parameters>
+                <parameter name="ragdoll" type="int" val="0" />
+                <parameter name="reuseCharactersVelocity" type="int" val="0" />
+                <parameter name="trampolineBoost" type="float" val="10" />
+                <parameter name="trampolineMinimalVelocityY" type="float" val="0.2" />
+                <parameter name="trampolineMode" type="int" val="1" />
+                <parameter name="type" type="string" val="charCatapultHotspot" />
+                <parameter name="upwardsBoostScale" type="float" val="0" />
+                <parameter name="velocity" type="float" val="8" />
+            </parameters>
+            <Connections />
+            <ConnectionsFrom />
+        </Hotspot>
+        <Hotspot t0="-70.4573" t1="39.7353" t2="-6.14733" s0="0.226191" s1="0.226191" s2="0.226191" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="833" type_file="Data/Objects/powerups/objectFollowerEmitter.xml">
+            <parameters>
+                <parameter name="Circle Zone" type="int" val="0" />
+                <parameter name="Min Distance To Activate" type="float" val="40" />
+                <parameter name="game_type" type="string" val="versusBrawl" />
+                <parameter name="originalScale" type="string" val="vec3(0.226191, 0.226191, 0.226191)" />
+                <parameter name="particleColorB" type="float" val="1" />
+                <parameter name="particleColorG" type="float" val="1" />
+                <parameter name="particleColorR" type="float" val="1" />
+                <parameter name="particleDelay" type="float" val="1" />
+                <parameter name="particleRangeMultiply" type="float" val="1" />
+                <parameter name="pathToParticles" type="string" val="Data/Particles/versus-brawl/tinyCloud.xml" />
+            </parameters>
+            <Connections />
+            <ConnectionsFrom />
+        </Hotspot>
+    </Group>
+    <Hotspot t0="-79.0713" t1="41.8185" t2="-15.5223" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="834" type_file="Data/Objects/versus-brawl/hotspots/rotatoHotspot.xml">
+        <parameters>
+            <parameter name="pauseWhenEditor" type="int" val="0" />
+            <parameter name="rotateDelay" type="float" val="0" />
+            <parameter name="rotationAxis" type="string" val="vec3(0, 1, 0)" />
+            <parameter name="rotatoSpeed" type="float" val="1" />
+            <parameter name="type" type="string" val="rotatoHotspot" />
+            <parameter name="useFastRotate" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="791" />
+        </Connections>
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject t0="-64.7909" t1="41.1831" t2="-17.9669" s0="0.610199" s1="0.090655" s2="2.00771" q0="-3.82662e-05" q1="0.595" q2="-2.06828e-05" q3="0.803111" euler_x="-0.000294834" euler_y="1.27204" euler_z="-0.000269766" id="835" color_r="0.181853" color_g="0.215686" color_b="0.211926" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="-66.4079" t1="42.1377" t2="-15.5063" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="836" type_file="Data/Objects/versus-brawl/hotspots/rotatoHotspot.xml">
+        <parameters>
+            <parameter name="pauseWhenEditor" type="int" val="0" />
+            <parameter name="rotateDelay" type="float" val="0" />
+            <parameter name="rotationAxis" type="string" val="vec3(0, 1, 0)" />
+            <parameter name="rotatoSpeed" type="float" val="1" />
+            <parameter name="type" type="string" val="rotatoHotspot" />
+            <parameter name="useFastRotate" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="835" />
+        </Connections>
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject t0="-62.1991" t1="41.9307" t2="-4.52238" s0="0.821792" s1="0.180341" s2="0.681787" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="837" color_r="0.181853" color_g="0.215686" color_b="0.211926" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-63.2319" t1="42.0301" t2="-6.04311" s0="0.0814458" s1="0.196746" s2="0.270102" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="838" color_r="0" color_g="0.305954" color_b="1" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="-69.8728" t1="35.369" t2="-4.18236" s0="0.1" s1="0.1" s2="0.1" q0="0.353553" q1="0.612372" q2="-0.612372" q3="0.353553" euler_x="-1.5708" euler_y="1.0472" euler_z="3.14159" id="839" type_file="Data/Objects/weaponSpawn.xml">
+        <parameters>
+            <parameter name="ItemPath" type="string" val="Data/Items/DogWeapons/RabbitCatcher.xml" />
+            <parameter name="RespawnDistance" type="int" val="3" />
+            <parameter name="RespawnTime" type="int" val="10" />
+            <parameter name="game_type" type="string" val="versusBrawl" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject t0="-64.1955" t1="43.4703" t2="-3.85526" s0="0.217966" s1="0.682592" s2="1.02491" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="841" color_r="0.181853" color_g="0.215686" color_b="0.211926" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="-81.3172" t1="36.1322" t2="-20.4963" s0="0.745536" s1="0.954209" s2="0.823908" q0="0" q1="-0.707813" q2="0" q3="-0.7064" euler_x="-3.14159" euler_y="1.56891" euler_z="-3.14159" id="843" type_file="Data/Objects/raceGoal.xml">
+        <parameters>
+            <parameter name="gameMode" type="string" val="Race" />
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="player0Reached" type="int" val="0" />
+            <parameter name="player1Reached" type="int" val="0" />
+            <parameter name="player2Reached" type="int" val="0" />
+            <parameter name="player3Reached" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="775" />
+            <Connection id="788" />
+            <Connection id="106" />
+        </Connections>
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-62.3211" t1="35.611" t2="-11.8948" s0="0.563843" s1="0.852302" s2="0.576177" q0="0" q1="-0.707813" q2="0" q3="-0.7064" euler_x="-3.14159" euler_y="1.56891" euler_z="-3.14159" id="844" type_file="Data/Objects/raceGoal.xml">
+        <parameters>
+            <parameter name="gameMode" type="string" val="Race" />
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="player0Reached" type="int" val="0" />
+            <parameter name="player1Reached" type="int" val="0" />
+            <parameter name="player2Reached" type="int" val="0" />
+            <parameter name="player3Reached" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="775" />
+            <Connection id="788" />
+            <Connection id="106" />
+        </Connections>
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-78.7367" t1="41.887" t2="-5.76574" s0="1.21533" s1="0.657822" s2="0.774047" q0="-0.00478679" q1="-0.710035" q2="0.00876645" q3="-0.704097" euler_x="-2.54167" euler_y="1.56087" euler_z="-2.56084" id="845" type_file="Data/Objects/raceGoal.xml">
+        <parameters>
+            <parameter name="gameMode" type="string" val="Race" />
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="player0Reached" type="int" val="1" />
+            <parameter name="player1Reached" type="int" val="0" />
+            <parameter name="player2Reached" type="int" val="0" />
+            <parameter name="player3Reached" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="775" />
+            <Connection id="788" />
+            <Connection id="106" />
+        </Connections>
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-61.3434" t1="43.8735" t2="-3.88073" s0="0.53364" s1="0.53892" s2="0.416541" q0="-0.0121166" q1="-0.593186" q2="0.000964753" q3="-0.804974" euler_x="0.0619634" euler_y="1.26974" euler_z="0.0432516" id="846" type_file="Data/Objects/raceGoal.xml">
+        <parameters>
+            <parameter name="gameMode" type="string" val="Race" />
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="player0Reached" type="int" val="0" />
+            <parameter name="player1Reached" type="int" val="0" />
+            <parameter name="player2Reached" type="int" val="0" />
+            <parameter name="player3Reached" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="775" />
+            <Connection id="788" />
+            <Connection id="106" />
+        </Connections>
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject t0="-60.7628" t1="44.3172" t2="-5.53152" s0="0.217966" s1="0.682954" s2="0.955051" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="0" euler_y="1.57045" euler_z="0" id="847" color_r="0.181853" color_g="0.215686" color_b="0.211926" overbright="0" type_file="Data/Objects/Crete/crete_block_marble_standard.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="-61.1916" t1="42.7021" t2="-3.83684" s0="0.356477" s1="0.517097" s2="0.101817" q0="-0.725861" q1="-0.223586" q2="-0.0372253" q3="0.649427" euler_x="-1.73528" euler_y="-0.351649" euler_z="0.29866" id="848" type_file="Data/Objects/versus-brawl/hotspots/charCatapultHotspot.xml">
+        <parameters>
+            <parameter name="ragdoll" type="int" val="1" />
+            <parameter name="reuseCharactersVelocity" type="int" val="0" />
+            <parameter name="trampolineBoost" type="float" val="10" />
+            <parameter name="trampolineMinimalVelocityY" type="float" val="0.2" />
+            <parameter name="trampolineMode" type="int" val="0" />
+            <parameter name="type" type="string" val="charCatapultHotspot" />
+            <parameter name="upwardsBoostScale" type="float" val="0" />
+            <parameter name="velocity" type="float" val="45" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
 </ActorObjects>
 <RecentItems>
     <SpawnerItem display_name="Magma Floor" path="Data/Prototypes/MagmaArena/MagmaFloor.xml" thumbnail_path="" />
@@ -2425,7 +2976,14 @@
     <SpawnerItem display_name="Nav Region" path="Data/Objects/navmesh/navmesh_region.xml" thumbnail_path="Data/UI/spawner/thumbs/Utility/empty_placeholder.png" />
     <SpawnerItem display_name="Alpha Male Wolf" path="Data/Objects/IGF_Characters/IGF_WolfActor.xml" thumbnail_path="Data/UI/spawner/thumbs/Character/IGF_wolfActor.png" />
     <SpawnerItem display_name="Spike" path="Data/Objects/Hotspots/spike.xml" thumbnail_path="Data/UI/spawner/thumbs/Interactive Objects/spike_2.png" />
-    <SpawnerItem display_name="[h] waterRiseHotspot" path="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml" thumbnail_path="Data/Textures/ui/versusBrawl/waterRise.png" />
     <SpawnerItem display_name="playerSpawn.xml" path="Data/Objects/playerSpawn.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="[h] raceGoalHotspot" path="Data/Objects/raceGoal.xml" thumbnail_path="Data/UI/spawner/thumbs/Hotspot/race_icon.png" />
+    <SpawnerItem display_name="[h] ninjaPowerUp" path="Data/Objects/powerups/ninjaPowerUp.xml" thumbnail_path="Data/Textures/ui/arena_mode/glyphs/10_kos_1x1.png" />
+    <SpawnerItem display_name="[h] toxicPowerUp" path="Data/Objects/powerups/toxicPowerUp.xml" thumbnail_path="Data/Textures/ui/arena_mode/glyphs/10_kos_1x1.png" />
+    <SpawnerItem display_name="Dog Hammer" path="Data/Items/DogWeapons/DogHammer.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/whammer.png" />
+    <SpawnerItem display_name="[h] waterRiseHotspot" path="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml" thumbnail_path="Data/Textures/ui/versusBrawl/waterRise.png" />
+    <SpawnerItem display_name="[h] objectFollowerEmitter" path="Data/Objects/powerups/objectFollowerEmitter.xml" thumbnail_path="Data/Textures/ui/versusBrawl/particle.png" />
+    <SpawnerItem display_name="rotatoHotspot.xml" path="Data/Objects/versus-brawl/hotspots/rotatoHotspot.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="[h] weaponSpawn" path="Data/Objects/weaponSpawn.xml" thumbnail_path="Data/Textures/ui/versusBrawl/placeholder_weapon_spawn.png" />
+    <SpawnerItem display_name="[h] charCatapultHotspot.xml" path="Data/Objects/versus-brawl/hotspots/charCatapultHotspot.xml" thumbnail_path="Data/Textures/ui/versusBrawl/platform_icon.png" />
 </RecentItems>
