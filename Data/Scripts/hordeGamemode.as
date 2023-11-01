@@ -178,10 +178,6 @@ void HordeLoad(JSONValue settings) {
                 waves.push_back(waveObj);
             }
         }
-        else{
-            errorMessage = "Missing `Waves` definition!";
-            ChangeGameState(1);
-        }
         
         // Fill out EnemyTemplates
         if (FoundMember(horde, "EnemyTemplates")){
@@ -209,10 +205,6 @@ void HordeLoad(JSONValue settings) {
                 EnemyTemplate enemyTemplate (enemyTemplatesNames[i], actorPath, weaponPath, backWeaponPath);
                 enemyTemplates.push_back(enemyTemplate);
             }
-        }
-        else{
-            errorMessage = "Missing `EnemyTemplates` definition!";
-            ChangeGameState(1);
         }
     }
 }
