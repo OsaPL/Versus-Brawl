@@ -1,0 +1,47 @@
+{
+  "VersusBase": {
+    "NpcPlayers": {
+      "Value": 40,
+      "Configurable": {
+        "Min": 0,
+        "Max": 100
+      }
+    },
+    "MaxPlayers": {
+      "Value": 30
+    },
+    "RespawnTime": {
+      "Value": 3.0,
+      "Configurable": {
+        "Min": 0.5,
+        "Max": 15.0
+      }
+    },
+    "ForcedSpecies": {
+      "Value": -1,
+      "Configurable": {
+        "Min": -1,
+        "Max": 4
+      }
+    },
+    "InstantSpeciesChange": {
+      "Value": false,
+      "Configurable": {
+      }
+    },
+    "BlockSpeciesChange": {
+      "Value": false,
+      "Configurable": {
+      }
+    }
+  },
+  "Deathmatch": {
+    "PointsToWin": {
+      "Value": 10,
+      "Configurable": {
+        "Min": 2,
+        "Max": 100
+      }
+    }
+  }
+}

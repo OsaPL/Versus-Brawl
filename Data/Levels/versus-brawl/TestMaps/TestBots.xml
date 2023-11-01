@@ -1,0 +1,335 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<Name>TESTcrash</Name>
+<Description></Description>
+<Shader>post</Shader>
+<Shadows>true</Shadows>
+<LoadingScreen>
+    <Image></Image>
+</LoadingScreen>
+<OutOfDate NavMesh="true" NavMeshParamHash="-1674835251" />
+<AmbientSounds />
+<Script>deathmatchGamemode.as</Script>
+<LevelScriptParameters>
+    <parameter name="Achievements" type="string" val="flawless, no_injuries, no_kills" />
+    <parameter name="Custom Shader" type="string" val="" />
+    <parameter name="Fog amount" type="float" val="1" />
+    <parameter name="GPU Particle Field" type="string" val="" />
+    <parameter name="HDR Black point" type="float" val="0.005" />
+    <parameter name="HDR Bloom multiplier" type="float" val="1" />
+    <parameter name="HDR White point" type="float" val="0.971" />
+    <parameter name="Level Boundaries" type="int" val="1" />
+    <parameter name="Load Tip" type="string" val="" />
+    <parameter name="Objectives" type="string" val="destroy_all" />
+    <parameter name="Saturation" type="float" val="1" />
+    <parameter name="Sky Brightness" type="float" val="1" />
+    <parameter name="Sky Rotation" type="float" val="0" />
+    <parameter name="Sky Tint" type="string" val="255, 255, 255" />
+    <parameter name="game_type" type="string" val="versusBrawl" />
+</LevelScriptParameters>
+<NavMeshParameters generate="true" cell_size="0.3" cell_height="0.2" agent_height="1.7" agent_radius="0.4" agent_max_climb="1.5" agent_max_slope="60" />
+<Sky>
+    <DomeTexture>Data/Textures/skies/CloudySunset.tga</DomeTexture>
+    <SunAngularRad>0.153056</SunAngularRad>
+    <SunColorAngle>353.589</SunColorAngle>
+    <RayToSun r0="0.121363" r1="0.062051" r2="0.990667" />
+</Sky>
+<ActorObjects>
+    <CameraObject t0="12.9177" t1="7.54453" t2="7.94562" s0="1" s1="1" s2="1" q0="-0.254089" q1="0.249722" q2="-0.0680883" q3="-0.931902" euler_x="0.532373" euler_y="-0.523638" euler_z="0" id="0">
+        <parameters />
+    </CameraObject>
+    <EnvObject t0="1.20035" t1="-0.438872" t2="1.52548" s0="20" s1="1" s2="20" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="-4.41397" t1="1.53177" t2="1.40677" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-4.38242" t1="1.43976" t2="0.488744" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-4.33286" t1="1.55927" t2="-0.869916" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="5" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-4.41996" t1="1.45434" t2="-2.02258" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-4.45364" t1="1.43582" t2="-3.22993" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-4.46236" t1="1.60177" t2="-4.43878" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="8" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-4.5058" t1="1.43429" t2="2.69625" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="9" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-4.44632" t1="1.64745" t2="4.82808" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="10" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-0.365119" t1="1.58804" t2="0.852696" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="75" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-0.33357" t1="1.49603" t2="-0.06533" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="80" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-0.284009" t1="1.61554" t2="-1.42399" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="81" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-0.371109" t1="1.51061" t2="-2.57665" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="82" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-0.404789" t1="1.49209" t2="-3.784" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="83" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-0.413509" t1="1.65804" t2="-4.99285" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="84" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-0.456949" t1="1.49056" t2="2.14218" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="85" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-0.397466" t1="1.70372" t2="4.274" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="86" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="5.09316" t1="1.3243" t2="0.316292" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="97" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="5.12471" t1="1.23229" t2="-0.601734" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="98" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="5.17427" t1="1.3518" t2="-1.96039" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="99" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="5.08717" t1="1.24687" t2="-3.11306" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="100" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="5.05349" t1="1.22835" t2="-4.32041" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="101" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="5.04477" t1="1.3943" t2="-5.52926" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="102" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="5.00133" t1="1.22682" t2="1.60577" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="103" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="5.06081" t1="1.43998" t2="3.7376" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="104" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="9.1186" t1="1.20716" t2="1.40124" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="113" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="9.15015" t1="1.11515" t2="0.483212" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="114" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="9.19971" t1="1.23466" t2="-0.875448" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="115" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="9.11261" t1="1.12973" t2="-2.02811" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="116" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="9.07893" t1="1.11121" t2="-3.23546" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="117" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="9.07021" t1="1.27716" t2="-4.44431" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="118" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="9.02677" t1="1.10968" t2="2.69072" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="119" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="9.08626" t1="1.32284" t2="4.82255" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="120" type_file="Data/Objects/playerSpawn.xml">
+        <parameters>
+            <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="playerNr" type="int" val="-1" />
+            <parameter name="type" type="string" val="playerSpawnHotspot" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+</ActorObjects>
+<RecentItems>
+    <SpawnerItem display_name="playerSpawn.xml" path="Data/Objects/playerSpawn.xml" thumbnail_path="empty_placeholder.png" />
+</RecentItems>
