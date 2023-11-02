@@ -25,12 +25,12 @@ void SetParameters()
 {
     params.AddString("type", "npcSpawnerHotspot");
     
-    params.AddIntSlider("spawnLimit", 2,"min:1,max:5");
+    params.AddIntSlider("spawnLimit", 1,"min:1,max:5");
     params.AddIntSlider("characterLimit", 3,"min:1,max:15");
     params.AddIntCheckbox("respawnAutomatically", false);
     params.AddFloatSlider("respawnTimer", 15.0f,"min:0.5,max:300,step:0.01");
     params.AddIntCheckbox("pauseWhenEditor", true);
-    params.AddIntCheckbox("noticeAllOnSpawn", true);
+    params.AddIntCheckbox("noticeAllOnSpawn", false);
 }
 
 void Init(){

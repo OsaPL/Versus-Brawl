@@ -9,6 +9,7 @@
       3. [CTF](#ctf)
       4. [Nidhogg](#nidhogg)
       5. [Coop](#coop)
+      6. [Arena](#arena)
 3. [Gamemode creation](#gamemodecreate)
    1. [Global variables](#globalvars)
    2. [UI](#ui)
@@ -16,6 +17,7 @@
 4. [Changes to default scripts](#scriptchanges)
    1. [`aschar.as`](#aschar)
    2. [`playercontrol.as`](#playercontrol)
+   3. [`situationawareness.as`](#situationawareness)
 5. [Hotspots](#hotspots)
    1. [`playerspawnhotspot`](#playerspawnhotspot)
    2. [`powerupbase`](#powerupbase)
@@ -29,6 +31,8 @@
       1. [Importing your own animation](#animationimport)
       2. [Animating and `anim.json`](#animating)
       3. [Using `anim.json` files and hotspot itself](#hotspotitself)
+   10. [`refreshPowerup`](#refreshpowerup)
+   11. [`rotatoHotspot`](#rotatohotspot)
 6. [Items specific](#items)
    1. [Sheathing big weapons on the back](#sheatingonback)
 
@@ -71,24 +75,68 @@ We can change checkpoints number needed to win to 7 in the race gamemode, but al
 ```json
 {
   "VersusBase": {
-    "ForcedSpecies": 0
+    "ForcedSpecies": {
+      "Value": 0
+    }
   },
   "Race": {
-    "CheckPointsNeeded": 7
+    "CheckPointsNeeded": {
+      "Value": 7
+    }
   }
 }
 ```
 
-You can also modify paremeters of characters for that map by adding `SpeciesStats`:
-
+If you want to make values configurable on the menu, just set `Configurable` part accordingly (for values without range, you just need to create an empty entry):
 ```json
 {
   "VersusBase": {
-    "ForcedSpecies": 0
-  },
-  "Race": {
-    "CheckPointsNeeded": 7
-  },
+    "ForcedSpecies": {
+      "Value": 0
+    },
+    "Configurable": {
+      "Min": 0,
+      "Max": 3
+    },
+    "InstantSpeciesChange": {
+      "Value": false,
+      "Configurable": {
+      }
+    }
+  }
+}
+```
+
+You can also set level params in the json itself, and make them configurable :
+```json
+{
+  "LevelParams": {
+    "TestString": {
+      "Value": "Test",
+      "Configurable": {}
+    },
+    "NonConfigurableTestString": {
+      "Value": "NoConfTestString"
+    },
+    "IntTest": {
+      "Value": 10,
+      "Configurable": {
+        "Min": 2,
+        "Max": 100
+      }
+    },
+    "BoolTest": {
+      "Value": false,
+      "Configurable": {}
+    }
+  }
+}
+```
+
+You can also modify parameters of characters for that map by adding `SpeciesStats`:
+
+```json
+{
   "SpeciesStats": {
     "rabbit": {
       "Attack Knockback": 6.9
@@ -184,13 +232,102 @@ for (int i = 0; i < GetNumCharacters(); i++) {
 }
 ```
 
-#### Custom `aschar.as` support
-👻(not tested)
-
-You probably just need to include `coopPartners.as` script and do the same thing I've done in my `aschar.as`. 
-
-Just correctly call `CoopPartnersCheck()` and `CoopPanic()`.
-
+### Arena <a name="arena"/>
+Creating arena map requires few things:
+1. Place player spawn where desired.
+2. Place `npcSpawners` where you want enemies to show up, setup them by changing params as needed:
+   - If there is no way for enemy to notice players, enable `noticeAllOnSpawn`.
+   - Keep `spawnLimit` at `1` if your spawn point is not in an open space.
+   - `characterLimit` will define how many characters can be alive at once from this spawn
+   - Name the spawn point if you wish to use it in the waves configuration
+3. Create enemy templates
+   - These will be used as the enemy definitions for the waves
+   - You can just create an actor in editor, configure them as you please, and use `Save selection` option
+   - Make note of the path to that saved file
+```json
+{
+  "Horde": {
+    "EnemyTemplates": {
+      "NormalBunny": {
+        "ActorPath": "Data/Objects/versus-brawl/levelSpecific/testHorde/NormalBunny.xml"
+      },
+      "ArmoredBunny": {
+        "ActorPath": "Data/Objects/versus-brawl/levelSpecific/testHorde/ArmoredBunny.xml",
+        "WeaponPath": "Data/Items/flint_knife.xml"
+      },
+      "NinjaDog": {
+        "ActorPath": "Data/Objects/versus-brawl/levelSpecific/testHorde/NinjaDog.xml",
+        "WeaponPath": "Data/Items/staffbasic.xml",
+        "BackWeaponPath": "Data/Items/Bastard.xml"
+      }
+    }
+  }
+}
+```
+4. Create wave definitions
+   - These will define the enemies and their count for this wave
+   - You can also set time, and whether or not killing everyone is required
+   - If `KillAll` if false, the wave will require you to survive till time runs out.
+   - Setting `SpawnName` will make sure they will spawn at that, named spawn point
+```json
+{
+   "Horde": {
+      "Waves": [
+         {
+            "Time": 20.0,
+            "KillAll": true,
+            "Enemies": [
+               {
+                  "Type":"NormalBunny",
+                  "Amount": 2
+               }
+            ]
+         },
+         {
+            "Time": 40.0,
+            "KillAll": true,
+            "Enemies": [
+               {
+                  "Type":"NinjaDog",
+                  "Amount":1,
+                  "SpawnName":"BGate"
+               },
+               {
+                  "Type":"ArmoredBunny",
+                  "Amount":1,
+                  "SpawnName":"AGate"
+               }
+            ]
+         }
+      ]
+   }
+}
+```
+5. Configure mode itself, these are some additional settings that could prove useful:
+(as with all params, you can also decide whether they should be configurable, from players menu)
+```json
+{
+  "Horde": {
+    "TimeBetweenWaves": {
+      "Value": 5.0
+    },
+    "HealAfterWave": {
+      "Value": true
+    },
+    "RespawnAfterWave": {
+      "Value": true
+    },
+    "ScaleWithPlayers": {
+      "Value": true
+    },
+    "FriendlyAttacks": {
+      "Value": false,
+      "Configurable": {
+      }
+    }
+  }
+}
+```
 # Gamemode creation <a name="gamemodecreate"/>
  
 You can create your own gamemodes pretty easily! Start with `versusGameplayTemplate`.
@@ -199,6 +336,7 @@ You can create your own gamemodes pretty easily! Start with `versusGameplayTempl
  `currentState` contains current game state, template already has: `warmup=0`, `error=1`, `gamestart>=2` `gameend>=100`, but you are free to implement more and use the `ChangeGameState(value)` call to switch.
 
 **👻Document all params**
+
 `errorMessage` can be set to notify user what is the reason for making `currentState == 1` (or basically, error state)
 
 `constantRespawning` controls whether you should be automatically queued for a respawn.
@@ -278,6 +416,10 @@ throwMassMlt = params.GetFloat("Throw - Mass Multiplier");
 - `drunkMode` added, with new methods to invert controls
 - Small modifications to Unsheathe/Sheathing, also adds ability to choose which weapon is selected
 - You can now drop items by quick tapping `drop` key two times
+- Characters will now make sounds based on their actions (just like npcs do)
+
+## `situationawareness.as` <a name="`situationawareness"/>
+- Small fix to `Notice()` method, to make manipulating (mostly removing) movement objects not crash sometimes
 
 # Hotspots <a name="hotspots"></a>
 
@@ -476,7 +618,23 @@ Options you can set for `staticObjectAnimatorHotSpot`:
 - `playNextAnim`: enables playing next animation in the list after this one finished
 - `nextAnimIsRandom`: when a next animation is gonna be played, it selects a random one, `playNextAnim` must be `true`
 - `speed`: controls the playback speed (👻 atm not working for single render frame animation frames)
-- 
+
+## `refreshPowerup` <a name="refreshpowerup"/>
+This is, I think the only powerup pickup that needs some explaining:
+
+`RefreshAll` will send a refresh message to all powerups, if `true`.
+If `false`, only connected powerups will get the refresh message.
+Note: You cant refresh `refreshPowerup`.
+
+## `rotatoHotspot` <a name="rotatohotspot"/>
+This is used to create a simple rotating object, around a predefined axis. 
+
+Options to set:
+- `rotateDelay`: how much to delay each rotation, allows for slower, easier for fps/collisions rotations
+- `rotatoSpeed`: how high is the angle for each rotation
+- `useFastRotate`: use for object where there is no need to update collisions, big fps improvement
+- `pauseWhenEditor`: If editor is active, stop rotation
+- `rotationAxis`: axis of the rotation, a blue line will be drawn to illustrate axis (must follow `vec3(x, y, z)` format)
 
 # Items specific <a name="items"/>
 
