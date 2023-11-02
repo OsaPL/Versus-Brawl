@@ -109,7 +109,7 @@ void Update()
     }
 
     // Stop rotating if obj is selected
-    if(obj.IsSelected()){
+    if(obj.IsSelected() && EditorModeActive(){
         return;
     }
 

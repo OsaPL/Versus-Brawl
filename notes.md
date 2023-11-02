@@ -8,36 +8,10 @@
 DM and CTF seem to work just fine, even if over 4+ players
 
 # Horde mode:
+0. Rename to `Arena` mode?
 1. `npcSpawner` should also be usable by itself, add automatic spawning + ability to use params paths
 2. Probably one more map horde map.
-3. Finish the lava tower map, create that cave race map.
-## Horde layout file
-`RespawnAfterWave` also enables `HealAfterWave` to mitigate some suicide shenanigans
-If `SpawnName` is not defined, spawn wherever
-
-# Example `LevelParams` section (*put into docs*)
-```json
-"LevelParams": {
-  "TestString": {
-    "Value": "Test",
-    "Configurable": {}
-  },
-    "NonConfigurableTestString": {
-    "Value": "NoConfTestString"
-  },
-  "IntTest": {
-    "Value": 10,
-    "Configurable": {
-      "Min": 2,
-      "Max": 100
-    }
-  },
-  "BoolTest": {
-    "Value": false,
-    "Configurable": {}
-  }
-}
-```
+3. Finish the lava tower map, create that space race map.
 
 # DO THOSE THINGS:
 - `speed` on staticAnimator should also work for frames (in integer form only for > 1), 2x is "skip a frame", 0.5x is "render frame two times" etc
