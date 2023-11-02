@@ -1,0 +1,26 @@
+{
+  "VersusBase": {
+    "ForcedSpecies": {
+      "Value": 3
+    }
+  },
+  "Race": {
+    "CheckPointsNeeded": {
+      "Value": 7,
+      "Configurable": {
+        "Min": 1,
+        "Max": 7
+      }
+    },
+    "OnlyOneLife": {
+      "Value": false,
+      "Configurable": {
+      }
+    },
+    "HighestPointsWin": {
+      "Value": true,
+      "Configurable": {
+      }
+    }
+  }
+}
