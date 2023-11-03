@@ -9,7 +9,7 @@ string notOkIconPath = "Data/Textures/ui/versusBrawl/teleporterNotOk.png";
 string notReadyIconPath = "Data/Textures/ui/versusBrawl/teleporterNotReady.png";
 int parentId = -1;
 float cooldown = 2;
-float timer = cooldown;
+float timer = 0;
 TimedExecution teleportTimer;
 bool retainScale = true;
 
