@@ -131,6 +131,16 @@
           path="Data/Objects/versus-brawl/hotspots/npcSpawnerHotspot.xml"
           thumbnail="Data/Textures/ui/versusBrawl/spawner.png" />
 
+    <Item category="VersusBrawl"
+          title="[h] rotatoHotspot"
+          path="Data/Objects/versus-brawl/hotspots/rotatoHotspot.xml"
+          thumbnail="Data/Textures/ui/versusBrawl/rotato.png" />
+    
+    <Item category="VersusBrawl"
+          title="[d] ArrowDecal1"
+          path="Data/Objects/versus-brawl/Decals/ArrowDecal1.xml"
+          thumbnail="Data/Textures/versus-brawl/point_icon.png" />
+
     <!-- Powerups -->
     <Item category="VersusBrawl"
           title="[h] firePowerUp"

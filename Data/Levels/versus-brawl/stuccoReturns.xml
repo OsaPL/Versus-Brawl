@@ -1,6 +1,6 @@
 <?xml version="2.0" ?>
 <Type>saved</Type>
-<Name>testHorde</Name>
+<Name>stuccoReturns</Name>
 <Description></Description>
 <Shader>post</Shader>
 <Shadows>true</Shadows>
@@ -87,30 +87,36 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot name="AGate" t0="-69.7334" t1="-7.37346" t2="-21.6448" s0="0.4" s1="0.4" s2="0.4" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="32" type_file="Data/Objects/versus-brawl/hotspots/npcSpawnerHotspot.xml">
+    <Hotspot name="AGate" t0="-70.6303" t1="-7.75656" t2="-21.9385" s0="1.26102" s1="0.4" s2="0.9188" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="32" type_file="Data/Objects/versus-brawl/hotspots/npcSpawnerHotspot.xml">
         <parameters>
+            <parameter name="autoSpawnActorPath" type="string" val="" />
+            <parameter name="autoSpawnBackWeaponPath" type="string" val="" />
+            <parameter name="autoSpawnWeaponPath" type="string" val="" />
             <parameter name="characterLimit" type="int" val="3" />
             <parameter name="currentCharacters" type="int" val="0" />
             <parameter name="currentQueue" type="int" val="0" />
-            <parameter name="noticeAllOnSpawn" type="int" val="1" />
+            <parameter name="noticeAllOnSpawn" type="int" val="0" />
             <parameter name="pauseWhenEditor" type="int" val="1" />
-            <parameter name="respawnAutomatically" type="int" val="1" />
-            <parameter name="respawnTimer" type="float" val="1" />
+            <parameter name="respawnAutomatically" type="int" val="0" />
+            <parameter name="respawnTimer" type="float" val="7" />
             <parameter name="spawnLimit" type="int" val="1" />
             <parameter name="type" type="string" val="npcSpawnerHotspot" />
         </parameters>
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot name="BGate" t0="-38.9144" t1="-7.38859" t2="-22.2132" s0="0.4" s1="0.4" s2="0.4" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="44" type_file="Data/Objects/versus-brawl/hotspots/npcSpawnerHotspot.xml">
+    <Hotspot name="BGate" t0="-38.468" t1="-7.77224" t2="-22.0004" s0="1.30191" s1="0.4" s2="0.698317" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="44" type_file="Data/Objects/versus-brawl/hotspots/npcSpawnerHotspot.xml">
         <parameters>
+            <parameter name="autoSpawnActorPath" type="string" val="" />
+            <parameter name="autoSpawnBackWeaponPath" type="string" val="" />
+            <parameter name="autoSpawnWeaponPath" type="string" val="" />
             <parameter name="characterLimit" type="int" val="3" />
             <parameter name="currentCharacters" type="int" val="0" />
             <parameter name="currentQueue" type="int" val="0" />
-            <parameter name="noticeAllOnSpawn" type="int" val="1" />
+            <parameter name="noticeAllOnSpawn" type="int" val="0" />
             <parameter name="pauseWhenEditor" type="int" val="1" />
-            <parameter name="respawnAutomatically" type="int" val="1" />
-            <parameter name="respawnTimer" type="float" val="1" />
+            <parameter name="respawnAutomatically" type="int" val="0" />
+            <parameter name="respawnTimer" type="float" val="7" />
             <parameter name="spawnLimit" type="int" val="1" />
             <parameter name="type" type="string" val="npcSpawnerHotspot" />
         </parameters>
@@ -163,7 +169,7 @@
     <Decal t0="-42.9254" t1="15.2425" t2="-35.9567" s0="11.0983" s1="6.02148" s2="5.5119" q0="0.596164" q1="-0.345174" q2="-0.563903" q3="-0.455474" euler_x="-1.25124" euler_y="1.40809" euler_z="0.682147" id="68" type_file="Data/Objects/Decals/white_dust.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-53.5114" t1="-12.8926" t2="-21.295" s0="25.2898" s1="10.1026" s2="16.5252" q0="0.0111073" q1="0.0781298" q2="0.00501484" q3="0.996869" euler_x="0.0232136" euler_y="0.156295" euler_z="0.011879" id="69" type_file="Data/Objects/Decals/FadedWhiteRocks.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="-53.5114" t1="-12.8926" t2="-21.295" s0="25.2898" s1="10.1026" s2="16.5252" q0="0.0111073" q1="0.0781298" q2="0.00501484" q3="0.996869" euler_x="0.0232137" euler_y="0.156294" euler_z="0.011879" id="69" type_file="Data/Objects/Decals/FadedWhiteRocks.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <EnvObject t0="-68.0376" t1="0.342918" t2="-22.1211" s0="0.955777" s1="0.955777" s2="0.955777" q0="-0.0490296" q1="-0.705405" q2="0.0490296" q3="0.705405" euler_x="-1.5708" euler_y="-1.43201" euler_z="1.5708" id="71" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/Banner2_Wide3.xml">
@@ -187,7 +193,7 @@
     <Decal t0="-42.5738" t1="10.2848" t2="-35.7896" s0="10.8088" s1="3.7504" s2="4.47857" q0="-0.0876926" q1="-0.0239913" q2="0.691934" q3="0.716214" euler_x="-0.160102" euler_y="0.0870993" euler_z="1.52932" id="77" type_file="Data/Objects/Decals/black_dust.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <CameraObject t0="-61.9391" t1="-4.96905" t2="-26.9814" s0="1" s1="1" s2="1" q0="0.0110633" q1="0.932985" q2="-0.0287844" q3="0.358592" euler_x="-3.07991" euler_y="0.733883" euler_z="3.14159" id="78">
+    <CameraObject t0="-54.4938" t1="-4.50981" t2="-26.9939" s0="1" s1="1" s2="1" q0="0.0298624" q1="-0.889469" q2="0.0587363" q3="0.45222" euler_x="-3.00971" euler_y="-0.940714" euler_z="-3.14159" id="78">
         <parameters />
     </CameraObject>
     <PlaceholderObject t0="-58.5927" t1="4.79393" t2="-21.6922" s0="100.379" s1="50.2579" s2="60.8469" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="80" type_file="" special_type="0">
@@ -1589,13 +1595,13 @@
             <parameters />
         </EnvObject>
     </Group>
-    <Decal t0="-42.3884" t1="-7.45886" t2="-32.4874" s0="4.68739" s1="3.11125" s2="5.62117" q0="-0.381105" q1="0.702175" q2="0.545196" q3="0.253905" euler_x="2.0211" euler_y="0.882178" euler_z="-2.72291" id="442" type_file="Data/Objects/Decals/ThickMoss.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="-42.3884" t1="-7.45886" t2="-32.4874" s0="4.68739" s1="3.11125" s2="5.62117" q0="-0.381105" q1="0.702175" q2="0.545196" q3="0.253905" euler_x="2.0211" euler_y="0.882179" euler_z="-2.72292" id="442" type_file="Data/Objects/Decals/ThickMoss.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-66.3919" t1="-8.53272" t2="-32.0471" s0="5.63335" s1="3.14935" s2="6.28014" q0="0.144826" q1="0.633011" q2="0.661226" q3="-0.375633" euler_x="1.35895" euler_y="-0.730289" euler_z="-2.70739" id="443" type_file="Data/Objects/Decals/ThickMoss.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-55.5479" t1="-8.58462" t2="-8.17474" s0="7.07909" s1="4.49665" s2="5.38045" q0="0.655345" q1="0.114116" q2="-0.0615879" q3="-0.744107" euler_x="-1.45508" euler_y="-0.0892255" euler_z="0.244623" id="444" type_file="Data/Objects/Decals/ThickMoss.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="-55.5479" t1="-8.58462" t2="-8.17474" s0="7.07909" s1="4.49665" s2="5.38045" q0="0.655345" q1="0.114116" q2="-0.0615879" q3="-0.744107" euler_x="-1.45508" euler_y="-0.0892247" euler_z="0.244623" id="444" type_file="Data/Objects/Decals/ThickMoss.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <EnvObject t0="-72.7988" t1="-6.14068" t2="-21.8449" s0="0.9493" s1="0.703332" s2="1" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="460" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/arena/arena_gate.xml">
@@ -1835,13 +1841,13 @@
     <EnvObject t0="-96.6898" t1="-7.45326" t2="-21.9756" s0="2.89838" s1="2.89838" s2="2.89838" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="546" color_r="0.805971" color_g="0.671642" color_b="1" overbright="0.169933" type_file="Data/Objects/Buildings/Post1.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-64.8723" t1="-8.34611" t2="-29.6445" s0="1" s1="1" s2="1" q0="0" q1="0.228726" q2="0" q3="0.973491" euler_x="0" euler_y="0.461537" euler_z="0" id="547" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Furniture/shop_stool.xml">
+    <EnvObject t0="-64.8723" t1="-8.34611" t2="-29.6445" s0="1" s1="1" s2="1" q0="0" q1="0.228726" q2="0" q3="0.973491" euler_x="0" euler_y="0.461538" euler_z="0" id="547" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Furniture/shop_stool.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-43.903" t1="-8.09573" t2="-30.9279" s0="1" s1="1" s2="1" q0="-0.0294473" q1="-0.474462" q2="-0.0115336" q3="0.879707" euler_x="-0.074429" euler_y="-0.988958" euler_z="0.0139221" id="548" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/Crate_2.xml">
+    <EnvObject t0="-43.903" t1="-8.09573" t2="-30.9279" s0="1" s1="1" s2="1" q0="-0.0294473" q1="-0.474462" q2="-0.0115336" q3="0.879707" euler_x="-0.0744292" euler_y="-0.988959" euler_z="0.0139223" id="548" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/Crate_2.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-54.328" t1="-7.10088" t2="-10.7605" s0="1" s1="1" s2="1" q0="-0.00763756" q1="0.187912" q2="0.0110585" q3="0.982094" euler_x="-0.0116706" euler_y="0.378216" euler_z="0.0202855" id="549" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/Crate_1.xml">
+    <EnvObject t0="-54.328" t1="-7.10088" t2="-10.7605" s0="1" s1="1" s2="1" q0="-0.00763756" q1="0.187912" q2="0.0110585" q3="0.982094" euler_x="-0.0116706" euler_y="0.378216" euler_z="0.0202856" id="549" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/Crate_1.xml">
         <parameters />
     </EnvObject>
 </ActorObjects>
