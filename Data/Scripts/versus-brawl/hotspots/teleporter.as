@@ -114,6 +114,10 @@ bool Disconnect(Object@ other)
 
 void Teleport(int charId)
 {
+    Object@ me = ReadObjectFromID(hotspot.GetID());
+    if(!me.GetEnabled())
+        return;
+        
     if (parentId == -1)
         return;
 
@@ -124,8 +128,6 @@ void Teleport(int charId)
 
     PlaySound(params.GetString("teleportSound"));
 
-    Object
-    @me = ReadObjectFromID(hotspot.GetID());
     Object
     @destination = ReadObjectFromID(parentId);
     Object

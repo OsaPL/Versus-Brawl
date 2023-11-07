@@ -30,6 +30,7 @@ void SetParameters() {
     for (uint i = 0; i < playersMax; i++) {
         params.AddIntCheckbox("player"+i+"Reached", false);
     }
+    params.AddString("type", "raceGoalHotspot");
     params.AddString("gameMode", "Race");
     params.AddString("game_type", "versusBrawl");
 }
@@ -74,14 +75,14 @@ void Update(){
         //Log(error, "j: "+ j + " xDir: " + xDir + " yDir: " + yDir);
         
         if(params.GetInt("player" + j + "Reached") == 1)
-            PlaceHolderFollowerUpdate("Data/Textures/ui/challenge_mode/checkmark_icon.png", "", avgScale, false, vec4(teamColor, 0.4f), teamOffset);
+            PlaceHolderFollowerUpdate("Data/Textures/ui/challenge_mode/checkmark_icon.png", "", avgScale, false, vec4(teamColor, 0.7f), teamOffset);
     }
     string enabled = me.GetEnabled() ? "Enabled" : "Disabled";
     if(EditorModeActive()){
         PlaceHolderFollowerUpdate("Data/Textures/ui/versusBrawl/flag_icon.png", "[RaceGoal] " + playersReached + " [" + enabled + "]", avgScale, true);
     }
     else{
-        PlaceHolderFollowerUpdate("Data/Textures/ui/versusBrawl/flag_icon.png", "", avgScale, false);
+        PlaceHolderFollowerUpdate("Data/Textures/ui/versusBrawl/flag_icon.png", "", avgScale, false, vec4(1.5f));
     }
 }
 
@@ -112,6 +113,10 @@ bool AcceptConnectionsTo(Object@ other) {
 }
 
 bool AcceptConnectionsFrom(Object@ other) {
+    ScriptParams@ objParams = other.GetScriptParams();
+    
+    if(IsGoalObject(other))
+        return true;
     return false;
 }
 
@@ -145,6 +150,14 @@ bool IsAcceptedConnectionType(Object@ other){
     return false;
 }
 
+bool IsGoalObject(Object@ obj){
+    ScriptParams@ objParams = obj.GetScriptParams();
+    if(objParams.HasParam("type"))
+        if(objParams.GetString("type") == "raceGoalHotspot")
+            return true;
+    return false;
+}
+
 bool IsSpawnObject(Object@ obj){
     ScriptParams@ objParams = obj.GetScriptParams();
     if(objParams.HasParam("playerNr") && objParams.HasParam("game_type")) {
@@ -156,14 +169,14 @@ bool IsSpawnObject(Object@ obj){
 }
 
 void HandleEvent(string event, MovementObject @mo){
+    Object@ me = ReadObjectFromID(hotspot.GetID());
+   
     
+    // If disabled, ignore
+    if(!me.GetEnabled())
+        return;
+
     ScriptParams@ lvlParams = level.GetScriptParams();
-    if(lvlParams.HasParam("InProgress"))
-        if(lvlParams.GetInt("InProgress") < 1){
-            //Ignore if the game didnt start yet
-                Log(error, "Not `InProgress` yet");
-            return;
-        }
     
     if(event == "enter"){
         if(mo.is_player){
@@ -177,10 +190,21 @@ void HandleEvent(string event, MovementObject @mo){
             level.SendMessage("checkpoint "+mo.controller_id);  
             
             PlaySoundGroup("Data/Sounds/versus/fight_win1.xml");
-
+            
             for (uint i = 0; i < connected_object_ids.size(); i++) {
                 Object@ obj = ReadObjectFromID(connected_object_ids[i]);
                 ScriptParams@ params = obj.GetScriptParams();
+                
+                // If theyre linked both ways, means theyre brothers, and should set what player reached
+                if(IsGoalObject(obj)){
+                    Hotspot@ otherGoal = cast<Hotspot>(obj);
+                    array<int> @object_ids = otherGoal.GetConnectedObjects();
+                    
+                    if(object_ids.find(me.GetID()) >= 0){
+                        params.SetInt("player"+mo.controller_id+"Reached", 1);
+                        continue;
+                    }
+                }
 
                 // Check if its a spawn
                 if(IsSpawnObject(obj)){
@@ -208,10 +232,21 @@ void HandleEvent(string event, MovementObject @mo){
 
             // Its not a spawn, just switch the enable flag it and send an event to notify
             if(firstActivation){
-                
                 // Switch the one connected
                 for (uint j = 0; j <atLoadState.size() ; j++) {
                     Object@ objTemp = ReadObjectFromID(atLoadState[j].id);
+                    
+                    // If theyre linked both ways, means theyre brothers, dont do anything
+                    if(IsGoalObject(objTemp)){
+                        Hotspot@ otherGoal = cast<Hotspot>(objTemp);
+                        array<int> @object_ids = otherGoal.GetConnectedObjects();
+                        
+                        if(object_ids.find(me.GetID()) >= 0){
+                            // No need to change Enabled state in this case
+                            continue;
+                        }
+                    }
+                                        
                     objTemp.SetEnabled(!atLoadState[j].state);
                     objTemp.ReceiveScriptMessage("switch");
                     

@@ -24,13 +24,16 @@ array<string> spawnQueue = {};
 void SetParameters()
 {
     params.AddString("type", "npcSpawnerHotspot");
-    
+       
     params.AddIntSlider("spawnLimit", 1,"min:1,max:5");
     params.AddIntSlider("characterLimit", 3,"min:1,max:15");
-    params.AddIntCheckbox("respawnAutomatically", false);
     params.AddFloatSlider("respawnTimer", 15.0f,"min:0.5,max:300,step:0.01");
     params.AddIntCheckbox("pauseWhenEditor", true);
     params.AddIntCheckbox("noticeAllOnSpawn", false);
+    params.AddIntCheckbox("respawnAutomatically", false);
+    params.AddString("autoSpawnActorPath", "");
+    params.AddString("autoSpawnWeaponPath", "");
+    params.AddString("autoSpawnBackWeaponPath", "");
 }
 
 void Init(){
@@ -58,11 +61,29 @@ bool Spawn(string actorPath, string weaponPath, string backWeaponPath){
         
     Object@ me = ReadObjectFromID(hotspot.GetID());
     
+    // Check if actor is defined
+    if(!FileExistsWithType(actorPath, ".xml")){
+        return false;
+    }
+    
     //Spawn actor
     int actorId = CreateObject(actorPath, true);
-    Log(error, "actorId: " + actorId);
+    
+    //if(actorId < 0)
+        //return false;
+        
+    vec3 location = vec3(me.GetTranslation());
+
+    // Randomize the location a bit
+    float scaleMlt = 100;
+    float scaleMltBonus = scaleMlt + 30;
+    location.x += (float(rand()%(int(me.GetScale().x*scaleMltBonus))) / scaleMlt) * (rand()%2 > 0 ? 1 : -1);
+    location.y += (float(rand()%(int(me.GetScale().y*scaleMltBonus))) / scaleMlt) * (rand()%2 > 0 ? 1 : -1); 
+    location.z += (float(rand()%(int(me.GetScale().z*scaleMltBonus))) / scaleMlt) * (rand()%2 > 0 ? 1 : -1);
+    Log(error, "Location: " + location);
+    
     Object@ obj = ReadObjectFromID(actorId);
-    obj.SetTranslation(me.GetTranslation());
+    obj.SetTranslation(location);
     obj.SetRotation(me.GetRotation());
     MovementObject@ mo = ReadCharacterID(actorId);
     
@@ -74,10 +95,11 @@ bool Spawn(string actorPath, string weaponPath, string backWeaponPath){
     spawnedCharacters.push_back(actorId);
     
     //Spawn grip weapon
-    if(weaponPath != "none"){
+    if(FileExistsWithType(weaponPath, ".xml")){
         int weapId = CreateObject(weaponPath, true);
         Object@ obj1 = ReadObjectFromID(weapId);
-        obj1.SetTranslation(me.GetTranslation());
+        
+        obj1.SetTranslation(location);
         obj1.SetRotation(me.GetRotation());
         
         mo.Execute("AttachWeapon(" + weapId + ");");
@@ -87,11 +109,11 @@ bool Spawn(string actorPath, string weaponPath, string backWeaponPath){
         spawnedWeapons.push_back(-1);
     }
 
-    if(backWeaponPath != "none"){
+    if(FileExistsWithType(backWeaponPath, ".xml")){
         //Spawn backup weapon
         int backWeapId = CreateObject(backWeaponPath, true);
         Object@ obj2 = ReadObjectFromID(backWeapId);
-        obj2.SetTranslation(me.GetTranslation());
+        obj2.SetTranslation(location);
         obj2.SetRotation(me.GetRotation());
         mo.Execute("AttachWeapon(" + backWeapId + ");");
     
@@ -107,6 +129,27 @@ bool Spawn(string actorPath, string weaponPath, string backWeaponPath){
     }
     else{
         spawnedBackWeap.push_back(-1);
+    }
+    
+    if(params.GetInt("noticeAllOnSpawn") > 0){
+        // TODO! This is a copy paste from versusmode.as, take it out to seperate file
+        int num_chars = GetNumCharacters();
+        for(int i=0; i<num_chars; ++i){
+            MovementObject@ char1 = ReadCharacter(i);
+            for(int j=i+1; j<num_chars; ++j){
+                MovementObject@ char2 = ReadCharacter(j);
+                //Log(info, "Telling characters " + char1.GetID() + " and " + char2.GetID() + " to notice each other.");
+                if(char1.GetID() != char2.GetID())
+                {
+                    // I want to notice all
+                    char1.ReceiveScriptMessage("notice " + char2.GetID());
+                    // No need to use notice on player controller chars
+                    if(!mo.is_player)
+                        // All should notice me
+                        char2.ReceiveScriptMessage("notice " + char1.GetID());
+                }
+            }
+        }
     }
 
     return true;
@@ -127,28 +170,23 @@ void Update()
     timer += time_step;
     
     Object@ me = ReadObjectFromID(hotspot.GetID());
-    me.SetScale(vec3(0.4f));
+    //me.SetScale(vec3(0.4f));
     string name = me.GetName();
     
     // To allow gamemode to track the amount still ready to be spawned
     params.SetInt("currentQueue", spawnQueue.size());
     params.SetInt("currentCharacters", spawnedCharacters.size());
 
-    // if(EditorModeActive()) {
+    if(EditorModeActive()) {
         PlaceHolderFollowerUpdate(billboardPath, "[NpcSpawner] " + name + " [" + spawnQueue.size() + "] " 
         + "[" + spawnedCharacters.size() + "]"  , 1.5f, true, vec4(color, 1));
-    //}
+    }
 
     if(!me.GetEnabled())
         return;
         
     if(timer > params.GetFloat("respawnTimer")){
         // Remove all already dead characters
-        Log(error, "before spawnQueue:");
-        for (uint i = 0; i < spawnQueue.size(); i++) {
-            Log(error, "    " + spawnQueue[i]);
-        }
-        
         array<int> toRemove = {};
         for (uint i = 0; i < spawnedCharacters.size(); i++) {
             MovementObject @mo = ReadCharacterID(spawnedCharacters[i]);
@@ -157,13 +195,13 @@ void Update()
                 
                 if(spawnedCharacters[i] != -1)
                     // TODO! Do I really need to remove them? Check how performance heavy is leaving them as static
-                    //DeleteObjectID(spawnedCharacters[i]);
+                    //QueueDeleteObjectID(spawnedCharacters[i]);
                     staticCharacters.push_back(spawnedCharacters[i]);
                     mo.Execute("this_mo.static_char = true;");
                 if(spawnedWeapons[i] != -1)
-                    DeleteObjectID(spawnedWeapons[i]);
+                    QueueDeleteObjectID(spawnedWeapons[i]);
                 if(spawnedBackWeap[i] != -1)
-                    DeleteObjectID(spawnedBackWeap[i]);
+                    QueueDeleteObjectID(spawnedBackWeap[i]);
             }
         }
         for (uint i = toRemove.size()-1; i <= 0; i--) {
@@ -175,6 +213,24 @@ void Update()
         // Dequeue
         toRemove = {};
         int spawned = 0;
+        
+        if(params.GetInt("respawnAutomatically") > 0){
+            
+            string actorPath = params.GetString("autoSpawnActorPath");
+            actorPath = actorPath != "" ? actorPath : "none";
+            
+            string weaponPath = params.GetString("autoSpawnWeaponPath");
+            weaponPath = weaponPath != "" ? weaponPath : "none";
+            
+            string backWeapPath = params.GetString("autoSpawnBackWeaponPath");
+            backWeapPath = backWeapPath != "" ? backWeapPath : "none";
+            
+            Spawn(actorPath, weaponPath, backWeapPath);
+            
+            // If `respawnAutomatically` just ignore spawn queue, if you cant spawn rn, just dont spawn at all  
+            spawnQueue = {};
+        }
+            
         for (uint i = 0; i < spawnQueue.size(); i++) {
             if(spawned >= params.GetInt("spawnLimit"))
                 break;
@@ -185,23 +241,9 @@ void Update()
             }
         }
         
-        Log(error, "toRemove:");
-        for (uint i = 0; i < toRemove.size(); i++) {
-            Log(error, "    " + toRemove[i]);
-        }
-        
-        for (uint i = toRemove.size()-1; i >= 0; i--) {
-            // TODO: For some reason this is a thing? Weird, since I dont think it should be able.
-            if(toRemove.size() <= 0)
-                break;
-                
+        // Gotta remove starting from the end
+        for (int i = int(toRemove.size())-1; i >= 0; i--) {
             spawnQueue.removeAt(toRemove[i]);
-            Log(error, "removing: " + toRemove[i] );
-        }
-        
-        Log(error, "after spawnQueue:");
-        for (uint i = 0; i < spawnQueue.size(); i++) {
-            Log(error, "    " + spawnQueue[i]);
         }
         timer = 0;
     }
@@ -213,22 +255,22 @@ void Cleanup(){
     spawnQueue = {};
     for (uint i = 0; i < spawnedCharacters.size(); i++) {
         if(spawnedCharacters[i] != -1)
-            DeleteObjectID(spawnedCharacters[i]);
+            QueueDeleteObjectID(spawnedCharacters[i]);
     }
     spawnedCharacters = {};
     for (uint i = 0; i < spawnedWeapons.size(); i++) {
         if(spawnedWeapons[i] != -1)
-            DeleteObjectID(spawnedWeapons[i]);
+            QueueDeleteObjectID(spawnedWeapons[i]);
     }
     spawnedWeapons = {};
     for (uint i = 0; i < spawnedBackWeap.size(); i++) {
         if(spawnedBackWeap[i] != -1)
-            DeleteObjectID(spawnedBackWeap[i]);
+            QueueDeleteObjectID(spawnedBackWeap[i]);
     }
     spawnedBackWeap = {};
     for (uint i = 0; i < staticCharacters.size(); i++) {
         if(staticCharacters[i] != -1)
-            DeleteObjectID(staticCharacters[i]);
+            QueueDeleteObjectID(staticCharacters[i]);
     }
     staticCharacters = {};
 }
