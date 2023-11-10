@@ -1,0 +1,8 @@
+<?xml version="2.0" ?>
+<Type>generic</Type>
+<DecalObject>
+<ColorMap>Data/Prototypes/MagmaArena/Textures/MagmaFloor_Color.tga</ColorMap>
+<NormalMap>Data/Prototypes/MagmaArena/Textures/MagmaFloor_Norm.tga</NormalMap>
+<ShaderName>MagmaFloor</ShaderName>
+<SpecialType>5</SpecialType>
+</DecalObject>

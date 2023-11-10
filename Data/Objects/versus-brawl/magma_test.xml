@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<Object>
+    <flags no_collision = "true" transparent = "true" double_sided = "true" dynamic = "true"/>
+    <Model>Data/Models/box.obj</Model>
+    <ColorMap>Data/Prototypes/MagmaArena/Textures/MagmaFloor_Color.tga</ColorMap>
+    <NormalMap>Data/Prototypes/MagmaArena/Textures/MagmaFloor_Norm.tga</NormalMap>
+    <ShaderName>MagmaFloor</ShaderName>
+</Object>

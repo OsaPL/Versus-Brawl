@@ -7,6 +7,8 @@ float minDistanceForText = 30;
 
 void PlaceHolderFollowerUpdate(string iconPath, string text, float scale = 1, bool showDirection = false, vec4 color = vec4(1), vec3 offset = vec3()){
 
+    Object@ obj = ReadObjectFromID(hotspot.GetID());
+    string name = obj.GetName();
     //TODO: Is .dds supported?
     if(lastIconPath != iconPath){
         lastIconPath = iconPath;
@@ -43,6 +45,15 @@ void PlaceHolderFollowerUpdate(string iconPath, string text, float scale = 1, bo
                 1.0f, 
                 true,
                 _delete_on_update);
+                
+            if(name != ""){
+                DebugDrawText(
+                    me.GetTranslation() + offset + vec3(0,0.5f,0), 
+                    name, 
+                    1.0f, 
+                    true,
+                    _delete_on_update);
+            }
             
             if(showDirection){
                 // Just multiply by UP vector

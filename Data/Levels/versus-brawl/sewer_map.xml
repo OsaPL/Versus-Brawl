@@ -35,10 +35,10 @@
     <RayToSun r0="-0.0316601" r1="0.953" r2="0.30131" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-7.05601" t1="20.2661" t2="-3.37717" s0="1" s1="1" s2="1" q0="0.00987726" q1="0.945192" q2="-0.028717" q3="0.325101" euler_x="-3.08085" euler_y="0.662554" euler_z="-3.14159" id="0">
+    <CameraObject t0="-13.5299" t1="7.06547" t2="-1.56095" s0="1" s1="1" s2="1" q0="-0.0402816" q1="-0.923299" q2="0.100961" q3="-0.36838" euler_x="-2.92376" euler_y="0.759257" euler_z="3.14159" id="0">
         <parameters />
     </CameraObject>
-    <Hotspot t0="-7.98306" t1="-6.94692" t2="-5.04601" s0="8.96041" s1="4.20414" s2="9.39828" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6" type_file="Data/Objects/Hotspots/wet_cube.xml">
+    <Hotspot t0="-7.9784" t1="-6.94692" t2="-5.07374" s0="8.96041" s1="4.20414" s2="9.39828" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6" type_file="Data/Objects/Hotspots/wet_cube.xml">
         <parameters>
             <parameter name="Water Fog" type="float" val="1" />
             <parameter name="Wave Density" type="float" val="0.157" />
@@ -88,6 +88,26 @@
         <Connections>
             <Connection id="62" />
             <Connection id="74" />
+            <Connection id="65" />
+            <Connection id="96" />
+            <Connection id="21" />
+            <Connection id="57" />
+            <Connection id="63" />
+            <Connection id="47" />
+            <Connection id="371" />
+            <Connection id="372" />
+            <Connection id="0" />
+            <Connection id="370" />
+            <Connection id="375" />
+            <Connection id="373" />
+            <Connection id="374" />
+            <Connection id="56" />
+            <Connection id="320" />
+            <Connection id="321" />
+            <Connection id="339" />
+            <Connection id="344" />
+            <Connection id="349" />
+            <Connection id="354" />
         </Connections>
         <ConnectionsFrom>
             <Connection id="23" />
@@ -100,12 +120,17 @@
             <parameter name="Delay Time" type="float" val="0" />
             <parameter name="Fast Mode - No Collision Refresh" type="int" val="0" />
             <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
+            <parameter name="IdleSoundDelay" type="float" val="1.2" />
+            <parameter name="IdleSoundPath" type="string" val="Data/Sounds/versus-brawl/water_drip_single_cave/water_drip_single_cave.xml" />
             <parameter name="Loop Phases" type="int" val="1" />
             <parameter name="Min Distance To Activate" type="int" val="1000" />
-            <parameter name="Phase Change Time" type="float" val="30" />
+            <parameter name="Phase Change Time" type="float" val="2" />
             <parameter name="Phase Starting Direction Forward" type="int" val="1" />
-            <parameter name="Rise Speed" type="float" val="0.002" />
+            <parameter name="Rise Speed" type="float" val="0.004" />
+            <parameter name="RisingSoundDelay" type="float" val="0.6" />
+            <parameter name="RisingSoundPath" type="string" val="Data/Sounds/water_foley/small_waves.xml" />
             <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="type" type="string" val="waterRiseHotspot" />
         </parameters>
         <Connections>
             <Connection id="6" />
@@ -327,7 +352,7 @@
     <EnvObject t0="-19.1785" t1="11.188" t2="-5.88933" s0="1.75673" s1="1.75673" s2="1.75673" q0="-0.5" q1="0.5" q2="-0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="61" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/arena/arena_small_support.xml">
         <parameters />
     </EnvObject>
-    <Hotspot t0="2.29452" t1="3.25549" t2="-16.4103" s0="1" s1="1" s2="1" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="62" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="2.29452" t1="3.25549" t2="-16.4103" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="62" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="KeepDisabled" type="string" val="" />
             <parameter name="game_type" type="string" val="versusBrawl" />
@@ -376,6 +401,7 @@
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="notReadyAlpha" type="float" val="0.5" />
             <parameter name="notReadyIconPath" type="string" val="Data/Textures/ui/arena_mode/glyphs/10_kills_1x1.png" />
+            <parameter name="oneTimeUse" type="int" val="0" />
             <parameter name="particleColorB" type="float" val="0" />
             <parameter name="particleColorG" type="float" val="0.3" />
             <parameter name="particleColorR" type="float" val="1" />
@@ -417,7 +443,7 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-17.6804" t1="3.02323" t2="3.20766" s0="1" s1="1" s2="1" q0="0" q1="0.866025" q2="0" q3="0.5" euler_x="3.14159" euler_y="1.0472" euler_z="3.14159" id="74" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="-17.6804" t1="3.02323" t2="3.20766" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0.866025" q2="0" q3="0.5" euler_x="3.14159" euler_y="1.0472" euler_z="3.14159" id="74" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="KeepDisabled" type="string" val="" />
             <parameter name="game_type" type="string" val="versusBrawl" />
@@ -432,7 +458,7 @@
     <EnvObject t0="-7.33658" t1="29.8529" t2="-8.16996" s0="2.25" s1="2.25" s2="2.25" q0="0.491929" q1="-0.491929" q2="0.507943" q3="0.507943" euler_x="0" euler_y="-1.53878" euler_z="1.57081" id="75" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/Banner_Bars.xml">
         <parameters />
     </EnvObject>
-    <Hotspot t0="-18.0041" t1="11.1195" t2="2.26662" s0="1" s1="1" s2="1" q0="0" q1="0.866025" q2="0" q3="0.5" euler_x="3.14159" euler_y="1.0472" euler_z="3.14159" id="76" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="-18.0041" t1="11.1195" t2="2.26662" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0.866025" q2="0" q3="0.5" euler_x="3.14159" euler_y="1.0472" euler_z="3.14159" id="76" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="KeepDisabled" type="string" val="" />
             <parameter name="game_type" type="string" val="versusBrawl" />
@@ -447,7 +473,7 @@
     <EnvObject t0="-7.37054" t1="29.4813" t2="-12.5366" s0="2.25" s1="2.25" s2="2.25" q0="0.464477" q1="-0.464477" q2="0.533161" q3="0.533161" euler_x="0" euler_y="-1.43331" euler_z="1.57079" id="77" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/Banner_Bars.xml">
         <parameters />
     </EnvObject>
-    <Hotspot t0="3.06813" t1="10.9123" t2="3.12353" s0="1" s1="1" s2="1" q0="0" q1="-0.866025" q2="0" q3="0.5" euler_x="3.14159" euler_y="-1.0472" euler_z="3.14159" id="78" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="3.06813" t1="10.9123" t2="3.12353" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.866025" q2="0" q3="0.5" euler_x="3.14159" euler_y="-1.0472" euler_z="3.14159" id="78" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="KeepDisabled" type="string" val="" />
             <parameter name="game_type" type="string" val="versusBrawl" />
@@ -462,7 +488,7 @@
     <EnvObject t0="-7.36096" t1="28.7778" t2="-16.6634" s0="2.25" s1="2.25" s2="2.25" q0="0.449473" q1="-0.449473" q2="0.54587" q3="0.54587" euler_x="0" euler_y="-1.3777" euler_z="1.5708" id="79" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/Banner_Bars.xml">
         <parameters />
     </EnvObject>
-    <Hotspot t0="2.33766" t1="11.1785" t2="-15.8025" s0="1" s1="1" s2="1" q0="0" q1="-0.866025" q2="0" q3="0.5" euler_x="3.14159" euler_y="-1.0472" euler_z="3.14159" id="80" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="2.33766" t1="11.1785" t2="-15.8025" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.866025" q2="0" q3="0.5" euler_x="3.14159" euler_y="-1.0472" euler_z="3.14159" id="80" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="KeepDisabled" type="string" val="" />
             <parameter name="game_type" type="string" val="versusBrawl" />
@@ -477,7 +503,7 @@
     <EnvObject t0="-7.36555" t1="29.7451" t2="0.365947" s0="2.25" s1="2.25" s2="2.25" q0="0.51987" q1="-0.51987" q2="0.479307" q3="0.479307" euler_x="3.14159" euler_y="-1.48965" euler_z="-1.5708" id="81" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/Banner_Bars.xml">
         <parameters />
     </EnvObject>
-    <Hotspot t0="-17.4525" t1="11.287" t2="-15.6891" s0="1" s1="1" s2="1" q0="0" q1="0.5" q2="0" q3="0.866025" euler_x="0" euler_y="1.0472" euler_z="0" id="82" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="-17.4525" t1="11.287" t2="-15.6891" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0.5" q2="0" q3="0.866025" euler_x="0" euler_y="1.0472" euler_z="0" id="82" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="KeepDisabled" type="string" val="" />
             <parameter name="game_type" type="string" val="versusBrawl" />
@@ -492,7 +518,7 @@
     <EnvObject t0="-7.33143" t1="29.2747" t2="4.61681" s0="2.25" s1="2.25" s2="2.25" q0="0.534976" q1="-0.534976" q2="0.462385" q3="0.462385" euler_x="3.14159" euler_y="-1.42548" euler_z="-1.57079" id="83" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/Banner_Bars.xml">
         <parameters />
     </EnvObject>
-    <Hotspot t0="-17.8963" t1="17.1651" t2="-16.2527" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="84" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="-17.8963" t1="17.1651" t2="-16.2527" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="84" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="KeepDisabled" type="string" val="" />
             <parameter name="game_type" type="string" val="versusBrawl" />
@@ -516,6 +542,7 @@
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="notReadyAlpha" type="float" val="0.5" />
             <parameter name="notReadyIconPath" type="string" val="Data/Textures/ui/arena_mode/glyphs/10_kills_1x1.png" />
+            <parameter name="oneTimeUse" type="int" val="0" />
             <parameter name="particleColorB" type="float" val="0.3" />
             <parameter name="particleColorG" type="float" val="0.4" />
             <parameter name="particleColorR" type="float" val="0.05" />
@@ -532,7 +559,7 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-6.52484" t1="4.16534" t2="-2.08719" s0="0.230191" s1="0.230191" s2="0.230191" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="86" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="-6.52484" t1="4.16534" t2="-2.08719" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="86" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="-1" />
@@ -543,7 +570,7 @@
             <Connection id="23" />
         </ConnectionsFrom>
     </Hotspot>
-    <Hotspot t0="-0.873944" t1="17.2616" t2="-19.8557" s0="1" s1="1" s2="1" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="87" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="-0.873944" t1="17.2616" t2="-19.8557" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="87" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="KeepDisabled" type="string" val="" />
             <parameter name="game_type" type="string" val="versusBrawl" />
@@ -555,7 +582,7 @@
             <Connection id="39" />
         </ConnectionsFrom>
     </Hotspot>
-    <Hotspot t0="-7.69874" t1="3.86784" t2="-10.9615" s0="0.161568" s1="0.161568" s2="0.161568" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="88" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="-7.69874" t1="3.86784" t2="-10.9615" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="88" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="-1" />
@@ -575,7 +602,7 @@
             <parameters />
         </EnvObject>
     </Group>
-    <Hotspot t0="1.41341" t1="16.7561" t2="4.47947" s0="1" s1="1" s2="1" q0="0" q1="-0.965926" q2="0" q3="0.258819" euler_x="3.14159" euler_y="-0.523599" euler_z="3.14159" id="90" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="1.41341" t1="16.7561" t2="4.47947" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.965926" q2="0" q3="0.258819" euler_x="3.14159" euler_y="-0.523599" euler_z="3.14159" id="90" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="KeepDisabled" type="string" val="" />
             <parameter name="game_type" type="string" val="versusBrawl" />
@@ -590,7 +617,7 @@
     <EnvObject t0="-7.30818" t1="28.6329" t2="8.89498" s0="2.25" s1="2.25" s2="2.25" q0="0.536002" q1="-0.536002" q2="0.461196" q3="0.461196" euler_x="3.14159" euler_y="-1.42104" euler_z="-1.57079" id="91" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/Banner_Bars.xml">
         <parameters />
     </EnvObject>
-    <Hotspot t0="-14.9768" t1="16.9517" t2="7.58432" s0="1" s1="1" s2="1" q0="0" q1="-0.965926" q2="0" q3="-0.258819" euler_x="-3.14159" euler_y="0.523599" euler_z="-3.14159" id="92" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="-14.9768" t1="16.9517" t2="7.58432" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.965926" q2="0" q3="-0.258819" euler_x="-3.14159" euler_y="0.523599" euler_z="-3.14159" id="92" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="KeepDisabled" type="string" val="" />
             <parameter name="game_type" type="string" val="versusBrawl" />
@@ -1198,6 +1225,12 @@
     <Decal t0="1.69977" t1="11.1017" t2="7.0129" s0="3.08985" s1="2.85526" s2="3.57977" q0="-0.531835" q1="-0.432313" q2="0.446122" q3="0.575527" euler_x="-1.51023" euler_y="-0.0230911" euler_z="1.34054" id="319" type_file="Data/Objects/Decals/FadedWhiteRocks.xml" color_r="0.137255" color_g="0.117789" color_b="0.0801999" overbright="0">
         <parameters />
     </Decal>
+    <EnvObject t0="-12.1726" t1="1.46136" t2="-14.5768" s0="0.402575" s1="0.402575" s2="0.402575" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="320" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Splash.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="4.29672" t1="1.53692" t2="-15.9689" s0="0.402575" s1="0.402575" s2="0.402575" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="321" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Splash.xml">
+        <parameters />
+    </EnvObject>
     <Group t0="-17.2475" t1="16.2325" t2="-14.7884" s0="0.442964" s1="1.98173" s2="0.426538" q0="0.0422885" q1="-0.222206" q2="0.0222866" q3="0.973825" euler_x="0.0805439" euler_y="-0.449666" euler_z="0.0273332" id="324" version="1">
         <parameters />
         <Hotspot t0="-17.2822" t1="16.7867" t2="-14.7481" s0="0.108241" s1="0.104494" s2="0.104134" q0="0.0422885" q1="-0.222206" q2="0.0222866" q3="0.973825" euler_x="0.0805439" euler_y="-0.449666" euler_z="0.0273332" id="296" type_file="Data/Objects/Hotspots/fire_test.xml">
@@ -1280,6 +1313,9 @@
             <parameters />
         </EnvObject>
     </Group>
+    <EnvObject t0="-11.6837" t1="1.64111" t2="-15.6127" s0="0.402575" s1="0.402575" s2="0.402575" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="339" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Splash.xml">
+        <parameters />
+    </EnvObject>
     <Group t0="-3.5106" t1="10.3763" t2="-17.2337" s0="0.442964" s1="1.98173" s2="0.426538" q0="0.0422885" q1="-0.222206" q2="0.0222866" q3="0.973825" euler_x="0.0805439" euler_y="-0.449666" euler_z="0.0273332" id="340" version="1">
         <parameters />
         <Hotspot t0="-3.54523" t1="10.9305" t2="-17.1934" s0="0.108241" s1="0.104494" s2="0.104134" q0="0.0422885" q1="-0.222206" q2="0.0222866" q3="0.973825" euler_x="0.0805439" euler_y="-0.449666" euler_z="0.0273332" id="341" type_file="Data/Objects/Hotspots/fire_test.xml">
@@ -1299,6 +1335,9 @@
             <parameters />
         </EnvObject>
     </Group>
+    <EnvObject t0="-18.8541" t1="1.46136" t2="3.18473" s0="0.402575" s1="0.402575" s2="0.402575" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="344" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Splash.xml">
+        <parameters />
+    </EnvObject>
     <Group t0="-11.8114" t1="10.4039" t2="5.34929" s0="0.442964" s1="1.98173" s2="0.426538" q0="-0.0926226" q1="-0.406673" q2="-0.048133" q3="0.907587" euler_x="-0.195274" euler_y="-0.843687" euler_z="-0.0181075" id="345" version="1">
         <parameters />
         <Hotspot t0="-11.7208" t1="10.9485" t2="5.27748" s0="0.108241" s1="0.104494" s2="0.104134" q0="-0.0926222" q1="-0.406671" q2="-0.0481328" q3="0.907583" euler_x="-0.195272" euler_y="-0.843676" euler_z="-0.0181073" id="346" type_file="Data/Objects/Hotspots/fire_test.xml">
@@ -1318,6 +1357,9 @@
             <parameters />
         </EnvObject>
     </Group>
+    <EnvObject t0="-8.82092" t1="1.46136" t2="3.03548" s0="0.402575" s1="0.402575" s2="0.402575" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="349" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Splash.xml">
+        <parameters />
+    </EnvObject>
     <Group t0="-12.9637" t1="10.3102" t2="-13.1403" s0="0.442964" s1="1.98173" s2="0.426538" q0="-0.0662162" q1="-0.298272" q2="-0.03" q3="0.951705" euler_x="-0.13219" euler_y="-0.608585" euler_z="-0.0214549" id="350" version="1">
         <parameters />
         <Hotspot t0="-12.9099" t1="10.8611" t2="-13.2005" s0="0.108241" s1="0.104494" s2="0.104134" q0="-0.0662156" q1="-0.298268" q2="-0.0299996" q3="0.951694" euler_x="-0.132186" euler_y="-0.608567" euler_z="-0.0214541" id="351" type_file="Data/Objects/Hotspots/fire_test.xml">
@@ -1337,6 +1379,9 @@
             <parameters />
         </EnvObject>
     </Group>
+    <EnvObject t0="-1.67257" t1="1.76686" t2="2.86157" s0="0.402575" s1="0.402575" s2="0.402575" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="354" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Splash.xml">
+        <parameters />
+    </EnvObject>
     <Group t0="-1.60697" t1="10.2413" t2="0.900867" s0="0.442964" s1="1.98173" s2="0.426538" q0="0.0174808" q1="-0.120146" q2="-0.00474195" q3="0.992591" euler_x="0.036914" euler_y="-0.240662" euler_z="-0.0140186" id="355" version="1">
         <parameters />
         <Hotspot t0="-1.60407" t1="10.7977" t2="0.920821" s0="0.108241" s1="0.104494" s2="0.104134" q0="0.0174804" q1="-0.120143" q2="-0.00474187" q3="0.992573" euler_x="0.0369124" euler_y="-0.240652" euler_z="-0.014018" id="356" type_file="Data/Objects/Hotspots/fire_test.xml">

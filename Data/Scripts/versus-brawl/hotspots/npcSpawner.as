@@ -178,7 +178,7 @@ void Update()
     params.SetInt("currentCharacters", spawnedCharacters.size());
 
     if(EditorModeActive()) {
-        PlaceHolderFollowerUpdate(billboardPath, "[NpcSpawner] " + name + " [" + spawnQueue.size() + "] " 
+        PlaceHolderFollowerUpdate(billboardPath, "[NpcSpawner] " + " [" + spawnQueue.size() + "] " 
         + "[" + spawnedCharacters.size() + "]"  , 1.5f, true, vec4(color, 1));
     }
 

@@ -12,6 +12,7 @@ void Init() {
 void SetParameters() {
     params.AddIntSlider("Phase", 0, "min:0.0,max:10.0");
     params.AddString("game_type", "versusBrawl");
+    params.AddString("type", "waterPhaseHotspot");
 }
 
 void ReceiveMessage(string msg){

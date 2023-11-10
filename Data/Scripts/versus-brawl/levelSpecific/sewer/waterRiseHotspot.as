@@ -82,6 +82,17 @@ void Update(){
     
     UpdateParameters();
     
+    soundTimer += time_step;
+    if(soundTimer> params.GetFloat("IdleSoundDelay")){
+        soundTimer = 0;
+        if(FileExistsWithType(params.GetString("IdleSoundPath"), ".xml")){
+            PlaySoundGroup(params.GetString("IdleSoundPath"));
+        }
+        else if(FileExistsWithType(params.GetString("IdleSoundPath"), ".wav")){
+                PlaySound(params.GetString("IdleSoundPath"));
+        }
+    }
+    
     if(init){
         bobbingTime = addDelay;
         phaseDirectionForward = startPhaseDirectionForward;
@@ -154,7 +165,7 @@ void Update(){
         
         // If rising up, just enable next one right away
         time = 0;
-        soundTimer = 1;
+        soundTimer = params.GetFloat("RisingSoundDelay");
 
         Object@ startPhaseObj = ReadObjectFromID(phases[previousPhase]);
         float startPhasephaseHeight = startPhaseObj.GetTranslation().y;
@@ -181,8 +192,10 @@ void Update(){
         Log(error, "phaseHeight: " + phaseHeight);
     }
     else {
-        if(!rising)
+        if(!rising){
             time += time_step;
+        }
+        
         //Log(error, "time: " + time);
     }
     
@@ -196,7 +209,13 @@ void Dispose(){
 }
 
 bool AcceptConnectionsFrom(Object@ other) {
-    return false;
+    ScriptParams@ objParams = other.GetScriptParams();
+    
+    // Reject connections from `waterPhaseHotspot` to mitigate confusion
+    if(objParams.HasParam("type") && objParams.GetString("type") == "waterPhaseHotspot")
+        return false;
+        
+    return true;
 }
 
 bool AcceptConnectionsTo(Object@ other) {
@@ -363,10 +382,14 @@ void MoveObjects(){
     // TODO! Use some kind of log function, to smooth this out
     
     if(phaseHeight > 0){
-        soundTimer += time_step;
-        if(soundTimer> 0.5f){
+        if(soundTimer> params.GetFloat("RisingSoundDelay")){
             soundTimer = 0;
-            PlaySoundGroup("Data/Sounds/water_foley/small_waves.xml");
+            if(FileExistsWithType(params.GetString("RisingSoundPath"), ".xml")){
+                PlaySoundGroup(params.GetString("RisingSoundPath"));
+            }
+            else if(FileExistsWithType(params.GetString("RisingSoundPath"), ".wav")){
+                PlaySound(params.GetString("RisingSoundPath"));
+            }
         }
         if(phaseHeight < step){
             Log(error, "phaseHeight than step smaller, fixing: step: " + step + " phaseHeight: " + phaseHeight);
