@@ -135,6 +135,10 @@
           title="[h] rotatoHotspot"
           path="Data/Objects/versus-brawl/hotspots/rotatoHotspot.xml"
           thumbnail="Data/Textures/ui/versusBrawl/rotato.png" />
+
+    <Item category="VersusBrawl"
+          title="[h] magmaCubeHotspot"
+          path="Data/Objects/versus-brawl/hotspots/magma.xml"/>
     
     <Item category="VersusBrawl"
           title="[d] ArrowDecal1"
