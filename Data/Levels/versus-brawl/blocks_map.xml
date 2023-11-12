@@ -74,7 +74,7 @@
     <EnvObject t0="-225.899" t1="67.5163" t2="327.337" s0="0.739155" s1="0.739155" s2="0.739155" q0="-0.0705863" q1="-0.725729" q2="-0.0143442" q3="0.6842" euler_x="-2.267" euler_y="-1.47189" euler_z="2.14667" id="8" color_r="0.717647" color_g="0.690196" color_b="0.552941" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1a_lichen.xml">
         <parameters />
     </EnvObject>
-    <Hotspot t0="-173.069" t1="126.125" t2="40.0017" s0="1" s1="1" s2="1" q0="0" q1="-0.712095" q2="0" q3="0.702083" euler_x="3.14159" euler_y="-1.55663" euler_z="3.14159" id="9" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="-173.069" t1="126.125" t2="40.0017" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.712095" q2="0" q3="0.702083" euler_x="3.14159" euler_y="-1.55663" euler_z="3.14159" id="9" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="-1" />
@@ -95,7 +95,7 @@
     <EnvObject t0="-180.74" t1="79.0375" t2="78.9168" s0="1.67676" s1="1.67676" s2="1.67676" q0="-0.00322628" q1="-0.443898" q2="-0.0200838" q3="0.895846" euler_x="0.0198852" euler_y="-0.919763" euler_z="-0.0546795" id="14" color_r="0.607843" color_g="0.568627" color_b="0.47451" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1a_lichen.xml">
         <parameters />
     </EnvObject>
-    <Hotspot t0="-198.189" t1="127.389" t2="33.8129" s0="1" s1="1" s2="1" q0="0" q1="0.432875" q2="0" q3="0.901454" euler_x="0" euler_y="0.895359" euler_z="0" id="15" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="-198.189" t1="127.389" t2="33.8129" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0.432875" q2="0" q3="0.901454" euler_x="0" euler_y="0.895359" euler_z="0" id="15" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="-1" />
@@ -353,7 +353,7 @@
     <Decal t0="-119.396" t1="72.9062" t2="253.522" s0="5.53899" s1="3.61376" s2="7.33375" q0="-0.218045" q1="-0.749432" q2="0.0770004" q3="0.620386" euler_x="-2.08571" euler_y="-1.11134" euler_z="1.8805" id="98" type_file="Data/Objects/Decals/hex_crete_damage.xml" color_r="0.717647" color_g="0.717647" color_b="0.717647" overbright="0">
         <parameters />
     </Decal>
-    <CameraObject t0="-166.851" t1="142.262" t2="46.903" s0="1" s1="1" s2="1" q0="0.197533" q1="-0.637099" q2="0.173701" q3="0.724509" euler_x="0.53235" euler_y="-1.44258" euler_z="-2.33075e-06" id="99">
+    <CameraObject t0="-187.149" t1="124.988" t2="66.0303" s0="1" s1="1" s2="1" q0="0.110498" q1="0.889498" q2="-0.31506" q3="0.311964" euler_x="-2.46077" euler_y="0.674631" euler_z="3.14159" id="99">
         <parameters />
     </CameraObject>
     <Hotspot t0="-185.451" t1="124.337" t2="69.1984" s0="0.27" s1="0.27" s2="0.27" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="100" type_file="Data/Objects/powerups/yeetPowerUp.xml">
@@ -368,6 +368,7 @@
             <parameter name="knockbackMlt" type="float" val="7" />
             <parameter name="notReadyAlpha" type="float" val="0.5" />
             <parameter name="notReadyIconPath" type="string" val="Data/Textures/ui/arena_mode/glyphs/10_kills_1x1.png" />
+            <parameter name="oneTimeUse" type="int" val="0" />
             <parameter name="particleColorB" type="float" val="0" />
             <parameter name="particleColorG" type="float" val="0.5" />
             <parameter name="particleColorR" type="float" val="0.7" />
@@ -383,7 +384,7 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-175.231" t1="126.363" t2="54.6584" s0="1" s1="1" s2="1" q0="0" q1="-0.833144" q2="0" q3="0.553057" euler_x="3.14159" euler_y="-1.17206" euler_z="3.14159" id="101" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="-175.231" t1="126.363" t2="54.6584" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.833144" q2="0" q3="0.553057" euler_x="3.14159" euler_y="-1.17206" euler_z="3.14159" id="101" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="-1" />
@@ -392,7 +393,7 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="-201.943" t1="127.816" t2="45.0177" s0="1" s1="1" s2="1" q0="0" q1="0.694232" q2="0" q3="0.719751" euler_x="0" euler_y="1.53469" euler_z="0" id="103" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="-201.943" t1="127.816" t2="45.0177" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0.694232" q2="0" q3="0.719751" euler_x="0" euler_y="1.53469" euler_z="0" id="103" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="-1" />
@@ -2691,10 +2692,10 @@
     <EnvObject t0="-204.492" t1="125.611" t2="46.5774" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="862" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/medium_lichen_rock.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-184.35" t1="124.867" t2="27.2128" s0="1" s1="1" s2="1" q0="0.295409" q1="0.165646" q2="-0.0844211" q3="0.937106" euler_x="0.598675" euler_y="0.368625" euler_z="-0.0647481" id="863" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/lichen_rock_c.xml">
+    <EnvObject t0="-185.89" t1="125.211" t2="25.8197" s0="1" s1="1" s2="1" q0="0.24166" q1="0.0951724" q2="0.0131582" q3="0.965593" euler_x="0.496964" euler_y="0.17838" euler_z="0.0726248" id="863" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/lichen_rock_c.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-184.364" t1="125.481" t2="27.2304" s0="0.915332" s1="0.915332" s2="0.915332" q0="-0.910819" q1="0.154549" q2="0.378515" q3="0.0570072" euler_x="3.12299" euler_y="0.785442" euler_z="-0.343867" id="864" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/bleached_bough.xml">
+    <EnvObject t0="-185.45" t1="125.606" t2="25.5176" s0="0.967212" s1="0.967212" s2="0.967212" q0="-0.922139" q1="0.335488" q2="0.184385" q3="-0.0557505" euler_x="2.90161" euler_y="0.307472" euler_z="-0.735219" id="864" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/bleached_bough.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-169.181" t1="124.964" t2="41.8624" s0="0.80096" s1="1.33269" s2="0.8054" q0="-0.392038" q1="0.81612" q2="0.353627" q3="0.234951" euler_x="2.59056" euler_y="0.72184" euler_z="-2.45857" id="865" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/plain_rock_small.xml">
@@ -2870,7 +2871,7 @@
     <EnvObject t0="-183.367" t1="121.968" t2="33.6007" s0="3.18086" s1="2.14416" s2="2.67283" q0="0.143549" q1="0.0140006" q2="-0.988667" q3="-0.0416602" euler_x="-0.0413418" euler_y="0.286585" euler_z="3.0514" id="908" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/medium_lichen_rock.xml">
         <parameters />
     </EnvObject>
-    <Hotspot t0="-183.919" t1="126.55" t2="28.8952" s0="1" s1="1" s2="1" q0="0" q1="-0.00741071" q2="0" q3="0.999973" euler_x="0" euler_y="-0.0148216" euler_z="0" id="909" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="-183.919" t1="126.55" t2="28.8952" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.00741071" q2="0" q3="0.999973" euler_x="0" euler_y="-0.0148216" euler_z="0" id="909" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="-1" />
@@ -2879,7 +2880,7 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <EnvObject t0="-184.306" t1="124.963" t2="27.7055" s0="0.915332" s1="0.915332" s2="0.915332" q0="-0.50888" q1="-0.0219387" q2="0.853429" q3="-0.110601" euler_x="0.154883" euler_y="1.06222" euler_z="-2.79275" id="910" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/bleached_bough.xml">
+    <EnvObject t0="-185.718" t1="125.632" t2="26.3774" s0="0.915332" s1="0.915332" s2="0.915332" q0="-0.50888" q1="-0.0219387" q2="0.853429" q3="-0.110601" euler_x="0.154883" euler_y="1.06222" euler_z="-2.79275" id="910" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/bleached_bough.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-201.644" t1="121.873" t2="25.37" s0="1" s1="1" s2="1" q0="-0.0446857" q1="0.0677651" q2="0.0762421" q3="0.99378" euler_x="-0.0793634" euler_y="0.141978" euler_z="0.147492" id="911" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/plain_rock_small.xml">

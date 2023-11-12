@@ -35,7 +35,7 @@
     <RayToSun r0="-0.0316601" r1="0.953" r2="0.30131" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-13.5299" t1="7.06547" t2="-1.56095" s0="1" s1="1" s2="1" q0="-0.0402816" q1="-0.923299" q2="0.100961" q3="-0.36838" euler_x="-2.92376" euler_y="0.759257" euler_z="3.14159" id="0">
+    <CameraObject t0="-9.56447" t1="19.3069" t2="-11.1216" s0="1" s1="1" s2="1" q0="-0.0424606" q1="-0.945252" q2="0.136899" q3="-0.293179" euler_x="-2.85394" euler_y="0.601502" euler_z="3.14159" id="0">
         <parameters />
     </CameraObject>
     <Hotspot t0="-7.9784" t1="-6.94692" t2="-5.07374" s0="8.96041" s1="4.20414" s2="9.39828" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6" type_file="Data/Objects/Hotspots/wet_cube.xml">
@@ -84,6 +84,7 @@
         <parameters>
             <parameter name="Phase" type="int" val="0" />
             <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="type" type="string" val="waterPhaseHotspot" />
         </parameters>
         <Connections>
             <Connection id="62" />
@@ -257,6 +258,7 @@
         <parameters>
             <parameter name="Phase" type="int" val="1" />
             <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="type" type="string" val="waterPhaseHotspot" />
         </parameters>
         <Connections>
             <Connection id="76" />
@@ -272,6 +274,7 @@
         <parameters>
             <parameter name="Phase" type="int" val="2" />
             <parameter name="game_type" type="string" val="versusBrawl" />
+            <parameter name="type" type="string" val="waterPhaseHotspot" />
         </parameters>
         <Connections>
             <Connection id="84" />

@@ -26,6 +26,7 @@
     <parameter name="Sky Brightness" type="float" val="1" />
     <parameter name="Sky Rotation" type="float" val="0" />
     <parameter name="Sky Tint" type="string" val="255, 255, 255" />
+    <parameter name="TestString" type="string" val="TestKupka" />
     <parameter name="game_type" type="string" val="versusBrawl" />
 </LevelScriptParameters>
 <NavMeshParameters generate="true" cell_size="0.3" cell_height="0.2" agent_height="1.7" agent_radius="0.4" agent_max_climb="1.5" agent_max_slope="60" />
@@ -36,7 +37,7 @@
     <RayToSun r0="-0.0114565" r1="0.998364" r2="0.0560155" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="11.9506" t1="7.00166" t2="-8.82993" s0="1" s1="1" s2="1" q0="0.00489986" q1="-0.846555" q2="0.00779384" q3="0.532222" euler_x="-3.12318" euler_y="-1.1225" euler_z="3.14159" id="0">
+    <CameraObject t0="30.3504" t1="7.6769" t2="8.68399" s0="1" s1="1" s2="1" q0="0.00409257" q1="-0.137629" q2="-0.000568718" q3="-0.990475" euler_x="-0.0082638" euler_y="0.276137" euler_z="0" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="9.42806" t1="-3.79435" t2="-2.47793" s0="40.3102" s1="1" s2="35.1901" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
@@ -299,33 +300,7 @@
     <EnvObject t0="42.8807" t1="0.815188" t2="-9.24493" s0="1.56294" s1="0.946766" s2="1.27349" q0="-0.282964" q1="-0.150261" q2="-0.757047" q3="-0.569422" euler_x="0.605187" euler_y="-0.260238" euler_z="1.77018" id="82" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
-    <Hotspot t0="1.22276" t1="4.98915" t2="-13.5943" s0="0.0752143" s1="0.0752143" s2="0.0752143" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="83" type_file="Data/Objects/Hotspots/fire_test.xml">
-        <parameters>
-            <parameter name="Fire Ribbons" type="int" val="4" />
-            <parameter name="FlameTaken" type="int" val="84" />
-            <parameter name="Ignite Characters" type="int" val="0" />
-            <parameter name="Light Amplify" type="float" val="1" />
-            <parameter name="Light Distance" type="float" val="2" />
-        </parameters>
-        <Connections />
-        <ConnectionsFrom />
-    </Hotspot>
-    <Hotspot t0="1.25267" t1="6.03884" t2="-13.36" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="84" type_file="Data/Objects/torch_hotspot.xml">
-        <parameters>
-            <parameter name="Fire Ribbons" type="int" val="4" />
-            <parameter name="Ignite Characters" type="int" val="1" />
-            <parameter name="Light Amplify" type="float" val="15" />
-            <parameter name="Light Distance" type="float" val="20" />
-        </parameters>
-        <Connections />
-        <ConnectionsFrom />
-    </Hotspot>
-    <ItemObject t0="1.24821" t1="5.51992" t2="-13.9563" s0="1" s1="1" s2="1" q0="-0.486316" q1="0.59788" q2="0.557631" q3="-0.308358" euler_x="1.7628" euler_y="0.174532" euler_z="-1.91986" id="86" type_file="Data/Items/torch.xml" color_r="1" color_g="1" color_b="1" overbright="0">
-        <parameters>
-            <parameter name="BelongsTo" type="int" val="84" />
-        </parameters>
-    </ItemObject>
-    <Hotspot t0="5.22901" t1="3.73265" t2="4.16297" s0="0.0752143" s1="0.0752143" s2="0.0752143" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="87" type_file="Data/Objects/Hotspots/fire_test.xml">
+    <Hotspot t0="5.53801" t1="5.13741" t2="4.65644" s0="0.0752143" s1="0.0752143" s2="0.0752143" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="87" type_file="Data/Objects/Hotspots/fire_test.xml">
         <parameters>
             <parameter name="Fire Ribbons" type="int" val="4" />
             <parameter name="FlameTaken" type="int" val="88" />
@@ -336,43 +311,7 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="4.93279" t1="4.80917" t2="4.03593" s0="0.5" s1="0.5" s2="0.5" q0="-0.0556084" q1="-0.0752046" q2="0.641919" q3="0.761054" euler_x="-0.18237" euler_y="-0.0430907" euler_z="1.40532" id="88" type_file="Data/Objects/torch_hotspot.xml">
-        <parameters>
-            <parameter name="Fire Ribbons" type="int" val="4" />
-            <parameter name="Ignite Characters" type="int" val="1" />
-            <parameter name="Light Amplify" type="float" val="15" />
-            <parameter name="Light Distance" type="float" val="20" />
-        </parameters>
-        <Connections />
-        <ConnectionsFrom />
-    </Hotspot>
-    <ItemObject t0="4.88382" t1="4.26139" t2="4.10721" s0="1" s1="1" s2="1" q0="0" q1="0" q2="-0.737277" q3="0.675591" euler_x="0" euler_y="0" euler_z="-1.65806" id="90" type_file="Data/Items/torch.xml" color_r="1" color_g="1" color_b="1" overbright="0">
-        <parameters>
-            <parameter name="BelongsTo" type="int" val="88" />
-        </parameters>
-    </ItemObject>
-    <Hotspot t0="21.0377" t1="10.2253" t2="8.22402" s0="0.0752143" s1="0.0752143" s2="0.0752143" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="91" type_file="Data/Objects/Hotspots/fire_test.xml">
-        <parameters>
-            <parameter name="Fire Ribbons" type="int" val="4" />
-            <parameter name="FlameTaken" type="int" val="92" />
-            <parameter name="Ignite Characters" type="int" val="0" />
-            <parameter name="Light Amplify" type="float" val="1" />
-            <parameter name="Light Distance" type="float" val="2" />
-        </parameters>
-        <Connections />
-        <ConnectionsFrom />
-    </Hotspot>
-    <Hotspot t0="20.8299" t1="11.1951" t2="7.76218" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="92" type_file="Data/Objects/torch_hotspot.xml">
-        <parameters>
-            <parameter name="Fire Ribbons" type="int" val="4" />
-            <parameter name="Ignite Characters" type="int" val="1" />
-            <parameter name="Light Amplify" type="float" val="15" />
-            <parameter name="Light Distance" type="float" val="20" />
-        </parameters>
-        <Connections />
-        <ConnectionsFrom />
-    </Hotspot>
-    <Hotspot t0="-1.35319" t1="7.26601" t2="-14.9432" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="93" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="-1.35319" t1="7.26601" t2="-14.9432" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="93" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="-1" />
@@ -381,68 +320,7 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <ItemObject t0="20.7405" t1="10.7115" t2="8.03686" s0="1" s1="1" s2="1" q0="0.114325" q1="-0.220471" q2="-0.726417" q3="0.640812" euler_x="0.489323" euler_y="-0.116731" euler_z="-1.72503" id="94" type_file="Data/Items/torch.xml" color_r="1" color_g="1" color_b="1" overbright="0">
-        <parameters>
-            <parameter name="BelongsTo" type="int" val="92" />
-        </parameters>
-    </ItemObject>
-    <Hotspot t0="44.2634" t1="4.0156" t2="-10.325" s0="0.0752143" s1="0.0752143" s2="0.0752143" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="95" type_file="Data/Objects/Hotspots/fire_test.xml">
-        <parameters>
-            <parameter name="Fire Ribbons" type="int" val="4" />
-            <parameter name="FlameTaken" type="int" val="96" />
-            <parameter name="Ignite Characters" type="int" val="0" />
-            <parameter name="Light Amplify" type="float" val="1" />
-            <parameter name="Light Distance" type="float" val="2" />
-        </parameters>
-        <Connections />
-        <ConnectionsFrom />
-    </Hotspot>
-    <Hotspot t0="43.1407" t1="4.96107" t2="-9.35474" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="96" type_file="Data/Objects/torch_hotspot.xml">
-        <parameters>
-            <parameter name="Fire Ribbons" type="int" val="4" />
-            <parameter name="Ignite Characters" type="int" val="1" />
-            <parameter name="Light Amplify" type="float" val="15" />
-            <parameter name="Light Distance" type="float" val="20" />
-        </parameters>
-        <Connections />
-        <ConnectionsFrom />
-    </Hotspot>
-    <ItemObject t0="43.9434" t1="4.63809" t2="-10.21" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0.688354" q3="-0.725375" euler_x="0" euler_y="0" euler_z="-1.51843" id="98" type_file="Data/Items/torch.xml" color_r="1" color_g="1" color_b="1" overbright="0">
-        <parameters>
-            <parameter name="BelongsTo" type="int" val="96" />
-        </parameters>
-    </ItemObject>
-    <Hotspot t0="-14.7942" t1="5.52968" t2="0.794698" s0="0.1" s1="0.1" s2="0.1" q0="-0.182665" q1="-0.411839" q2="-0.663037" q3="0.59783" euler_x="0.504134" euler_y="-0.825146" euler_z="-1.89864" id="99" type_file="Data/Objects/weaponSpawn.xml">
-        <parameters>
-            <parameter name="ItemPath" type="string" val="Data/Items/Rapier.xml" />
-            <parameter name="RespawnDistance" type="int" val="3" />
-            <parameter name="RespawnTime" type="int" val="10" />
-            <parameter name="game_type" type="string" val="versusBrawl" />
-        </parameters>
-        <Connections />
-        <ConnectionsFrom />
-    </Hotspot>
-    <Hotspot t0="13.7722" t1="5.00729" t2="-3.37467" s0="0.1" s1="0.1" s2="0.1" q0="-0.0477732" q1="0.566617" q2="0.0663324" q3="0.819918" euler_x="-0.00897188" euler_y="1.20966" euler_z="0.15525" id="102" type_file="Data/Objects/weaponSpawn.xml">
-        <parameters>
-            <parameter name="ItemPath" type="string" val="Data/Items/DogWeapons/DogSword.xml" />
-            <parameter name="RespawnDistance" type="int" val="3" />
-            <parameter name="RespawnTime" type="int" val="10" />
-            <parameter name="game_type" type="string" val="versusBrawl" />
-        </parameters>
-        <Connections />
-        <ConnectionsFrom />
-    </Hotspot>
-    <Hotspot t0="33.9218" t1="4.36766" t2="-0.509059" s0="0.1" s1="0.1" s2="0.1" q0="-0.739437" q1="-0.558416" q2="-0.107461" q3="0.360355" euler_x="-2.61921" euler_y="-0.596049" euler_z="1.12978" id="105" type_file="Data/Objects/weaponSpawn.xml">
-        <parameters>
-            <parameter name="ItemPath" type="string" val="Data/Items/DogWeapons/DogSpear.xml" />
-            <parameter name="RespawnDistance" type="int" val="3" />
-            <parameter name="RespawnTime" type="int" val="10" />
-            <parameter name="game_type" type="string" val="versusBrawl" />
-        </parameters>
-        <Connections />
-        <ConnectionsFrom />
-    </Hotspot>
-    <Hotspot t0="5.33864" t1="5.29138" t2="4.26432" s0="1" s1="1" s2="1" q0="0" q1="-0.533709" q2="0" q3="0.845668" euler_x="0" euler_y="-1.12596" euler_z="0" id="110" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="5.33864" t1="5.29138" t2="4.26432" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.533709" q2="0" q3="0.845668" euler_x="0" euler_y="-1.12596" euler_z="0" id="110" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="-1" />
@@ -454,32 +332,11 @@
     <EnvObject t0="32.0339" t1="0.0821686" t2="-11.5791" s0="0.522871" s1="0.510238" s2="0.861359" q0="-0.303975" q1="0.713879" q2="-0.539555" q3="-0.326879" euler_x="-1.91366" euler_y="-0.918557" euler_z="-3.0073" id="112" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
-    <Hotspot t0="13.2542" t1="7.45374" t2="18.7607" s0="1" s1="1" s2="1" q0="0" q1="-0.996241" q2="0" q3="0.0866205" euler_x="3.14159" euler_y="-0.173458" euler_z="-3.14159" id="118" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="13.2542" t1="7.45374" t2="18.7607" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.996241" q2="0" q3="0.0866205" euler_x="3.14159" euler_y="-0.173458" euler_z="3.14159" id="118" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="-1" />
             <parameter name="type" type="string" val="playerSpawnHotspot" />
-        </parameters>
-        <Connections />
-        <ConnectionsFrom />
-    </Hotspot>
-    <Hotspot t0="12.829" t1="5.63213" t2="19.3055" s0="0.0752143" s1="0.0752143" s2="0.0752143" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="122" type_file="Data/Objects/Hotspots/fire_test.xml">
-        <parameters>
-            <parameter name="Fire Ribbons" type="int" val="4" />
-            <parameter name="FlameTaken" type="int" val="123" />
-            <parameter name="Ignite Characters" type="int" val="0" />
-            <parameter name="Light Amplify" type="float" val="1" />
-            <parameter name="Light Distance" type="float" val="2" />
-        </parameters>
-        <Connections />
-        <ConnectionsFrom />
-    </Hotspot>
-    <Hotspot t0="13.3239" t1="6.52582" t2="19.2548" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="123" type_file="Data/Objects/torch_hotspot.xml">
-        <parameters>
-            <parameter name="Fire Ribbons" type="int" val="4" />
-            <parameter name="Ignite Characters" type="int" val="1" />
-            <parameter name="Light Amplify" type="float" val="1" />
-            <parameter name="Light Distance" type="float" val="2" />
         </parameters>
         <Connections />
         <ConnectionsFrom />
@@ -489,11 +346,6 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <ItemObject t0="13.1666" t1="6.10287" t2="19.2907" s0="1" s1="1" s2="1" q0="0" q1="0" q2="-0.731354" q3="-0.681998" euler_x="0" euler_y="0" euler_z="1.64061" id="134" type_file="Data/Items/torch.xml" color_r="1" color_g="1" color_b="1" overbright="0">
-        <parameters>
-            <parameter name="BelongsTo" type="int" val="123" />
-        </parameters>
-    </ItemObject>
     <Hotspot t0="16.9954" t1="1.7319" t2="6.25032" s0="1.10655" s1="1.10655" s2="1.10655" q0="0.0911788" q1="-0.502723" q2="0.380735" q3="0.770715" euler_x="-0.469168" euler_y="-1.00534" euler_z="1.17896" id="139" type_file="Data/Objects/Hotspots/spike.xml">
         <parameters />
         <Connections />
@@ -1111,7 +963,7 @@
     <EnvObject t0="-6.18213" t1="0.711087" t2="18.7806" s0="2.64503" s1="1" s2="2.14717" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="328" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/camp/fire_pit.xml">
         <parameters />
     </EnvObject>
-    <Hotspot t0="32.9669" t1="6.91722" t2="10.6201" s0="1" s1="1" s2="1" q0="0" q1="0.999987" q2="0" q3="0.0050272" euler_x="3.14159" euler_y="0.0100545" euler_z="3.14159" id="329" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="32.9669" t1="6.91722" t2="10.6201" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0.999987" q2="0" q3="0.0050272" euler_x="3.14159" euler_y="0.0100544" euler_z="3.14159" id="329" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="-1" />
@@ -1296,7 +1148,7 @@
     <EnvObject t0="-18.6335" t1="12.8581" t2="11.124" s0="0.614113" s1="0.37524" s2="0.899983" q0="-0.20428" q1="0.476071" q2="-0.0437142" q3="0.854233" euler_x="-0.70055" euler_y="0.919818" euler_z="-0.460315" id="367" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
-    <Hotspot t0="27.5824" t1="4.47051" t2="-13.2679" s0="1" s1="1" s2="1" q0="0" q1="-0.495322" q2="0" q3="0.868709" euler_x="0" euler_y="-1.03641" euler_z="0" id="368" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="27.5824" t1="4.47051" t2="-13.2679" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.495322" q2="0" q3="0.868709" euler_x="0" euler_y="-1.03641" euler_z="0" id="368" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="-1" />
@@ -1531,7 +1383,7 @@
             <Decal t0="19.1171" t1="5.6912" t2="15.9239" s0="1" s1="1" s2="1" q0="0.179316" q1="-0.655899" q2="-0.276113" q3="-0.679113" euler_x="1.0054" euler_y="1.42842" euler_z="1.6627" id="438" type_file="Data/Objects/Decals/Scratches/scratches_02.xml" color_r="1" color_g="1" color_b="1" overbright="28.642">
                 <parameters />
             </Decal>
-            <Decal t0="19.5623" t1="6.07039" t2="15.7189" s0="1.15852" s1="1.15852" s2="1.15852" q0="0.304264" q1="-0.822509" q2="-0.284326" q3="-0.378834" euler_x="2.72649" euler_y="0.921004" euler_z="-2.63578" id="439" type_file="Data/Objects/Decals/Scratches/scratches_02.xml" color_r="1" color_g="1" color_b="1" overbright="28.642">
+            <Decal t0="19.5623" t1="6.07039" t2="15.7189" s0="1.15852" s1="1.15852" s2="1.15852" q0="0.30419" q1="-0.822307" q2="-0.284256" q3="-0.378742" euler_x="2.72615" euler_y="0.920361" euler_z="-2.63537" id="439" type_file="Data/Objects/Decals/Scratches/scratches_02.xml" color_r="1" color_g="1" color_b="1" overbright="28.642">
                 <parameters />
             </Decal>
             <Decal t0="18.4743" t1="6.24531" t2="14.2015" s0="1.45872" s1="1.22809" s2="1.40844" q0="0.24771" q1="-0.759301" q2="-0.479514" q3="-0.363266" euler_x="2.0369" euler_y="0.909534" euler_z="-3.09628" id="440" type_file="Data/Objects/Decals/Scratches/scratches_03.xml" color_r="1" color_g="0.99999" color_b="0.99999" overbright="23.179">
@@ -1884,13 +1736,13 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Decal t0="27.6775" t1="0.996671" t2="13.3702" s0="0.864969" s1="1.07549" s2="1.1173" q0="-0.0494112" q1="0.00965472" q2="-0.601173" q3="0.797535" euler_x="-0.0906343" euler_y="-0.0440237" euler_z="-1.28985" id="527" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="27.6775" t1="0.996671" t2="13.3702" s0="0.864969" s1="1.07549" s2="1.1173" q0="-0.0494112" q1="0.00965472" q2="-0.601173" q3="0.797535" euler_x="-0.0906344" euler_y="-0.0440236" euler_z="-1.28985" id="527" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="27.3761" t1="0.965256" t2="13.3653" s0="0.856147" s1="0.720605" s2="1.07549" q0="-0.346361" q1="-0.419378" q2="0.669236" q3="0.506236" euler_x="-1.14985" euler_y="0.0389953" euler_z="1.8211" id="528" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="27.3761" t1="0.965256" t2="13.3653" s0="0.856147" s1="0.720605" s2="1.07549" q0="-0.346361" q1="-0.419378" q2="0.669236" q3="0.506236" euler_x="-1.14985" euler_y="0.0389959" euler_z="1.8211" id="528" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="27.8015" t1="0.94942" t2="13.636" s0="1.07549" s1="1.07549" s2="1.07549" q0="-0.878103" q1="0.167692" q2="0.278732" q3="-0.350881" euler_x="2.27129" euler_y="0.380981" euler_z="-0.556198" id="529" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="27.8015" t1="0.94942" t2="13.636" s0="1.07549" s1="1.07549" s2="1.07549" q0="-0.878103" q1="0.167692" q2="0.278732" q3="-0.350881" euler_x="2.27129" euler_y="0.380981" euler_z="-0.556197" id="529" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <Hotspot t0="27.5954" t1="0.681219" t2="13.2643" s0="0.214046" s1="0.214046" s2="0.214046" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="530" type_file="Data/Objects/Hotspots/fire_test.xml">
@@ -1913,8 +1765,6 @@
     <SpawnerItem display_name="Cliff Rock Trim 02" path="Data/Objects/Environment/Cliffs/CliffTrim_02.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/Cliff_Trim_02.png" />
     <SpawnerItem display_name="Cliff Rock Trim 02 Lichen" path="Data/Objects/Environment/Cliffs/CliffTrim_02_lichen.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/Cliff_Trim_02.png" />
     <SpawnerItem display_name="Cliff Rock Trim 01 Lichen" path="Data/Objects/Environment/Cliffs/CliffTrim_01_lichen.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/Cliff_Trim_01.png" />
-    <SpawnerItem display_name="Torch Hotspot" path="Data/Objects/torch_hotspot.xml" thumbnail_path="Data/UI/spawner/thumbs/Interactive Objects/torch.png" />
-    <SpawnerItem display_name="Torch Item" path="Data/Items/torch.xml" thumbnail_path="Data/UI/spawner/thumbs/Interactive Objects/torch.png" />
     <SpawnerItem display_name="Light Volume" path="Data/Objects/light_volume.xml" thumbnail_path="" />
     <SpawnerItem display_name="Chunky Rock Patchy" path="Data/Objects/Decals/ChunkyRockPatchy.xml" thumbnail_path="Data/UI/spawner/thumbs/Decal/ChunkyRockPatchy.png" />
     <SpawnerItem display_name="Chunky Rock" path="Data/Objects/Decals/ChunkyRock.xml" thumbnail_path="Data/UI/spawner/thumbs/Decal/ChunkyRock.png" />
@@ -1925,13 +1775,11 @@
     <SpawnerItem display_name="playerSpawn.xml" path="Data/Objects/playerSpawn.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Dog Sword" path="Data/Items/DogWeapons/DogSword.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/wsword.png" />
     <SpawnerItem display_name="Dog Spear" path="Data/Items/DogWeapons/DogSpear.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/wspear.png" />
-    <SpawnerItem display_name="Torch Prefab" path="Data/Objects/torch_prefab.xml" thumbnail_path="Data/UI/spawner/thumbs/Interactive Objects/torch.png" />
     <SpawnerItem display_name="Spike" path="Data/Objects/Hotspots/spike.xml" thumbnail_path="Data/UI/spawner/thumbs/Interactive Objects/spike_2.png" />
     <SpawnerItem display_name="Bird Skull" path="Data/Objects/Gear/RatJunk/RatJunkBirdSkull.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/Bird Skull.png" />
     <SpawnerItem display_name="Blood Spatter" path="Data/Objects/Decals/bloodspatter.xml" thumbnail_path="Data/UI/spawner/thumbs/Decal/bloodspatter.png" />
     <SpawnerItem display_name="Cave Pillar" path="Data/Objects/Environment/caves/cave_pillar.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/cave_pillar.png" />
     <SpawnerItem display_name="Bed Roll" path="Data/Objects/Environment/camp/bed_roll.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/bed_roll.png" />
-    <SpawnerItem display_name="Torch Object" path="Data/Objects/torch.xml" thumbnail_path="Data/UI/spawner/thumbs/Interactive Objects/torch.png" />
     <SpawnerItem display_name="Wooden Crate 1" path="Data/Prototypes/CaveArena/Crate_1.xml" thumbnail_path="" />
     <SpawnerItem display_name="Wooden Crate Pile 1" path="Data/Prototypes/CaveArena/Crate_Pile1.xml" thumbnail_path="" />
     <SpawnerItem display_name="Wooden Crate Table 1" path="Data/Prototypes/CaveArena/Crate_Table1.xml" thumbnail_path="" />
