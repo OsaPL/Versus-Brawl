@@ -36,7 +36,7 @@
     <RayToSun r0="-0.0342701" r1="0.622072" r2="-0.78221" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="16.6593" t1="-0.0545478" t2="-45.7759" s0="1" s1="1" s2="1" q0="7.84966e-05" q1="-0.998106" q2="-0.061506" q3="-0.00127417" euler_x="3.0185" euler_y="0.00255317" euler_z="3.14159" id="0">
+    <CameraObject t0="35.4364" t1="0.689449" t2="43.3657" s0="1" s1="1" s2="1" q0="0.032858" q1="-0.943678" q2="0.0987254" q3="0.314078" euler_x="-2.93312" euler_y="-0.642582" euler_z="3.14159" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="25.7015" t1="5.13222" t2="53.1129" s0="-0.806161" s1="0.646087" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Cave.xml">
@@ -634,7 +634,7 @@
             </ConnectionsFrom>
         </Hotspot>
     </Group>
-    <EnvObject t0="87.1447" t1="-18.4515" t2="230.486" s0="-0.229538" s1="0.550911" s2="-0.605669" q0="0.000435114" q1="-0.710197" q2="0.0202081" q3="0.703715" euler_x="-1.87308" euler_y="-1.54147" euler_z="1.90227" id="123" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge3.xml">
+    <EnvObject t0="87.1447" t1="-18.4512" t2="230.486" s0="-0.229538" s1="0.550911" s2="-0.605669" q0="0.000435114" q1="-0.710197" q2="0.0202081" q3="0.703715" euler_x="-1.87308" euler_y="-1.54147" euler_z="1.90227" id="123" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge3.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="24.495" t1="-4.22398" t2="-50.5513" s0="1" s1="1" s2="1" q0="0.0756887" q1="-0.139696" q2="-0.0837527" q3="0.983739" euler_x="0.179524" euler_y="-0.265271" euler_z="-0.19388" id="124" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/camp/bed_roll.xml">
@@ -2287,6 +2287,7 @@
         <Connections>
             <Connection id="631" />
             <Connection id="109" />
+            <Connection id="631" />
         </Connections>
         <ConnectionsFrom />
     </Hotspot>
@@ -2347,7 +2348,7 @@
     <Decal t0="82.7858" t1="-19.2407" t2="269.482" s0="7.44491" s1="3.42193" s2="4.8591" q0="-0.0203389" q1="-0.952062" q2="0.0292891" q3="0.303822" euler_x="-3.05806" euler_y="-0.615447" euler_z="3.07231" id="569" type_file="Data/Objects/Decals/FadedWhiteRocks.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <EnvObject t0="66.1742" t1="-20.4908" t2="244.325" s0="0.882113" s1="1" s2="1.61212" q0="0" q1="0.701565" q2="0" q3="0.712605" euler_x="0" euler_y="1.55514" euler_z="0" id="570" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge4.xml">
+    <EnvObject t0="65.6749" t1="-20.4874" t2="244.177" s0="0.890585" s1="1" s2="1.69055" q0="0" q1="0.701565" q2="0" q3="0.712605" euler_x="0" euler_y="1.55514" euler_z="0" id="570" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge4.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="87.1833" t1="-18.7747" t2="239.837" s0="0.175591" s1="0.288075" s2="0.565878" q0="0.000691205" q1="-0.928481" q2="0.0339494" q3="0.369825" euler_x="-3.05546" euler_y="-0.757074" euler_z="3.10881" id="571" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge4.xml">
@@ -2362,7 +2363,7 @@
     <EnvObject t0="76.0332" t1="-15.2121" t2="196.317" s0="0.247981" s1="0.25139" s2="0.463215" q0="0.00143665" q1="-0.993265" q2="0.0750245" q3="-0.0882487" euler_x="-2.98937" euler_y="0.176" euler_z="-3.12524" id="574" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge4.xml">
         <parameters />
     </EnvObject>
-    <Group t0="65.4982" t1="-16.8306" t2="190.564" s0="14.4467" s1="14.4467" s2="14.4467" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="575" version="1">
+    <Group t0="65.461" t1="-17.6811" t2="190.819" s0="2.04795" s1="5.18803" s2="2.41126" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="575" version="1">
         <parameters />
         <Hotspot t0="65.4982" t1="-16.8813" t2="190.564" s0="0.298227" s1="0.298227" s2="0.298227" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="576" type_file="Data/Objects/powerups/objectFollowerEmitter.xml">
             <parameters>
@@ -2422,14 +2423,14 @@
             </ConnectionsFrom>
         </Hotspot>
     </Group>
-    <Group t0="77.2731" t1="-11.6554" t2="165.78" s0="16.4664" s1="17.1203" s2="16.5673" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="588" version="1">
+    <Group t0="77.2937" t1="-17.3418" t2="165.99" s0="2.20774" s1="5.74987" s2="2.60798" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="588" version="1">
         <parameters />
         <Hotspot t0="77.2731" t1="-16.4998" t2="165.78" s0="0.335911" s1="0.335908" s2="0.335907" q0="0.00465059" q1="0.00467277" q2="0.00119433" q3="0.999978" euler_x="0.00931268" euler_y="0.00933436" euler_z="0.00243218" id="589" type_file="Data/Objects/powerups/objectFollowerEmitter.xml">
             <parameters>
                 <parameter name="Circle Zone" type="int" val="0" />
                 <parameter name="Min Distance To Activate" type="float" val="80" />
                 <parameter name="game_type" type="string" val="versusBrawl" />
-                <parameter name="originalScale" type="string" val="vec3(0.335911, 0.335908, 0.335907)" />
+                <parameter name="originalScale" type="string" val="vec3(0.335885, 0.33588, 0.335873)" />
                 <parameter name="particleColorB" type="float" val="0.220431" />
                 <parameter name="particleColorG" type="float" val="1" />
                 <parameter name="particleColorR" type="float" val="1.17647" />
@@ -2481,14 +2482,14 @@
             </ConnectionsFrom>
         </Hotspot>
     </Group>
-    <Group t0="58.8802" t1="-20.1167" t2="132.315" s0="16.4688" s1="16.4796" s2="16.5708" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="593" version="1">
+    <Group t0="58.9008" t1="-16.5569" t2="132.524" s0="2.20803" s1="5.74933" s2="2.60787" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="593" version="1">
         <parameters />
-        <Hotspot t0="58.8802" t1="-15.7147" t2="132.315" s0="0.33601" s1="0.335899" s2="0.335453" q0="0.00465059" q1="0.00467277" q2="0.00119433" q3="0.999978" euler_x="0.00931268" euler_y="0.00933436" euler_z="0.00243218" id="594" type_file="Data/Objects/powerups/objectFollowerEmitter.xml">
+        <Hotspot t0="58.8802" t1="-15.7147" t2="132.315" s0="0.335944" s1="0.335834" s2="0.335316" q0="0.00465059" q1="0.00467277" q2="0.00119433" q3="0.999978" euler_x="0.00931268" euler_y="0.00933436" euler_z="0.00243218" id="594" type_file="Data/Objects/powerups/objectFollowerEmitter.xml">
             <parameters>
                 <parameter name="Circle Zone" type="int" val="0" />
                 <parameter name="Min Distance To Activate" type="float" val="80" />
                 <parameter name="game_type" type="string" val="versusBrawl" />
-                <parameter name="originalScale" type="string" val="vec3(0.33601, 0.335899, 0.335453)" />
+                <parameter name="originalScale" type="string" val="vec3(0.335944, 0.335834, 0.335316)" />
                 <parameter name="particleColorB" type="float" val="0.220431" />
                 <parameter name="particleColorG" type="float" val="1" />
                 <parameter name="particleColorR" type="float" val="1.17647" />
@@ -2531,7 +2532,7 @@
             </Connections>
             <ConnectionsFrom />
         </Hotspot>
-        <Hotspot t0="58.9008" t1="-15.532" t2="132.377" s0="0.542283" s1="0.916044" s2="0.562279" q0="0.00465059" q1="0.00467277" q2="0.00119433" q3="0.999978" euler_x="0.00931268" euler_y="0.00933436" euler_z="0.00243218" id="597" type_file="Data/Objects/Hotspots/lava_kill.xml">
+        <Hotspot t0="58.9008" t1="-15.532" t2="132.377" s0="0.542125" s1="0.915877" s2="0.562195" q0="0.00465059" q1="0.00467277" q2="0.00119433" q3="0.999978" euler_x="0.00931268" euler_y="0.00933436" euler_z="0.00243218" id="597" type_file="Data/Objects/Hotspots/lava_kill.xml">
             <parameters />
             <Connections />
             <ConnectionsFrom>
@@ -2539,14 +2540,14 @@
             </ConnectionsFrom>
         </Hotspot>
     </Group>
-    <Group t0="60.8526" t1="-1.0927" t2="155.813" s0="18.8948" s1="37.5306" s2="19.0151" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="601" version="1">
+    <Group t0="60.8762" t1="-16.6361" t2="155.979" s0="2.53263" s1="6.4465" s2="2.84052" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="601" version="1">
         <parameters />
         <Hotspot t0="60.8526" t1="-15.7442" t2="155.813" s0="0.385253" s1="0.385316" s2="0.385555" q0="0.00465059" q1="0.00467277" q2="0.00119433" q3="0.999978" euler_x="0.00931268" euler_y="0.00933436" euler_z="0.00243218" id="602" type_file="Data/Objects/powerups/objectFollowerEmitter.xml">
             <parameters>
                 <parameter name="Circle Zone" type="int" val="0" />
                 <parameter name="Min Distance To Activate" type="float" val="80" />
                 <parameter name="game_type" type="string" val="versusBrawl" />
-                <parameter name="originalScale" type="string" val="vec3(0.385253, 0.385316, 0.385555)" />
+                <parameter name="originalScale" type="string" val="vec3(0.385208, 0.385276, 0.385545)" />
                 <parameter name="particleColorB" type="float" val="0.220431" />
                 <parameter name="particleColorG" type="float" val="1" />
                 <parameter name="particleColorR" type="float" val="1.17647" />
@@ -2588,7 +2589,7 @@
             </Connections>
             <ConnectionsFrom />
         </Hotspot>
-        <Hotspot t0="60.8762" t1="-15.5346" t2="155.885" s0="0.62224" s1="1.05101" s2="0.645057" q0="0.00465059" q1="0.00467277" q2="0.00119433" q3="0.999978" euler_x="0.00931268" euler_y="0.00933436" euler_z="0.00243218" id="605" type_file="Data/Objects/Hotspots/lava_kill.xml">
+        <Hotspot t0="60.8762" t1="-15.5346" t2="155.885" s0="0.622187" s1="1.05091" s2="0.644982" q0="0.00465059" q1="0.00467277" q2="0.00119433" q3="0.999978" euler_x="0.00931268" euler_y="0.00933436" euler_z="0.00243218" id="605" type_file="Data/Objects/Hotspots/lava_kill.xml">
             <parameters />
             <Connections />
             <ConnectionsFrom>
@@ -2628,37 +2629,37 @@
             <parameter name="KeepDisabled" type="string" val="" />
         </parameters>
     </EnvObject>
-    <EnvObject t0="26.2252" t1="-4.658" t2="39.6177" s0="1.53345" s1="0.792824" s2="0.755286" q0="-0.00947154" q1="0.507893" q2="-0.0141554" q3="-0.861251" euler_x="0.00400041" euler_y="-1.06567" euler_z="0.0305095" id="619" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_SquareSmallLegs.xml">
+    <EnvObject t0="26.2252" t1="-4.658" t2="39.6177" s0="1.53345" s1="0.792824" s2="0.755286" q0="-0.00947154" q1="0.507893" q2="-0.0141554" q3="-0.861251" euler_x="0.00400049" euler_y="-1.06567" euler_z="0.0305094" id="619" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_SquareSmallLegs.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="28.5366" t1="-32.2189" t2="-125.459" s0="48.979" s1="20.545" s2="0.306658" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="620" color_r="0.0513187" color_g="0.15772" color_b="0.184314" overbright="0" type_file="Data/Objects/Crete/cube_vines.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="28.8958" t1="1.7942" t2="-2.52896" s0="1.18358" s1="0.929535" s2="1.75118" q0="-0.0145121" q1="-0.0145121" q2="0.706958" q3="0.706958" euler_x="-0.0410494" euler_y="0" euler_z="1.5708" id="621" color_r="1" color_g="1" color_b="1" overbright="2.024" type_file="Data/Objects/Buildings/Post1.xml">
+    <EnvObject t0="28.8958" t1="1.7942" t2="-2.52896" s0="1.18358" s1="0.929535" s2="1.75118" q0="-0.0145121" q1="-0.0145121" q2="0.706958" q3="0.706958" euler_x="-0.0410493" euler_y="0" euler_z="1.5708" id="621" color_r="1" color_g="1" color_b="1" overbright="2.024" type_file="Data/Objects/Buildings/Post1.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="28.8167" t1="4.89708" t2="44.2066" s0="0.725555" s1="0.597767" s2="1.02875" q0="0.0495238" q1="-0.519351" q2="0.0458762" q3="0.851891" euler_x="0.0804286" euler_y="-1.09604" euler_z="0.0584917" id="622" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge4.xml">
+    <EnvObject t0="28.8167" t1="4.89708" t2="44.2066" s0="0.725555" s1="0.597767" s2="1.02875" q0="0.0495238" q1="-0.519351" q2="0.0458762" q3="0.851891" euler_x="0.0804287" euler_y="-1.09604" euler_z="0.0584917" id="622" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge4.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="29.6639" t1="-4.59265" t2="45.7343" s0="1.53345" s1="0.795808" s2="0.753689" q0="-0.00943893" q1="0.507894" q2="-0.0142107" q3="-0.86125" euler_x="0.00376835" euler_y="-1.06567" euler_z="0.0307747" id="623" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_SquareSmallLegs.xml">
+    <EnvObject t0="29.6639" t1="-4.59265" t2="45.7343" s0="1.53345" s1="0.795808" s2="0.753689" q0="-0.00943893" q1="0.507894" q2="-0.0142107" q3="-0.86125" euler_x="0.00376825" euler_y="-1.06567" euler_z="0.0307748" id="623" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_SquareSmallLegs.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="28.3326" t1="1.90148" t2="40.5892" s0="0.252949" s1="0.27283" s2="0.189126" q0="0.633438" q1="-0.376903" q2="0.274158" q3="0.617687" euler_x="1.72006" euler_y="-0.949183" euler_z="-0.240665" id="624" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge4.xml">
+    <EnvObject t0="28.3326" t1="1.90148" t2="40.5892" s0="0.252949" s1="0.27283" s2="0.189126" q0="0.633438" q1="-0.376903" q2="0.274158" q3="0.617687" euler_x="1.72006" euler_y="-0.949184" euler_z="-0.240665" id="624" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge4.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="30.7061" t1="1.29207" t2="42.4735" s0="0.261353" s1="0.253246" s2="0.317" q0="0.267376" q1="-0.58461" q2="0.0464559" q3="0.764581" euler_x="1.11574" euler_y="-1.16505" euler_z="-0.658649" id="625" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge4.xml">
+    <EnvObject t0="30.6388" t1="1.33119" t2="42.2409" s0="0.245692" s1="0.256553" s2="0.317" q0="0.267376" q1="-0.58461" q2="0.0464559" q3="0.764581" euler_x="1.11574" euler_y="-1.16504" euler_z="-0.658648" id="625" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge4.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="28.6232" t1="0.455694" t2="38.0978" s0="0.320522" s1="0.249588" s2="0.332392" q0="-0.0282877" q1="-0.56302" q2="-0.0685998" q3="0.823092" euler_x="0.0839901" euler_y="-1.19637" euler_z="-0.223553" id="626" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge4.xml">
+    <EnvObject t0="28.6232" t1="0.455694" t2="38.0978" s0="0.320522" s1="0.249588" s2="0.332392" q0="-0.0282877" q1="-0.56302" q2="-0.0685998" q3="0.823092" euler_x="0.0839895" euler_y="-1.19636" euler_z="-0.223552" id="626" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge4.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="35.3693" t1="0.545599" t2="49.8287" s0="0.276206" s1="0.21508" s2="0.286435" q0="-0.0487394" q1="-0.72591" q2="-0.14146" q3="0.671322" euler_x="1.96764" euler_y="-1.41852" euler_z="-2.23822" id="627" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge4.xml">
+    <EnvObject t0="35.3693" t1="0.545599" t2="49.8287" s0="0.276206" s1="0.21508" s2="0.286435" q0="-0.0487394" q1="-0.72591" q2="-0.14146" q3="0.671322" euler_x="1.96763" euler_y="-1.41852" euler_z="-2.23821" id="627" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge4.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="25.8628" t1="0.981173" t2="32.6893" s0="0.150435" s1="0.310047" s2="0.182127" q0="0.0621169" q1="-0.74894" q2="0.0524545" q3="0.657618" euler_x="3.11745" euler_y="-1.44069" euler_z="-2.95488" id="628" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge4.xml">
+    <EnvObject t0="25.8628" t1="0.981173" t2="32.6893" s0="0.150435" s1="0.310047" s2="0.182127" q0="0.0621169" q1="-0.74894" q2="0.0524545" q3="0.657618" euler_x="3.11745" euler_y="-1.4407" euler_z="-2.95488" id="628" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge4.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="27.1283" t1="0.156339" t2="61.6144" s0="1.50763" s1="1.48071" s2="1.15888" q0="-0.299672" q1="-0.307454" q2="0.635163" q3="0.642056" euler_x="-0.887439" euler_y="-0.0141237" euler_z="1.56672" id="629" color_r="0.615686" color_g="0.61568" color_b="0.61568" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+    <EnvObject t0="27.1283" t1="0.156339" t2="61.6144" s0="1.50763" s1="1.48071" s2="1.15888" q0="-0.299672" q1="-0.307454" q2="0.635163" q3="0.642056" euler_x="-0.887438" euler_y="-0.0141247" euler_z="1.56672" id="629" color_r="0.615686" color_g="0.61568" color_b="0.61568" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
         <parameters />
     </EnvObject>
     <Hotspot t0="78.4948" t1="-18.27" t2="253.847" s0="1" s1="0.1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="630" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterPhaseHotSpot.xml">
@@ -2694,6 +2695,7 @@
         </parameters>
         <Connections>
             <Connection id="38" />
+            <Connection id="630" />
             <Connection id="632" />
             <Connection id="630" />
         </Connections>
@@ -2712,6 +2714,15 @@
             <Connection id="631" />
         </ConnectionsFrom>
     </Hotspot>
+    <EnvObject t0="47.8378" t1="-17.0399" t2="174.029" s0="0.65018" s1="0.479409" s2="1.41735" q0="-0.00171091" q1="0.540302" q2="-0.0646387" q3="0.838971" euler_x="-0.173" euler_y="1.13462" euler_z="-0.264181" id="633" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge3.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="68.9517" t1="-12.1064" t2="249.187" s0="0.694608" s1="0.512168" s2="1.5142" q0="0.877812" q1="-0.203851" q2="0.427785" q3="0.0697274" euler_x="-3.05849" euler_y="-0.8938" euler_z="-0.496185" id="634" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge3.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="61.3585" t1="3.86108" t2="237.095" s0="1.33455" s1="0.984031" s2="2.90925" q0="0.703904" q1="-0.542187" q2="0.265462" q3="0.374234" euler_x="2.75007" euler_y="-0.893914" euler_z="-1.12311" id="635" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge3.xml">
+        <parameters />
+    </EnvObject>
 </ActorObjects>
 <RecentItems>
     <SpawnerItem display_name="[h] objectFollowerEmitter" path="Data/Objects/powerups/objectFollowerEmitter.xml" thumbnail_path="Data/Textures/ui/versusBrawl/particle.png" />
