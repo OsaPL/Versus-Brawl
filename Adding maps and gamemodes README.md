@@ -178,6 +178,8 @@ Linking checkpoint to any other objects will switch the enabled flag and send in
 
 If you wish your item to be stay disabled until checkpoint first activation, add `KeepDisabled` parameter to the object (no value needed)
 
+You can also use `raceWarmupHotspot` and link it to anything you want to keep enabled (or disabled if has `KeepDisabled` param) during warmup.
+
 ### CTF <a name="ctf"/>
 
 To implement CTF:
