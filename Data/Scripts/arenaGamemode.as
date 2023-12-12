@@ -75,10 +75,10 @@ void Init(string msg){
     //Always need to call this first!
     VersusInit("");
 
-    loadCallbacks.push_back(@HordeLoad);
+    loadCallbacks.push_back(@ArenaLoad);
 
     levelTimer.Add(LevelEventJob("reset", function(_params) {
-        ResetHorde();
+        ResetArena();
         return true;
     }));
 
@@ -103,38 +103,38 @@ void Init(string msg){
     pointsToWin = waves.size();
 }
 
-void HordeLoad(JSONValue settings) {
-    Log(error, "HordeLoad:");
-    if(FoundMember(settings, "Horde")) {
-        JSONValue horde = settings["Horde"];
-        Log(error, "Available: " + join(horde.getMemberNames(),","));
+void ArenaLoad(JSONValue settings) {
+    Log(error, "ArenaLoad:");
+    if(FoundMember(settings, "Arena")) {
+        JSONValue arena = settings["Arena"];
+        Log(error, "Available: " + join(arena.getMemberNames(),","));
 
-        if (FoundMember(horde, "PointsToWin"))
-            pointsToWin = horde["PointsToWin"]["Value"].asInt();
+        if (FoundMember(arena, "PointsToWin"))
+            pointsToWin = arena["PointsToWin"]["Value"].asInt();
         
-        if (FoundMember(horde, "PointsTextShowTime"))
-            pointsTextShowTime = horde["PointsTextShowTime"]["Value"].asFloat();
+        if (FoundMember(arena, "PointsTextShowTime"))
+            pointsTextShowTime = arena["PointsTextShowTime"]["Value"].asFloat();
             
-        if (FoundMember(horde, "TimeBetweenWaves"))
-            timeBetweenWaves = horde["TimeBetweenWaves"]["Value"].asFloat();
+        if (FoundMember(arena, "TimeBetweenWaves"))
+            timeBetweenWaves = arena["TimeBetweenWaves"]["Value"].asFloat();
             
-        if (FoundMember(horde, "HealAfterWave"))
-            healAfterWave = horde["HealAfterWave"]["Value"].asBool();
+        if (FoundMember(arena, "HealAfterWave"))
+            healAfterWave = arena["HealAfterWave"]["Value"].asBool();
         
-        if (FoundMember(horde, "RespawnAfterWave"))
-            respawnAfterWave = horde["RespawnAfterWave"]["Value"].asBool();
+        if (FoundMember(arena, "RespawnAfterWave"))
+            respawnAfterWave = arena["RespawnAfterWave"]["Value"].asBool();
             
-        if (FoundMember(horde, "ScaleWithPlayers"))
-            scaleWithPlayers = horde["ScaleWithPlayers"]["Value"].asBool();
+        if (FoundMember(arena, "ScaleWithPlayers"))
+            scaleWithPlayers = arena["ScaleWithPlayers"]["Value"].asBool();
             
-        if (FoundMember(horde, "FriendlyAttacks"))
-            friendlyAttacks = horde["FriendlyAttacks"]["Value"].asBool();
+        if (FoundMember(arena, "FriendlyAttacks"))
+            friendlyAttacks = arena["FriendlyAttacks"]["Value"].asBool();
             
             
         // Wave and Enemies lists load
-        if (FoundMember(horde, "Waves")){
+        if (FoundMember(arena, "Waves")){
             Log(error, "Waves found!");
-            JSONValue wavesJson = horde["Waves"];
+            JSONValue wavesJson = arena["Waves"];
             Log(error, "Waves: " + wavesJson.typeName() + " " + wavesJson.size() + " !");
             
             // Fill out waves list
@@ -180,8 +180,8 @@ void HordeLoad(JSONValue settings) {
         }
         
         // Fill out EnemyTemplates
-        if (FoundMember(horde, "EnemyTemplates")){
-            JSONValue enemyTemplatesJson = horde["EnemyTemplates"];
+        if (FoundMember(arena, "EnemyTemplates")){
+            JSONValue enemyTemplatesJson = arena["EnemyTemplates"];
             array<string> enemyTemplatesNames = enemyTemplatesJson.getMemberNames();
             for (uint i = 0; i < enemyTemplatesNames.size(); i++) {
                 Log(error, "Name: " + enemyTemplatesNames[i]);
@@ -376,13 +376,13 @@ void Update(){
     // Win
     if(currentState== 110){
         if(winStateTimer>=winStateTime) {
-            ResetHorde();
+            ResetArena();
         }
     }
     // Lost, reset wave only
     if(currentState== 111){
         if(winStateTimer>=winStateTime) {
-            ResetHorde(false);
+            ResetArena(false);
         }
     }
     
@@ -490,7 +490,7 @@ void Reset(){
     VersusReset();
 }
 
-void ResetHorde(bool fullReset = true){
+void ResetArena(bool fullReset = true){
     currentState = 2;
     pointsTextShow = true;
     intermissionTimer = 0;

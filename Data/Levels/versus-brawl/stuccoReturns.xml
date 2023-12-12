@@ -22,7 +22,7 @@
 </Terrain>
 <OutOfDate NavMesh="true" NavMeshParamHash="-1674835251" />
 <AmbientSounds />
-<Script>hordeGamemode.as</Script>
+<Script>arenaGamemode.as</Script>
 <LevelScriptParameters>
     <parameter name="Achievements" type="string" val="flawless, no_injuries, no_kills" />
     <parameter name="Fog amount" type="float" val="0.5" />

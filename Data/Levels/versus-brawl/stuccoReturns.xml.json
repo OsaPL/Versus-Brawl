@@ -18,7 +18,7 @@
       }
     }
   },
-  "Horde": {
+  "Arena": {
     "TimeBetweenWaves": {
       "Value": 5.0,
       "Configurable": {
@@ -49,14 +49,14 @@
 
     "EnemyTemplates":{
       "NormalBunny": {
-        "ActorPath":"Data/Objects/versus-brawl/levelSpecific/testHorde/NormalBunny.xml"
+        "ActorPath":"Data/Objects/versus-brawl/levelSpecific/testArena/NormalBunny.xml"
       },
       "ArmoredBunny": {
-        "ActorPath":"Data/Objects/versus-brawl/levelSpecific/testHorde/ArmoredBunny.xml",
+        "ActorPath":"Data/Objects/versus-brawl/levelSpecific/testArena/ArmoredBunny.xml",
         "WeaponPath":"Data/Items/flint_knife.xml"
       },
       "NinjaDog": {
-        "ActorPath":"Data/Objects/versus-brawl/levelSpecific/testHorde/NinjaDog.xml",
+        "ActorPath":"Data/Objects/versus-brawl/levelSpecific/testArena/NinjaDog.xml",
         "WeaponPath":"Data/Items/staffbasic.xml",
         "BackWeaponPath":"Data/Items/Bastard.xml"
       }

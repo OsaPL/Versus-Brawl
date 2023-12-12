@@ -248,17 +248,17 @@ Creating arena map requires few things:
    - Make note of the path to that saved file
 ```json
 {
-  "Horde": {
+  "Arena": {
     "EnemyTemplates": {
       "NormalBunny": {
-        "ActorPath": "Data/Objects/versus-brawl/levelSpecific/testHorde/NormalBunny.xml"
+        "ActorPath": "Data/Objects/versus-brawl/levelSpecific/testArena/NormalBunny.xml"
       },
       "ArmoredBunny": {
-        "ActorPath": "Data/Objects/versus-brawl/levelSpecific/testHorde/ArmoredBunny.xml",
+        "ActorPath": "Data/Objects/versus-brawl/levelSpecific/testArena/ArmoredBunny.xml",
         "WeaponPath": "Data/Items/flint_knife.xml"
       },
       "NinjaDog": {
-        "ActorPath": "Data/Objects/versus-brawl/levelSpecific/testHorde/NinjaDog.xml",
+        "ActorPath": "Data/Objects/versus-brawl/levelSpecific/testArena/NinjaDog.xml",
         "WeaponPath": "Data/Items/staffbasic.xml",
         "BackWeaponPath": "Data/Items/Bastard.xml"
       }
@@ -273,7 +273,7 @@ Creating arena map requires few things:
    - Setting `SpawnName` will make sure they will spawn at that, named spawn point
 ```json
 {
-   "Horde": {
+   "Arena": {
       "Waves": [
          {
             "Time": 20.0,
@@ -309,7 +309,7 @@ Creating arena map requires few things:
 (as with all params, you can also decide whether they should be configurable, from players menu)
 ```json
 {
-  "Horde": {
+  "Arena": {
     "TimeBetweenWaves": {
       "Value": 5.0
     },

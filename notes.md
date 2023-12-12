@@ -7,11 +7,9 @@
 
 DM and CTF seem to work just fine, even if over 4+ players
 
-# Horde mode:
-0. Rename to `Arena` mode?
-1. `npcSpawner` should also be usable by itself, add automatic spawning + ability to use params paths
-2. Probably one more map horde map.
-3. Finish the lava tower map, create that space race map.
+# Arena mode:
+1. Probably one more map arena map.
+2. Finish the lava tower map, create that space race map.
 
 # DO THOSE THINGS:
 - `speed` on staticAnimator should also work for frames (in integer form only for > 1), 2x is "skip a frame", 0.5x is "render frame two times" etc
@@ -50,14 +48,14 @@ With this update also comes ability to customize the games.
 - You can now change tons of parameters for the levels
 - All these, can be made custom, have limits etc. for ease of map making
 
-[b]Added Horde gamemode![/b]
+[b]Added Arena gamemode![/b]
 - Your objective is to kill everyone
 - Lots of customisable parameters for map makers, regarding waves, enemies, spawnpoints and more
 
 [b]Added new playable maps:[/b]
 - Lava Tower, Race
 - Journey of Dreams,  Race
-- Return to Stucco, Horde
+- Return to Stucco, Arena
 
 [b]2 handed weapons are now smoother and less janky:[/b]
 - Sheathing, unsheathing animations and placement on the back fixed
