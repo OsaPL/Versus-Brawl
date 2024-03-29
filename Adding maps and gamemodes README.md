@@ -33,6 +33,7 @@
       3. [Using `anim.json` files and hotspot itself](#hotspotitself)
    10. [`refreshPowerup`](#refreshpowerup)
    11. [`rotatoHotspot`](#rotatohotspot)
+   12. [`raceWarmupHotspot`](#racewarmuphotspot)
 6. [Items specific](#items)
    1. [Sheathing big weapons on the back](#sheatingonback)
 
@@ -471,16 +472,18 @@ Objects rise/lower between `waterPhaseHotspot` phases.
 If you want to set some dynamic stuff, you can connect any object to the `waterPhaseHotspot`, and it will be switched on/off accordingly, if you want to reverse the behaviour, add `KeepDisabled` param to the object (switching changes `Enabled` variable and sends `switch` event)
 
 Options you can set for `waterRiseHotspot`:
-- `Loop Phases` decides whether always start from end/beginning if `true` or just reverse the order if `false`
+- `Loop Phases` decides whether always go back to end/beginning if `true` or just reverse the order if `false`
 - `Rise Speed` movement step per frame (higher means everything moves faster)
 - `Phase Change Time` how often does phases advance
 - `Bobbing Direction Inverted` inverts bobbing into opposite direction
 - `Bobbing Multiplier` defines the strength of objects bobbing, lower values increase the bobbing, (default: `800`)
 - `Delay Time` add delay, allows for bobbing not in sync
-- `Phase Starting Direction Forward` in which direction should be consider phases at the start
+- `Phase Starting Direction Forward` in which direction should we consider phases at the start
 - `Fast Mode - No Collision Refresh` this disables all physics calculation for movement, helps with fps in bigger levels
 - `Fast Mode - Reduce Rate Mltp` will interpolate physics only every X frame, helps with fps if you need collisions on objects (`No Collision Refresh` has to be off to take effect)
 - `Min Distance To Activate` distance to nearest player after which it will turn itself off, also helps with fps
+- `RisingSoundPath` play this sound as loop during changing phases, use `RisingSoundVolume` to control volume
+- `IdleSoundPath` play this sound as loop during idle time, again, use `IdleSoundVolume` if needed
 
 Options you can set for `waterPhaseHotspot`:
 - `Phase` decides what phase number in order it is
@@ -637,6 +640,11 @@ Options to set:
 - `useFastRotate`: use for object where there is no need to update collisions, big fps improvement
 - `pauseWhenEditor`: If editor is active, stop rotation
 - `rotationAxis`: axis of the rotation, a blue line will be drawn to illustrate axis (must follow `vec3(x, y, z)` format)
+
+## `raceWarmupHotSpot` <a name="racewarmuphotspot"/>
+This allows for elements to be only enabled or disabled if `InProgress` level param change.
+Adding `KeepDisabled` will reverse the functionality.
+Is mainly used to disable/enable elements in race mode only atm, but works by itself too.
 
 # Items specific <a name="items"/>
 

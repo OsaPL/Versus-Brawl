@@ -1,0 +1,247 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<Name>slidetest</Name>
+<Description></Description>
+<Shader>post</Shader>
+<Shadows>true</Shadows>
+<LoadingScreen>
+    <Image></Image>
+</LoadingScreen>
+<OutOfDate NavMesh="true" NavMeshParamHash="-1674835251" />
+<AmbientSounds />
+<Script></Script>
+<LevelScriptParameters>
+    <parameter name="Achievements" type="string" val="flawless, no_injuries, no_kills" />
+    <parameter name="Custom Shader" type="string" val="" />
+    <parameter name="Fog amount" type="float" val="1" />
+    <parameter name="GPU Particle Field" type="string" val="" />
+    <parameter name="HDR Black point" type="float" val="0.005" />
+    <parameter name="HDR Bloom multiplier" type="float" val="1" />
+    <parameter name="HDR White point" type="float" val="0.971" />
+    <parameter name="Level Boundaries" type="int" val="1" />
+    <parameter name="Load Tip" type="string" val="" />
+    <parameter name="Objectives" type="string" val="destroy_all" />
+    <parameter name="Saturation" type="float" val="1" />
+    <parameter name="Sky Brightness" type="float" val="1" />
+    <parameter name="Sky Rotation" type="float" val="0" />
+    <parameter name="Sky Tint" type="string" val="255, 255, 255" />
+</LevelScriptParameters>
+<NavMeshParameters generate="true" cell_size="0.3" cell_height="0.2" agent_height="1.7" agent_radius="0.4" agent_max_climb="1.5" agent_max_slope="60" />
+<Sky>
+    <DomeTexture>Data/Textures/skies/CloudySunset.tga</DomeTexture>
+    <SunAngularRad>0.153056</SunAngularRad>
+    <SunColorAngle>353.589</SunColorAngle>
+    <RayToSun r0="0.121363" r1="0.062051" r2="0.990667" />
+</Sky>
+<ActorObjects>
+    <CameraObject t0="87.1889" t1="16.9596" t2="0.801036" s0="1" s1="1" s2="1" q0="-0.160131" q1="-0.758436" q2="0.203001" q3="-0.598267" euler_x="-2.61854" euler_y="1.33577" euler_z="-3.14159" id="0">
+        <parameters />
+    </CameraObject>
+    <EnvObject t0="4.41122" t1="-0.0541947" t2="-0.0189895" s0="10.4112" s1="0.945803" s2="6.01897" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <ActorObject t0="-0.287879" t1="1.80892" t2="3.42122" s0="1" s1="1" s2="1" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="3" type_file="Data/Objects/characters/rabbot_actor.xml" is_player="1">
+        <parameters>
+            <parameter name="Aggression" type="float" val="0.5" />
+            <parameter name="Attack Damage" type="float" val="1" />
+            <parameter name="Attack Knockback" type="float" val="1" />
+            <parameter name="Attack Speed" type="float" val="1" />
+            <parameter name="Block Follow-up" type="float" val="0.5" />
+            <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Can sheathe big weapons" type="int" val="0" />
+            <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Character Scale" type="float" val="1" />
+            <parameter name="Damage Resistance" type="float" val="1" />
+            <parameter name="Ear Size" type="float" val="1" />
+            <parameter name="Fall Damage Multiplier" type="float" val="1" />
+            <parameter name="Fat" type="float" val="0.5" />
+            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+            <parameter name="Focus FOV distance" type="float" val="100" />
+            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+            <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Jump - Air Control" type="float" val="3" />
+            <parameter name="Jump - Initial Velocity" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+            <parameter name="Knockout Shield" type="int" val="0" />
+            <parameter name="Left handed" type="int" val="0" />
+            <parameter name="Movement Speed" type="float" val="1" />
+            <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="Peripheral FOV distance" type="float" val="4" />
+            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+            <parameter name="Species" type="string" val="rabbit" />
+            <parameter name="Static" type="int" val="0" />
+            <parameter name="Stick To Nav Mesh" type="int" val="0" />
+            <parameter name="Teams" type="string" val="" />
+            <parameter name="Throw - Initial Velocity Multiplier" type="float" val="1" />
+            <parameter name="Throw - Mass Multiplier" type="float" val="1" />
+            <parameter name="Throw Counter Probability" type="float" val="0.4" />
+            <parameter name="Throw Trainer" type="int" val="0" />
+            <parameter name="Velocity reduction on crouch" type="float" val="0" />
+            <parameter name="Weapon Catch Skill" type="float" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="3" />
+        </Connections>
+        <ItemConnections />
+        <Palette />
+    </ActorObject>
+    <EnvObject t0="0.221145" t1="-29.924" t2="-63.7655" s0="6" s1="1" s2="6" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="3.90065" t1="-15.0257" t2="-31.4907" s0="2.09582" s1="0.988475" s2="30.0867" q0="-0.258819" q1="0" q2="0" q3="0.965926" euler_x="-0.523599" euler_y="0" euler_z="0" id="8" color_r="0.00247597" color_g="0.254046" color_b="0.631373" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="1.3389" t1="-27.8199" t2="-67.1589" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="9" type_file="Data/Objects/versus-brawl/hotspots/teleporterHotspot.xml">
+        <parameters>
+            <parameter name="blue" type="float" val="1" />
+            <parameter name="cooldown" type="float" val="2" />
+            <parameter name="green" type="float" val="1" />
+            <parameter name="red" type="float" val="1" />
+            <parameter name="teleportSound" type="string" val="Data/Sounds/sword/light_weapon_swoosh_1.wav" />
+            <parameter name="type" type="string" val="teleporterHotspot" />
+            <parameter name="velocityTranslator" type="int" val="1" />
+        </parameters>
+        <Connections>
+            <Connection id="10" />
+        </Connections>
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-0.287879" t1="1.80892" t2="3.42122" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="10" type_file="Data/Objects/versus-brawl/hotspots/teleporterHotspot.xml">
+        <parameters>
+            <parameter name="blue" type="float" val="1" />
+            <parameter name="cooldown" type="float" val="2" />
+            <parameter name="green" type="float" val="1" />
+            <parameter name="red" type="float" val="1" />
+            <parameter name="teleportSound" type="string" val="Data/Sounds/sword/light_weapon_swoosh_1.wav" />
+            <parameter name="type" type="string" val="teleporterHotspot" />
+            <parameter name="velocityTranslator" type="int" val="1" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom>
+            <Connection id="9" />
+            <Connection id="17" />
+            <Connection id="20" />
+        </ConnectionsFrom>
+    </Hotspot>
+    <Hotspot t0="0.224164" t1="-12.6837" t2="-32.9861" s0="3.13214" s1="1.53058" s2="15.0446" q0="0" q1="0.965926" q2="-0.258819" q3="0" euler_x="-2.61799" euler_y="0" euler_z="3.14159" id="11" type_file="Data/Objects/versus-brawl/hotspots/slidingHotspot.xml">
+        <parameters>
+            <parameter name="accelaration" type="float" val="0.1" />
+            <parameter name="allowPlayerSpeedControl" type="int" val="1" />
+            <parameter name="decayTurnRate" type="float" val="0.01" />
+            <parameter name="maxTurnRate" type="float" val="2.5" />
+            <parameter name="maxVelocity" type="float" val="10" />
+            <parameter name="minVelocity" type="float" val="1" />
+            <parameter name="soundSlideEnd" type="string" val="Data/Sounds/dirtyrock_foley/bf_dirtyrock_medium.xml" />
+            <parameter name="soundSlideLoop" type="string" val="Data/Sounds/dirtyrock_foley/slide_dirt_loop_3.wav" />
+            <parameter name="startAngleTolerance" type="float" val="0.2" />
+            <parameter name="steerability" type="float" val="2" />
+            <parameter name="type" type="string" val="slidingHotspot" />
+            <parameter name="upRampReduction" type="float" val="0.1" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject t0="-4.08948" t1="-15.0337" t2="-31.49" s0="1.81297" s1="0.989461" s2="30.1098" q0="-0.258819" q1="0" q2="0" q3="0.965926" euler_x="-0.523599" euler_y="0" euler_z="0" id="12" color_r="0.0354325" color_g="0.501961" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-0.326891" t1="-15.0274" t2="-31.4796" s0="1.81297" s1="0.989461" s2="30.1098" q0="-0.258819" q1="0" q2="0" q3="0.965926" euler_x="-0.523599" euler_y="0" euler_z="0" id="13" color_r="0" color_g="0.294118" color_b="0.221453" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="10.6973" t1="-20.638" t2="-17.2858" s0="4.10799" s1="0.945806" s2="24.1092" q0="-0.5" q1="0" q2="0" q3="0.866025" euler_x="-1.0472" euler_y="0" euler_z="0" id="14" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="10.6484" t1="-19.6302" t2="-17.4103" s0="2.05599" s1="0.496802" s2="11.7145" q0="0" q1="0.866026" q2="-0.5" q3="0" euler_x="-2.0944" euler_y="0" euler_z="3.14159" id="15" type_file="Data/Objects/versus-brawl/hotspots/slidingHotspot.xml">
+        <parameters>
+            <parameter name="accelaration" type="float" val="0.1" />
+            <parameter name="allowPlayerSpeedControl" type="int" val="0" />
+            <parameter name="decayTurnRate" type="float" val="0.01" />
+            <parameter name="maxTurnRate" type="float" val="2.5" />
+            <parameter name="maxVelocity" type="float" val="20" />
+            <parameter name="minVelocity" type="float" val="1" />
+            <parameter name="soundSlideEnd" type="string" val="Data/Sounds/dirtyrock_foley/bf_dirtyrock_medium.xml" />
+            <parameter name="soundSlideLoop" type="string" val="Data/Sounds/dirtyrock_foley/slide_dirt_loop_3.wav" />
+            <parameter name="startAngleTolerance" type="float" val="0.2" />
+            <parameter name="steerability" type="float" val="2" />
+            <parameter name="type" type="string" val="slidingHotspot" />
+            <parameter name="upRampReduction" type="float" val="0.1" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject t0="12.4771" t1="-43.2522" t2="-35.2219" s0="6" s1="2.22905" s2="6.81918" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="13.5948" t1="-39.919" t2="-39.4344" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="17" type_file="Data/Objects/versus-brawl/hotspots/teleporterHotspot.xml">
+        <parameters>
+            <parameter name="blue" type="float" val="1" />
+            <parameter name="cooldown" type="float" val="2" />
+            <parameter name="green" type="float" val="1" />
+            <parameter name="red" type="float" val="1" />
+            <parameter name="teleportSound" type="string" val="Data/Sounds/sword/light_weapon_swoosh_1.wav" />
+            <parameter name="type" type="string" val="teleporterHotspot" />
+            <parameter name="velocityTranslator" type="int" val="1" />
+        </parameters>
+        <Connections>
+            <Connection id="10" />
+        </Connections>
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject t0="69.5118" t1="-2.98348" t2="1.50017" s0="19.2047" s1="0.945824" s2="5.1306" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="18" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="52.089" t1="1.99319" t2="1.21404" s0="2.79344" s1="2.42002" s2="18.5546" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="0.946458" euler_y="1.57031" euler_z="0.946458" id="19" type_file="Data/Objects/versus-brawl/hotspots/slidingHotspot.xml">
+        <parameters>
+            <parameter name="accelaration" type="float" val="0.1" />
+            <parameter name="allowPlayerSpeedControl" type="int" val="0" />
+            <parameter name="decayTurnRate" type="float" val="0.01" />
+            <parameter name="maxTurnRate" type="float" val="2.5" />
+            <parameter name="maxVelocity" type="float" val="15" />
+            <parameter name="minVelocity" type="float" val="1" />
+            <parameter name="soundSlideEnd" type="string" val="Data/Sounds/dirtyrock_foley/bf_dirtyrock_medium.xml" />
+            <parameter name="soundSlideLoop" type="string" val="Data/Sounds/dirtyrock_foley/slide_dirt_loop_3.wav" />
+            <parameter name="startAngleTolerance" type="float" val="0" />
+            <parameter name="steerability" type="float" val="2" />
+            <parameter name="type" type="string" val="slidingHotspot" />
+            <parameter name="upRampReduction" type="float" val="0" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="105.726" t1="4.30119" t2="1.76352" s0="5.4522" s1="4.89131" s2="0.466024" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="0" euler_y="1.57045" euler_z="0" id="20" type_file="Data/Objects/versus-brawl/hotspots/teleporterHotspot.xml">
+        <parameters>
+            <parameter name="blue" type="float" val="1" />
+            <parameter name="cooldown" type="float" val="2" />
+            <parameter name="green" type="float" val="1" />
+            <parameter name="red" type="float" val="1" />
+            <parameter name="teleportSound" type="string" val="Data/Sounds/sword/light_weapon_swoosh_1.wav" />
+            <parameter name="type" type="string" val="teleporterHotspot" />
+            <parameter name="velocityTranslator" type="int" val="1" />
+        </parameters>
+        <Connections>
+            <Connection id="10" />
+        </Connections>
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject t0="34.1164" t1="-0.17651" t2="2.86637" s0="19.244" s1="0.210623" s2="7.14843" q0="-0.5" q1="0" q2="0" q3="0.866025" euler_x="-1.0472" euler_y="0" euler_z="0" id="21" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="78.7096" t1="-1.43832" t2="1.96648" s0="10.9229" s1="0.945824" s2="5.67698" q0="0" q1="0" q2="-0.965926" q3="0.258819" euler_x="0" euler_y="0" euler_z="-2.61799" id="22" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="107.516" t1="4.61073" t2="2.7762" s0="10.7398" s1="0.945823" s2="12.6139" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="23" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+</ActorObjects>
+<RecentItems>
+    <SpawnerItem display_name="Rabbot" path="Data/Objects/characters/rabbot_actor.xml" thumbnail_path="Data/UI/spawner/thumbs/Character/rabbot_actor.png" />
+    <SpawnerItem display_name="[h] teleporterHotspot" path="Data/Objects/versus-brawl/hotspots/teleporterHotspot.xml" thumbnail_path="Data/Textures/ui/versusBrawl/teleporterOk.png" />
+    <SpawnerItem display_name="[h] charCatapultHotspot.xml" path="Data/Objects/versus-brawl/hotspots/charCatapultHotspot.xml" thumbnail_path="Data/Textures/ui/versusBrawl/platform_icon.png" />
+</RecentItems>

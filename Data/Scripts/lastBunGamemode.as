@@ -8,7 +8,7 @@
 // IMPORTANT NOTE
 // If youre reading this file while trying to implement your own stuff, stop.
 // This file is full of awfully unoptimized code, error prone variables names, copy-pasta like youve never seen and old-pre AHGUI/Imgui implementation of the ui.
-// Or in another words, its using the versus mode in the base game as a starting point, which already was a prototype, made hastily.
+// Or in other words, its using the versus mode in the base game as a starting point, which already was a prototype, made hastily.
 // I did this only to port the old versus mode over, since its still fun.
 
 
@@ -35,7 +35,8 @@ int players_number;
 void Init(string msg){
     // LBS specific hints
     warmupHints.insertAt(0, "Survivor gets the point, @vec3(0.6,0.6,0.6)thats it@.");
-    randomHints.insertAt(0, "Watching the fights unfold, is a way for sure.");
+    randomHints.insertAt(0, "Watching the fights unfold, is a way to win.");
+    randomHints.insertAt(0, "Watching the fights unfold, is a way to win.");
     
     forcedSpecies = -1;
     

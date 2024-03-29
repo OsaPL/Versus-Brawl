@@ -8,8 +8,10 @@
 DM and CTF seem to work just fine, even if over 4+ players
 
 # Arena mode:
-1. Probably one more map arena map.
+0. Test the survival part, `KillAll` == false
+1. Probably one more map arena map (get the cave one and catapult spawned characters onto arena?)
 2. Finish the lava tower map, create that space race map.
+3. `ScaleWithPlayers` in Arena mode should be a float, how hard does it scale? (not integer values will convert decimal enemy count values into % chance to add one more)
 
 # DO THOSE THINGS:
 - `speed` on staticAnimator should also work for frames (in integer form only for > 1), 2x is "skip a frame", 0.5x is "render frame two times" etc
@@ -37,8 +39,10 @@ Big sticks:
 
 
 [h1]0.8:[/h1]
-You can now play without friends! This only sounds slightly sad. Now anyone who wants to, can try this mod.
-With this update also comes ability to customize the games.
+You can now play without friends! This only sounds slightly sad. Now anyone can try this mayhem.
+With this update also comes ability to customize the games to the way you like it, no judging, I promise.
+
+Also, Arena mode... What? Are you not entertained?
 
 [b]Added npc support![/b]
 - The support vary on a per map basis, since some layouts are more friendly for them to navigate
@@ -49,13 +53,18 @@ With this update also comes ability to customize the games.
 - All these, can be made custom, have limits etc. for ease of map making
 
 [b]Added Arena gamemode![/b]
-- Your objective is to kill everyone
+- Your objective is to kill everyone, or to just survive
 - Lots of customisable parameters for map makers, regarding waves, enemies, spawnpoints and more
 
 [b]Added new playable maps:[/b]
-- Lava Tower, Race
-- Journey of Dreams,  Race
+- Ominous Call, Race
 - Return to Stucco, Arena
+- (WIP) Lava Tower, Race
+
+[b]Map fixes/balance changes[b]
+- Reworked collisions on older maps, should be much smoother to move around
+- Gods Exile, now has giant chains, to make traversing it for more "grounded" characters easier
+- Sewers now have some environment ambience
 
 [b]2 handed weapons are now smoother and less janky:[/b]
 - Sheathing, unsheathing animations and placement on the back fixed
@@ -69,8 +78,12 @@ With this update also comes ability to customize the games.
 
 [b]New quick and easy to use Rotation Hotspot[/b]
 
-[b]Player controlled characters will now also make sounds (like on getting hit)[/b]
-- TODO! Is controlled by "Character voices" options in Audio menu
+[b]WaterRise hotspots now can have both idle and rising sound loops[/b]
+
+[b]Added RaceWarmupHotspot to enable/disable elements depending if players are in warmup or not[/b]
+
+[b]Player controlled characters are no longer almost mute[/b]
+- TODO! Is controlled by "Player voices" option in Audio menu
 
 [b]Fixes:[/b]
 - <fill me>

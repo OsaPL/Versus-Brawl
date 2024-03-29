@@ -1,4 +1,22 @@
 {
+  "LevelParams": {
+    "TestString": {
+      "Value": "Test",
+      "Configurable": {}
+    }
+  },
+  "VersusBase": {
+    "NpcPlayers": {
+      "Value": 40,
+      "Configurable": {
+        "Min": 0,
+        "Max": 100
+      }
+    },
+    "MaxPlayers": {
+      "Value": 30
+    }
+  },
   "Tag": {
     "RoundMaxTime": {
       "Value": 60.0,

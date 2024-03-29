@@ -81,6 +81,11 @@
           title="[h] charCatapultHotspot.xml"
           path="Data/Objects/versus-brawl/hotspots/charCatapultHotspot.xml"
           thumbnail="Data/Textures/ui/versusBrawl/platform_icon.png" />
+
+    <Item category="VersusBrawl"
+          title="[h] slidingHotspot.xml"
+          path="Data/Objects/versus-brawl/hotspots/slidingHotspot.xml"
+          thumbnail="Data/Textures/ui/versusBrawl/platform_slide.png" />
     
     <Item category="VersusBrawl"
           title="[h] flagHotspot"
@@ -138,7 +143,7 @@
 
     <Item category="VersusBrawl"
           title="[h] magmaCubeHotspot"
-          path="Data/Objects/versus-brawl/hotspots/magma.xml"/>
+          path="Data/Objects/versus-brawl/hotspots/hot_cube.xml"/>
     
     <Item category="VersusBrawl"
           title="[d] ArrowDecal1"

@@ -32,7 +32,7 @@
     <parameter name="HDR Black point" type="float" val="0.005" />
     <parameter name="HDR Bloom multiplier" type="float" val="0.502" />
     <parameter name="HDR White point" type="float" val="0.8" />
-    <parameter name="InProgress" type="int" val="0" />
+    <parameter name="InProgress" type="int" val="1" />
     <parameter name="Level Boundaries" type="int" val="1" />
     <parameter name="Objectives" type="string" val="destroy_all" />
     <parameter name="Saturation" type="float" val="1" />
@@ -97,30 +97,12 @@
     <EnvObject t0="-118.483" t1="-35.0874" t2="23.4224" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.445208" q1="0.315052" q2="-0.805623" q3="0.231309" euler_x="-0.640122" euler_y="1.04135" euler_z="-2.95807" id="14" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1a_volcanic.xml">
         <parameters />
     </EnvObject>
-    <PathPointObject t0="-209.865" t1="-56.2381" t2="-20.9083" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="15" type_file="">
-        <parameters>
-            <parameter name="Type" type="string" val="Stand" />
-            <parameter name="Wait" type="float" val="0" />
-        </parameters>
-        <Connections>
-            <Connection id="18" />
-        </Connections>
-    </PathPointObject>
     <EnvObject t0="-220.059" t1="-39.3476" t2="25.7563" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.373515" q1="0.699687" q2="-0.484314" q3="0.369276" euler_x="-2.14178" euler_y="1.07282" euler_z="2.78889" id="16" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1b_volcanic.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-199.301" t1="-45.6418" t2="51.0368" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.655806" q1="-0.140204" q2="0.486276" q3="0.560176" euler_x="1.40436" euler_y="-0.918815" euler_z="0.637026" id="17" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1a_volcanic.xml">
         <parameters />
     </EnvObject>
-    <PathPointObject t0="-207.744" t1="-57.7106" t2="-81.7884" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="18" type_file="">
-        <parameters>
-            <parameter name="Type" type="string" val="Stand" />
-            <parameter name="Wait" type="float" val="0" />
-        </parameters>
-        <Connections>
-            <Connection id="15" />
-        </Connections>
-    </PathPointObject>
     <EnvObject t0="-193.009" t1="-48.5369" t2="56.0423" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.769604" q1="0" q2="0" q3="0.638521" euler_x="1.75644" euler_y="0" euler_z="0" id="19" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1b_volcanic.xml">
         <parameters />
     </EnvObject>
@@ -181,16 +163,6 @@
     <EnvObject t0="-92.0363" t1="-38.5201" t2="95.0129" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.486962" q1="-0.496253" q2="0.232259" q3="0.680189" euler_x="1.49408" euler_y="-1.12275" euler_z="-0.396628" id="39" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1a_volcanic.xml">
         <parameters />
     </EnvObject>
-    <PathPointObject t0="-170.751" t1="-61.6355" t2="-135.099" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="40" type_file="">
-        <parameters>
-            <parameter name="Type" type="string" val="Stand" />
-            <parameter name="Wait" type="float" val="0" />
-        </parameters>
-        <Connections>
-            <Connection id="58" />
-            <Connection id="72" />
-        </Connections>
-    </PathPointObject>
     <EnvObject t0="-94.2028" t1="-39.3764" t2="99.532" s0="1.00017" s1="1.00017" s2="1.00017" q0="-0.688983" q1="-0.249639" q2="-0.599184" q3="0.32243" euler_x="-2.04249" euler_y="-1.40714" euler_z="-0.263237" id="41" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1a_volcanic.xml">
         <parameters />
     </EnvObject>
@@ -242,16 +214,6 @@
     <EnvObject t0="-2.53063" t1="-35.4435" t2="34.6887" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.263099" q1="-0.354207" q2="0.821732" q3="0.360656" euler_x="-0.571106" euler_y="-0.758575" euler_z="2.5474" id="57" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1a_volcanic.xml">
         <parameters />
     </EnvObject>
-    <PathPointObject t0="-158.151" t1="-61.2617" t2="-153.298" s0="1.00017" s1="1.00017" s2="1.00017" q0="-0.0109662" q1="0.0132809" q2="0.0225878" q3="0.999596" euler_x="-0.021333" euler_y="0.0270498" euler_z="0.0448976" id="58" type_file="">
-        <parameters>
-            <parameter name="Type" type="string" val="Stand" />
-            <parameter name="Wait" type="float" val="0" />
-        </parameters>
-        <Connections>
-            <Connection id="71" />
-            <Connection id="40" />
-        </Connections>
-    </PathPointObject>
     <EnvObject t0="169.692" t1="-41.2967" t2="-121.506" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.191777" q1="-0.936162" q2="0.0371438" q3="0.292306" euler_x="3.09012" euler_y="-0.596244" euler_z="-2.72166" id="59" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1a_volcanic.xml">
         <parameters />
     </EnvObject>
@@ -288,79 +250,9 @@
     <EnvObject t0="184.912" t1="-34.4135" t2="-113.948" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.769604" q1="0" q2="0" q3="0.638521" euler_x="1.75644" euler_y="0" euler_z="0" id="70" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1b_volcanic.xml">
         <parameters />
     </EnvObject>
-    <PathPointObject t0="-135.007" t1="-64.3796" t2="-123.866" s0="1.00017" s1="1.00017" s2="1.00017" q0="-0.0109662" q1="0.0132809" q2="0.0225878" q3="0.999596" euler_x="-0.021333" euler_y="0.0270498" euler_z="0.0448976" id="71" type_file="">
-        <parameters>
-            <parameter name="Type" type="string" val="Stand" />
-            <parameter name="Wait" type="float" val="0" />
-        </parameters>
-        <Connections>
-            <Connection id="72" />
-            <Connection id="58" />
-        </Connections>
-    </PathPointObject>
-    <PathPointObject t0="-148.378" t1="-63.4293" t2="-116.548" s0="1.00017" s1="1.00017" s2="1.00017" q0="-0.0109662" q1="0.0132809" q2="0.0225878" q3="0.999596" euler_x="-0.021333" euler_y="0.0270498" euler_z="0.0448976" id="72" type_file="">
-        <parameters>
-            <parameter name="Type" type="string" val="Stand" />
-            <parameter name="Wait" type="float" val="0" />
-        </parameters>
-        <Connections>
-            <Connection id="40" />
-            <Connection id="71" />
-        </Connections>
-    </PathPointObject>
     <EnvObject t0="-237.983" t1="-36.7555" t2="48.5092" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.98925" q1="-0.123166" q2="0.0322815" q3="0.07192" euler_x="3.00639" euler_y="-0.0816759" euler_z="-0.242201" id="74" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1a_volcanic.xml">
         <parameters />
     </EnvObject>
-    <PathPointObject t0="-1.29351" t1="-70.9683" t2="-168.718" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="75" type_file="">
-        <parameters>
-            <parameter name="Type" type="string" val="Stand" />
-            <parameter name="Wait" type="float" val="0" />
-        </parameters>
-        <Connections>
-            <Connection id="76" />
-            <Connection id="79" />
-        </Connections>
-    </PathPointObject>
-    <PathPointObject t0="25.7728" t1="-69.8352" t2="-170.295" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="76" type_file="">
-        <parameters>
-            <parameter name="Type" type="string" val="Stand" />
-            <parameter name="Wait" type="float" val="0" />
-        </parameters>
-        <Connections>
-            <Connection id="77" />
-            <Connection id="75" />
-        </Connections>
-    </PathPointObject>
-    <PathPointObject t0="5.35962" t1="-59.2724" t2="-120.276" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="77" type_file="">
-        <parameters>
-            <parameter name="Type" type="string" val="Stand" />
-            <parameter name="Wait" type="float" val="0" />
-        </parameters>
-        <Connections>
-            <Connection id="78" />
-            <Connection id="76" />
-        </Connections>
-    </PathPointObject>
-    <PathPointObject t0="42.7786" t1="-61.8984" t2="-107.332" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="78" type_file="">
-        <parameters>
-            <parameter name="Type" type="string" val="Stand" />
-            <parameter name="Wait" type="float" val="0" />
-        </parameters>
-        <Connections>
-            <Connection id="79" />
-            <Connection id="77" />
-        </Connections>
-    </PathPointObject>
-    <PathPointObject t0="78.9464" t1="-67.0879" t2="-142.919" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="79" type_file="">
-        <parameters>
-            <parameter name="Type" type="string" val="Stand" />
-            <parameter name="Wait" type="float" val="0" />
-        </parameters>
-        <Connections>
-            <Connection id="75" />
-            <Connection id="78" />
-        </Connections>
-    </PathPointObject>
     <AmbientSoundObject t0="-72.3382" t1="-21.7652" t2="-56.8594" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="80" type_file="Data/Objects/Sounds/deadvolcanorocks.xml">
         <parameters />
     </AmbientSoundObject>
@@ -391,7 +283,7 @@
     <AmbientSoundObject t0="-195.738" t1="-46.9901" t2="52.5212" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="89" type_file="Data/Objects/Sounds/deadvolcanorocks.xml">
         <parameters />
     </AmbientSoundObject>
-    <AmbientSoundObject t0="-180.245" t1="-41.8613" t2="120.035" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="90" type_file="Data/Objects/Sounds/deadvolcanorocks.xml">
+    <AmbientSoundObject t0="-179.413" t1="-42.1042" t2="119.65" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="90" type_file="Data/Objects/Sounds/deadvolcanorocks.xml">
         <parameters />
     </AmbientSoundObject>
     <AmbientSoundObject t0="-162.301" t1="-51.0139" t2="128.576" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="91" type_file="Data/Objects/Sounds/deadvolcanorocks.xml">
@@ -466,7 +358,7 @@
     <EnvObject t0="80.4713" t1="-64.9233" t2="-98.7825" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="-0.122042" q3="0.992525" euler_x="0" euler_y="0" euler_z="-0.244694" id="105" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/dark_dirty_cube.xml">
         <parameters />
     </EnvObject>
-    <CameraObject t0="-66.9927" t1="4.52438" t2="-7.12172" s0="1" s1="1" s2="1" q0="0.293154" q1="0.335236" q2="-0.110608" q3="0.888506" euler_x="0.637387" euler_y="0.721577" euler_z="0" id="106">
+    <CameraObject t0="-74.1996" t1="2.45616" t2="-10.7105" s0="1" s1="1" s2="1" q0="0.415669" q1="-0.373412" q2="0.192409" q3="0.806698" euler_x="0.951581" euler_y="-0.867042" euler_z="0" id="106">
         <parameters />
     </CameraObject>
     <AmbientSoundObject t0="106.999" t1="-64.84" t2="-89.0136" s0="1.00017" s1="1.00017" s2="1.00017" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="109" type_file="Data/Objects/Sounds/deadvolcanorocks.xml">
@@ -725,17 +617,16 @@
             <parameter name="Delay Time" type="float" val="0" />
             <parameter name="Fast Mode - No Collision Refresh" type="int" val="1" />
             <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
-            <parameter name="IdleSoundDelay" type="float" val="8" />
             <parameter name="IdleSoundPath" type="string" val="Data/Sounds/ambient/lava_loop.wav" />
+            <parameter name="IdleSoundVolume" type="float" val="0.6" />
             <parameter name="KeepDisabled" type="string" val="" />
             <parameter name="Loop Phases" type="int" val="1" />
             <parameter name="Min Distance To Activate" type="float" val="30" />
             <parameter name="Phase Change Time" type="float" val="2" />
             <parameter name="Phase Starting Direction Forward" type="int" val="1" />
-            <parameter name="Rise Speed" type="float" val="0.005" />
-            <parameter name="RiseSpeed" type="float" val="0.05" />
-            <parameter name="RisingSoundDelay" type="float" val="8" />
+            <parameter name="Rise Speed" type="float" val="0.004" />
             <parameter name="RisingSoundPath" type="string" val="Data/Sounds/ambient/lava_loop_old.wav" />
+            <parameter name="RisingSoundVolume" type="float" val="0.8" />
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="type" type="string" val="waterRiseHotspot" />
         </parameters>
@@ -852,25 +743,12 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Decal t0="-51.6136" t1="-59.9654" t2="-197.614" s0="7.09375" s1="7.09375" s2="7.09375" q0="0.129348" q1="-0.83491" q2="-0.460753" q3="0.271848" euler_x="2.04181" euler_y="-0.341332" euler_z="-2.62369" id="163" type_file="Data/Objects/Decals/signs/glyph_rabbit.xml" color_r="1" color_g="0" color_b="0" overbright="3">
-        <parameters />
-    </Decal>
     <EnvObject t0="170.368" t1="-41.6898" t2="-108.819" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.769604" q1="0" q2="0" q3="0.638521" euler_x="1.75644" euler_y="0" euler_z="0" id="164" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1b_volcanic.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="153.462" t1="-57.7623" t2="-94.462" s0="1.00017" s1="1.00017" s2="1.00017" q0="0.767929" q1="-0.0420976" q2="-0.0507393" q3="0.637133" euler_x="1.75486" euler_y="0.0242872" euler_z="-0.129713" id="165" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1b_volcanic.xml">
         <parameters />
     </EnvObject>
-    <DynamicLightObject t0="-51.3429" t1="-58.6904" t2="-195.659" s0="13.0617" s1="13.0617" s2="13.0617" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="166" color_r="28.6" color_g="0" color_b="0" overbright="1">
-        <parameters />
-    </DynamicLightObject>
-    <Hotspot t0="-51.6648" t1="-60.6961" t2="-198.136" s0="1.22991" s1="1.22991" s2="1.22991" q0="-0.385332" q1="0" q2="0" q3="0.922778" euler_x="-0.791135" euler_y="0" euler_z="0" id="167" type_file="Data/Objects/Hotspots/loadlevel.xml">
-        <parameters>
-            <parameter name="Level to load" type="string" val="Data/Levels/arenas/Magma_Arena.xml" />
-        </parameters>
-        <Connections />
-        <ConnectionsFrom />
-    </Hotspot>
     <EnvObject t0="171.754" t1="-30.2463" t2="-196.613" s0="1.00017" s1="1.00017" s2="1.00017" q0="-0.903558" q1="-0.224022" q2="-0.361867" q3="0.0494901" euler_x="3.04276" euler_y="-0.742469" euler_z="0.524564" id="168" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1a_volcanic.xml">
         <parameters />
     </EnvObject>
@@ -2002,6 +1880,7 @@
             <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
             <parameter name="IdleSoundDelay" type="float" val="1.2" />
             <parameter name="IdleSoundPath" type="string" val="" />
+            <parameter name="IdleSoundVolume" type="float" val="1" />
             <parameter name="Loop Phases" type="int" val="1" />
             <parameter name="Min Distance To Activate" type="float" val="30" />
             <parameter name="Phase Change Time" type="float" val="2" />
@@ -2009,6 +1888,7 @@
             <parameter name="Rise Speed" type="float" val="0.005" />
             <parameter name="RisingSoundDelay" type="float" val="0.5" />
             <parameter name="RisingSoundPath" type="string" val="Data/Sounds/water_foley/small_waves.xml" />
+            <parameter name="RisingSoundVolume" type="float" val="1" />
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="type" type="string" val="waterRiseHotspot" />
         </parameters>
@@ -2183,7 +2063,7 @@
             </ConnectionsFrom>
         </Hotspot>
     </Group>
-    <Group t0="-80.5716" t1="23.9375" t2="-3.44389" s0="7.87835" s1="2.42493" s2="4.34781" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="725" version="1">
+    <Group t0="-80.5716" t1="23.9375" t2="-3.44389" s0="7.87806" s1="2.42472" s2="4.34769" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="725" version="1">
         <parameters />
         <Hotspot t0="-78.6464" t1="23.9369" t2="-3.41601" s0="0.999963" s1="0.552999" s2="0.995115" q0="0.00319453" q1="-0.999743" q2="-0.0224499" q3="-0.000575735" euler_x="3.09669" euler_y="0.00129461" euler_z="-3.13523" id="726" type_file="Data/Objects/Hotspots/spike.xml">
             <parameters />
@@ -2237,7 +2117,7 @@
                 <Connection id="649" />
             </ConnectionsFrom>
         </Hotspot>
-        <Group t0="-80.9148" t1="23.9099" t2="-13.7313" s0="7.87846" s1="2.4252" s2="4.34824" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="648" version="1">
+        <Group t0="-80.9148" t1="23.9099" t2="-13.7313" s0="7.87825" s1="2.42519" s2="4.34816" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="648" version="1">
             <parameters />
             <Hotspot t0="-82.84" t1="23.9094" t2="-13.7592" s0="1" s1="0.553055" s2="0.995226" q0="-0.0224499" q1="-0.000575691" q2="-0.00319461" q3="0.999743" euler_x="-0.0448997" euler_y="-0.00129452" euler_z="-0.00636178" id="615" type_file="Data/Objects/Hotspots/spike.xml">
                 <parameters />
@@ -2350,7 +2230,7 @@
         <parameters>
             <parameter name="gameMode" type="string" val="Race" />
             <parameter name="game_type" type="string" val="versusBrawl" />
-            <parameter name="player0Reached" type="int" val="1" />
+            <parameter name="player0Reached" type="int" val="0" />
             <parameter name="player1Reached" type="int" val="0" />
             <parameter name="player2Reached" type="int" val="0" />
             <parameter name="player3Reached" type="int" val="0" />
@@ -2363,7 +2243,7 @@
         <parameters>
             <parameter name="gameMode" type="string" val="Race" />
             <parameter name="game_type" type="string" val="versusBrawl" />
-            <parameter name="player0Reached" type="int" val="1" />
+            <parameter name="player0Reached" type="int" val="0" />
             <parameter name="player1Reached" type="int" val="0" />
             <parameter name="player2Reached" type="int" val="0" />
             <parameter name="player3Reached" type="int" val="0" />
@@ -2443,6 +2323,7 @@
             <parameters>
                 <parameter name="Circle Zone" type="int" val="0" />
                 <parameter name="Min Distance To Activate" type="float" val="40" />
+                <parameter name="No Light" type="int" val="0" />
                 <parameter name="game_type" type="string" val="versusBrawl" />
                 <parameter name="originalScale" type="string" val="vec3(0.226191, 0.226191, 0.226191)" />
                 <parameter name="particleColorB" type="float" val="1" />
@@ -2540,6 +2421,7 @@
             <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
             <parameter name="IdleSoundDelay" type="float" val="1.2" />
             <parameter name="IdleSoundPath" type="string" val="" />
+            <parameter name="IdleSoundVolume" type="float" val="1" />
             <parameter name="Loop Phases" type="int" val="1" />
             <parameter name="Min Distance To Activate" type="float" val="30" />
             <parameter name="Phase Change Time" type="float" val="2" />
@@ -2547,6 +2429,7 @@
             <parameter name="Rise Speed" type="float" val="0.005" />
             <parameter name="RisingSoundDelay" type="float" val="0.5" />
             <parameter name="RisingSoundPath" type="string" val="Data/Sounds/water_foley/small_waves.xml" />
+            <parameter name="RisingSoundVolume" type="float" val="1" />
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="type" type="string" val="waterRiseHotspot" />
         </parameters>
@@ -2579,6 +2462,7 @@
             <parameters>
                 <parameter name="Circle Zone" type="int" val="0" />
                 <parameter name="Min Distance To Activate" type="float" val="40" />
+                <parameter name="No Light" type="int" val="0" />
                 <parameter name="game_type" type="string" val="versusBrawl" />
                 <parameter name="originalScale" type="string" val="vec3(0.226191, 0.226191, 0.226191)" />
                 <parameter name="particleColorB" type="float" val="1" />
@@ -2612,6 +2496,7 @@
             <parameters>
                 <parameter name="Circle Zone" type="int" val="0" />
                 <parameter name="Min Distance To Activate" type="float" val="40" />
+                <parameter name="No Light" type="int" val="0" />
                 <parameter name="game_type" type="string" val="versusBrawl" />
                 <parameter name="originalScale" type="string" val="vec3(0.226191, 0.226191, 0.226191)" />
                 <parameter name="particleColorB" type="float" val="1" />
@@ -2643,6 +2528,7 @@
             <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
             <parameter name="IdleSoundDelay" type="float" val="1.2" />
             <parameter name="IdleSoundPath" type="string" val="" />
+            <parameter name="IdleSoundVolume" type="float" val="1" />
             <parameter name="Loop Phases" type="int" val="1" />
             <parameter name="Min Distance To Activate" type="float" val="30" />
             <parameter name="Phase Change Time" type="float" val="2" />
@@ -2650,6 +2536,7 @@
             <parameter name="Rise Speed" type="float" val="0.005" />
             <parameter name="RisingSoundDelay" type="float" val="0.5" />
             <parameter name="RisingSoundPath" type="string" val="Data/Sounds/water_foley/small_waves.xml" />
+            <parameter name="RisingSoundVolume" type="float" val="1" />
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="type" type="string" val="waterRiseHotspot" />
         </parameters>
@@ -2755,6 +2642,7 @@
             <parameters>
                 <parameter name="Circle Zone" type="int" val="0" />
                 <parameter name="Min Distance To Activate" type="float" val="40" />
+                <parameter name="No Light" type="int" val="0" />
                 <parameter name="game_type" type="string" val="versusBrawl" />
                 <parameter name="originalScale" type="string" val="vec3(0.226191, 0.226191, 0.226191)" />
                 <parameter name="particleColorB" type="float" val="1" />
@@ -2788,6 +2676,7 @@
             <parameters>
                 <parameter name="Circle Zone" type="int" val="0" />
                 <parameter name="Min Distance To Activate" type="float" val="40" />
+                <parameter name="No Light" type="int" val="0" />
                 <parameter name="game_type" type="string" val="versusBrawl" />
                 <parameter name="originalScale" type="string" val="vec3(0.226191, 0.226191, 0.226191)" />
                 <parameter name="particleColorB" type="float" val="1" />
@@ -2821,6 +2710,7 @@
             <parameters>
                 <parameter name="Circle Zone" type="int" val="0" />
                 <parameter name="Min Distance To Activate" type="float" val="40" />
+                <parameter name="No Light" type="int" val="0" />
                 <parameter name="game_type" type="string" val="versusBrawl" />
                 <parameter name="originalScale" type="string" val="vec3(0.226191, 0.226191, 0.226191)" />
                 <parameter name="particleColorB" type="float" val="1" />

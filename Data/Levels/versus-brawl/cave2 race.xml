@@ -13,7 +13,7 @@
 <LevelScriptParameters>
     <parameter name="Achievements" type="string" val="flawless, no_injuries, no_kills" />
     <parameter name="Custom Shader" type="string" val="#TEST_CLOUDS_2 #GPU_PARTICLE_FIELD_OCCLUSION #LIGHT_AMB " />
-    <parameter name="Fog amount" type="float" val="1.7919" />
+    <parameter name="Fog amount" type="float" val="1.4451" />
     <parameter name="GPU Particle Field" type="string" val="#ASH" />
     <parameter name="HDR Black point" type="float" val="0.14" />
     <parameter name="HDR Bloom multiplier" type="float" val="0.8589" />
@@ -36,7 +36,7 @@
     <RayToSun r0="-0.0342701" r1="0.622072" r2="-0.78221" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="35.4364" t1="0.689449" t2="43.3657" s0="1" s1="1" s2="1" q0="0.032858" q1="-0.943678" q2="0.0987254" q3="0.314078" euler_x="-2.93312" euler_y="-0.642582" euler_z="3.14159" id="0">
+    <CameraObject t0="15.3933" t1="1.25005" t2="-45.1135" s0="1" s1="1" s2="1" q0="0.0028872" q1="0.996444" q2="0.0749538" q3="-0.0383824" euler_x="2.99143" euler_y="-0.0770007" euler_z="3.14159" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="25.7015" t1="5.13222" t2="53.1129" s0="-0.806161" s1="0.646087" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Cave.xml">
@@ -99,12 +99,13 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Group t0="87.3402" t1="-18.9599" t2="247.653" s0="12.547" s1="12.547" s2="12.547" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="20" version="1">
+    <Group t0="87.6043" t1="-19.9166" t2="248.338" s0="2.01" s1="4.63825" s2="2.22692" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="20" version="1">
         <parameters />
-        <Hotspot t0="87.3402" t1="-18.9599" t2="247.653" s0="0.258985" s1="0.258985" s2="0.258985" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="21" type_file="Data/Objects/powerups/objectFollowerEmitter.xml">
+        <Hotspot t0="87.6531" t1="-19.1563" t2="248.049" s0="0.258985" s1="0.258985" s2="0.258985" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="21" type_file="Data/Objects/powerups/objectFollowerEmitter.xml">
             <parameters>
                 <parameter name="Circle Zone" type="int" val="0" />
                 <parameter name="Min Distance To Activate" type="float" val="80" />
+                <parameter name="No Light" type="int" val="0" />
                 <parameter name="game_type" type="string" val="versusBrawl" />
                 <parameter name="originalScale" type="string" val="vec3(0.258985, 0.258985, 0.258985)" />
                 <parameter name="particleColorB" type="float" val="0.220431" />
@@ -119,10 +120,14 @@
                 <Connection id="120" />
             </ConnectionsFrom>
         </Hotspot>
-        <DynamicLightObject t0="87.3402" t1="-18.9599" t2="247.653" s0="12.537" s1="12.537" s2="12.537" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="26" color_r="1" color_g="0.546264" color_b="0.215686" overbright="50">
+        <Hotspot t0="87.6688" t1="-19.0153" t2="248.096" s0="0.418423" s1="0.706425" s2="0.433453" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="121" type_file="Data/Objects/Hotspots/lava_kill.xml">
             <parameters />
-        </DynamicLightObject>
-        <Hotspot t0="87.2914" t1="-21.0343" t2="248.05" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="120" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="120" />
+            </ConnectionsFrom>
+        </Hotspot>
+        <Hotspot t0="87.6043" t1="-21.2307" t2="248.446" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="120" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
             <parameters>
                 <parameter name="Bobbing Direction Inverted" type="int" val="0" />
                 <parameter name="Bobbing Multiplier" type="int" val="40" />
@@ -131,6 +136,7 @@
                 <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
                 <parameter name="IdleSoundDelay" type="float" val="1.2" />
                 <parameter name="IdleSoundPath" type="string" val="" />
+                <parameter name="IdleSoundVolume" type="float" val="1" />
                 <parameter name="Loop Phases" type="int" val="1" />
                 <parameter name="Min Distance To Activate" type="int" val="50" />
                 <parameter name="Phase Change Time" type="float" val="2" />
@@ -138,28 +144,15 @@
                 <parameter name="Rise Speed" type="float" val="0.005" />
                 <parameter name="RisingSoundDelay" type="float" val="0.5" />
                 <parameter name="RisingSoundPath" type="string" val="" />
+                <parameter name="RisingSoundVolume" type="float" val="1" />
                 <parameter name="game_type" type="string" val="versusBrawl" />
                 <parameter name="type" type="string" val="waterRiseHotspot" />
             </parameters>
             <Connections>
                 <Connection id="21" />
-                <Connection id="26" />
                 <Connection id="121" />
-                <Connection id="251" />
-                <Connection id="515" />
-                <Connection id="577" />
-                <Connection id="590" />
-                <Connection id="603" />
-                <Connection id="595" />
             </Connections>
             <ConnectionsFrom />
-        </Hotspot>
-        <Hotspot t0="87.3559" t1="-18.8189" t2="247.7" s0="0.418423" s1="0.706425" s2="0.433453" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="121" type_file="Data/Objects/Hotspots/lava_kill.xml">
-            <parameters />
-            <Connections />
-            <ConnectionsFrom>
-                <Connection id="120" />
-            </ConnectionsFrom>
         </Hotspot>
     </Group>
     <EnvObject t0="38.7745" t1="-9.99098" t2="98.9972" s0="0.548445" s1="1.03389" s2="0.937057" q0="0.0192093" q1="0.93812" q2="0.0451557" q3="0.342818" euler_x="3.01364" euler_y="0.696418" euler_z="3.05414" id="22" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_BridgeShort.xml">
@@ -197,13 +190,16 @@
             <parameters />
         </DynamicLightObject>
     </Group>
+    <EnvObject t0="12.4674" t1="-0.570056" t2="52.9478" s0="0.207099" s1="0.30162" s2="0.303837" q0="-0.171679" q1="-0.646329" q2="0.0676626" q3="0.740412" euler_x="-1.27114" euler_y="-1.20508" euler_z="1.1214" id="26" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge3.xml">
+        <parameters />
+    </EnvObject>
     <EnvObject t0="29.5502" t1="38.9334" t2="-26.214" s0="2.05986" s1="1.0577" s2="3.19455" q0="0.0113423" q1="0.988235" q2="0.030002" q3="0.14953" euler_x="3.07594" euler_y="0.29931" euler_z="3.10874" id="27" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge3.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="54.6839" t1="25.7296" t2="-19.074" s0="2.10964" s1="1.65027" s2="3.19455" q0="0.0651473" q1="0.993188" q2="-0.0616798" q3="0.0743053" euler_x="-3.02711" euler_y="0.15627" euler_z="3.01956" id="28" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge3.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="76.1015" t1="21.5732" t2="-33.5531" s0="1.22041" s1="2.07441" s2="1.6388" q0="-0.113725" q1="0.338639" q2="0.0227482" q3="0.933744" euler_x="-0.258552" euler_y="0.691351" euler_z="-0.0448515" id="29" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge4.xml">
+    <EnvObject t0="76.9584" t1="19.3872" t2="-32.2639" s0="1.00877" s1="2.20713" s2="1.6388" q0="-0.194677" q1="0.256652" q2="-0.00215546" q3="0.946693" euler_x="-0.436513" euler_y="0.50648" euler_z="-0.119224" id="29" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge4.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-26.8271" t1="23.9303" t2="-31.7295" s0="1.30705" s1="2.22168" s2="1.75514" q0="-0.192232" q1="-0.496595" q2="0.0621973" q3="0.844137" euler_x="-0.728615" euler_y="-0.951825" euler_z="0.535245" id="30" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge4.xml">
@@ -240,7 +236,7 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="29.7369" t1="-18.27" t2="132.601" s0="40.4589" s1="1.71" s2="84.0649" q0="0.0180569" q1="0.00439954" q2="0.00189713" q3="0.999825" euler_x="0.0361334" euler_y="0.00872914" euler_z="0.00395264" id="38" type_file="Data/Objects/versus-brawl/hotspots/hot_cube.xml">
+    <Hotspot t0="30.3475" t1="-18.5997" t2="141.82" s0="40.1945" s1="1.71067" s2="79.4501" q0="0.0180569" q1="0.00439954" q2="0.00189713" q3="0.999825" euler_x="0.0361334" euler_y="0.00872914" euler_z="0.00395264" id="38" type_file="Data/Objects/versus-brawl/hotspots/hot_cube.xml">
         <parameters>
             <parameter name="Water Fog" type="float" val="1" />
             <parameter name="Wave Density" type="float" val="0.25" />
@@ -255,10 +251,10 @@
     <EnvObject t0="38.5908" t1="-31.0967" t2="-49.8138" s0="1" s1="1" s2="1" q0="-0.89531" q1="0.0153675" q2="-0.444296" q3="0.0281307" euler_x="-3.03592" euler_y="-0.918514" euler_z="-0.0866216" id="39" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Cliffs/CliffTrim_02_lichen.xml">
         <parameters />
     </EnvObject>
-    <DynamicLightObject t0="28.5854" t1="-13.7165" t2="92.699" s0="161.102" s1="161.102" s2="161.102" q0="0.070644" q1="-0.00264679" q2="0.0154727" q3="0.99738" euler_x="0.14131" euler_y="-0.00746589" euler_z="0.0304959" id="47" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
+    <DynamicLightObject t0="32.5118" t1="-17.3895" t2="96.0736" s0="161.102" s1="161.102" s2="161.102" q0="0.0707245" q1="-0.00253871" q2="0.0153962" q3="0.997376" euler_x="0.141475" euler_y="-0.00724194" euler_z="0.030358" id="47" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
         <parameters />
     </DynamicLightObject>
-    <DynamicLightObject t0="51.825" t1="-14.2406" t2="115.567" s0="161.102" s1="161.102" s2="161.102" q0="0.070644" q1="-0.00264679" q2="0.0154727" q3="0.99738" euler_x="0.14131" euler_y="-0.00746589" euler_z="0.0304959" id="48" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
+    <DynamicLightObject t0="51.8926" t1="-18.3775" t2="115.558" s0="161.102" s1="161.102" s2="161.102" q0="0.070644" q1="-0.00264679" q2="0.0154727" q3="0.99738" euler_x="0.14131" euler_y="-0.00746589" euler_z="0.0304959" id="48" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
         <parameters />
     </DynamicLightObject>
     <EnvObject t0="19.9404" t1="-30.5455" t2="-49.2796" s0="1.41132" s1="1.16226" s2="1.26329" q0="0.0384503" q1="0.016697" q2="-0.99901" q3="-0.0151019" euler_x="-0.0346302" euler_y="0.0763944" euler_z="3.11004" id="49" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Cliffs/CliffTrim_02_lichen.xml">
@@ -369,7 +365,7 @@
     <EnvObject t0="-80.2252" t1="-30.1247" t2="-79.7451" s0="2.56682" s1="6.43806" s2="2.74188" q0="0.0966895" q1="-0.0136273" q2="-0.0901006" q3="0.991136" euler_x="0.19537" euler_y="-0.0095896" euler_z="-0.182255" id="84" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Cliffs/CliffRock_03_lichen.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-16.4236" t1="-30.1681" t2="-375.817" s0="1.00629" s1="2.9974" s2="1" q0="-0.130491" q1="-0.0760202" q2="-0.0835967" q3="0.98499" euler_x="-0.250649" euler_y="-0.172429" euler_z="-0.147559" id="85" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Cliffs/CliffRock_03_lichen.xml">
+    <EnvObject t0="0.463196" t1="-33.3681" t2="-334.222" s0="5.34179" s1="15.9114" s2="5.3084" q0="0.0209306" q1="0.559273" q2="0.336479" q3="-0.757337" euler_x="0.745199" euler_y="-1.03763" euler_z="-1.27535" id="85" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Cliffs/CliffRock_03_lichen.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="285.652" t1="-30.1681" t2="-107.151" s0="4.57142" s1="13.6167" s2="4.54285" q0="-0.130491" q1="-0.0760202" q2="-0.0835967" q3="0.98499" euler_x="-0.250649" euler_y="-0.172429" euler_z="-0.147559" id="86" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Cliffs/CliffRock_03_lichen.xml">
@@ -413,7 +409,8 @@
             <parameter name="Fast Mode - No Collision Refresh" type="int" val="1" />
             <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
             <parameter name="IdleSoundDelay" type="float" val="1.2" />
-            <parameter name="IdleSoundPath" type="string" val="" />
+            <parameter name="IdleSoundPath" type="string" val="Data/Sounds/water_foley/small_waves_2.wav" />
+            <parameter name="IdleSoundVolume" type="float" val="0.3" />
             <parameter name="Loop Phases" type="int" val="1" />
             <parameter name="Min Distance To Activate" type="int" val="120" />
             <parameter name="Phase Change Time" type="float" val="2" />
@@ -421,6 +418,7 @@
             <parameter name="Rise Speed" type="float" val="0.005" />
             <parameter name="RisingSoundDelay" type="float" val="0.5" />
             <parameter name="RisingSoundPath" type="string" val="" />
+            <parameter name="RisingSoundVolume" type="float" val="1" />
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="type" type="string" val="waterRiseHotspot" />
         </parameters>
@@ -470,7 +468,8 @@
             <parameter name="Fast Mode - No Collision Refresh" type="int" val="1" />
             <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
             <parameter name="IdleSoundDelay" type="float" val="1.2" />
-            <parameter name="IdleSoundPath" type="string" val="" />
+            <parameter name="IdleSoundPath" type="string" val="Data/Sounds/ambient/lava_loop.wav" />
+            <parameter name="IdleSoundVolume" type="float" val="0.2" />
             <parameter name="Loop Phases" type="int" val="1" />
             <parameter name="Min Distance To Activate" type="int" val="1000" />
             <parameter name="Phase Change Time" type="float" val="2" />
@@ -478,6 +477,7 @@
             <parameter name="Rise Speed" type="float" val="0.005" />
             <parameter name="RisingSoundDelay" type="float" val="0.5" />
             <parameter name="RisingSoundPath" type="string" val="" />
+            <parameter name="RisingSoundVolume" type="float" val="1" />
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="type" type="string" val="waterRiseHotspot" />
         </parameters>
@@ -515,6 +515,7 @@
             <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
             <parameter name="IdleSoundDelay" type="float" val="1.2" />
             <parameter name="IdleSoundPath" type="string" val="" />
+            <parameter name="IdleSoundVolume" type="float" val="1" />
             <parameter name="Loop Phases" type="int" val="1" />
             <parameter name="Min Distance To Activate" type="int" val="1000" />
             <parameter name="Phase Change Time" type="float" val="2" />
@@ -522,6 +523,7 @@
             <parameter name="Rise Speed" type="float" val="0.005" />
             <parameter name="RisingSoundDelay" type="float" val="0.5" />
             <parameter name="RisingSoundPath" type="string" val="" />
+            <parameter name="RisingSoundVolume" type="float" val="1" />
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="type" type="string" val="waterRiseHotspot" />
         </parameters>
@@ -572,14 +574,15 @@
     <EnvObject t0="73.1235" t1="-30.6834" t2="223.335" s0="1" s1="1.57796" s2="1.02429" q0="0" q1="-0.985831" q2="0" q3="0.16774" euler_x="3.14159" euler_y="-0.337073" euler_z="3.14159" id="119" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge1.xml">
         <parameters />
     </EnvObject>
-    <Group t0="67.4911" t1="-18.6794" t2="230.423" s0="14.4467" s1="14.4467" s2="14.4467" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="122" version="1">
+    <Group t0="67.4711" t1="-19.4741" t2="230.698" s0="2.12141" s1="5.22997" s2="2.62163" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="122" version="1">
         <parameters />
-        <Hotspot t0="67.4911" t1="-18.6811" t2="230.423" s0="0.298227" s1="0.298227" s2="0.298227" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="247" type_file="Data/Objects/powerups/objectFollowerEmitter.xml">
+        <Hotspot t0="67.4911" t1="-18.6811" t2="230.423" s0="0.298452" s1="0.298402" s2="0.298419" q0="-0.0113782" q1="0.0231361" q2="0.00139809" q3="0.999666" euler_x="-0.0227104" euler_y="0.0463051" euler_z="0.00227119" id="247" type_file="Data/Objects/powerups/objectFollowerEmitter.xml">
             <parameters>
                 <parameter name="Circle Zone" type="int" val="0" />
                 <parameter name="Min Distance To Activate" type="float" val="80" />
+                <parameter name="No Light" type="int" val="0" />
                 <parameter name="game_type" type="string" val="versusBrawl" />
-                <parameter name="originalScale" type="string" val="vec3(0.298227, 0.298227, 0.298227)" />
+                <parameter name="originalScale" type="string" val="vec3(0.298452, 0.298402, 0.298419)" />
                 <parameter name="particleColorB" type="float" val="0.220431" />
                 <parameter name="particleColorG" type="float" val="1" />
                 <parameter name="particleColorR" type="float" val="1.17647" />
@@ -592,10 +595,14 @@
                 <Connection id="252" />
             </ConnectionsFrom>
         </Hotspot>
-        <DynamicLightObject t0="67.4911" t1="-18.6794" t2="230.423" s0="14.4367" s1="14.4367" s2="14.4367" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="251" color_r="1" color_g="0.546264" color_b="0.215686" overbright="50">
+        <Hotspot t0="67.5111" t1="-18.5176" t2="230.472" s0="0.482534" s1="0.814507" s2="0.499762" q0="-0.0113782" q1="0.0231361" q2="0.00139809" q3="0.999666" euler_x="-0.0227104" euler_y="0.0463051" euler_z="0.00227119" id="300" type_file="Data/Objects/Hotspots/lava_kill.xml">
             <parameters />
-        </DynamicLightObject>
-        <Hotspot t0="67.4349" t1="-21.0699" t2="230.88" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="252" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="252" />
+            </ConnectionsFrom>
+        </Hotspot>
+        <Hotspot t0="67.464" t1="-21.059" t2="230.936" s0="0.5" s1="0.5" s2="0.5" q0="-0.0113782" q1="0.0231361" q2="0.00139809" q3="0.999666" euler_x="-0.0227104" euler_y="0.0463051" euler_z="0.00227119" id="252" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
             <parameters>
                 <parameter name="Bobbing Direction Inverted" type="int" val="0" />
                 <parameter name="Bobbing Multiplier" type="int" val="35" />
@@ -604,6 +611,7 @@
                 <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
                 <parameter name="IdleSoundDelay" type="float" val="1.2" />
                 <parameter name="IdleSoundPath" type="string" val="" />
+                <parameter name="IdleSoundVolume" type="float" val="1" />
                 <parameter name="Loop Phases" type="int" val="1" />
                 <parameter name="Min Distance To Activate" type="int" val="50" />
                 <parameter name="Phase Change Time" type="float" val="2" />
@@ -611,30 +619,18 @@
                 <parameter name="Rise Speed" type="float" val="0.005" />
                 <parameter name="RisingSoundDelay" type="float" val="0.5" />
                 <parameter name="RisingSoundPath" type="string" val="" />
+                <parameter name="RisingSoundVolume" type="float" val="1" />
                 <parameter name="game_type" type="string" val="versusBrawl" />
                 <parameter name="type" type="string" val="waterRiseHotspot" />
             </parameters>
             <Connections>
                 <Connection id="247" />
-                <Connection id="251" />
                 <Connection id="300" />
-                <Connection id="515" />
-                <Connection id="577" />
-                <Connection id="590" />
-                <Connection id="603" />
-                <Connection id="595" />
             </Connections>
             <ConnectionsFrom />
         </Hotspot>
-        <Hotspot t0="67.5092" t1="-18.5188" t2="230.477" s0="0.481825" s1="0.813467" s2="0.499132" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="300" type_file="Data/Objects/Hotspots/lava_kill.xml">
-            <parameters />
-            <Connections />
-            <ConnectionsFrom>
-                <Connection id="252" />
-            </ConnectionsFrom>
-        </Hotspot>
     </Group>
-    <EnvObject t0="87.1447" t1="-18.4512" t2="230.486" s0="-0.229538" s1="0.550911" s2="-0.605669" q0="0.000435114" q1="-0.710197" q2="0.0202081" q3="0.703715" euler_x="-1.87308" euler_y="-1.54147" euler_z="1.90227" id="123" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge3.xml">
+    <EnvObject t0="87.1447" t1="-18.4491" t2="230.486" s0="-0.229538" s1="0.550911" s2="-0.605669" q0="0.000435114" q1="-0.710197" q2="0.0202081" q3="0.703715" euler_x="-1.87308" euler_y="-1.54147" euler_z="1.90227" id="123" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge3.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="24.495" t1="-4.22398" t2="-50.5513" s0="1" s1="1" s2="1" q0="0.0756887" q1="-0.139696" q2="-0.0837527" q3="0.983739" euler_x="0.179524" euler_y="-0.265271" euler_z="-0.19388" id="124" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/camp/bed_roll.xml">
@@ -721,30 +717,30 @@
     <Decal t0="8.62927" t1="-4.86314" t2="-17.4678" s0="18.6707" s1="3.09988" s2="16.7786" q0="-0.114167" q1="0.327877" q2="0.0324699" q3="0.937235" euler_x="-0.24867" euler_y="0.671307" euler_z="-0.0178827" id="156" type_file="Data/Objects/Decals/sphere_crete_chip.xml" color_r="0.174825" color_g="0.182117" color_b="0.192157" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="18.6069" t1="-6.67248" t2="-12.4414" s0="27.7501" s1="6.39713" s2="19.415" q0="0.0637171" q1="0.216155" q2="0.0249864" q3="0.973957" euler_x="0.149056" euler_y="0.431096" euler_z="0.0839911" id="157" type_file="Data/Objects/Decals/sphere_crete_chip.xml" color_r="0.174825" color_g="0.182117" color_b="0.192157" overbright="0">
+    <Decal t0="17.9069" t1="-5.88176" t2="-13.1534" s0="27.7501" s1="6.39713" s2="19.415" q0="0.0637171" q1="0.216155" q2="0.0249864" q3="0.973957" euler_x="0.149056" euler_y="0.431096" euler_z="0.0839911" id="157" type_file="Data/Objects/Decals/sphere_crete_chip.xml" color_r="0.174825" color_g="0.182117" color_b="0.192157" overbright="0">
         <parameters />
     </Decal>
     <EnvObject t0="21.7136" t1="-5.96389" t2="-14.5358" s0="0.831169" s1="0.612861" s2="1.8119" q0="-0.107118" q1="0.252704" q2="0.959067" q3="-0.0696607" euler_x="0.531756" euler_y="0.171093" euler_z="-2.94988" id="158" color_r="0.705882" color_g="0.705875" color_b="0.705875" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge3.xml">
         <parameters />
     </EnvObject>
-    <Group t0="11.1849" t1="0.410853" t2="-45.3232" s0="12.8123" s1="13.0767" s2="10.2879" q0="0.0133554" q1="-0.842316" q2="-0.05122" q3="0.536394" euler_x="2.90611" euler_y="-1.12498" euler_z="-2.96103" id="159" version="1">
+    <Group t0="4.40944" t1="-3.36105" t2="-43.0626" s0="11.9685" s1="11.7425" s2="10.2879" q0="-0.0270923" q1="-0.831026" q2="0.072951" q3="0.550778" euler_x="-2.76555" euler_y="-1.14684" euler_z="2.8319" id="159" version="1">
         <parameters />
-        <EnvObject t0="11.5668" t1="1.47274" t2="-43.7956" s0="2.07912" s1="2.04948" s2="1.91132" q0="0.142554" q1="0.513251" q2="-0.00751707" q3="0.846346" euler_x="0.49519" euler_y="1.05707" euler_z="0.275278" id="160" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/medium_deciduous.xml">
+        <EnvObject t0="4.79199" t1="-2.06101" t2="-41.9148" s0="1.94219" s1="1.84038" s2="1.91132" q0="0.0174674" q1="0.528345" q2="-0.0464332" q3="0.847661" euler_x="-0.0440724" euler_y="1.1137" euler_z="-0.136913" id="160" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/medium_deciduous.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="11.1982" t1="0.817993" t2="-45.2821" s0="2.9223" s1="2.88065" s2="2.68646" q0="-0.0567245" q1="-0.894874" q2="0.106393" q3="-0.429848" euler_x="-2.91271" euler_y="0.89689" euler_z="3.12548" id="161" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/medium_deciduous.xml">
+        <EnvObject t0="4.39646" t1="-2.99786" t2="-43.1183" s0="2.72984" s1="2.58675" s2="2.68646" q0="0.0297723" q1="-0.883598" q2="0.204823" q3="-0.420184" euler_x="-2.53962" euler_y="0.818836" euler_z="-2.8065" id="161" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/medium_deciduous.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="11.3842" t1="-3.29208" t2="-45.202" s0="1.6548" s1="1.63121" s2="1.52125" q0="-0.55106" q1="-0.637238" q2="0.319055" q3="0.434248" euler_x="-2.01332" euler_y="-0.203197" euler_z="1.58686" id="162" color_r="0.435294" color_g="0.341176" color_b="0.286275" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/broken_branch_bleached.xml">
+        <EnvObject t0="4.86913" t1="-6.52896" t2="-42.1099" s0="1.54582" s1="1.46478" s2="1.52125" q0="-0.573722" q1="-0.601886" q2="0.421271" q3="0.36228" euler_x="-1.96406" euler_y="0.0473" euler_z="1.65043" id="162" color_r="0.435294" color_g="0.341176" color_b="0.286275" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/broken_branch_bleached.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="11.1804" t1="-2.02384" t2="-43.5263" s0="1.43732" s1="1.41683" s2="1.32132" q0="0.364027" q1="-0.703301" q2="-0.107645" q3="0.601142" euler_x="1.97832" euler_y="-0.874458" euler_z="-1.59019" id="163" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/small_deciduous.xml">
+        <EnvObject t0="4.66744" t1="-5.05179" t2="-40.8623" s0="1.34266" s1="1.27228" s2="1.32132" q0="0.306689" q1="-0.687411" q2="-0.00483859" q3="0.658426" euler_x="1.88451" euler_y="-1.12496" euler_z="-1.44326" id="163" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/small_deciduous.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="11.9115" t1="1.0158" t2="-46.2608" s0="1.82302" s1="1.79704" s2="1.6759" q0="-0.0486678" q1="-0.912572" q2="0.210923" q3="-0.347077" euler_x="-2.659" euler_y="0.712855" euler_z="-3.06542" id="164" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/medium_deciduous.xml">
+        <EnvObject t0="5.03526" t1="-3.01066" t2="-44.0727" s0="1.70296" s1="1.61369" s2="1.6759" q0="0.0298724" q1="-0.886174" q2="0.313291" q3="-0.340281" euler_x="-2.35341" euler_y="0.624114" euler_z="-2.80755" id="164" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/medium_deciduous.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="11.8072" t1="-3.88305" t2="-45.1914" s0="1.43732" s1="1.41683" s2="1.32132" q0="-0.237158" q1="-0.594991" q2="-0.268627" q3="0.719505" euler_x="-0.119832" euler_y="-1.38951" euler_z="-0.615202" id="165" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/small_deciduous.xml">
+        <EnvObject t0="5.32786" t1="-7.01241" t2="-41.9734" s0="1.34266" s1="1.27228" s2="1.32132" q0="-0.310793" q1="-0.618202" q2="-0.162931" q3="0.703439" euler_x="-1.3926" euler_y="-1.32942" euler_z="0.704068" id="165" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/small_deciduous.xml">
             <parameters />
         </EnvObject>
     </Group>
@@ -757,7 +753,7 @@
     <EnvObject t0="-5.45244" t1="-6.51547" t2="-38.8544" s0="0.64858" s1="0.64858" s2="0.64858" q0="0.109191" q1="-0.141442" q2="-0.104031" q3="0.978391" euler_x="0.254062" euler_y="-0.256868" euler_z="-0.244847" id="168" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/green_bush.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="10.1706" t1="-5.8961" t2="-42.6472" s0="1.07289" s1="1.07289" s2="1.07289" q0="-0.0434017" q1="-0.782146" q2="0.053431" q3="0.619282" euler_x="-2.59803" euler_y="-1.30203" euler_z="2.61234" id="169" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/green_bush.xml">
+    <EnvObject t0="12.5217" t1="-5.77022" t2="-43.5205" s0="1.07289" s1="1.07289" s2="1.07289" q0="-0.0434017" q1="-0.782146" q2="0.053431" q3="0.619282" euler_x="-2.59803" euler_y="-1.30203" euler_z="2.61234" id="169" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/green_bush.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="77.0417" t1="-7.89576" t2="-48.2874" s0="1.07289" s1="1.07289" s2="1.07289" q0="0.0583168" q1="-0.809183" q2="-0.163925" q3="0.561206" euler_x="2.33396" euler_y="-1.09541" euler_z="-2.48778" id="170" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/green_bush.xml">
@@ -793,13 +789,13 @@
     <DynamicLightObject t0="22.5399" t1="-10.4173" t2="7.62284" s0="89.2335" s1="89.2335" s2="89.2335" q0="0.070644" q1="-0.00264679" q2="0.0154727" q3="0.99738" euler_x="0.14131" euler_y="-0.00746589" euler_z="0.0304959" id="180" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
         <parameters />
     </DynamicLightObject>
-    <DynamicLightObject t0="12.5975" t1="-10.0991" t2="1.76178" s0="89.2327" s1="89.2327" s2="89.2327" q0="0.0209609" q1="-0.944301" q2="0.328296" q3="-0.00908365" euler_x="-2.47234" euler_y="0.00339265" euler_z="-3.09603" id="181" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
+    <DynamicLightObject t0="15.2062" t1="-10.4508" t2="6.42228" s0="89.2327" s1="89.2327" s2="89.2327" q0="0.0209609" q1="-0.944301" q2="0.328296" q3="-0.00908365" euler_x="-2.47234" euler_y="0.00339265" euler_z="-3.09603" id="181" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
         <parameters />
     </DynamicLightObject>
     <EnvObject t0="96.4491" t1="-5.69696" t2="-44.4711" s0="1.36952" s1="1.36952" s2="1.36952" q0="0.0369499" q1="0.10185" q2="-0.048565" q3="0.992929" euler_x="0.0649195" euler_y="0.207331" euler_z="-0.0909879" id="182" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge2.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="103.822" t1="-22.1243" t2="-34.2274" s0="0.592523" s1="1" s2="0.840972" q0="0.00802737" q1="0.0715373" q2="-0.0387053" q3="0.996654" euler_x="0.0105725" euler_y="0.143711" euler_z="-0.0768704" id="183" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/OG/GrassCliff_Big1.xml">
+    <EnvObject t0="103.831" t1="-22.0885" t2="-34.2994" s0="0.592523" s1="1" s2="0.840972" q0="0.00802737" q1="0.0715373" q2="-0.0387053" q3="0.996654" euler_x="0.0105725" euler_y="0.143711" euler_z="-0.0768704" id="183" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/OG/GrassCliff_Big1.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="116.057" t1="-10.8323" t2="-51.2031" s0="1.07289" s1="1.07289" s2="1.07289" q0="0.0583168" q1="-0.809183" q2="-0.163925" q3="0.561206" euler_x="2.33396" euler_y="-1.09541" euler_z="-2.48778" id="184" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/green_bush.xml">
@@ -823,7 +819,7 @@
     <EnvObject t0="-64.3777" t1="-29.9123" t2="-39.1414" s0="0.83723" s1="1" s2="1.23321" q0="-0.176159" q1="0.0354235" q2="-0.0689089" q3="0.981308" euler_x="-0.358611" euler_y="0.0452603" euler_z="-0.148418" id="190" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Cliffs/CliffTrim_01.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-39.1862" t1="0.794347" t2="-22.3345" s0="1.30705" s1="2.22168" s2="1.75514" q0="0.0376165" q1="-0.98923" q2="0.00825957" q3="0.141194" euler_x="-3.13564" euler_y="-0.283761" euler_z="-3.06643" id="191" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge4.xml">
+    <EnvObject t0="-39.3517" t1="0.88594" t2="-22.3849" s0="1.30705" s1="2.22168" s2="1.75514" q0="0.035859" q1="-0.989303" q2="0.00743812" q3="0.141188" euler_x="-3.13681" euler_y="-0.283678" euler_z="-3.06981" id="191" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge4.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-45.3239" t1="24.8148" t2="-22.7763" s0="1.30705" s1="2.22168" s2="1.75514" q0="-0.00675994" q1="-0.889731" q2="-0.0143183" q3="0.4562" euler_x="3.1085" euler_y="-0.947544" euler_z="-3.13982" id="192" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge4.xml">
@@ -1025,7 +1021,7 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="21.9993" t1="-4.25827" t2="-45.3307" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0.295486" q2="0" q3="0.955348" euler_x="0" euler_y="0.599929" euler_z="0" id="256" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="13.2319" t1="-28.6309" t2="-98.2998" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0.0789793" q2="0" q3="0.996877" euler_x="0" euler_y="0.158123" euler_z="0" id="256" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="0" />
@@ -1090,7 +1086,7 @@
     <EnvObject t0="26.6775" t1="0.596021" t2="9.65499" s0="2.3383" s1="2.36054" s2="3.51888" q0="0" q1="-0.521892" q2="0" q3="0.853011" euler_x="0" euler_y="-1.09813" euler_z="0" id="274" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="17.8211" t1="-10.9319" t2="11.5785" s0="0.548445" s1="1.03389" s2="0.937057" q0="0.02358" q1="0.751747" q2="-0.245657" q3="0.611533" euler_x="-1.93898" euler_y="1.1972" euler_z="-2.32895" id="275" color_r="0.290196" color_g="0.154664" color_b="0.0728335" overbright="0" type_file="Data/Prototypes/Common/Wood_BridgeShort.xml">
+    <EnvObject t0="17.8211" t1="-10.9319" t2="11.5785" s0="0.548445" s1="1.03389" s2="0.937057" q0="0.02358" q1="0.751747" q2="-0.245657" q3="0.611533" euler_x="-1.93898" euler_y="1.1972" euler_z="-2.32895" id="275" color_r="0.203922" color_g="0.105691" color_b="0.0463822" overbright="0" type_file="Data/Prototypes/Common/Wood_BridgeShort.xml">
         <parameters />
     </EnvObject>
     <Hotspot t0="15.7922" t1="-10.2257" t2="11.3248" s0="0.201689" s1="0.201689" s2="0.201689" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="276" type_file="Data/Objects/Hotspots/fire_test.xml">
@@ -1239,6 +1235,7 @@
             <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="1" />
             <parameter name="IdleSoundDelay" type="float" val="1.2" />
             <parameter name="IdleSoundPath" type="string" val="" />
+            <parameter name="IdleSoundVolume" type="float" val="1" />
             <parameter name="Loop Phases" type="int" val="1" />
             <parameter name="Min Distance To Activate" type="float" val="30" />
             <parameter name="Phase Change Time" type="float" val="2" />
@@ -1246,6 +1243,7 @@
             <parameter name="Rise Speed" type="float" val="0.005" />
             <parameter name="RisingSoundDelay" type="float" val="0.5" />
             <parameter name="RisingSoundPath" type="string" val="" />
+            <parameter name="RisingSoundVolume" type="float" val="1" />
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="type" type="string" val="waterRiseHotspot" />
         </parameters>
@@ -1310,13 +1308,13 @@
     <EnvObject t0="-0.573694" t1="-5.23263" t2="-31.4403" s0="1" s1="1" s2="1" q0="0.0689078" q1="0.0238453" q2="-0.0342801" q3="0.996749" euler_x="0.13634" euler_y="0.0522837" euler_z="-0.0651862" id="320" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/green_bush.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-11.6992" t1="-8.2475" t2="-37.1476" s0="0.722889" s1="0.565384" s2="1.40193" q0="-0.345328" q1="-0.122391" q2="-0.929759" q3="0.0362445" euler_x="0.270123" euler_y="-0.708922" euler_z="3.11902" id="328" color_r="0.705882" color_g="0.705875" color_b="0.705875" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge3.xml">
+    <EnvObject t0="-11.6884" t1="-8.23112" t2="-37.15" s0="0.722889" s1="0.565384" s2="1.40193" q0="-0.345328" q1="-0.122391" q2="-0.929759" q3="0.0362445" euler_x="0.270123" euler_y="-0.708922" euler_z="3.11902" id="328" color_r="0.705882" color_g="0.705875" color_b="0.705875" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge3.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="26.0722" t1="-4.40767" t2="-49.5349" s0="1" s1="1" s2="1" q0="-0.012679" q1="-0.0697072" q2="0.992245" q3="0.102138" euler_x="-0.141402" euler_y="0.0109221" euler_z="2.93567" id="329" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/Weapons/cinderbreatheknifenocoll.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-5.89481" t1="-9.59094" t2="-33.0653" s0="0.926701" s1="0.646714" s2="1.0498" q0="-0.00442374" q1="0.660601" q2="-0.00502722" q3="0.750708" euler_x="-0.104077" euler_y="1.44259" euler_z="-0.104932" id="330" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_SquareSmallLegs.xml">
+    <EnvObject t0="-6.07203" t1="-9.02901" t2="-32.7287" s0="0.926701" s1="0.646714" s2="1.0498" q0="-0.00444609" q1="0.657261" q2="-0.00500757" q3="0.753634" euler_x="-0.0973845" euler_y="1.43375" euler_z="-0.0981804" id="330" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_SquareSmallLegs.xml">
         <parameters>
             <parameter name="KeepDisabled" type="string" val="" />
         </parameters>
@@ -1788,7 +1786,7 @@
             <parameters />
         </EnvObject>
     </Group>
-    <EnvObject t0="65.3575" t1="-6.21887" t2="-34.9854" s0="1" s1="1" s2="1" q0="0" q1="0.272308" q2="0" q3="0.96221" euler_x="0" euler_y="0.551582" euler_z="0" id="469" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_BridgeShortLegs.xml">
+    <EnvObject t0="65.3783" t1="-6.38365" t2="-34.9515" s0="1" s1="1" s2="1" q0="-0.0212275" q1="0.272242" q2="0.00600745" q3="0.961976" euler_x="-0.044126" euler_y="0.551582" euler_z="0" id="469" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_BridgeShortLegs.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="46.4885" t1="-10.7315" t2="-36.0236" s0="1" s1="1" s2="1" q0="0" q1="0.671975" q2="0" q3="0.740574" euler_x="0" euler_y="1.47375" euler_z="0" id="470" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_SquareSmallLegs.xml">
@@ -1882,6 +1880,7 @@
             <Connection id="292" />
             <Connection id="618" />
             <Connection id="621" />
+            <Connection id="636" />
         </Connections>
         <ConnectionsFrom />
     </Hotspot>
@@ -1921,12 +1920,13 @@
             <parameter name="KeepDisabled" type="string" val="" />
         </parameters>
     </EnvObject>
-    <Group t0="88.9582" t1="-18.2976" t2="222.029" s0="14.4467" s1="14.4467" s2="14.4467" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="486" version="1">
+    <Group t0="88.921" t1="-19.1563" t2="222.285" s0="2.04796" s1="5.18803" s2="2.41027" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="486" version="1">
         <parameters />
         <Hotspot t0="88.9582" t1="-18.3566" t2="222.029" s0="0.298227" s1="0.298227" s2="0.298227" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="494" type_file="Data/Objects/powerups/objectFollowerEmitter.xml">
             <parameters>
                 <parameter name="Circle Zone" type="int" val="0" />
                 <parameter name="Min Distance To Activate" type="float" val="80" />
+                <parameter name="No Light" type="int" val="0" />
                 <parameter name="game_type" type="string" val="versusBrawl" />
                 <parameter name="originalScale" type="string" val="vec3(0.298227, 0.298227, 0.298227)" />
                 <parameter name="particleColorB" type="float" val="0.220431" />
@@ -1941,9 +1941,13 @@
                 <Connection id="549" />
             </ConnectionsFrom>
         </Hotspot>
-        <DynamicLightObject t0="88.9582" t1="-18.2976" t2="222.029" s0="14.4367" s1="14.4367" s2="14.4367" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="515" color_r="1" color_g="0.546264" color_b="0.215686" overbright="50">
+        <Hotspot t0="88.9763" t1="-18.1942" t2="222.083" s0="0.481825" s1="0.813467" s2="0.499132" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="554" type_file="Data/Objects/Hotspots/lava_kill.xml">
             <parameters />
-        </DynamicLightObject>
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="549" />
+            </ConnectionsFrom>
+        </Hotspot>
         <Hotspot t0="88.902" t1="-20.7453" t2="222.485" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="549" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
             <parameters>
                 <parameter name="Bobbing Direction Inverted" type="int" val="0" />
@@ -1953,6 +1957,7 @@
                 <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
                 <parameter name="IdleSoundDelay" type="float" val="1.2" />
                 <parameter name="IdleSoundPath" type="string" val="" />
+                <parameter name="IdleSoundVolume" type="float" val="1" />
                 <parameter name="Loop Phases" type="int" val="1" />
                 <parameter name="Min Distance To Activate" type="int" val="50" />
                 <parameter name="Phase Change Time" type="float" val="2" />
@@ -1960,26 +1965,15 @@
                 <parameter name="Rise Speed" type="float" val="0.005" />
                 <parameter name="RisingSoundDelay" type="float" val="0.5" />
                 <parameter name="RisingSoundPath" type="string" val="" />
+                <parameter name="RisingSoundVolume" type="float" val="1" />
                 <parameter name="game_type" type="string" val="versusBrawl" />
                 <parameter name="type" type="string" val="waterRiseHotspot" />
             </parameters>
             <Connections>
                 <Connection id="494" />
-                <Connection id="515" />
                 <Connection id="554" />
-                <Connection id="577" />
-                <Connection id="590" />
-                <Connection id="603" />
-                <Connection id="595" />
             </Connections>
             <ConnectionsFrom />
-        </Hotspot>
-        <Hotspot t0="88.9763" t1="-18.1942" t2="222.083" s0="0.481825" s1="0.813467" s2="0.499132" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="554" type_file="Data/Objects/Hotspots/lava_kill.xml">
-            <parameters />
-            <Connections />
-            <ConnectionsFrom>
-                <Connection id="549" />
-            </ConnectionsFrom>
         </Hotspot>
     </Group>
     <EnvObject t0="-19.4494" t1="-3.42898" t2="-36.7223" s0="0.773576" s1="0.988928" s2="1.0262" q0="-0.139322" q1="-0.687631" q2="-0.0472025" q3="0.711" euler_x="-1.45491" euler_y="-1.43626" euler_z="1.18975" id="487" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_BridgeShort.xml">
@@ -1987,7 +1981,7 @@
             <parameter name="KeepDisabled" type="string" val="" />
         </parameters>
     </EnvObject>
-    <Hotspot t0="-11.8222" t1="-3.46619" t2="-36.4753" s0="0.0750873" s1="0.0750873" s2="0.0750873" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="488" type_file="Data/Objects/Hotspots/fire_test.xml">
+    <Hotspot t0="-25.9661" t1="-2.73436" t2="-42.535" s0="0.0750873" s1="0.0750873" s2="0.0750873" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="488" type_file="Data/Objects/Hotspots/fire_test.xml">
         <parameters>
             <parameter name="Fire Ribbons" type="int" val="2" />
             <parameter name="Ignite Characters" type="int" val="0" />
@@ -2027,6 +2021,7 @@
             <Connection id="333" />
             <Connection id="481" />
             <Connection id="487" />
+            <Connection id="638" />
         </Connections>
         <ConnectionsFrom>
             <Connection id="481" />
@@ -2081,25 +2076,25 @@
             <parameter name="KeepDisabled" type="string" val="" />
         </parameters>
     </EnvObject>
-    <DynamicLightObject t0="58.6799" t1="-14.8941" t2="132.26" s0="89.2339" s1="89.234" s2="89.234" q0="0.0929402" q1="0.0072234" q2="0.0321762" q3="0.995127" euler_x="0.186526" euler_y="0.00839557" euler_z="0.0654305" id="511" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
+    <DynamicLightObject t0="60.4438" t1="-19.9259" t2="133.948" s0="89.2339" s1="89.234" s2="89.234" q0="0.0929402" q1="0.0072234" q2="0.0321762" q3="0.995127" euler_x="0.186526" euler_y="0.00839557" euler_z="0.0654305" id="511" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
         <parameters />
     </DynamicLightObject>
-    <DynamicLightObject t0="54.7642" t1="-15.7659" t2="155.985" s0="89.2339" s1="89.234" s2="89.234" q0="0.0929402" q1="0.0072234" q2="0.0321762" q3="0.995127" euler_x="0.186526" euler_y="0.00839557" euler_z="0.0654305" id="512" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
+    <DynamicLightObject t0="53.98" t1="-16.9237" t2="153.418" s0="89.2339" s1="89.234" s2="89.234" q0="0.0929402" q1="0.0072234" q2="0.0321762" q3="0.995127" euler_x="0.186526" euler_y="0.00839557" euler_z="0.0654305" id="512" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
         <parameters />
     </DynamicLightObject>
-    <DynamicLightObject t0="75.8749" t1="-15.5755" t2="152.842" s0="89.2339" s1="89.234" s2="89.234" q0="0.0929402" q1="0.0072234" q2="0.0321762" q3="0.995127" euler_x="0.186526" euler_y="0.00839557" euler_z="0.0654305" id="513" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
+    <DynamicLightObject t0="76.7859" t1="-18.1879" t2="151.21" s0="89.2339" s1="89.234" s2="89.234" q0="0.0929402" q1="0.0072234" q2="0.0321762" q3="0.995127" euler_x="0.186526" euler_y="0.00839557" euler_z="0.0654305" id="513" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
         <parameters />
     </DynamicLightObject>
-    <DynamicLightObject t0="87.4071" t1="-16.3059" t2="174.208" s0="89.2339" s1="89.234" s2="89.234" q0="0.0929402" q1="0.0072234" q2="0.0321762" q3="0.995127" euler_x="0.186526" euler_y="0.00839557" euler_z="0.0654305" id="514" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
+    <DynamicLightObject t0="88.0878" t1="-18.5545" t2="173.142" s0="89.2339" s1="89.234" s2="89.234" q0="0.0929402" q1="0.0072234" q2="0.0321762" q3="0.995127" euler_x="0.186526" euler_y="0.00839557" euler_z="0.0654305" id="514" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
         <parameters />
     </DynamicLightObject>
-    <DynamicLightObject t0="72.9325" t1="-18.0726" t2="221.626" s0="89.2339" s1="89.234" s2="89.234" q0="0.0929402" q1="0.0072234" q2="0.0321762" q3="0.995127" euler_x="0.186526" euler_y="0.00839557" euler_z="0.0654305" id="516" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
+    <DynamicLightObject t0="72.0393" t1="-20.6039" t2="217.649" s0="89.2339" s1="89.234" s2="89.234" q0="0.0929402" q1="0.0072234" q2="0.0321762" q3="0.995127" euler_x="0.186526" euler_y="0.00839557" euler_z="0.0654305" id="516" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
         <parameters />
     </DynamicLightObject>
     <DynamicLightObject t0="86.8234" t1="-17.6423" t2="208.073" s0="89.2339" s1="89.234" s2="89.234" q0="0.0929402" q1="0.0072234" q2="0.0321762" q3="0.995127" euler_x="0.186526" euler_y="0.00839557" euler_z="0.0654305" id="517" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
         <parameters />
     </DynamicLightObject>
-    <DynamicLightObject t0="85.1186" t1="-18.4862" t2="234.282" s0="89.2339" s1="89.234" s2="89.234" q0="0.0929402" q1="0.0072234" q2="0.0321762" q3="0.995127" euler_x="0.186526" euler_y="0.00839557" euler_z="0.0654305" id="518" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
+    <DynamicLightObject t0="86.2756" t1="-24.9182" t2="235.522" s0="89.2339" s1="89.234" s2="89.234" q0="0.0929402" q1="0.0072234" q2="0.0321762" q3="0.995127" euler_x="0.186526" euler_y="0.00839557" euler_z="0.0654305" id="518" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
         <parameters />
     </DynamicLightObject>
     <DynamicLightObject t0="98.7081" t1="-17.9146" t2="219.867" s0="89.2339" s1="89.234" s2="89.234" q0="0.0929402" q1="0.0072234" q2="0.0321762" q3="0.995127" euler_x="0.186526" euler_y="0.00839557" euler_z="0.0654305" id="519" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
@@ -2108,16 +2103,16 @@
     <DynamicLightObject t0="44.7396" t1="-16.7835" t2="185.183" s0="89.2339" s1="89.234" s2="89.234" q0="0.0929402" q1="0.0072234" q2="0.0321762" q3="0.995127" euler_x="0.186526" euler_y="0.00839557" euler_z="0.0654305" id="520" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
         <parameters />
     </DynamicLightObject>
-    <DynamicLightObject t0="63.8144" t1="-15.5427" t2="151.013" s0="89.2314" s1="89.2315" s2="89.2315" q0="0.0929402" q1="0.0072234" q2="0.0321762" q3="0.995127" euler_x="0.186526" euler_y="0.00839557" euler_z="0.0654305" id="521" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
+    <DynamicLightObject t0="64.6128" t1="-18.0579" t2="153.091" s0="89.2314" s1="89.2315" s2="89.2315" q0="0.0755872" q1="0.0255609" q2="0.045916" q3="0.995755" euler_x="0.153632" euler_y="0.0439776" euler_z="0.0955439" id="521" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
         <parameters />
     </DynamicLightObject>
-    <DynamicLightObject t0="73.8073" t1="-16.7252" t2="182.261" s0="89.2337" s1="89.2338" s2="89.2338" q0="0.0929402" q1="0.0072234" q2="0.0321762" q3="0.995127" euler_x="0.186526" euler_y="0.00839557" euler_z="0.0654305" id="522" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
+    <DynamicLightObject t0="75.327" t1="-18.3285" t2="185.661" s0="89.2337" s1="89.2338" s2="89.2338" q0="0.0929402" q1="0.0072234" q2="0.0321762" q3="0.995127" euler_x="0.186526" euler_y="0.00839557" euler_z="0.0654305" id="522" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
         <parameters />
     </DynamicLightObject>
-    <DynamicLightObject t0="75.4541" t1="-17.1296" t2="194.638" s0="61.6794" s1="89.2339" s2="109.357" q0="0.0929402" q1="0.0072234" q2="0.0321762" q3="0.995127" euler_x="0.186526" euler_y="0.00839557" euler_z="0.0654305" id="523" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
+    <DynamicLightObject t0="83.7129" t1="-18.5301" t2="187.641" s0="61.6794" s1="89.2339" s2="109.357" q0="0.0929402" q1="0.0072234" q2="0.0321762" q3="0.995127" euler_x="0.186526" euler_y="0.00839557" euler_z="0.0654305" id="523" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
         <parameters />
     </DynamicLightObject>
-    <DynamicLightObject t0="67.1405" t1="-18.4258" t2="230.814" s0="89.2339" s1="89.234" s2="89.234" q0="0.0929402" q1="0.0072234" q2="0.0321762" q3="0.995127" euler_x="0.186526" euler_y="0.00839557" euler_z="0.0654305" id="524" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
+    <DynamicLightObject t0="68.2906" t1="-21.8055" t2="229.812" s0="89.2339" s1="89.234" s2="89.234" q0="0.0929402" q1="0.0072234" q2="0.0321762" q3="0.995127" euler_x="0.186526" euler_y="0.00839557" euler_z="0.0654305" id="524" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
         <parameters />
     </DynamicLightObject>
     <EnvObject t0="64.1826" t1="-9.85311" t2="123.074" s0="0.519265" s1="1.05857" s2="1.13926" q0="0.0259643" q1="-0.884262" q2="-0.209493" q3="-0.416555" euler_x="2.58858" euler_y="0.84439" euler_z="2.94672" id="525" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge1.xml">
@@ -2147,19 +2142,19 @@
     <EnvObject t0="86.5611" t1="-15.9824" t2="281.033" s0="1.33273" s1="1.45578" s2="3.70106" q0="0.0512017" q1="0.0321258" q2="-0.028494" q3="0.997768" euler_x="0.100741" euler_y="0.0670764" euler_z="-0.0537176" id="533" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge3.xml">
         <parameters />
     </EnvObject>
-    <DynamicLightObject t0="94.2346" t1="-18.9986" t2="247.745" s0="89.2339" s1="89.234" s2="89.234" q0="0.0929402" q1="0.0072234" q2="0.0321762" q3="0.995127" euler_x="0.186526" euler_y="0.00839557" euler_z="0.0654305" id="534" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
+    <DynamicLightObject t0="95.6913" t1="-23.1807" t2="245.525" s0="89.2339" s1="89.234" s2="89.234" q0="0.0929402" q1="0.0072234" q2="0.0321762" q3="0.995127" euler_x="0.186526" euler_y="0.00839557" euler_z="0.0654305" id="534" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
         <parameters />
     </DynamicLightObject>
-    <DynamicLightObject t0="73.1769" t1="-19.2972" t2="254.133" s0="89.2339" s1="89.234" s2="89.234" q0="0.0929402" q1="0.0072234" q2="0.0321762" q3="0.995127" euler_x="0.186526" euler_y="0.00839557" euler_z="0.0654305" id="535" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
+    <DynamicLightObject t0="74.2019" t1="-23.1713" t2="254.315" s0="89.2339" s1="89.234" s2="89.234" q0="0.0929402" q1="0.0072234" q2="0.0321762" q3="0.995127" euler_x="0.186526" euler_y="0.00839557" euler_z="0.0654305" id="535" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
         <parameters />
     </DynamicLightObject>
     <EnvObject t0="84.6037" t1="-11.0888" t2="269.444" s0="10.5061" s1="9.029" s2="9.14735" q0="0" q1="0.998945" q2="0" q3="-0.0459172" euler_x="3.14159" euler_y="-0.0918667" euler_z="3.14159" id="536" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/rabbit_statue/rabbit_statue_4.xml">
         <parameters />
     </EnvObject>
-    <DynamicLightObject t0="84.5026" t1="-9.27882" t2="260.312" s0="89.2339" s1="89.234" s2="89.234" q0="0.0929402" q1="0.0072234" q2="0.0321762" q3="0.995127" euler_x="0.186526" euler_y="0.00839557" euler_z="0.0654305" id="537" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
+    <DynamicLightObject t0="83.9931" t1="-13.8538" t2="256.621" s0="52.6941" s1="52.6941" s2="52.6941" q0="0.0965103" q1="-0.0496248" q2="0.032297" q3="0.993571" euler_x="0.190774" euler_y="-0.105039" euler_z="0.0549303" id="537" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
         <parameters />
     </DynamicLightObject>
-    <EnvObject t0="79.6371" t1="-10.8095" t2="266.755" s0="1" s1="1" s2="1" q0="0" q1="0.965926" q2="0" q3="0.258819" euler_x="3.14159" euler_y="0.523599" euler_z="3.14159" id="538" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/Banner_Hanging1a.xml">
+    <EnvObject t0="79.5119" t1="-11.4498" t2="266.683" s0="1.09423" s1="1.11238" s2="1.00002" q0="0" q1="0.965926" q2="0" q3="0.258819" euler_x="3.14159" euler_y="0.523599" euler_z="3.14159" id="538" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/Banner_Hanging1a.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="56.6095" t1="-18.5548" t2="137.519" s0="0.306949" s1="0.550911" s2="0.450871" q0="-0.0323024" q1="-0.664299" q2="0.023846" q3="0.74639" euler_x="-0.605899" euler_y="-1.43005" euler_z="0.59391" id="539" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge3.xml">
@@ -2183,6 +2178,7 @@
             <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
             <parameter name="IdleSoundDelay" type="float" val="1.2" />
             <parameter name="IdleSoundPath" type="string" val="" />
+            <parameter name="IdleSoundVolume" type="float" val="1" />
             <parameter name="Loop Phases" type="int" val="1" />
             <parameter name="Min Distance To Activate" type="int" val="200" />
             <parameter name="Phase Change Time" type="float" val="2" />
@@ -2190,6 +2186,7 @@
             <parameter name="Rise Speed" type="float" val="0.005" />
             <parameter name="RisingSoundDelay" type="float" val="0.5" />
             <parameter name="RisingSoundPath" type="string" val="" />
+            <parameter name="RisingSoundVolume" type="float" val="1" />
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="type" type="string" val="waterRiseHotspot" />
         </parameters>
@@ -2212,6 +2209,7 @@
             <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
             <parameter name="IdleSoundDelay" type="float" val="1.2" />
             <parameter name="IdleSoundPath" type="string" val="" />
+            <parameter name="IdleSoundVolume" type="float" val="1" />
             <parameter name="Loop Phases" type="int" val="1" />
             <parameter name="Min Distance To Activate" type="int" val="200" />
             <parameter name="Phase Change Time" type="float" val="2" />
@@ -2219,6 +2217,7 @@
             <parameter name="Rise Speed" type="float" val="0.005" />
             <parameter name="RisingSoundDelay" type="float" val="0.5" />
             <parameter name="RisingSoundPath" type="string" val="" />
+            <parameter name="RisingSoundVolume" type="float" val="1" />
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="type" type="string" val="waterRiseHotspot" />
         </parameters>
@@ -2230,11 +2229,9 @@
             <Connection id="541" />
             <Connection id="546" />
             <Connection id="547" />
-            <Connection id="607" />
             <Connection id="608" />
             <Connection id="609" />
             <Connection id="610" />
-            <Connection id="611" />
         </Connections>
         <ConnectionsFrom />
     </Hotspot>
@@ -2247,6 +2244,7 @@
             <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
             <parameter name="IdleSoundDelay" type="float" val="1.2" />
             <parameter name="IdleSoundPath" type="string" val="" />
+            <parameter name="IdleSoundVolume" type="float" val="1" />
             <parameter name="Loop Phases" type="int" val="1" />
             <parameter name="Min Distance To Activate" type="int" val="180" />
             <parameter name="Phase Change Time" type="float" val="2" />
@@ -2254,6 +2252,7 @@
             <parameter name="Rise Speed" type="float" val="0.005" />
             <parameter name="RisingSoundDelay" type="float" val="0.5" />
             <parameter name="RisingSoundPath" type="string" val="" />
+            <parameter name="RisingSoundVolume" type="float" val="1" />
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="type" type="string" val="waterRiseHotspot" />
         </parameters>
@@ -2271,7 +2270,7 @@
     <EnvObject t0="58.5536" t1="-17.1114" t2="161.985" s0="0.374932" s1="0.42209" s2="0.660743" q0="0.0133042" q1="-0.221103" q2="-0.0448723" q3="0.974132" euler_x="0.0506986" euler_y="-0.44402" euler_z="-0.10351" id="546" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge4.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="73.6958" t1="-16.9649" t2="157.849" s0="-0.229538" s1="0.550911" s2="-0.605669" q0="0.000435114" q1="-0.710197" q2="0.0202081" q3="0.703715" euler_x="-1.87308" euler_y="-1.54147" euler_z="1.90227" id="547" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge3.xml">
+    <EnvObject t0="73.6958" t1="-16.9628" t2="157.849" s0="-0.229538" s1="0.550911" s2="-0.605669" q0="0.000435114" q1="-0.710197" q2="0.0202081" q3="0.703715" euler_x="-1.87308" euler_y="-1.54147" euler_z="1.90227" id="547" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge3.xml">
         <parameters />
     </EnvObject>
     <Hotspot t0="84.5133" t1="-13.4606" t2="262.659" s0="4.04731" s1="2.25472" s2="2.736" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="548" type_file="Data/Objects/raceGoal.xml">
@@ -2285,7 +2284,6 @@
             <parameter name="type" type="string" val="raceGoalHotspot" />
         </parameters>
         <Connections>
-            <Connection id="631" />
             <Connection id="109" />
             <Connection id="631" />
         </Connections>
@@ -2369,6 +2367,7 @@
             <parameters>
                 <parameter name="Circle Zone" type="int" val="0" />
                 <parameter name="Min Distance To Activate" type="float" val="80" />
+                <parameter name="No Light" type="int" val="0" />
                 <parameter name="game_type" type="string" val="versusBrawl" />
                 <parameter name="originalScale" type="string" val="vec3(0.298227, 0.298227, 0.298227)" />
                 <parameter name="particleColorB" type="float" val="0.220431" />
@@ -2383,9 +2382,13 @@
                 <Connection id="578" />
             </ConnectionsFrom>
         </Hotspot>
-        <DynamicLightObject t0="65.4982" t1="-16.8306" t2="190.564" s0="14.4367" s1="14.4367" s2="14.4367" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="577" color_r="1" color_g="0.546264" color_b="0.215686" overbright="50">
+        <Hotspot t0="65.5163" t1="-16.719" t2="190.617" s0="0.481825" s1="0.813467" s2="0.499132" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="579" type_file="Data/Objects/Hotspots/lava_kill.xml">
             <parameters />
-        </DynamicLightObject>
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="578" />
+            </ConnectionsFrom>
+        </Hotspot>
         <Hotspot t0="65.442" t1="-19.2701" t2="191.02" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="578" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
             <parameters>
                 <parameter name="Bobbing Direction Inverted" type="int" val="0" />
@@ -2395,6 +2398,7 @@
                 <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
                 <parameter name="IdleSoundDelay" type="float" val="1.2" />
                 <parameter name="IdleSoundPath" type="string" val="" />
+                <parameter name="IdleSoundVolume" type="float" val="1" />
                 <parameter name="Loop Phases" type="int" val="1" />
                 <parameter name="Min Distance To Activate" type="int" val="50" />
                 <parameter name="Phase Change Time" type="float" val="2" />
@@ -2402,35 +2406,26 @@
                 <parameter name="Rise Speed" type="float" val="0.005" />
                 <parameter name="RisingSoundDelay" type="float" val="0.5" />
                 <parameter name="RisingSoundPath" type="string" val="" />
+                <parameter name="RisingSoundVolume" type="float" val="1" />
                 <parameter name="game_type" type="string" val="versusBrawl" />
                 <parameter name="type" type="string" val="waterRiseHotspot" />
             </parameters>
             <Connections>
                 <Connection id="576" />
-                <Connection id="577" />
                 <Connection id="579" />
-                <Connection id="590" />
-                <Connection id="603" />
-                <Connection id="595" />
             </Connections>
             <ConnectionsFrom />
         </Hotspot>
-        <Hotspot t0="65.5163" t1="-16.719" t2="190.617" s0="0.481825" s1="0.813467" s2="0.499132" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="579" type_file="Data/Objects/Hotspots/lava_kill.xml">
-            <parameters />
-            <Connections />
-            <ConnectionsFrom>
-                <Connection id="578" />
-            </ConnectionsFrom>
-        </Hotspot>
     </Group>
-    <Group t0="77.2937" t1="-17.3418" t2="165.99" s0="2.20774" s1="5.74987" s2="2.60798" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="588" version="1">
+    <Group t0="77.2937" t1="-17.3429" t2="165.991" s0="2.20438" s1="5.74772" s2="2.60598" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="588" version="1">
         <parameters />
-        <Hotspot t0="77.2731" t1="-16.4998" t2="165.78" s0="0.335911" s1="0.335908" s2="0.335907" q0="0.00465059" q1="0.00467277" q2="0.00119433" q3="0.999978" euler_x="0.00931268" euler_y="0.00933436" euler_z="0.00243218" id="589" type_file="Data/Objects/powerups/objectFollowerEmitter.xml">
+        <Hotspot t0="77.2731" t1="-16.4998" t2="165.78" s0="0.335439" s1="0.33558" s2="0.335349" q0="0.00465059" q1="0.00467277" q2="0.00119433" q3="0.999978" euler_x="0.00931268" euler_y="0.00933436" euler_z="0.00243218" id="589" type_file="Data/Objects/powerups/objectFollowerEmitter.xml">
             <parameters>
                 <parameter name="Circle Zone" type="int" val="0" />
                 <parameter name="Min Distance To Activate" type="float" val="80" />
+                <parameter name="No Light" type="int" val="0" />
                 <parameter name="game_type" type="string" val="versusBrawl" />
-                <parameter name="originalScale" type="string" val="vec3(0.335885, 0.33588, 0.335873)" />
+                <parameter name="originalScale" type="string" val="vec3(0.335439, 0.33558, 0.335348)" />
                 <parameter name="particleColorB" type="float" val="0.220431" />
                 <parameter name="particleColorG" type="float" val="1" />
                 <parameter name="particleColorR" type="float" val="1.17647" />
@@ -2443,10 +2438,14 @@
                 <Connection id="591" />
             </ConnectionsFrom>
         </Hotspot>
-        <DynamicLightObject t0="77.2731" t1="-11.336" t2="165.78" s0="16.2669" s1="16.2816" s2="16.2552" q0="0.00465059" q1="0.00467277" q2="0.00119433" q3="0.999978" euler_x="0.00931268" euler_y="0.00933436" euler_z="0.00243218" id="590" color_r="1" color_g="0.546264" color_b="0.215686" overbright="50">
+        <Hotspot t0="77.2937" t1="-16.3171" t2="165.842" s0="0.541224" s1="0.915037" s2="0.56118" q0="0.00465059" q1="0.00467277" q2="0.00119433" q3="0.999978" euler_x="0.00931268" euler_y="0.00933436" euler_z="0.00243218" id="592" type_file="Data/Objects/Hotspots/lava_kill.xml">
             <parameters />
-        </DynamicLightObject>
-        <Hotspot t0="77.2208" t1="-19.2001" t2="166.27" s0="0.499502" s1="0.499409" s2="0.49939" q0="0.00465059" q1="0.00467277" q2="0.00119433" q3="0.999978" euler_x="0.00931268" euler_y="0.00933436" euler_z="0.00243218" id="591" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="591" />
+            </ConnectionsFrom>
+        </Hotspot>
+        <Hotspot t0="77.2208" t1="-19.2001" t2="166.27" s0="0.5" s1="0.5" s2="0.5" q0="0.00465059" q1="0.00467277" q2="0.00119433" q3="0.999978" euler_x="0.00931268" euler_y="0.00933436" euler_z="0.00243218" id="591" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
             <parameters>
                 <parameter name="Bobbing Direction Inverted" type="int" val="0" />
                 <parameter name="Bobbing Multiplier" type="int" val="40" />
@@ -2455,6 +2454,7 @@
                 <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
                 <parameter name="IdleSoundDelay" type="float" val="1.2" />
                 <parameter name="IdleSoundPath" type="string" val="" />
+                <parameter name="IdleSoundVolume" type="float" val="1" />
                 <parameter name="Loop Phases" type="int" val="1" />
                 <parameter name="Min Distance To Activate" type="int" val="50" />
                 <parameter name="Phase Change Time" type="float" val="2" />
@@ -2462,92 +2462,32 @@
                 <parameter name="Rise Speed" type="float" val="0.005" />
                 <parameter name="RisingSoundDelay" type="float" val="0.5" />
                 <parameter name="RisingSoundPath" type="string" val="" />
+                <parameter name="RisingSoundVolume" type="float" val="1" />
                 <parameter name="game_type" type="string" val="versusBrawl" />
                 <parameter name="type" type="string" val="waterRiseHotspot" />
             </parameters>
             <Connections>
                 <Connection id="589" />
-                <Connection id="590" />
                 <Connection id="592" />
-                <Connection id="603" />
-                <Connection id="595" />
             </Connections>
             <ConnectionsFrom />
         </Hotspot>
-        <Hotspot t0="77.2937" t1="-16.3171" t2="165.842" s0="0.542112" s1="0.916223" s2="0.562216" q0="0.00465059" q1="0.00467277" q2="0.00119433" q3="0.999978" euler_x="0.00931268" euler_y="0.00933436" euler_z="0.00243218" id="592" type_file="Data/Objects/Hotspots/lava_kill.xml">
-            <parameters />
-            <Connections />
-            <ConnectionsFrom>
-                <Connection id="591" />
-            </ConnectionsFrom>
-        </Hotspot>
     </Group>
-    <Group t0="58.9008" t1="-16.5569" t2="132.524" s0="2.20803" s1="5.74933" s2="2.60787" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="593" version="1">
+    <DynamicLightObject t0="60.1946" t1="-20.3135" t2="177.285" s0="89.2314" s1="89.2315" s2="89.2315" q0="0.0755872" q1="0.0255609" q2="0.045916" q3="0.995755" euler_x="0.153632" euler_y="0.0439776" euler_z="0.0955439" id="598" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
         <parameters />
-        <Hotspot t0="58.8802" t1="-15.7147" t2="132.315" s0="0.335944" s1="0.335834" s2="0.335316" q0="0.00465059" q1="0.00467277" q2="0.00119433" q3="0.999978" euler_x="0.00931268" euler_y="0.00933436" euler_z="0.00243218" id="594" type_file="Data/Objects/powerups/objectFollowerEmitter.xml">
+    </DynamicLightObject>
+    <DynamicLightObject t0="16.425" t1="-10.9503" t2="11.302" s0="41.8467" s1="41.8468" s2="41.8468" q0="0.0755872" q1="0.0255609" q2="0.045916" q3="0.995755" euler_x="0.153632" euler_y="0.0439776" euler_z="0.0955439" id="599" color_r="0.662745" color_g="0.140346" color_b="0" overbright="400">
+        <parameters />
+    </DynamicLightObject>
+    <Group t0="60.8762" t1="-16.6379" t2="155.98" s0="2.5262" s1="6.4431" s2="2.83936" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="601" version="1">
+        <parameters />
+        <Hotspot t0="60.8526" t1="-15.7442" t2="155.813" s0="0.384746" s1="0.384682" s2="0.385391" q0="0.00465059" q1="0.00467277" q2="0.00119433" q3="0.999978" euler_x="0.00931268" euler_y="0.00933436" euler_z="0.00243218" id="602" type_file="Data/Objects/powerups/objectFollowerEmitter.xml">
             <parameters>
                 <parameter name="Circle Zone" type="int" val="0" />
                 <parameter name="Min Distance To Activate" type="float" val="80" />
+                <parameter name="No Light" type="int" val="0" />
                 <parameter name="game_type" type="string" val="versusBrawl" />
-                <parameter name="originalScale" type="string" val="vec3(0.335944, 0.335834, 0.335316)" />
-                <parameter name="particleColorB" type="float" val="0.220431" />
-                <parameter name="particleColorG" type="float" val="1" />
-                <parameter name="particleColorR" type="float" val="1.17647" />
-                <parameter name="particleDelay" type="float" val="0.1" />
-                <parameter name="particleRangeMultiply" type="float" val="1.3" />
-                <parameter name="pathToParticles" type="string" val="Data/Particles/versus-brawl/tinyFireCloud.xml" />
-            </parameters>
-            <Connections />
-            <ConnectionsFrom>
-                <Connection id="596" />
-            </ConnectionsFrom>
-        </Hotspot>
-        <DynamicLightObject t0="58.8802" t1="-20.1167" t2="132.315" s0="16.2692" s1="16.2797" s2="16.2587" q0="0.00465059" q1="0.00467277" q2="0.00119433" q3="0.999978" euler_x="0.00931268" euler_y="0.00933436" euler_z="0.00243218" id="595" color_r="1" color_g="0.546264" color_b="0.215686" overbright="50">
-            <parameters />
-        </DynamicLightObject>
-        <Hotspot t0="58.8279" t1="-18.4151" t2="132.805" s0="0.499542" s1="0.499289" s2="0.499362" q0="0.00465059" q1="0.00467277" q2="0.00119433" q3="0.999978" euler_x="0.00931268" euler_y="0.00933436" euler_z="0.00243218" id="596" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
-            <parameters>
-                <parameter name="Bobbing Direction Inverted" type="int" val="0" />
-                <parameter name="Bobbing Multiplier" type="int" val="50" />
-                <parameter name="Delay Time" type="float" val="0" />
-                <parameter name="Fast Mode - No Collision Refresh" type="int" val="0" />
-                <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
-                <parameter name="IdleSoundDelay" type="float" val="1.2" />
-                <parameter name="IdleSoundPath" type="string" val="" />
-                <parameter name="Loop Phases" type="int" val="1" />
-                <parameter name="Min Distance To Activate" type="int" val="50" />
-                <parameter name="Phase Change Time" type="float" val="2" />
-                <parameter name="Phase Starting Direction Forward" type="int" val="1" />
-                <parameter name="Rise Speed" type="float" val="0.005" />
-                <parameter name="RisingSoundDelay" type="float" val="0.5" />
-                <parameter name="RisingSoundPath" type="string" val="" />
-                <parameter name="game_type" type="string" val="versusBrawl" />
-                <parameter name="type" type="string" val="waterRiseHotspot" />
-            </parameters>
-            <Connections>
-                <Connection id="594" />
-                <Connection id="595" />
-                <Connection id="597" />
-                <Connection id="603" />
-            </Connections>
-            <ConnectionsFrom />
-        </Hotspot>
-        <Hotspot t0="58.9008" t1="-15.532" t2="132.377" s0="0.542125" s1="0.915877" s2="0.562195" q0="0.00465059" q1="0.00467277" q2="0.00119433" q3="0.999978" euler_x="0.00931268" euler_y="0.00933436" euler_z="0.00243218" id="597" type_file="Data/Objects/Hotspots/lava_kill.xml">
-            <parameters />
-            <Connections />
-            <ConnectionsFrom>
-                <Connection id="596" />
-            </ConnectionsFrom>
-        </Hotspot>
-    </Group>
-    <Group t0="60.8762" t1="-16.6361" t2="155.979" s0="2.53263" s1="6.4465" s2="2.84052" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="601" version="1">
-        <parameters />
-        <Hotspot t0="60.8526" t1="-15.7442" t2="155.813" s0="0.385253" s1="0.385316" s2="0.385555" q0="0.00465059" q1="0.00467277" q2="0.00119433" q3="0.999978" euler_x="0.00931268" euler_y="0.00933436" euler_z="0.00243218" id="602" type_file="Data/Objects/powerups/objectFollowerEmitter.xml">
-            <parameters>
-                <parameter name="Circle Zone" type="int" val="0" />
-                <parameter name="Min Distance To Activate" type="float" val="80" />
-                <parameter name="game_type" type="string" val="versusBrawl" />
-                <parameter name="originalScale" type="string" val="vec3(0.385208, 0.385276, 0.385545)" />
+                <parameter name="originalScale" type="string" val="vec3(0.384746, 0.384682, 0.385391)" />
                 <parameter name="particleColorB" type="float" val="0.220431" />
                 <parameter name="particleColorG" type="float" val="1" />
                 <parameter name="particleColorR" type="float" val="1.17647" />
@@ -2560,10 +2500,14 @@
                 <Connection id="604" />
             </ConnectionsFrom>
         </Hotspot>
-        <DynamicLightObject t0="60.8526" t1="8.23307" t2="155.813" s0="18.6674" s1="18.6512" s2="18.6588" q0="0.00465059" q1="0.00467277" q2="0.00119433" q3="0.999978" euler_x="0.00931268" euler_y="0.00933436" euler_z="0.00243218" id="603" color_r="1" color_g="0.546264" color_b="0.215686" overbright="50">
+        <Hotspot t0="60.8762" t1="-15.5346" t2="155.885" s0="0.620589" s1="1.04916" s2="0.644392" q0="0.00465059" q1="0.00467277" q2="0.00119433" q3="0.999978" euler_x="0.00931268" euler_y="0.00933436" euler_z="0.00243218" id="605" type_file="Data/Objects/Hotspots/lava_kill.xml">
             <parameters />
-        </DynamicLightObject>
-        <Hotspot t0="60.7926" t1="-18.8428" t2="156.376" s0="0.499471" s1="0.499277" s2="0.499395" q0="0.00465059" q1="0.00467277" q2="0.00119433" q3="0.999978" euler_x="0.00931268" euler_y="0.00933436" euler_z="0.00243218" id="604" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="604" />
+            </ConnectionsFrom>
+        </Hotspot>
+        <Hotspot t0="60.7926" t1="-18.8428" t2="156.376" s0="0.5" s1="0.5" s2="0.5" q0="0.00465059" q1="0.00467277" q2="0.00119433" q3="0.999978" euler_x="0.00931268" euler_y="0.00933436" euler_z="0.00243218" id="604" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
             <parameters>
                 <parameter name="Bobbing Direction Inverted" type="int" val="0" />
                 <parameter name="Bobbing Multiplier" type="int" val="50" />
@@ -2572,6 +2516,7 @@
                 <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
                 <parameter name="IdleSoundDelay" type="float" val="1.2" />
                 <parameter name="IdleSoundPath" type="string" val="" />
+                <parameter name="IdleSoundVolume" type="float" val="1" />
                 <parameter name="Loop Phases" type="int" val="1" />
                 <parameter name="Min Distance To Activate" type="int" val="50" />
                 <parameter name="Phase Change Time" type="float" val="2" />
@@ -2579,27 +2524,20 @@
                 <parameter name="Rise Speed" type="float" val="0.005" />
                 <parameter name="RisingSoundDelay" type="float" val="0.5" />
                 <parameter name="RisingSoundPath" type="string" val="" />
+                <parameter name="RisingSoundVolume" type="float" val="1" />
                 <parameter name="game_type" type="string" val="versusBrawl" />
                 <parameter name="type" type="string" val="waterRiseHotspot" />
             </parameters>
             <Connections>
                 <Connection id="602" />
-                <Connection id="603" />
                 <Connection id="605" />
             </Connections>
             <ConnectionsFrom />
         </Hotspot>
-        <Hotspot t0="60.8762" t1="-15.5346" t2="155.885" s0="0.622187" s1="1.05091" s2="0.644982" q0="0.00465059" q1="0.00467277" q2="0.00119433" q3="0.999978" euler_x="0.00931268" euler_y="0.00933436" euler_z="0.00243218" id="605" type_file="Data/Objects/Hotspots/lava_kill.xml">
-            <parameters />
-            <Connections />
-            <ConnectionsFrom>
-                <Connection id="604" />
-            </ConnectionsFrom>
-        </Hotspot>
     </Group>
-    <DynamicLightObject t0="87.3846" t1="-18.9547" t2="247.515" s0="61.6794" s1="89.2339" s2="109.357" q0="0.0929402" q1="0.0072234" q2="0.0321762" q3="0.995127" euler_x="0.186526" euler_y="0.00839557" euler_z="0.0654305" id="607" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
+    <EnvObject t0="5.44693" t1="-11.0216" t2="-32.818" s0="1" s1="1" s2="1" q0="0" q1="0.573389" q2="0" q3="0.819283" euler_x="0" euler_y="1.22127" euler_z="0" id="607" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_SquareSmallLegs.xml">
         <parameters />
-    </DynamicLightObject>
+    </EnvObject>
     <DynamicLightObject t0="88.6225" t1="-18.0236" t2="221.883" s0="61.6794" s1="89.2339" s2="109.357" q0="0.0929402" q1="0.0072234" q2="0.0321762" q3="0.995127" euler_x="0.186526" euler_y="0.00839557" euler_z="0.0654305" id="608" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
         <parameters />
     </DynamicLightObject>
@@ -2609,9 +2547,15 @@
     <DynamicLightObject t0="76.6781" t1="-16.0406" t2="165.821" s0="61.6794" s1="89.2339" s2="109.357" q0="0.0929402" q1="0.0072234" q2="0.0321762" q3="0.995127" euler_x="0.186526" euler_y="0.00839557" euler_z="0.0654305" id="610" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
         <parameters />
     </DynamicLightObject>
-    <DynamicLightObject t0="61.798" t1="-15.7463" t2="156.185" s0="61.6794" s1="89.2339" s2="109.357" q0="0.0929402" q1="0.0072234" q2="0.0321762" q3="0.995127" euler_x="0.186526" euler_y="0.00839557" euler_z="0.0654305" id="611" color_r="0.662745" color_g="0.093564" color_b="0" overbright="1000">
+    <EnvObject t0="-1.0216" t1="-10.6936" t2="-40.6469" s0="1" s1="1" s2="1" q0="0" q1="0.407364" q2="0" q3="0.913266" euler_x="0" euler_y="0.839132" euler_z="0" id="611" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_SquareSmallLegs.xml">
         <parameters />
-    </DynamicLightObject>
+    </EnvObject>
+    <EnvObject t0="-15.4049" t1="-10.8977" t2="-44.3046" s0="1" s1="1" s2="1" q0="0" q1="0.73872" q2="0" q3="0.674012" euler_x="3.14159" euler_y="1.47925" euler_z="3.14159" id="612" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_SquareSmallLegs.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-9.72049" t1="-5.69307" t2="-36.6583" s0="0.370951" s1="0.221575" s2="0.947287" q0="-0.252144" q1="0.0975583" q2="-0.952242" q3="-0.141937" euler_x="-0.132988" euler_y="-0.532743" euler_z="2.882" id="613" color_r="0.705882" color_g="0.705875" color_b="0.705875" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge3.xml">
+        <parameters />
+    </EnvObject>
     <Decal t0="24.241" t1="-28.0358" t2="-79.6299" s0="6.57804" s1="1.53842" s2="6.30019" q0="-0.141138" q1="-0.132751" q2="0.0520895" q3="0.979664" euler_x="-0.304194" euler_y="-0.247931" euler_z="0.144436" id="614" type_file="Data/Objects/Decals/hex_crete_damage.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
@@ -2682,6 +2626,7 @@
             <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
             <parameter name="IdleSoundDelay" type="float" val="1.2" />
             <parameter name="IdleSoundPath" type="string" val="" />
+            <parameter name="IdleSoundVolume" type="float" val="1" />
             <parameter name="KeepDisabled" type="string" val="" />
             <parameter name="Loop Phases" type="int" val="0" />
             <parameter name="Min Distance To Activate" type="int" val="1000" />
@@ -2690,20 +2635,26 @@
             <parameter name="Rise Speed" type="float" val="0.003" />
             <parameter name="RisingSoundDelay" type="float" val="0.5" />
             <parameter name="RisingSoundPath" type="string" val="" />
+            <parameter name="RisingSoundVolume" type="float" val="1" />
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="type" type="string" val="waterRiseHotspot" />
         </parameters>
         <Connections>
             <Connection id="38" />
+            <Connection id="567" />
             <Connection id="630" />
+            <Connection id="645" />
+            <Connection id="643" />
+            <Connection id="644" />
+            <Connection id="641" />
+            <Connection id="637" />
             <Connection id="632" />
-            <Connection id="630" />
         </Connections>
         <ConnectionsFrom>
             <Connection id="548" />
         </ConnectionsFrom>
     </Hotspot>
-    <Hotspot t0="83.4322" t1="-0.6" t2="247.23" s0="1" s1="0.1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="632" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterPhaseHotSpot.xml">
+    <Hotspot t0="16.9102" t1="-4.50903" t2="-9.5162" s0="1" s1="0.1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="632" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterPhaseHotSpot.xml">
         <parameters>
             <parameter name="Phase" type="int" val="1" />
             <parameter name="game_type" type="string" val="versusBrawl" />
@@ -2723,6 +2674,92 @@
     <EnvObject t0="61.3585" t1="3.86108" t2="237.095" s0="1.33455" s1="0.984031" s2="2.90925" q0="0.703904" q1="-0.542187" q2="0.265462" q3="0.374234" euler_x="2.75007" euler_y="-0.893914" euler_z="-1.12311" id="635" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge3.xml">
         <parameters />
     </EnvObject>
+    <EnvObject t0="-25.5881" t1="-3.21673" t2="-41.6897" s0="1.18358" s1="0.929535" s2="1.75118" q0="0.432518" q1="0.521728" q2="0.474241" q3="0.561983" euler_x="1.48795" euler_y="0.177093" euler_z="1.56491" id="636" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="8.91935" t1="-4.63629" t2="-31.2736" s0="0.682814" s1="0.999998" s2="0.715049" q0="0.00940043" q1="0.570933" q2="-0.0100089" q3="0.820877" euler_x="0.0115098" euler_y="1.21543" euler_z="-0.0163785" id="638" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_BridgeShort.xml">
+        <parameters>
+            <parameter name="KeepDisabled" type="string" val="" />
+        </parameters>
+    </EnvObject>
+    <EnvObject t0="13.0716" t1="-5.83319" t2="-38.0973" s0="0.811576" s1="0.900567" s2="1.13227" q0="-0.188448" q1="0.591001" q2="0.135137" q3="0.772615" euler_x="-0.518492" euler_y="1.30228" euler_z="-0.0525281" id="639" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_BridgeShort.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="37.4641" t1="1.40404" t2="5.01833" s0="0.0750873" s1="0.0750873" s2="0.0750873" q0="-0.750501" q1="0.198017" q2="0.166593" q3="0.608098" euler_x="-1.80824" euler_y="0.513104" euler_z="-0.108814" id="640" type_file="Data/Objects/Hotspots/fire_test.xml">
+        <parameters>
+            <parameter name="Fire Ribbons" type="int" val="2" />
+            <parameter name="Ignite Characters" type="int" val="0" />
+            <parameter name="Light Amplify" type="float" val="3" />
+            <parameter name="Light Distance" type="float" val="20" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject t0="-54.9795" t1="4.01727" t2="-12.3942" s0="1.30705" s1="2.22168" s2="1.75514" q0="0.00179577" q1="-0.952494" q2="-0.0250495" q3="0.30351" euler_x="3.08174" euler_y="-0.61639" euler_z="-3.11876" id="642" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge4.xml">
+        <parameters />
+    </EnvObject>
+    <Group t0="79.9029" t1="-19.5239" t2="266.46" s0="3.16945" s1="1.64569" s2="2.20937" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="646" version="1">
+        <parameters />
+        <Decal t0="79.9843" t1="-19.5648" t2="266.65" s0="1.78105" s1="0.776989" s2="0.995869" q0="-0.528305" q1="-0.194411" q2="-0.132503" q3="0.815808" euler_x="-1.14642" euler_y="-0.474853" euler_z="-0.0121185" id="645" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+            <parameters />
+        </Decal>
+        <Hotspot t0="80.212" t1="-19.5893" t2="266.774" s0="0.12673" s1="0.12673" s2="0.12673" q0="0" q1="-0.0119866" q2="0" q3="0.999928" euler_x="0" euler_y="-0.0239738" euler_z="0" id="637" type_file="Data/Objects/Hotspots/fire_test.xml">
+            <parameters>
+                <parameter name="Fire Ribbons" type="int" val="4" />
+                <parameter name="Ignite Characters" type="int" val="1" />
+                <parameter name="Light Amplify" type="float" val="1" />
+                <parameter name="Light Distance" type="float" val="2" />
+            </parameters>
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="631" />
+            </ConnectionsFrom>
+        </Hotspot>
+        <Decal t0="79.3671" t1="-19.5703" t2="266.265" s0="1.78105" s1="0.776989" s2="0.995869" q0="-0.528305" q1="-0.194411" q2="-0.132503" q3="0.815808" euler_x="-1.14642" euler_y="-0.474853" euler_z="-0.0121185" id="644" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+            <parameters />
+        </Decal>
+        <Hotspot t0="79.1404" t1="-19.5679" t2="266.148" s0="0.12673" s1="0.12673" s2="0.12673" q0="0" q1="-0.0119866" q2="0" q3="0.999928" euler_x="0" euler_y="-0.0239738" euler_z="0" id="641" type_file="Data/Objects/Hotspots/fire_test.xml">
+            <parameters>
+                <parameter name="Fire Ribbons" type="int" val="4" />
+                <parameter name="Ignite Characters" type="int" val="1" />
+                <parameter name="Light Amplify" type="float" val="1" />
+                <parameter name="Light Distance" type="float" val="2" />
+            </parameters>
+            <Connections />
+            <ConnectionsFrom>
+                <Connection id="631" />
+            </ConnectionsFrom>
+        </Hotspot>
+        <Decal t0="80.3939" t1="-19.5239" t2="266.652" s0="1.78105" s1="0.776989" s2="0.995869" q0="-0.541865" q1="-0.309668" q2="-0.0551799" q3="0.779387" euler_x="-1.30461" euler_y="-0.573413" euler_z="0.301658" id="643" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+            <parameters />
+        </Decal>
+    </Group>
+    <Hotspot t0="26.9383" t1="1.40593" t2="63.6014" s0="0.0750873" s1="0.0750873" s2="0.0750873" q0="-0.750501" q1="0.198017" q2="0.166593" q3="0.608098" euler_x="-1.80824" euler_y="0.513104" euler_z="-0.108814" id="647" type_file="Data/Objects/Hotspots/fire_test.xml">
+        <parameters>
+            <parameter name="Fire Ribbons" type="int" val="2" />
+            <parameter name="Ignite Characters" type="int" val="0" />
+            <parameter name="Light Amplify" type="float" val="3" />
+            <parameter name="Light Distance" type="float" val="20" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject t0="-56.6002" t1="23.095" t2="-9.30316" s0="1.30705" s1="2.22168" s2="1.75514" q0="0.0301584" q1="-0.928225" q2="0.0152174" q3="0.370476" euler_x="-3.13345" euler_y="-0.759677" euler_z="-3.07989" id="648" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge4.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="116.852" t1="0.503396" t2="-22.4632" s0="1.91986" s1="4.14103" s2="2.60702" q0="-0.0145748" q1="-0.791775" q2="0.0405075" q3="-0.609281" euler_x="-2.96113" euler_y="1.30931" euler_z="-3.03972" id="649" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Ledge4.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="8.78686" t1="0.308089" t2="45.38" s0="0.0750873" s1="0.0750873" s2="0.0750873" q0="-0.750501" q1="0.198017" q2="0.166593" q3="0.608098" euler_x="-1.80824" euler_y="0.513104" euler_z="-0.108814" id="652" type_file="Data/Objects/Hotspots/fire_test.xml">
+        <parameters>
+            <parameter name="Fire Ribbons" type="int" val="2" />
+            <parameter name="Ignite Characters" type="int" val="0" />
+            <parameter name="Light Amplify" type="float" val="3" />
+            <parameter name="Light Distance" type="float" val="20" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
 </ActorObjects>
 <RecentItems>
     <SpawnerItem display_name="[h] objectFollowerEmitter" path="Data/Objects/powerups/objectFollowerEmitter.xml" thumbnail_path="Data/Textures/ui/versusBrawl/particle.png" />
@@ -2736,7 +2773,6 @@
     <SpawnerItem display_name="[h] teleporterHotspot" path="Data/Objects/versus-brawl/hotspots/teleporterHotspot.xml" thumbnail_path="Data/Textures/ui/versusBrawl/teleporterOk.png" />
     <SpawnerItem display_name="[d] npcSpawnerHotspot" path="Data/Objects/versus-brawl/Decals/ArrowDecal1.xml" thumbnail_path="Data/Textures/versus-brawl/point_icon.png" />
     <SpawnerItem display_name="Torch Object" path="Data/Objects/torch.xml" thumbnail_path="Data/UI/spawner/thumbs/Interactive Objects/torch.png" />
-    <SpawnerItem display_name="Fire Hotspot" path="Data/Objects/Hotspots/fire_test.xml" thumbnail_path="" />
     <SpawnerItem display_name="[h] playerSpawn" path="Data/Objects/playerSpawn.xml" thumbnail_path="Data/Textures/ui/versusBrawl/placeholder_arena_spawn_-1.png" />
     <SpawnerItem display_name="Hexcrete Rubble (simple collision)" path="Data/Objects/Crete/hex_crete_rubble_simplecol.xml" thumbnail_path="" />
     <SpawnerItem display_name="[h] waterRiseHotspot" path="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml" thumbnail_path="Data/Textures/ui/versusBrawl/waterRise.png" />
@@ -2745,4 +2781,5 @@
     <SpawnerItem display_name="fireballtestSave.xml" path="Data/Objects/fireballtestSave.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Vine Covered Block" path="Data/Objects/Crete/cube_vines.xml" thumbnail_path="" />
     <SpawnerItem display_name="[h] waterPhaseHotspot" path="Data/Objects/versus-brawl/levelSpecific/sewer/waterPhaseHotSpot.xml" thumbnail_path="Data/UI/spawner/thumbs/Hotspot/water.png" />
+    <SpawnerItem display_name="Fire Hotspot" path="Data/Objects/Hotspots/fire_test.xml" thumbnail_path="" />
 </RecentItems>

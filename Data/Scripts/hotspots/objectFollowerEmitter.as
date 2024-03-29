@@ -27,6 +27,8 @@ void SetParameters() {
     params.AddFloatSlider("particleRangeMultiply", 1.0f, "min:0,max:5,step:0.01");
     params.AddString("pathToParticles", "Data/Particles/smoke.xml");
     params.AddIntCheckbox("Circle Zone", false);
+    params.AddIntCheckbox("No Light", false);
+    params.AddIntCheckbox("Disable draw", false);
 
     params.AddFloatSlider("particleColorR", 1.0f,"min:0,max:1,step:0.01,text_mult:255");
     params.AddFloatSlider("particleColorG", 1.0f,"min:0,max:1,step:0.01,text_mult:255");
@@ -103,21 +105,23 @@ void Update(){
         PlaceholderObject@ placeholder_object = cast<PlaceholderObject@>(obj);
         me.SetTranslation(pos);
         
-        // Also we move the light
-        if(lightId == -1){
-            // Lets spawn a small light
-            lightId = CreateObject("Data/Objects/lights/dynamic_light.xml");
-            Log(error, "Created lightId: " + lightId);
+        if(params.GetInt("No Light") == 0){
+            // Also we move the light
+            if(lightId == -1){
+                // Lets spawn a small light
+                lightId = CreateObject("Data/Objects/lights/dynamic_light.xml");
+                Log(error, "Created lightId: " + lightId);
+                Object@ lightObj = ReadObjectFromID(lightId);
+                lightObj.SetScale(vec3(1));
+                lightObj.SetTint(color);
+            }
+    
             Object@ lightObj = ReadObjectFromID(lightId);
-            lightObj.SetScale(vec3(1));
-            lightObj.SetTint(color);
+            lightObj.SetScale(vec3(2.6f) + (vec3(sin(time)) / 5));
+            //Log(error, "lightObj.GetScale(): " + lightObj.GetScale());
+    
+            lightObj.SetTranslation(pos);
         }
-
-        Object@ lightObj = ReadObjectFromID(lightId);
-        lightObj.SetScale(vec3(2.6f) + (vec3(sin(time)) / 5));
-        //Log(error, "lightObj.GetScale(): " + lightObj.GetScale());
-
-        lightObj.SetTranslation(pos);
     }
 }
 
@@ -147,7 +151,7 @@ float last_game_time = 0.0;
 void PreDraw(float curr_game_time) {
     EnterTelemetryZone("Emitter Update");
     
-    if(ReadObjectFromID(hotspot.GetID()).GetEnabled() && lastPathOk){
+    if(ReadObjectFromID(hotspot.GetID()).GetEnabled() && lastPathOk && params.GetInt("Disable draw") == 0){
         
         float delta_time = curr_game_time - last_game_time;
 

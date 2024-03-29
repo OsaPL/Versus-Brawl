@@ -35,7 +35,7 @@
     <RayToSun r0="-0.0316601" r1="0.953" r2="0.30131" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-9.56447" t1="19.3069" t2="-11.1216" s0="1" s1="1" s2="1" q0="-0.0424606" q1="-0.945252" q2="0.136899" q3="-0.293179" euler_x="-2.85394" euler_y="0.601502" euler_z="3.14159" id="0">
+    <CameraObject t0="-15.8696" t1="14.1279" t2="-8.52668" s0="1" s1="1" s2="1" q0="-0.0776185" q1="-0.448445" q2="0.0391285" q3="-0.889574" euler_x="0.174066" euler_y="0.933864" euler_z="0" id="0">
         <parameters />
     </CameraObject>
     <Hotspot t0="-7.9784" t1="-6.94692" t2="-5.07374" s0="8.96041" s1="4.20414" s2="9.39828" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6" type_file="Data/Objects/Hotspots/wet_cube.xml">
@@ -121,15 +121,15 @@
             <parameter name="Delay Time" type="float" val="0" />
             <parameter name="Fast Mode - No Collision Refresh" type="int" val="0" />
             <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
-            <parameter name="IdleSoundDelay" type="float" val="1.2" />
-            <parameter name="IdleSoundPath" type="string" val="Data/Sounds/versus-brawl/water_drip_single_cave/water_drip_single_cave.xml" />
+            <parameter name="IdleSoundPath" type="string" val="Data/Sounds/versus-brawl/dripping-water-nature-sounds-8050.wav" />
+            <parameter name="IdleSoundVolume" type="float" val="0.4" />
             <parameter name="Loop Phases" type="int" val="1" />
             <parameter name="Min Distance To Activate" type="int" val="1000" />
             <parameter name="Phase Change Time" type="float" val="2" />
             <parameter name="Phase Starting Direction Forward" type="int" val="1" />
             <parameter name="Rise Speed" type="float" val="0.004" />
-            <parameter name="RisingSoundDelay" type="float" val="0.6" />
-            <parameter name="RisingSoundPath" type="string" val="Data/Sounds/water_foley/small_waves.xml" />
+            <parameter name="RisingSoundPath" type="string" val="Data/Sounds/ambient/waterfall_heavy_loop.wav" />
+            <parameter name="RisingSoundVolume" type="float" val="0.15" />
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="type" type="string" val="waterRiseHotspot" />
         </parameters>

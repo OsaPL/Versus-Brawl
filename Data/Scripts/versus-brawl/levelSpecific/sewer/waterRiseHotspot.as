@@ -26,7 +26,7 @@ int reduceMoveRateBy = 0;
 // After this distance from nearest character, it will be disabled
 float minDistanceToActivate = 30.0f;
 
-float soundTimer=0;
+int soundHandle = -1;
 float phaseHeight;
 float startingPhaseHeight;
 array<int> objectsToMove;
@@ -46,6 +46,9 @@ void Init() {
 }
 
 void SetParameters() {
+    params.AddString("game_type", "versusBrawl");
+    params.AddString("type", "waterRiseHotspot");
+    
     params.AddFloatSlider("Rise Speed", 0.005f, "min:0.0,max:3.0,step:0.01");
     params.AddFloatSlider("Bobbing Multiplier", 800, "min:200.0,max:1800.0");
     params.AddIntCheckbox("Bobbing Direction Inverted", false);
@@ -56,7 +59,10 @@ void SetParameters() {
     params.AddIntCheckbox("Fast Mode - No Collision Refresh", true);
     params.AddIntSlider("Fast Mode - Reduce Rate Mltp", 0, "min:0.0,max:20.0");
     params.AddFloatSlider("Min Distance To Activate", 30, "min:0.0,max:1000.0");
-    params.AddString("game_type", "versusBrawl");
+    params.AddString("RisingSoundPath", "");
+    params.AddFloatSlider("RisingSoundVolume", 1.0f, "min:0.0,max:5.0,step:0.01");
+    params.AddString("IdleSoundPath", "");
+    params.AddFloatSlider("IdleSoundVolume", 1.0f, "min:0.0,max:5.0,step:0.01");
 }
 
 void UpdateParameters(){
@@ -82,14 +88,23 @@ void Update(){
     
     UpdateParameters();
     
-    soundTimer += time_step;
-    if(soundTimer> params.GetFloat("IdleSoundDelay")){
-        soundTimer = 0;
-        if(FileExistsWithType(params.GetString("IdleSoundPath"), ".xml")){
-            PlaySoundGroup(params.GetString("IdleSoundPath"));
+    if(soundHandle == -1){
+        if(!rising){
+            if(FileExistsWithType(params.GetString("IdleSoundPath"), ".xml")){
+            //TODO! Xmls not compatible with it
+                //soundHandle = PlaySoundLoop(params.GetString("IdleSoundPath"), 1.0f);
+            }
+            else if(FileExistsWithType(params.GetString("IdleSoundPath"), ".wav")){
+                soundHandle = PlaySoundLoop(params.GetString("IdleSoundPath"), params.GetFloat("IdleSoundVolume"));
+            }
         }
-        else if(FileExistsWithType(params.GetString("IdleSoundPath"), ".wav")){
-                PlaySound(params.GetString("IdleSoundPath"));
+        else{
+            if(FileExistsWithType(params.GetString("RisingSoundPath"), ".xml")){
+                //soundHandle = PlaySoundLoop(params.GetString("RisingSoundPath"), 1.0f);
+            }
+            else if(FileExistsWithType(params.GetString("RisingSoundPath"), ".wav")){
+                soundHandle = PlaySoundLoop(params.GetString("RisingSoundPath"), params.GetFloat("RisingSoundVolume"));
+            }
         }
     }
     
@@ -165,7 +180,6 @@ void Update(){
         
         // If rising up, just enable next one right away
         time = 0;
-        soundTimer = params.GetFloat("RisingSoundDelay");
 
         Object@ startPhaseObj = ReadObjectFromID(phases[previousPhase]);
         float startPhasephaseHeight = startPhaseObj.GetTranslation().y;
@@ -271,7 +285,18 @@ void Reset(){
     previousPhase = 0;
     phaseHeight = 0;
     rising = false;
+
+    StopSound(soundHandle);
+    soundHandle = -1;
+    
     ResetObjectsPos();
+}
+
+void PreScriptReload()
+{
+    // Makes sure looping sound is dealt with BEFORE script reload
+    StopSound(soundHandle);
+    soundHandle = -1;
 }
 
 void ResetObjectsPos(){
@@ -305,6 +330,10 @@ void AnimateBobbing(bool ignoreRecalcutatingPhysics){
 void NextPhase(){
     int nextPhase = -1;
     previousPhase = currentPhase;
+    
+    // Cancel sounds
+    StopSound(soundHandle);
+    soundHandle = -1;
     
     Log(error, "NextPhase currentPhase: " + currentPhase);
     Log(error, "NextPhase phaseDirectionForward: " + phaseDirectionForward);
@@ -382,15 +411,6 @@ void MoveObjects(){
     // TODO! Use some kind of log function, to smooth this out
     
     if(phaseHeight > 0){
-        if(soundTimer> params.GetFloat("RisingSoundDelay")){
-            soundTimer = 0;
-            if(FileExistsWithType(params.GetString("RisingSoundPath"), ".xml")){
-                PlaySoundGroup(params.GetString("RisingSoundPath"));
-            }
-            else if(FileExistsWithType(params.GetString("RisingSoundPath"), ".wav")){
-                PlaySound(params.GetString("RisingSoundPath"));
-            }
-        }
         if(phaseHeight < step){
             Log(error, "phaseHeight than step smaller, fixing: step: " + step + " phaseHeight: " + phaseHeight);
             step = phaseHeight;
@@ -408,9 +428,6 @@ void MoveObjects(){
             Object@ obj = ReadObjectFromID(objectsToMove[i]);
             ScriptParams@ objParams = obj.GetScriptParams();
             
-            if(objParams.HasParam("DontMove"))
-                continue;
-            
             vec3 original = obj.GetTranslation();
             obj.SetTranslation(vec3(original.x, original.y+step, original.z));
         }
@@ -418,6 +435,9 @@ void MoveObjects(){
     else{
         Log(error, "rising ended");
         rising = false;
+        StopSound(soundHandle);
+        soundHandle = -1;
+        
         // If rising down, enable after moving
         if(!movementDirectionForward)
             SwitchConnected();

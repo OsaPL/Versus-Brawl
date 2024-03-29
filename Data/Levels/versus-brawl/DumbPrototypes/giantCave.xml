@@ -1,0 +1,142 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<Name>giantCave</Name>
+<Description></Description>
+<Shader>post</Shader>
+<Shadows>true</Shadows>
+<LoadingScreen>
+    <Image></Image>
+</LoadingScreen>
+<OutOfDate NavMesh="true" NavMeshParamHash="-1674835251" />
+<AmbientSounds />
+<Script></Script>
+<LevelScriptParameters>
+    <parameter name="Achievements" type="string" val="flawless, no_injuries, no_kills" />
+    <parameter name="Custom Shader" type="string" val="" />
+    <parameter name="Fog amount" type="float" val="1" />
+    <parameter name="GPU Particle Field" type="string" val="" />
+    <parameter name="HDR Black point" type="float" val="0.005" />
+    <parameter name="HDR Bloom multiplier" type="float" val="1" />
+    <parameter name="HDR White point" type="float" val="0.971" />
+    <parameter name="Level Boundaries" type="int" val="1" />
+    <parameter name="Load Tip" type="string" val="" />
+    <parameter name="Objectives" type="string" val="destroy_all" />
+    <parameter name="Saturation" type="float" val="1" />
+    <parameter name="Sky Brightness" type="float" val="1" />
+    <parameter name="Sky Rotation" type="float" val="0" />
+    <parameter name="Sky Tint" type="string" val="255, 255, 255" />
+</LevelScriptParameters>
+<NavMeshParameters generate="true" cell_size="0.3" cell_height="0.2" agent_height="1.7" agent_radius="0.4" agent_max_climb="1.5" agent_max_slope="60" />
+<Sky>
+    <DomeTexture>Data/Textures/skies/CloudySunset.tga</DomeTexture>
+    <SunAngularRad>0.153056</SunAngularRad>
+    <SunColorAngle>353.589</SunColorAngle>
+    <RayToSun r0="0.121363" r1="0.062051" r2="0.990667" />
+</Sky>
+<ActorObjects>
+    <CameraObject t0="-11.0312" t1="17.4451" t2="-14.1209" s0="1" s1="1" s2="1" q0="-0.0867392" q1="-0.910816" q2="0.248297" q3="-0.318181" euler_x="-2.60931" euler_y="0.672168" euler_z="3.14159" id="0">
+        <parameters />
+    </CameraObject>
+    <Hotspot t0="25.0637" t1="-20.1468" t2="-26.4889" s0="100" s1="10" s2="100" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3" type_file="Data/Objects/versus-brawl/hotspots/hot_cube.xml">
+        <parameters>
+            <parameter name="Water Fog" type="float" val="1" />
+            <parameter name="Wave Density" type="float" val="0.25" />
+            <parameter name="Wave Height" type="float" val="0.5" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <ActorObject t0="-18.973" t1="12.7214" t2="9.1417" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6" type_file="Data/Objects/IGF_Characters/IGF_TurnerActor.xml" is_player="1">
+        <parameters>
+            <parameter name="Aggression" type="float" val="0.5" />
+            <parameter name="Attack Damage" type="float" val="1" />
+            <parameter name="Attack Knockback" type="float" val="1" />
+            <parameter name="Attack Speed" type="float" val="1" />
+            <parameter name="Block Follow-up" type="float" val="0.5" />
+            <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Can sheathe big weapons" type="int" val="0" />
+            <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Character Scale" type="float" val="1" />
+            <parameter name="Damage Resistance" type="float" val="1" />
+            <parameter name="Ear Size" type="float" val="1" />
+            <parameter name="Fall Damage Multiplier" type="float" val="1" />
+            <parameter name="Fat" type="float" val="0.5" />
+            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+            <parameter name="Focus FOV distance" type="float" val="100" />
+            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+            <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Jump - Air Control" type="float" val="3" />
+            <parameter name="Jump - Initial Velocity" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+            <parameter name="Knockout Shield" type="int" val="0" />
+            <parameter name="Left handed" type="int" val="0" />
+            <parameter name="Movement Speed" type="float" val="1" />
+            <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="Peripheral FOV distance" type="float" val="4" />
+            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+            <parameter name="Species" type="string" val="rabbit" />
+            <parameter name="Static" type="int" val="0" />
+            <parameter name="Stick To Nav Mesh" type="int" val="0" />
+            <parameter name="Teams" type="string" val="turner" />
+            <parameter name="Throw - Initial Velocity Multiplier" type="float" val="1" />
+            <parameter name="Throw - Mass Multiplier" type="float" val="1" />
+            <parameter name="Throw Counter Probability" type="float" val="0.4" />
+            <parameter name="Throw Trainer" type="int" val="0" />
+            <parameter name="Velocity reduction on crouch" type="float" val="0" />
+            <parameter name="Weapon Catch Skill" type="float" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+        <ItemConnections />
+        <Palette>
+            <Color label="Cloth" channel="0" red="1" green="1" blue="1" />
+            <Color label="Rope" channel="1" red="1" green="1" blue="1" />
+            <Color label="Fur" channel="2" red="1" green="1" blue="1" />
+        </Palette>
+    </ActorObject>
+    <EnvObject t0="-17.827" t1="49.9164" t2="-13.3308" s0="6.80399" s1="4.8838" s2="5.82324" q0="0" q1="-0.760366" q2="0" q3="0.649495" euler_x="-3.14159" euler_y="-1.41384" euler_z="3.14159" id="10" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Cave.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-8.32715" t1="47.304" t2="-9.53167" s0="6.80399" s1="4.34259" s2="3.62362" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="11" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Cave.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-1.72873" t1="-1.45626" t2="-15.039" s0="27.2168" s1="11.5939" s2="23.4589" q0="0.00967288" q1="-0.000483632" q2="-0.0841317" q3="0.996407" euler_x="0.0193588" euler_y="0.000663803" euler_z="-0.168464" id="12" color_r="0.182699" color_g="0.194907" color_b="0.211765" overbright="0" type_file="Data/Objects/Environment/caves/cave_stalactite.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="23.0316" t1="2.053" t2="-7.18928" s0="27.2168" s1="11.5939" s2="23.4589" q0="0.0510557" q1="-0.00713173" q2="0.0486315" q3="0.997486" euler_x="0.101353" euler_y="-0.0191946" euler_z="0.0964574" id="13" color_r="0.182699" color_g="0.194907" color_b="0.211765" overbright="0" type_file="Data/Objects/Environment/caves/cave_stalactite.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="25.4864" t1="-3.80259" t2="14.8745" s0="27.2168" s1="11.5939" s2="23.4589" q0="-0.0117496" q1="0.0155995" q2="0.065206" q3="0.997681" euler_x="-0.0214233" euler_y="0.0326646" euler_z="0.13018" id="14" color_r="0.182699" color_g="0.194907" color_b="0.211765" overbright="0" type_file="Data/Objects/Environment/caves/cave_stalactite.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-23.2529" t1="-2.17305" t2="34.0319" s0="27.2168" s1="11.5939" s2="23.4589" q0="0.00967288" q1="-0.000483632" q2="-0.0841317" q3="0.996407" euler_x="0.0193588" euler_y="0.000663803" euler_z="-0.168464" id="15" color_r="0.182699" color_g="0.194907" color_b="0.211765" overbright="0" type_file="Data/Objects/Environment/caves/cave_stalactite.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="8.18313" t1="1.69986" t2="28.078" s0="27.2168" s1="11.5939" s2="23.4589" q0="0.0334275" q1="0.00452787" q2="0.0877844" q3="0.995568" euler_x="0.0674051" euler_y="0.00314677" euler_z="0.176002" id="16" color_r="0.182699" color_g="0.194907" color_b="0.211765" overbright="0" type_file="Data/Objects/Environment/caves/cave_stalactite.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-35.4717" t1="-4.10399" t2="-5.14983" s0="27.2168" s1="11.5939" s2="23.4589" q0="0.0287538" q1="-0.0172802" q2="-0.00520205" q3="0.999423" euler_x="0.05772" euler_y="-0.034248" euler_z="-0.0113988" id="18" color_r="0.182699" color_g="0.194907" color_b="0.211765" overbright="0" type_file="Data/Objects/Environment/caves/cave_stalactite.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-21.4701" t1="-0.366724" t2="-21.7261" s0="27.2168" s1="11.5939" s2="23.4589" q0="-0.0283377" q1="0.011198" q2="0.00683829" q3="0.999512" euler_x="-0.0565394" euler_y="0.0227746" euler_z="0.013039" id="19" color_r="0.182699" color_g="0.194907" color_b="0.211765" overbright="0" type_file="Data/Objects/Environment/caves/cave_stalactite.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-41.0039" t1="0.110504" t2="15.9616" s0="27.2168" s1="11.5939" s2="23.4589" q0="0.00967288" q1="-0.000483632" q2="-0.0841317" q3="0.996407" euler_x="0.0193588" euler_y="0.000663803" euler_z="-0.168464" id="20" color_r="0.182699" color_g="0.194907" color_b="0.211765" overbright="0" type_file="Data/Objects/Environment/caves/cave_stalactite.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-7.2691" t1="0.705008" t2="6.20027" s0="2.42548" s1="1" s2="2.0745" q0="-0.0510418" q1="0.00543404" q2="0.998686" q3="0.000300374" euler_x="0.01088" euler_y="0.10213" euler_z="3.14155" id="21" color_r="0.149158" color_g="0.178156" color_b="0.207843" overbright="0" type_file="Data/Objects/Environment/caves/cave_floor.xml">
+        <parameters />
+    </EnvObject>
+</ActorObjects>
+<RecentItems>
+    <SpawnerItem display_name="[h] magmaCubeHotspot" path="Data/Objects/versus-brawl/hotspots/hot_cube.xml" thumbnail_path="" />
+</RecentItems>
