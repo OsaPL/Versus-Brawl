@@ -49,6 +49,9 @@ void Init(){
     powerupTimer.Add(LevelEventJob("deactivate", function(_params){
         Log(error, "lastEnteredPlayerObjId:"+lastEnteredPlayerObjId);
         
+        if(lastEnteredPlayerObjId == -1)
+            return true;
+        
         Object @obj = ReadObjectFromID(lastEnteredPlayerObjId);
         ScriptParams@ objParams = obj.GetScriptParams();
         originalDamageReduction = objParams.GetFloat("Damage Resistance");
