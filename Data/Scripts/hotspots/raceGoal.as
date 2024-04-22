@@ -181,51 +181,48 @@ void HandleEvent(string event, MovementObject @mo){
     if(event == "enter"){
         if(mo.is_player){
             // Check if this is already taken by that playerNr
-            if(params.GetInt("player"+mo.controller_id+"Reached") == 1){
-                Log(error, "reached already by:"+mo.controller_id);
-                return;
-            }
-
-            params.SetInt("player"+mo.controller_id+"Reached", 1);
-            level.SendMessage("checkpoint "+mo.controller_id);  
-            
-            PlaySoundGroup("Data/Sounds/versus/fight_win1.xml");
-            
-            for (uint i = 0; i < connected_object_ids.size(); i++) {
-                Object@ obj = ReadObjectFromID(connected_object_ids[i]);
-                ScriptParams@ params = obj.GetScriptParams();
+            if(params.GetInt("player"+mo.controller_id+"Reached") != 1){
+                params.SetInt("player"+mo.controller_id+"Reached", 1);
+                level.SendMessage("checkpoint "+mo.controller_id);  
                 
-                // If theyre linked both ways, means theyre brothers, and should set what player reached
-                if(IsGoalObject(obj)){
-                    Hotspot@ otherGoal = cast<Hotspot>(obj);
-                    array<int> @object_ids = otherGoal.GetConnectedObjects();
-                    
-                    if(object_ids.find(me.GetID()) >= 0){
-                        params.SetInt("player"+mo.controller_id+"Reached", 1);
-                        continue;
-                    }
-                }
+                PlaySoundGroup("Data/Sounds/versus/fight_win1.xml");
 
-                // Check if its a spawn
-                if(IsSpawnObject(obj)){
-                    if(params.GetInt("playerNr") == mo.controller_id){
-                        // Disable all other ones for this player
-                        array<int> @object_ids = GetObjectIDs();
-                        for (uint j = 0; j <object_ids.size() ; j++) {
-                            Object@ objTemp = ReadObjectFromID(object_ids[j]);
-                            ScriptParams@ objParams = objTemp.GetScriptParams();
-            
-                            if(objParams.HasParam("game_type") && objParams.HasParam("playerNr") ){
-                                if(objParams.GetString("game_type") == "versusBrawl" && objParams.GetInt("playerNr") ==  mo.controller_id){
-                                    Log(error, "Found spawn with ID:"+ object_ids[j]+" playerNr:"+ objParams.GetInt("playerNr"));
-                                    objTemp.SetEnabled(false);
+                for (uint i = 0; i < connected_object_ids.size(); i++) {
+                    Object@ obj = ReadObjectFromID(connected_object_ids[i]);
+                    ScriptParams@ params = obj.GetScriptParams();
+                    
+                    // If theyre linked both ways, means theyre brothers, and should set what player reached
+                    if(IsGoalObject(obj)){
+                        Hotspot@ otherGoal = cast<Hotspot>(obj);
+                        array<int> @object_ids = otherGoal.GetConnectedObjects();
+                        
+                        if(object_ids.find(me.GetID()) >= 0){
+                            params.SetInt("player"+mo.controller_id+"Reached", 1);
+                            continue;
+                        }
+                    }
+    
+                    // Check if its a spawn
+                    if(IsSpawnObject(obj)){
+                        if(params.GetInt("playerNr") == mo.controller_id){
+                            // Disable all other ones for this player
+                            array<int> @object_ids = GetObjectIDs();
+                            for (uint j = 0; j <object_ids.size() ; j++) {
+                                Object@ objTemp = ReadObjectFromID(object_ids[j]);
+                                ScriptParams@ objParams = objTemp.GetScriptParams();
+                
+                                if(objParams.HasParam("game_type") && objParams.HasParam("playerNr") ){
+                                    if(objParams.GetString("game_type") == "versusBrawl" && objParams.GetInt("playerNr") ==  mo.controller_id){
+                                        Log(error, "Found spawn with ID:"+ object_ids[j]+" playerNr:"+ objParams.GetInt("playerNr"));
+                                        objTemp.SetEnabled(false);
+                                    }
                                 }
                             }
+                            
+                
+                            // Switch the one connected
+                            obj.SetEnabled(true);
                         }
-                        
-            
-                        // Switch the one connected
-                        obj.SetEnabled(true);
                     }
                 }
             }

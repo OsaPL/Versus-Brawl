@@ -54,7 +54,7 @@
         <Level title="Purple Dreams NIDHOGG" thumbnail="Images/versus-brawl/purple.jpg">versus-brawl/purple_map.xml</Level>
         <Level title="Sand Fortress CTF" thumbnail="Images/versus-brawl/sand.jpg">versus-brawl/sandPants_map.xml</Level>
         <Level title="(WIP)Lava Tower RACE" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/lavaTower_map.xml</Level>
-        <Level title="(WIP)Lava Tower RACE" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/lavaTower_map.xml</Level>
+        <Level title="(WIP)Lava Cave RACE" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/cave2 race.xml</Level>
         <Level title="(WIP)Return to Stucco Arena" thumbnail="UI/mainmenu/images/grass_beach.png">versus-brawl/stuccoReturns.xml</Level>
         
     </Campaign>
