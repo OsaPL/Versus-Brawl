@@ -84,7 +84,7 @@ void Update(){
     
     // Here is the follow logic
     //Log(error, "Following:"+objectIdToFollow);
-    if(objectIdToFollow != -1){
+    if(objectIdToFollow != -1 && ObjectExists(objectIdToFollow)){
         Object@ obj = ReadObjectFromID(objectIdToFollow);
         
         vec3 pos = vec3(0);
