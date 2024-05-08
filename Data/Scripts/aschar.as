@@ -5359,6 +5359,9 @@ void HandleWeaponWeaponCollision(int other_held_weapon) {
     }
 
     PlaySoundGroup(sound, col_point, sound_priority);
+    
+    // Will send an event that a weapon block/collision has occurred
+    level.SendMessage("weaponBlock " + this_mo.getID() + " " + attacked_by_id);
 }
 
 void HandleWeaponCollision(int other_id) {
