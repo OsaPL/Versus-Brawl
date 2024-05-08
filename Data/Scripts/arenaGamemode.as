@@ -6,6 +6,7 @@
 float timeBetweenWaves = 15.0f;
 bool healAfterWave = true;
 bool respawnAfterWave = true;
+float enemiesMultiplier = 1.0f;
 bool scaleWithPlayers = true;
 bool friendlyAttacks = true;
 
@@ -104,10 +105,10 @@ void Init(string msg){
 }
 
 void ArenaLoad(JSONValue settings) {
-    Log(error, "ArenaLoad:");
+    Log(info, "ArenaLoad:");
     if(FoundMember(settings, "Arena")) {
         JSONValue arena = settings["Arena"];
-        Log(error, "Available: " + join(arena.getMemberNames(),","));
+        Log(info, "Available: " + join(arena.getMemberNames(),","));
 
         if (FoundMember(arena, "PointsToWin"))
             pointsToWin = arena["PointsToWin"]["Value"].asInt();
@@ -123,6 +124,9 @@ void ArenaLoad(JSONValue settings) {
         
         if (FoundMember(arena, "RespawnAfterWave"))
             respawnAfterWave = arena["RespawnAfterWave"]["Value"].asBool();
+
+        if (FoundMember(arena, "EnemiesMultiplier"))
+            enemiesMultiplier = arena["EnemiesMultiplier"]["Value"].asFloat();
             
         if (FoundMember(arena, "ScaleWithPlayers"))
             scaleWithPlayers = arena["ScaleWithPlayers"]["Value"].asBool();
@@ -133,23 +137,23 @@ void ArenaLoad(JSONValue settings) {
             
         // Wave and Enemies lists load
         if (FoundMember(arena, "Waves")){
-            Log(error, "Waves found!");
+            Log(info, "Waves found!");
             JSONValue wavesJson = arena["Waves"];
-            Log(error, "Waves: " + wavesJson.typeName() + " " + wavesJson.size() + " !");
+            Log(info, "Waves: " + wavesJson.typeName() + " " + wavesJson.size() + " !");
             
             // Fill out waves list
             for (uint i = 0; i < wavesJson.size(); i++) {
-                Log(error, "Wave: " + i);
+                Log(info, "Wave: " + i);
                 JSONValue theWaveJson = wavesJson[i];
                 float time = 0;
                 if (FoundMember(theWaveJson, "Time")){
                     time = theWaveJson["Time"].asFloat();
-                    Log(error, "  Time: " + time);
+                    Log(info, "  Time: " + time);
                 }
                 bool killAll = false;
                 if (FoundMember(theWaveJson, "KillAll")){
                     killAll = theWaveJson["KillAll"].asBool();
-                    Log(error, "  killAll: " + killAll);
+                    Log(info, "  killAll: " + killAll);
                 }
                 Wave waveObj (time, killAll);
                 
@@ -157,17 +161,17 @@ void ArenaLoad(JSONValue settings) {
                 if (FoundMember(theWaveJson, "Enemies")){
                     JSONValue enemiesJson = theWaveJson["Enemies"];
                     for (uint j = 0; j < enemiesJson.size(); j++) {
-                        Log(error, "  Enemies: " + j);
+                        Log(info, "  Enemies: " + j);
                         JSONValue theEnemiesJson = enemiesJson[j];
                     
                         string type = theEnemiesJson["Type"].asString();
-                        Log(error, "    Type: " + type);
+                        Log(info, "    Type: " + type);
                         int amount = theEnemiesJson["Amount"].asInt();
-                        Log(error, "    Amount: " + amount);
+                        Log(info, "    Amount: " + amount);
                         string spawnName = "";
                         if (FoundMember(theEnemiesJson, "SpawnName")){
-                            spawnName = theWaveJson["SpawnName"].asString();
-                            Log(error, "    SpawnName: " + spawnName);
+                            spawnName = theEnemiesJson["SpawnName"].asString();
+                            Log(info, "    SpawnName: " + spawnName);
                         }
                         
                         WaveEnemies waveEnemies (type, amount, spawnName);
@@ -184,22 +188,22 @@ void ArenaLoad(JSONValue settings) {
             JSONValue enemyTemplatesJson = arena["EnemyTemplates"];
             array<string> enemyTemplatesNames = enemyTemplatesJson.getMemberNames();
             for (uint i = 0; i < enemyTemplatesNames.size(); i++) {
-                Log(error, "Name: " + enemyTemplatesNames[i]);
+                Log(info, "Name: " + enemyTemplatesNames[i]);
                 JSONValue theEnemyTemplateJson = enemyTemplatesJson[enemyTemplatesNames[i]];
                 
                 string actorPath = theEnemyTemplateJson["ActorPath"].asString();
-                Log(error, "  ActorPath: " + actorPath);
+                Log(info, "  ActorPath: " + actorPath);
                 
                 string weaponPath = "none";
                 if (FoundMember(theEnemyTemplateJson, "WeaponPath")){
                     weaponPath = theEnemyTemplateJson["WeaponPath"].asString();
-                    Log(error, "  WeaponPath: " + weaponPath);
+                    Log(info, "  WeaponPath: " + weaponPath);
                 }
                 
                 string backWeaponPath = "none";
                 if (FoundMember(theEnemyTemplateJson, "BackWeaponPath")){
                     backWeaponPath = theEnemyTemplateJson["BackWeaponPath"].asString();
-                    Log(error, "  BackWeaponPath: " + backWeaponPath);
+                    Log(info, "  BackWeaponPath: " + backWeaponPath);
                 }
                 
                 EnemyTemplate enemyTemplate (enemyTemplatesNames[i], actorPath, weaponPath, backWeaponPath);
@@ -245,28 +249,34 @@ void Update(){
 
         bool waveNotDone = false;
         
-        //Log(error, "spawners.size(): " + spawners.size());
+        //Log(info, "spawners.size(): " + spawners.size());
         for (uint i = 0; i < spawners.size(); i++) {
             Object@ obj = ReadObjectFromID(spawners[i]);
             ScriptParams @objParams = obj.GetScriptParams();
             if(objParams.HasParam("currentQueue")) {
                 if(objParams.GetInt("currentQueue") > 0){
                     waveNotDone = true;
-                    //Log(error, "waveNotDone: " + spawners[i]+ " currentQueue: " + objParams.GetInt("currentQueue"));
+                    //Log(info, "waveNotDone: " + spawners[i]+ " currentQueue: " + objParams.GetInt("currentQueue"));
                     enemiesLeft += objParams.GetInt("currentQueue");
                 }
             }
             if(objParams.HasParam("currentCharacters")) {
                 if(objParams.GetInt("currentCharacters") > 0){
                     waveNotDone = true;
-                    //Log(error, "waveNotDone: " + spawners[i]+ " currentCharacters: " + objParams.GetInt("currentCharacters"));
+                    //Log(info, "waveNotDone: " + spawners[i]+ " currentCharacters: " + objParams.GetInt("currentCharacters"));
                     enemiesLeft += objParams.GetInt("currentCharacters");
                 }
             }
         }
         
-        versusAHGUI.SetText("Time left: " + (waves[currentWave].time - lastFullWaveTimer), 
-        "Enemies left: " + enemiesLeft);
+        if(!waves[currentWave].killAll){
+            versusAHGUI.SetText("Survive for: " + (waves[currentWave].time - lastFullWaveTimer), 
+            "Enemies left: " + enemiesLeft);
+        }
+        else{
+            versusAHGUI.SetText("Time left: " + (waves[currentWave].time - lastFullWaveTimer), 
+            "Enemies left: " + enemiesLeft);
+        }
         
         // Minimum wave time, to make sure things spawn in
         if(waveTimer < 5.0f)
@@ -295,9 +305,10 @@ void Update(){
                 // Go to intermission
                 intermissionTimer = 0;
                 constantRespawning = true;
+                KillAllNpcs();
                 ChangeGameState(3);
                 
-                // TODO! Add healing/respawning here
+                RespawnAndHealAfterWave();
             }
         }
         else if(!waveNotDone){
@@ -305,27 +316,6 @@ void Update(){
             intermissionTimer = 0;
             constantRespawning = true;
             ChangeGameState(3);
-            
-            // Respawn or/and heal
-            if(respawnAfterWave){
-                for (uint k = 0; k < versusPlayers.size(); k++)
-                {
-                    VersusPlayer@ player = GetPlayerByNr(k);
-                    MovementObject@ mo = ReadCharacterID(player.objId);
-                    if(mo.GetIntVar("knocked_out") != _awake) {
-                        CallRespawn(player.playerNr, player.objId);
-                    }
-                }
-            }
-            
-            if(healAfterWave){
-                for (uint k = 0; k < versusPlayers.size(); k++)
-                {
-                    VersusPlayer@ player = GetPlayerByNr(k);
-                    MovementObject@ mo = ReadCharacterID(player.objId);
-                    mo.Execute("Recover();");
-                }
-            }
             
             // This will update players UI with current wave
             for (uint j = 0; j < versusPlayers.size(); j++)
@@ -343,9 +333,12 @@ void Update(){
     }
     // Intermission, between waves
     else if(currentState == 3){
-        if(currentWave+1 >= int(waves.size()))
+        if(currentWave+1 >= int(waves.size())){
             ChangeGameState(101);
+        }
         versusAHGUI.SetText("Wave defeated!", "Next wave incoming...");
+        
+        RespawnAndHealAfterWave();
        
         intermissionTimer += time_step;
         if(intermissionTimer > timeBetweenWaves){
@@ -391,16 +384,43 @@ void Update(){
     UpdateUI();
 }
 
+void RespawnAndHealAfterWave(){
+    // Respawn or/and heal
+    if(respawnAfterWave){
+        for (uint k = 0; k < versusPlayers.size(); k++)
+        {
+            VersusPlayer@ player = GetPlayerByNr(k);
+            MovementObject@ mo = ReadCharacterID(player.objId);
+            if(mo.GetIntVar("knocked_out") != _awake) {
+                CallRespawn(player.playerNr, player.objId);
+            }
+        }
+    }
+        
+    if(healAfterWave){
+        for (uint k = 0; k < versusPlayers.size(); k++)
+        {
+            VersusPlayer@ player = GetPlayerByNr(k);
+            MovementObject@ mo = ReadCharacterID(player.objId);
+            mo.Execute("Recover();");
+        }
+    }
+}
+        
 void SpawnRequiredEnemies(){
     array<int> availableSpawnPoints = spawners;
     // This keeps start of the total list of the spawns, incase you have too many locked ones atm
     array<int> startListSpawnPoints = spawners;
     
-    Log(error, "waves: " + waves.size());
+    // If `scaleWithPlayers` is set, we want to multiply by players amount 
+    float spawnMlt = enemiesMultiplier;
+    if(scaleWithPlayers)
+        spawnMlt *= versusPlayers.size();
+    
+    Log(info, "waves: " + waves.size());
     Wave@ currentWaveObj = waves[currentWave];
     for (uint j = 0; j < currentWaveObj.enemies.size(); j++)
     {
-        availableSpawnPoints = spawners;
         WaveEnemies@ toSpawn = currentWaveObj.enemies[j];
         // Find template
         EnemyTemplate@ template = null;
@@ -414,30 +434,34 @@ void SpawnRequiredEnemies(){
             }
         }
         if(templateFound){
-            // If `scaleWithPlayers` is set, we want to multiply by players amount 
-            int spawnMlt = 1;
-            if(scaleWithPlayers)
-                spawnMlt = versusPlayers.size();
             // Search for correlated SpawnName
             if(toSpawn.spawnName != ""){
                 int desiredSpawnerId = -1;
-                for (uint m = 0; m < spawners.size(); m++)
+                bool atleastOneExists = false;
+                for (uint m = 0; m < availableSpawnPoints.size(); m++)
                 {
-                    Object@ spawnerObj = ReadObjectFromID(spawners[m]);
+                    Object@ spawnerObj = ReadObjectFromID(availableSpawnPoints[m]);
                     string name = spawnerObj.GetName();
                     if(name == toSpawn.spawnName){
-                        desiredSpawnerId = spawners[m];
+                        desiredSpawnerId = availableSpawnPoints[m];
+                        availableSpawnPoints.removeAt(m);
+                        atleastOneExists = true;
+                        break;
                     }
                 }
                 if(desiredSpawnerId != -1){
                     Object@ desiredSpawnerObj = ReadObjectFromID(desiredSpawnerId);
-                    for (int n = 0; n < spawnMlt; n++){
-                        desiredSpawnerObj.ReceiveScriptMessage("spawn " + " " 
-                        + template.actorPath + " " + template.weaponPath + " " + template.backWeaponPath);
-                    }
+
+                    int realAmount = CalculateSpawnAmount(toSpawn.amount, spawnMlt);
+                    // No need to spawn, when its 0
+                    if(realAmount <= 0)
+                        continue;
+                    desiredSpawnerObj.ReceiveScriptMessage("spawn " + " " 
+                    + template.actorPath + " " + template.weaponPath + " " + template.backWeaponPath + " " + realAmount);
                 }
                 else{
-                    //TODO! Couldnt find this spawn, what to do now?
+                    // Couldnt find any spawns by this name, dont spawn, its probably a mapper error
+                    Log(error, "Cant spawn " + toSpawn.type + ", cant find any free spawns with name: " + toSpawn.spawnName);
                 }
             }
             // If no SpawnName, just find a not used one
@@ -451,10 +475,14 @@ void SpawnRequiredEnemies(){
                     // If its disabled just go on
                     if(obj.GetEnabled()){
                         foundSpawn = true;
-                        for (int n = 0; n < spawnMlt; n++){
-                            obj.ReceiveScriptMessage("spawn " + " " 
-                            + template.actorPath + " " + template.weaponPath + " " + template.backWeaponPath);
-                        }
+                        
+                        int realAmount = CalculateSpawnAmount(toSpawn.amount, spawnMlt);
+                        // No need to spawn, when its 0
+                        if(realAmount <= 0)
+                            continue;
+                        
+                        obj.ReceiveScriptMessage("spawn " + " " 
+                        + template.actorPath + " " + template.weaponPath + " " + template.backWeaponPath + " " + realAmount);
                         break;
                     }
                     else {
@@ -467,12 +495,29 @@ void SpawnRequiredEnemies(){
                     int randIndex = rand()%(startListSpawnPoints.size());
                     int randId = startListSpawnPoints[randIndex];
                     Object@ randSpawnerObj = ReadObjectFromID(randId);
+                    
+                    int realAmount = CalculateSpawnAmount(toSpawn.amount, spawnMlt);
+                    // No need to spawn, when its 0
+                    if(realAmount <= 0)
+                        continue;
+                        
                     randSpawnerObj.ReceiveScriptMessage("spawn " + " " 
-                    + template.actorPath + " " + template.weaponPath + " " + template.backWeaponPath);
+                    + template.actorPath + " " + template.weaponPath + " " + template.backWeaponPath + " " + realAmount);
                 }
             }
         }
     }
+}
+
+// We calculate how many to spawn, each 0.01 is 1% chance to spawn one more
+int CalculateSpawnAmount(int amount, float mltp){
+    float scaledAmount = mltp * amount;
+    int floored = int(floor(scaledAmount));
+    int chance = int((scaledAmount - floored) * 100.0f);
+    Log(info, "floored " + floored + " chance " + chance);
+    if(rand()%100 < chance)
+        return int(scaledAmount + 1);
+    return int(scaledAmount);    
 }
 
 void ReceiveMessage(string msg){
@@ -524,4 +569,13 @@ void ResetArena(bool fullReset = true){
         }
     }
     updateScores = true;
+}
+
+void KillAllNpcs(){
+    // Notify all spawners 
+    for (uint m = 0; m < spawners.size(); m++)
+    {
+        Object@ spawnerObj = ReadObjectFromID(spawners[m]);
+        spawnerObj.ReceiveScriptMessage("killAll");
+    }
 }

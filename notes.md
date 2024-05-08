@@ -1,17 +1,18 @@
 # Npc players problems:
-1. Tag: will crash sometimes. Problems:
-  - Just reloading scripts crashes
 2. There is some logic in `pointUIBase.as` that needs to get seperated, to UI and Gameplay flows (see: `playersUI` variables)
 3. Try adding `params.SetInt("Stick To Nav Mesh", 1);` on spawn, maybe it will help? If so make it configurable per map.
 4. Maybe add this^ as a toggleable `Baby mode` to guard ppl from dropping?
 
-DM and CTF seem to work just fine, even if over 4+ players
-
 # Arena mode:
-0. Test the survival part, `KillAll` == false
-1. Probably one more map arena map (get the cave one and catapult spawned characters onto arena?)
-2. Finish the lava tower map, create that space race map.
-3. `ScaleWithPlayers` in Arena mode should be a float, how hard does it scale? (not integer values will convert decimal enemy count values into % chance to add one more)
+0. RETHINK SPAWNING?
+   - We need rules in place to define how spawning should work
+     - We probably want to spawn all enemies from same Enemy entry at the same point
+     - to split them, just create new entry (maybe a new entry "forceSplit" to if you want to split an enemy entry?)
+     - if we want a named spawn, we do the same as above, but available spawns pool is always filtered by name
+     - ? What do we do if all spawns left are not named as we want to? Do we just reset all, or just find all the named ones and re-add them?
+1. Document `npcSpawner` and `sliding` hotspots
+2. Finish rainy arena
+3. Finish the lava tower map, create that space race map.
 
 # DO THOSE THINGS:
 - `speed` on staticAnimator should also work for frames (in integer form only for > 1), 2x is "skip a frame", 0.5x is "render frame two times" etc
@@ -40,13 +41,12 @@ Big sticks:
 
 [h1]0.8:[/h1]
 You can now play without friends! This only sounds slightly sad. Now anyone can try this mayhem.
-With this update also comes ability to customize the games to the way you like it, no judging, I promise.
-
-Also, Arena mode... What? Are you not entertained?
+With this update also comes ability to customize the games to the way you like it.
+Also, Arena mode... What? Are you not entertained? Ok, here are the rest of the changes:
 
 [b]Added npc support![/b]
 - The support vary on a per map basis, since some layouts are more friendly for them to navigate
-- In next (smaller) update I'll add missing nav points retroactively to older maps, and tweak some values for smoother experience
+- In next (smaller) update I'll fix up older maps, and tweak some values for smoother experience
 
 [b]Games can now be customized![/b]
 - You can now change tons of parameters for the levels
@@ -59,6 +59,7 @@ Also, Arena mode... What? Are you not entertained?
 [b]Added new playable maps:[/b]
 - Ominous Call, Race
 - Return to Stucco, Arena
+- Bloody Mist, Arena
 - (WIP) Lava Tower, Race
 
 [b]Map fixes/balance changes[b]
@@ -84,6 +85,9 @@ Also, Arena mode... What? Are you not entertained?
 
 [b]Player controlled characters are no longer almost mute[/b]
 - TODO! Is controlled by "Player voices" option in Audio menu
+
+[b]Completely new sliding hotspot, for sliding in style[/b]
+- Can be used in any direction, surf maps incoming?d
 
 [b]Fixes:[/b]
 - <fill me>

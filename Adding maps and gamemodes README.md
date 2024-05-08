@@ -404,6 +404,7 @@ throwMassMlt = params.GetFloat("Throw - Mass Multiplier");
 - Added fixes from `internal testing` branch regarding `attacker_id`
 - Added jump parameters from `internal testing` branch to change jumping behaviour
 - `bluntHit` message
+- `weaponBlock` message
 - `coopPartners.as` include, with an additional calls in `Update()`
 - Moved color functions to `colorHelper.as`
 - `timeSinceAttackedById` tracks time since last `attacked_by_id` change (as long as its not `-1`)

@@ -37,7 +37,7 @@
       }
     },
     "EnemiesMultiplier": {
-      "Value": 1.0,
+      "Value": 0.5,
       "Configurable": {
         "Min": 0.1,
         "Max": 10.0
@@ -58,6 +58,10 @@
       "NormalBunny": {
         "ActorPath":"Data/Objects/versus-brawl/levelSpecific/testArena/NormalBunny.xml"
       },
+      "NormalBunnyWithKnife": {
+        "ActorPath":"Data/Objects/versus-brawl/levelSpecific/testArena/NormalBunny.xml",
+        "WeaponPath":"Data/Items/flint_knife.xml"
+      },
       "ArmoredBunny": {
         "ActorPath":"Data/Objects/versus-brawl/levelSpecific/testArena/ArmoredBunny.xml",
         "WeaponPath":"Data/Items/flint_knife.xml"
@@ -70,44 +74,81 @@
     },
     "Waves": [
       {
-        "Time": 20.0,
-        "KillAll": false,
-        "Enemies": [
-          {
-            "Type":"NormalBunny",
-            "Amount": 50
-          }
-        ]
-      },
-      {
-        "Time": 40.0,
+        "Time": 60.0,
         "KillAll": true,
         "Enemies": [
           {
             "Type":"NormalBunny",
-            "Amount":1,
-            "SpawnName":"BGate"
+            "Amount": 1,
+            "SpawnName":"Stands"
           },
           {
-            "Type":"ArmoredBunny",
-            "Amount":1,
-            "SpawnName":"AGate"
+            "Type":"NormalBunny",
+            "Amount": 1,
+            "SpawnName":"Stands"
+          },
+          {
+            "Type":"NormalBunny",
+            "Amount": 1,
+            "SpawnName":"Stands"
           }
         ]
       },
       {
-        "Time": 60.0,
+        "Time": 120.0,
+        "KillAll": false,
+        "Enemies": [
+          {
+            "Type":"NormalBunnyWithKnife",
+            "Amount": 6,
+            "SpawnName":"Stands"
+          },
+          {
+            "Type":"NormalBunny",
+            "Amount": 6,
+            "SpawnName":"Stands"
+          },
+          {
+            "Type":"NormalBunny",
+            "Amount": 6,
+            "SpawnName":"Stands"
+          }
+        ]
+      },
+      {
+        "Time": 120.0,
+        "KillAll": true,
+        "Enemies": [
+          {
+            "Type":"NormalBunny",
+            "Amount": 2,
+            "SpawnName":"Stands"
+          },
+          {
+            "Type":"NormalBunny",
+            "Amount": 2,
+            "SpawnName":"Stands"
+          },
+          {
+            "Type":"NormalBunny",
+            "Amount": 2,
+            "SpawnName":"Stands"
+          },
+          {
+            "Type":"ArmoredBunny",
+            "Amount": 2,
+            "SpawnName":"GroundGate"
+          }
+        ]
+      },
+      {
+        "Time": 120.0,
         "KillAll": true,
         "Enemies": [
           {
             "Type":"NinjaDog",
             "Amount": 1,
-            "SpawnName":"AGate"
-          },
-          {
-            "Type":"ArmoredBunny",
-            "Amount": 2,
-            "SpawnName":"BGate"
+            "SpawnName":"GroundGate"
           }
         ]
       }

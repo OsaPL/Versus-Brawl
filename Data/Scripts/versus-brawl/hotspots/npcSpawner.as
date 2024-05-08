@@ -38,8 +38,16 @@ void SetParameters()
 
 void Init(){
     npcTimer.Add(LevelEventJob("spawn", function(_params){
-        spawnQueue.push_back(_params[1]+";"+_params[2]+";"+_params[3]);
-        Log(error, "spawn handled: " + _params[1]+";"+_params[2]+";"+_params[3]);
+        if(_params.size() == 4){
+            spawnQueue.push_back(_params[1]+";"+_params[2]+";"+_params[3]);
+        }
+        else if(_params.size() == 5){
+            // Parameter at index 4 is the amount to spawn
+            for (int i = 0; i < parseInt(_params[4]); i++) {
+                spawnQueue.push_back(_params[1]+";"+_params[2]+";"+_params[3]);
+            }
+        }
+        Log(error, "spawn handled: " + join(_params, ';'));
         return true;
     }));
     npcTimer.Add(LevelEventJob("reset", function(_params){
@@ -50,6 +58,21 @@ void Init(){
         Cleanup();
         return true;
     }));
+    npcTimer.Add(LevelEventJob("killAll", function(_params){
+        KillAll();
+        return true;
+    }));
+}
+
+void KillAll(){
+    for (uint i = 0; i < spawnedCharacters.size(); i++) {
+        if(spawnedCharacters[i] != -1){
+            //We just want to kill them
+            MovementObject@ char = ReadCharacterID(spawnedCharacters[i]);
+            if(char.GetIntVar("knocked_out") == _awake)
+                char.Execute("CutThroat();Ragdoll(_RGDL_FALL);zone_killed=1;");
+        }
+    }
 }
 
 bool Spawn(string actorPath, string weaponPath, string backWeaponPath){
@@ -185,37 +208,40 @@ void Update()
     if(!me.GetEnabled())
         return;
         
-    if(timer > params.GetFloat("respawnTimer")){
-        // Remove all already dead characters
-        array<int> toRemove = {};
-        for (uint i = 0; i < spawnedCharacters.size(); i++) {
-            MovementObject @mo = ReadCharacterID(spawnedCharacters[i]);
-            if(mo.GetIntVar("knocked_out") != _awake) {
-                toRemove.push_back(i);
-                
-                if(spawnedCharacters[i] != -1)
-                    // TODO! Do I really need to remove them? Check how performance heavy is leaving them as static
-                    //QueueDeleteObjectID(spawnedCharacters[i]);
-                    staticCharacters.push_back(spawnedCharacters[i]);
-                    mo.Execute("this_mo.static_char = true;");
+    // Remove all already dead characters
+    array<int> toRemove = {};
+    for (uint i = 0; i < spawnedCharacters.size(); i++) {
+        MovementObject @mo = ReadCharacterID(spawnedCharacters[i]);
+        if(mo.GetIntVar("knocked_out") != _awake) {
+            toRemove.push_back(i);
+            
+            if(spawnedCharacters[i] != -1)
+                // TODO! Do I really need to remove them? Check how performance heavy is leaving them as static
+                //QueueDeleteObjectID(spawnedCharacters[i]);
+                staticCharacters.push_back(spawnedCharacters[i]);
+                mo.Execute("this_mo.static_char = true;");
+                // TODO! Do we want to cleanup all weapons? Maybe only cleanup them on Cleanup() call?
+                // And even then, maybe add check if its being held/holstered by a player?
                 if(spawnedWeapons[i] != -1)
                     QueueDeleteObjectID(spawnedWeapons[i]);
                 if(spawnedBackWeap[i] != -1)
                     QueueDeleteObjectID(spawnedBackWeap[i]);
-            }
         }
-        for (uint i = toRemove.size()-1; i <= 0; i--) {
-            spawnedCharacters.removeAt(toRemove[i]);
-            spawnedWeapons.removeAt(toRemove[i]);
-            spawnedBackWeap.removeAt(toRemove[i]);
-        }
-    
+    }
+    for (uint i = toRemove.size()-1; i <= 0; i--) {
+        spawnedCharacters.removeAt(toRemove[i]);
+        spawnedWeapons.removeAt(toRemove[i]);
+        spawnedBackWeap.removeAt(toRemove[i]);
+    }
+        
+    if(timer > params.GetFloat("respawnTimer")){
         // Dequeue
         toRemove = {};
         int spawned = 0;
+        bool doneSmth = false;
         
         if(params.GetInt("respawnAutomatically") > 0){
-            
+            doneSmth = true;
             string actorPath = params.GetString("autoSpawnActorPath");
             actorPath = actorPath != "" ? actorPath : "none";
             
@@ -231,12 +257,15 @@ void Update()
             spawnQueue = {};
         }
             
-        for (uint i = 0; i < spawnQueue.size(); i++) {
+        for (uint k = 0; k < spawnQueue.size(); k++) {
+            
             if(spawned >= params.GetInt("spawnLimit"))
                 break;
-            array<string> toSpawn = spawnQueue[i].split(";");
+            array<string> toSpawn = spawnQueue[k].split(";");
+            
             if(Spawn(toSpawn[0],toSpawn[1],toSpawn[2])){
-                toRemove.push_back(i);
+                doneSmth = true;
+                toRemove.push_back(k);
                 spawned++;
             }
         }
@@ -245,7 +274,9 @@ void Update()
         for (int i = int(toRemove.size())-1; i >= 0; i--) {
             spawnQueue.removeAt(toRemove[i]);
         }
-        timer = 0;
+        // Reset timer only if actually anything was done
+        if(doneSmth)
+            timer = 0;
     }
     
     npcTimer.Update();
@@ -255,7 +286,7 @@ void Cleanup(){
     spawnQueue = {};
     for (uint i = 0; i < spawnedCharacters.size(); i++) {
         if(spawnedCharacters[i] != -1)
-            QueueDeleteObjectID(spawnedCharacters[i]);
+            QueueDeleteObjectID(spawnedCharacters[i]); 
     }
     spawnedCharacters = {};
     for (uint i = 0; i < spawnedWeapons.size(); i++) {
@@ -273,6 +304,7 @@ void Cleanup(){
             QueueDeleteObjectID(staticCharacters[i]);
     }
     staticCharacters = {};
+    timer = 1048576;
 }
 
 void PreScriptReload()

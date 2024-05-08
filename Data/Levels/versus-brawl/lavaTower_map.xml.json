@@ -6,10 +6,10 @@
   },
   "Race": {
     "CheckPointsNeeded": {
-      "Value": 7,
+      "Value": 8,
       "Configurable": {
         "Min": 1,
-        "Max": 7
+        "Max": 8
       }
     },
     "OnlyOneLife": {
