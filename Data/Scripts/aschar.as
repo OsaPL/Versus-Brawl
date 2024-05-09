@@ -11393,22 +11393,34 @@ bool NeedsCombatPose() {
     const float _combat_pose_dist_threshold = 5.0f;
     const float _combat_pose_dist_threshold_2 =  _combat_pose_dist_threshold * _combat_pose_dist_threshold;
 
+    array<int> toRemove = {};
     for(uint i = 0; i < situation.known_chars.size(); ++i) {
         if(!situation.known_chars[i].friendly &&
             situation.known_chars[i].knocked_out == _awake &&
             situation.known_chars[i].last_seen_time > time - 1.0f)
         {
+            if(!MovementObjectExists(situation.known_chars[i].id)) {
+                Log(warning, "Character " + situation.known_chars[i].id + " appears to have disappeared.");
+                // We might as well remove him since he is probably deleted
+                toRemove.push_back(i);
+                continue;
+            }
             MovementObject@ char = ReadCharacterID(situation.known_chars[i].id);
 
             if(char !is null) {
-            if((char.GetIntVar("knocked_out") == _awake) &&
-                distance_squared(char.position, this_mo.position) < _combat_pose_dist_threshold_2  &&
-                char.QueryIntFunction("int IsUnaware()")!=1 &&
-                ReadObjectFromID(char.GetID()).GetEnabled()) {
-                return true;
+                if((char.GetIntVar("knocked_out") == _awake) &&
+                    distance_squared(char.position, this_mo.position) < _combat_pose_dist_threshold_2  &&
+                    char.QueryIntFunction("int IsUnaware()")!=1 &&
+                    ReadObjectFromID(char.GetID()).GetEnabled()) {
+                    
+                    return true;
+                }
             }
         }
-        }
+    }
+    
+    for (uint i = toRemove.size()-1; i <= 0; i--) {
+        situation.known_chars.removeAt(toRemove[i]);
     }
 
     return false;

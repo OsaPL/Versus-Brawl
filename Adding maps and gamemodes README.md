@@ -404,7 +404,7 @@ throwMassMlt = params.GetFloat("Throw - Mass Multiplier");
 - Added fixes from `internal testing` branch regarding `attacker_id`
 - Added jump parameters from `internal testing` branch to change jumping behaviour
 - `bluntHit` message
-- `weaponBlock` message
+- `weaponBlock` message, triggers on any held weapons collision
 - `coopPartners.as` include, with an additional calls in `Update()`
 - Moved color functions to `colorHelper.as`
 - `timeSinceAttackedById` tracks time since last `attacked_by_id` change (as long as its not `-1`)
@@ -412,9 +412,10 @@ throwMassMlt = params.GetFloat("Throw - Mass Multiplier");
 - `BlockedAttack` now takes into the account `Attack Knockback`
 - `HandleAnimationMiscEvent` returns quicker
 - Modifications to the Unsheathe/Sheathing to allow for more weapon slots/big weapons sheathing and also more generic unsheathing (no longer you have to rely on anim events)
-.You can now set `Can sheathe big weapons` param on a character to enable that.
+- You can now set `Can sheathe big weapons` param on a character to enable that.
 - New animation events to use for `sheathed_left_back` and `sheathed_right_back` slots
 - Zero or negative mass weapons will no longer crash/throw errors in throw functions
+- Remove `situation.known_chars` entries if they disappeared
 
 ## `playercontrol.as` <a name="`playercontrol"/>
 - `drunkMode` added, with new methods to invert controls
@@ -424,6 +425,7 @@ throwMassMlt = params.GetFloat("Throw - Mass Multiplier");
 
 ## `situationawareness.as` <a name="`situationawareness"/>
 - Small fix to `Notice()` method, to make manipulating (mostly removing) movement objects not crash sometimes
+- Remove `known_chars` entries if they disappeared
 
 # Hotspots <a name="hotspots"></a>
 

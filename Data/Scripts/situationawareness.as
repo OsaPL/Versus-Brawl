@@ -171,6 +171,7 @@ class Situation {
     }
 
     bool PlayCombatSong() {
+        array<int> toRemove = {};
         for(uint i=0; i<known_chars.size(); ++i){
             if(!known_chars[i].friendly){
                 if( MovementObjectExists(known_chars[i].id) ) {
@@ -180,8 +181,14 @@ class Situation {
                     }
                 } else {
                     Log(warning, "Character " + known_chars[i].id + " appears to have disappeared.");
+                    // We might as well remove him since he is probably deleted
+                    toRemove.push_back(i);
                 }
             }
+        }
+        
+        for (uint i = toRemove.size()-1; i <= 0; i--) {
+            known_chars.removeAt(toRemove[i]);
         }
 
         return false;
@@ -199,6 +206,7 @@ class Situation {
         int closest_id = -1;
         float closest_dist = 0.0f;
 
+        array<int> toRemove = {};
         for(uint i=0; i<known_chars.size(); ++i){
             if(!known_chars[i].friendly){
                 if( MovementObjectExists(known_chars[i].id) ) {
@@ -218,9 +226,16 @@ class Situation {
                     }
                 } else {
                     Log(warning, "Character " + known_chars[i].id + " appears to have disappeared.");
+                    // We might as well remove him since he is probably deleted
+                    toRemove.push_back(i);
                 }
             }
         }
+        
+        for (uint i = toRemove.size()-1; i <= 0; i--) {
+            known_chars.removeAt(toRemove[i]);
+        }
+        
         return closest_id;
     }
 };
