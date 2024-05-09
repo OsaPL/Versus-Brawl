@@ -88,7 +88,7 @@ void Update(){
         Object@ obj = ReadObjectFromID(objectIdToFollow);
         
         vec3 pos = vec3(0);
-        if(params.HasParam("boneToFollow")){
+        if(params.HasParam("boneToFollow") && MovementObjectExists(objectIdToFollow)){         
             // if `boneToFollow` is set, follow a bone
             MovementObject@ mo = ReadCharacterID(objectIdToFollow);
             string bonName = params.GetString("boneToFollow");

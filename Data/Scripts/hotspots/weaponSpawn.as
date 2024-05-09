@@ -64,29 +64,10 @@ void Degrade(int attackerId, int usageChance = 100){
                 usesLeft = usesLeft - 1;
             }
             else{
-                // Its already used up, destroy
+                // Its already used up, play a sound to inform player and dispose
+                // TODO: Should be probably configurable
+                PlaySound("Data/Sounds/weapon_foley/impact/weapon_drop_heavy_dirt_3.wav");
                 
-                mat4 transform = weap.GetPhysicsTransform();
-                mat4 rot = transform.GetRotationPart();
-                vec3 translation = (transform*vec3());
-                breakEmitterId = CreateObject("Data/Objects/powerups/objectFollowerEmitter.xml");
-                Object@ obj = ReadObjectFromID(breakEmitterId);
-                obj.SetTranslation(translation);
-                ScriptParams@ objParams = obj.GetScriptParams();
-                objParams.SetFloat("particleDelay", 0.05f);
-                objParams.SetFloat("particleRangeMultiply", 0.1f);
-                //objParams.SetString("pathToParticles", params.GetString("pathToParticles"));
-                objParams.SetFloat("particleColorR", 0.3f);
-                objParams.SetFloat("particleColorG", 0.25f);
-                objParams.SetFloat("particleColorB", 0.25f);
-                obj.UpdateScriptParams();
-                spawnerTimer.Add(DelayedJob(0.5f, function(){
-                    QueueDeleteObjectID(breakEmitterId);
-                }));
-                PlaySound("Data/Sounds/unused/blow_dart_hit_02.wav");
-                
-                // TODO! Add a cool poof particle and sounds
-                // Maybe even in DisposeWeapon() method itself?
                 DisposeWeapon();
             }
         }
@@ -201,6 +182,32 @@ void Reset(){
 
 void DisposeWeapon(){
     if(weaponId != -1){
+        // Generate a short puff first
+        ItemObject@ weap = ReadItemID(weaponId);
+        mat4 transform = weap.GetPhysicsTransform();
+        mat4 rot = transform.GetRotationPart();
+        vec3 translation = (transform*vec3()-vec3(0.0f,-0.2f,0.0f));
+        breakEmitterId = CreateObject("Data/Objects/powerups/objectFollowerEmitter.xml");
+        Object@ obj = ReadObjectFromID(breakEmitterId);
+        obj.SetTranslation(translation);
+        ScriptParams@ objParams = obj.GetScriptParams();
+        // Check if its held
+        int holderId = weap.HeldByWhom();
+        if(MovementObjectExists(holderId)){
+            objParams.SetInt("objectIdToFollow", holderId);
+            // TODO: This should check for handness
+            objParams.SetString("boneToFollow", "rightarm");
+        }
+        objParams.SetFloat("particleDelay", 0.08f);
+        objParams.SetFloat("particleRangeMultiply", 0.2f);
+        //objParams.SetString("pathToParticles", "Data/Particles/versus-brawl/tinyCloud.xml");
+        objParams.SetFloat("particleColorR", 0.3f);
+        objParams.SetFloat("particleColorG", 0.25f);
+        objParams.SetFloat("particleColorB", 0.25f);
+        obj.UpdateScriptParams();
+        spawnerTimer.Add(DelayedJob(0.3f, function(){
+            QueueDeleteObjectID(breakEmitterId);
+        }));
         DeleteObjectID(weaponId);
         weaponId = -1;
     }
