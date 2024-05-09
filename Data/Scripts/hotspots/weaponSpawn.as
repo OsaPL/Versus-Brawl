@@ -78,7 +78,7 @@ void SetParameters() {
     params.AddString("ItemPath", oldPath);
     params.AddIntSlider("RespawnTime", 10.0f, "min:0.0,max:100.0");
     params.AddIntSlider("RespawnDistance", 3.0f, "min:0.0,max:100.0");
-    params.AddIntSlider("Durability", 3.0f, "min:-1.0,max:100.0");
+    params.AddIntSlider("Durability", -1.0f, "min:-1.0,max:100.0");
     params.AddString("game_type", "versusBrawl");
 }
 
@@ -184,12 +184,16 @@ void DisposeWeapon(){
     if(weaponId != -1){
         // Generate a short puff first
         ItemObject@ weap = ReadItemID(weaponId);
+        Object@ weapObj = ReadObjectFromID(weaponId);
         mat4 transform = weap.GetPhysicsTransform();
         mat4 rot = transform.GetRotationPart();
         vec3 translation = (transform*vec3()-vec3(0.0f,-0.2f,0.0f));
         breakEmitterId = CreateObject("Data/Objects/powerups/objectFollowerEmitter.xml");
         Object@ obj = ReadObjectFromID(breakEmitterId);
         obj.SetTranslation(translation);
+        obj.SetRotation(QuaternionFromMat4(rot));
+        obj.SetScale(weapObj.GetBoundingBox()*10.0f);
+        
         ScriptParams@ objParams = obj.GetScriptParams();
         // Check if its held
         int holderId = weap.HeldByWhom();
@@ -199,7 +203,7 @@ void DisposeWeapon(){
             objParams.SetString("boneToFollow", "rightarm");
         }
         objParams.SetFloat("particleDelay", 0.08f);
-        objParams.SetFloat("particleRangeMultiply", 0.2f);
+        objParams.SetFloat("particleRangeMultiply", 1.0f);
         //objParams.SetString("pathToParticles", "Data/Particles/versus-brawl/tinyCloud.xml");
         objParams.SetFloat("particleColorR", 0.3f);
         objParams.SetFloat("particleColorG", 0.25f);
