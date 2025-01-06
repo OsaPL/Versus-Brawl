@@ -95,7 +95,7 @@
     <EnvObject t0="-180.74" t1="79.0375" t2="78.9168" s0="1.67676" s1="1.67676" s2="1.67676" q0="-0.00322628" q1="-0.443898" q2="-0.0200838" q3="0.895846" euler_x="0.0198852" euler_y="-0.919763" euler_z="-0.0546795" id="14" color_r="0.607843" color_g="0.568627" color_b="0.47451" overbright="0" type_file="Data/Objects/Environment/Rocks/rock1a_lichen.xml">
         <parameters />
     </EnvObject>
-    <Hotspot t0="-198.189" t1="127.389" t2="33.8129" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0.432875" q2="0" q3="0.901454" euler_x="0" euler_y="0.895359" euler_z="0" id="15" type_file="Data/Objects/playerSpawn.xml">
+    <Hotspot t0="-200.702" t1="125.877" t2="34.2361" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0.432875" q2="0" q3="0.901454" euler_x="0" euler_y="0.895359" euler_z="0" id="15" type_file="Data/Objects/playerSpawn.xml">
         <parameters>
             <parameter name="game_type" type="string" val="versusBrawl" />
             <parameter name="playerNr" type="int" val="-1" />
@@ -353,7 +353,7 @@
     <Decal t0="-119.396" t1="72.9062" t2="253.522" s0="5.53899" s1="3.61376" s2="7.33375" q0="-0.218045" q1="-0.749432" q2="0.0770004" q3="0.620386" euler_x="-2.08571" euler_y="-1.11134" euler_z="1.8805" id="98" type_file="Data/Objects/Decals/hex_crete_damage.xml" color_r="0.717647" color_g="0.717647" color_b="0.717647" overbright="0">
         <parameters />
     </Decal>
-    <CameraObject t0="-187.149" t1="124.988" t2="66.0303" s0="1" s1="1" s2="1" q0="0.110498" q1="0.889498" q2="-0.31506" q3="0.311964" euler_x="-2.46077" euler_y="0.674631" euler_z="3.14159" id="99">
+    <CameraObject t0="-168.506" t1="136.871" t2="59.3855" s0="1" s1="1" s2="1" q0="0.247509" q1="-0.395262" q2="0.111483" q3="0.877541" euler_x="0.549814" euler_y="-0.846405" euler_z="0" id="99">
         <parameters />
     </CameraObject>
     <Hotspot t0="-185.451" t1="124.337" t2="69.1984" s0="0.27" s1="0.27" s2="0.27" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="100" type_file="Data/Objects/powerups/yeetPowerUp.xml">
@@ -421,6 +421,7 @@
     </EnvObject>
     <Hotspot t0="-197.755" t1="124.616" t2="58.3763" s0="0.1" s1="0.1" s2="0.1" q0="0.289422" q1="-0.655073" q2="-0.278226" q3="0.640079" euler_x="1.60584" euler_y="-0.744423" euler_z="-1.58856" id="108" type_file="Data/Objects/weaponSpawn.xml">
         <parameters>
+            <parameter name="Durability" type="int" val="-1" />
             <parameter name="ItemPath" type="string" val="Data/Items/staffbasic.xml" />
             <parameter name="RespawnDistance" type="int" val="3" />
             <parameter name="RespawnTime" type="int" val="10" />
@@ -438,7 +439,7 @@
     <EnvObject t0="-183.978" t1="124.782" t2="32.956" s0="3.19577" s1="1.47166" s2="0.997979" q0="-0.573609" q1="-0.57059" q2="-0.398216" q3="0.432231" euler_x="-3.0084" euler_y="-1.25354" euler_z="1.469" id="112" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-201.51" t1="85.3182" t2="25.2716" s0="1.71466" s1="3.68813" s2="1.57967" q0="0.0655518" q1="0.1008" q2="-0.00164134" q3="0.992743" euler_x="0.132899" euler_y="0.201717" euler_z="0.0101626" id="113" color_r="0.0941176" color_g="0.0941176" color_b="0.0941176" overbright="0" type_file="Data/Objects/Crete/hex_crete_half_slope.xml">
+    <EnvObject t0="-198.305" t1="84.9229" t2="26.8207" s0="1.30264" s1="3.68813" s2="1.46257" q0="0.0695591" q1="0.107535" q2="-0.0053185" q3="0.99175" euler_x="0.140535" euler_y="0.215704" euler_z="0.00451549" id="113" color_r="0.0941176" color_g="0.0941176" color_b="0.0941176" overbright="0" type_file="Data/Objects/Crete/hex_crete_half_slope.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-185.482" t1="84.6563" t2="63.7039" s0="1.07547" s1="2.32321" s2="0.939296" q0="0" q1="-0.00310743" q2="0" q3="0.999995" euler_x="0" euler_y="-0.00621487" euler_z="0" id="114" color_r="0.2" color_g="0.2" color_b="0.2" overbright="0" type_file="Data/Objects/Crete/hex_crete_tall.xml">
@@ -447,7 +448,7 @@
     <EnvObject t0="-195.975" t1="81.3931" t2="58.4589" s0="1.19632" s1="2.58426" s2="1.04484" q0="0.0164663" q1="0.0210936" q2="0.0413006" q3="0.998788" euler_x="0.0346708" euler_y="0.0407872" euler_z="0.0833615" id="115" color_r="0.117647" color_g="0.117647" color_b="0.117647" overbright="0" type_file="Data/Objects/Crete/hex_crete_tall.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-170.332" t1="86.4818" t2="59.4546" s0="1.08213" s1="2.3376" s2="0.945112" q0="-0.062947" q1="-0.0558986" q2="0.0489617" q3="0.995247" euler_x="-0.13188" euler_y="-0.105296" euler_z="0.105272" id="116" color_r="0.498039" color_g="0.498039" color_b="0.498039" overbright="0" type_file="Data/Objects/Crete/hex_crete_tall.xml">
+    <EnvObject t0="-171.541" t1="86.7385" t2="59.6924" s0="1.08213" s1="2.3376" s2="0.945112" q0="-0.0642715" q1="-0.0284713" q2="0.0472098" q3="0.996409" euler_x="-0.131315" euler_y="-0.0506913" euler_z="0.0980229" id="116" color_r="0.498039" color_g="0.498039" color_b="0.498039" overbright="0" type_file="Data/Objects/Crete/hex_crete_tall.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-184.861" t1="124.608" t2="58.694" s0="2.99362" s1="1.46723" s2="0.997866" q0="-0.357626" q1="-0.387801" q2="-0.605415" q3="0.595957" euler_x="0.0973434" euler_y="-1.10899" euler_z="-1.64681" id="118" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
@@ -473,6 +474,7 @@
     </EnvObject>
     <Hotspot t0="-185.057" t1="130.006" t2="45.4061" s0="0.1" s1="0.1" s2="0.1" q0="0.738098" q1="0.0502815" q2="-0.0550859" q3="0.670561" euler_x="1.66664" euler_y="0.149305" euler_z="0.000352354" id="125" type_file="Data/Objects/weaponSpawn.xml">
         <parameters>
+            <parameter name="Durability" type="int" val="-1" />
             <parameter name="ItemPath" type="string" val="Data/Items/DogWeapons/DogBroadSword.xml" />
             <parameter name="RespawnDistance" type="int" val="3" />
             <parameter name="RespawnTime" type="int" val="10" />
@@ -2671,7 +2673,7 @@
             </EnvObject>
         </Group>
     </Group>
-    <NavmeshRegionObject t0="-182.316" t1="134.628" t2="40.8063" s0="62.9752" s1="62.9752" s2="62.9752" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="856">
+    <NavmeshRegionObject t0="-183.098" t1="134.092" t2="41.1979" s0="61.8232" s1="61.8232" s2="61.8232" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="856">
         <parameters />
     </NavmeshRegionObject>
     <EnvObject t0="-184.812" t1="125.882" t2="49.0049" s0="0.638523" s1="0.851325" s2="1.04392" q0="-0.910819" q1="0.154549" q2="0.378515" q3="0.0570072" euler_x="3.12299" euler_y="0.785442" euler_z="-0.343867" id="857" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/bleached_bough.xml">
@@ -2692,7 +2694,7 @@
     <EnvObject t0="-204.492" t1="125.611" t2="46.5774" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="862" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/medium_lichen_rock.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-185.89" t1="125.211" t2="25.8197" s0="1" s1="1" s2="1" q0="0.24166" q1="0.0951724" q2="0.0131582" q3="0.965593" euler_x="0.496964" euler_y="0.17838" euler_z="0.0726248" id="863" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/lichen_rock_c.xml">
+    <EnvObject t0="-185.89" t1="125.211" t2="25.8197" s0="1" s1="1" s2="1" q0="0.24166" q1="0.0951724" q2="0.0131582" q3="0.965593" euler_x="0.496965" euler_y="0.17838" euler_z="0.0726249" id="863" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/lichen_rock_c.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-185.45" t1="125.606" t2="25.5176" s0="0.967212" s1="0.967212" s2="0.967212" q0="-0.922139" q1="0.335488" q2="0.184385" q3="-0.0557505" euler_x="2.90161" euler_y="0.307472" euler_z="-0.735219" id="864" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/bleached_bough.xml">
@@ -2707,134 +2709,110 @@
     <EnvObject t0="-185.93" t1="123.125" t2="67.1366" s0="1" s1="1" s2="1" q0="-0.0671228" q1="0.00947089" q2="0.154956" q3="0.985594" euler_x="-0.129842" euler_y="0.0394813" euler_z="0.309322" id="867" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/lichen_rock_e.xml">
         <parameters />
     </EnvObject>
-    <NavmeshConnectionObject t0="-183.251" t1="124.656" t2="28.737" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="870" type_file="">
+    <NavmeshConnectionObject t0="-199.639" t1="126.345" t2="45.4867" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="870" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="872" offmesh_connection_id="1001" poly_area="9" />
-            <NavMeshConnection other_object_id="883" offmesh_connection_id="1025" poly_area="10" />
-            <NavMeshConnection other_object_id="871" offmesh_connection_id="1000" poly_area="10" />
-        </NavMeshConnections>
-    </NavmeshConnectionObject>
-    <NavmeshConnectionObject t0="-172.34" t1="124.512" t2="40.8133" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="871" type_file="">
-        <parameters />
-        <NavMeshConnections>
-            <NavMeshConnection other_object_id="873" offmesh_connection_id="1002" poly_area="8" />
-            <NavMeshConnection other_object_id="882" offmesh_connection_id="1021" poly_area="9" />
-            <NavMeshConnection other_object_id="870" offmesh_connection_id="1000" poly_area="10" />
+            <NavMeshConnection other_object_id="877" offmesh_connection_id="1005" poly_area="8" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="-184.378" t1="125.563" t2="38.3401" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="872" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="878" offmesh_connection_id="1010" poly_area="8" />
-            <NavMeshConnection other_object_id="873" offmesh_connection_id="1003" poly_area="8" />
-            <NavMeshConnection other_object_id="870" offmesh_connection_id="1001" poly_area="9" />
+            <NavMeshConnection other_object_id="878" offmesh_connection_id="1008" poly_area="8" />
+            <NavMeshConnection other_object_id="873" offmesh_connection_id="1000" poly_area="8" />
+            <NavMeshConnection other_object_id="915" offmesh_connection_id="1026" poly_area="8" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
-    <NavmeshConnectionObject t0="-178.233" t1="125.771" t2="44.545" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="873" type_file="">
+    <NavmeshConnectionObject t0="-179.11" t1="126.267" t2="42.639" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="873" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="872" offmesh_connection_id="1003" poly_area="8" />
-            <NavMeshConnection other_object_id="874" offmesh_connection_id="1004" poly_area="8" />
-            <NavMeshConnection other_object_id="878" offmesh_connection_id="1011" poly_area="10" />
-            <NavMeshConnection other_object_id="875" offmesh_connection_id="1005" poly_area="9" />
-            <NavMeshConnection other_object_id="882" offmesh_connection_id="1022" poly_area="8" />
-            <NavMeshConnection other_object_id="871" offmesh_connection_id="1002" poly_area="8" />
+            <NavMeshConnection other_object_id="872" offmesh_connection_id="1000" poly_area="8" />
+            <NavMeshConnection other_object_id="874" offmesh_connection_id="1001" poly_area="8" />
+            <NavMeshConnection other_object_id="878" offmesh_connection_id="1009" poly_area="9" />
+            <NavMeshConnection other_object_id="875" offmesh_connection_id="1002" poly_area="9" />
+            <NavMeshConnection other_object_id="882" offmesh_connection_id="1016" poly_area="9" />
+            <NavMeshConnection other_object_id="904" offmesh_connection_id="1025" poly_area="8" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
-    <NavmeshConnectionObject t0="-180.151" t1="125.784" t2="50.8484" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="874" type_file="">
+    <NavmeshConnectionObject t0="-180.055" t1="126.069" t2="50.9146" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="874" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="873" offmesh_connection_id="1004" poly_area="8" />
-            <NavMeshConnection other_object_id="875" offmesh_connection_id="1006" poly_area="8" />
-            <NavMeshConnection other_object_id="882" offmesh_connection_id="1023" poly_area="8" />
-            <NavMeshConnection other_object_id="885" offmesh_connection_id="1028" poly_area="8" />
+            <NavMeshConnection other_object_id="873" offmesh_connection_id="1001" poly_area="8" />
+            <NavMeshConnection other_object_id="875" offmesh_connection_id="1003" poly_area="8" />
+            <NavMeshConnection other_object_id="882" offmesh_connection_id="1017" poly_area="7" />
+            <NavMeshConnection other_object_id="885" offmesh_connection_id="1020" poly_area="8" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="-183.137" t1="125.752" t2="55.1573" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="875" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="874" offmesh_connection_id="1006" poly_area="8" />
-            <NavMeshConnection other_object_id="876" offmesh_connection_id="1007" poly_area="8" />
-            <NavMeshConnection other_object_id="873" offmesh_connection_id="1005" poly_area="9" />
-            <NavMeshConnection other_object_id="877" offmesh_connection_id="1008" poly_area="9" />
-            <NavMeshConnection other_object_id="881" offmesh_connection_id="1018" poly_area="8" />
-            <NavMeshConnection other_object_id="882" offmesh_connection_id="1024" poly_area="9" />
-            <NavMeshConnection other_object_id="885" offmesh_connection_id="1029" poly_area="7" />
+            <NavMeshConnection other_object_id="874" offmesh_connection_id="1003" poly_area="8" />
+            <NavMeshConnection other_object_id="876" offmesh_connection_id="1004" poly_area="8" />
+            <NavMeshConnection other_object_id="873" offmesh_connection_id="1002" poly_area="9" />
+            <NavMeshConnection other_object_id="877" offmesh_connection_id="1006" poly_area="9" />
+            <NavMeshConnection other_object_id="881" offmesh_connection_id="1013" poly_area="8" />
+            <NavMeshConnection other_object_id="882" offmesh_connection_id="1018" poly_area="8" />
+            <NavMeshConnection other_object_id="885" offmesh_connection_id="1021" poly_area="7" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="-189.861" t1="125.581" t2="54.477" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="876" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="875" offmesh_connection_id="1007" poly_area="8" />
-            <NavMeshConnection other_object_id="877" offmesh_connection_id="1009" poly_area="8" />
-            <NavMeshConnection other_object_id="880" offmesh_connection_id="1015" poly_area="9" />
-            <NavMeshConnection other_object_id="881" offmesh_connection_id="1019" poly_area="8" />
-            <NavMeshConnection other_object_id="885" offmesh_connection_id="1030" poly_area="8" />
+            <NavMeshConnection other_object_id="875" offmesh_connection_id="1004" poly_area="8" />
+            <NavMeshConnection other_object_id="877" offmesh_connection_id="1007" poly_area="8" />
+            <NavMeshConnection other_object_id="880" offmesh_connection_id="1011" poly_area="9" />
+            <NavMeshConnection other_object_id="881" offmesh_connection_id="1014" poly_area="8" />
+            <NavMeshConnection other_object_id="885" offmesh_connection_id="1022" poly_area="8" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
-    <NavmeshConnectionObject t0="-193.302" t1="125.425" t2="46.8555" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="877" type_file="">
+    <NavmeshConnectionObject t0="-193.302" t1="125.425" t2="46.8554" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="877" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="876" offmesh_connection_id="1009" poly_area="8" />
-            <NavMeshConnection other_object_id="878" offmesh_connection_id="1012" poly_area="9" />
-            <NavMeshConnection other_object_id="875" offmesh_connection_id="1008" poly_area="9" />
-            <NavMeshConnection other_object_id="879" offmesh_connection_id="1013" poly_area="8" />
-            <NavMeshConnection other_object_id="880" offmesh_connection_id="1016" poly_area="9" />
-            <NavMeshConnection other_object_id="885" offmesh_connection_id="1031" poly_area="9" />
+            <NavMeshConnection other_object_id="876" offmesh_connection_id="1007" poly_area="8" />
+            <NavMeshConnection other_object_id="878" offmesh_connection_id="1010" poly_area="8" />
+            <NavMeshConnection other_object_id="875" offmesh_connection_id="1006" poly_area="9" />
+            <NavMeshConnection other_object_id="880" offmesh_connection_id="1012" poly_area="9" />
+            <NavMeshConnection other_object_id="885" offmesh_connection_id="1023" poly_area="9" />
+            <NavMeshConnection other_object_id="870" offmesh_connection_id="1005" poly_area="8" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
-    <NavmeshConnectionObject t0="-191.308" t1="125.384" t2="37.3652" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="878" type_file="">
+    <NavmeshConnectionObject t0="-190.538" t1="125.99" t2="38.4618" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="878" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="883" offmesh_connection_id="1026" poly_area="8" />
-            <NavMeshConnection other_object_id="872" offmesh_connection_id="1010" poly_area="8" />
-            <NavMeshConnection other_object_id="877" offmesh_connection_id="1012" poly_area="9" />
-            <NavMeshConnection other_object_id="873" offmesh_connection_id="1011" poly_area="10" />
-            <NavMeshConnection other_object_id="879" offmesh_connection_id="1014" poly_area="9" />
-        </NavMeshConnections>
-    </NavmeshConnectionObject>
-    <NavmeshConnectionObject t0="-200.484" t1="125.811" t2="44.8115" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="879" type_file="">
-        <parameters />
-        <NavMeshConnections>
-            <NavMeshConnection other_object_id="883" offmesh_connection_id="1027" poly_area="9" />
-            <NavMeshConnection other_object_id="877" offmesh_connection_id="1013" poly_area="8" />
-            <NavMeshConnection other_object_id="878" offmesh_connection_id="1014" poly_area="9" />
-            <NavMeshConnection other_object_id="880" offmesh_connection_id="1017" poly_area="9" />
+            <NavMeshConnection other_object_id="872" offmesh_connection_id="1008" poly_area="8" />
+            <NavMeshConnection other_object_id="877" offmesh_connection_id="1010" poly_area="8" />
+            <NavMeshConnection other_object_id="873" offmesh_connection_id="1009" poly_area="9" />
+            <NavMeshConnection other_object_id="883" offmesh_connection_id="-1" poly_area="8" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="-199.997" t1="124.271" t2="57.7632" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="880" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="877" offmesh_connection_id="1016" poly_area="9" />
-            <NavMeshConnection other_object_id="876" offmesh_connection_id="1015" poly_area="9" />
-            <NavMeshConnection other_object_id="879" offmesh_connection_id="1017" poly_area="9" />
-            <NavMeshConnection other_object_id="881" offmesh_connection_id="1020" poly_area="10" />
+            <NavMeshConnection other_object_id="877" offmesh_connection_id="1012" poly_area="9" />
+            <NavMeshConnection other_object_id="876" offmesh_connection_id="1011" poly_area="9" />
+            <NavMeshConnection other_object_id="881" offmesh_connection_id="1015" poly_area="10" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
-    <NavmeshConnectionObject t0="-185.908" t1="123.324" t2="61.772" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="881" type_file="">
+    <NavmeshConnectionObject t0="-185.668" t1="123.511" t2="61.8371" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="881" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="876" offmesh_connection_id="1019" poly_area="8" />
+            <NavMeshConnection other_object_id="876" offmesh_connection_id="1014" poly_area="8" />
+            <NavMeshConnection other_object_id="875" offmesh_connection_id="1013" poly_area="8" />
+            <NavMeshConnection other_object_id="880" offmesh_connection_id="1015" poly_area="10" />
+        </NavMeshConnections>
+    </NavmeshConnectionObject>
+    <NavmeshConnectionObject t0="-177.284" t1="125.08" t2="53.9711" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="882" type_file="">
+        <parameters />
+        <NavMeshConnections>
+            <NavMeshConnection other_object_id="873" offmesh_connection_id="1016" poly_area="9" />
+            <NavMeshConnection other_object_id="874" offmesh_connection_id="1017" poly_area="7" />
             <NavMeshConnection other_object_id="875" offmesh_connection_id="1018" poly_area="8" />
-            <NavMeshConnection other_object_id="880" offmesh_connection_id="1020" poly_area="10" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
-    <NavmeshConnectionObject t0="-175.122" t1="122.623" t2="51.8771" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="882" type_file="">
+    <NavmeshConnectionObject t0="-195.529" t1="125.742" t2="35.0851" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="883" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="873" offmesh_connection_id="1022" poly_area="8" />
-            <NavMeshConnection other_object_id="874" offmesh_connection_id="1023" poly_area="8" />
-            <NavMeshConnection other_object_id="871" offmesh_connection_id="1021" poly_area="9" />
-            <NavMeshConnection other_object_id="875" offmesh_connection_id="1024" poly_area="9" />
-        </NavMeshConnections>
-    </NavmeshConnectionObject>
-    <NavmeshConnectionObject t0="-199.067" t1="125.605" t2="33.6272" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="883" type_file="">
-        <parameters />
-        <NavMeshConnections>
-            <NavMeshConnection other_object_id="878" offmesh_connection_id="1026" poly_area="8" />
-            <NavMeshConnection other_object_id="870" offmesh_connection_id="1025" poly_area="10" />
-            <NavMeshConnection other_object_id="879" offmesh_connection_id="1027" poly_area="9" />
+            <NavMeshConnection other_object_id="878" offmesh_connection_id="-1" poly_area="8" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <EnvObject t0="-185.214" t1="125.548" t2="50.8933" s0="0.683374" s1="0.401902" s2="0.377389" q0="0.0554215" q1="0.0425962" q2="-0.0241755" q3="0.997263" euler_x="0.109115" euler_y="0.0877515" euler_z="-0.0436791" id="884" color_r="0.34902" color_g="0.368627" color_b="0.407843" overbright="0" type_file="Data/Objects/Buildings/arena/arena_pillar.xml">
@@ -2843,17 +2821,17 @@
     <NavmeshConnectionObject t0="-184.983" t1="127.543" t2="51.244" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="885" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="875" offmesh_connection_id="1029" poly_area="7" />
-            <NavMeshConnection other_object_id="874" offmesh_connection_id="1028" poly_area="8" />
-            <NavMeshConnection other_object_id="886" offmesh_connection_id="1032" poly_area="8" />
-            <NavMeshConnection other_object_id="876" offmesh_connection_id="1030" poly_area="8" />
-            <NavMeshConnection other_object_id="877" offmesh_connection_id="1031" poly_area="9" />
+            <NavMeshConnection other_object_id="875" offmesh_connection_id="1021" poly_area="7" />
+            <NavMeshConnection other_object_id="874" offmesh_connection_id="1020" poly_area="8" />
+            <NavMeshConnection other_object_id="886" offmesh_connection_id="1024" poly_area="8" />
+            <NavMeshConnection other_object_id="876" offmesh_connection_id="1022" poly_area="8" />
+            <NavMeshConnection other_object_id="877" offmesh_connection_id="1023" poly_area="9" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="-185.216" t1="129.644" t2="45.9878" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="886" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="885" offmesh_connection_id="1032" poly_area="8" />
+            <NavMeshConnection other_object_id="885" offmesh_connection_id="1024" poly_area="8" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <EnvObject t0="-185.446" t1="123.34" t2="68.4459" s0="1.10981" s1="1.4845" s2="1" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="888" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
@@ -2862,10 +2840,16 @@
     <Decal t0="-184.845" t1="125.254" t2="48.7925" s0="3.18275" s1="2.29539" s2="3.96537" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="891" type_file="Data/Objects/Decals/dark_rubble.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <EnvObject t0="-171.552" t1="125.179" t2="54.5784" s0="1.0276" s1="1.04816" s2="1.23086" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="903" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/lichen_rubble.xml">
+    <EnvObject t0="-173.129" t1="124.929" t2="53.0752" s0="1.0276" s1="1.04816" s2="1.23086" q0="-0.0358635" q1="0.0735613" q2="0.0545949" q3="0.995148" euler_x="-0.0641189" euler_y="0.150897" euler_z="0.104764" id="903" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/lichen_rubble.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-172.051" t1="124.923" t2="56.9956" s0="2.21101" s1="2.21101" s2="2.21101" q0="0.0962088" q1="-0.411762" q2="-0.0170633" q3="0.906037" euler_x="0.285264" euler_y="-0.837332" euler_z="-0.165291" id="906" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/lichen_rock_c.xml">
+    <NavmeshConnectionObject t0="-173.303" t1="125.109" t2="40.4628" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="904" type_file="">
+        <parameters />
+        <NavMeshConnections>
+            <NavMeshConnection other_object_id="873" offmesh_connection_id="1025" poly_area="8" />
+        </NavMeshConnections>
+    </NavmeshConnectionObject>
+    <EnvObject t0="-173.047" t1="125.237" t2="57.249" s0="2.21101" s1="2.21101" s2="2.21101" q0="0.0962088" q1="-0.411762" q2="-0.0170633" q3="0.906037" euler_x="0.285264" euler_y="-0.837332" euler_z="-0.165291" id="906" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/lichen_rock_c.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-183.367" t1="121.968" t2="33.6007" s0="3.18086" s1="2.14416" s2="2.67283" q0="0.143549" q1="0.0140006" q2="-0.988667" q3="-0.0416602" euler_x="-0.0413418" euler_y="0.286585" euler_z="3.0514" id="908" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/medium_lichen_rock.xml">
@@ -2883,11 +2867,15 @@
     <EnvObject t0="-185.718" t1="125.632" t2="26.3774" s0="0.915332" s1="0.915332" s2="0.915332" q0="-0.50888" q1="-0.0219387" q2="0.853429" q3="-0.110601" euler_x="0.154883" euler_y="1.06222" euler_z="-2.79275" id="910" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/bleached_bough.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-201.644" t1="121.873" t2="25.37" s0="1" s1="1" s2="1" q0="-0.0446857" q1="0.0677651" q2="0.0762421" q3="0.99378" euler_x="-0.0793634" euler_y="0.141978" euler_z="0.147492" id="911" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/plain_rock_small.xml">
+    <EnvObject t0="-198.403" t1="122.174" t2="27.4556" s0="1" s1="1" s2="1" q0="-0.0446857" q1="0.0677651" q2="0.0762421" q3="0.99378" euler_x="-0.0793634" euler_y="0.141978" euler_z="0.147492" id="911" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/plain_rock_small.xml">
         <parameters />
     </EnvObject>
+    <NavmeshHintObject t0="-184.829" t1="124.309" t2="58.6016" s0="2.01711" s1="0.700974" s2="5.96547" q0="0.224554" q1="-0.0152002" q2="0.0104971" q3="0.974288" euler_x="0.452816" euler_y="-0.0343398" euler_z="0.0136363" id="912">
+        <parameters />
+    </NavmeshHintObject>
     <Hotspot t0="-198.005" t1="124.594" t2="59.5338" s0="0.1" s1="0.1" s2="0.1" q0="0.205003" q1="-0.695292" q2="-0.110595" q3="0.679936" euler_x="1.68796" euler_y="-1.12014" euler_z="-1.55088" id="913" type_file="Data/Objects/weaponSpawn.xml">
         <parameters>
+            <parameter name="Durability" type="int" val="-1" />
             <parameter name="ItemPath" type="string" val="Data/Items/staffbasic.xml" />
             <parameter name="RespawnDistance" type="int" val="3" />
             <parameter name="RespawnTime" type="int" val="10" />
@@ -2899,12 +2887,36 @@
     <EnvObject t0="-184.102" t1="119.618" t2="34.3203" s0="3.8534" s1="2.28306" s2="3.1976" q0="0.622996" q1="0.00314501" q2="-0.0621385" q3="0.779748" euler_x="1.34437" euler_y="0.082422" euler_z="-0.0934387" id="914" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/medium_lichen_rock.xml">
         <parameters />
     </EnvObject>
+    <NavmeshConnectionObject t0="-184.17" t1="124.84" t2="29.4296" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="915" type_file="">
+        <parameters />
+        <NavMeshConnections>
+            <NavMeshConnection other_object_id="872" offmesh_connection_id="1026" poly_area="8" />
+        </NavMeshConnections>
+    </NavmeshConnectionObject>
+    <Decal t0="-186.621" t1="84.387" t2="45.0967" s0="68.069" s1="68.069" s2="68.069" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="916" type_file="Data/Objects/Decals/blob_shadow.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </Decal>
     <EnvObject t0="-187.01" t1="120.607" t2="33.1494" s0="1.42618" s1="1.42618" s2="1.42618" q0="0.257899" q1="0.305038" q2="0.261997" q3="0.878522" euler_x="0.732966" euler_y="0.41242" euler_z="0.739891" id="917" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/medium_lichen_rock.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-184.4" t1="116.969" t2="34.7411" s0="2.24097" s1="1" s2="0.992513" q0="0.00195062" q1="0.0134732" q2="0.0190068" q3="0.999728" euler_x="0.00441395" euler_y="0.0268682" euler_z="0.0380788" id="918" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/medium_lichen_rock.xml">
         <parameters />
     </EnvObject>
+    <NavmeshHintObject t0="-196.196" t1="125.47" t2="45.7848" s0="2.01134" s1="1.04061" s2="5.77939" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="921">
+        <parameters />
+    </NavmeshHintObject>
+    <NavmeshHintObject t0="-193.36" t1="124.965" t2="55.9886" s0="2.01711" s1="0.700974" s2="5.96547" q0="0.0675967" q1="-0.455744" q2="0.0339053" q3="0.886895" euler_x="0.153441" euler_y="-0.949248" euler_z="-0.00252911" id="924">
+        <parameters />
+    </NavmeshHintObject>
+    <NavmeshHintObject t0="-183.945" t1="124.573" t2="33.1497" s0="2.11851" s1="0.700977" s2="6.19851" q0="-0.159127" q1="0.0219686" q2="0.0265004" q3="0.986658" euler_x="-0.318628" euler_y="0.051808" euler_z="0.0453785" id="930">
+        <parameters />
+    </NavmeshHintObject>
+    <NavmeshHintObject t0="-176.423" t1="125.246" t2="41.3349" s0="2.01711" s1="0.700974" s2="5.96547" q0="-0.109744" q1="-0.551194" q2="-0.0609543" q3="0.824881" euler_x="-0.299834" euler_y="-1.17507" euler_z="0.0529986" id="931">
+        <parameters />
+    </NavmeshHintObject>
+    <NavmeshHintObject t0="-192.204" t1="124.947" t2="36.8911" s0="3.17826" s1="0.700977" s2="3.69649" q0="-0.00192225" q1="-0.292694" q2="0.0852661" q3="0.952396" euler_x="-0.0645635" euler_y="-0.591002" euler_z="0.19824" id="935">
+        <parameters />
+    </NavmeshHintObject>
 </ActorObjects>
 <RecentItems>
     <SpawnerItem display_name="Fire" path="Data/Objects/fire.xml" thumbnail_path="" />
@@ -2914,4 +2926,8 @@
     <SpawnerItem display_name="playerSpawn.xml" path="Data/Objects/playerSpawn.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="weaponSpawn.xml" path="Data/Objects/weaponSpawn.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="yeetPowerUp.xml" path="Data/Objects/powerups/yeetPowerUp.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Nav Hint" path="Data/Objects/navmesh/navmesh_hint.xml" thumbnail_path="Data/UI/spawner/thumbs/Utility/empty_placeholder.png" />
+    <SpawnerItem display_name="Nav Connection" path="Data/Objects/navmesh/navmesh_connection.xml" thumbnail_path="Data/UI/spawner/thumbs/Utility/empty_placeholder.png" />
+    <SpawnerItem display_name="Ambient Shadow" path="Data/Objects/default_env_blob_shadow_decal.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Blob Shadow" path="Data/Objects/Decals/blob_shadow.xml" thumbnail_path="" />
 </RecentItems>

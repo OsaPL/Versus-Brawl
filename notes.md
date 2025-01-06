@@ -1,7 +1,6 @@
 # Npc players problems:
-2. There is some logic in `pointUIBase.as` that needs to get seperated, to UI and Gameplay flows (see: `playersUI` variables)
-3. Try adding `params.SetInt("Stick To Nav Mesh", 1);` on spawn, maybe it will help? If so make it configurable per map.
-4. Maybe add this^ as a toggleable `Baby mode` to guard ppl from dropping?
+1. There is some logic in `pointUIBase.as` that needs to get seperated, to UI and Gameplay flows (see: `playersUI` variables)
+2. Maybe add `Stick To Nav Mesh` as a toggleable `Baby mode` to guard ppl from dropping?
 
 # Arena mode:
 0. RETHINK SPAWNING?
@@ -12,7 +11,7 @@
      - ? What do we do if all spawns left are not named as we want to? Do we just reset all, or just find all the named ones and re-add them?
 1. Document `npcSpawner` and `sliding` hotspots
 2. Finish rainy arena
-3. Finish the lava tower map, create that space race map.
+3. Finish that space race map.
 
 # DO THOSE THINGS:
 - `speed` on staticAnimator should also work for frames (in integer form only for > 1), 2x is "skip a frame", 0.5x is "render frame two times" etc
@@ -40,7 +39,7 @@ Big sticks:
 
 
 [h1]0.8:[/h1]
-You can now play without friends! This only sounds slightly sad. Now anyone can try this mayhem.
+You can now play without friends! This only sounds slightly sad.
 With this update also comes ability to customize the games to the way you like it.
 Also, Arena mode... What? Are you not entertained? Ok, here are the rest of the changes:
 
@@ -50,11 +49,12 @@ Also, Arena mode... What? Are you not entertained? Ok, here are the rest of the 
 
 [b]Games can now be customized![/b]
 - You can now change tons of parameters for the levels
-- All these, can be made custom, have limits etc. for ease of map making
+- All these, can be changed and have limits, as map maker desires
 
 [b]Added Arena gamemode![/b]
-- Your objective is to kill everyone, or to just survive
+- Your objective is to kill everyone, or to just survive the waves
 - Lots of customisable parameters for map makers, regarding waves, enemies, spawnpoints and more
+- Spawner hotspot can also be used separately for non-arena maps
 
 [b]Added new playable maps:[/b]
 - Ominous Call, Race
@@ -84,10 +84,9 @@ Also, Arena mode... What? Are you not entertained? Ok, here are the rest of the 
 [b]Added RaceWarmupHotspot to enable/disable elements depending if players are in warmup or not[/b]
 
 [b]Player controlled characters are no longer almost mute[/b]
-- TODO! Is controlled by "Player voices" option in Audio menu
 
 [b]Completely new sliding hotspot, for sliding in style[/b]
-- Can be used in any direction, surf maps incoming?d
+- Can be used in any direction, surf maps incoming?
 
 [b]Fixes:[/b]
 - <fill me>
@@ -99,6 +98,9 @@ Please report any problems.
 
 ### To convert to stupid workshop bbcode
 https://md2bb.mizle.net/
+
+### If you're looking for new collision data, it's in:
+`/home/osa/.local/share/Overgrowth/ModsDataCache/versus-brawl-wip/Data/Levels/versus-brawl/`
 
 ### Some balancing notes:
 Wolf shouldnt be able to one hit kill dog
