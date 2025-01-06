@@ -119,13 +119,13 @@
             <parameter name="Bobbing Direction Inverted" type="int" val="0" />
             <parameter name="Bobbing Multiplier" type="float" val="800" />
             <parameter name="Delay Time" type="float" val="0" />
-            <parameter name="Fast Mode - No Collision Refresh" type="int" val="0" />
+            <parameter name="Fast Mode - No Collision Refresh" type="int" val="1" />
             <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
             <parameter name="IdleSoundPath" type="string" val="Data/Sounds/versus-brawl/dripping-water-nature-sounds-8050.wav" />
             <parameter name="IdleSoundVolume" type="float" val="0.4" />
             <parameter name="Loop Phases" type="int" val="1" />
             <parameter name="Min Distance To Activate" type="int" val="1000" />
-            <parameter name="Phase Change Time" type="float" val="2" />
+            <parameter name="Phase Change Time" type="float" val="60" />
             <parameter name="Phase Starting Direction Forward" type="int" val="1" />
             <parameter name="Rise Speed" type="float" val="0.004" />
             <parameter name="RisingSoundPath" type="string" val="Data/Sounds/ambient/waterfall_heavy_loop.wav" />
@@ -369,6 +369,7 @@
     </Hotspot>
     <Hotspot t0="-7.59042" t1="5.04573" t2="-7.86802" s0="0.1" s1="0.1" s2="0.1" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="64" type_file="Data/Objects/weaponSpawn.xml">
         <parameters>
+            <parameter name="Durability" type="int" val="-1" />
             <parameter name="ItemPath" type="string" val="Data/Items/DogWeapons/DogSpear.xml" />
             <parameter name="RespawnDistance" type="int" val="3" />
             <parameter name="RespawnTime" type="int" val="10" />
@@ -382,6 +383,7 @@
     </EnvObject>
     <Hotspot t0="-7.62749" t1="9.6341" t2="-5.7038" s0="0.1" s1="0.1" s2="0.1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="67" type_file="Data/Objects/weaponSpawn.xml">
         <parameters>
+            <parameter name="Durability" type="int" val="-1" />
             <parameter name="ItemPath" type="string" val="Data/Items/Rapier.xml" />
             <parameter name="RespawnDistance" type="int" val="3" />
             <parameter name="RespawnTime" type="int" val="10" />
@@ -422,6 +424,7 @@
     </Hotspot>
     <Hotspot t0="-3.95732" t1="15.4112" t2="-4.36876" s0="0.1" s1="0.1" s2="0.1" q0="0" q1="0" q2="0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="70" type_file="Data/Objects/weaponSpawn.xml">
         <parameters>
+            <parameter name="Durability" type="int" val="-1" />
             <parameter name="ItemPath" type="string" val="Data/Items/DogWeapons/DogKnife.xml" />
             <parameter name="RespawnDistance" type="int" val="3" />
             <parameter name="RespawnTime" type="int" val="10" />
@@ -438,6 +441,7 @@
     </EnvObject>
     <Hotspot t0="-9.6845" t1="15.5133" t2="-9.30132" s0="0.1" s1="0.1" s2="0.1" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="73" type_file="Data/Objects/weaponSpawn.xml">
         <parameters>
+            <parameter name="Durability" type="int" val="-1" />
             <parameter name="ItemPath" type="string" val="Data/Items/DogWeapons/DogKnife.xml" />
             <parameter name="RespawnDistance" type="int" val="3" />
             <parameter name="RespawnTime" type="int" val="10" />

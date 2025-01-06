@@ -94,7 +94,7 @@
                 <parameter name="Bobbing Direction Inverted" type="int" val="0" />
                 <parameter name="Bobbing Multiplier" type="int" val="872" />
                 <parameter name="Delay Time" type="float" val="7.007" />
-                <parameter name="Fast Mode - No Collision Refresh" type="int" val="0" />
+                <parameter name="Fast Mode - No Collision Refresh" type="int" val="1" />
                 <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
                 <parameter name="IdleSoundDelay" type="float" val="1.2" />
                 <parameter name="IdleSoundPath" type="string" val="" />
@@ -134,7 +134,7 @@
                 <parameter name="Bobbing Direction Inverted" type="int" val="0" />
                 <parameter name="Bobbing Multiplier" type="int" val="701" />
                 <parameter name="Delay Time" type="float" val="5.198" />
-                <parameter name="Fast Mode - No Collision Refresh" type="int" val="0" />
+                <parameter name="Fast Mode - No Collision Refresh" type="int" val="1" />
                 <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
                 <parameter name="IdleSoundDelay" type="float" val="1.2" />
                 <parameter name="IdleSoundPath" type="string" val="" />
@@ -167,7 +167,7 @@
                 <parameter name="Bobbing Direction Inverted" type="int" val="0" />
                 <parameter name="Bobbing Multiplier" type="int" val="921" />
                 <parameter name="Delay Time" type="float" val="2.336" />
-                <parameter name="Fast Mode - No Collision Refresh" type="int" val="0" />
+                <parameter name="Fast Mode - No Collision Refresh" type="int" val="1" />
                 <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
                 <parameter name="IdleSoundDelay" type="float" val="1.2" />
                 <parameter name="IdleSoundPath" type="string" val="" />
@@ -240,7 +240,7 @@
                 <parameter name="Bobbing Direction Inverted" type="int" val="0" />
                 <parameter name="Bobbing Multiplier" type="int" val="676" />
                 <parameter name="Delay Time" type="float" val="0.829" />
-                <parameter name="Fast Mode - No Collision Refresh" type="int" val="0" />
+                <parameter name="Fast Mode - No Collision Refresh" type="int" val="1" />
                 <parameter name="Fast Mode - Reduce Rate Mltp" type="int" val="0" />
                 <parameter name="IdleSoundDelay" type="float" val="1.2" />
                 <parameter name="IdleSoundPath" type="string" val="" />

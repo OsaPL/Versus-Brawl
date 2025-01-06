@@ -36,7 +36,7 @@
     <RayToSun r0="-0.0342701" r1="0.622072" r2="-0.78221" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="86.1231" t1="-10.9542" t2="257.836" s0="1" s1="1" s2="1" q0="-0.0203629" q1="-0.949274" q2="0.307425" q3="-0.0628769" euler_x="-2.5152" euler_y="0.13228" euler_z="3.14159" id="0">
+    <CameraObject t0="20.2061" t1="-22.0557" t2="-89.4508" s0="1" s1="1" s2="1" q0="0.0544641" q1="-0.533136" q2="0.0344211" q3="0.843573" euler_x="0.128948" euler_y="-1.12723" euler_z="0" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="25.7015" t1="5.13222" t2="53.1129" s0="-0.806161" s1="0.646087" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRock_Cave.xml">
@@ -856,22 +856,22 @@
     </Group>
     <Group t0="-85.5863" t1="-1.47259" t2="-39.8103" s0="11.9685" s1="11.7425" s2="10.2879" q0="-0.0430373" q1="-0.829452" q2="0.0317262" q3="0.556028" euler_x="-2.88286" euler_y="-1.16723" euler_z="2.86653" id="202" version="1">
         <parameters />
-        <EnvObject t0="-85.1054" t1="-0.264169" t2="-38.601" s0="1.94219" s1="1.84038" s2="1.91132" q0="0.0581544" q1="0.530878" q2="-0.0638041" q3="0.843141" euler_x="0.0704658" euler_y="1.12584" euler_z="-0.106661" id="203" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/medium_deciduous.xml">
+        <EnvObject t0="-85.1054" t1="-0.264169" t2="-38.601" s0="1.94219" s1="1.84038" s2="1.91132" q0="0.0581544" q1="0.530878" q2="-0.0638041" q3="0.843141" euler_x="0.0704656" euler_y="1.12584" euler_z="-0.106661" id="203" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/medium_deciduous.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="-85.573" t1="-1.10704" t2="-39.8474" s0="2.72984" s1="2.58675" s2="2.68646" q0="-0.0125161" q1="-0.890282" q2="0.197287" q3="-0.410475" euler_x="-2.61421" euler_y="0.826872" euler_z="-2.93397" id="204" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/medium_deciduous.xml">
+        <EnvObject t0="-85.573" t1="-1.10704" t2="-39.8474" s0="2.72984" s1="2.58675" s2="2.68646" q0="-0.0125161" q1="-0.890282" q2="0.197287" q3="-0.410475" euler_x="-2.61421" euler_y="0.82687" euler_z="-2.93397" id="204" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/medium_deciduous.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="-85.3547" t1="-4.71009" t2="-39.0232" s0="1.54582" s1="1.46478" s2="1.52125" q0="-0.584578" q1="-0.590101" q2="0.394021" q3="0.393661" euler_x="-1.96039" euler_y="-0.0039273" euler_z="1.57774" id="205" color_r="0.435294" color_g="0.341176" color_b="0.286275" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/broken_branch_bleached.xml">
+        <EnvObject t0="-85.3547" t1="-4.71009" t2="-39.0232" s0="1.54582" s1="1.46478" s2="1.52125" q0="-0.584578" q1="-0.590101" q2="0.394021" q3="0.393661" euler_x="-1.96039" euler_y="-0.00392751" euler_z="1.57774" id="205" color_r="0.435294" color_g="0.341176" color_b="0.286275" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/broken_branch_bleached.xml">
             <parameters />
         </EnvObject>
         <EnvObject t0="-85.4432" t1="-3.28797" t2="-37.7007" s0="1.34266" s1="1.27228" s2="1.32132" q0="0.298159" q1="-0.695833" q2="-0.0472251" q3="0.651813" euler_x="1.882" euler_y="-1.07365" euler_z="-1.51383" id="206" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/small_deciduous.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="-84.9407" t1="-1.11729" t2="-40.8062" s0="1.70296" s1="1.61369" s2="1.6759" q0="-0.0101521" q1="-0.89539" q2="0.302676" q3="-0.326699" euler_x="-2.41605" euler_y="0.632536" euler_z="-2.91715" id="690" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/medium_deciduous.xml">
+        <EnvObject t0="-84.9407" t1="-1.11729" t2="-40.8062" s0="1.70296" s1="1.61369" s2="1.6759" q0="-0.0101521" q1="-0.89539" q2="0.302676" q3="-0.326699" euler_x="-2.41605" euler_y="0.632535" euler_z="-2.91715" id="690" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/medium_deciduous.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="-84.9319" t1="-5.2319" t2="-38.915" s0="1.34266" s1="1.27228" s2="1.32132" q0="-0.315521" q1="-0.600061" q2="-0.203215" q3="0.706575" euler_x="-1.19052" euler_y="-1.35225" euler_z="0.43428" id="691" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/small_deciduous.xml">
+        <EnvObject t0="-84.9319" t1="-5.2319" t2="-38.915" s0="1.34266" s1="1.27228" s2="1.32132" q0="-0.315521" q1="-0.600061" q2="-0.203215" q3="0.706575" euler_x="-1.19051" euler_y="-1.35225" euler_z="0.434274" id="691" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/small_deciduous.xml">
             <parameters />
         </EnvObject>
     </Group>
@@ -1176,6 +1176,7 @@
     </EnvObject>
     <Hotspot t0="25.397" t1="3.20842" t2="68.1025" s0="0.1" s1="0.1" s2="0.1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="287" type_file="Data/Objects/weaponSpawn.xml">
         <parameters>
+            <parameter name="Durability" type="int" val="-1" />
             <parameter name="ItemPath" type="string" val="Data/Items/Rapier.xml" />
             <parameter name="RespawnDistance" type="int" val="3" />
             <parameter name="RespawnTime" type="int" val="10" />
@@ -1234,7 +1235,7 @@
             <parameter name="KeepDisabled" type="string" val="" />
         </parameters>
     </EnvObject>
-    <Hotspot name="Boats" t0="13.1816" t1="-28.9663" t2="-94.4331" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="303" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
+    <Hotspot name="Boats" t0="16.3428" t1="-28.2486" t2="-97.6892" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="303" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
         <parameters>
             <parameter name="Bobbing Direction Inverted" type="int" val="0" />
             <parameter name="Bobbing Multiplier" type="int" val="1100" />
@@ -1992,10 +1993,10 @@
     </EnvObject>
     <Group t0="-28.0204" t1="-3.00347" t2="-42.8535" s0="18.125" s1="13.6629" s2="17.5642" q0="0.00146234" q1="-0.023641" q2="-0.0625457" q3="0.997761" euler_x="0.00588195" euler_y="-0.0470105" euler_z="-0.125347" id="488" version="1">
         <parameters />
-        <DynamicLightObject t0="-28.0204" t1="-3.00347" t2="-42.8535" s0="12.5077" s1="12.5077" s2="12.5077" q0="0.0206546" q1="0.249517" q2="-0.0195829" q3="0.967952" euler_x="0.0345297" euler_y="0.505048" euler_z="-0.0315465" id="580" color_r="0" color_g="0.988235" color_b="1" overbright="3.452">
+        <DynamicLightObject t0="-28.0204" t1="-3.00347" t2="-42.8535" s0="12.5077" s1="12.5077" s2="12.5077" q0="0.0206546" q1="0.249517" q2="-0.0195829" q3="0.967952" euler_x="0.0345298" euler_y="0.505049" euler_z="-0.0315464" id="580" color_r="0" color_g="0.988235" color_b="1" overbright="3.452">
             <parameters />
         </DynamicLightObject>
-        <EnvObject t0="-27.9684" t1="-2.51116" t2="-42.8568" s0="0.731166" s1="0.731166" s2="0.731166" q0="-0.0516763" q1="-0.170889" q2="-0.0791291" q3="0.980747" euler_x="-0.0792122" euler_y="-0.35051" euler_z="-0.146983" id="689" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/lantern_small.xml">
+        <EnvObject t0="-27.9684" t1="-2.51116" t2="-42.8568" s0="0.731166" s1="0.731166" s2="0.731166" q0="-0.0516763" q1="-0.170889" q2="-0.0791291" q3="0.980747" euler_x="-0.0792122" euler_y="-0.350509" euler_z="-0.146983" id="689" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/lantern_small.xml">
             <parameters />
         </EnvObject>
     </Group>
@@ -2243,7 +2244,7 @@
         </Connections>
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="55.0488" t1="-12.7451" t2="116.699" s0="0.5" s1="0.5" s2="0.5" q0="0.000391066" q1="-0.187042" q2="-0.059323" q3="0.980559" euler_x="0.024681" euler_y="-0.375529" euler_z="-0.125541" id="545" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
+    <Hotspot t0="54.6363" t1="-12.632" t2="117.096" s0="0.5" s1="0.5" s2="0.5" q0="0.000391066" q1="-0.187042" q2="-0.059323" q3="0.980559" euler_x="0.024681" euler_y="-0.375529" euler_z="-0.125541" id="545" type_file="Data/Objects/versus-brawl/levelSpecific/sewer/waterRiseHotSpot.xml">
         <parameters>
             <parameter name="Bobbing Direction Inverted" type="int" val="0" />
             <parameter name="Bobbing Multiplier" type="int" val="600" />
@@ -2339,7 +2340,7 @@
     <EnvObject t0="71.2448" t1="-19.4406" t2="245.781" s0="0.70486" s1="1.26924" s2="0.476408" q0="0.456188" q1="-0.342186" q2="-0.819783" q3="-0.0524534" euler_x="0.972767" euler_y="0.900839" euler_z="-2.76872" id="564" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/GreyRockSmall_Flat.xml">
         <parameters />
     </EnvObject>
-    <Decal t0="84.0643" t1="-24.1058" t2="262.115" s0="17.3274" s1="12.129" s2="17.2083" q0="-0.0114428" q1="0.114931" q2="-0.00980747" q3="0.993254" euler_x="-0.0256648" euler_y="0.230113" euler_z="-0.0227135" id="565" type_file="Data/Objects/Decals/dark_crete_rubble.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="84.0643" t1="-24.1058" t2="262.115" s0="17.3274" s1="12.129" s2="17.2083" q0="-0.0114428" q1="0.114931" q2="-0.00980747" q3="0.993254" euler_x="-0.0256648" euler_y="0.230112" euler_z="-0.0227135" id="565" type_file="Data/Objects/Decals/dark_crete_rubble.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <EnvObject t0="85.0273" t1="-5.60372" t2="268.732" s0="0.0833105" s1="0.0833105" s2="0.0833105" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="566" color_r="0" color_g="1" color_b="0.870588" overbright="50" type_file="Data/Objects/primitives/smooth_sphere.xml">

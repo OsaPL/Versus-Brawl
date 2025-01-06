@@ -40,7 +40,7 @@
       "Value": 1.0,
       "Configurable": {
         "Min": 0.1,
-        "Max": 10.0
+        "Max": 3.0
       }
     },
     "ScaleWithPlayers": {
@@ -53,29 +53,28 @@
       "Configurable": {
       }
     },
-
-    "EnemyTemplates":{
+    "EnemyTemplates": {
       "NormalBunny": {
-        "ActorPath":"Data/Objects/versus-brawl/levelSpecific/testArena/NormalBunny.xml"
+        "ActorPath": "Data/Objects/versus-brawl/levelSpecific/testArena/NormalBunny.xml"
       },
       "ArmoredBunny": {
-        "ActorPath":"Data/Objects/versus-brawl/levelSpecific/testArena/ArmoredBunny.xml",
-        "WeaponPath":"Data/Items/flint_knife.xml"
+        "ActorPath": "Data/Objects/versus-brawl/levelSpecific/testArena/ArmoredBunny.xml",
+        "WeaponPath": "Data/Items/flint_knife.xml"
       },
       "NinjaDog": {
-        "ActorPath":"Data/Objects/versus-brawl/levelSpecific/testArena/NinjaDog.xml",
-        "WeaponPath":"Data/Items/staffbasic.xml",
-        "BackWeaponPath":"Data/Items/Bastard.xml"
+        "ActorPath": "Data/Objects/versus-brawl/levelSpecific/testArena/NinjaDog.xml",
+        "WeaponPath": "Data/Items/staffbasic.xml",
+        "BackWeaponPath": "Data/Items/Bastard.xml"
       }
     },
     "Waves": [
       {
         "Time": 20.0,
-        "KillAll": false,
+        "KillAll": true,
         "Enemies": [
           {
-            "Type":"NormalBunny",
-            "Amount": 50
+            "Type": "NormalBunny",
+            "Amount": 2
           }
         ]
       },
@@ -84,14 +83,14 @@
         "KillAll": true,
         "Enemies": [
           {
-            "Type":"NormalBunny",
-            "Amount":1,
-            "SpawnName":"BGate"
+            "Type": "NormalBunny",
+            "Amount": 1,
+            "SpawnName": "BGate"
           },
           {
-            "Type":"ArmoredBunny",
-            "Amount":1,
-            "SpawnName":"AGate"
+            "Type": "ArmoredBunny",
+            "Amount": 1,
+            "SpawnName": "AGate"
           }
         ]
       },
@@ -100,14 +99,14 @@
         "KillAll": true,
         "Enemies": [
           {
-            "Type":"NinjaDog",
+            "Type": "NinjaDog",
             "Amount": 1,
-            "SpawnName":"AGate"
+            "SpawnName": "AGate"
           },
           {
-            "Type":"ArmoredBunny",
+            "Type": "ArmoredBunny",
             "Amount": 2,
-            "SpawnName":"BGate"
+            "SpawnName": "BGate"
           }
         ]
       }

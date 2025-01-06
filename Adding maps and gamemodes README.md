@@ -354,6 +354,10 @@ You can create your own gamemodes pretty easily! Start with `versusGameplayTempl
 
 `maxCollateralKillTime` how long does a death count as kill for the last attacker
 
+`ScaleWithPlayers` multiply enemies amount by playuers amount
+
+`EnemiesMultiplier` how many more enemies to spawn (this stacks multiplically with `ScaleWithPlayers`)
+
 ## UI <a name="ui"/>
 You can use `versusAHGUI` class to have some basic UI.
 
@@ -482,8 +486,8 @@ Options you can set for `waterRiseHotspot`:
 - `Bobbing Multiplier` defines the strength of objects bobbing, lower values increase the bobbing, (default: `800`)
 - `Delay Time` add delay, allows for bobbing not in sync
 - `Phase Starting Direction Forward` in which direction should we consider phases at the start
-- `Fast Mode - No Collision Refresh` this disables all physics calculation for movement, helps with fps in bigger levels
-- `Fast Mode - Reduce Rate Mltp` will interpolate physics only every X frame, helps with fps if you need collisions on objects (`No Collision Refresh` has to be off to take effect)
+- `Fast Mode - No Collision Refresh` this disables all physics calculation for movement, helps with fps in bigger levels (Note: this is ignored while in phase transition!)
+- `Fast Mode - Reduce Rate Mltp` will interpolate physics only every X frame, helps with fps if you need collisions on objects to still change but not so often. `No Collision Refresh` has to be off to take effect (Note: this is ignored while in phase transition!)
 - `Min Distance To Activate` distance to nearest player after which it will turn itself off, also helps with fps
 - `RisingSoundPath` play this sound as loop during changing phases, use `RisingSoundVolume` to control volume
 - `IdleSoundPath` play this sound as loop during idle time, again, use `IdleSoundVolume` if needed
