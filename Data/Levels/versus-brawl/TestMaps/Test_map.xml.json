@@ -68,6 +68,9 @@
     },
     "MaxPlayers": {
       "Value": 20
+    },
+    "NpcPlayersStickToNavMesh": {
+      "Value": false
     }
   },
   "Deathmatch": {
@@ -133,5 +136,83 @@
     "PhasesToWin": {
       "Value": 3
     }
+  },
+  "Arena": {
+    "TimeBetweenWaves": {
+      "Value": 15.0
+    },
+    "HealAfterWave": {
+      "Value": true
+    },
+    "RespawnAfterWave": {
+      "Value": true
+    },
+    "EnemiesMultiplier": {
+      "Value": 1.0
+    },
+    "ScaleWithPlayers": {
+      "Value": true
+    },
+    "FriendlyAttacks": {
+      "Value": true
+    },
+    "EnemyTemplates": {
+      "NormalBunny": {
+        "ActorPath": "Data/Objects/versus-brawl/levelSpecific/testArena/NormalBunny.xml"
+      },
+      "ArmoredBunny": {
+        "ActorPath": "Data/Objects/versus-brawl/levelSpecific/testArena/ArmoredBunny.xml",
+        "WeaponPath": "Data/Items/flint_knife.xml"
+      },
+      "NinjaDog": {
+        "ActorPath": "Data/Objects/versus-brawl/levelSpecific/testArena/NinjaDog.xml",
+        "WeaponPath": "Data/Items/staffbasic.xml",
+        "BackWeaponPath": "Data/Items/Bastard.xml"
+      }
+    },
+    "Waves": [
+      {
+        "Time": 30.0,
+        "KillAll": false,
+        "Enemies": [
+          {
+            "Type": "NormalBunny",
+            "Amount": 50
+          }
+        ]
+      },
+      {
+        "Time": 40.0,
+        "KillAll": true,
+        "Enemies": [
+          {
+            "Type": "NormalBunny",
+            "Amount": 1,
+            "SpawnName": "BGate"
+          },
+          {
+            "Type": "ArmoredBunny",
+            "Amount": 1,
+            "SpawnName": "AGate"
+          }
+        ]
+      },
+      {
+        "Time": 60.0,
+        "KillAll": true,
+        "Enemies": [
+          {
+            "Type": "NinjaDog",
+            "Amount": 1,
+            "SpawnName": "AGate"
+          },
+          {
+            "Type": "ArmoredBunny",
+            "Amount": 2,
+            "SpawnName": "BGate"
+          }
+        ]
+      }
+    ]
   }
 }

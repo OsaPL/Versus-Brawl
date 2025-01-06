@@ -75,6 +75,7 @@ int maxSupportedPlayers = 20;
 int npcPlayers = 0;
 // This one is configurable, up to value of maxSupportedPlayers
 int maxPlayers = 20;
+bool npcPlayersStickToNavMesh = false;
 
 //TODO! Make these configurable
 float npcChanceToChangeSpecies = 50;
@@ -362,9 +363,19 @@ void SpawnCharacter(Object@ spawn, Object@ char, bool isAlreadySpawned = false, 
     MovementObject@ mo = ReadCharacterID(char.GetID());
     mo.Execute("SetCameraFromFacing();FixDiscontinuity();");
     
-    // Tell everyone to notice themselves
-    // borrowed from arena.as
+    if(shouldBeNpc) {
+        // Additionally set "Stick To Nav Mesh" to desired value
+        Object@ objTemp = ReadObjectFromID(mo.GetID());
+        ScriptParams@ charParams = objTemp.GetScriptParams();
+        Log(info, "npcPlayersStickToNavMesh: " + npcPlayersStickToNavMesh);
+        charParams.SetInt("Stick To Nav Mesh", npcPlayersStickToNavMesh ? 1 : 0);
+        objTemp.UpdateScriptParams();
+    }
+   
     if(shouldBeNpc && !isFirst){
+        // Tell everyone to notice themselves
+        // borrowed from arena.as
+       
         int num_chars = GetNumCharacters();
         for(int i=0; i<num_chars; ++i){
             MovementObject@ char1 = ReadCharacter(i);
@@ -1439,6 +1450,9 @@ void VersusBaseLoad(JSONValue settings){
             if(maxPlayers < initPlayersNr)
                 maxPlayers = initPlayersNr;
         }
+        
+        if(FoundMember(versusBase, "NpcPlayersStickToNavMesh"))
+            npcPlayersStickToNavMesh = versusBase["NpcPlayersStickToNavMesh"]["Value"].asBool();
 
         if(FoundMember(versusBase, "NpcPlayers")) {
             npcPlayers = versusBase["NpcPlayers"]["Value"].asInt();
