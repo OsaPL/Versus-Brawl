@@ -243,7 +243,7 @@ void CallRespawn(int playerNr, int objId) {
 
         MovementObject@ char = ReadCharacterID(player.objId);
         // We want to reroll race sometimes if npc gets killed (always if wolf atm)
-        if(!player.isNpc && !blockSpeciesChange && (rand()%100 < npcChanceToChangeSpecies || player.currentRace == 1))
+        if(player.isNpc && !blockSpeciesChange && (rand()%100 < npcChanceToChangeSpecies || player.currentRace == 1))
             player.currentRace = rand()%speciesMap.size();
         Log(info, "Respawn requested objId:"+player.objId+" playerNr:"+player.playerNr);
     }
