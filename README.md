@@ -27,11 +27,11 @@ Some of the functionality will come eventually, once I have laid the foundation 
 - Ability to modify many parameters, for characters, gamemodes and maps.
 - Warmup before the game start (with preloading for smoother gameplay)
 - Easy to extend with new gamemodes (with even more options coming)
-- Pickup wacky powerups and be able to add your own with only few lines of code (👻need to create a better template for external use and add some documentation)
-- SuperEasy<sup>TM</sup> to extend with new races (👻mostly true, but there are still few hardcoded places)
-- Randomized character apperance (👻almost completely done, missing some variants, colors look whack sometimes)
+- Pickup wacky powerups and be able to add your own with only few lines of code
+- SuperEasy<sup>TM</sup> to extend with new characters (see `janner-addon` in `ExampleAddons` folder)
+- Randomized character apperance
 - Custom weapons and ability to carry big weapons on your back
-- NPC opponents support (this will rely on map maker to implement detailed paths)
+- NPC opponents support (support varies on map/gamemode)
 
 # FAQ
 
@@ -93,7 +93,7 @@ Gather kills to get points
 
 Play through campaign with friendsos.
 
-- Race (👻mostly done, needed maps and balancing)
+- Race
   
 *self explanatory*
 
@@ -108,6 +108,10 @@ Fight and run to be the one who can become the best fighter/food.
 - Capture the fur
   
 Just CTF
+
+- Arena
+
+Face together against waves of enemies, or just try to survive
 
 ** Important note: Gamemode list is a subject to change at any time. **
 

@@ -1,30 +1,5 @@
 {
   "SpeciesStats": {
-    "mug": {
-      "Name": "Mug",
-      "Icon": "Textures/ui/versusBrawl/platform_icon.png",
-      "Characters": [
-        "Data/Characters/Janner/janner.xml"
-      ],
-      "Parameters": {
-        "Attack Damage": 0.3,
-        "Attack Knockback": 0.1,
-        "Attack Speed": 3.0,
-        "Damage Resistance": 0.7,
-        "Movement Speed": 10.0,
-        "Character Scale": 0.9,
-        "Jump - Initial Velocity": 5.0,
-        "Jump - Air Control": 2.0,
-        "Jump - Jump Sustain": 5.0,
-        "Jump - Jump Sustain Boost": 10.0,
-        "Knockout Shield": 0,
-        "Fall Damage Multiplier": 1.0,
-        "Throw - Initial Velocity Multiplier": 1.0,
-        "Throw - Mass Multiplier": 1.0,
-        "Can sheathe big weapons": 0,
-        "Velocity reduction on crouch": 1.0
-      }
-    },
     "rabbit": {
       "Name": "Rabbit",
       "Icon": "Textures/ui/arena_mode/glyphs/rabbit_foot_1x1.png",

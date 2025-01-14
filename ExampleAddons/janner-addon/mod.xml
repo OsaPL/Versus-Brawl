@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<Mod>
+    <Id>janner-addon</Id>
+    <Name>Example Species addon - Janner</Name>
+
+    <Category>VersusBrawl</Category>
+
+    <Thumbnail>Data/Images/janner-addon/placeholder.png</Thumbnail>
+    <PreviewImage>Data/Images/janner-addon/placeholder.png</PreviewImage>
+
+    <Description>Example species addon mod</Description>
+    <Version>1.0</Version>
+    <Author>Osa__PL</Author>
+
+    <!-- This is required to get picked up as an addon mod -->
+    <Tag>VersusBrawl</Tag>
+
+    <SupportedVersion>*</SupportedVersion>
+    <NeedsRestart>false</NeedsRestart>
+</Mod>

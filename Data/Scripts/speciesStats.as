@@ -80,9 +80,13 @@ void SpeciesStatsLoad(JSONValue settings){
     }
 }
 
+string addonSpeciesFilePath = "Data/Addons/versus-brawl/%modId%.species.json";
 string baseSpeciesFile = "Data/Scripts/versus-brawl/speciesStats.json";
-void LoadSpeciesMap(){
-    JSONValue settings = LoadJSONFile(baseSpeciesFile);
+
+// This is used to load `.species.json` as well as the base one
+void LoadSpeciesFile(string filePath){
+    // Load Species map first
+    JSONValue settings = LoadJSONFile(filePath);
     if(FoundMember(settings, "SpeciesStats")){
         JSONValue baseSpeciesStatsJson = settings["SpeciesStats"];
         array<string> speciesMembers = baseSpeciesStatsJson.getMemberNames();
@@ -99,15 +103,7 @@ void LoadSpeciesMap(){
         }
     }
     
-    //TODO! Load from addon files here
-}
-
-void BaseSpeciesStatsLoad(){
-    // Load `speciesMap` from files
-    LoadSpeciesMap();
-
-    string cfgPath = baseSpeciesFile;
-    JSONValue settings = LoadJSONFile(cfgPath);
+    // Load base species stats
     //Log(error, "BaseSpeciesStats:");
     if(FoundMember(settings, "SpeciesStats")){
         JSONValue baseSpeciesStatsJson = settings["SpeciesStats"];
@@ -122,16 +118,16 @@ void BaseSpeciesStatsLoad(){
                     // TODO! For some reason I need to cleanup `LevelParams` before proceeding with `BaseParams`?
                     speciesMap[k].LevelParams = {};
                     //Log(error, "speciesMap[k].Name: " + speciesMap[k].Name + " speciesMembers[i]: " + speciesMembers[i]);
-
+    
                     JSONValue speciesEntry = baseSpeciesStatsJson[speciesMembers[i]]["Parameters"];
                     array<string> paramMembers = speciesEntry.getMemberNames();
-
+    
                     for (uint j = 0; j < paramMembers.size(); j++)
                     {
                         JsonValueType jsonType = speciesEntry[paramMembers[j]].type();
                         string paramName = paramMembers[j];
                         string paramValue = speciesEntry[paramMembers[j]].asString();
-
+    
                         speciesMap[k].BaseParams.push_back(Param(paramName, paramValue, jsonType));
                         //Log(error, "BaseSpeciesStats " + speciesMap[k].Name + " " + paramName + " " + paramValue + " " + jsonType);
                     }
@@ -139,6 +135,18 @@ void BaseSpeciesStatsLoad(){
             }
         }
         //Log(error, "Available: " + join(baseSpeciesStatsJson.getMemberNames(),","));
+    }
+}
+
+void BaseSpeciesStatsLoad(){
+    // First load base one
+    LoadSpeciesFile(baseSpeciesFile);
+    
+    // Then addon ones
+    array<string> addonSpecies = GetAdditionalFiles(addonSpeciesFilePath, addonTag, baseModId);
+    Log(error, "addonSpecies: " + join(addonSpecies,","));
+    for (uint i = 0; i < addonSpecies.size(); i++){
+        LoadSpeciesFile(addonSpecies[i]);
     }
 }
 

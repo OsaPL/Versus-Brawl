@@ -1,6 +1,10 @@
 # Npc players problems:
 1. There is some logic in `pointUIBase.as` that needs to get seperated, to UI and Gameplay flows (see: `playersUI` variables)
 2. Maybe add `Stick To Nav Mesh` as a toggleable `Baby mode` to guard ppl from dropping?
+3. Document Species and Levels addons
+4. Add Level addon example
+5. Checkout nerfing the rabbits homing attack
+6. `Species` shouldnt be used as integer, it should be always used as a string key
 
 # Arena mode:
 0. RETHINK SPAWNING?
@@ -61,6 +65,11 @@ Also, Arena mode... What? Are you not entertained? Ok, here are the rest of the 
 - Return to Stucco, Arena
 - Bloody Mist, Arena
 - (WIP) Lava Tower, Race
+
+[b]You can now create your own species to play as[b]
+- Process is simple, just a single json file is needed
+- The mod will get automatically loaded after enabling
+- Both steam worskshop and my github have and example implementation (`jenner-addon`)
 
 [b]Map fixes/balance changes[b]
 - Reworked collisions on older maps, should be much smoother to move around

@@ -6,6 +6,7 @@
 #include "colorHelpers.as"
 
 #include "versus-brawl/save_load.as"
+#include "versus-brawl/addonMods.as"
 
 #include "timed_execution/timed_execution.as"
 #include "timed_execution/char_death_job.as"
