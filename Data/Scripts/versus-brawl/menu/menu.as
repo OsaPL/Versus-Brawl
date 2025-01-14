@@ -1,6 +1,7 @@
 #include "menu_common.as"
 #include "music_load.as"
 #include "versus-brawl/save_load.as"
+#include "versus-brawl/addonMods.as"
 
 MusicLoad ml("Data/Music/menu.xml");
 
