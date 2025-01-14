@@ -1,102 +1,168 @@
 {
   "SpeciesStats": {
+    "mug": {
+      "Name": "Mug",
+      "Icon": "Textures/ui/versusBrawl/platform_icon.png",
+      "Characters": [
+        "Data/Characters/Janner/janner.xml"
+      ],
+      "Parameters": {
+        "Attack Damage": 0.3,
+        "Attack Knockback": 0.1,
+        "Attack Speed": 3.0,
+        "Damage Resistance": 0.7,
+        "Movement Speed": 10.0,
+        "Character Scale": 0.9,
+        "Jump - Initial Velocity": 5.0,
+        "Jump - Air Control": 2.0,
+        "Jump - Jump Sustain": 5.0,
+        "Jump - Jump Sustain Boost": 10.0,
+        "Knockout Shield": 0,
+        "Fall Damage Multiplier": 1.0,
+        "Throw - Initial Velocity Multiplier": 1.0,
+        "Throw - Mass Multiplier": 1.0,
+        "Can sheathe big weapons": 0,
+        "Velocity reduction on crouch": 1.0
+      }
+    },
     "rabbit": {
-      "Attack Damage" : 1.0,
-      "Attack Knockback": 1.0,
-      "Attack Speed": 1.0,
-      "Damage Resistance": 0.7,
-      "Movement Speed": 0.7,
-      "Character Scale": 0.9,
-
-      "Jump - Initial Velocity": 5.0,
-      "Jump - Air Control": 2.0,
-      "Jump - Jump Sustain": 5.0,
-      "Jump - Jump Sustain Boost": 10.0,
-
-      "Knockout Shield": 0,
-      "Fall Damage Multiplier": 1.0,
-      "Throw - Initial Velocity Multiplier": 1.0,
-      "Throw - Mass Multiplier": 1.0,
-      "Can sheathe big weapons": 0
+      "Name": "Rabbit",
+      "Icon": "Textures/ui/arena_mode/glyphs/rabbit_foot_1x1.png",
+      "Characters": [
+        "Data/Characters/male_rabbit_1.xml",
+        "Data/Characters/male_rabbit_2.xml",
+        "Data/Characters/male_rabbit_3.xml",
+        "Data/Characters/female_rabbit_1.xml",
+        "Data/Characters/female_rabbit_2.xml",
+        "Data/Characters/female_rabbit_3.xml",
+        "Data/Characters/pale_rabbit_civ.xml"
+      ],
+      "Parameters": {
+        "Attack Damage": 1.0,
+        "Attack Knockback": 1.0,
+        "Attack Speed": 1.0,
+        "Damage Resistance": 0.7,
+        "Movement Speed": 0.7,
+        "Character Scale": 0.9,
+        "Jump - Initial Velocity": 5.0,
+        "Jump - Air Control": 2.0,
+        "Jump - Jump Sustain": 5.0,
+        "Jump - Jump Sustain Boost": 10.0,
+        "Knockout Shield": 0,
+        "Fall Damage Multiplier": 1.0,
+        "Throw - Initial Velocity Multiplier": 1.0,
+        "Throw - Mass Multiplier": 1.0,
+        "Can sheathe big weapons": 0,
+        "Velocity reduction on crouch": 1.0
+      }
     },
     "dog": {
-      "Attack Damage" : 1.2,
-      "Attack Knockback": 1.2,
-      "Attack Speed": 0.8,
-      "Damage Resistance": 1.2,
-      "Movement Speed": 0.8,
-      "Character Scale": 1.0,
-
-      "Jump - Initial Velocity": 10.0,
-      "Jump - Air Control": 1.5,
-      "Jump - Jump Sustain": 3.0,
-      "Jump - Jump Sustain Boost": 1.0,
-
-      "Throw - Initial Velocity Multiplier": 1.0,
-      "Throw - Mass Multiplier": 1.0,
-      "Can sheathe big weapons": 1,
-      
-      "Knockout Shield": 0,
-      "Fall Damage Multiplier": 1.0
+      "Name": "Dog",
+      "Icon": "Textures/ui/arena_mode/glyphs/fighter_swords.png",
+      "Characters": [
+        "Data/Characters/lt_dog_big.xml",
+        "Data/Characters/lt_dog_female.xml",
+        "Data/Characters/lt_dog_male_1.xml",
+        "Data/Characters/lt_dog_male_2.xml"
+      ],
+      "Parameters": {
+        "Attack Damage": 1.2,
+        "Attack Knockback": 1.2,
+        "Attack Speed": 0.8,
+        "Damage Resistance": 1.2,
+        "Movement Speed": 0.8,
+        "Character Scale": 1.0,
+        "Jump - Initial Velocity": 10.0,
+        "Jump - Air Control": 1.5,
+        "Jump - Jump Sustain": 3.0,
+        "Jump - Jump Sustain Boost": 1.0,
+        "Throw - Initial Velocity Multiplier": 1.0,
+        "Throw - Mass Multiplier": 1.0,
+        "Can sheathe big weapons": 1,
+        "Velocity reduction on crouch": 1.0,
+        "Knockout Shield": 0,
+        "Fall Damage Multiplier": 1.0
+      }
     },
     "cat": {
-      "Attack Damage" : 1.1,
-      "Attack Knockback": 0.6,
-      "Attack Speed": 1.2,
-      "Damage Resistance": 0.5,
-      "Movement Speed": 1.2,
-      "Character Scale": 1.0,
-
-      "Jump - Initial Velocity": 8.0,
-      "Jump - Air Control": 5.0,
-      "Jump - Jump Sustain": 2.0,
-      "Jump - Jump Sustain Boost": 2.0,
-
-      "Fall Damage Multiplier": 1.0,
-      
-      "Knockout Shield": 0,
-      "Throw - Initial Velocity Multiplier": 1.0,
-      "Throw - Mass Multiplier": 1.0,
-      "Can sheathe big weapons": 0
+      "Name": "Cat",
+      "Icon": "Textures/ui/arena_mode/glyphs/contender_crown.png",
+      "Characters": [
+        "Data/Characters/fancy_striped_cat.xml",
+        "Data/Characters/female_cat.xml",
+        "Data/Characters/male_cat.xml",
+        "Data/Characters/striped_cat.xml"
+      ],
+      "Parameters": {
+        "Attack Damage": 1.1,
+        "Attack Knockback": 0.6,
+        "Attack Speed": 1.2,
+        "Damage Resistance": 0.5,
+        "Movement Speed": 1.2,
+        "Character Scale": 1.0,
+        "Jump - Initial Velocity": 8.0,
+        "Jump - Air Control": 5.0,
+        "Jump - Jump Sustain": 2.0,
+        "Jump - Jump Sustain Boost": 2.0,
+        "Fall Damage Multiplier": 1.0,
+        "Knockout Shield": 0,
+        "Throw - Initial Velocity Multiplier": 1.0,
+        "Throw - Mass Multiplier": 1.0,
+        "Can sheathe big weapons": 0,
+        "Velocity reduction on crouch": 1.0
+      }
     },
     "rat": {
-      "Attack Damage" : 0.7,
-      "Attack Knockback": 1.5,
-      "Attack Speed": 1.2,
-      "Damage Resistance": 0.5,
-      "Movement Speed": 1.2,
-      "Character Scale": 0.9,
-
-      "Jump - Initial Velocity": 4.5,
-      "Jump - Air Control": 4.0,
-      "Jump - Jump Sustain": 12.0,
-      "Jump - Jump Sustain Boost": 12.0,
-
-      "Knockout Shield": 1,
-      
-      "Fall Damage Multiplier": 1.0,
-      "Throw - Initial Velocity Multiplier": 1.0,
-      "Throw - Mass Multiplier": 1.0,
-      "Can sheathe big weapons": 0
+      "Name": "Rat",
+      "Icon": "Textures/ui/arena_mode/glyphs/slave_shackles.png",
+      "Characters": [
+        "Data/Characters/hooded_rat.xml",
+        "Data/Characters/female_rat.xml",
+        "Data/Characters/rat.xml"
+      ],
+      "Parameters": {
+        "Attack Damage": 0.7,
+        "Attack Knockback": 1.5,
+        "Attack Speed": 1.2,
+        "Damage Resistance": 0.5,
+        "Movement Speed": 1.2,
+        "Character Scale": 0.9,
+        "Jump - Initial Velocity": 4.5,
+        "Jump - Air Control": 4.0,
+        "Jump - Jump Sustain": 12.0,
+        "Jump - Jump Sustain Boost": 12.0,
+        "Knockout Shield": 1,
+        "Velocity reduction on crouch": 1.2,
+        "Fall Damage Multiplier": 1.0,
+        "Throw - Initial Velocity Multiplier": 1.0,
+        "Throw - Mass Multiplier": 1.0,
+        "Can sheathe big weapons": 0
+      }
     },
     "wolf": {
-      "Attack Damage" : 0.15,
-      "Attack Knockback": 0.7,
-      "Attack Speed": 0.35,
-      "Damage Resistance": 0.8,
-      "Movement Speed": 0.5,
-      "Character Scale": 1.0,
-
-      "Jump - Initial Velocity": 10.0,
-      "Jump - Air Control": 1.0,
-      "Jump - Jump Sustain": 5.0,
-      "Jump - Jump Sustain Boost": 5.0,
-
-      "Knockout Shield": 0,
-      "Fall Damage Multiplier": 1.0,
-      "Throw - Initial Velocity Multiplier": 1.0,
-      "Throw - Mass Multiplier": 1.0,
-      "Can sheathe big weapons": 0
+      "Name": "Wolf",
+      "Icon": "Textures/ui/arena_mode/glyphs/skull.png",
+      "Characters": [
+        "Data/Characters/male_wolf.xml"
+      ],
+      "Parameters": {
+        "Attack Damage": 0.15,
+        "Attack Knockback": 0.7,
+        "Attack Speed": 0.35,
+        "Damage Resistance": 0.8,
+        "Movement Speed": 0.5,
+        "Character Scale": 1.0,
+        "Jump - Initial Velocity": 10.0,
+        "Jump - Air Control": 1.0,
+        "Jump - Jump Sustain": 5.0,
+        "Jump - Jump Sustain Boost": 5.0,
+        "Knockout Shield": 0,
+        "Fall Damage Multiplier": 1.0,
+        "Throw - Initial Velocity Multiplier": 1.0,
+        "Throw - Mass Multiplier": 1.0,
+        "Can sheathe big weapons": 0,
+        "Velocity reduction on crouch": 1.0
+      }
     }
   }
 }

@@ -9,7 +9,7 @@ class Species{
         CharacterPaths = newCharacterPaths;
         RaceIcon = newRaceIcon;
         BaseParams = {};
-        LevelParams= {};
+        LevelParams = {};
     }
 }
 
@@ -24,45 +24,10 @@ class Param{
     }
 }
 
-// This can be extended with new races
+// This can be extended with new species
 // TODO! This should have the ability to be filled with json files
 
-array<Species@> speciesMap={
-    Species("rabbit", "Textures/ui/arena_mode/glyphs/rabbit_foot_1x1.png",
-        {
-            "Data/Characters/male_rabbit_1.xml",
-            "Data/Characters/male_rabbit_2.xml",
-            "Data/Characters/male_rabbit_3.xml",
-            "Data/Characters/female_rabbit_1.xml",
-            "Data/Characters/female_rabbit_2.xml",
-            "Data/Characters/female_rabbit_3.xml",
-            "Data/Characters/pale_rabbit_civ.xml"
-        }),
-    Species("wolf", "Textures/ui/arena_mode/glyphs/skull.png",
-        {
-             "Data/Characters/male_wolf.xml"
-        }),
-    Species("dog", "Textures/ui/arena_mode/glyphs/fighter_swords.png",
-        {
-            "Data/Characters/lt_dog_big.xml",
-            "Data/Characters/lt_dog_female.xml",
-            "Data/Characters/lt_dog_male_1.xml",
-            "Data/Characters/lt_dog_male_2.xml"
-        }),
-    Species("rat", "Textures/ui/arena_mode/glyphs/slave_shackles.png",
-        {
-            "Data/Characters/hooded_rat.xml",
-            "Data/Characters/female_rat.xml",
-            "Data/Characters/rat.xml"
-        }),
-    Species("cat", "Textures/ui/arena_mode/glyphs/contender_crown.png",
-        {
-            "Data/Characters/fancy_striped_cat.xml",
-            "Data/Characters/female_cat.xml",
-            "Data/Characters/male_cat.xml",
-            "Data/Characters/striped_cat.xml"
-        })
-};
+array<Species@> speciesMap = {};
 
 void addSpeciesStats(Object@ char){
 
@@ -115,8 +80,33 @@ void SpeciesStatsLoad(JSONValue settings){
     }
 }
 
+string baseSpeciesFile = "Data/Scripts/versus-brawl/speciesStats.json";
+void LoadSpeciesMap(){
+    JSONValue settings = LoadJSONFile(baseSpeciesFile);
+    if(FoundMember(settings, "SpeciesStats")){
+        JSONValue baseSpeciesStatsJson = settings["SpeciesStats"];
+        array<string> speciesMembers = baseSpeciesStatsJson.getMemberNames();
+        //Log(error, "Available: " + join(baseSpeciesStatsJson.getMemberNames(),","));
+        for (uint i = 0; i < speciesMembers.size(); i++)
+        {
+            JSONValue speciesEntry = baseSpeciesStatsJson[speciesMembers[i]];
+            array<string> characterXmls = {};
+            for (uint k = 0; k < speciesEntry["Characters"].size(); k++) {
+                characterXmls.push_back(speciesEntry["Characters"][k].asString());
+            }
+            Species newSpecies (speciesMembers[i], speciesEntry["Icon"].asString(), characterXmls);
+            speciesMap.push_back(newSpecies);
+        }
+    }
+    
+    //TODO! Load from addon files here
+}
+
 void BaseSpeciesStatsLoad(){
-    string cfgPath = "Data/Scripts/versus-brawl/speciesStats.json";
+    // Load `speciesMap` from files
+    LoadSpeciesMap();
+
+    string cfgPath = baseSpeciesFile;
     JSONValue settings = LoadJSONFile(cfgPath);
     //Log(error, "BaseSpeciesStats:");
     if(FoundMember(settings, "SpeciesStats")){
@@ -133,7 +123,7 @@ void BaseSpeciesStatsLoad(){
                     speciesMap[k].LevelParams = {};
                     //Log(error, "speciesMap[k].Name: " + speciesMap[k].Name + " speciesMembers[i]: " + speciesMembers[i]);
 
-                    JSONValue speciesEntry = baseSpeciesStatsJson[speciesMembers[i]];
+                    JSONValue speciesEntry = baseSpeciesStatsJson[speciesMembers[i]]["Parameters"];
                     array<string> paramMembers = speciesEntry.getMemberNames();
 
                     for (uint j = 0; j < paramMembers.size(); j++)
@@ -154,16 +144,17 @@ void BaseSpeciesStatsLoad(){
 
 void SetSpeciesParams(Object@ char){
     ScriptParams@ params = char.GetScriptParams();
-    string species = character_getter.GetTag("species");
+    string species = params.GetString("SpeciesId");
     MovementObject@ mo = ReadCharacterID(char.GetID());
     character_getter.Load(mo.char_path);
     
     
     for (uint i = 0; i < speciesMap.size(); i++)
     {
+        Log(error, "SetSpeciesParams speciesMap[i].Name: " + speciesMap[i].Name + " looking for:" + species);
         if(speciesMap[i].Name == species){
             
-            //Log(error, "SetSpeciesParams speciesMap[i].Name: " + speciesMap[i].Name);
+            Log(error, "SetSpeciesParams speciesMap[i].Name: " + speciesMap[i].Name);
             array<Param@> speciesBaseParams = speciesMap[i].BaseParams;
 
             for (uint j = 0; j < speciesBaseParams.size(); j++)
@@ -172,7 +163,7 @@ void SetSpeciesParams(Object@ char){
                 string StringValue = speciesBaseParams[j].StringValue;
                 JsonValueType jsonType = speciesBaseParams[j].Type;
 
-                //Log(error, "SetSpeciesParams Base " + speciesMap[i].Name + " " + Name + " " + StringValue + " " + jsonType);
+                Log(error, "SetSpeciesParams Base " + speciesMap[i].Name + " " + Name + " " + StringValue + " " + jsonType);
 
                 // Now we just convert the value and call correct params method
                 if (jsonType == JSONintValue) {

@@ -56,7 +56,7 @@ array<string> randomHints = {
     "Horizontal mobility is great, but cats and rats can dominate vertical spaces.",
     "Try using @vec3(1,0.5,0)@jump@@ as a dash, while playing cat or rat.",
     "You can disable these hints by disabling @vec3(0.6,0.6,0.6)Tutorials@ option in settings.",
-    "Dogs are resilient, can withstand more punishment than other races.",
+    "Dogs are resilient, can withstand more punishment than other species.",
     "Wolves are a great target for sharp weapons.",
     "Wolves are slow, if they're about to attack, run.",
     "Rabbit kick is sometimes what a cheeky wolf needs.",
@@ -265,6 +265,9 @@ Object@ CreateCharacter(int playerNr, string species, int teamNr) {
 
     //You need to set Species param before SwitchCharacter(), otherwise `species` field wont be changed
     charParams.SetString("Species", species);
+    // and also versus brawl specific id (just in case it differs from the game ones)
+    charParams.SetString("SpeciesId", species);
+        
     // Reset any Teams
     if(teamNr != -1){
         charParams.SetString("Teams", "VersusBrawl_" + teamNr);
@@ -469,6 +472,8 @@ void RerollCharacter(int playerNr, Object@ char) {
 
     //You need to set Species param before SwitchCharacter(), otherwise `species` field wont be changed
     charParams.SetString("Species", species);
+    // and also versus brawl specific id (just in case it differs from the game ones)
+    charParams.SetString("SpeciesId", species);
     
     string executeCmd = "SwitchCharacter(\""+ newCharPath +"\");";
     Log(info, species+" "+newCharPath+" "+executeCmd);

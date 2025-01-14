@@ -115,7 +115,7 @@ void OnKillHandler(int playerNr){
 void Init(string msg){
     
     // Tag specific hints
-    // This removes hints about changing races
+    // This removes hints about changing species
     warmupHints.removeAt(0);
     warmupHints.removeAt(0);
     warmupHints.removeAt(0);
