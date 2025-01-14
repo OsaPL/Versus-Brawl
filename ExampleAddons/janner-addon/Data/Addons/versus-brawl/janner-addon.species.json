@@ -2,7 +2,7 @@
   "SpeciesStats": {
     "janner": {
       "Name": "Janner",
-      "Icon": "Addons/versus-brawl/dog.png",
+      "Icon": "Images/janner-addon/pug.png",
       "Characters": [
         "Data/Characters/Janner/janner.xml"
       ],
