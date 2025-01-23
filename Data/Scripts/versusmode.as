@@ -284,10 +284,10 @@ Object@ CreateCharacter(int playerNr, string species, int teamNr) {
         char.controller_id = playerNr;
     
     if(teamNr != -1 && strictTeamColors) {
-        RecolorCharacter(teamNr, species, char_obj);
+        RecolorCharacterWithColorPresets(teamNr, species, char_obj);
     }
     else{
-        RecolorCharacter(playerNr, species, char_obj, teamNr);
+        RecolorCharacterWithColorPresets(playerNr, species, char_obj, teamNr);
     }
     
     addSpeciesStats(char_obj);
@@ -481,10 +481,10 @@ void RerollCharacter(int playerNr, Object@ char) {
     ReadCharacterID(player.objId).Execute(executeCmd);
 
     if(player.teamNr != -1 && strictTeamColors) {
-        RecolorCharacter(player.teamNr, species, char);
+        RecolorCharacterWithColorPresets(player.teamNr, species, char);
     }
     else{
-        RecolorCharacter(playerNr, species, char, player.teamNr);
+        RecolorCharacterWithColorPresets(playerNr, species, char, player.teamNr);
     }
     
     // This will add species specific stats

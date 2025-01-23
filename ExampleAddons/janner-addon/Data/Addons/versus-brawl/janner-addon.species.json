@@ -6,6 +6,11 @@
       "Characters": [
         "Data/Characters/Janner/janner.xml"
       ],
+      "ColorPresets": {
+        "PlayerChannels": ["#1"],
+        "TeamChannels": ["#2"],
+        "FurChannels": ["#0", "#3"]
+      },
       "Parameters": {
         "Attack Damage": 0.3,
         "Attack Knockback": 0.1,

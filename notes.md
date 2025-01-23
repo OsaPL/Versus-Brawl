@@ -2,7 +2,8 @@
 1. There is some logic in `pointUIBase.as` that needs to get seperated, to UI and Gameplay flows (see: `playersUI` variables)
 2. Maybe add `Stick To Nav Mesh` as a toggleable `Baby mode` to guard ppl from dropping?
 3. Document Species and Levels addons
-4. Add Level addon example
+    - "ColorPreset": "This is not required! If missing will use the default logic (will look for channels with `cloth` and `fur` tags, for player/team and fur colors respectively)"
+    - "Channels": "You can also use number in the string if you want to target specific channel number"
 5. Checkout nerfing the rabbits homing attack
 6. `Species` shouldnt be used as integer, it should be always used as a string key
 
