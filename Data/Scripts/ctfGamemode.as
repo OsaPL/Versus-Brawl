@@ -119,7 +119,7 @@ void ResetCTF(){
     pointsTextShow = true;
 
     pointsCount = {};
-    for (uint j = 0; j < teamsAmount; j++)
+    for (int j = 0; j < teamsAmount; j++)
     {
         pointsCount.push_back(0);
     }
