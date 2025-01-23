@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<Mod>
+    <Id>magma-arena-addon</Id>
+    <Name>Example Levels addon - Magma arena</Name>
+
+    <Category>VersusBrawl</Category>
+
+    <Thumbnail>Data/Images/magma-arena-addon/magma_arena.png</Thumbnail>
+    <PreviewImage>Data/Images/magma-arena-addon/magma_arena.png</PreviewImage>
+
+    <Description>Example levels addon mod</Description>
+    <Version>1.0</Version>
+    <Author>Osa__PL</Author>
+
+    <!-- This is required to get picked up as an addon mod -->
+    <Tag>VersusBrawl</Tag>
+
+    <SupportedVersion>*</SupportedVersion>
+    <NeedsRestart>false</NeedsRestart>
+
+    <Campaign title="VSBL Magma Arena" thumbnail="Images/magma-arena-addon/magma_arena.png" menu_script="Data/Scripts/versus-brawl/menu/menu.as">
+        <Level title="Magma Arena DM" thumbnail="Images/magma-arena-addon/magma_arena_thumbnail.png">magma-arena-addon/Magma_Arena.xml</Level>
+    </Campaign>
+</Mod>
