@@ -1,4 +1,4 @@
-﻿#include "versusmode.as"
+#include "versusmode.as"
 // ^^ only this is needed
 
 // Configurables
