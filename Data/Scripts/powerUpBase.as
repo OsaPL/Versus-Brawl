@@ -202,7 +202,6 @@ void PowerupUpdate(){
 }
 
 void PowerupDispose(){
-    level.StopReceivingLevelEvents(hotspot.GetID());
     DeleteObjectID(particleEmitterId);
 }
 
