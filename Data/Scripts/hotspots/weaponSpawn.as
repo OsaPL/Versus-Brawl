@@ -173,6 +173,7 @@ void Update(){
 }
 
 void Dispose(){
+    level.StopReceivingLevelEvents(hotspot.GetID());
     DisposeWeapon();
 }
 
