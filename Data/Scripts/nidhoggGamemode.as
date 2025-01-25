@@ -87,7 +87,7 @@ void Init(string msg){
                 VersusPlayer@ playerToRespawn = GetPlayerByNr(i);
                 MovementObject@ mo = ReadCharacterID(playerToRespawn.objId);
                 // We also want npc players to always respawn on phase change
-                if((mo.GetIntVar("knocked_out") != _awake && !playerToRespawn.respawnNeeded) || i >= initPlayersNr){
+                if((mo.GetIntVar("knocked_out") != _awake && !playerToRespawn.respawnNeeded) || int(i) >= initPlayersNr){
                     CallRespawn(playerToRespawn.playerNr, playerToRespawn.objId);
                     playerToRespawn.respawnQueue = 0.1f;
                 }
