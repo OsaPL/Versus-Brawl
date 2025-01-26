@@ -1,9 +1,6 @@
 # Npc players problems:
 1. There is some logic in `pointUIBase.as` that needs to get seperated, to UI and Gameplay flows (see: `playersUI` variables)
 2. Maybe add `Stick To Nav Mesh` as a toggleable `Baby mode` to guard ppl from dropping?
-3. Document Species and Levels addons
-    - "ColorPreset": "This is not required! If missing will use the default logic (will look for channels with `cloth` and `fur` tags, for player/team and fur colors respectively)"
-    - "Channels": "You can also use number in the string if you want to target specific channel number"
 5. Checkout nerfing the rabbits homing attack
 6. `Species` shouldnt be used as integer, it should be always used as a string key
 
@@ -14,7 +11,6 @@
      - to split them, just create new entry (maybe a new entry "forceSplit" to if you want to split an enemy entry?)
      - if we want a named spawn, we do the same as above, but available spawns pool is always filtered by name
      - ? What do we do if all spawns left are not named as we want to? Do we just reset all, or just find all the named ones and re-add them?
-1. Document `npcSpawner` and `sliding` hotspots
 2. Finish rainy arena
 3. Finish that space race map.
 

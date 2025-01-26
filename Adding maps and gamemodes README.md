@@ -10,6 +10,10 @@
       4. [Nidhogg](#nidhogg)
       5. [Coop](#coop)
       6. [Arena](#arena)
+   3. [Adding more levels](#mapaddon)
+2. [Species](#species)
+   1. [SpeciesStats `.json` configuration](#speciesjson)
+   2. [Adding new species](#speciesaddon)
 3. [Gamemode creation](#gamemodecreate)
    1. [Global variables](#globalvars)
    2. [UI](#ui)
@@ -34,6 +38,8 @@
    10. [`refreshPowerup`](#refreshpowerup)
    11. [`rotatoHotspot`](#rotatohotspot)
    12. [`raceWarmupHotspot`](#racewarmuphotspot)
+   13. [`slidingHotspot`](#slidinghotspot)
+   14. ['npcSpawnerHotspot](#npcspawnerhotspot)
 6. [Items specific](#items)
    1. [Sheathing big weapons on the back](#sheatingonback)
 
@@ -101,8 +107,7 @@ If you want to make values configurable on the menu, just set `Configurable` par
     },
     "InstantSpeciesChange": {
       "Value": false,
-      "Configurable": {
-      }
+      "Configurable": {}
     }
   }
 }
@@ -134,7 +139,7 @@ You can also set level params in the json itself, and make them configurable :
 }
 ```
 
-You can also modify parameters of characters for that map by adding `SpeciesStats`:
+You can also modify parameters of characters for that map by adding `SpeciesStats` section:
 
 ```json
 {
@@ -145,10 +150,83 @@ You can also modify parameters of characters for that map by adding `SpeciesStat
   }
 }
 ```
-See `Scripts/versus-brawl/speciesStats.json` for available options.
-You can also change them globally temporarily vby editing that file.
+See "SpeciesStats `.json` configuration" section or `Scripts/versus-brawl/speciesStats.json` for available options. (You can also change them globally temporarily by editing this file)
 
+## Adding more levels <a name="mapaddon"/>
 
+Creating a new level pack mod is really simple, all you have to do once you create your levels is to configure your `mod.xml` file.
+
+1. Add `VersusBrawl` to your tags in your `mod.xml`
+2. Add new `<Campaign>` section and add levels into it:
+```xml
+<Campaign title="VSBL Magma Arena" thumbnail="Images/magma-arena-addon/magma_arena.png" menu_script="Data/Scripts/versus-brawl/menu/menu.as">
+    <Level title="Magma Arena DM" thumbnail="Images/magma-arena-addon/magma_arena_thumbnail.png">magma-arena-addon/Magma_Arena.xml</Level>
+</Campaign>
+```
+3. Set `menu_script` to use Versus Brawl menu ui:
+```xml
+<Campaign menu_script="Data/Scripts/versus-brawl/menu/menu.as">
+```
+4. Configure your `<level name>.xml.json` files as desired (see "Map `.json` config file")
+
+# Species <a name="species"/>
+
+## SpeciesStats `.json` configuration <a name="speciesjson"/>
+
+```json
+{
+   "SpeciesStats": {
+      "janner": {
+         "Name": "Janner",
+         "Icon": "Images/janner-addon/pug.png",
+         "Characters": [
+            "Data/Characters/Janner/janner.xml"
+         ],
+         "ColorPresets": {
+            "PlayerChannels": ["shirt"],
+            "TeamChannels": ["pants"],
+            "FurChannels": ["#0", "#3"]
+         },
+         "Parameters": {
+            "Attack Damage": 0.3,
+            "Attack Knockback": 0.1,
+            "Attack Speed": 1.0,
+            "Damage Resistance": 0.7,
+            "Movement Speed": 2.0,
+            "Character Scale": 0.9,
+            "Jump - Initial Velocity": 5.0,
+            "Jump - Air Control": 2.0,
+            "Jump - Jump Sustain": 5.0,
+            "Jump - Jump Sustain Boost": 10.0,
+            "Knockout Shield": 0,
+            "Fall Damage Multiplier": 1.0,
+            "Throw - Initial Velocity Multiplier": 1.0,
+            "Throw - Mass Multiplier": 1.0,
+            "Can sheathe big weapons": 0
+         }
+      }
+   }
+}
+```
+
+Note:
+- `ColorPresets` this is not required! If missing will use the default logic for vanilla characters (will look for channels with `cloth` and `fur` tags, for player/team and fur colors respectively)
+- `Channels` fields can also use number in the string (for example `#0` for channel one) if you want to target specific channel number
+- `Parameters` is extensible, you can put any amount of your own custom params to be copied over to the player
+- `Icon` wholly white, rectangle texture file is preferable for icon
+- `Name` will be used for display purposes
+- `Characters` if filled with more than one character file, one will be randomly chosen
+
+## Adding new species <a name="speciesaddon"/>
+
+Creating a mod that adds a new custom species, that will be loaded into Versus Brawl is a really simple process.
+If you want to create a new mod, you can start by using the `ExampleAddons/janner-addon` as the starting point, modify to your liking and continue same as below.
+
+If you already have a mod, its as simple as:
+
+1. Add `VersusBrawl` to your tags in your `mod.xml`
+2. Create a new json file in path `<mod folder>/Data/Addons/versus-brawl/<your mod id>.json`
+3. FIll it as desired (see previous section)
 
 ## Gametypes specific <a name="gametype"/>
 
@@ -653,6 +731,41 @@ This allows for elements to be only enabled or disabled if `InProgress` level pa
 Adding `KeepDisabled` will reverse the functionality.
 Is mainly used to disable/enable elements in race mode only atm, but works by itself too.
 
+## `slidingHotspot` <a name="slidinghotspot"/>
+Used to create a sliding zone in a direction. Use the floating `+` to orientate it as desired.
+
+Options to set:
+- `maxVelocity`: any speed over this value will get capped to this value
+- `minVelocity`: minimal speed to engage sliding
+- `startAngleTolerance`: controls the tolerance between players direction and sliding direction when it comes to starting the slide
+- `upRampReduction`: how much to slow player trying to go against the direction
+- `acceleration`: maximum rate of gaining velocity
+- `steerability`: how easy it is for player to change direction while sliding (this is also additionally controlled by the type of collision surface that is used, check collision painter)
+- `maxTurnRate`: maximum side-to-side velocity that is allowed, lower values will impede steering
+- `decayTurnRate`: rate of returning the players direction of sliding to the sliding direction, if nothing is pressed
+- `allowPlayerSpeedControl`: allows player to control speed during sliding, by pressing forward/back keys/axis
+- `soundSlideLoop`: sound to use for looping during sliding (must be audio file, for example `.wav`)
+- `soundSlideEnd`: sound to play once sliding end (must be a sound group `.xml` file)
+
+## `npcSpawnerHotspot` <a name="npcspawnerhotspot"/>
+Can be used to create a static character spawn, or be used for gamemodes such as arena to dynamically spawn characters.
+
+Is able to receive events:
+- `spawn <actor xml path> <mainhand wapon xml path> <backup weapon xml path>`: Spawns a single actor with desired weapons (note: this is also constrained by `spawnLimit`, `characterLimit` and `respawnTimer`)
+- `cleanup`: cleans up all the spawned weapons and characters, and clears the spawning queue
+- `killAll`: just kills all currently alive actors
+
+Options to set:
+- `spawnLimit`: how many actors can be spawned at once (if you want to set it to higher than one, make sure hotpot is big enough to spread them, and there is enough space around)
+- `characterLimit`: limit of the actors that are alive (hitting the limit will block any new spawns to occurs)
+- `respawnTimer`: how often does the spawning should occur
+- `pauseWhenEditor`: hold spawning if editor mode is activate
+- `noticeAllOnSpawn`: defines whether spawned actor should notice everyone, and everyone him, after spawning
+- `respawnAutomatically`: if you want to keep spawning actors (this only will spawn actor defined in the fields below)
+- `autoSpawnActorPath`: path to actor `.xml`, empty or `none` for disabled, only if `respawnAutomatically` is on
+- `autoSpawnActorPath`: path to weapon `.xml` that will be put into main hand , empty or `none` for disabled, only if `respawnAutomatically` is on
+- `autoSpawnActorPath`: path to weapon `.xml` that will be put into a compatible weapon slot, empty or `none` for disabled, only if `respawnAutomatically` is on
+- 
 # Items specific <a name="items"/>
 
 ## Sheathing big weapons on the back <a name="sheatingonback"/>
