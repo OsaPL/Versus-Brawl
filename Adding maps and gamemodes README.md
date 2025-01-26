@@ -39,7 +39,7 @@
    11. [`rotatoHotspot`](#rotatohotspot)
    12. [`raceWarmupHotspot`](#racewarmuphotspot)
    13. [`slidingHotspot`](#slidinghotspot)
-   14. ['npcSpawnerHotspot](#npcspawnerhotspot)
+   14. [`npcSpawnerHotspot`](#npcspawnerhotspot)
 6. [Items specific](#items)
    1. [Sheathing big weapons on the back](#sheatingonback)
 
@@ -272,7 +272,7 @@ Creating arena map requires few things:
 4. Create wave definitions
    - These will define the enemies and their count for this wave
    - You can also set time, and whether or not killing everyone is required
-   - If `KillAll` if false, the wave will require you to survive till time runs out.
+   - If `KillAll` is false, the wave will require you to survive till time runs out.
    - Setting `SpawnName` will make sure they will spawn at that, named spawn point
 ```json
 {
