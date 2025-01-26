@@ -152,82 +152,6 @@ You can also modify parameters of characters for that map by adding `SpeciesStat
 ```
 See "SpeciesStats `.json` configuration" section or `Scripts/versus-brawl/speciesStats.json` for available options. (You can also change them globally temporarily by editing this file)
 
-## Adding more levels <a name="mapaddon"/>
-
-Creating a new level pack mod is really simple, all you have to do once you create your levels is to configure your `mod.xml` file.
-
-1. Add `VersusBrawl` to your tags in your `mod.xml`
-2. Add new `<Campaign>` section and add levels into it:
-```xml
-<Campaign title="VSBL Magma Arena" thumbnail="Images/magma-arena-addon/magma_arena.png" menu_script="Data/Scripts/versus-brawl/menu/menu.as">
-    <Level title="Magma Arena DM" thumbnail="Images/magma-arena-addon/magma_arena_thumbnail.png">magma-arena-addon/Magma_Arena.xml</Level>
-</Campaign>
-```
-3. Set `menu_script` to use Versus Brawl menu ui:
-```xml
-<Campaign menu_script="Data/Scripts/versus-brawl/menu/menu.as">
-```
-4. Configure your `<level name>.xml.json` files as desired (see "Map `.json` config file")
-
-# Species <a name="species"/>
-
-## SpeciesStats `.json` configuration <a name="speciesjson"/>
-
-```json
-{
-   "SpeciesStats": {
-      "janner": {
-         "Name": "Janner",
-         "Icon": "Images/janner-addon/pug.png",
-         "Characters": [
-            "Data/Characters/Janner/janner.xml"
-         ],
-         "ColorPresets": {
-            "PlayerChannels": ["shirt"],
-            "TeamChannels": ["pants"],
-            "FurChannels": ["#0", "#3"]
-         },
-         "Parameters": {
-            "Attack Damage": 0.3,
-            "Attack Knockback": 0.1,
-            "Attack Speed": 1.0,
-            "Damage Resistance": 0.7,
-            "Movement Speed": 2.0,
-            "Character Scale": 0.9,
-            "Jump - Initial Velocity": 5.0,
-            "Jump - Air Control": 2.0,
-            "Jump - Jump Sustain": 5.0,
-            "Jump - Jump Sustain Boost": 10.0,
-            "Knockout Shield": 0,
-            "Fall Damage Multiplier": 1.0,
-            "Throw - Initial Velocity Multiplier": 1.0,
-            "Throw - Mass Multiplier": 1.0,
-            "Can sheathe big weapons": 0
-         }
-      }
-   }
-}
-```
-
-Note:
-- `ColorPresets` this is not required! If missing will use the default logic for vanilla characters (will look for channels with `cloth` and `fur` tags, for player/team and fur colors respectively)
-- `Channels` fields can also use number in the string (for example `#0` for channel one) if you want to target specific channel number
-- `Parameters` is extensible, you can put any amount of your own custom params to be copied over to the player
-- `Icon` wholly white, rectangle texture file is preferable for icon
-- `Name` will be used for display purposes
-- `Characters` if filled with more than one character file, one will be randomly chosen
-
-## Adding new species <a name="speciesaddon"/>
-
-Creating a mod that adds a new custom species, that will be loaded into Versus Brawl is a really simple process.
-If you want to create a new mod, you can start by using the `ExampleAddons/janner-addon` as the starting point, modify to your liking and continue same as below.
-
-If you already have a mod, its as simple as:
-
-1. Add `VersusBrawl` to your tags in your `mod.xml`
-2. Create a new json file in path `<mod folder>/Data/Addons/versus-brawl/<your mod id>.json`
-3. FIll it as desired (see previous section)
-
 ## Gametypes specific <a name="gametype"/>
 
 ### Last Bun Standing/Deathmatch <a name="lbsdm"/>
@@ -409,6 +333,83 @@ Creating arena map requires few things:
   }
 }
 ```
+
+## Adding more levels <a name="mapaddon"/>
+
+Creating a new level pack mod is really simple, all you have to do once you create your levels is to configure your `mod.xml` file.
+
+1. Add `VersusBrawl` to your tags in your `mod.xml`
+2. Add new `<Campaign>` section and add levels into it:
+```xml
+<Campaign title="VSBL Magma Arena" thumbnail="Images/magma-arena-addon/magma_arena.png" menu_script="Data/Scripts/versus-brawl/menu/menu.as">
+    <Level title="Magma Arena DM" thumbnail="Images/magma-arena-addon/magma_arena_thumbnail.png">magma-arena-addon/Magma_Arena.xml</Level>
+</Campaign>
+```
+3. Set `menu_script` to use Versus Brawl menu ui:
+```xml
+<Campaign menu_script="Data/Scripts/versus-brawl/menu/menu.as">
+```
+4. Configure your `<level name>.xml.json` files as desired (see "Map `.json` config file")
+
+# Species <a name="species"/>
+
+## SpeciesStats `.json` configuration <a name="speciesjson"/>
+
+```json
+{
+   "SpeciesStats": {
+      "janner": {
+         "Name": "Janner",
+         "Icon": "Images/janner-addon/pug.png",
+         "Characters": [
+            "Data/Characters/Janner/janner.xml"
+         ],
+         "ColorPresets": {
+            "PlayerChannels": ["shirt"],
+            "TeamChannels": ["pants"],
+            "FurChannels": ["#0", "#3"]
+         },
+         "Parameters": {
+            "Attack Damage": 0.3,
+            "Attack Knockback": 0.1,
+            "Attack Speed": 1.0,
+            "Damage Resistance": 0.7,
+            "Movement Speed": 2.0,
+            "Character Scale": 0.9,
+            "Jump - Initial Velocity": 5.0,
+            "Jump - Air Control": 2.0,
+            "Jump - Jump Sustain": 5.0,
+            "Jump - Jump Sustain Boost": 10.0,
+            "Knockout Shield": 0,
+            "Fall Damage Multiplier": 1.0,
+            "Throw - Initial Velocity Multiplier": 1.0,
+            "Throw - Mass Multiplier": 1.0,
+            "Can sheathe big weapons": 0
+         }
+      }
+   }
+}
+```
+
+Note:
+- `ColorPresets` this is not required! If missing will use the default logic for vanilla characters (will look for channels with `cloth` and `fur` tags, for player/team and fur colors respectively)
+- `Channels` fields can also use number in the string (for example `#0` for channel one) if you want to target specific channel number
+- `Parameters` is extensible, you can put any amount of your own custom params to be copied over to the player
+- `Icon` wholly white, rectangle texture file is preferable for icon
+- `Name` will be used for display purposes
+- `Characters` if filled with more than one character file, one will be randomly chosen
+
+## Adding new species <a name="speciesaddon"/>
+
+Creating a mod that adds a new custom species, that will be loaded into Versus Brawl is a really simple process.
+If you want to create a new mod, you can start by using the `ExampleAddons/janner-addon` as the starting point, modify to your liking and continue same as below.
+
+If you already have a mod, its as simple as:
+
+1. Add `VersusBrawl` to your tags in your `mod.xml`
+2. Create a new json file in path `<mod folder>/Data/Addons/versus-brawl/<your mod id>.json`
+3. FIll it as desired (see previous section)
+
 # Gamemode creation <a name="gamemodecreate"/>
  
 You can create your own gamemodes pretty easily! Start with `versusGameplayTemplate`.
@@ -740,7 +741,7 @@ Options to set:
 - `startAngleTolerance`: controls the tolerance between players direction and sliding direction when it comes to starting the slide
 - `upRampReduction`: how much to slow player trying to go against the direction
 - `acceleration`: maximum rate of gaining velocity
-- `steerability`: how easy it is for player to change direction while sliding (this is also additionally controlled by the type of collision surface that is used, check collision painter)
+  - `steerability`: how easy it is for player to change direction while sliding (this is also additionally controlled by the type of collision surface that is used, check collision painter)
 - `maxTurnRate`: maximum side-to-side velocity that is allowed, lower values will impede steering
 - `decayTurnRate`: rate of returning the players direction of sliding to the sliding direction, if nothing is pressed
 - `allowPlayerSpeedControl`: allows player to control speed during sliding, by pressing forward/back keys/axis
