@@ -190,7 +190,7 @@ void Update(){
         Object@ obj = ReadObjectFromID(lightId);
         mat4 transform = weap.GetPhysicsTransform();
         mat4 rot = transform.GetRotationPart();
-        obj.SetTranslation((transform*vec3())+(vec3(0, 0.5f, 0)));
+        obj.SetTranslationRotationFast((transform*vec3())+(vec3(0, 0.5f, 0)), obj.GetRotation());
         obj.SetRotation(QuaternionFromMat4(rot));
         obj.SetTint(color/2);
     }

@@ -105,7 +105,7 @@ void Draw() {
         // First move
         lastBonePos = bonePos;
         init = true;
-        me.SetTranslation(bonePos + vec3(0, overHeadDistance, 0));
+        me.SetTranslationRotationFast(bonePos + vec3(0, overHeadDistance, 0), me.GetRotation());
         return;
     }
     
@@ -130,8 +130,8 @@ void Draw() {
 
     if(lightId != -1){
         Object@ lightObj = ReadObjectFromID(lightId);
-        lightObj.SetTranslation(pos + vec3(0, overHeadDistance, 0));
-        me.SetTranslation(pos + vec3(0, overHeadDistance, 0));
+        lightObj.SetTranslationRotationFast(pos + vec3(0, overHeadDistance, 0), lightObj.GetRotation());
+        me.SetTranslationRotationFast(pos + vec3(0, overHeadDistance, 0), me.GetRotation());
     }
 
     // Its really dumb we cant use SetBillboardColorMap on hotspots

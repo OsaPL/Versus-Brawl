@@ -103,7 +103,7 @@ void Update(){
         }
         
         PlaceholderObject@ placeholder_object = cast<PlaceholderObject@>(obj);
-        me.SetTranslation(pos);
+        me.SetTranslationRotationFast(pos, me.GetRotation());
         
         if(params.GetInt("No Light") == 0){
             // Also we move the light
@@ -120,7 +120,7 @@ void Update(){
             lightObj.SetScale(vec3(2.6f) + (vec3(sin(time)) / 5));
             //Log(error, "lightObj.GetScale(): " + lightObj.GetScale());
     
-            lightObj.SetTranslation(pos);
+            lightObj.SetTranslationRotationFast(pos, lightObj.GetRotation());
         }
     }
 }

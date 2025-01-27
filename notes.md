@@ -94,6 +94,10 @@ Also, Arena mode... What? Are you not entertained? Ok, here are the rest of the 
 [b]Completely new sliding hotspot, for sliding in style[/b]
 - Can be used in any direction, surf maps incoming?
 
+[b]Versus Brawl now can be extended with new species and levels![/b]
+- Process is simple, only a single json needed (outside of your own files)
+- Take a look into `Example Addons` for more info
+
 [b]Fixes:[/b]
 - <fill me>
 
