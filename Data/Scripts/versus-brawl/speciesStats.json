@@ -123,9 +123,9 @@
       "Parameters": {
         "Attack Damage": 0.15,
         "Attack Knockback": 0.7,
-        "Attack Speed": 0.35,
+        "Attack Speed": 0.7,
         "Damage Resistance": 0.8,
-        "Movement Speed": 0.5,
+        "Movement Speed": 0.4,
         "Character Scale": 1.0,
         "Jump - Initial Velocity": 10.0,
         "Jump - Air Control": 1.0,

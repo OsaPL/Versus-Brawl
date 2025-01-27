@@ -9544,6 +9544,11 @@ void UpdateAttacking(const Timestep &in ts) {
 
             if(length(offset) < 1.0) {
                 float magnet_scale = max(0.0f, min(1.0f, 1.0 - game_difficulty * 2.0f));
+                // We nerf magnet scale for wolfs and airborne players a little bit
+                if(species == _wolf)
+                    magnet_scale = magnet_scale*0.5f;
+                if(on_ground == false)
+                    magnet_scale = magnet_scale*0.8f;
                 this_mo.position = mix(this_mo.position, target_pos - dir * _leg_sphere_size * 3.0f, 0.1f * magnet_scale);
             }
         }
